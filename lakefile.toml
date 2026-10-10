@@ -1,0 +1,12 @@
+name = "compilingWithSquares"
+version = "0.2.0"
+defaultTargets = ["SquareApplications"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "v4.19.0"
+
+[[lean_lib]]
+name = "SquareApplications"
+roots = ["SquareApplications"]
