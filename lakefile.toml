@@ -10,3 +10,4 @@ rev = "v4.19.0"
 [[lean_lib]]
 name = "SquareApplications"
 roots = ["SquareApplications"]
+globs = ["SquareApplications", "Squares", "Compiler", "SquareCompiler", "FirstOrder", "Dependent", "Verification", "SquareKit.+", "Applications.+", "Examples.+", "ProofAudit"]

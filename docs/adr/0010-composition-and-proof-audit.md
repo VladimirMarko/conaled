@@ -36,11 +36,14 @@ Timing maps reuse the finite matrix representation over the interval semiring.
 
 The public entrypoint imports every module. The build script computes its
 local import closure, rejects omitted source files, and rechecks each module
-from source. The final audit enumerates every locally defined declaration by
-module origin, including private and generated declarations, and traverses
+from source. The final audit enumerates every locally defined kernel-safe declaration by
+module origin, including private and generated proof declarations, and traverses
 all transitive axiom dependencies. Only `propext`, `Classical.choice`, and
 `Quot.sound` are permitted. Memoization shares dependency traversals; it does
-not skip roots or replace the kernel's dependency data.
+not skip roots or replace the kernel's dependency data. Lean-generated unsafe
+runtime declarations are reported separately. Both source-range metadata and
+a lexical source guard reject user-written unsafe definitions; any forbidden
+axiom reached from a mathematical root still fails the audit.
 
 ## Alternatives
 

@@ -1,55 +1,137 @@
-# Compiling with commutative squares
+# Compiling with commutative squares: applications and extensions
 
-A checked Lean reconstruction of the categorical compiler, explicit
-representation squares, and a first dependent extension. The mathematical
-development and its proof boundary are in [DESIGN.md](DESIGN.md).
+A Lean reconstruction of Conal Elliott's categorical compilation program,
+extended with analytic automatic differentiation, higher-order functions,
+all-order polynomial derivatives, generic scan and FFT, stack compilation,
+linear matrices, finite incremental updates, interval analysis, convolution,
+language derivatives and parsing, and stable-signal circuit timing.
 
-## Build
+The project is an independent development using Felix's general style of
+representations, compositional semantic contracts, and commuting squares.
+Felix is a mathematical reference, not a build dependency. The public entrypoint
+is `SquareApplications.lean`.
 
-Use **Lean 4.19.0**. No Mathlib or downloaded Lean packages are required.
-With Lean on your path, run from this directory:
+**Every implemented correctness claim has a Lean proof.** The complete build
+ends with an exhaustive transitive axiom audit of local kernel declarations,
+including private definitions and generated proof auxiliaries. No placeholder,
+application-specific axiom, or unchecked termination assumption is admitted.
+
+Start with [APPLICATIONS.md](APPLICATIONS.md) for the results, cross-application
+compositions, and exact coverage. The [historical foundation design](DESIGN.md)
+is preserved unchanged from `foundation-v1`; its build and coverage statements
+describe that earlier delivery, not the current application extension.
+
+## Build and audit
+
+The application libraries use **Lean 4.19.0** and **Mathlib v4.19.0**, pinned to
+`c44e0c8ee63ca166450922a373c7409c5d26b00b` by the checked-in manifest. With
+[elan](https://github.com/leanprover/elan) and Python 3 installed:
 
 ```sh
+lake exe cache get
 ./check.sh
 ```
 
-The script checks the source files in dependency order and prints the axiom
-dependencies of the main results. It accepts `LEAN=/absolute/path/to/lean`.
-Generated `.olean` files are build products, not required source files.
+The first command obtains the pinned dependencies and their compiled cache.
+`check.sh` uses Python's standard library, resolves the local import graph,
+rejects source modules omitted from the public entrypoint, and **rechecks every
+project module from source** before running `ProofAudit.lean`. It accepts
+`LEAN=/absolute/path/to/lean`. The output from the delivered verification is
+in [verification.txt](verification.txt).
 
-## Modules
+For incremental development, `lake build` builds the same modules and audit.
+Generated `.olean`, `.ilean`, `.lake`, and cache files are not source artifacts.
+They are intentionally omitted from the download.
 
-| File | Purpose |
+The original dependency-free foundation remains available:
+
+```sh
+./check-foundation.sh
+```
+
+It checks the six original root modules using Lean alone. That smaller command
+does not validate the application extension.
+
+## Library layout
+
+| Location | Purpose |
 |---|---|
-| `Squares.lean` | Representations, squares, two directions of pasting, products, the actual arrow-category exponential, and a function-decoding impossibility example. |
-| `Compiler.lean` | An intrinsically typed simply typed source; target-parametric compilation; its general denotation theorem; raw categorical syntax; certified rewrites and examples. |
-| `SquareCompiler.lean` | Connects that compiler to explicit, possibly noninvertible representation maps. |
-| `FirstOrder.lean` | A separate cartesian compiler, with a verified additive-map backend and a proof that the backend is not cartesian closed. |
-| `Dependent.lean` | A concrete split family model; dependent substitution and context-extension squares; dependent Π/Σ certificate combinators and examples. |
-| `Verification.lean` | Collects the modules and reports the foundational dependencies of representative theorems. |
+| `Squares.lean`, `Compiler.lean`, `SquareCompiler.lean` | Exact representation squares, products/exponentials, intrinsically typed simply typed source, target-parametric compilation, and semantic correctness. |
+| `FirstOrder.lean` | Cartesian source compilation for targets that do not support arbitrary function types. |
+| `Dependent.lean` | Original shallow split-family model and dependent substitution, context extension, Π/Σ certificates. |
+| `SquareKit/` | Relational squares, witness squares, synchronized representations, full-STLC and first-order relational compiler instances, shared arithmetic syntax. |
+| `Applications/AD/` | Actual Fréchet derivatives; forward, reverse, continuation and adjoint modes; direct generalized compilation; higher-order curve relation; all-order polynomial towers. |
+| `Applications/Parallel/` | Statically shaped data, compositional scan recipes, scan-based polynomial evaluation, recursive Cooley–Tukey FFT, exact complex semantics and finite-field executions. |
+| `Applications/Stack/` | Typed instruction sequences, stack execution, and source correctness preserving every stack tail. |
+| `Applications/Linear/` | Matrices over commutative semirings; coordinate laws and a source compiler that emits actual matrices. |
+| `Applications/Incremental/` | Finite changes and cache invariants, with a shared arithmetic source instance. |
+| `Applications/Intervals/` | Exact rational enclosures, four-corner multiplication, and higher-order source compilation by logical relations. |
+| `Applications/Convolution/` | Word-indexed weighted series, semiring laws, sparse polynomial normalization, coefficient and support homomorphisms. |
+| `Applications/Languages/` | Optimized derivatives, recognizers, finite trie observations, proof-relevant language isomorphisms, a total witness parser, and cross-representation proofs. |
+| `Applications/Timing/`, `Applications/Circuits/` | Setup/hold interval semiring, stable signals, independent values and linear timing, matrices, typed circuit AST, compiled adders and a proved carry hazard. |
+| `Examples/` | Universal compositions between independently implemented backends, plus executable displays. |
+| `ProofAudit.lean` | Exhaustive dependency traversal; rejects every axiom except `propext`, `Classical.choice`, and `Quot.sound`. |
+| `docs/adr/` | Ten architecture decision records, with motivations, rejected alternatives, evidence, and limits. |
 
-There are no admitted proofs or user-declared axioms. Lean's ordinary
-foundational principles, including function extensionality and proof
-irrelevance, are used. See the recorded check output for the actual
-dependencies; “no additional axioms” does not mean an axiom-free foundation.
+## Composability tests
 
-## Scope
+These are theorems about all relevant programs and inputs:
 
-The simply typed and first-order source compilers are structural compilers
-over explicit syntax. The dependent module is a **shallow**, compositional
-certificate library for indexed families, not a parser or compiler for all
-Lean/Agda source, nor a formalization of the LCCC/type-theory biequivalence.
-The runtime function representation in `Squares.lean` contains a semantic
-function as data; erasing that component requires a separate argument.
+* `Examples.ArithmeticPipeline.stack_after_update`: stack recomputation equals
+  the separately compiled incremental update, including arbitrary stack tails.
+* `Examples.ArithmeticPipeline.incremental_output_enclosed`: the separately
+  compiled interval result encloses that updated output.
+* `Examples.MatrixStack.jointSquare`: synchronize actual matrix and bytecode
+  implementations for every term of their common linear source language.
+* `Examples.JetScan.source_jet_scan`: compile any polynomial expression's
+  derivative of any order, package its coefficients in a type indexed by a
+  scan plan, and evaluate it using the scan implementation.
+* `LanguageDerivatives.normalized_product_snapshot`: normalize sparse weighted
+  convolution, forget weights, compile to regex, and observe a trie, with one
+  theorem relating the result to the original coefficient.
+* `LanguageDerivatives.recognizers_agree`: independent optimized Boolean and
+  proof-relevant parsers agree for every regex and input word.
+* `Applications.Circuits.Circuit.compile_matrix_stable`: a source circuit's
+  matrix-calculated output intervals satisfy its signal-stability contract.
 
-This code is independent of Felix. It uses the repository's general
-comma-category formulation as a mathematical reference, not as a dependency.
-Source snapshot examined:
-`conal/felix@6f36d28097db7ea5f5df3263db3e8be08f74e490`.
+## Git history
 
-## References
+The archive includes `CompilingWithSquares.bundle`, containing `main` and the
+tags `foundation-v1` and `applications-v2`. To obtain a normal working repository:
 
-- Conal Elliott, [Compiling to Categories](https://conal.net/papers/compiling-to-categories/), ICFP 2017.
-- [Haskell Interlude 62](https://haskell.foundation/podcast/62/), especially the discussion of four-arrow squares around 35:48–39:35.
-- [Felix](https://github.com/conal/felix), particularly `Construct/Comma/Type.agda`.
-- Further primary references and exact mathematical qualifications appear in `DESIGN.md`.
+```sh
+git clone CompilingWithSquares.bundle CompilingWithSquares-history
+cd CompilingWithSquares-history
+git log --reverse --oneline
+git diff foundation-v1..applications-v2 --stat
+```
+
+The history records implementation/integration order: preserved foundation;
+shared architecture; stack; parallel algorithms; incremental; intervals;
+languages; AD; higher-order relations; linear matrices; composition; timing;
+complete build/audit and documentation. Publication chronology is documented
+separately in [docs/SOURCES.md](docs/SOURCES.md).
+
+## Proof and execution boundary
+
+The foundational axiom whitelist is explicit; this is not an assertion of an
+axiom-free logic. Generic interfaces have local proof fields, and all supplied
+primitive instances discharge those fields. Source-to-backend correctness
+is relative to the explicitly defined primitive meanings.
+
+Real/complex analytic specifications and some polynomial preparation operations
+are noncomputable Lean mathematics. Rational arithmetic, finite syntax,
+instruction execution, finite-field FFT examples, and the provided parsers
+have executable implementations. There is no claim of certified floating-point
+rounding, allocation cost, scheduling cost, netlist optimization, or physical
+hardware implementation.
+
+The higher-order AD theorem is a curve logical relation, with fixed sum tags
+along a curve. The higher-derivative tower compiler is complete for polynomial
+expressions. The FFT factor grammar has leaves of size one or two and arbitrary
+composition trees. Language convolution uses finite words and finite splits.
+The dependent model remains shallow: this extension does not introduce a full
+dependent-language frontend or formalize the LCCC/type-theory correspondence.
+
+See the individual ADRs and [APPLICATIONS.md](APPLICATIONS.md) for precise
+restrictions and the unimplemented parts of the original papers.
