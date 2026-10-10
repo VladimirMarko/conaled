@@ -27,6 +27,14 @@ primitive proofs to every source term with the relational compiler. Prove a
 dependency-loss counterexample: pointwise `x + -x = 0`, but evaluating those
 operations on `[-1,1]` gives `[-2,2]`, not the singleton zero.
 
+Extend the relation interpretation to the full existing simply typed source
+language in `SquareKit/STLCRelations.lean`. The function relation universally
+quantifies over related arguments; the sum relation preserves matching tags.
+Instantiate this target with intervals and prove enclosure through source-level
+lambdas, application, captured variables, and case branches. Runtime functions
+are functions on intervals; their certificates do not manufacture a decoder
+from an arbitrary interval function to a point function.
+
 ## Alternatives
 
 * Use analytic AD derivatives for incremental changes: omits higher-order
@@ -43,14 +51,18 @@ reuses its stored output, but the project claims no general asymptotic speedup.
 Rational interval operations are exact; IEEE floating-point outward rounding
 is outside their theorem. Higher-order interval application uses function
 relations, never an arbitrary decoder from a function on intervals to a
-function on points.
+function on points. Known sum tags can be compiled; analysis of unknown
+control flow would need a separate join operation and soundness proof.
 
 ## Checked evidence
 
 `Incremental.Compiler.compile_update`, `square_comp`, `advance_correct`,
 `all_arithmetic_updates`, `tangent_is_not_a_finite_change`,
 `IntervalAnalysis.mul_contains`, `compile_contains`,
-`interval_cancellation_is_wider`.
+`interval_cancellation_is_wider`, `STLCRelations.compile_preserves`,
+`IntervalAnalysis.HigherOrder.fourthPower_contains`,
+`capturedLambda_contains`, `capturedCase_left_contains`,
+`capturedCase_right_contains`.
 
 ## Source
 
