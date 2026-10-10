@@ -1,0 +1,37 @@
+Lean (version 4.19.0, x86_64-unknown-linux-gnu, commit 6caaee842e94, Release)
+Checking Squares.lean
+Checking Compiler.lean
+Checking SquareCompiler.lean
+Checking FirstOrder.lean
+'FirstOrderCompiler.compile_sound' depends on axioms: [propext]
+'FirstOrderCompiler.everyTerm_additive' depends on axioms: [propext]
+'FirstOrderCompiler.letExample_all' depends on axioms: [propext]
+'FirstOrderCompiler.no_exponential' depends on axioms: [propext, Quot.sound]
+Checking Dependent.lean
+Checking Verification.lean
+'Squares.compose_assoc' depends on axioms: [Quot.sound]
+'Squares.curry_uncurry' depends on axioms: [Quot.sound]
+'Squares.curry_natural' depends on axioms: [Quot.sound]
+'Squares.no_boolean_identity_square' does not depend on any axioms
+'CategoricalCompiler.compile_sound' depends on axioms: [propext, Quot.sound]
+'CategoricalCompiler.closed_beta' does not depend on any axioms
+'SquareCompiler.compile_commutes' depends on axioms: [propext, Quot.sound]
+'SquareCompiler.compile_apply_commutes' depends on axioms: [propext, Quot.sound]
+'SquareCompiler.incrementTwice_correct' depends on axioms: [propext, Quot.sound]
+'FirstOrderCompiler.compile_sound' depends on axioms: [propext]
+'FirstOrderCompiler.everyTerm_additive' depends on axioms: [propext]
+'FirstOrderCompiler.no_exponential' depends on axioms: [propext, Quot.sound]
+'DependentSquares.TermCert.reindex' does not depend on any axioms
+'DependentSquares.sectionCert' does not depend on any axioms
+'DependentSquares.pi_subst' does not depend on any axioms
+'DependentSquares.pi_eta_cwf' does not depend on any axioms
+'DependentSquares.RelTerm.lambda' does not depend on any axioms
+'DependentSquares.RelTerm.apply' does not depend on any axioms
+'DependentSquares.RelTerm.pair' does not depend on any axioms
+'DependentSquares.RelTerm.second' does not depend on any axioms
+'DependentSquares.Example.tightenCert' does not depend on any axioms
+'DependentSquares.Example.appliedCert' does not depend on any axioms
+'DependentSquares.Example.pairedCert' does not depend on any axioms
+(43, false)
+8
+(8, 8)
