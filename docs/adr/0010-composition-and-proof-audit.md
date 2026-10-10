@@ -1,0 +1,77 @@
+# ADR 0010 — Test composition with independent implementations and audit every declaration
+
+**Status:** Accepted.
+
+## Context
+
+An application collection would be a weak test of the framework if each domain
+were an isolated interpretation. Pointwise examples also leave general source
+compiler correctness and compatibility between backends untested. Finally,
+checking selected theorem axioms would not detect an admitted proof elsewhere.
+
+## Decision
+
+Place universal cross-application theorems in `Examples`, with imports from the
+independently implemented libraries. Use one shared scalar primitive signature
+for stack evaluation, finite changes, rational enclosure, and real analytic AD.
+Prove stack recomputation after an update equals incremental update of the old
+result, and transfer interval enclosure to both outputs. Quantify over every
+typed source term and every arbitrary preserved stack tail.
+
+Synchronize the matrix and stack squares for the entire shared linear source
+fragment. The output representation is a pullback: its two components must
+decode to the same value. This is an actual joint implementation, with its
+agreement certificate constructed from the two compiler theorems.
+
+Compose the polynomial derivative tower with scan-based polynomial evaluation.
+The prepared representation is a dependent package of a scan plan and its
+correctly shaped coefficients. Prove the coefficient adapter, correctness for
+any sufficiently large plan, and a total adapter that selects enough slots.
+Paste its square with analytic differentiation and evaluation, obtaining the
+true derivative of every source polynomial expression at every order.
+
+Keep the weighted-convolution-to-regex-to-trie and independent recognizer/parser
+agreement theorems in the language library, where they can be reused directly.
+Timing maps reuse the finite matrix representation over the interval semiring.
+
+The public entrypoint imports every module. The build script computes its
+local import closure, rejects omitted source files, and rechecks each module
+from source. The final audit enumerates every locally defined declaration by
+module origin, including private and generated declarations, and traverses
+all transitive axiom dependencies. Only `propext`, `Classical.choice`, and
+`Quot.sound` are permitted. Memoization shares dependency traversals; it does
+not skip roots or replace the kernel's dependency data.
+
+## Alternatives
+
+* Compare only numerical examples: useful executable checks, insufficient for
+  the universal compatibility claims required here.
+* Force every representation into a decoding function: loses interval
+  enclosure, signal stability, and higher-order logical relations.
+* Audit only named headline theorems: could miss a placeholder in an unused
+  implementation or auxiliary proof.
+* Rebuild the public entrypoint from cached local `.olean` files: would fail to
+  check whether edited source still proves the packaged results.
+
+## Consequences
+
+Composition requires matching semantic interfaces and explicitly established
+local laws. It does not mean every target supports every source operation, or
+that equality of semantic functions implies equality of analyses. The initial
+dependent-family library remains a shallow model; the dependent coefficient
+package tests indexed representations without claiming a new full dependent
+language compiler.
+
+The audit establishes absence of extra transitive axioms in this development.
+It does not establish that the chosen specification is the desired one; that
+is addressed by the independent evaluators, explicit statements, examples,
+source review, and scope documentation.
+
+## Checked evidence
+
+`Examples.ArithmeticPipeline.stack_after_update`, `stack_enclosed`,
+`incremental_output_enclosed`, `compile_hasFDerivAt`,
+`Examples.MatrixStack.jointSquare`, `agree_preserving_tail`,
+`Examples.JetScan.prepare_correct`, `shaped_evaluation_correct`,
+`source_jet_scan`, `LanguageDerivatives.normalized_product_snapshot`,
+`recognizers_agree`, and the exhaustive command in `ProofAudit.lean`.
