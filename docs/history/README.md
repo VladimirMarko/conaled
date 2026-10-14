@@ -20,4 +20,6 @@ The second chat's code assessments require particular care because that session 
 
 The source register records the research available at its stated date. Follow its references and check the primary sources before relying on an attribution or technical claim; retrieval status and links can change. Chat-specific attachment links, including `sandbox:` links, refer to the original sessions and need not resolve from this repository.
 
+The recovered Tabula white paper, WP003, is now [preserved locally with its provenance](../references/tabula/README.md). The source register's statement that PDFs were not bundled describes the original research package.
+
 Keep these documents as historical records. Record later corrections, decisions, and verified results in current project documentation, with the relevant source revision or evidence, rather than rewriting the original discussions to describe today's state.
