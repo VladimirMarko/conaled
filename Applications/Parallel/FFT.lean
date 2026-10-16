@@ -268,6 +268,7 @@ end Semiring
 theorem two_butterfly {R : Type u} [CommRing R] (a b : R) :
     Factor.two.fft (-1) (a, b) = (a + b, a - b) := by
   simp [fft, sub_eq_add_neg]
+  rfl
 
 def rightPow : Nat → Factor
   | 0 => .one

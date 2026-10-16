@@ -43,7 +43,7 @@ proved witness construction to obtain an ordinary `Squares.Square`.
 `Interval` is a product of two existing proved tropical commutative semirings:
 
 ```
-Tropical (WithTop (OrderDual ℚ)) × Tropical (WithTop ℚ)
+MinTropical (WithTop (OrderDual ℚ)) × MinTropical (WithTop ℚ)
 ```
 
 The lower factor is max-plus with negative infinity; the upper factor is

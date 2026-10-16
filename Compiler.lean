@@ -5,7 +5,7 @@ import Std
 
 An original, small reconstruction inspired by Conal Elliott's
 *Compiling to Categories* (ICFP 2017), with semantic obligations explicit.
-Lean 4.19.0; no Mathlib, `sorry`, or user-declared axioms.
+Lean 4.35.0; no Mathlib, `sorry`, or user-declared axioms.
 
 The compiler is defined for any interpretation of the categorical signature.
 Its correctness theorem is conditional on the separately supplied `Sound`
@@ -32,7 +32,7 @@ inductive Ty where
 abbrev Ctx := List Ty
 
 /-- The newest variable is the right component of a context product. -/
-def context : Ctx → Ty
+abbrev context : Ctx → Ty
   | [] => .unit
   | a :: Γ => .prod (context Γ) a
 

@@ -17,11 +17,12 @@ Their count is reported separately. An unsafe declaration with a registered
 source range is rejected, so a user-written `unsafe` declaration is not silently
 classified as a compiler artifact. No declaration-name convention is used.
 
-Every declaration is submitted to the standard `Lean.CollectAxioms.collect`
-engine underlying `Lean.collectAxioms`. It recursively visits types, values,
-and dependencies in the checked kernel environment. Sharing the engine's
-visited set avoids repeatedly walking common dependencies; no root is omitted.
-On failure, `Lean.collectAxioms` attributes forbidden axioms to declarations.
+Every declaration is submitted to the public `Lean.collectAxioms` API. Lean
+records transitive axiom dependencies when exporting checked modules and uses
+those summaries for imported declarations; local declarations are traversed
+in the checked kernel environment. Every project declaration remains an audit
+root, including private and generated declarations. On failure, the same API
+attributes forbidden axioms to declarations.
 Any transitive axiom other than `propext`, `Classical.choice`, or `Quot.sound` is an error. This
 includes `sorryAx`, `Lean.ofReduceBool`, and arbitrary user-declared axioms.
 
@@ -67,7 +68,7 @@ def auditProject : CommandElabM Unit := do
     (fun n => { moduleName := n : ModuleCount })
   if isProjectModule env.mainModule then
     counts := counts.push { moduleName := env.mainModule }
-  let mut runtimeCount := 0
+  let mut runtimeCount : Nat := 0
   let mut unsafeSource : Array Name := #[]
   for (declName, info) in env.constants do
     let moduleName := declarationModule env declName
@@ -89,7 +90,7 @@ def auditProject : CommandElabM Unit := do
   if owned.isEmpty then
     throwError "Proof audit found no project declarations; check the public entrypoint imports."
   owned := owned.qsort (fun a b => Name.lt a.1 b.1)
-  let mut theoremCount := 0
+  let mut theoremCount : Nat := 0
   for (_, info, moduleName) in owned do
     if info.isTheorem then theoremCount := theoremCount + 1
     match counts.findIdx? (fun c => c.moduleName == moduleName) with
@@ -99,12 +100,13 @@ def auditProject : CommandElabM Unit := do
         theorems := c.theorems + if info.isTheorem then 1 else 0 })
     | none =>
       counts := counts.push ⟨moduleName, 1, if info.isTheorem then 1 else 0, 0⟩
-  -- This is exactly the implementation used by `Lean.collectAxioms`, with
-  -- its state retained across roots. Every project declaration is a root.
-  let traversal : Lean.CollectAxioms.M Unit := do
-    for (declName, _, _) in owned do Lean.CollectAxioms.collect declName
-  let (_, state) := (traversal.run env).run {}
-  let allAxioms := state.axioms.qsort Name.lt
+  -- Use Lean's public API and its checked module summaries, without relying
+  -- on the collector's private implementation. Every declaration is a root.
+  let mut axiomSet : NameSet := {}
+  for (declName, _, _) in owned do
+    for axiomName in (← Lean.collectAxioms declName) do
+      axiomSet := axiomSet.insert axiomName
+  let allAxioms := axiomSet.toArray.qsort Name.lt
   let forbiddenUnion := allAxioms.filter (fun a => !permittedAxiom a)
   counts := counts.qsort (fun a b => Name.lt a.moduleName b.moduleName)
   logInfo m!"Proof audit: {owned.size} kernel-safe declarations, {theoremCount} theorem declarations, {counts.size} project modules."
@@ -115,7 +117,7 @@ def auditProject : CommandElabM Unit := do
   if !unsafeSource.isEmpty then
     throwError "Proof audit FAILED: unsafe declarations with source ranges: {(unsafeSource.qsort Name.lt).toList}"
   if !forbiddenUnion.isEmpty then
-    let mut rejectedCount := 0
+    let mut rejectedCount : Nat := 0
     for (declName, _, _) in owned do
       let axioms ← Lean.collectAxioms declName
       let bad := axioms.filter (fun a => !permittedAxiom a)

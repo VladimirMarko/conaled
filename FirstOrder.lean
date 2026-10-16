@@ -14,7 +14,7 @@ additive-map backend below is a genuine example without cartesian closure:
 it preserves zero and addition, and `no_exponential` proves that an exponential
 of the natural-number object by itself cannot exist in this category.
 
-Lean 4.19.0, core/Std only; no `sorry` or user-declared axioms.
+Lean 4.35.0, core/Std only; no `sorry` or user-declared axioms.
 -/
 
 namespace FirstOrderCompiler
@@ -31,7 +31,7 @@ inductive Ty where
 
 abbrev Ctx := List Ty
 
-def context : Ctx → Ty
+abbrev context : Ctx → Ty
   | [] => .unit
   | a :: Γ => .prod (context Γ) a
 

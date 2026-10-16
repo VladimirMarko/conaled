@@ -150,8 +150,13 @@ def compileSquare (t : Term (Prim R) Γ a) :
   impl := (compile (target R) t).mulVec
   spec := eval (meaning R) t
   commutes x := by
-    have h := compile_correct R t (decode (context Γ) x)
-    simpa only [denote, encode_decode] using h
+    calc
+      decode a ((compile (target R) t).mulVec x) =
+          decode a ((compile (target R) t).mulVec
+            (encode (context Γ) (decode (context Γ) x))) :=
+        congrArg (fun v => decode a ((compile (target R) t).mulVec v))
+          (encode_decode (context Γ) x).symm
+      _ = _ := compile_correct R t (decode (context Γ) x)
 
 def linearCombination : Term (Prim R) [.prod .base .base] .base :=
   .prim .add (.pair (.prim (.scale 2) (.fst (.var .here)))

@@ -160,7 +160,7 @@ def split (s t : Shape) : (s.subst t).Data A → s.Data (t.Data A) :=
   induction s with
   | empty => cases x; rfl
   | leaf => rfl
-  | prod s₁ s₂ ih₁ ih₂ => simp [join, split, ih₁, ih₂]
+  | prod s₁ s₂ ih₁ ih₂ => simp only [join, split, ih₁, ih₂]; rfl
 
 @[simp] theorem split_join (s t : Shape) (x : s.Data (t.Data A)) :
     s.split t (s.join t x) = x := by

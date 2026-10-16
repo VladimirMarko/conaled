@@ -61,7 +61,7 @@ def epsilon : Language α := fun w => Evidence.{u} (w = [])
 def atom (a : α) : Language α := fun w => Evidence.{u} (w = [a])
 
 def nullableEpsilon : Decision (epsilon (α := α) []) := .yes ⟨rfl⟩
-def nullableAtom (a : α) : Decision (atom a []) := .no (fun h => List.noConfusion h.proof)
+def nullableAtom (a : α) : Decision (atom a []) := .no (fun h => List.cons_ne_nil _ _ h.proof.symm)
 
 def atomDerivativeIso [DecidableEq α] (a b : α) (w : List α) :
     Iso (atom b (a :: w)) (Evidence.{u} (a = b) × epsilon w) where
@@ -100,9 +100,9 @@ def Parser.derive [DecidableEq α] {P : Language α} : Parser P → (a : α) →
   | .universal, _ => .universal
   | .epsilon, a => .transport (fun _ => {
       forward := fun x => nomatch x
-      backward := fun x => False.elim (List.noConfusion x.proof)
+      backward := fun x => False.elim (List.cons_ne_nil _ _ x.proof)
       backward_forward := fun x => nomatch x
-      forward_backward := fun x => False.elim (List.noConfusion x.proof) }) .zero
+      forward_backward := fun x => False.elim (List.cons_ne_nil _ _ x.proof) }) .zero
   | .atom b, a => .transport (fun w => (atomDerivativeIso a b w).symm)
       (.scale (if h : a = b then .yes ⟨h⟩ else .no (fun p => h p.proof)) .epsilon)
   | .union p q, a => .union (p.derive a) (q.derive a)

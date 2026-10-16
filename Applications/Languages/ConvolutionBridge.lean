@@ -39,10 +39,10 @@ theorem monomialRegex_correct (u : List α) (r : ℕ) :
     (monomialRegex u r).matches' = Convolution.support (Convolution.monomial u r) := by
   by_cases hr : r = 0
   · subst r
-    simp only [monomialRegex, if_pos rfl, RegularExpression.matches'_zero,
+    simp only [monomialRegex, ite_eq_left rfl, RegularExpression.matches'_zero,
       Convolution.monomial_zero]
     exact (Convolution.supportHom.map_zero).symm
-  · rw [monomialRegex, if_neg hr, wordRegex_correct]
+  · rw [monomialRegex, ite_eq_right hr, wordRegex_correct]
     apply Language.ext; intro w
     change w = u ↔ Convolution.monomial u r w ≠ 0
     rw [Convolution.monomial_apply]

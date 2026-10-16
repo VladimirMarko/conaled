@@ -118,8 +118,11 @@ def main() -> int:
     lean = env.get("LEAN", "lean")
     version = subprocess.check_output([lean, "--version"], cwd=ROOT, env=env, text=True).strip()
     print(version, flush=True)
-    if "version 4.19.0" not in version:
-        raise RuntimeError("This development is pinned to Lean 4.19.0.")
+    toolchain = (ROOT / "lean-toolchain").read_text(encoding="utf-8").strip()
+    expected = toolchain.rsplit(":v", 1)[-1]
+    actual = re.search(r"\bversion ([^,\s]+)", version)
+    if actual is None or actual.group(1) != expected:
+        raise RuntimeError(f"Expected {toolchain}, got {version}.")
     print("Source guard passed: no admissions, source axioms, unsafe/partial definitions, native_decide, or skipped kernel checking.", flush=True)
     print(f"Rechecking {len(order)} local modules from source, in dependency order.", flush=True)
     for index, name in enumerate(order, 1):

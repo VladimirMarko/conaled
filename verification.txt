@@ -1,4 +1,4 @@
-Lean (version 4.19.0, x86_64-unknown-linux-gnu, commit 6caaee842e94, Release)
+Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
 Source guard passed: no admissions, source axioms, unsafe/partial definitions, native_decide, or skipped kernel checking.
 Rechecking 52 local modules from source, in dependency order.
 [1/52] Squares.lean
@@ -42,9 +42,37 @@ Rechecking 52 local modules from source, in dependency order.
 [14/52] Applications/Linear/Matrix.lean
 [15/52] Applications/Timing/Intervals.lean
 [16/52] Applications/Timing/Digital.lean
+Applications/Timing/Digital.lean:174:70: warning: This simp argument is unused:
+  mul_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mul_assoc, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 [17/52] Applications/Circuits/Correctness.lean
 [18/52] Applications/Convolution/Series.lean
+Applications/Convolution/Series.lean:178:62: warning: This simp argument is unused:
+  epsilonFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 [19/52] Applications/Convolution/Polynomial.lean
+Applications/Convolution/Polynomial.lean:56:30: warning: This simp argument is unused:
+  convolution
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [prepend]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Applications/Convolution/Polynomial.lean:57:21: warning: This simp argument is unused:
+  convolution
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [prepend, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 [20/52] Applications/Incremental/Core.lean
 [21/52] SquareKit/Arithmetic.lean
 [22/52] Applications/Incremental/Arithmetic.lean
@@ -53,8 +81,36 @@ Rechecking 52 local modules from source, in dependency order.
 [25/52] SquareKit/STLCRelations.lean
 [26/52] Applications/Intervals/HigherOrder.lean
 [27/52] Applications/Languages/Regex.lean
+Applications/Languages/Regex.lean:98:64: warning: This simp argument is unused:
+  hq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [derive, smartPlus_correct, smartMul_correct, hp, RegularExpression.deriv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Applications/Languages/Regex.lean:99:40: warning: This simp argument is unused:
+  he
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 [28/52] Applications/Languages/Machines.lean
 [29/52] Applications/Languages/ConvolutionBridge.lean
+Applications/Languages/ConvolutionBridge.lean:42:30: warning: This simp argument is unused:
+  ite_eq_left rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [monomialRegex, RegularExpression.matches'_zero, Convolution.monomial_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Applications/Languages/ConvolutionBridge.lean:42:47: warning: This simp argument is unused:
+  RegularExpression.matches'_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [monomialRegex, ite_eq_left rfl, Convolution.monomial_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 [30/52] Applications/Languages/Witnesses.lean
 [31/52] Applications/Languages/Parser.lean
 [32/52] Applications/Languages/ParserBridge.lean
@@ -63,8 +119,36 @@ Rechecking 52 local modules from source, in dependency order.
 [35/52] Applications/Parallel/ComplexFFT.lean
 [36/52] Applications/Parallel/Shape.lean
 [37/52] Applications/Parallel/Scan.lean
+Applications/Parallel/Scan.lean:145:31: warning: This simp argument is unused:
+  map_mul_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ih]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Applications/Parallel/Scan.lean:155:17: warning: This simp argument is unused:
+  sequential
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Applications/Parallel/Scan.lean:159:58: warning: This simp argument is unused:
+  List.map_id_fun
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.zipWith_cons_cons, List.flatten_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 [38/52] Applications/Parallel/ScanPlan.lean
 [39/52] Applications/Parallel/Polynomial.lean
+Applications/Parallel/Polynomial.lean:15:18: warning: This simp argument is unused:
+  sequential
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 [40/52] Applications/Parallel/Examples.lean
 ([[], [1], [1, 2], [1, 2, 3], [1, 2, 3, 4], [1, 2, 3, 4, 5], [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6, 7]],
   [1, 2, 3, 4, 5, 6, 7, 8])
@@ -87,12 +171,27 @@ Rechecking 52 local modules from source, in dependency order.
 'Applications.Parallel.Examples.fourOutput_value' depends on axioms: [propext, Classical.choice, Quot.sound]
 [41/52] Applications/Stack/Machine.lean
 [42/52] Applications/Timing/Adders.lean
+Applications/Timing/Adders.lean:121:44: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Applications/Timing/Adders.lean:131:15: warning: This simp argument is unused:
+  ← mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [fullAdderTiming, fullAdderMatrix, inputA, inputB, inputC, mul_add]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Applications/Timing/Adders.lean:131:28: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
 [43/52] Applications/Timing/Examples.lean
-[[(some (1 : Rat)/4, some (1 : Rat)/4), (some (1 : Rat)/4, some (1 : Rat)/4)],
- [(some (3 : Rat)/10, some (3 : Rat)/10), (some (3 : Rat)/10, some (3 : Rat)/10)]]
-[[(some (1 : Rat)/4, some (1 : Rat)/4), (some (1 : Rat)/2, some (1 : Rat)/2), (some (1 : Rat)/2, some (1 : Rat)/2)],
- [(some (3 : Rat)/5, some (3 : Rat)/5), (some (17 : Rat)/20, some (3 : Rat)/5), (some (17 : Rat)/20, some (3 : Rat)/5)]]
-[(0, true), ((1 : Rat)/2, true), ((7 : Rat)/10, false), ((9 : Rat)/10, true), (1, true)]
+[[(some (1 / 4), some (1 / 4)), (some (1 / 4), some (1 / 4))],
+  [(some (3 / 10), some (3 / 10)), (some (3 / 10), some (3 / 10))]]
+[[(some (1 / 4), some (1 / 4)), (some (1 / 2), some (1 / 2)), (some (1 / 2), some (1 / 2))],
+  [(some (3 / 5), some (3 / 5)), (some (17 / 20), some (3 / 5)), (some (17 / 20), some (3 / 5))]]
+[(0, true), (1 / 2, true), (7 / 10, false), (9 / 10, true), (1, true)]
 'Applications.Timing.Interval.empty_product_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Applications.Timing.Digital.square_compose' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Applications.Timing.Digital.timingMatrixSquare' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -111,7 +210,7 @@ Rechecking 52 local modules from source, in dependency order.
 [46/52] Examples/JetScan.lean
 [47/52] Examples/MatrixStack.lean
 [48/52] Examples/Run.lean
-(39, ())
+(39, PUnit.unit)
 { lo := -8, hi := 16 }
 { lo := 10, hi := 14 }
 true
@@ -145,58 +244,58 @@ true
 (8, 8)
 [51/52] SquareApplications.lean
 [52/52] ProofAudit.lean
-Proof audit: 3760 kernel-safe declarations, 1837 theorem declarations, 50 project modules.
-  Compiler: 402 logical declarations; 206 theorem declarations; 215 unsafe runtime declarations
-  Dependent: 204 logical declarations; 81 theorem declarations; 257 unsafe runtime declarations
-  FirstOrder: 308 logical declarations; 138 theorem declarations; 197 unsafe runtime declarations
-  SquareCompiler: 81 logical declarations; 31 theorem declarations; 152 unsafe runtime declarations
-  Squares: 91 logical declarations; 40 theorem declarations; 194 unsafe runtime declarations
+Proof audit: 4314 kernel-safe declarations, 1937 theorem declarations, 50 project modules.
+  Compiler: 504 logical declarations; 216 theorem declarations; 0 unsafe runtime declarations
+  Dependent: 214 logical declarations; 81 theorem declarations; 0 unsafe runtime declarations
+  FirstOrder: 370 logical declarations; 147 theorem declarations; 0 unsafe runtime declarations
+  SquareCompiler: 87 logical declarations; 31 theorem declarations; 0 unsafe runtime declarations
+  Squares: 95 logical declarations; 40 theorem declarations; 0 unsafe runtime declarations
   Verification: 0 logical declarations; 0 theorem declarations; 0 unsafe runtime declarations
-  Examples.ArithmeticPipeline: 18 logical declarations; 10 theorem declarations; 36 unsafe runtime declarations
-  Examples.JetScan: 49 logical declarations; 22 theorem declarations; 32 unsafe runtime declarations
-  Examples.MatrixStack: 7 logical declarations; 5 theorem declarations; 10 unsafe runtime declarations
-  Examples.Run: 4 logical declarations; 0 theorem declarations; 51 unsafe runtime declarations
-  SquareKit.Arithmetic: 28 logical declarations; 8 theorem declarations; 47 unsafe runtime declarations
-  SquareKit.Combinators: 12 logical declarations; 6 theorem declarations; 45 unsafe runtime declarations
-  SquareKit.FirstOrder: 52 logical declarations; 21 theorem declarations; 63 unsafe runtime declarations
-  SquareKit.Relations: 73 logical declarations; 31 theorem declarations; 133 unsafe runtime declarations
-  SquareKit.STLCRelations: 67 logical declarations; 32 theorem declarations; 106 unsafe runtime declarations
-  Applications.AD.Compiler: 48 logical declarations; 20 theorem declarations; 43 unsafe runtime declarations
-  Applications.AD.Core: 72 logical declarations; 42 theorem declarations; 214 unsafe runtime declarations
-  Applications.AD.Generalized: 119 logical declarations; 66 theorem declarations; 100 unsafe runtime declarations
-  Applications.AD.HigherOrder: 44 logical declarations; 16 theorem declarations; 50 unsafe runtime declarations
-  Applications.AD.Jets: 88 logical declarations; 49 theorem declarations; 36 unsafe runtime declarations
-  Applications.AD.Modes: 60 logical declarations; 51 theorem declarations; 12 unsafe runtime declarations
+  Examples.ArithmeticPipeline: 18 logical declarations; 10 theorem declarations; 0 unsafe runtime declarations
+  Examples.JetScan: 55 logical declarations; 24 theorem declarations; 0 unsafe runtime declarations
+  Examples.MatrixStack: 7 logical declarations; 5 theorem declarations; 0 unsafe runtime declarations
+  Examples.Run: 4 logical declarations; 0 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Arithmetic: 36 logical declarations; 8 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Combinators: 12 logical declarations; 6 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.FirstOrder: 57 logical declarations; 21 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Relations: 77 logical declarations; 31 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.STLCRelations: 74 logical declarations; 32 theorem declarations; 0 unsafe runtime declarations
+  Applications.AD.Compiler: 57 logical declarations; 20 theorem declarations; 0 unsafe runtime declarations
+  Applications.AD.Core: 74 logical declarations; 42 theorem declarations; 0 unsafe runtime declarations
+  Applications.AD.Generalized: 122 logical declarations; 65 theorem declarations; 0 unsafe runtime declarations
+  Applications.AD.HigherOrder: 52 logical declarations; 16 theorem declarations; 0 unsafe runtime declarations
+  Applications.AD.Jets: 104 logical declarations; 52 theorem declarations; 0 unsafe runtime declarations
+  Applications.AD.Modes: 64 logical declarations; 55 theorem declarations; 0 unsafe runtime declarations
   Applications.AD.Verification: 0 logical declarations; 0 theorem declarations; 0 unsafe runtime declarations
-  Applications.Circuits.Correctness: 37 logical declarations; 30 theorem declarations; 57 unsafe runtime declarations
-  Applications.Circuits.Syntax: 76 logical declarations; 30 theorem declarations; 70 unsafe runtime declarations
-  Applications.Convolution.Polynomial: 68 logical declarations; 36 theorem declarations; 146 unsafe runtime declarations
-  Applications.Convolution.Series: 109 logical declarations; 74 theorem declarations; 97 unsafe runtime declarations
-  Applications.Incremental.Arithmetic: 16 logical declarations; 9 theorem declarations; 68 unsafe runtime declarations
-  Applications.Incremental.Core: 119 logical declarations; 48 theorem declarations; 147 unsafe runtime declarations
-  Applications.Intervals.Arithmetic: 53 logical declarations; 22 theorem declarations; 96 unsafe runtime declarations
-  Applications.Intervals.HigherOrder: 39 logical declarations; 15 theorem declarations; 89 unsafe runtime declarations
-  Applications.Languages.ConvolutionBridge: 29 logical declarations; 15 theorem declarations; 31 unsafe runtime declarations
-  Applications.Languages.Machines: 73 logical declarations; 22 theorem declarations; 51 unsafe runtime declarations
-  Applications.Languages.Parser: 128 logical declarations; 53 theorem declarations; 92 unsafe runtime declarations
-  Applications.Languages.ParserBridge: 17 logical declarations; 7 theorem declarations; 4 unsafe runtime declarations
-  Applications.Languages.Regex: 107 logical declarations; 68 theorem declarations; 112 unsafe runtime declarations
-  Applications.Languages.Witnesses: 114 logical declarations; 59 theorem declarations; 80 unsafe runtime declarations
-  Applications.Linear.Compiler: 99 logical declarations; 49 theorem declarations; 135 unsafe runtime declarations
-  Applications.Linear.Matrix: 23 logical declarations; 14 theorem declarations; 115 unsafe runtime declarations
+  Applications.Circuits.Correctness: 37 logical declarations; 30 theorem declarations; 0 unsafe runtime declarations
+  Applications.Circuits.Syntax: 107 logical declarations; 31 theorem declarations; 0 unsafe runtime declarations
+  Applications.Convolution.Polynomial: 76 logical declarations; 40 theorem declarations; 0 unsafe runtime declarations
+  Applications.Convolution.Series: 115 logical declarations; 76 theorem declarations; 0 unsafe runtime declarations
+  Applications.Incremental.Arithmetic: 16 logical declarations; 9 theorem declarations; 0 unsafe runtime declarations
+  Applications.Incremental.Core: 129 logical declarations; 48 theorem declarations; 0 unsafe runtime declarations
+  Applications.Intervals.Arithmetic: 55 logical declarations; 22 theorem declarations; 0 unsafe runtime declarations
+  Applications.Intervals.HigherOrder: 47 logical declarations; 15 theorem declarations; 0 unsafe runtime declarations
+  Applications.Languages.ConvolutionBridge: 33 logical declarations; 17 theorem declarations; 0 unsafe runtime declarations
+  Applications.Languages.Machines: 84 logical declarations; 24 theorem declarations; 0 unsafe runtime declarations
+  Applications.Languages.Parser: 160 logical declarations; 54 theorem declarations; 0 unsafe runtime declarations
+  Applications.Languages.ParserBridge: 21 logical declarations; 9 theorem declarations; 0 unsafe runtime declarations
+  Applications.Languages.Regex: 119 logical declarations; 74 theorem declarations; 0 unsafe runtime declarations
+  Applications.Languages.Witnesses: 126 logical declarations; 64 theorem declarations; 0 unsafe runtime declarations
+  Applications.Linear.Compiler: 113 logical declarations; 51 theorem declarations; 0 unsafe runtime declarations
+  Applications.Linear.Matrix: 24 logical declarations; 15 theorem declarations; 0 unsafe runtime declarations
   Applications.Parallel.ComplexFFT: 8 logical declarations; 6 theorem declarations; 0 unsafe runtime declarations
-  Applications.Parallel.Examples: 30 logical declarations; 17 theorem declarations; 112 unsafe runtime declarations
-  Applications.Parallel.FFT: 167 logical declarations; 80 theorem declarations; 132 unsafe runtime declarations
-  Applications.Parallel.Polynomial: 12 logical declarations; 7 theorem declarations; 56 unsafe runtime declarations
-  Applications.Parallel.Scan: 42 logical declarations; 27 theorem declarations; 52 unsafe runtime declarations
-  Applications.Parallel.ScanPlan: 120 logical declarations; 51 theorem declarations; 132 unsafe runtime declarations
-  Applications.Parallel.Shape: 136 logical declarations; 63 theorem declarations; 113 unsafe runtime declarations
-  Applications.Stack.Machine: 116 logical declarations; 40 theorem declarations; 225 unsafe runtime declarations
-  Applications.Timing.Adders: 66 logical declarations; 48 theorem declarations; 162 unsafe runtime declarations
-  Applications.Timing.Digital: 91 logical declarations; 46 theorem declarations; 202 unsafe runtime declarations
-  Applications.Timing.Examples: 4 logical declarations; 0 theorem declarations; 63 unsafe runtime declarations
-  Applications.Timing.Intervals: 34 logical declarations; 26 theorem declarations; 9 unsafe runtime declarations
-Excluded from logical roots: 4641 kernel-unsafe runtime declarations.
+  Applications.Parallel.Examples: 30 logical declarations; 17 theorem declarations; 0 unsafe runtime declarations
+  Applications.Parallel.FFT: 204 logical declarations; 95 theorem declarations; 0 unsafe runtime declarations
+  Applications.Parallel.Polynomial: 12 logical declarations; 7 theorem declarations; 0 unsafe runtime declarations
+  Applications.Parallel.Scan: 46 logical declarations; 29 theorem declarations; 0 unsafe runtime declarations
+  Applications.Parallel.ScanPlan: 143 logical declarations; 57 theorem declarations; 0 unsafe runtime declarations
+  Applications.Parallel.Shape: 169 logical declarations; 76 theorem declarations; 0 unsafe runtime declarations
+  Applications.Stack.Machine: 148 logical declarations; 41 theorem declarations; 0 unsafe runtime declarations
+  Applications.Timing.Adders: 67 logical declarations; 49 theorem declarations; 0 unsafe runtime declarations
+  Applications.Timing.Digital: 103 logical declarations; 52 theorem declarations; 0 unsafe runtime declarations
+  Applications.Timing.Examples: 4 logical declarations; 0 theorem declarations; 0 unsafe runtime declarations
+  Applications.Timing.Intervals: 35 logical declarations; 27 theorem declarations; 0 unsafe runtime declarations
+Excluded from logical roots: 0 kernel-unsafe runtime declarations.
 Transitive axiom union: [propext, Classical.choice, Quot.sound]
 Proof audit PASSED: every kernel-safe project declaration uses only the three permitted foundational axioms.
 PASS: all 52 modules checked; exhaustive axiom audit passed.

@@ -141,7 +141,7 @@ theorem extract_empty (ps : List (P [])) :
 def nullableStarIso (P : Language α) : Iso (Star P []) (List (P [])) where
   forward := fun s => extractEmpty s.1 s.2
   backward := fun ps => ⟨emptyParses ps, flatten_emptyParses ps⟩
-  backward_forward := by intro s; apply Subtype.eq; exact empty_extract s.1 s.2
+  backward_forward := by intro s; apply Subtype.ext; exact empty_extract s.1 s.2
   forward_backward := extract_empty
 
 theorem flattenParses_append (ps qs : List (ParsedWord P)) :
@@ -174,7 +174,7 @@ theorem join_splitStar (ps : List (ParsedWord P)) (h : flattenParses ps = a :: w
     rcases up with ⟨u, p⟩
     cases u with
     | nil =>
-      apply Subtype.eq
+      apply Subtype.ext
       change ⟨[], p⟩ :: (joinStar (splitStar ps h)).1 = ⟨[], p⟩ :: ps
       rw [congrArg Subtype.val (ih h)]
     | cons b u =>

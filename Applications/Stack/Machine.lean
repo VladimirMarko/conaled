@@ -19,7 +19,7 @@ claimed by this first-order module.
 namespace StackMachine
 open FirstOrderCompiler
 
-def Stack (B : Type) : List Ty → Type
+abbrev Stack (B : Type) : List Ty → Type
   | [] => Unit
   | a :: s => Val B a × Stack B s
 

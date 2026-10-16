@@ -165,7 +165,7 @@ theorem mixedPolynomial_primal (x y : ℝ) :
 theorem mixedPolynomial_derivative (x y dx dy : ℝ) :
     mixedPolynomial.derivative (x, y) (dx, dy) = (2 * x + y) * dx + x * dy := by
   simp only [mixedPolynomial, DMap.add, DMap.mul, DMap.fst, DMap.snd, DMap.linear,
-    ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,
+    add_apply, smul_apply,
     ContinuousLinearMap.coe_fst', ContinuousLinearMap.coe_snd', smul_eq_mul]
   ring
 

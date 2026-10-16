@@ -23,8 +23,8 @@ describe that earlier delivery, not the current application extension.
 
 ## Build and audit
 
-The application libraries use **Lean 4.19.0** and **Mathlib v4.19.0**, pinned to
-`c44e0c8ee63ca166450922a373c7409c5d26b00b` by the checked-in manifest. With
+The application libraries use **Lean 4.35.0** and **Mathlib v4.35.0**, pinned to
+`56a005855ea17e0b0958f73ec801ae140b0a1679` by the checked-in manifest. With
 [elan](https://github.com/leanprover/elan) and Python 3 installed:
 
 ```sh
@@ -42,6 +42,12 @@ in [verification.txt](verification.txt).
 For incremental development, `lake build` builds the same modules and audit.
 Generated `.olean`, `.ilean`, `.lake`, and cache files are not source artifacts.
 They are intentionally omitted from the download.
+
+After `lake build`, run `lake env python3 scripts/test-proof-audit.py` to check
+that the audit rejects private forbidden dependencies, admissions, and unsafe
+source declarations. Its temporary fixtures also check that an unused external
+axiom does not cause a false rejection. `check.sh` verifies that the compiler
+version matches `lean-toolchain`.
 
 The original dependency-free foundation remains available:
 

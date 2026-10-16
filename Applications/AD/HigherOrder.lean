@@ -197,6 +197,8 @@ theorem higherOrder_hasDerivAt (x : ℝ) :
   have h := (eval_related realMeaning dualMeaning realPrimitives_related
     higherOrderExample x henv).2
   rw [higherOrder_dual] at h
-  simpa only [higherOrder_primal, mul_one] using h
+  change HasDerivAt (fun s : ℝ => s * (s * s + s) + s)
+    ((3 * x * x + 2 * x + 1) * 1) x at h
+  simpa only [mul_one] using h
 
 end Applications.AD.HigherOrder

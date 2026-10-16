@@ -101,15 +101,16 @@ def towerAddSquare : Squares.Square (Squares.product towerRep towerRep) towerRep
 
 theorem jet_successor (p : Poly) (n : ℕ) (x : ℝ) :
     HasDerivAt (jet p n) (jet p (n + 1) x) x := by
-  simpa only [jet, derivativeN, Function.iterate_succ_apply'] using
-    (derivativeN n p).hasDerivAt x
+  unfold jet
+  simp only [derivativeN, Function.iterate_succ_apply']
+  exact (derivativeN n p).hasDerivAt x
 
 /-- The binomial/Leibniz convolution of derivative components. -/
 theorem jet_leibniz (p q : Poly) (n : ℕ) (x : ℝ) :
     jet (p * q) n x =
       ∑ k ∈ Finset.range (n + 1), (n.choose k : ℝ) * (jet p (n - k) x * jet q k x) := by
   simp only [jet, derivativeN, Polynomial.iterate_derivative_mul,
-    Polynomial.eval_finset_sum, Polynomial.eval_mul,
+    Polynomial.eval_finsetSum, Polynomial.eval_mul,
     nsmul_eq_mul, Nat.succ_eq_add_one, Polynomial.eval_natCast]
 
 /-- Multiplying represented functions realizes binomial convolution of their derivative towers. -/

@@ -26,7 +26,7 @@ Primary source snapshots used in this translation:
   commit `fc7fd2b31f8fedc0ee7f4b59c28aa2810c82b2e4`. We read the full source
   bundle, particularly `Calculus.lagda`, `Symbolic.lagda`, `Automatic.lagda`,
   and the predicate modules. The manuscript entry point alone is insufficient.
-- Mathlib **v4.19.0**, `Computability/Language.lean` and
+- The original Mathlib **v4.19.0** snapshot, `Computability/Language.lean` and
   `Computability/RegularExpressions.lean`, supplies the ordinary declarative
   language algebra and one independently proved Boolean derivative semantics.
 
@@ -147,7 +147,8 @@ trie; the answer is true exactly when the original weighted convolution has a
 nonzero coefficient. The executable example has two distinct contributions
 to `"abc"`, with total coefficient `10`.
 
-All eight modules are checked by Lean 4.19.0. There are no `sorry`, `admit`,
+The original eight modules were checked by Lean 4.19.0; the current toolchain
+is recorded in `lean-toolchain`. There are no `sorry`, `admit`,
 new axioms, `unsafe` definitions, or termination overrides. Existing Mathlib
 proofs are source dependencies, not new assumptions. The packages containing
 semantic type indices are marked `noncomputable` where Lean erases universe

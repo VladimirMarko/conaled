@@ -8,7 +8,7 @@ open Adders
 
 /-- `some` displays a finite bound; `none` means the corresponding infinity. -/
 def bounds (I : Interval) : WithTop (OrderDual Time) × WithTop Time :=
-  (Tropical.untrop I.1, Tropical.untrop I.2)
+  (MinTropical.untrop I.1, MinTropical.untrop I.2)
 
 def halfAdderRows :=
   [ [ bounds (halfAdder.digital.matrix sumPort sumPort),

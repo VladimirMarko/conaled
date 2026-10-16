@@ -1,6 +1,8 @@
 # ADR 0001 — Separate the proof kernel, application libraries, and compositions
 
-**Status:** Accepted.
+**Status:** Accepted. Toolchain pin updated on 2026-10-16 from Lean/Mathlib
+4.19.0 to the matching stable 4.35.0 releases. The module boundaries and proof
+dependency policy are unchanged.
 
 ## Context
 
@@ -14,8 +16,8 @@ foundations would obscure the new correctness arguments.
 Keep the original five foundation modules and their namespaces stable. Add
 `SquareKit` for application-independent constructions, `Applications/<domain>`
 for implementations with their semantic proofs, and `Examples` for compositions
-between domains. Use Lean **4.19.0** and pin Mathlib to
-`c44e0c8ee63ca166450922a373c7409c5d26b00b` (release `v4.19.0`), with its complete
+between domains. Use Lean **4.35.0** and pin Mathlib to
+`56a005855ea17e0b0958f73ec801ae140b0a1679` (release `v4.35.0`), with its complete
 transitive dependency manifest. The original foundation still builds without
 Mathlib. Every application theorem is a Lean declaration; no Markdown proof is
 used as an unverified dependency of code.

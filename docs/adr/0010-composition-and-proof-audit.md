@@ -39,8 +39,11 @@ local import closure, rejects omitted source files, and rechecks each module
 from source. The final audit enumerates every locally defined kernel-safe declaration by
 module origin, including private and generated proof declarations, and traverses
 all transitive axiom dependencies. Only `propext`, `Classical.choice`, and
-`Quot.sound` are permitted. Memoization shares dependency traversals; it does
-not skip roots or replace the kernel's dependency data. Lean-generated unsafe
+`Quot.sound` are permitted. The audit calls Lean's public `collectAxioms` API
+for every root. Since the Lean 4.35 upgrade, this uses Lean's transitive axiom
+summaries for imported declarations, computed when checked modules are exported,
+and traverses local declarations directly. It does not skip audit roots.
+Lean-generated unsafe
 runtime declarations are reported separately. Both source-range metadata and
 a lexical source guard reject user-written unsafe definitions; any forbidden
 axiom reached from a mathematical root still fails the audit.

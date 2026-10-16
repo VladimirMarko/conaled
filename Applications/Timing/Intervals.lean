@@ -21,8 +21,8 @@ below records why that quotient would be unsound.
 namespace Applications.Timing
 
 abbrev Time := ℚ
-abbrev Lower := Tropical (WithTop (OrderDual Time))
-abbrev Upper := Tropical (WithTop Time)
+abbrev Lower := MinTropical (WithTop (OrderDual Time))
+abbrev Upper := MinTropical (WithTop Time)
 abbrev Interval := Lower × Upper
 
 example : CommSemiring Interval := inferInstance
@@ -30,14 +30,14 @@ example : CommSemiring Interval := inferInstance
 namespace Interval
 
 def finite (lo hi : Time) : Interval :=
-  (Tropical.trop ((OrderDual.toDual lo : OrderDual Time) : WithTop (OrderDual Time)),
-   Tropical.trop (hi : WithTop Time))
+  (MinTropical.trop ((OrderDual.toDual lo : OrderDual Time) : WithTop (OrderDual Time)),
+   MinTropical.trop (hi : WithTop Time))
 
 def point (d : Time) : Interval := finite d d
 
 def Contains (I : Interval) (t : Time) : Prop :=
-  ((OrderDual.toDual t : OrderDual Time) : WithTop (OrderDual Time)) ≤ Tropical.untrop I.1 ∧
-  (t : WithTop Time) ≤ Tropical.untrop I.2
+  ((OrderDual.toDual t : OrderDual Time) : WithTop (OrderDual Time)) ≤ MinTropical.untrop I.1 ∧
+  (t : WithTop Time) ≤ MinTropical.untrop I.2
 
 instance (I : Interval) (t : Time) : Decidable (I.Contains t) :=
   inferInstanceAs (Decidable (_ ∧ _))
@@ -51,7 +51,7 @@ instance (I : Interval) (t : Time) : Decidable (I.Contains t) :=
 
 @[simp] theorem contains_add (I J : Interval) (t : Time) :
     (I + J).Contains t ↔ I.Contains t ∧ J.Contains t := by
-  simp only [Contains, Prod.fst_add, Prod.snd_add, Tropical.untrop_add, le_min_iff]
+  simp only [Contains, Prod.fst_add, Prod.snd_add, MinTropical.untrop_add, le_min_iff]
   tauto
 
 private theorem coe_le_shift {A : Type*} [AddCommGroup A] [LinearOrder A] [IsOrderedAddMonoid A]
@@ -65,31 +65,34 @@ private theorem coe_le_shift {A : Type*} [AddCommGroup A] [LinearOrder A] [IsOrd
 
 @[simp] theorem contains_shift (d : Time) (I : Interval) (t : Time) :
     (point d * I).Contains t ↔ I.Contains (t - d) := by
-  simp only [Contains, Prod.fst_mul, Prod.snd_mul, point, finite, Tropical.untrop_mul,
-    Tropical.untrop_trop, coe_le_shift]
+  simp only [Contains, Prod.fst_mul, Prod.snd_mul, point, finite, MinTropical.untrop_mul,
+    MinTropical.untrop_trop, coe_le_shift]
   rfl
 
 @[simp] theorem finite_mul (a b c d : Time) :
     finite a b * finite c d = finite (a + c) (b + d) := by
   apply Prod.ext
-  · apply Tropical.untrop_injective
+  · apply MinTropical.untrop_injective
     simp [finite, ← WithTop.coe_add]
-  · apply Tropical.untrop_injective
+  · apply MinTropical.untrop_injective
     simp [finite, ← WithTop.coe_add]
 
 @[simp] theorem point_mul (a b : Time) : point a * point b = point (a + b) :=
   finite_mul a a b b
 
 @[simp] theorem point_zero : point 0 = (1 : Interval) := by
-  apply Prod.ext <;> apply Tropical.untrop_injective <;> simp [point, finite]
+  apply Prod.ext <;> apply MinTropical.untrop_injective <;> simp [point, finite]
 
 theorem finite_add (a b c d : Time) :
     finite a b + finite c d = finite (max a c) (min b d) := by
   apply Prod.ext
-  · apply Tropical.untrop_injective
-    simp [finite, ← WithTop.coe_min]
-  · apply Tropical.untrop_injective
-    simp [finite, ← WithTop.coe_min]
+  · apply MinTropical.untrop_injective
+    simp only [finite, Prod.fst_add, MinTropical.untrop_add,
+      MinTropical.untrop_trop, ← WithTop.coe_min]
+    rfl
+  · apply MinTropical.untrop_injective
+    simp only [finite, Prod.snd_add, MinTropical.untrop_add,
+      MinTropical.untrop_trop, ← WithTop.coe_min]
 
 theorem empty_of_inverted {lo hi : Time} (h : hi < lo) :
     ∀ t, ¬ (finite lo hi).Contains t := by
@@ -110,7 +113,7 @@ theorem mul_distributes (I J K : Interval) : I * (J + K) = I * J + I * K :=
   mul_add I J K
 
 theorem add_idempotent (I : Interval) : I + I = I := by
-  apply Prod.ext <;> apply Tropical.untrop_injective <;> simp
+  apply Prod.ext <;> apply MinTropical.untrop_injective <;> simp
 
 end Interval
 end Applications.Timing

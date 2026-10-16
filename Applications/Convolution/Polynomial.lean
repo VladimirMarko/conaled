@@ -138,7 +138,7 @@ theorem denote_insert (u : List α) (r : R) (p : Polynomial α R) :
     rcases vs with ⟨v, s⟩
     by_cases h : u = v
     · subst v; simp [insert, denote, monomial_add, add_assoc]
-    · simp only [insert, if_neg h, denote, ih]
+    · simp only [insert, ite_eq_right h, denote, ih]
       ac_rfl
 
 def normalize : Polynomial α R → Polynomial α R
