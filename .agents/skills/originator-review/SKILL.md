@@ -3,9 +3,11 @@ name: originator-review
 description: Review an implementation in the originating session against retained task intent and the written spec, including when invoked independently after implementation.
 ---
 
-The originator is the agent that developed the task with the user and wrote
-the issue, or established the task directly in conversation. This is provenance,
-not a role another reviewer acquires. Review intent directly in this session,
+The originator is an agent that established or substantively refined the task's
+requirements with the user and retains the relevant agreement. This can be a
+later session that refined an existing issue; merely making the latest edit
+does not qualify. This is provenance, not a role another reviewer acquires.
+Review intent directly in this session,
 without subagents or another Standards review. Ordinary `code-review` loops
 provide the Standards and Spec checks; this review is optional.
 

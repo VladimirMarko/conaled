@@ -11,9 +11,15 @@ independent Standards and Spec subagents.
 ## Candidate and record
 
 Pin each round to immutable base and candidate commit SHAs and record the spec
-version or saved contents used for acceptance. Keep the task's base stable
-across fixes so the final round covers the whole change. Review snapshot files,
-not a concurrently edited checkout.
+version or saved contents used for acceptance. Keep the base stable across
+ordinary fixes so each round covers the whole task change. For a ticket that
+incorporates a newer integration tip, use that exact incorporated integration
+commit as the next round's base, verifying it is an ancestor of the candidate.
+This excludes other tickets' integrated changes while including the ticket's
+remaining changes and its conflict resolutions. Record the base change and
+carry all findings forward; a finding disappearing from the diff is not a
+resolution. The full-spec integration review retains its original starting
+base. Review snapshot files, not a concurrently edited checkout.
 
 For a current-checkout workflow, capture the task's starting state and each
 candidate as stable Git snapshots. A temporary index, `git write-tree`, and
