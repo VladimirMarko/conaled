@@ -3,7 +3,7 @@ name: code-review
 description: "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes: Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \"review since X\"."
 ---
 
-Two-axis review of the diff between `HEAD` and a fixed point the user supplies:
+Two-axis review of an immutable candidate against a fixed point supplied by the user or calling workflow:
 
 - **Standards**: does the code conform to this repo's documented coding standards?
 - **Spec**: does the code faithfully implement the originating issue / spec?
@@ -16,15 +16,17 @@ The issue tracker should have been provided to you. If not, tell the user to run
 
 ### 1. Pin the fixed point
 
-Whatever the user said is the fixed point (a commit SHA, branch name, tag, `main`, `HEAD~5`, etc.). If they didn't specify one, ask for it.
+Use the fixed point supplied by the user or calling workflow; ask if neither supplies one. Resolve it to a base commit SHA. Resolve the supplied candidate to a commit SHA, defaulting to the current `HEAD` once at the start. A calling workflow may supply a synthetic commit containing current-checkout changes, including uncommitted files.
 
-Capture the diff command once: `git diff <fixed-point>...HEAD` (three-dot, so the comparison is against the merge-base). Also note the list of commits via `git log <fixed-point>..HEAD --oneline`.
+Capture `git diff <base-sha>...<candidate-sha>` and `git log <base-sha>..<candidate-sha> --oneline` once. Confirm both refs resolve and the diff is non-empty before spawning reviewers. Report invalid refs or an empty diff to the caller; neither is a passing review.
 
-Before going further, confirm the fixed point resolves (`git rev-parse <fixed-point>`) and the diff is non-empty. A bad ref or empty diff should fail here, not inside two parallel sub-agents.
+Give both reviewers these exact SHAs and commands. Read files from the candidate commit (for example, `git show <candidate-sha>:<path>`) or an isolated checkout of it, including when reading standards. Never substitute a moving branch tip or live working-tree contents for the reviewed snapshot. Report both SHAs with the results; approval covers only that candidate. When called in a review loop, carry forward its finding record and assess each unresolved finding alongside the full diff.
 
 ### 2. Identify the spec source
 
-Look for the originating spec, in this order:
+Use the user or calling workflow's explicit spec and acceptance scope when
+supplied. An integration review covers the full spec even when commits refer
+to individual tickets. Otherwise look for the originating spec in this order:
 
 1. Issue references in the commit messages (`#123`, `Closes #45`, GitLab `!67`, etc.), fetched via the workflow in the tracker doc.
 2. A path the user passed as an argument.

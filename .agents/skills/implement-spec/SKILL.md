@@ -22,19 +22,23 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 2. (optional) Use an **exploration subagent** to conduct any exploration required by the tickets - relevant codebase files or external documentation. Ensure the exploration subagent can save files - it should save its markdown notes in a directory outside the repo, accessible by all future subagents. This lets **implementer subagents** focus on implementation rather than exploration.
 
-3. Create the integration branch. If the issue tracker closes work through PRs, or the user asks for one, open a draft PR after the first merge in step 5 (a branch with no commits ahead of main can't open one), marked as closing the spec and tickets.
+3. Record the starting commit as the full-spec review base and create the integration branch. If the issue tracker closes work through PRs, or the user asks for one, open a draft PR after the first merge in step 5 (a branch with no commits ahead of main can't open one), marked as closing the spec and tickets.
 
 4. Use **implementer subagents** to implement each ticket, each in its own worktree on its own branch. Each implementer subagent:
    - confirms its worktree is based on the integration branch before starting, and resets onto it if not;
    - calls the Skill tool with `tdd` to build the ticket;
-   - merges the integration branch tip into its own branch before reporting done
+   - merges the integration branch tip into its own branch before reporting a candidate;
+   - remains available for improvements and review corrections until its work passes review;
+   - implements each assigned iteration and returns without invoking this enclosing workflow.
 
-5. Once an **implementer subagent** completes, merge its work to the integration branch with a **merger subagent**.
+5. When an implementer reports a candidate, start a **reviewer subagent** for that ticket. Before reviewing, read [the shared review-and-fix procedure](../../../docs/agents/review-loop.md). The reviewer coordinates that procedure with the existing implementer, using `code-review` against the ticket requirements and repository standards. Supply the ticket's integration starting commit as base, the candidate commit, and the ticket/spec pointers. Only when both Standards and Spec have no unresolved findings may a **merger subagent** merge the approved candidate into the integration branch. Serialize integration updates. If the integration tip has advanced since the ticket was prepared, have the implementer integrate that tip and send the resulting candidate through review before merging. The merger must land the reviewed tree; any conflict resolution or other change goes back through review before landing.
 
-6. If this changes the **frontier** of available tickets, kick off more **implementer subagents** to work on the new tickets. This allows for maximum concurrency.
+6. Advance the dependency graph after each reviewed ticket lands. Launch implementers for the new ready **frontier** while other tickets continue implementation or review. A ticket awaiting review does not satisfy its dependents. Keep unrelated ready work running; review is a per-ticket gate, not a frontier-wide barrier.
 
-7. Once all tickets are complete, call the Skill tool with `code-review` on the integration branch. Fix all issues raised by the code review in a single **implementer subagent**.
+7. Once all tickets have landed, delegate the **integration review loop** to a reviewer subagent and keep an implementer available for corrections. The reviewer coordinates the shared procedure using `code-review` against the full spec, from the recorded starting commit to the integration candidate. Preserve the independent Standards and Spec reviewers. Review every updated candidate after fixes until both axes have no unresolved findings. Keep iterative coordination in the reviewer subagent where possible. It returns the passing candidate and review record, or unresolved findings and the reason it is blocked or repeatedly stalled. A blocked loop leaves completion pending.
 
-8. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work, and report the integration branch.
+8. Confirm the integration tip is the passing candidate before marking a draft PR ready or resolving tickets through the issue tracker's completion mechanism. Report the integration branch and both review results. If the tip changed, return to step 7.
 
-9. Clean up all **implementer subagent** worktrees.
+9. Clean up implementer worktrees after completion. Preserve unfinished work when a loop is blocked.
+
+The integration loop is the required final review. When the originating session is available and appropriate, the user can additionally invoke [originator-review](../originator-review/SKILL.md) there, either around this delegated workflow or independently afterward. Its participation is optional; the integration reviewer does not become the originator.
