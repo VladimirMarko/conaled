@@ -21,11 +21,32 @@ compositions, and exact coverage. The [historical foundation design](DESIGN.md)
 is preserved unchanged from `foundation-v1`; its build and coverage statements
 describe that earlier delivery, not the current application extension.
 
+## Development environment
+
+Install Nix with `nix-command` and `flakes` enabled, and install direnv with
+its [shell hook](https://direnv.net/docs/hook.html) enabled. From the repository
+root, run `direnv allow`. The checked-in `.envrc` loads the flake shell whenever
+you enter the directory. Without shell integration, use `nix develop`.
+
+`flake.nix` declares the supporting tools, and `flake.lock` pins their Nixpkgs
+revision. The shell provides elan, Python, Git, curl, direnv, and ripgrep.
+Elan selects and downloads Lean (including Lake) from `lean-toolchain` on first
+use; Lake resolves library revisions from `lake-manifest.json`. Initial setup
+and cache downloads require network access.
+
+For agent commands without an interactive shell, use `direnv exec . <command>`
+after allowing the directory, or `nix develop --command <command>`.
+Add additional project tools to the shell's `packages` list. Tools from the
+existing Nixpkgs input share its lock; update that pin intentionally with
+`nix flake update nixpkgs`. Check in `flake.nix` and `flake.lock` together.
+Validate tooling changes with `nix flake check` and, for example,
+`nix develop --command lean --version`.
+
 ## Build and audit
 
 The application libraries use **Lean 4.35.0** and **Mathlib v4.35.0**, pinned to
-`56a005855ea17e0b0958f73ec801ae140b0a1679` by the checked-in manifest. With
-[elan](https://github.com/leanprover/elan) and Python 3 installed:
+`56a005855ea17e0b0958f73ec801ae140b0a1679` by the checked-in manifest. Inside
+the development shell:
 
 ```sh
 lake exe cache get

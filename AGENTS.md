@@ -2,6 +2,17 @@
 
 This is a planned Lean monorepo extending Conal Elliott's work.
 
+## Development environment
+
+Use the Nix flake shell through direnv. Before running project commands or
+changing tooling, read the development environment section in `README.md`.
+For noninteractive commands, use `direnv exec . <command>` or
+`nix develop --command <command>`.
+Agents may add required tooling to `flake.nix`; keep it pinned through the
+checked-in `flake.lock` and validate changes with `nix flake check` and a shell
+smoke check. Lean and library versions remain in `lean-toolchain` and the Lake
+files.
+
 ## Agent skills
 
 ### Formal development
