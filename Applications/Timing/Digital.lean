@@ -1,6 +1,6 @@
 import Applications.Timing.Intervals
 import FirstOrder
-import SquareKit.Relations
+import SquareKit.RelationalCategory
 import Applications.Linear.Matrix
 
 /-!
@@ -72,6 +72,17 @@ namespace Digital
       cases ha'; cases hv'; cases ht'
       rfl
 
+/-- The source and target of the stability relation. -/
+def object (a : Ty) : Relational.RelRep where
+  R := Val Signal a
+  S := Times a × Val Bool a
+  Rel s tv := Stable a s tv.1 tv.2
+
+def relation {a b : Ty} (f : Digital a b) : Relational.RelSquare (object a) (object b) where
+  impl := f.analog
+  spec tv := (f.timing tv.1, f.value tv.2)
+  preserves := f.correct
+
 def identity (a : Ty) : Digital a a where
   analog := id
   value := id
@@ -82,7 +93,10 @@ def compose {a b c : Ty} (g : Digital b c) (f : Digital a b) : Digital a c where
   analog := g.analog ∘ f.analog
   value := g.value ∘ f.value
   timing := g.timing.comp f.timing
-  correct h := g.correct (f.correct h)
+  correct {s τ v} h :=
+    ((SquareKit.RelationalCategory.witnessMap.map
+      (SquareKit.RelationalCategory.ops.comp g.relation f.relation)).left
+        ⟨(s, (τ, v)), h⟩).property
 
 def terminate (a : Ty) : Digital a .unit where
   analog _ := ()
@@ -193,17 +207,6 @@ def binary (d₁ d₂ : Time) (op : Bool × Bool → Bool) : Digital (.prod .bas
       (hs.1 (t - d₁) ((Interval.contains_shift d₁ _ t).mp h.1))
       (hs.2 (t - d₂) ((Interval.contains_shift d₂ _ t).mp h.2)))
 
-/-- The source and target of the stability relation. -/
-def object (a : Ty) : Relational.RelRep where
-  R := Val Signal a
-  S := Times a × Val Bool a
-  Rel s tv := Stable a s tv.1 tv.2
-
-def relation {a b : Ty} (f : Digital a b) : Relational.RelSquare (object a) (object b) where
-  impl := f.analog
-  spec tv := (f.timing tv.1, f.value tv.2)
-  preserves := f.correct
-
 def square {a b : Ty} (f : Digital a b) :
     Squares.Square (Relational.witness (object a)) (Relational.witness (object b)) :=
   Relational.witnessSquare f.relation
@@ -215,7 +218,9 @@ theorem relation_compose {a b c : Ty} (g : Digital b c) (f : Digital a b) :
 theorem square_compose {a b c : Ty} (g : Digital b c) (f : Digital a b) :
     (compose g f).square = Squares.compose g.square f.square := by
   unfold square
-  rw [relation_compose, Relational.witness_compose]
+  rw [relation_compose]
+  exact congrArg (fun f => SquareKit.Comma.Exact.toSquare f)
+    (SquareKit.RelationalCategory.witnessMap_laws.comp g.relation f.relation)
 
 /-- Static timing is a matrix of retained setup/hold interval bounds. -/
 def matrix {a b : Ty} (f : Digital a b) : Matrix (Port b) (Port a) Interval :=

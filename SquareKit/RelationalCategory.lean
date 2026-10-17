@@ -66,6 +66,13 @@ theorem implementation_laws : MapLaws implementation.{u} (equality _) (equality 
 theorem semantics_laws : MapLaws semantics.{u} (equality _) (equality _) :=
   ⟨by intros; subst_vars; rfl, rfl, fun _ _ => rfl⟩
 
+/-- Semantic projection preserves products strictly, independently of the relation. -/
+def semanticsProducts : ProductMap semantics.{u} products FunctionCategory.products :=
+  fun _ _ => Comparison.id _ _
+
+theorem semanticsProducts_laws : ProductMapLaws (equality _) semanticsProducts.{u} :=
+  ⟨rfl, rfl, fun _ _ => rfl⟩
+
 theorem categoryLaws : CategoryLaws ops.{u} (equality _) where
   id_comp f := RelSquare.ext (congrFun (FunctionCategory.laws.id_comp f.impl))
     (congrFun (FunctionCategory.laws.id_comp f.spec))
