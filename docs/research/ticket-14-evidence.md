@@ -1,6 +1,9 @@
 # Ticket 14: matrix and stack compiler migration
 
-Implementation base and ticket review base: `101577b2ece550803c8ea6e75995bf2f648496c4`.
+Implementation base: `101577b2ece550803c8ea6e75995bf2f648496c4`.
+Updated ticket review base: `0b0411bca2b1ce56ee84bf1e06814e27be818792`.
+Ticket 18 was incorporated without conflicts at merge
+`4d54022e61c0b84fd4bee5ff0ed3c6a9e87b4fa5`; both public entrypoint imports remain.
 The unrelated `a6cd22b` changes are preserved and excluded from the ticket diff.
 This record is the declaration ledger for comparison with ticket 20.
 
@@ -94,3 +97,9 @@ the transitive axiom audit after the final source changes. Logs are
 `Applications.Linear.FirstOrderNaturality` now imports Compiler explicitly because it uses
 `sound` and `linearCombination`; Maps imports only Operations to avoid a cycle.
 No runtime behavior, proof infrastructure, toolchain or dependency pin changed.
+
+After incorporating ticket 18, both required commands passed again (exit 0):
+`direnv exec . ./check-foundation.sh` and `direnv exec . ./check.sh`.
+The latter freshly checked all 84 modules and passed the exhaustive axiom audit.
+Logs: `/tmp/conaled-spec15/foundation14-integrated.log` and
+`/tmp/conaled-spec15/check14-integrated.log`. No source edits followed validation.
