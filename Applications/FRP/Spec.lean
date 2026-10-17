@@ -18,6 +18,8 @@
 -/
 
 import Mathlib
+import SquareKit.FunctionCategory
+import SquareKit.CartesianMap
 
 namespace FRPSpec
 
@@ -214,14 +216,56 @@ namespace Homomorphism
 
 variable {H : Type → Type → Type} {r : Raw H} (D : Homomorphism H r)
 
-def Eqv {α β : Type} (f g : H α β) : Prop := D.denote f = D.denote g
+/-- Compatibility view of the original FRP signature as shared operations. -/
+def categoryOps : SquareKit.CategoryOps Type := ⟨H, r.ident, r.comp⟩
 
--- A representative "laws for free" result: equality is semantic, not structural.
+def productOps : SquareKit.ProductOps (categoryOps (r := r)) :=
+  ⟨Prod, r.fst, r.snd, r.pair⟩
+
+/-- The legacy facade supplies exactly the local preservation obligations. -/
+def semanticMap : SquareKit.RawMap (categoryOps (r := r))
+    SquareKit.FunctionCategory.ops := ⟨id, D.denote⟩
+
+def semanticEquality : SquareKit.HomEquiv (categoryOps (r := r)) :=
+  D.semanticMap.induced (SquareKit.equality _)
+
+def Eqv {α β : Type} (f g : H α β) : Prop := D.semanticEquality.Rel f g
+
+theorem mapLaws : SquareKit.MapLaws D.semanticMap D.semanticEquality
+    (SquareKit.equality _) :=
+  D.semanticMap.inducedLaws _ D.ident_hom D.comp_hom
+
+theorem categoryCongr : SquareKit.CategoryCongr (categoryOps (r := r))
+    D.semanticEquality :=
+  SquareKit.RawMap.transportCongr D.mapLaws (D.semanticMap.induced_reflects _)
+    (SquareKit.equalityCongr _)
+
+/-- All category laws follow without injectivity or structural equality of programs. -/
+theorem categoryLaws : SquareKit.CategoryLaws (categoryOps (r := r))
+    D.semanticEquality :=
+  SquareKit.RawMap.transportLaws D.mapLaws (D.semanticMap.induced_reflects _)
+    (SquareKit.equalityCongr _) SquareKit.FunctionCategory.laws
+
+def productComparison : SquareKit.ProductMap D.semanticMap
+    (productOps (r := r)) SquareKit.FunctionCategory.products :=
+  fun _ _ => ⟨id, id⟩
+
+theorem productMapLaws : SquareKit.ProductMapLaws (SquareKit.equality _)
+    D.productComparison where
+  fst := D.fst_hom
+  snd := D.snd_hom
+  pair := D.pair_hom
+
+theorem productLaws : SquareKit.ProductLaws D.semanticEquality (productOps (r := r)) :=
+  SquareKit.ProductMap.transportLaws (i := D.productComparison) D.mapLaws (D.semanticMap.induced_reflects _)
+    (SquareKit.equalityCongr _) SquareKit.FunctionCategory.laws
+    (fun _ _ => ⟨rfl, rfl⟩) D.productMapLaws
+    SquareKit.FunctionCategory.productCongr SquareKit.FunctionCategory.productLaws
+
+-- The original public theorem now consumes general law transport.
 theorem comp_assoc {α β γ δ : Type} (h : H γ δ) (g : H β γ) (f : H α β) :
-    D.Eqv (r.comp (r.comp h g) f) (r.comp h (r.comp g f)) := by
-  unfold Eqv
-  rw [D.comp_hom, D.comp_hom, D.comp_hom, D.comp_hom]
-  rfl
+    D.Eqv (r.comp (r.comp h g) f) (r.comp h (r.comp g f)) :=
+  D.categoryLaws.assoc h g f
 
 end Homomorphism
 

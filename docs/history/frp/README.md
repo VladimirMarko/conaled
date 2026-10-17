@@ -21,13 +21,13 @@ occurrence has finitely many predecessors. `totalEventEquiv` restricts both
 sides to finite histories. Mapping, snapshot, strictly-before histories, and
 switching have preservation proofs. The behavior operations are pointwise.
 
-This is not an equivalence of complete executable FRP systems. The conversion
-from finite co-lists to the native `List` model in `Spec.lean` and a stable merge
-preservation theorem remain mathematical arguments in the historical notes,
-not checked bridges between the two files. Neither file implements a scheduler,
-`predicate`, or `integral`. Infinite simultaneous batches and Zeno sequences
-are admitted by the raw equivalence and excluded by finite history; the retained
-examples prove that distinction.
+The current [integration record](../../frp-integration.md) reconciles the full
+originating discussion. `Applications/FRP/Finite.lean` now proves the native
+finite-list carrier bridge and stable merge preservation on finite histories.
+This is not an equivalence of complete executable FRP systems. Neither file
+implements a scheduler, `predicate`, or `integral`. Infinite simultaneous batches
+and Zeno sequences remain admitted by the raw equivalence and excluded by
+finite history; the retained examples prove that distinction.
 
 The advanced implementation discussion is in the first response, section 3 of
 the chat. It proposes reactive normal form, explicit knowledge frontiers,
@@ -45,12 +45,11 @@ semantic equality, and preservation separation follows the direction of Felix's
 and [MakeLawful](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/MakeLawful.agda)
 at the repository's pinned reference revision.
 
-This import does not establish full architectural parity with Felix. `Raw` and
-`Homomorphism` bundle a specialized FRP signature over `Type` and a function
-interpretation. They do not supply Felix's general object maps, separate
-per-structure preservation interfaces, or general law transport. Future library
-development should express these through the shared `SquareKit` interfaces.
-The generic order-enumeration proof is reusable independently of real time.
+The original import did not establish full architectural parity with Felix.
+The maintained FRP facade now consumes shared maps, induced equality and
+category/product law transport. The integration record describes the upstream
+comparison, adapter costs, composition examples and remaining gaps. The generic
+order-enumeration proof remains reusable independently of real time.
 
 [Examples/FRP.lean](../../../Examples/FRP.lean) checks one existing integration:
 `mapSquare` packages `OldEvent.group_map` in `Squares.Square`, and `map_twice`
