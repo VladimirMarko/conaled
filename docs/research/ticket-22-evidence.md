@@ -75,3 +75,9 @@ exhaustive transitive audit admitted only `propext`, `Classical.choice`, and
 of the changed composition and new applications, and the new applications
 use only those permitted foundational axioms. No runtime behavior or
 proof-audit infrastructure changes require extra regression fixtures.
+
+After incorporating integration commit
+`3c5fa5410696813d320a37e115bd0f501ea8e896`, both the foundation check and the
+fresh check passed again. The combined check covered 93 modules and passed
+the exhaustive axiom audit with the same three-axiom union. The integration
+merge required no conflict resolution or timing source changes.
