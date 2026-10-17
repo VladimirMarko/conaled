@@ -2,6 +2,12 @@
 
 This is a planned Lean monorepo extending Conal Elliott's work.
 
+## Architectural quality
+
+Felix is the minimum standard for elegance, expressive power, and architecture.
+Before designing or reviewing library abstractions, read
+`docs/agents/architectural-quality.md`.
+
 ## Development environment
 
 Use the Nix flake shell through direnv. Before running project commands or
