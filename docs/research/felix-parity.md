@@ -1,6 +1,6 @@
 # Felix architectural parity: source inventory and recommendation
 
-This is the research deliverable for [#1](https://github.com/VladimirMarko/conaled/issues/1), whose requirements were inspected at `updatedAt = 2026-10-17T04:58:03Z`. The proposed implementation work is in [the ordered plan](felix-parity-plan.md). P1–P6 below identify that plan's work packages, not completed implementations.
+This is the research deliverable for [#1](https://github.com/VladimirMarko/conaled/issues/1), whose requirements were inspected at `updatedAt = 2026-10-17T04:58:03Z`. The proposed implementation work is in [the ordered plan](felix-parity-plan.md). P1–P6 below identify that plan's coverage groups, not completed implementations. [Milestone #15](https://github.com/VladimirMarko/conaled/issues/15) is the execution spec; its direct sub-issues split those groups into implementation tickets.
 
 ## Evidence and scope
 
