@@ -28,6 +28,29 @@ def carryWaveform : List (Time × Bool) :=
   ([0, 1 / 2, 7 / 10, 9 / 10, 1] : List Time).map
     (fun t => (t, (compiledFullAdder.digital.analog hazardInput).2 t))
 
+/-- Two inversions delayed by one and two units preserve the input value on
+exactly the input bounds shifted by three. Inputs need only be stable there. -/
+theorem delayed_double_not {s : Signal} {lo hi : Time} {v : Bool}
+    (h : Stable .base s (fun _ => Interval.finite lo hi) v) :
+    Stable .base
+      ((Digital.compose (Digital.unary 2 Bool.not) (Digital.unary 1 Bool.not)).analog s)
+      (fun _ => Interval.finite (3 + lo) (3 + hi)) v := by
+  have hc := (Digital.compose (Digital.unary 2 Bool.not)
+    (Digital.unary 1 Bool.not)).correct h
+  norm_num [Digital.compose, Digital.unary, Interval.point, Interval.finite_mul,
+    ← add_assoc] at hc ⊢
+  exact hc
+
+/-- The composed contract has admissible inputs and a nonempty output window. -/
+theorem delayed_double_not_constant :
+    Stable .base
+      ((Digital.compose (Digital.unary 2 Bool.not) (Digital.unary 1 Bool.not)).analog
+        (fun _ => true))
+      (fun _ => Interval.finite 3 4) true := by
+  have h : Stable .base (fun _ => true) (fun _ => Interval.finite 0 1) true :=
+    fun _ _ => rfl
+  convert delayed_double_not h using 1 <;> norm_num
+
 #eval halfAdderRows
 #eval fullAdderRows
 #eval carryWaveform
