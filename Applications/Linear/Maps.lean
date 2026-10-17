@@ -6,8 +6,8 @@ import Applications.Linear.Compiler
 set_option backward.isDefEq.respectTransparency false
 set_option backward.isDefEq.respectTransparency.types false
 
-namespace SquareKit.MatrixMaps
-open FirstOrderCompiler MatrixCompiler
+namespace MatrixCompiler.Maps
+open SquareKit FirstOrderCompiler MatrixCompiler
 variable (R : Type) [CommSemiring R]
 
 def matrices : CategoryOps Ty := FirstOrderCategory.ops (target R)
@@ -249,4 +249,4 @@ theorem composed_matrix_action {a b c : Ty} (M : Code R b c) (N : Code R a b)
       (matrixFunctions R).map M ((matrixFunctions R).map N x) :=
   congrFun ((matrixFunctions_laws R).comp M N) x
 
-end SquareKit.MatrixMaps
+end MatrixCompiler.Maps

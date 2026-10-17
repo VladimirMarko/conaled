@@ -76,7 +76,7 @@ once in the shared modules. The dependency-free root `Compiler.lean` stays
 unchanged, including its public `category_assoc`, `product_beta`, and
 `product_eta` statements.
 
-`MatrixMaps` uses actual matrix multiplication and `mulVec` over a commutative
+`Applications/Linear/Maps.lean` (`MatrixCompiler.Maps`) uses actual matrix multiplication and `mulVec` over a commutative
 semiring. Its intermediate coordinate functions expose the non-strict
 comparison between functions on sum-indexed coordinates and pairs of coordinate
 functions. A second interpretation uses the existing `MatrixCompiler.encode`
