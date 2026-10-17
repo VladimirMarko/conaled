@@ -9,33 +9,11 @@ open SquareKit FirstOrderCompiler
 variable (R : Type) [CommSemiring R]
 
 /-- Structural soundness is inherited from the composed coordinate interpretation. -/
-def sound : Sound R (target R) (meaning R) where
-  denote := (Maps.matrixValues R).map
-  ident x := congrFun (Maps.matrixValues_laws R).ident x
-  comp g f x := congrFun ((Maps.matrixValues_laws R).comp g f) x
-  terminal _ := rfl
-  fst x := by
-    have h := congrFun (Maps.matrixValueProducts_laws R).fst x
-    simpa [Maps.matrixValueProducts, ProductMap.comp, Comparison.comp,
-      Maps.evaluateProducts, Maps.valueProducts, Comparison.id, Maps.values,
-      FunctionCategory.ops, FunctionCategory.products, Comparison.map, Maps.coordinates,
-      Maps.evaluate, Maps.matrixProducts, FirstOrderCategory.products, Maps.coordinateProducts,
-      decode_encode] using h
-  snd x := by
-    have h := congrFun (Maps.matrixValueProducts_laws R).snd x
-    simpa [Maps.matrixValueProducts, ProductMap.comp, Comparison.comp,
-      Maps.evaluateProducts, Maps.valueProducts, Comparison.id, Maps.values,
-      FunctionCategory.ops, FunctionCategory.products, Comparison.map, Maps.coordinates,
-      Maps.evaluate, Maps.matrixProducts, FirstOrderCategory.products, Maps.coordinateProducts,
-      decode_encode] using h
-  pair f g x := by
-    have h := congrFun ((Maps.matrixValueProducts_laws R).pair f g) x
-    simpa [Maps.matrixValueProducts, ProductMap.comp, Comparison.comp,
-      Maps.evaluateProducts, Maps.valueProducts, Comparison.id, Maps.values,
-      FunctionCategory.ops, FunctionCategory.products, Comparison.map, Maps.coordinates,
-      Maps.evaluate, Maps.matrixProducts, FirstOrderCategory.products, Maps.coordinateProducts,
-      decode_encode] using h
-  primitive := denote_primitive R
+def sound : Sound R (target R) (meaning R) :=
+  FirstOrderNaturality.soundOfProducts (target R) R (Maps.matrixValues R).map
+    (Maps.matrixValues_laws R) (Maps.matrixValueProducts R)
+    (Maps.matrixValueProducts_laws R) (Maps.matrixValueProducts_hom R)
+    (Maps.matrixValueProducts_inv R) (denote_primitive R)
 
 theorem denote_id (a : Ty) (x : Val R a) : denote R (1 : Code R a a) x = x :=
   (sound R).ident x

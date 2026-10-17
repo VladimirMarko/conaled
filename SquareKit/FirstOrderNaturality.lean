@@ -266,4 +266,38 @@ theorem targetImage_preserves (K : Target Prim) (F : RawMap (FirstOrderCategory.
   pair := PJ.pair
   primitive := hprim
 
+/-- Recover the value-level soundness contract from a map and its product
+preservation. Comparisons need only act as identity on values; their packages
+need not be definitionally identities. Terminal compatibility follows from
+uniqueness of the value of `Unit`. Primitive meanings remain a local obligation. -/
+def soundOfProducts (K : Target Prim) (B : Type)
+    {E : HomEquiv (FirstOrderCategory.ops K)}
+    {meaning : {a b : Ty} → Prim a b → Val B a → Val B b}
+    (denote : {a b : Ty} → K.Hom a b → Val B a → Val B b)
+    (L : MapLaws (⟨Val B, denote⟩ : RawMap (FirstOrderCategory.ops K) FunctionCategory.ops)
+      E (equality _))
+    (j : ProductMap (⟨Val B, denote⟩ : RawMap (FirstOrderCategory.ops K) FunctionCategory.ops)
+      (FirstOrderCategory.products K) FunctionCategory.products)
+    (PJ : ProductMapLaws (equality _) j)
+    (hom : ∀ a b (x : Val B (.prod a b)), (j a b).hom x = x)
+    (inv : ∀ a b (x : Val B a × Val B b), (j a b).inv x = x)
+    (primitive : ∀ {a b} (p : Prim a b) x, denote (K.primitive p) x = meaning p x) :
+    Sound B K meaning where
+  denote := denote
+  ident x := congrFun L.ident x
+  comp g f x := congrFun (L.comp g f) x
+  terminal x := Subsingleton.elim _ _
+  fst {a b} x := by
+    have h := congrFun (PJ.fst (a := a) (b := b)) x
+    change denote K.fst x = ((j a b).hom x).1 at h
+    rw [hom] at h
+    exact h
+  snd {a b} x := by
+    have h := congrFun (PJ.snd (a := a) (b := b)) x
+    change denote K.snd x = ((j a b).hom x).2 at h
+    rw [hom] at h
+    exact h
+  pair f g x := (congrFun (PJ.pair f g) x).trans (inv _ _ _)
+  primitive := primitive
+
 end SquareKit.FirstOrderNaturality

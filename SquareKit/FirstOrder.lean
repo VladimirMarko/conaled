@@ -60,23 +60,33 @@ theorem interpretation_laws (base : RelRep) {Prim : Ty → Ty → Type}
     SquareKit.MapLaws (interpretation base P) (SquareKit.equality _) (SquareKit.equality _) :=
   ⟨by intros; subst_vars; rfl, rfl, fun _ _ => rfl⟩
 
-def sound (base : RelRep) {Prim : Ty → Ty → Type}
+/-- Restrict semantic product preservation to the objects selected by the frontend. -/
+def semanticProducts (base : RelRep) {Prim : Ty → Ty → Type}
     {meaning : {a b : Ty} → Prim a b → Val base.S a → Val base.S b}
     (P : Primitives base Prim meaning) :
-    Sound base.S (target base P) meaning where
-  denote := ((interpretation base P).comp SquareKit.RelationalCategory.semantics).map
-  ident x := congrFun (SquareKit.RawMap.comp_laws (interpretation_laws base P)
-    SquareKit.RelationalCategory.semantics_laws).ident x
-  comp g f x := congrFun ((SquareKit.RawMap.comp_laws (interpretation_laws base P)
-    SquareKit.RelationalCategory.semantics_laws).comp g f) x
-  terminal _ := rfl
-  fst x := congrFun (SquareKit.RelationalCategory.semanticsProducts_laws.fst
-    (a := (interpretation base P).obj _) (b := (interpretation base P).obj _)) x
-  snd x := congrFun (SquareKit.RelationalCategory.semanticsProducts_laws.snd
-    (a := (interpretation base P).obj _) (b := (interpretation base P).obj _)) x
-  pair f g x := congrFun (SquareKit.RelationalCategory.semanticsProducts_laws.pair
-    ((interpretation base P).map f) ((interpretation base P).map g)) x
-  primitive _ _ := rfl
+    SquareKit.ProductMap ((interpretation base P).comp SquareKit.RelationalCategory.semantics)
+      (SquareKit.FirstOrderCategory.products (target base P)) SquareKit.FunctionCategory.products :=
+  fun a b => SquareKit.RelationalCategory.semanticsProducts (object base a) (object base b)
+
+theorem semanticProducts_laws (base : RelRep) {Prim : Ty → Ty → Type}
+    {meaning : {a b : Ty} → Prim a b → Val base.S a → Val base.S b}
+    (P : Primitives base Prim meaning) :
+    SquareKit.ProductMapLaws (SquareKit.equality _) (semanticProducts base P) where
+  fst {a b} := SquareKit.RelationalCategory.semanticsProducts_laws.fst
+    (a := object base a) (b := object base b)
+  snd {a b} := SquareKit.RelationalCategory.semanticsProducts_laws.snd
+    (a := object base a) (b := object base b)
+  pair f g := SquareKit.RelationalCategory.semanticsProducts_laws.pair f g
+
+def sound (base : RelRep) {Prim : Ty → Ty → Type}
+    {meaning : {a b : Ty} → Prim a b → Val base.S a → Val base.S b}
+    (P : Primitives base Prim meaning) : Sound base.S (target base P) meaning :=
+  SquareKit.FirstOrderNaturality.soundOfProducts (target base P) base.S
+    ((interpretation base P).comp SquareKit.RelationalCategory.semantics).map
+    (SquareKit.RawMap.comp_laws (interpretation_laws base P)
+      SquareKit.RelationalCategory.semantics_laws)
+    (semanticProducts base P) (semanticProducts_laws base P)
+    (fun _ _ _ => rfl) (fun _ _ _ => rfl) (fun _ _ => rfl)
 
 theorem compile_spec (base : RelRep) {Prim : Ty → Ty → Type}
     {meaning : {a b : Ty} → Prim a b → Val base.S a → Val base.S b}

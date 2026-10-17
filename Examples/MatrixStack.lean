@@ -38,7 +38,9 @@ theorem agree_preserving_tail (t : Term (MatrixCompiler.Prim R) Γ a)
       (MatrixCompiler.decode (context Γ) x, z) =
     (MatrixCompiler.decode a ((compile (MatrixCompiler.target R) t).mulVec x), z) := by
   apply Prod.ext
-  · exact (((jointSquare R t s).impl ⟨(x, MatrixCompiler.decode _ x, z), rfl⟩).property).symm
+  · exact (SquareKit.Comma.Exact.outputs_agree (MatrixCompiler.compileSquare R t)
+      (StackMachine.compileSquare (MatrixCompiler.meaning R) t s) rfl
+      (x := x) (y := (MatrixCompiler.decode _ x, z)) rfl).symm
   · have h := (compile
       (StackMachine.target (MatrixCompiler.Prim R) (MatrixCompiler.meaning R)) t).correct
         s (MatrixCompiler.decode _ x) z

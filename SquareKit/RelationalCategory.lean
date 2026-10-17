@@ -14,6 +14,13 @@ def ops : CategoryOps RelRep.{u} where
   ident := identity _
   comp := compose
 
+/-- Composition preserves the original relation on ordinary related inputs.
+The witness-space encoding remains inside the shared relational machinery. -/
+theorem compose_preserves {a b c : RelRep.{u}} (g : RelSquare b c) (f : RelSquare a b)
+    {r : a.R} {s : a.S} (h : a.Rel r s) :
+    c.Rel (g.impl (f.impl r)) (g.spec (f.spec s)) :=
+  (ops.comp g f).preserves h
+
 def products : ProductOps ops.{u} where
   prod := product
   fst := first _ _

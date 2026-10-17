@@ -249,4 +249,11 @@ theorem composed_matrix_action {a b c : Ty} (M : Code R b c) (N : Code R a b)
       (matrixFunctions R).map M ((matrixFunctions R).map N x) :=
   congrFun ((matrixFunctions_laws R).comp M N) x
 
+/-- The composed coordinate comparison acts identically on nested values. -/
+theorem matrixValueProducts_hom (a b : Ty) (x : Val R (.prod a b)) :
+    (matrixValueProducts R a b).hom x = x := decode_encode (.prod a b) x
+
+theorem matrixValueProducts_inv (a b : Ty) (x : Val R a × Val R b) :
+    (matrixValueProducts R a b).inv x = x := decode_encode (.prod a b) x
+
 end MatrixCompiler.Maps

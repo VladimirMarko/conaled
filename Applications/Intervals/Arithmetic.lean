@@ -71,6 +71,12 @@ def mulSquare : Relational.RelSquare (Relational.product representation represen
 def negSquare : Relational.RelSquare representation representation :=
   ⟨neg, Neg.neg, neg_contains⟩
 
+/-- Enclosure composes without selecting a decoded point from an interval. -/
+theorem neg_add_contains {I J : Interval} {x y : ℚ}
+    (hx : Contains I x) (hy : Contains J y) :
+    Contains (neg (add I J)) (-(x + y)) :=
+  SquareKit.RelationalCategory.compose_preserves negSquare addSquare (r := (I, J)) (s := (x, y)) ⟨hx, hy⟩
+
 def primitives : FirstOrderRelations.Primitives representation Arithmetic.Prim
     (@Arithmetic.meaning ℚ _) where
   impl := fun {a b} p => match p with

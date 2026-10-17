@@ -94,9 +94,7 @@ def compose {a b c : Ty} (g : Digital b c) (f : Digital a b) : Digital a c where
   value := g.value ∘ f.value
   timing := g.timing.comp f.timing
   correct {s τ v} h :=
-    ((SquareKit.RelationalCategory.witnessMap.map
-      (SquareKit.RelationalCategory.ops.comp g.relation f.relation)).left
-        ⟨(s, (τ, v)), h⟩).property
+    SquareKit.RelationalCategory.compose_preserves g.relation f.relation (r := s) (s := (τ, v)) h
 
 def terminate (a : Ty) : Digital a .unit where
   analog _ := ()

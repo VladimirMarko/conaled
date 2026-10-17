@@ -187,5 +187,15 @@ theorem compile_update (base : ChangeObj) {Prim : Ty → Ty → Type}
   simpa only [show ∀ y, (compile (target base P) t).run y = eval meaning t y from
     fun y => SquareKit.FirstOrderNaturality.compile_sound _ (sound base P) t y] using h
 
+/-- The compiled finite-change certificate, with the source evaluator as its
+semantic map, is reusable by any exact-agreement client. -/
+def compileSquare (base : ChangeObj) {Prim : Ty → Ty → Type}
+    {meaning : {a b : Ty} → Prim a b → Val base.X a → Val base.X b}
+    (P : Primitives base Prim meaning) (t : Term Prim Γ a) :
+    Squares.Square (updateRep (object base (context Γ))) (updateRep (object base a)) where
+  impl p := (eval meaning t p.1, (compile (target base P) t).change p.1 p.2)
+  spec := eval meaning t
+  commutes p := compile_update base P t p.1 p.2
+
 end Compiler
 end Incremental
