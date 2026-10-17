@@ -1,3 +1,5 @@
+import SquareKit.CommaVertical
+import Examples.CommaAgreement
 import SquareKit.CommaProductsExact
 import SquareKit.CommaLimits
 import SquareKit.MatrixDoubling

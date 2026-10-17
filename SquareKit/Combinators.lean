@@ -1,4 +1,4 @@
-import Squares
+import SquareKit.CommaAgreement
 
 /-! Reusable exact representations, vector lifting and synchronized implementations. -/
 universe u
@@ -26,24 +26,32 @@ theorem mapIndexed_compose {A B C : Rep.{u}} (ι : Type u)
   Square.ext (fun _ => rfl) (fun _ => rfl)
 
 /-- A pullback: two implementations must decode to the same semantic value. -/
-def synchronized {R₁ R₂ S : Type u} (d₁ : R₁ → S) (d₂ : R₂ → S) : Rep.{u} where
-  R := {p : R₁ × R₂ // d₁ p.1 = d₂ p.2}
-  S := S
-  decode p := d₁ p.val.1
+def synchronized {R₁ R₂ S : Type u} (d₁ : R₁ → S) (d₂ : R₂ → S) : Rep.{u} :=
+  SquareKit.Comma.Exact.toRep (SquareKit.Comma.Exact.agreement d₁ d₂)
 
 def synchronize {R₁ R₂ S T₁ T₂ U : Type u}
     {d₁ : R₁ → S} {d₂ : R₂ → S} {e₁ : T₁ → U} {e₂ : T₂ → U}
     (f : Square ⟨R₁, S, d₁⟩ ⟨T₁, U, e₁⟩)
     (g : Square ⟨R₂, S, d₂⟩ ⟨T₂, U, e₂⟩)
     (same : ∀ s, f.spec s = g.spec s) :
-    Square (synchronized d₁ d₂) (synchronized e₁ e₂) where
-  impl p := ⟨(f.impl p.val.1, g.impl p.val.2), by
-    calc
-      e₁ (f.impl p.val.1) = f.spec (d₁ p.val.1) := f.commutes _
-      _ = g.spec (d₂ p.val.2) := (same _).trans (congrArg g.spec p.property)
-      _ = e₂ (g.impl p.val.2) := (g.commutes _).symm⟩
-  spec := f.spec
-  commutes p := f.commutes p.val.1
+    Square (synchronized d₁ d₂) (synchronized e₁ e₂) :=
+  SquareKit.Comma.Exact.toSquare (SquareKit.Comma.Exact.agree
+    (SquareKit.Comma.Exact.ofSquare f) (SquareKit.Comma.Exact.ofSquare g) (funext same))
+
+@[simp] theorem synchronized_as_agreement {R₁ R₂ S : Type u}
+    (d₁ : R₁ → S) (d₂ : R₂ → S) :
+    SquareKit.Comma.Exact.ofRep (synchronized d₁ d₂) =
+      SquareKit.Comma.Exact.agreement d₁ d₂ := rfl
+
+@[simp] theorem synchronize_as_agree {R₁ R₂ S T₁ T₂ U : Type u}
+    {d₁ : R₁ → S} {d₂ : R₂ → S} {e₁ : T₁ → U} {e₂ : T₂ → U}
+    (f : Square ⟨R₁, S, d₁⟩ ⟨T₁, U, e₁⟩)
+    (g : Square ⟨R₂, S, d₂⟩ ⟨T₂, U, e₂⟩)
+    (same : ∀ s, f.spec s = g.spec s) :
+    SquareKit.Comma.Exact.ofSquare (synchronize f g same) =
+      SquareKit.Comma.Exact.agree (d₁ := d₁) (d₂ := d₂) (e₁ := e₁) (e₂ := e₂)
+        (SquareKit.Comma.Exact.ofSquare f)
+        (SquareKit.Comma.Exact.ofSquare g) (funext same) := rfl
 
 theorem synchronize_agrees {R₁ R₂ S T₁ T₂ U : Type u}
     {d₁ : R₁ → S} {d₂ : R₂ → S} {e₁ : T₁ → U} {e₂ : T₂ → U}
