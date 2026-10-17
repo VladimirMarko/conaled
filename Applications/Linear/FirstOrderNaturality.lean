@@ -1,5 +1,5 @@
 import SquareKit.FirstOrderNaturality
-import Applications.Linear.Maps
+import Applications.Linear.Compiler
 import SquareKit.MatrixCategory
 
 namespace MatrixCompiler.Naturality

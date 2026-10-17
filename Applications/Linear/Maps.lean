@@ -1,7 +1,7 @@
 import SquareKit.CartesianMap
 import SquareKit.FunctionCategory
 import SquareKit.FirstOrderCategory
-import Applications.Linear.Compiler
+import Applications.Linear.Operations
 
 set_option backward.isDefEq.respectTransparency false
 set_option backward.isDefEq.respectTransparency.types false
