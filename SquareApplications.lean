@@ -1,3 +1,4 @@
+import Examples.OptionalSquares
 import SquareKit.CommaProductsExact
 import SquareKit.CommaLimits
 import SquareKit.MatrixDoubling
