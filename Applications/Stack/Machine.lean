@@ -1,3 +1,4 @@
+import SquareKit.FirstOrderNaturality
 import FirstOrder
 import SquareKit.Combinators
 
@@ -176,7 +177,7 @@ theorem compile_correct {B : Type} {Prim : Ty → Ty → Type}
     run meaning ((compile (target Prim meaning) t).code s) (ρ, z) =
       (eval meaning t ρ, z) := by
   rw [(compile (target Prim meaning) t).correct]
-  exact congrArg (fun x => (x, z)) (compile_sound _ (sound Prim meaning) t ρ)
+  exact congrArg (fun x => (x, z)) (SquareKit.FirstOrderNaturality.compile_sound _ (sound Prim meaning) t ρ)
 
 def compileSquare {B : Type} {Prim : Ty → Ty → Type}
     (meaning : {a b : Ty} → Prim a b → Val B a → Val B b)
