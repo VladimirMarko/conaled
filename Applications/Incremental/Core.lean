@@ -1,3 +1,5 @@
+import SquareKit.FirstOrderNaturality
+import SquareKit.RelationalCategory
 import FirstOrder
 import SquareKit.Combinators
 
@@ -141,16 +143,37 @@ def target (base : ChangeObj) {Prim : Ty → Ty → Type}
     fun x dx => Prod.ext (f.correct x dx) (g.correct x dx)⟩
   primitive p := ⟨meaning p, P.change p, P.correct p⟩
 
+/-- Exact finite updates enter the relational category through their graph.
+The implementation retains both the old output and its finite change. -/
+def interpretation (base : ChangeObj) {Prim : Ty → Ty → Type}
+    {meaning : {a b : Ty} → Prim a b → Val base.X a → Val base.X b}
+    (P : Primitives base Prim meaning) :
+    SquareKit.RawMap (SquareKit.FirstOrderCategory.ops (target base P))
+      SquareKit.RelationalCategory.ops where
+  obj a := Relational.graph (updateRep (object base a))
+  map f := Relational.ofSquare (square f)
+
+theorem interpretation_laws (base : ChangeObj) {Prim : Ty → Ty → Type}
+    {meaning : {a b : Ty} → Prim a b → Val base.X a → Val base.X b}
+    (P : Primitives base Prim meaning) :
+    SquareKit.MapLaws (interpretation base P) (SquareKit.equality _) (SquareKit.equality _) :=
+  ⟨by intros; subst_vars; rfl, rfl, fun _ _ => rfl⟩
+
 def sound (base : ChangeObj) {Prim : Ty → Ty → Type}
     {meaning : {a b : Ty} → Prim a b → Val base.X a → Val base.X b}
     (P : Primitives base Prim meaning) : Sound base.X (target base P) meaning where
-  denote f := f.run
-  ident _ := rfl
-  comp _ _ _ := rfl
+  denote := ((interpretation base P).comp SquareKit.RelationalCategory.semantics).map
+  ident x := congrFun (SquareKit.RawMap.comp_laws (interpretation_laws base P)
+    SquareKit.RelationalCategory.semantics_laws).ident x
+  comp g f x := congrFun ((SquareKit.RawMap.comp_laws (interpretation_laws base P)
+    SquareKit.RelationalCategory.semantics_laws).comp g f) x
   terminal _ := rfl
-  fst _ := rfl
-  snd _ := rfl
-  pair _ _ _ := rfl
+  fst x := congrFun (SquareKit.RelationalCategory.semanticsProducts_laws.fst
+    (a := (interpretation base P).obj _) (b := (interpretation base P).obj _)) x
+  snd x := congrFun (SquareKit.RelationalCategory.semanticsProducts_laws.snd
+    (a := (interpretation base P).obj _) (b := (interpretation base P).obj _)) x
+  pair f g x := congrFun (SquareKit.RelationalCategory.semanticsProducts_laws.pair
+    ((interpretation base P).map f) ((interpretation base P).map g)) x
   primitive _ _ := rfl
 
 theorem compile_update (base : ChangeObj) {Prim : Ty → Ty → Type}
@@ -162,7 +185,7 @@ theorem compile_update (base : ChangeObj) {Prim : Ty → Ty → Type}
   change update base a ((compile (target base P) t).run x) _ =
     (compile (target base P) t).run _ at h
   simpa only [show ∀ y, (compile (target base P) t).run y = eval meaning t y from
-    fun y => compile_sound _ (sound base P) t y] using h
+    fun y => SquareKit.FirstOrderNaturality.compile_sound _ (sound base P) t y] using h
 
 end Compiler
 end Incremental

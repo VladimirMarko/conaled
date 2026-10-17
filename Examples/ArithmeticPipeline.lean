@@ -1,3 +1,4 @@
+import SquareKit.CommaAgreement
 import SquareKit.Arithmetic
 import Applications.AD.Compiler
 import Applications.Stack.Machine
@@ -18,6 +19,9 @@ its old result using the separately compiled incremental program.
 theorems quantify over all typed source terms, contexts, values, and stack
 tails; they are not comparisons of a few sampled executions.
 -/
+
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
 
 namespace Examples.ArithmeticPipeline
 
@@ -83,10 +87,27 @@ theorem stack_after_update (t : Term Arithmetic.Prim Γ a) (s : List Ty)
     (ρ : QVal (context Γ)) (dρ : QDelta (context Γ)) (z : StackMachine.Stack ℚ s) :
     stackRun t s (update (context Γ) ρ dρ) z =
       (update a (stackRun t s ρ z).1 ((incremental t).change ρ dρ), z) := by
-  rw [stackRun_correct, stackRun_correct]
-  exact congrArg (fun y => (y, z))
-    (Incremental.Compiler.compile_update (Incremental.additive ℚ)
-      (Incremental.arithmeticPrimitives ℚ) t ρ dρ).symm
+  let i : Squares.Square
+      (Incremental.updateRep (Incremental.Compiler.object (Incremental.additive ℚ) (context Γ)))
+      (Incremental.updateRep (Incremental.Compiler.object (Incremental.additive ℚ) a)) := {
+    impl p := (eval Arithmetic.meaning t p.1, (incremental t).change p.1 p.2)
+    spec := eval Arithmetic.meaning t
+    commutes p := Incremental.Compiler.compile_update (Incremental.additive ℚ)
+      (Incremental.arithmeticPrimitives ℚ) t p.1 p.2 }
+  let joint := SquareKit.Comma.Exact.toSquare (SquareKit.Comma.Exact.agree
+    (R₂ := QVal (context Γ) × StackMachine.Stack ℚ s)
+    (T₂ := QVal a × StackMachine.Stack ℚ s)
+    (SquareKit.Comma.Exact.ofSquare i)
+    (SquareKit.Comma.Exact.ofSquare (StackMachine.compileSquare (B := ℚ) Arithmetic.meaning t s)) rfl)
+  have h := (joint.impl ⟨((ρ, dρ), update (context Γ) ρ dρ, z), rfl⟩).property
+  apply Prod.ext
+  ·
+    rw [stackRun_correct t s ρ z]
+    exact h.symm
+  · change (stackRun t s (update (context Γ) ρ dρ) z).2 = z
+    have ht := congrArg (fun p : QVal a × StackMachine.Stack ℚ s => p.2)
+      (stackRun_correct t s (update (context Γ) ρ dρ) z)
+    exact ht
 
 /-- Interval enclosure applies to the actual bytecode result, for every related input. -/
 theorem stack_enclosed (t : Term Arithmetic.Prim Γ a) (s : List Ty)
