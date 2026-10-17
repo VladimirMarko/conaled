@@ -1,3 +1,5 @@
+import Examples.MatrixCompilerPreservation
+import SquareKit.CommaAgreement
 import Applications.Linear.Compiler
 import Applications.Stack.Machine
 
@@ -22,8 +24,10 @@ def jointSquare (t : Term (MatrixCompiler.Prim R) Γ a) (s : List Ty) :
       (Squares.synchronized
         (MatrixCompiler.decode (R := R) a)
         (Prod.fst : Val R a × StackMachine.Stack R s → Val R a)) :=
-  Squares.synchronize (MatrixCompiler.compileSquare R t)
-    (StackMachine.compileSquare (MatrixCompiler.meaning R) t s) (fun _ => rfl)
+  SquareKit.Comma.Exact.toSquare (SquareKit.Comma.Exact.agree
+    (SquareKit.Comma.Exact.ofSquare (MatrixCompiler.compileSquare R t))
+    (SquareKit.Comma.Exact.ofSquare
+      (StackMachine.compileSquare (MatrixCompiler.meaning R) t s)) rfl)
 
 /-- The complete bytecode result equals the matrix result and original tail. -/
 theorem agree_preserving_tail (t : Term (MatrixCompiler.Prim R) Γ a)
@@ -33,8 +37,13 @@ theorem agree_preserving_tail (t : Term (MatrixCompiler.Prim R) Γ a)
       ((compile (StackMachine.target (MatrixCompiler.Prim R) (MatrixCompiler.meaning R)) t).code s)
       (MatrixCompiler.decode (context Γ) x, z) =
     (MatrixCompiler.decode a ((compile (MatrixCompiler.target R) t).mulVec x), z) := by
-  rw [StackMachine.compile_correct]
-  exact congrArg (fun y => (y, z)) ((MatrixCompiler.compileSquare R t).commutes x).symm
+  apply Prod.ext
+  · exact (((jointSquare R t s).impl ⟨(x, MatrixCompiler.decode _ x, z), rfl⟩).property).symm
+  · have h := (compile
+      (StackMachine.target (MatrixCompiler.Prim R) (MatrixCompiler.meaning R)) t).correct
+        s (MatrixCompiler.decode _ x) z
+    have hs := congrArg (fun p : Val R a × StackMachine.Stack R s => p.2) h
+    exact hs
 
 /-- The two outputs of the synchronized implementation always agree. -/
 theorem joint_outputs_agree (t : Term (MatrixCompiler.Prim R) Γ a) (s : List Ty)
