@@ -33,6 +33,29 @@ Put reference shared by user-invoked skills in a plain file that each can
 read directly, so sharing instructions does not depend on invoking another
 workflow.
 
+## Using a skill from another skill
+
+Use and follow the named skill through the current host's supported mechanism.
+When a dedicated invocation tool is available, use it as supported (including
+Claude Code's Skill tool). Otherwise, read the identified `SKILL.md` and its
+required references with available file or resource tools, then follow them.
+Resolve repository skill links relative to the referring file; for installed
+skills use the host's catalog paths or resource identifiers. Report an unavailable
+required skill rather than pretending it ran.
+
+Preserve the target's invocation policy and permission requirements. A pointer
+or a shared-reference read does not authorize a user-only workflow. Recommend
+explicit invocation when required. Reading vocabulary or a procedure as a
+reference does not launch its enclosing workflow.
+
+For workflow-level repository guidance lookup, prefer applicable `AGENTS.md`;
+use `CLAUDE.md` as a conditional fallback where appropriate and present. This
+lookup is not a claim about automatic instruction discovery. When both exist,
+respect the host's instruction precedence and applicable scope; do not override
+already loaded instructions based on this filename preference. Keep root
+instruction files short and point to skill packages or optional project rules.
+Do not silently change global agent configuration or fallback filenames.
+
 ## Splitting by invocation
 
 The invocation cut of splitting (the sequence cut lives in `SKILL.md`): split off a model-invoked skill when you have a distinct leading word that should trigger it on its own (a trigger word you actually use in your prompts), or another skill must reach it. You pay context load for the new always-loaded description, so that independent reach has to be worth it.

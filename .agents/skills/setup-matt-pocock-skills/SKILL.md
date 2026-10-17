@@ -64,17 +64,17 @@ Offer **multi-context** (a root `GLOSSARY-MAP.md` pointing to per-context `GLOSS
 
 Show the user a draft of:
 
-- The `## Agent skills` block to add to whichever of `CLAUDE.md` / `AGENTS.md` is being edited (see step 4 for selection rules)
+- The `## Agent skills` block to add to whichever of `AGENTS.md` / `CLAUDE.md` is being edited (see step 4 for selection rules)
 - The contents of `docs/agents/issue-tracker.md`, `docs/agents/domain.md`, and `docs/agents/triage-labels.md` (the last only when `triage` is installed)
 
 Let them edit before writing.
 
 ### 4. Write
 
-**Pick the file to edit:**
+**Pick the file to edit:** Follow the [workflow lookup and host precedence rules](../writing-for-agents/SKILL-MECHANICS.md#using-a-skill-from-another-skill). This selects a local edit target; it does not configure automatic instruction loading.
 
-- If `CLAUDE.md` exists, edit it.
-- Else if `AGENTS.md` exists, edit it.
+- Prefer the applicable `AGENTS.md` when it exists.
+- Otherwise use `CLAUDE.md` as a fallback when present and appropriate.
 - If neither exists, ask the user which one to create; don't pick for them.
 
 Never create `AGENTS.md` when `CLAUDE.md` already exists (or vice versa); always edit the one that's already there.

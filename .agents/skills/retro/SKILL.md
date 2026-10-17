@@ -4,11 +4,13 @@ description: "Conduct a retrospective on a coding session."
 disable-model-invocation: true
 ---
 
+For inter-skill use, follow [the host invocation policy](../writing-for-agents/SKILL-MECHANICS.md#using-a-skill-from-another-skill).
+
 The user has asked for a **retrospective**. You are suggesting improvements to the coding agent's **environment** to improve future runs.
 
 ## Steps
 
-1. Call the Skill tool with `writing-for-agents` for the writing style guide.
+1. Use and follow [writing-for-agents](../writing-for-agents/SKILL.md) for the writing style guide.
 
 2. Read the primary sources for the session the user specifies. This may mean searching through session logs on this machine. If the user doesn't specify a session, default to the current one.
 
@@ -38,7 +40,7 @@ This means that the review agent should be responsible for imposing coding stand
 
 You have access to several files in the repo:
 
-- `CLAUDE.md`/`AGENTS.md`: these files are pushed to the context window of any agent working in this repo. They should be used incredibly sparingly, usually only for **navigation pointers** to other files.
+- `AGENTS.md`: prefer applicable repository guidance; consult `CLAUDE.md` as a fallback when present and appropriate. Automatic loading and precedence depend on the host, as described in the shared invocation policy. Keep these files short, usually containing **navigation pointers**. Propose global configuration changes separately; do not silently apply them.
 - `CODING_STANDARDS.md`: this file is read during review, not implementation. Add **navigation pointers** to docs folders if the standards file gets more than 1,000 lines long.
 - Docs: use docs as references files, pointed to by other files. Look for existing docs before writing new ones.
 - Skills: use skills for docs (since their description goes into the agent's context window), or for user-invoked commands. Follow the advice in the `writing-for-agents` skill.
