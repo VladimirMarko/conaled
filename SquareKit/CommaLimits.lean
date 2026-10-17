@@ -1,4 +1,6 @@
 import SquareKit.CommaLawful
+import SquareKit.CommaProducts
+import Mathlib.CategoryTheory.Limits.Shapes.BinaryProducts.ProdComparison
 import Mathlib.CategoryTheory.Limits.Comma
 
 /-! For lawful categories only the right interpretation must preserve the
@@ -43,4 +45,23 @@ noncomputable def lawfulConeComparison {F : I ⥤ CategoryTheory.Comma L R} (c :
     (hb : IsLimit ((CategoryTheory.Comma.snd L R).mapCone c)) :
     c.pt ≅ (lawfulLimitCone F ((CategoryTheory.Comma.fst L R).mapCone c) hb).pt :=
   (lawfulConeIsLimit c ha hb).conePointUniqueUpToIso (lawfulLimitIsLimit F ha hb)
+/-- Convert the chosen raw projections, retaining their actual connector. -/
+def rawBinaryFan
+    (p : ProductOps (ops (equalityCongr _) (ofCategoryLaws T)
+      (RawMap.ofFunctor_laws L) (RawMap.ofFunctor_laws R)))
+    (a b : Obj (RawMap.ofFunctor L) (RawMap.ofFunctor R)) :
+    BinaryFan (toMathlib L R a) (toMathlib L R b) :=
+  BinaryFan.mk (homToMathlib L R (p.fst (a := a) (b := b)))
+    (homToMathlib L R (p.snd (a := a) (b := b)))
+
+/-- In particular, take `p = Comma.productOps ...`. Source limit proofs and
+right preservation identify that raw connector with the lawful lifted limit. -/
+def rawBinaryFanIsLimit
+    (p : ProductOps (ops (equalityCongr _) (ofCategoryLaws T)
+      (RawMap.ofFunctor_laws L) (RawMap.ofFunctor_laws R)))
+    (a b : Obj (RawMap.ofFunctor L) (RawMap.ofFunctor R))
+    [PreservesLimit ((pair (toMathlib L R a) (toMathlib L R b)) ⋙ CategoryTheory.Comma.snd L R) R]
+    (ha : IsLimit ((CategoryTheory.Comma.fst L R).mapCone (rawBinaryFan p a b)))
+    (hb : IsLimit ((CategoryTheory.Comma.snd L R).mapCone (rawBinaryFan p a b))) :
+    IsLimit (rawBinaryFan p a b) := lawfulConeIsLimit _ ha hb
 end SquareKit.Comma
