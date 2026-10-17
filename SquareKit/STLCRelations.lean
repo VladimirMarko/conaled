@@ -1,5 +1,6 @@
 import Compiler
-import SquareKit.Relations
+import SquareKit.RelationalCategory
+import SquareKit.STLCNaturality
 
 /-!
 # The full simply typed compiler over relational squares
@@ -13,6 +14,9 @@ functions to semantic functions is assumed or constructed.
 Sums relate only matching tags. This makes categorical case analysis sound
 while preserving the captured context through the distribution operation.
 -/
+
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
 
 namespace STLCRelations
 
@@ -56,13 +60,12 @@ def target (base : RelRep) {Prim : Ty → Ty → Type}
   ident := ⟨id, id, id⟩
   comp g f := Relational.compose g f
   terminal := ⟨fun _ => (), fun _ => (), fun _ => True.intro⟩
-  fst := ⟨Prod.fst, Prod.fst, And.left⟩
-  snd := ⟨Prod.snd, Prod.snd, And.right⟩
-  pair f g := ⟨fun x => (f.impl x, g.impl x), fun x => (f.spec x, g.spec x),
-    fun h => ⟨f.preserves h, g.preserves h⟩⟩
-  curry f := ⟨fun x a => f.impl (x, a), fun x a => f.spec (x, a),
-    fun hx _ _ ha => f.preserves ⟨hx, ha⟩⟩
-  apply := ⟨fun p => p.1 p.2, fun p => p.1 p.2, fun h => h.1 h.2⟩
+  fst := SquareKit.RelationalCategory.products.fst (a := object base _) (b := object base _)
+  snd := SquareKit.RelationalCategory.products.snd (a := object base _) (b := object base _)
+  pair f g := SquareKit.RelationalCategory.products.pair f g
+  curry {x a b} f := SquareKit.RelationalCategory.closed.curry
+    (x := object base x) (a := object base a) (b := object base b) f
+  apply := SquareKit.RelationalCategory.closed.evaluation (a := object base _) (b := object base _)
   inl := ⟨Sum.inl, Sum.inl, fun h => h⟩
   inr := ⟨Sum.inr, Sum.inr, fun h => h⟩
   copair f g := ⟨Sum.elim f.impl g.impl, Sum.elim f.spec g.spec, by
@@ -85,30 +88,78 @@ def target (base : RelRep) {Prim : Ty → Ty → Type}
       · exact ⟨hx, hy⟩⟩
   primitive p := ⟨P.impl p, meaning p, P.correct p⟩
 
-def sound (base : RelRep) {Prim : Ty → Ty → Type}
-    {meaning : {a b : Ty} → Prim a b → Val base.S a → Val base.S b}
-    (P : Primitives base Prim meaning) : Sound base.S (target base P) meaning where
-  denote f := f.spec
-  ident _ := rfl
-  comp _ _ _ := rfl
-  terminal _ := rfl
-  fst _ := rfl
-  snd _ := rfl
-  pair _ _ _ := rfl
-  curry _ _ _ := rfl
-  apply _ := rfl
-  inl _ := rfl
-  inr _ := rfl
-  copair _ _ _ := rfl
-  dist x := by rcases x with ⟨x, y⟩; cases y <;> rfl
-  primitive _ _ := rfl
+open SquareKit
+
+section Interpretation
+variable (base : RelRep) {Prim : Ty → Ty → Type}
+variable {meaning : {a b : Ty} → Prim a b → Val base.S a → Val base.S b}
+variable (P : Primitives base Prim meaning)
+
+/-- The typed target enters the relational category without discarding either map. -/
+def inclusion : RawMap (STLCCategory.ops (target base P)) RelationalCategory.ops where
+  obj := object base
+  map f := f
+
+theorem inclusion_laws : MapLaws (inclusion base P) (equality _) (equality _) where
+  congr := by intros; subst_vars; rfl
+  ident := rfl
+  comp _ _ := rfl
+
+/-- Projection selects the semantic horizontal arrow, not a decoder of runtime values. -/
+def interpretation := (inclusion base P).comp RelationalCategory.semantics
+
+theorem interpretation_laws : MapLaws (interpretation base P) (equality _) (equality _) :=
+  RawMap.comp_laws (inclusion_laws base P) RelationalCategory.semantics_laws
+
+/-- The full-source preservation package records only local operation compatibility. -/
+theorem interpretation_preserves : STLCNaturality.Preserves (interpretation base P)
+    (equality _) (STLCNaturality.ofTarget (target base P))
+    (STLCNaturality.semantics base.S meaning) where
+  terminal := rfl
+  fst := rfl
+  snd := rfl
+  pair _ _ := rfl
+  inl := rfl
+  inr := rfl
+  copair _ _ := rfl
+  dist := funext (fun ⟨_, y⟩ => by cases y <;> rfl)
+  curry _ := rfl
+  apply := rfl
+  primitive _ := rfl
+
+/-- Compatibility with the original API uses the same map and preservation package. -/
+def sound : Sound base.S (target base P) meaning where
+  denote := (interpretation base P).map
+  ident x := congrFun (interpretation_laws base P).ident x
+  comp g f x := congrFun ((interpretation_laws base P).comp g f) x
+  terminal x := congrFun (interpretation_preserves base P).terminal x
+  fst x := congrFun (interpretation_preserves base P).fst x
+  snd x := congrFun (interpretation_preserves base P).snd x
+  pair f g x := congrFun ((interpretation_preserves base P).pair f g) x
+  curry f x a := congrFun (congrFun ((interpretation_preserves base P).curry f) x) a
+  apply x := congrFun (interpretation_preserves base P).apply x
+  inl x := congrFun (interpretation_preserves base P).inl x
+  inr x := congrFun (interpretation_preserves base P).inr x
+  copair f g x := congrFun ((interpretation_preserves base P).copair f g) x
+  dist x := congrFun (interpretation_preserves base P).dist x
+  primitive p x := congrFun ((interpretation_preserves base P).primitive p) x
+
+end Interpretation
 
 theorem compile_spec (base : RelRep) {Prim : Ty → Ty → Type}
     {meaning : {a b : Ty} → Prim a b → Val base.S a → Val base.S b}
     (P : Primitives base Prim meaning) (t : Term Prim Γ a)
     (ρ : Val base.S (context Γ)) :
-    (compile (target base P) t).spec ρ = eval meaning t ρ :=
-  compile_sound (target base P) (sound base P) t ρ
+    (compile (target base P) t).spec ρ = eval meaning t ρ := by
+  have h := STLCNaturality.naturality (interpretation_laws base P) (equalityCongr _)
+    (show STLCNaturality.ModelCongr (equality _) (STLCNaturality.semantics base.S meaning) from
+      ⟨by intros; subst_vars; rfl, by intros; subst_vars; rfl, by intros; subst_vars; rfl⟩)
+    (interpretation_preserves base P) t
+  have hp := congrFun h ρ
+  change (STLCNaturality.compile (STLCNaturality.ofTarget (target base P)) t).spec ρ =
+    STLCNaturality.compile (STLCNaturality.semantics base.S meaning) t ρ at hp
+  rw [STLCNaturality.compile_ofTarget, STLCNaturality.semantics_compile] at hp
+  exact hp
 
 /-- The fundamental logical-relation theorem for every source term. -/
 theorem compile_preserves (base : RelRep) {Prim : Ty → Ty → Type}
