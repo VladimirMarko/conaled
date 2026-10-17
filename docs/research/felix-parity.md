@@ -2,6 +2,16 @@
 
 This is the research deliverable for [#1](https://github.com/VladimirMarko/conaled/issues/1), whose requirements were inspected at `updatedAt = 2026-10-17T04:58:03Z`. The proposed implementation work is in [the ordered plan](felix-parity-plan.md). P1–P6 below identify that plan's coverage groups, not completed implementations. [Milestone #15](https://github.com/VladimirMarko/conaled/issues/15) is the execution spec; its direct sub-issues split those groups into implementation tickets.
 
+## Implementation evidence
+
+[The #15 implementation report](felix-parity-implementation.md) traces P1–P6
+and every execution ticket to declarations, checked applications and combined
+caller-work ledgers at `bdef52594f560611dbb42ff66136806936c7164d`. It records a
+fresh 93-module build and axiom audit. The historical inventory below still
+compares the original inspected baseline; its “missing” entries are not claims
+about that implementation revision. Independent integration review and milestone
+completion are recorded on #15 by the implementation workflow.
+
 ## Evidence and scope
 
 The Felix baseline remains `6f36d28097db7ea5f5df3263db3e8be08f74e490`; the inspected local baseline is `c17daf5a66b9812fdbc0cb37cd4e9c49b1949ce8`. Mathlib is `56a005855ea17e0b0958f73ec801ae140b0a1679` and Lean is 4.35.0, as recorded in [local provenance](https://github.com/VladimirMarko/conaled/blob/c17daf5a66b9812fdbc0cb37cd4e9c49b1949ce8/docs/SOURCES.md). All links below pin source revisions. Declaration names identify the evidence even when a link covers a module.
