@@ -1,6 +1,7 @@
 import SquareKit.CommaProductsExact
 import SquareKit.CommaLimits
 import SquareKit.MatrixDoubling
+import Applications.Linear.FirstOrderNaturality
 import Examples.CommaSquares
 import Examples.CategoryMaps
 import Applications.Linear.Maps
