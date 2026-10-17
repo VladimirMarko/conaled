@@ -1,3 +1,5 @@
+import Examples.CategoryMaps
+import SquareKit.MatrixMaps
 import Applications.AD.Compiler
 import Applications.AD.Core
 import Applications.AD.Generalized

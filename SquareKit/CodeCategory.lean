@@ -1,4 +1,5 @@
-import SquareKit.Category
+import SquareKit.FunctionCategory
+import SquareKit.CartesianMap
 import Compiler
 
 set_option backward.isDefEq.respectTransparency false
@@ -31,28 +32,63 @@ def equiv : HomEquiv (ops Prim) where
     r := Equivalent meaning
     iseqv := ⟨fun _ _ => rfl, fun h x => (h x).symm, fun h k x => (h x).trans (k x)⟩ }
 
-theorem congruence : CategoryCongr (ops Prim) (equiv meaning) where
-  comp := by
-    intro a b c g g' f f' hg hf x
-    exact (congrArg (run meaning g) (hf x)).trans (hg (run meaning f' x))
+/-- Evaluation supplies local preservation; all category algebra is shared. -/
+def evaluation : RawMap (ops Prim) FunctionCategory.ops where
+  obj := Val B
+  map := run meaning
 
-theorem laws : CategoryLaws (ops Prim) (equiv meaning) where
-  id_comp _ _ := rfl
-  comp_id _ _ := rfl
-  assoc := category_assoc meaning
+theorem evaluationLaws : MapLaws (evaluation meaning) (equiv meaning)
+    (equality FunctionCategory.ops) where
+  congr h := funext h
+  ident := rfl
+  comp _ _ := rfl
 
-theorem terminalLaws : TerminalLaws (equiv meaning) (terminal Prim) where
-  unique f x := by
-    change run meaning f x = ()
-    exact @Subsingleton.elim Unit inferInstance _ _
+theorem evaluationReflects : (evaluation meaning).Reflects (equiv meaning)
+    (equality FunctionCategory.ops) := fun h x => congrFun h x
 
-theorem productCongr : ProductCongr (equiv meaning) (products Prim) where
-  pair hf hg x := Prod.ext (hf x) (hg x)
+theorem congruence : CategoryCongr (ops Prim) (equiv meaning) :=
+  RawMap.transportCongr (evaluationLaws meaning) (evaluationReflects meaning)
+    (equalityCongr _)
 
-theorem productLaws : ProductLaws (equiv meaning) (products Prim) where
-  fst_pair := product_beta meaning
-  snd_pair _ _ _ := rfl
-  pair_eta := product_eta meaning
+theorem laws : CategoryLaws (ops Prim) (equiv meaning) :=
+  RawMap.transportLaws (evaluationLaws meaning) (evaluationReflects meaning)
+    (equalityCongr _) FunctionCategory.laws
+
+def terminalComparison : TerminalMap (evaluation meaning) (terminal Prim) FunctionCategory.terminal where
+  hom := fun _ => PUnit.unit
+  inv := fun _ => ()
+
+theorem terminalComparisonLaws : ComparisonLaws (equality _) (terminalComparison meaning) where
+  hom_inv := rfl
+  inv_hom := rfl
+
+theorem evaluationTerminal : TerminalMapLaws (equality _) (terminalComparison meaning) where
+  terminal := rfl
+
+/-- Evaluation preserves product objects strictly. -/
+def productComparison : ProductMap (evaluation meaning) (products Prim) FunctionCategory.products :=
+  fun _ _ => ⟨id, id⟩
+
+theorem productComparisonLaws (a b : Ty) :
+    ComparisonLaws (equality _) (productComparison meaning a b) := ⟨rfl, rfl⟩
+
+theorem evaluationProducts : ProductMapLaws (equality _) (productComparison meaning) where
+  fst := rfl
+  snd := rfl
+  pair _ _ := rfl
+
+theorem terminalLaws : TerminalLaws (equiv meaning) (terminal Prim) :=
+  TerminalMap.transportLaws (evaluationReflects meaning) (equalityCongr _) FunctionCategory.laws
+    (terminalComparisonLaws meaning) (evaluationTerminal meaning) FunctionCategory.terminalLaws
+
+theorem productCongr : ProductCongr (equiv meaning) (products Prim) :=
+  ProductMap.transportCongr (evaluationLaws meaning) (evaluationReflects meaning)
+    (equalityCongr _) (evaluationProducts meaning) FunctionCategory.productCongr
+
+theorem productLaws : ProductLaws (equiv meaning) (products Prim) :=
+  ProductMap.transportLaws (evaluationLaws meaning) (evaluationReflects meaning)
+    (equalityCongr _) FunctionCategory.laws (productComparisonLaws meaning)
+    (evaluationProducts meaning) FunctionCategory.productCongr FunctionCategory.productLaws
 
 /-- The raw trees differ even though their equivalence classes agree. -/
 theorem association_not_equal :
