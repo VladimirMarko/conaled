@@ -1,4 +1,5 @@
 import Examples.FullSourceNaturality
+import Examples.RelationalBridge
 import Examples.OptionalSquares
 import SquareKit.CommaVertical
 import Examples.CommaAgreement
