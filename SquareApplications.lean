@@ -1,3 +1,4 @@
+import Examples.FullSourceNaturality
 import Examples.OptionalSquares
 import SquareKit.CommaVertical
 import Examples.CommaAgreement
