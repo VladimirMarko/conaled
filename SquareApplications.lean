@@ -1,3 +1,4 @@
+import Examples.CommaSquares
 import Examples.CategoryMaps
 import Applications.Linear.Maps
 import Applications.AD.Compiler
