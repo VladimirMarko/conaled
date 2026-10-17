@@ -1,3 +1,4 @@
+import Applications.Linear.FirstOrderNaturality
 import Examples.CategoryMaps
 import Applications.Linear.Maps
 import Applications.AD.Compiler
