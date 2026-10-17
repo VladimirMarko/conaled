@@ -12,6 +12,10 @@ During repository initialization, all 76 non-bundle files in the ZIP were compar
 
 ## How to use these records
 
+The [reconciled extension list](../extensions.md) collects the possibilities
+discussion into issue scopes, applying Prompt 2's corrections and Response 2's
+reformulation. Use it instead of Response 1's superseded implementation sequence.
+
 The discussions remain useful as evidence of what was asked, proposed, and reported in those sessions. They are starting points for understanding the project's motivation and investigating future directions. A proposal here does not by itself establish an adopted requirement or architectural decision for this repository.
 
 Claims about implemented features, proofs, limitations, or verification results apply only to the version under discussion. The first chat describes successive stages of development, so even an earlier statement in that chat may have been superseded before the final archive. Check the corresponding source and Git history when relying on a claim. For claims about the current code, inspect and check the current revision with its declared Lean toolchain. Historical verification reports describe their original runs, not later changes.
