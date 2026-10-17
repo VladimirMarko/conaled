@@ -1,6 +1,7 @@
 # Arithmetic pipeline migration (#20)
 
-Review base: `96fe25784c6664880d1dc2b9c6b9814a1712fb12`.
+Review base: `8011533290fe6b36e4aca872d59edb87741f865d` after integrating #19.
+Original implementation base: `96fe25784c6664880d1dc2b9c6b9814a1712fb12`.
 The unrelated `a6cd22b` changes remain in the branch and outside this diff.
 
 The intended claim is unchanged: every arithmetic source program, environment,
@@ -72,10 +73,11 @@ Commands run from this worktree through the checked-in Nix/direnv shell:
 
 - `direnv exec . lake build Examples.ArithmeticPipeline`: passed.
 - `direnv exec . ./check-foundation.sh`: passed (exit 0).
-- `direnv exec . ./check.sh`: passed, all 86 modules rechecked from source;
+- `direnv exec . ./check.sh`: passed again after integrating #19, all 93 modules rechecked from source;
   exhaustive audit union `[propext, Classical.choice, Quot.sound]`.
 
-Local log paths are `/tmp/conaled-spec15/20-build.log`, `20-foundation.log`, and
-`20-fresh.log`. Project build output is worktree-local; only pinned dependency
+Local log paths are `/tmp/conaled-spec15/20-build.log` for the targeted build,
+`20-foundation-integrated.log` and `20-fresh-integrated.log` for the checks
+rerun after integration. Project build output is worktree-local; only pinned dependency
 packages are shared. No proof-audit implementation or runtime operation changed,
 so no new runtime harness or proof-audit regression fixture was introduced.
