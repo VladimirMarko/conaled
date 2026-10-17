@@ -36,6 +36,7 @@ import Applications.Timing.Intervals
 import Compiler
 import Dependent
 import Examples.ArithmeticPipeline
+import Examples.CategoryInstances
 import Examples.JetScan
 import Examples.MatrixStack
 import Examples.Run
