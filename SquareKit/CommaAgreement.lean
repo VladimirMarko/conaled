@@ -58,4 +58,14 @@ theorem agree_comp {R₁ R₂ S T₁ T₂ U V₁ V₂ W : Type u}
     agree (categoryOps.comp g₁ f₁) (categoryOps.comp g₂ f₂)
       (by change (fun x => g₁.right (f₁.right x)) = (fun x => g₂.right (f₂.right x)); rw [sf, sg]) =
       categoryOps.comp (agree g₁ g₂ sg) (agree f₁ f₂ sf) := rfl
+/-- Eliminate agreement directly to equality of observations. No inverse or
+uniqueness property of either representation is required. -/
+theorem outputs_agree {R₁ R₂ S T₁ T₂ U : Type u}
+    {d₁ : R₁ → S} {d₂ : R₂ → S} {e₁ : T₁ → U} {e₂ : T₂ → U}
+    (f : Squares.Square ⟨R₁, S, d₁⟩ ⟨T₁, U, e₁⟩)
+    (g : Squares.Square ⟨R₂, S, d₂⟩ ⟨T₂, U, e₂⟩)
+    (same : f.spec = g.spec) {x : R₁} {y : R₂} (compatible : d₁ x = d₂ y) :
+    e₁ (f.impl x) = e₂ (g.impl y) :=
+  ((agree (R₂ := R₂) (T₂ := T₂) (ofSquare f) (ofSquare g) same).left ⟨(x, y), compatible⟩).property
+
 end SquareKit.Comma.Exact

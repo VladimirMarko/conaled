@@ -87,19 +87,11 @@ theorem stack_after_update (t : Term Arithmetic.Prim Γ a) (s : List Ty)
     (ρ : QVal (context Γ)) (dρ : QDelta (context Γ)) (z : StackMachine.Stack ℚ s) :
     stackRun t s (update (context Γ) ρ dρ) z =
       (update a (stackRun t s ρ z).1 ((incremental t).change ρ dρ), z) := by
-  let i : Squares.Square
-      (Incremental.updateRep (Incremental.Compiler.object (Incremental.additive ℚ) (context Γ)))
-      (Incremental.updateRep (Incremental.Compiler.object (Incremental.additive ℚ) a)) := {
-    impl p := (eval Arithmetic.meaning t p.1, (incremental t).change p.1 p.2)
-    spec := eval Arithmetic.meaning t
-    commutes p := Incremental.Compiler.compile_update (Incremental.additive ℚ)
-      (Incremental.arithmeticPrimitives ℚ) t p.1 p.2 }
-  let joint := SquareKit.Comma.Exact.toSquare (SquareKit.Comma.Exact.agree
-    (R₂ := QVal (context Γ) × StackMachine.Stack ℚ s)
-    (T₂ := QVal a × StackMachine.Stack ℚ s)
-    (SquareKit.Comma.Exact.ofSquare i)
-    (SquareKit.Comma.Exact.ofSquare (StackMachine.compileSquare (B := ℚ) Arithmetic.meaning t s)) rfl)
-  have h := (joint.impl ⟨((ρ, dρ), update (context Γ) ρ dρ, z), rfl⟩).property
+  have h := SquareKit.Comma.Exact.outputs_agree
+    (Incremental.Compiler.compileSquare (Incremental.additive ℚ)
+      (Incremental.arithmeticPrimitives ℚ) t)
+    (StackMachine.compileSquare (B := ℚ) Arithmetic.meaning t s) rfl
+    (x := (ρ, dρ)) (y := (update (context Γ) ρ dρ, z)) rfl
   apply Prod.ext
   ·
     rw [stackRun_correct t s ρ z]
