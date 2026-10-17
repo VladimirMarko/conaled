@@ -234,6 +234,26 @@ theorem comparison_middle_entry :
       (.inr (.inl (0 : Fin 1))) (.inl (.inr (0 : Fin 1))) = 1 := by
   rfl
 
+theorem comparison_nonidentity :
+    (doublingProducts (⟨oneCoordinate⟩ : Source true) ⟨oneCoordinate⟩).hom ≠
+      (1 : Matrix ((Fin 1 ⊕ Fin 1) ⊕ (Fin 1 ⊕ Fin 1))
+        ((Fin 1 ⊕ Fin 1) ⊕ (Fin 1 ⊕ Fin 1)) Nat) := by
+  intro h
+  have k := congrArg (fun f : Matrix ((Fin 1 ⊕ Fin 1) ⊕ (Fin 1 ⊕ Fin 1))
+    ((Fin 1 ⊕ Fin 1) ⊕ (Fin 1 ⊕ Fin 1)) Nat => f (.inr (.inl 0)) (.inl (.inr 0))) h
+  change (1 : Nat) = 0 at k
+  contradiction
+
+theorem matrix_identity_commutes (a : Object.{u}) :
+    M.comp a.connector (identityMap.map (categoryOps.ident (a := a)).left) =
+      M.comp (doublingMap.map (categoryOps.ident (a := a)).right) a.connector :=
+  (categoryOps.ident (a := a)).commutes
+
+theorem matrix_comp_commutes {a b c : Object.{u}} (g : Arrow b c) (f : Arrow a b) :
+    M.comp c.connector (identityMap.map (categoryOps.comp g f).left) =
+      M.comp (doublingMap.map (categoryOps.comp g f).right) a.connector :=
+  (categoryOps.comp g f).commutes
+
 abbrev sourceTerminal (tag) : TerminalOps (sourceOps.{u} tag) where
   unit := ⟨Coordinates.empty⟩
   terminal := fun e => nomatch e
