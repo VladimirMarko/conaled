@@ -94,7 +94,7 @@ does not validate the application extension.
 | `Applications/Incremental/` | Finite changes and cache invariants, with a shared arithmetic source instance. |
 | `Applications/Intervals/` | Exact rational enclosures, four-corner multiplication, and higher-order source compilation by logical relations. |
 | `Applications/Convolution/` | Word-indexed weighted series, semiring laws, sparse polynomial normalization, coefficient and support homomorphisms. |
-| `Applications/FRP/` | Historical FRP specifications repaired and checked: chronological events and time-indexed batches, carrier equivalences, finite histories, and strict switching. [Scope and provenance](docs/history/frp/IMPORT.md). |
+| `Applications/FRP/` | Historical FRP specifications repaired and checked: chronological events and time-indexed batches, carrier equivalences, finite histories, and strict switching. [Scope and provenance](docs/history/frp/README.md). |
 | `Applications/Languages/` | Optimized derivatives, recognizers, finite trie observations, proof-relevant language isomorphisms, a total witness parser, and cross-representation proofs. |
 | `Applications/Timing/`, `Applications/Circuits/` | Setup/hold interval semiring, stable signals, independent values and linear timing, matrices, typed circuit AST, compiled adders and a proved carry hazard. |
 | `Examples/` | Universal compositions between independently implemented backends, plus executable displays. |

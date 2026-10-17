@@ -4,7 +4,7 @@ These files preserve work done in ChatGPT Pro before this repository was establi
 
 ## Origins
 
-- [FRP artifacts](frp/IMPORT.md) preserve a pre-repository conversation, two
+- [FRP artifacts](frp/README.md) preserve a pre-repository conversation, two
   untypechecked Lean drafts, explanatory notes, and a Python counterexample.
   The import note links the repaired, checked copies and records their limits.
 - [compiling-with-squares-chat.md](compiling-with-squares-chat.md) records the first chat, which led to `CompilingWithSquares.zip`. That archive contained the source tree and `CompilingWithSquares.bundle`, the Git history on which this repository is based. The imported baseline is commit `ceb4d6a39032c3e15d5fc80bd60a02a955b08788`, also tagged `applications-v2`; the earlier `foundation-v1` tag was preserved too.
