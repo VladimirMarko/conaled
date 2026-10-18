@@ -1443,3 +1443,15 @@ inverse tangent coefficient. See the [construction record](algebraic-kl-model.md
 The full smooth-function algebra on the open locus, cover descent,
 well-adaptedness and higher/cohesive obligations remain open; #36 remains
 incomplete.
+
+### Ordinary open-set algebra comparison (#84)
+
+The principal localization now agrees with the full algebra of ordinary smooth
+functions on its nonvanishing locus. Smooth partition-of-unity gluing constructs
+inverse-graph extensions without boundedness or compactness assumptions.
+Hadamard divisibility and local gluing prove the exact relation ideal as kernel.
+The resulting inverse smooth maps respect real evaluation and restriction to
+product principal opens. See the [construction record](algebraic-kl-model.md#full-smooth-functions-on-principal-opens-84).
+Formal-stage cover descent, broader localization base change and infinitesimal
+compatibility, well-adaptedness and higher/cohesive obligations remain open;
+#36 remains incomplete.

@@ -873,3 +873,58 @@ is the smooth-algebra comparison between this principal presentation and the
 algebra of smooth functions on its ordinary open locus, including the analytic
 extension argument needed for surjectivity. This would connect the proved
 universal presentation with the open-set geometry before introducing covers.
+
+### Full smooth functions on principal opens (#84)
+
+Kock, *Synthetic Differential Geometry*, second edition, III.6, Proposition 6.4
+and equations (6.6)–(6.7), pp. 165–167, identifies smooth functions on a principal
+open with the inverse-graph quotient. The proof combines local Hadamard
+divisibility with a partition of unity; the same gluing supplies extension from
+the closed graph. [Author's text](https://users-math.au.dk/kock/sdg99.pdf).
+
+`SquareKit/SmoothOpenFunctions.lean` defines the full ordinary smooth-function
+algebra on a subset using `ContDiffOn` of its zero extension. On an open subset,
+`smooth_iff` identifies this with smoothness at every domain point.
+`representative_iff` permits any ambient representative agreeing on the subset,
+requiring smoothness only there. Consequently the definition imposes no smooth
+extension across the boundary. Pointwise ring operations and all finite smooth
+operations preserve this condition. The repository's manifold/diffeology bridge
+uses the same ordinary calculus through `contMDiff_iff_contDiff`; this construction
+does not change that bridge or introduce a competing smoothness axiom.
+
+`SmoothLocalGluing` specializes pinned Mathlib's
+`exists_contMDiffMap_forall_mem_convex_of_local` to ordinary finite-dimensional
+calculus. It constructs global smooth functions satisfying convex pointwise
+constraints, including scalar linear equations and prescribed values on a
+closed set. Local candidates need only be smooth on their neighborhoods.
+The underlying partition of unity is locally finite; neither the closed set nor
+the desired function is required to be compact or bounded.
+
+`SmoothInverseGraph.extension` applies that gluing to the closed zero set of
+`f(x)t-1`, inside the open set where `f(x)` is nonzero. The local candidate is
+`g(x)`. `divisibility` uses the previously proved smooth Hadamard coefficient
+along the added coordinate. Where `f(x)` is nonzero, division by `f(x)` gives a
+local quotient by `f(x)t-1`. Off its zero set, ordinary division by the relation
+gives a local quotient. Gluing solutions to the scalar equation yields a
+globally smooth quotient. This proves exact ideal membership for this relation;
+it assumes no general point-detection or radical property of smooth ideals.
+
+`SmoothLocalizationOpen.graphRestriction_kernel` and
+`graphRestriction_surjective` produce `openEquiv`, with smooth maps `toOpen` and
+`fromOpen` and both inverse laws. The inverse may choose an extension, but
+`extension_independent` proves that all representatives of the same function
+give the same quotient class. The comparison respects original base functions,
+the inverse generator and the real-point universal evaluation from #83.
+Restriction to the principal open for a product commutes with the earlier
+iterated/product localization maps. The checked clients include `1/x`, which
+has no continuous extension at zero but does have an inverse-graph extension,
+`exp(1/x)`, empty and whole opens, and restriction to a smaller principal open.
+
+This identifies the full ordinary smooth-function algebra for principal opens
+of finite real coordinate spaces. Cover descent for formal stages, localization
+base change beyond these free stages, compatibility with infinitesimal
+extensions, well-adaptedness, general Weil KL and the higher/cohesive target
+remain open. One next bounded construction is principal localization of
+arbitrary finite-presentation smooth stages with its universal base-change
+square. That would extend the available restriction maps to the formal stages
+needed before a geometric coverage can be justified. #36 remains incomplete.
