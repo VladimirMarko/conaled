@@ -1,3 +1,4 @@
+import Examples.FRPFrontier
 import Examples.FRP
 import Examples.FullSourceNaturality
 import Examples.RelationalBridge
