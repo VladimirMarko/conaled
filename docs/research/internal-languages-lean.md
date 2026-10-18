@@ -8,6 +8,18 @@ survey; the compatibility judgments below are source inspections, not porting
 results. Commit dates record observed maintenance activity, not a maintenance
 guarantee.
 
+## Conventional comparison targets (#40)
+
+The [conventional orbifold assessment](conventional-orbifolds.md) supplies
+external targets that can be developed before the constructed model:
+finite smooth actions, explicit action groupoids, tangent intertwiners and
+quotient-diffeology coordinate comparisons. It records which maps forget
+ineffective isotropy and which effective reconstruction results need further
+proofs. These targets extend the obligations in Stage F below; completing
+them does not discharge #36's model or soundness requirements. Ordinary
+Lean clients remain independent of internal-language setup.
+
+
 ## Objective and ownership
 
 The objective is to let an author prove a theorem in an internal language,

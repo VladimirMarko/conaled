@@ -20,6 +20,18 @@ displacements, exact realization contracts, counterexamples, and follow-up
 proof obligations. It recommends framed development with explicit symmetry
 arrows, starting with the homogeneous disk case. It adds no Lean geometry.
 
+## Subsequent direction (#40)
+
+The [conventional orbifold assessment](conventional-orbifolds.md) selects a
+finite-action comparison through action groupoids and quotient diffeology,
+with a nonidentity coordinate change, isotropy and tangent compatibility.
+This is a useful conventional stage and comparison target. The internal
+model is now an explicit project goal owned by #36, superseding this
+preliminary note's proposal to reserve it unless needed. Existing historical
+findings below remain evidence for the distinction between ordinary Lean
+objects and internal synthetic geometry.
+
+
 ## What to extract from Myers
 
 David Jaz Myers' [paper, version 1](https://arxiv.org/html/2205.15887v1)

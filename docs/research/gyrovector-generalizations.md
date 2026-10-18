@@ -13,6 +13,18 @@ paths and transported frames provide a plausible general interface beyond
 homogeneous spaces. Selecting a universal gyrovector algebra, general
 orbifold foundation, or numerical integrator is premature.
 
+## Conventional foundation follow-up (#40)
+
+The [conventional orbifold assessment](conventional-orbifolds.md) supplies the
+foundation/comparison plan alongside #39's exact projective motions. It starts
+with explicit finite smooth actions, quotient diffeology and a coordinate
+change retaining arrow and tangent information. Reuse the quarter-turn action
+across these efforts; #39 continues to own the motion realizations. General
+presentation descent and ineffective isotropy remain separate from a motion's
+scalar redundancy. These conventional results are future comparison targets
+for #36's constructed internal model, which remains a project goal.
+
+
 ## Source comparison and hypotheses
 
 The following sources support different constructions. Their names do not

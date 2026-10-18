@@ -10,6 +10,21 @@ Response 1 and Response 2's final section, supplies the motivation; its
 [import annotations](../history/orbifold/README.md) and
 [preliminary research](orbifold-geometry.md) separate proposals from evidence.
 
+## Subsequent conventional comparison decision (#40)
+
+The [conventional reuse assessment](conventional-orbifolds.md) now selects
+finite smooth actions and a quotient-diffeology coordinate comparison as a
+useful stage toward the internal-model goal owned by #36. It refines slices
+A/C below and assigns projective motion realizations to #39; it does not
+replace the historical correspondence or discharge synthetic obligations.
+
+The earlier inventory's statement about absent stabilizer arrows concerns
+explicit arrow data. Quotient diffeology can retain enough information to
+reconstruct effective local groups under additional hypotheses; ineffective
+kernels remain lost. The new assessment records that distinction, source
+compatibility, transitive audit evidence and the missing quotient API.
+
+
 ## Assessment
 
 Start with explicit smooth group actions and their action groupoids in ordinary
