@@ -741,13 +741,74 @@ constructs the last element of every `Fin(n+1)` and recovers value n through
 both component evaluation and the actual counit. Existing regular, dependent,
 function-space and sum consumers remain imported together and unchanged.
 
-One next bounded slice is stability of exponentiable maps under pullback,
-applied to sheaf product projections obtained by pulling back `Γ → 1`.
-Pinned `LocallyCartesianClosed/ExponentiableMorphism.lean` lists this closure
-property as TODO; it currently supplies identity and composition closure.
-The terminal-map witness now gives an actual input for that construction.
-A proof must compare the two chosen pullback functors and the transported
-right adjoints, rather than infer stability from finite examples. Arbitrary
-base-map right adjoints and their Beck–Chevalley law remain separate, as do
-source dependent typing, identity elimination, universes, smooth scalars and
-sites, Kock–Lawvere, higher identities and cohesion. #36 remains open.
+Pullback stability and the product-projection application are now supplied
+by #64 below.
+
+## Pullback stability and projection products (#64)
+
+[SquareKit/ExponentiablePullback.lean](../../SquareKit/ExponentiablePullback.lean)
+constructs a right adjoint to `Over.pullback f'` for every actual pullback
+square of an exponentiable map f. Its inputs are a category with pullbacks,
+the square and an actual adjunction `Over.pullback f ⊣ R`. It does not require
+an adjunction for f'. `ordinaryAdjunction` converts any Mathlib
+`ExponentiableMorphism f` witness with its chosen pullbacks into this input.
+The result also supplies an explicit Mathlib witness using the ordinary
+limit-based pullback choice.
+
+For the canonical square, the construction slices the original adjunction
+with Mathlib's `Over.postAdjunctionLeft`. The resulting right adjoint applies
+`Over.post R`, then pulls back along the original unit component. The existing
+iterated-slice equivalences flatten the source and target categories.
+`pullbackRightPullbackFstIso` compares the left adjoint with the ordinary
+pullback along the new projection. Both pullback legs are preserved, with
+the base leg expressed as the existing `Family.reindex`.
+
+An arbitrary pullback square is isomorphic to the canonical one. Transport
+through its domain equivalence supplies `squareRightAdjoint` and
+`squareAdjunction`. Public equations preserve both domain projections and
+the reindexed display under this comparison. The hom equivalence has beta,
+eta, naturality in both arguments and both triangle laws. These local
+comparisons account for chosen limits; they do not change global instances.
+
+[SquareKit/SheafProjectionProduct.lean](../../SquareKit/SheafProjectionProduct.lean)
+applies stability to the terminal-map adjunction from #63. The explicit
+ordinary projection `A × Γ → Γ` is the new exponentiable map, with no caller
+local-cartesian-closedness assumption. The supported section universe remains
+`Type(max u v)` for a site in universes u/v. Its dependent-product functor
+accepts every family over `A × Γ`. `parameterIso` compares the actual
+pullback of `X → Γ` with `A × X`, preserving argument, parameter and display;
+its naturality handles maps of parameter families.
+
+[SquareKit/SheafProjectionConstant.lean](../../SquareKit/SheafProjectionConstant.lean)
+compares the product of `B × (A × Γ) → A × Γ` with
+`(A ⇒ B) × Γ → Γ` in the slice over Γ. A hom equivalence natural in the
+parameter family constructs the isomorphism. Currying agrees with the
+existing sheaf exponential after the explicit pullback comparison. Evaluation
+of the actual new counit agrees with the existing exponential evaluation.
+The general right adjoint is constructed before this constant-family case.
+
+[Examples/ProjectionProducts.lean](../../Examples/ProjectionProducts.lean)
+uses Bool for both argument and the nonterminal base. Negation is transposed
+through the new projection adjunction; the comparison recovers the old
+exponential curry. Evaluation of the actual counit gives `!a` for every
+argument a and base value b. A second input family selects argument false
+and permits every Bool base value. A term of its dependent product would
+uncurry to a section of the input family, contradicting its empty fiber at
+argument true. This uses the actual adjunction and pullback universal map,
+without assuming pointwise dependent-function semantics. Earlier ordinary,
+regular, dependent, function-space and sum consumers remain unchanged.
+
+The construction proves pullback stability, natural comparisons of the chosen
+pullback functors and the stated constant-family comparison. It does not yet
+expose a Beck–Chevalley isomorphism between base change of the old right
+adjoint and the new right adjoint applied after base change. That is the next
+bounded slice: use the two constructed adjunctions and the commuting
+pullback square to build and prove invertible their canonical mate, with
+component comparisons for family terms. Mathlib's adjunction-mate API and
+the new `squareAdjunction` supply the concrete ingredients. This must be a
+comparison of the constructed functors, not a new assumed coherence field.
+Arbitrary sheaf-map exponentiability beyond the proved closure cases, source
+dependent typing, identity elimination, universes, smooth scalars/sites,
+Kock–Lawvere, higher identities and cohesion remain separate obligations.
+No arbitrary stagewise product is identified with all pointwise functions;
+#36 remains open.
