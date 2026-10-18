@@ -6,6 +6,28 @@ open Orbifolds Orbifolds.QuarterTurn CategoryTheory Diffeology MulAction
 open scoped Manifold ContDiff
 namespace Examples.OrbifoldComparison
 
+/-- The apex stays fixed, but its quarter-turn derivative is nonidentity. -/
+example : ((quarterTurn • diskEllipse origin : Ellipse) : ℂ) = 0 ∧
+    mfderiv 𝓘(ℝ, ℂ) 𝓘(ℝ, ℂ) (fun w : Ellipse => quarterTurn • w)
+      (diskEllipse origin) Complex.I = (-2 : ℂ) := by
+  constructor
+  · rw [ellipse_quarterTurn_coordinates]
+    change ellipseQuarterTurn (stretch 0) = 0
+    apply Complex.ext <;> norm_num [ellipseQuarterTurn]
+  · rw [ellipse_quarterTurn_tangent]
+    apply Complex.ext <;> norm_num [ellipseQuarterTurn]
+
+/-- Away from the apex, the base point moves and both tangent coordinates scale. -/
+example : ((quarterTurn • diskEllipse half : Ellipse) : ℂ) = Complex.I / 2 ∧
+    mfderiv 𝓘(ℝ, ℂ) 𝓘(ℝ, ℂ) (fun w : Ellipse => quarterTurn • w)
+      (diskEllipse half) (1 + Complex.I : ℂ) = (-2 + Complex.I / 2 : ℂ) := by
+  constructor
+  · rw [ellipse_quarterTurn_coordinates]
+    change ellipseQuarterTurn (stretch (1 / 2)) = Complex.I / 2
+    apply Complex.ext <;> norm_num [ellipseQuarterTurn]
+  · rw [ellipse_quarterTurn_tangent]
+    apply Complex.ext <;> norm_num [ellipseQuarterTurn]
+
 /-- The disk-to-ellipse adapter maps arrows, preserving their C4 labels. -/
 theorem arrow_label {x y : ActionCategory C4 Disk} (a : x ⟶ y) :
     (coordinateChange.functor.map a).hom = a.hom := rfl

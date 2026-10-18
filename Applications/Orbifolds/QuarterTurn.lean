@@ -13,6 +13,16 @@ namespace Orbifolds.QuarterTurn
 
 abbrev C4 := rootsOfUnity 4 ℂ
 
+/-- The positive quarter-turn, identified by its complex scalar. -/
+def quarterTurn : C4 :=
+  ⟨⟨Complex.I, -Complex.I, by simp, by simp⟩,
+    (mem_rootsOfUnity' 4 _).mpr (by norm_num)⟩
+
+@[simp] theorem quarterTurn_scalar : (quarterTurn.val : ℂ) = Complex.I := rfl
+
+/-- The ellipse generator specified directly in real coordinates. -/
+def ellipseQuarterTurn (z : ℂ) : ℂ := ⟨-2 * z.im, z.re / 2⟩
+
 theorem card_C4 : Nat.card C4 = 4 := Complex.card_rootsOfUnity 4
 
 def disk : TopologicalSpace.Opens ℂ := ⟨Metric.ball 0 1, Metric.isOpen_ball⟩
@@ -39,6 +49,8 @@ def stretch : ℂ ≃L[ℝ] ℂ where
 
 @[simp] theorem stretch_re (z : ℂ) : (stretch z).re = 2 * z.re := rfl
 @[simp] theorem stretch_im (z : ℂ) : (stretch z).im = z.im := rfl
+@[simp] theorem stretch_symm_re (z : ℂ) : (stretch.symm z).re = z.re / 2 := rfl
+@[simp] theorem stretch_symm_im (z : ℂ) : (stretch.symm z).im = z.im := rfl
 
 theorem stretch_nonidentity : stretch 1 ≠ (1 : ℂ) := by
   intro h
@@ -191,6 +203,56 @@ theorem disk_tangent_power (g : C4) : ∃ k < 4, ∀ (z : Disk) (v : ℂ),
 /-- Conjugating the representation by real-axis scaling gives the ellipse action. -/
 theorem ellipse_action_coordinates (g : C4) (z : Ellipse) :
     ((g • z : Ellipse) : ℂ) = stretch ((g.val : ℂ) * stretch.symm z) := rfl
+
+/-- The transported action agrees with the independent ellipse formula. -/
+theorem ellipse_quarterTurn_coordinates (z : Ellipse) :
+    ((quarterTurn • z : Ellipse) : ℂ) = ellipseQuarterTurn z := by
+  rw [ellipse_action_coordinates, quarterTurn_scalar]
+  apply Complex.ext <;> simp [ellipseQuarterTurn, Complex.mul_re, Complex.mul_im]
+
+/-- Derivative of the coordinate change in the open-submanifold charts. -/
+theorem diskEllipse_derivative (z : Disk) (v : ℂ) :
+    mfderiv 𝓘(ℝ, ℂ) 𝓘(ℝ, ℂ) diskEllipse z v = stretch v := by
+  have hval (w : Ellipse) : mfderiv 𝓘(ℝ, ℂ) 𝓘(ℝ, ℂ)
+      (Subtype.val : Ellipse → ℂ) w = ContinuousLinearMap.id ℝ ℂ :=
+    mfderiv_extChartAt_self (I := 𝓘(ℝ, ℂ)) (x := w)
+  have hdisk : mfderiv 𝓘(ℝ, ℂ) 𝓘(ℝ, ℂ)
+      (Subtype.val : Disk → ℂ) z = ContinuousLinearMap.id ℝ ℂ :=
+    mfderiv_extChartAt_self (I := 𝓘(ℝ, ℂ)) (x := z)
+  have hv : ContMDiff 𝓘(ℝ, ℂ) 𝓘(ℝ, ℂ) ∞ (Subtype.val : Ellipse → ℂ) :=
+    contMDiff_subtype_val
+  have hd : ContMDiff 𝓘(ℝ, ℂ) 𝓘(ℝ, ℂ) ∞ (Subtype.val : Disk → ℂ) :=
+    contMDiff_subtype_val
+  have hs : ContMDiff 𝓘(ℝ, ℂ) 𝓘(ℝ, ℂ) ∞ stretch := stretch.contDiff.contMDiff
+  have he : mfderiv 𝓘(ℝ, ℂ) 𝓘(ℝ, ℂ)
+      ((Subtype.val : Ellipse → ℂ) ∘ diskEllipse) z =
+      mfderiv 𝓘(ℝ, ℂ) 𝓘(ℝ, ℂ)
+      (stretch ∘ (Subtype.val : Disk → ℂ)) z := rfl
+  rw [mfderiv_comp z (hv.mdifferentiable (by simp) _)
+    (diskEllipse.contMDiff.mdifferentiable (by simp) _),
+    mfderiv_comp z (hs.mdifferentiable (by simp) _)
+    (hd.mdifferentiable (by simp) _), hval, hdisk, mfderiv_eq_fderiv,
+    stretch.hasFDerivAt.fderiv] at he
+  exact congrArg (fun L => L v) he
+
+/-- The tangent comparison determines the ellipse derivative at every point. -/
+theorem ellipse_tangent (g : C4) (z : Ellipse) (v : ℂ) :
+    mfderiv 𝓘(ℝ, ℂ) 𝓘(ℝ, ℂ) (fun w : Ellipse => g • w) z v =
+      stretch ((g.val : ℂ) * stretch.symm v) := by
+  have h := congrFun (diskEllipse_tangent g)
+    (⟨diskEllipse.symm z, stretch.symm v⟩ : TangentBundle 𝓘(ℝ, ℂ) Disk)
+  have hv := congrArg (fun p : TangentBundle 𝓘(ℝ, ℂ) Ellipse => p.2) h
+  dsimp only [Function.comp_apply, tangentMap] at hv
+  rw [disk_tangent, diskEllipse_derivative, diskEllipse_derivative,
+    stretch.apply_symm_apply, diskEllipse.apply_symm_apply] at hv
+  exact hv.symm
+
+/-- The actual manifold derivative has coordinates `(-2*v.im, v.re/2)`. -/
+theorem ellipse_quarterTurn_tangent (z : Ellipse) (v : ℂ) :
+    mfderiv 𝓘(ℝ, ℂ) 𝓘(ℝ, ℂ) (fun w : Ellipse => quarterTurn • w) z v =
+      ellipseQuarterTurn v := by
+  rw [ellipse_tangent, quarterTurn_scalar]
+  apply Complex.ext <;> simp [ellipseQuarterTurn, Complex.mul_re, Complex.mul_im]
 
 def half : Disk := ⟨(1 / 2 : ℂ), by
   norm_num [disk, Metric.mem_ball, dist_zero_right, norm_div]⟩

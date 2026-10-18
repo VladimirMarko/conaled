@@ -410,12 +410,16 @@ Issue #41 adds the following public modules on the existing dependency pins:
   works for arbitrary diffeological spaces.
 - `Applications/Orbifolds/QuarterTurn.lean`: the reusable C4 action on the
   open complex unit disk, its stabilizers and tangent action, and the change
-  `(x,y) ↦ (2x,y)` to an ellipse. The tangent action is multiplication by
-  `i^k` in the open-submanifold coordinates. Both open manifolds instantiate
-  the smoothness and topology bridges.
+  `(x,y) ↦ (2x,y)` to an ellipse. The disk tangent action is multiplication by
+  `i^k` in the open-submanifold coordinates. The explicit element `i` acts on
+  the ellipse by the independently specified formula `(-2*y,x/2)`. Its
+  manifold derivative has the same formula on tangent vectors, derived through
+  the tangent comparison and the derivative of the coordinate change. Both
+  open manifolds instantiate the smoothness and topology bridges.
 - `Examples/OrbifoldComparison.lean`: trivial and ineffective actions,
   arrow-label preservation, smooth quotient maps in both directions, and
-  composition through `RawMap` laws and `Squares.compose`.
+  composition through `RawMap` laws and `Squares.compose`. The ellipse
+  quarter-turn cases check the action and derivative at the apex and at `(1,0)`.
 
 The finite linear action is separate from #39's projective motions. The
 comparison does not construct a proper étale atlas, a Morita equivalence,
