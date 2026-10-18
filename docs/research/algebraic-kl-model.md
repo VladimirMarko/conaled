@@ -824,3 +824,52 @@ One next bounded construction is principal smooth localization for a free
 finite-coordinate stage, with its inverse-element presentation and universal
 mapping property. That would supply candidate basic-open restriction maps
 before a geometric topology is proposed.
+
+### Principal smooth localizations and their points (#83)
+
+Kock, *Synthetic Differential Geometry*, second edition, III.5, pp. 156–157,
+constructs smooth localization by adjoining a smooth coordinate and imposing
+`bt=1` (equation (5.4)). The same discussion distinguishes smooth localization
+from ordinary ring localization and uses partitions of unity for open-set
+refinements. Those analytic refinements require additional proofs; the inverse
+presentation alone does not supply them. [Author's text](https://users-math.au.dk/kock/sdg99.pdf).
+
+`SquareKit/SmoothLocalization.lean` constructs this presentation from the
+existing free smooth algebra and ordinary-ideal smooth quotient. A finite list
+of functions shares one presentation and universal property; principal
+localization uses one inverse coordinate. For every smooth target algebra,
+`homEquiv` identifies smooth maps out with smooth maps from the original free
+algebra that send the listed functions to units. `Ring.inverse` supplies the
+forced inverse coordinates. The proof uses pinned Mathlib's unit cancellation
+and quotient APIs, not an assumed smooth structure on ordinary localization.
+Inverting zero gives the improper quotient; inverting one gives inverse smooth
+maps with the original free algebra, including arity zero.
+
+Smooth maps compatible with the inverted functions induce localization maps,
+with identity and composition laws. The two-function presentation is also a
+localization of the first principal localization: `iteratedLift` factors all
+smooth maps sending the second function to a unit, and `iterated_unique` proves
+uniqueness. It has inverse smooth maps with localization at the product.
+`SmoothLocalizationStage` realizes these as actual finite-presentation stages
+and exposes coordinate restriction and the same universal property for stage
+Homs. The algebra arrows have the opposite direction to geometric maps.
+
+`SmoothLocalizationPoints` identifies real points with tuples where the function
+is nonzero and proves this locus open. Dual points are pairs `(x,v)` with the
+same condition on the base point. The inverse generator has value `1/f(x)` and
+tangent coefficient `-Df(x)(v)/f(x)^2`. This calculation uses the actual dual
+smooth operation, the inverse relation and uniqueness of an inverse. Residue
+and arbitrary scalar changes of tangent coordinates commute with the point
+identification. `Examples/SmoothLocalization` uses exponential localization,
+its analytic dual inverse, iterated inversion of exponential and the coordinate,
+nullary boundary cases, and a nonidentity tangent scaling. The nilpotent ε has
+nonzero tangent but is not a unit.
+
+No identification with the full smooth-function algebra on the open locus has
+been proved. Real-point agreement is insufficient for that claim. Cover
+descent, well-adaptedness, general Weil KL, and the higher/cohesive target remain
+open, and the model still uses bottom coverage. One next bounded construction
+is the smooth-algebra comparison between this principal presentation and the
+algebra of smooth functions on its ordinary open locus, including the analytic
+extension argument needed for surjectivity. This would connect the proved
+universal presentation with the open-set geometry before introducing covers.

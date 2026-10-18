@@ -1431,3 +1431,15 @@ is compared with its analytic derivative, with exponential and presentation
 clients. See the [construction record](algebraic-kl-model.md#a-small-smooth-presheaf-kl-model-82).
 Geometric open-cover descent, well-adaptedness, general Weil KL and the
 higher/cohesive target remain open; #36 remains incomplete.
+
+### Smooth principal localization (#83)
+
+Free smooth algebras now have principal inverse-element presentations, their
+universal mapping properties, coordinate restriction maps and compatibility
+between two successive inversions and inversion of the product. These are
+actual finite-presentation stages. Real and dual points are characterized by
+nonvanishing of the base value, with the analytic derivative formula for the
+inverse tangent coefficient. See the [construction record](algebraic-kl-model.md#principal-smooth-localizations-and-their-points-83).
+The full smooth-function algebra on the open locus, cover descent,
+well-adaptedness and higher/cohesive obligations remain open; #36 remains
+incomplete.

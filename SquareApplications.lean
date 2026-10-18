@@ -99,6 +99,7 @@ import Examples.FreeSmoothAlgebra
 import Examples.SmoothQuotient
 import Examples.SmoothDualExtension
 import Examples.SmoothKL
+import Examples.SmoothLocalization
 import Examples.JetScan
 import Examples.MatrixStack
 import Examples.Run
