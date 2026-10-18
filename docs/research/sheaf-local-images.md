@@ -7,10 +7,11 @@ This experimental development implements
 [#54](https://github.com/VladimirMarko/conaled/issues/54),
 [#55](https://github.com/VladimirMarko/conaled/issues/55),
 [#56](https://github.com/VladimirMarko/conaled/issues/56),
-and [#57](https://github.com/VladimirMarko/conaled/issues/57) within the
+[#57](https://github.com/VladimirMarko/conaled/issues/57),
+and [#58](https://github.com/VladimirMarko/conaled/issues/58) within the
 internal-language workstream. It supplies local existential images, their
 Frobenius and Beck–Chevalley laws, sheaf contexts, terms and closed formula
-predicates, regular source-rule soundness, and finite applications.
+predicates, regular source-rule soundness, sheaf function spaces, and finite applications.
 It does not complete #36.
 
 ## Public interface and caller obligations
@@ -418,19 +419,58 @@ source soundness now provides the proof-to-model link.
 
 The ordinary relational consumer now completes the present regular-logic
 comparison. More finite regular examples would not address the remaining
-function-space and dependent-model gap. `Dependent.lean` still provides a
+dependent-model gap. `Dependent.lean` still provides a
 shallow split-family model over types, not dependent sheaf semantics, and no
 smooth site or scalar has been constructed.
 
-The next bounded slice should instantiate the pinned Mathlib sheaf
-cartesian-closed construction for type-valued sheaves, expose evaluation and
-currying with their beta/eta laws, and compare its chosen products with this
-ordinary product interface. The available construction in
-`Mathlib/CategoryTheory/Sites/CartesianClosed.lean` requires sheafification,
-cartesian monoidal structure and closedness of the presheaf category; those
-hypotheses and universe constraints must be discharged or stated explicitly.
-This would supply function-space semantics needed before internal smooth
-analysis, without extending the source calculus or selecting a geometric site.
+[SquareKit/SheafFunction.lean](../../SquareKit/SheafFunction.lean) now constructs
+function spaces using the pinned Mathlib sheaf instance. For `C : Type u` with
+`Category.{v} C`, its sections live in `Type (max u v)`. The imports
+`Sites/LeftExact.lean` and `Monoidal/Closed/FunctorToTypes.lean` discharge
+`HasSheafify J (Type (max u v))` and presheaf monoidal closedness; the former's
+cover-smallness obligations are satisfied at this universe. Cartesian monoidal
+structure comes from `Sites/CartesianMonoidal.lean`, and
+`Sites/CartesianClosed.lean` obtains sheaf closedness by reflection. No extra
+sheafification or exponential axioms are caller parameters. This scope includes
+all small sites with sections in their common universe, and the finite diamond
+with ordinary `Type` sections. The API does not claim the independent section
+universe of the earlier image laws; larger section universes or essentially
+small sites would need their own instance/comparison analysis.
+
+`exponential A B` is Mathlib's internal hom sheaf. `productComparison` composes
+`SheafRelation.productIso` with the inverse component of `tensorLeftIsoProd`.
+The argument is the first coordinate: `curry` sends `A × X → B` to
+`X → exponential A B`, and `evaluation` has domain
+`A × exponential A B`. Public `beta` and `eta` prove both inverse laws for
+arbitrary morphisms. `curry_parameter` handles precomposition by `Y → X`;
+callers supply the map and the original morphism. `evaluation_curry_apply`
+exposes beta at every stage without treating an exponential section as an
+arbitrary function on that stage. `ClosedMap.lean` was inspected: its law
+transport addresses a separate abstract map; this adapter needs only Mathlib's
+adjunction laws and the two actual product comparisons.
+
+[Examples/SheafFunctions.lean](../../Examples/SheafFunctions.lean) transposes
+the existing natural Bool negation into a global element of the actual Bool
+function sheaf. Evaluation at X returns true on false and false on true. Eta
+recovers the named operation; parameter naturality proves that every Bool
+parameter selects that same operation, and a stage calculation still uses
+native Lean `Bool.not`. Thus ordinary calculations can mix sheaf morphisms and
+native operations without a source-language wrapper.
+
+The same file transposes the constant-false and constant-true maps `E → D`.
+Their exponential sections at X differ: equality would restrict to W, where
+evaluation at an E section gives the contradiction false = true. Yet the
+external type `E(X) → D(X)` has a unique function, because E(X) is empty.
+`no_pointwise_equivalence` rules out even a type equivalence at X. Native Lean
+function spaces therefore cannot replace these sheaf function spaces.
+
+The next bounded slice should construct ordinary sheaf families as morphisms
+`A → Γ`, terms as sections, and substitution by actual pullbacks, proving the
+context-extension pairing universal property. The existing fixed-sort context
+products and these nondependent exponentials do not supply that dependent
+family interface. Compare the resulting laws with the concrete split-family
+operations in `Dependent.lean`, without asserting strict definitional
+substitution or dependent products before constructing them.
 
 Dependent families and comparison with `Dependent.lean`, model maps, a smooth
 site and scalar, SDG axioms, higher identities and cohesion remain separate
