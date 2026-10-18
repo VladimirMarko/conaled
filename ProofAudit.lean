@@ -70,7 +70,20 @@ def auditProject : CommandElabM Unit := do
     counts := counts.push { moduleName := env.mainModule }
   let mut runtimeCount : Nat := 0
   let mut unsafeSource : Array Name := #[]
-  for (declName, info) in env.constants do
+  -- Restrict candidates by defining module before examining declarations.
+  -- Include generated-name metadata and current-module kernel declarations.
+  let imported := env.header.moduleNames.mapIdx fun i n =>
+    if isProjectModule n then
+      let data := env.header.moduleData[i]!
+      let regular := data.constants.map fun ci => (ci.name, ci)
+      regular ++ data.extraConstNames.filterMap (fun name =>
+        (env.constants.find? name).map fun ci => (name, ci))
+    else #[]
+  let candidates := env.constants.foldStage2 (fun acc n ci => acc.push (n, ci)) imported.flatten
+  let mut visited : NameSet := {}
+  for (declName, info) in candidates do
+    if visited.contains declName then continue
+    visited := visited.insert declName
     let moduleName := declarationModule env declName
     if isProjectModule moduleName then
       -- Lean's code generator adds unsafe proof-erased runtime declarations
