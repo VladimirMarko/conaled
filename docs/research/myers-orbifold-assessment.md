@@ -90,6 +90,9 @@ therefore defers that route; it does not assert that constructing it is impossib
 [internal-language reuse assessment](internal-languages-lean.md) follows up in
 #35 with inspected Lean implementations, a regular-logic experiment connected
 to existing squares, and staged obligations for an internal SDG model.
+[#36](https://github.com/VladimirMarko/conaled/issues/36) now tracks construction
+of the shared internal-language infrastructure, differential cohesive model
+and external comparison theorems.
 
 ## Pinned Mathlib inventory
 
@@ -127,9 +130,12 @@ Compare Felix at the repository's pinned revision
 condition in a chosen hom equivalence; [Comma/Homomorphism.agda][felix-projections]
 proves categorical preservation for its projections.
 [MakeLawful.agda][felix-laws] transports category and Cartesian laws through
-structure-preserving maps using induced equivalence. Its Cartesian-closed
-transport remains TODO. These are the applicable architectural capabilities;
-none of these files supplies orbifold geometry.
+structure-preserving maps using induced equivalence. The corresponding local
+Cartesian-closed transport is now tracked in
+[#37](https://github.com/VladimirMarko/conaled/issues/37), with beta, eta,
+currying naturality and non-strict comparison requirements. The pinned upstream
+file supplies only the category and Cartesian proofs. These transport results
+support shared foundations; orbifold geometry requires additional mathematics.
 
 Use the existing [Category.lean](../../SquareKit/Category.lean)
 `ofCategory`, `equality` and `ofCategoryLaws` on Mathlib's action

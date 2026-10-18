@@ -8,15 +8,55 @@ survey; the compatibility judgments below are source inspections, not porting
 results. Commit dates record observed maintenance activity, not a maintenance
 guarantee.
 
-The recommended first step is a regular internal logic over existing Mathlib
-predicate models, connected to the repository's relational squares. Foundation
-provides compatible intuitionistic proof/semantics machinery; SynthLean
-provides a richer dependent-language design worth adapting after resolving its
-trust and version gaps. The SDG development supplies calculus proofs under
-assumptions, not the constructed model needed to import those results here.
-The [first experiment](#first-experiment-internal-graphs-external-squares) and
-[stages](#stages-and-follow-up-tasks) make that model work a sequence of explicit
-obligations rather than an indefinite prerequisite for all internal reasoning.
+## Objective and ownership
+
+The objective is to let an author prove a theorem in an internal language,
+interpret it in a constructed mathematical model, and use a proved comparison
+to obtain a result about ordinary Lean/Mathlib objects or an existing
+realization. For example, an internal synthetic differentiation theorem should
+eventually yield an external theorem about the derivative of a smooth map.
+The proof interface, model soundness and comparison theorem are all required;
+pleasant notation alone does not connect that reasoning to the library.
+
+This is shared infrastructure for the repository's Felix-style development.
+A caller should be able to use an internal language wherever its required
+structure has been supplied. Different fragments require different structures:
+a cartesian model need not support quantifiers, dependent types or cohesion.
+Existing category maps and squares connect interpretations and realizations;
+the proposed logical interfaces add the meaning of predicates and proof rules.
+Internal-language use must be optional. Ordinary Lean definitions, proofs,
+notation and direct library calls must remain usable without additional model
+parameters, interpretation wrappers, conversions or proof obligations. Keep
+internal-language syntax and imports opt-in; importing the ordinary library
+must not change the meaning of standard Lean notation or require a custom
+proof mode. Implementation complexity belongs in reusable adapters, not at
+ordinary call sites.
+
+Acceptance must include representative unchanged ordinary-Lean clients beside
+the internal-language examples, including a file using both styles. Check
+that they need no additional setup or obligations, and that the ordinary path
+acquires no unnecessary runtime representation or elaboration overhead. The
+new capability must not make standard Lean use of the library harder.
+
+[#35](https://github.com/VladimirMarko/conaled/issues/35) owns this research
+and design assessment. The long-term implementation is now tracked by
+[#36](https://github.com/VladimirMarko/conaled/issues/36): shared internal
+reasoning, a proved differential cohesive model, and Mathlib and classical
+presentation comparisons. The smaller experiment below tests the shared
+proof-to-model-to-consumer path before attempting the geometric model.
+
+The [graph experiment](#first-experiment-internal-graphs-external-squares)
+is **the same work as Stage A** in the [work breakdown](#stages-and-follow-up-tasks).
+Its modest theorem is chosen to expose substitution, existential reasoning,
+model preservation and integration with existing squares. It establishes none
+of the infinitesimal or cohesive assumptions. The later work packages name
+those additional obligations; they are not a claim that all six stages form a
+settled implementation plan.
+
+The source survey supports selective reuse: Foundation supplies compatible
+intuitionistic proof/semantics machinery, SynthLean supplies a richer dependent
+language design to investigate, and the SDG development supplies calculus
+proofs under assumptions whose model still has to be constructed.
 
 ## Capability and compatibility evidence
 
@@ -239,8 +279,13 @@ exponentials or dependent products for an existential fragment.
 Felix's
 [`MakeLawful.agda`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/MakeLawful.agda)
 proves `LawfulCategoryᶠ` and `LawfulCartesianᶠ` under equivalence induced by the
-interpretation. Closed-law transport remains a TODO. Locally,
-`RawMap.transportLaws` makes reflection explicit. Similarly, predicate
+interpretation. The local completion of Cartesian-closed law transport is
+tracked in [#37](https://github.com/VladimirMarko/conaled/issues/37), under #8.
+It calls for extending the existing `ClosedMapLaws` interface with transport of currying
+congruence, beta, eta and naturality, including non-strict comparisons.
+The pinned upstream file does not supply those closed-law proofs; its status
+does not limit the local target. `RawMap.transportLaws` already makes reflection
+explicit for category laws. Similarly, predicate
 preservation can transport a theorem forward, but cannot reflect validity
 without a separate hypothesis. Equality in one selected model is not a proof
 of a syntactic equation valid in every model.
@@ -255,8 +300,17 @@ to ordinary mathematics as three separately named results.
 
 ### Proposed shared interfaces
 
+These interfaces serve the first experiment's reusable proof interface. They
+let a theorem author use equality, conjunction and existential witnesses while
+a model implementer proves once what those operations mean. A model comparison
+then transports the interpreted result to an existing consumer. They are an
+initial design for that fragment, not the interface for the entire differential
+cohesive theory.
+
 Start with a small predicate interface over a lawful context category with
-chosen finite products (terminal object and binary products). This is a design proposal; no new declarations are introduced here.
+chosen finite products (terminal object and binary products). The experiment
+must establish whether this design saves caller work; no new declarations or
+final interface decisions are introduced here.
 
 - A preorder fiber `Pred Γ` with entailment, top and binary meet; a reindexing map
   `σ* : Pred Γ → Pred Δ` for each substitution `σ : Δ → Γ`, preserving those
@@ -300,8 +354,17 @@ Neither frontend should expose chosen pullback cones to each application.
 
 ## First experiment: internal graphs, external squares
 
-This is a specification for a follow-up experiment, not a claim that it has
-been implemented or checked. It deliberately needs only regular logic.
+This is the proposed Stage A of #36, specified here in detail. It is the first
+test of shared internal reasoning connected to existing external mathematics:
+one internal proof, interpretations in two constructed models, and a proved
+comparison reaching the repository's square interface. Regular logic uses only
+equality, conjunction and existential witnesses for this example, so the test
+can run before a smooth or higher model exists.
+
+The intended result is evidence that the proof and comparison interfaces are
+reusable and convenient. It is not evidence for Kock–Lawvere, higher identities
+or cohesion. Those require their own constructions. This experiment has not
+yet been implemented or checked.
 
 For arbitrary objects `A`, `B`, `C`, arrows `f : A → B`, `g : B → C`, and
 context variables `a : A`, `c : C`, prove the internal equivalence
@@ -387,13 +450,22 @@ experiment.
 
 ## Stages and follow-up tasks
 
-These are concrete task specifications, not newly opened GitHub issues or
-approved architectural decisions. Each implementation should be tracked as a
-child of #35 when scheduled.
+[#36](https://github.com/VladimirMarko/conaled/issues/36) owns the long-term
+work. This table is a proposed decomposition, not an alternative to building
+the full model and not a fixed linear schedule. Implementation tasks should
+be scoped under #36; #35 remains the research issue.
+
+Stage A is exactly the graph experiment above, not another preliminary step.
+Stage B develops its author-facing interface. Stage C groups two strands that
+need further decomposition: sheaf logic and dependent contexts. Stages D and E
+have different model obligations and can be investigated in parallel; the
+full orbifold comparison in F requires their compatible combination. This
+ordering aims to deliver usable shared mathematics early, but the small graph
+example cannot justify the later architecture by itself.
 
 | Stage / task | Acceptance and preserved results | Changes and explicit exclusions |
 |---|---|---|
-| A. Regular predicate semantics and graph experiment | Implement the small shared interface, Set and nontrivial presheaf adapters, a rule-restricted derivation, soundness, evaluation preservation, and the graph/square comparison above. Preserve existing square and dependent-family public statements. | Add predicates and logical interpretation to `SquareKit`; no SDG, higher equality, sheaf descent or kernel changes. The smallest missing prerequisite is the shared rule/interpretation interface and its concrete adapters, not a new category or sheaf implementation. |
+| A. Graph experiment (specified above) | Implement the small shared interface, Set and nontrivial presheaf adapters, a rule-restricted derivation, soundness, evaluation preservation, and the graph/square comparison above. Preserve existing square and dependent-family public statements. | Add predicates and logical interpretation to `SquareKit`; no SDG, higher equality, sheaf descent or kernel changes. The smallest missing prerequisite is the shared rule/interpretation interface and its concrete adapters, not a new category or sheaf implementation. |
 | B. Usable proof frontend | Compare shallow rule lemmas with explicit typed syntax on graph composition, relational associativity and Frobenius. Prove capture-avoiding substitution/soundness for the explicit fragment; hide context bookkeeping in checked notation or elaboration. Demonstrate a second application such as interval relation composition. | Syntax may change; model semantics and preservation statements from A remain. Elaborator output must be kernel checked. No automatic translation of arbitrary Lean proofs. |
 | C. Sheaf logic and dependent contexts | Construct the sheaf predicate adapter, prove local existential semantics and the preservation fragment for chosen functors. Adapt a CwF/comprehension interface only after selecting a maintained source; recover `Dependent.lean` as a specialization and prove dependent comparison coherence. | Extend from fixed product contexts to dependent families. Preserve A's regular fragment. General Π preservation requires separate hypotheses; a geometric morphism alone does not supply it. |
 | D. An internal SDG fragment in a proved model | Specify a site and scalar object, construct the model, prove the exact KL axiom required, interpret one imported synthetic derivative theorem, and compare an ordinary smooth-map instance to Mathlib differentiation. Audit the entire dependency closure. | Internal scalars, maps and quantifiers replace native `ℝ`, arbitrary Lean functions and native quantification in the synthetic theorem. External analytic theorems remain intact. A dual-number calculation or an assumed KL field is insufficient. |
@@ -401,8 +473,10 @@ child of #35 when scheduled.
 | F. Orbifold presentation comparison | Interpret the particular Myers hypotheses and prove the chosen proper étale presentation corresponds to the internal construction, including isotropy and tangent transport. State precisely which theorem of Myers is recovered. | Adds descent/completion and geometric comparison. Until then, classical groupoids and simulator data remain useful external realizations, without being advertised as synthetic orbifolds. |
 
 Stage D depends on adequate sheaf/internal-function semantics from C, but need
-not wait for E's higher foundation. Classical orbifold presentation work can
-also continue independently. To reach F, the obligations include higher
+not wait for E's higher foundation. The combination must prove that the
+infinitesimal and cohesive structures are compatible with the higher model;
+separate records of their laws are insufficient. Classical orbifold
+presentation work can also continue independently. To reach F, the obligations include higher
 identity spaces that retain stabilizers; the cohesive adjunctions and crisp
 context discipline; the synthetic smooth line, infinitesimals and
 microlinearity; and the comparison between proper étale classical groupoids
