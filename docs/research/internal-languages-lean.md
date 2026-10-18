@@ -459,6 +459,94 @@ specializations. Recheck all sources and the transitive proof audit with
 notation example nor an instance with unproved law fields completes this
 experiment.
 
+## Proposed first implementation slice
+
+The session decomposition starts with **an internal graph proof consumed by
+existing exact squares**. This scope is a draft for a child of #36; it is not a
+published ticket or a completed implementation. The preserved frontend
+comparison supports named rule lemmas backed by a small explicit derivation
+core. Its single-sorted syntax is evidence for that arrangement, not production
+code to adopt unchanged.
+
+An author should prove graph composition once using equality, conjunction and
+existential rules, interpret that proof in Set, and use it to identify the
+relational presentation of a vertically pasted exact square. This gives a
+complete first use of internal reasoning outside the geometric workstream.
+The full Stage A experiment still requires the later relational and presheaf
+slices.
+
+### Public verification seam
+
+The principal acceptance result compares a `RelSquare` obtained by preserving
+the existentially composed graph relations with `Relational.ofSquare` applied
+to `Squares.vertical`. Transport the source and target relations along graph
+equalities obtained from the internal proof, and use `RelSquare.ext` to retain
+both horizontal maps. Accept the existing pointwise equality hypothesis for
+the middle maps; do not require them to be definitionally identical. This
+result must consume the interpreted internal derivation, rather than prove
+graph composition independently in ordinary Lean.
+
+### Acceptance criteria
+
+- Supply typed contexts and terms for distinct sorts `A`, `B`, `C`, arbitrary
+  arrows `f : A → B`, `g : B → C`, and the equality, conjunction and existential
+  fragment needed by the graph proof. Syntax and derivability are independent
+  of the Set interpretation. Do not restrict the public theorem to
+  endofunctions or encode all sorts in one carrier.
+- Prove the displayed graph equivalence as two derivable sequents through
+  named rules. There must be no rule admitting arbitrary Lean validity as
+  source derivability. Prove the substitution and binder properties used by
+  the chosen calculus; no full regular-logic completeness claim is required.
+- Construct the Set interpretation and prove soundness for every admitted
+  rule and well-typed interpretation. Instantiate that result to obtain the
+  ordinary graph theorem for all inputs, without nonemptiness assumptions.
+  Keep derivability, model validity and external comparison separately named.
+- Prove the square comparison at the public seam above, including equality
+  symmetry for the existing graph convention. Retain horizontal graph-map
+  composition through `RelationalCategory.graphMap_laws` as a separate checked
+  compatibility result; it does not replace vertical pasting.
+- Include a heterogeneous example, such as a decoder from `Nat × Bool` to
+  `Nat` followed by a decoder to `Int`, and a checked pasting example with
+  middle maps justified by pointwise equality. Retain a composition-order
+  example and substitution under a binder. The examples must use the public
+  results, not repeat their proofs independently.
+- Keep ordinary imports, definitions, proofs and notation usable without
+  model parameters, interpretation wrappers, conversions or new obligations.
+  Retain existing ordinary clients, including the matrix/stack and arithmetic
+  pipeline examples, unchanged. Check ordinary and internal reasoning in one
+  file without notation or instance interference. Keep any syntax opt-in.
+  Record caller obligations and investigate elaboration regressions against
+  the pre-change ordinary clients; do not add runtime representations to them.
+- Review every new formal statement, integrate production declarations into
+  the public entrypoint and proof audit, and pass `direnv exec . ./check.sh`
+  without new axioms. The historical experiment remains a separate artifact.
+
+### Scope and subsequent slices
+
+This slice requires no unfinished geometric model and is not blocked by #37,
+whose law transport is implemented. Reuse existing categorical maps and squares
+where needed; require only the logical structure used by this fragment. A
+general doctrine adapter for arbitrary regular categories, a custom elaborator,
+and a second proof frontend are outside this first implementation scope.
+
+Two subsequent slices depend on this first proof/interpretation interface:
+
+- **Many-valued relations and witnesses:** relational associativity and
+  composition preservation, a relation without a decoder, and intermediate
+  witnesses retained as data. It must reach the relational-square interface
+  and meet the same ordinary-Lean usability and proof-checking requirements.
+- **Presheaf reuse and evaluation:** a constructed nontrivial presheaf adapter,
+  interpretation of the same derivation, and evaluation preservation reaching
+  the Set/square consumer. It must meet the same ordinary-Lean requirements;
+  reasoning only about global sections does not establish this interpretation.
+
+Neither subsequent slice is intrinsically blocked by the other. Their detailed
+scope should follow the first interface's checked implementation. The first
+slice is a candidate for one fresh session, not a measured effort guarantee;
+typed substitution and the square comparison are its main remaining scope
+risks. If either requires further decomposition, preserve a complete
+proof-to-consumer result in each proposed implementation ticket.
+
 ## Stages and follow-up tasks
 
 [#36](https://github.com/VladimirMarko/conaled/issues/36) owns the long-term
