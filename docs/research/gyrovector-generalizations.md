@@ -587,3 +587,7 @@ These are reproducible floating-point observations in the sampled region.
 They establish neither universal identities nor intrinsic error bounds.
 The historical probe was not changed. The original numerical assessment adds no Lean claims. The implementation
 status above lists the subsequent checked results.
+
+The [path-transport prerequisite assessment](path-transport-assessment.md)
+selects a timed radial/circular segment route for #44 and records the pinned
+connection/ODE APIs, coefficient checks, and remaining transport proofs.
