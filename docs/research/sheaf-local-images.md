@@ -799,12 +799,11 @@ without assuming pointwise dependent-function semantics. Earlier ordinary,
 regular, dependent, function-space and sum consumers remain unchanged.
 
 The construction proves pullback stability, natural comparisons of the chosen
-pullback functors and the stated constant-family comparison. It does not yet
+pullback functors and the stated constant-family comparison. At completion of #64 it did not yet
 expose a Beck–Chevalley isomorphism between base change of the old right
-adjoint and the new right adjoint applied after base change. That is the next
-bounded slice: use the two constructed adjunctions and the commuting
-pullback square to build and prove invertible their canonical mate, with
-component comparisons for family terms. Mathlib's adjunction-mate API and
+adjoint and the new right adjoint applied after base change. That gap became #65 below: use the two constructed adjunctions and the
+commuting pullback square to build and prove invertible their canonical mate,
+with component comparisons for family terms. Mathlib's adjunction-mate API and
 the new `squareAdjunction` supply the concrete ingredients. This must be a
 comparison of the constructed functors, not a new assumed coherence field.
 Arbitrary sheaf-map exponentiability beyond the proved closure cases, source
@@ -812,3 +811,56 @@ dependent typing, identity elimination, universes, smooth scalars/sites,
 Kock–Lawvere, higher identities and cohesion remain separate obligations.
 No arbitrary stagewise product is identified with all pointwise functions;
 #36 remains open.
+
+
+## Canonical dependent-product base change (#65)
+
+The experimental `DependentBaseChange` development constructs the canonical
+Beck–Chevalley map for actual slice pullbacks. Its forward map transposes the
+commuting-pullback comparison followed by the base change of the old counit.
+The pullback comparison preserves both projections and has an explicit inverse.
+Iterating Mathlib's mates correspondence identifies the dependent-product map
+with conjugation of the left-adjoint comparison, proving invertibility. The
+public `iso` uses the exact `ExponentiablePullback.squareAdjunction` from #64.
+The `WithAdjunction` interface also allows an already specified second
+adjunction; the sheaf specialization supplies the constructed projection
+adjunction, with no additional caller assumption.
+
+The public evaluation and curry laws transport actual slice maps. Identity
+base change is normalized by `Over.pullbackId` and `rightAdjointUniq`, so its
+law compares the chosen functors through their canonical isomorphisms. This
+is dependent-product substitution compatibility. It is separate from the
+local existential-image Beck–Chevalley theorem used by regular syntax.
+
+`SheafProductBaseChange` specializes the square to pulling back `A → 1` along
+`Γ → 1`. The input-family isomorphism identifies the pullback of `B × A → A`
+with `B × (A × Γ) → A × Γ`. The constant comparison relates the canonical mate,
+the earlier terminal-product/section/exponential comparison, and the projection
+product's constant-family isomorphism. Its evaluation equation uses the actual
+projection counit and agrees with the existing sheaf exponential evaluation.
+The section universe remains `Type(max u v)` for a site in universes u/v.
+
+`Examples.DependentBaseChange` transports the old global negation through the
+canonical mate over the Bool base and computes both Boolean argument values
+using the actual projection counit. The false-point family gives a dependent
+consumer: a section after the new dependent product would, by the inverse
+base-change isomorphism and a Bool base point, produce a forbidden old global
+section. These examples use natural sheaf morphisms, without pointwise
+function-space or dependent-function assumptions. Earlier consumers and
+historical sources remain in the full build.
+
+The remaining model gap is arbitrary sheaf-map exponentiability. The current
+closure results start with terminal maps and preserve exponentiability under
+pullback; they do not prove it for every display map. One next bounded slice
+is the slice presentation for an arbitrary sheaf: construct the relevant site
+of elements and the equivalence between its sheaves and the slice over the
+original sheaf. This supplies a concrete route toward cartesian closure of
+slices using the existing sheaf exponential construction. The inspected pinned
+`Sites/Over.lean` and `Sites/PseudofunctorSheafOver.lean` localize over objects of
+the original site; they do not already supply this arbitrary-sheaf slice
+presentation. Its universes and induced topology must be checked, rather than
+assuming the equivalence. No later issue is fixed or published here.
+
+Arbitrary-map products, source dependent typing, identity elimination,
+universes, smooth scalars/sites, Kock–Lawvere, higher identities and cohesion
+remain separate obligations. This slice does not complete #36.

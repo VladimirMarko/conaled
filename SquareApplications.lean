@@ -1,3 +1,4 @@
+import Examples.DependentBaseChange
 import Examples.SheafImage
 import Examples.SheafBaseChange
 import Examples.SheafContexts
