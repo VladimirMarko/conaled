@@ -106,6 +106,7 @@ import Examples.SmoothPrincipalDescent
 import Examples.SmoothGeometricSite
 import Examples.GeometricSyntheticProduct
 import Examples.ArbitrarySmoothCovers
+import Examples.OpenSyntheticProduct
 import Examples.JetScan
 import Examples.MatrixStack
 import Examples.Run

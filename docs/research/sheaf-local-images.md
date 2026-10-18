@@ -1511,3 +1511,10 @@ the earlier finite-principal topology. `Examples.ArbitrarySmoothCovers` checks
 countable covers with no finite subcover and both analytic and nilpotent
 consumers. [The KL model note](algebraic-kl-model.md#arbitrary-principal-covers-on-finite-presentations-89)
 records the exact scope and the remaining KL upgrade.
+
+The #90 shared presentation-based KL construction now instantiates the
+arbitrary-cover topology. Its actual exponential, inverse-defined derivative
+and interpreted synthetic product proof compare explicitly with the finite
+model. Derivative locality uses actual sheaf gluing on the countable cover with
+no finite subcover. See the [shared KL record](algebraic-kl-model.md#shared-kl-in-the-arbitrary-cover-model-90)
+for the theorem and remaining manifold, Weil and higher/cohesive obligations.

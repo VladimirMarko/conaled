@@ -14,35 +14,39 @@ open CategoryTheory Opposite SquareKit
 open SmoothPresentationSite SmoothGeometricKL SmoothGeometricDerivative SheafRelation
 open scoped ContDiff
 
-abbrev expMap : scalar ⟶ scalar := interpret Real.exp Real.contDiff_exp
-def expProduct : scalar ⟶ scalar := lift expMap expMap ≫ SmoothPresentationSite.mul
+variable {J : GrothendieckTopology Site} [Fact (Presieve.IsSheaf J scalarData)]
+local notation "R" => PresentationGeometry.scalar J
+local notation "D" => PresentationGeometry.infinitesimal J
 
-theorem derivative_exp : derivative expMap = expMap := by
+abbrev expMap : R ⟶ R := interpret Real.exp Real.contDiff_exp
+def expProduct : R ⟶ R := lift (expMap (J := J)) (expMap (J := J)) ≫ PresentationGeometry.mul
+
+theorem derivative_exp : derivative (expMap (J := J)) = (expMap (J := J)) := by
   rw [derivative_interpret]
   simp only [Real.deriv_exp]
 
 /-- This coefficient calculation invokes the existing source product derivation. -/
 theorem product_coefficient (A : Code) (x : Carrier A) :
-    (derivative expProduct).hom.app (atStage A) x =
-      expMap.hom.app (atStage A) x * expMap.hom.app (atStage A) x +
-      expMap.hom.app (atStage A) x * expMap.hom.app (atStage A) x := by
-  have h := GeometricProductRule.component expMap expMap A x
+    (derivative (expProduct (J := J))).hom.app (atStage A) x =
+      (expMap (J := J)).hom.app (atStage A) x * (expMap (J := J)).hom.app (atStage A) x +
+      (expMap (J := J)).hom.app (atStage A) x * (expMap (J := J)).hom.app (atStage A) x := by
+  have h := GeometricProductRule.component (expMap (J := J)) (expMap (J := J)) A x
   rw [derivative_exp] at h
   exact h
 
 /-- An ordinary smooth operation and a source-derived derivative coexist. -/
 theorem mixed_styles (x : ℝ) :
-    realValue (expMap.hom.app (atStage (free 0)) (realInput x)) = Real.exp x ∧
-    (derivative expProduct).hom.app (atStage (free 0)) (realInput x) =
-      expMap.hom.app (atStage (free 0)) (realInput x) * expMap.hom.app (atStage (free 0)) (realInput x) +
-      expMap.hom.app (atStage (free 0)) (realInput x) * expMap.hom.app (atStage (free 0)) (realInput x) :=
+    realValue ((expMap (J := J)).hom.app (atStage (free 0)) (realInput x)) = Real.exp x ∧
+    (derivative (expProduct (J := J))).hom.app (atStage (free 0)) (realInput x) =
+      (expMap (J := J)).hom.app (atStage (free 0)) (realInput x) * (expMap (J := J)).hom.app (atStage (free 0)) (realInput x) +
+      (expMap (J := J)).hom.app (atStage (free 0)) (realInput x) * (expMap (J := J)).hom.app (atStage (free 0)) (realInput x) :=
   ⟨interpret_real _ _ x, product_coefficient _ _⟩
 
 def modelCoefficient (x : ℝ) : ℝ :=
-  realValue ((derivative expProduct).hom.app (atStage (free 0)) (realInput x))
+  realValue ((derivative (expProduct (J := J))).hom.app (atStage (free 0)) (realInput x))
 
 theorem modelCoefficient_eq (x : ℝ) :
-    modelCoefficient x = Real.exp x * Real.exp x + Real.exp x * Real.exp x := by
+    (modelCoefficient (J := J)) x = Real.exp x * Real.exp x + Real.exp x * Real.exp x := by
   unfold modelCoefficient
   rw [product_coefficient, SmoothAlgebra.Hom.map_add, SmoothAlgebra.Hom.map_mul]
   rw [interpret_real]
@@ -50,7 +54,7 @@ theorem modelCoefficient_eq (x : ℝ) :
 /-- The coefficient is extracted in the geometric model through the source proof.
 The ordinary analytic verification uses exp(x+x) and the chain rule. -/
 theorem analytic_product (x : ℝ) :
-    HasDerivAt (fun y => Real.exp y * Real.exp y) (modelCoefficient x) x := by
+    HasDerivAt (fun y => Real.exp y * Real.exp y) ((modelCoefficient (J := J)) x) x := by
   rw [modelCoefficient_eq]
   have hi : HasDerivAt (fun y : ℝ => y+y) (1+1) x := (hasDerivAt_id x).add (hasDerivAt_id x)
   have h := (Real.hasDerivAt_exp (x+x)).comp x (h := fun y : ℝ => y+y) hi
@@ -59,23 +63,23 @@ theorem analytic_product (x : ℝ) :
 
 /-- General analytic comparison, separately retained for every smooth unary map. -/
 theorem exp_analytic (x : ℝ) :
-    HasDerivAt Real.exp (realValue ((derivative expMap).hom.app (atStage (free 0)) (realInput x))) x :=
+    HasDerivAt Real.exp (realValue ((derivative (expMap (J := J))).hom.app (atStage (free 0)) (realInput x))) x :=
   derivative_real _ _ x
 
 /-- Arbitrary parameter substitution still uses the source-derived product rule. -/
-theorem source_parameters {X : Sheaf topology Type} (p : X ⟶ scalar) :
-    coefficients (SheafFunction.parameterMap infinitesimal p ≫ increment expProduct) ≫ snd scalar scalar =
-      p ≫ (lift (lift (derivative expMap) expMap ≫ SmoothPresentationSite.mul)
-        (lift expMap (derivative expMap) ≫ SmoothPresentationSite.mul) ≫ SmoothPresentationSite.add) := by
+theorem source_parameters {X : Sheaf J Type} (p : X ⟶ R) :
+    coefficients (SheafFunction.parameterMap D p ≫ increment (expProduct (J := J))) ≫ snd R R =
+      p ≫ (lift (lift (derivative (expMap (J := J))) (expMap (J := J)) ≫ PresentationGeometry.mul)
+        (lift (expMap (J := J)) (derivative (expMap (J := J))) ≫ PresentationGeometry.mul) ≫ PresentationGeometry.add) := by
   rw [derivative_parameters]
-  exact GeometricProductRule.parameters p expMap expMap
+  exact GeometricProductRule.parameters p (expMap (J := J)) (expMap (J := J))
 
 /-- Gluing the locally extracted slope on a genuine proper cover recovers it. -/
 theorem proper_cover_coefficient (x : Carrier SmoothGeometricSite.line) :
-    SmoothGeometricLocality.gluedSlope (increment expProduct) SmoothGeometricSite.line x
+    SmoothGeometricLocality.gluedSlope (increment (expProduct (J := topology))) SmoothGeometricSite.line x
       (principalSieve SmoothGeometricSite.line SmoothGeometricSite.lineOpens) SmoothGeometricSite.line_cover =
-      expMap.hom.app (atStage SmoothGeometricSite.line) x * expMap.hom.app (atStage SmoothGeometricSite.line) x +
-      expMap.hom.app (atStage SmoothGeometricSite.line) x * expMap.hom.app (atStage SmoothGeometricSite.line) x :=
+      (expMap (J := topology)).hom.app (atStage SmoothGeometricSite.line) x * (expMap (J := topology)).hom.app (atStage SmoothGeometricSite.line) x +
+      (expMap (J := topology)).hom.app (atStage SmoothGeometricSite.line) x * (expMap (J := topology)).hom.app (atStage SmoothGeometricSite.line) x :=
   (SmoothGeometricLocality.gluedDerivative _ _ _ _ _).trans (product_coefficient _ _)
 
 theorem cover_is_proper :
@@ -91,10 +95,10 @@ theorem scale_nonidentity : scale ≠ 𝟙 nilStage := by
 
 /-- A nonidentity restriction of the source-derived coefficient. -/
 theorem coefficient_scale (x : Carrier nilStage) :
-    (derivative expProduct).hom.app (atStage nilStage) (ringMap scale x) =
-      ringMap scale ((derivative expProduct).hom.app (atStage nilStage) x) :=
-  (congrArg (fun k : scalar.obj.obj (atStage nilStage) ⟶ scalar.obj.obj (atStage nilStage) => k x)
-    ((derivative expProduct).hom.naturality (stageMap scale)))
+    (derivative (expProduct (J := J))).hom.app (atStage nilStage) (ringMap scale x) =
+      ringMap scale ((derivative (expProduct (J := J))).hom.app (atStage nilStage) x) :=
+  (congrArg (fun k : (R).obj.obj (atStage nilStage) ⟶ (R).obj.obj (atStage nilStage) => k x)
+    ((derivative (expProduct (J := J))).hom.naturality (stageMap scale)))
 
 /-- The geometric scalar retains an internally nonzero section invisible at real points. -/
 theorem internal_external_boundary : SmoothGeometricSite.Nilpotent.glued ≠ 0 ∧

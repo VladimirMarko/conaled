@@ -1208,3 +1208,42 @@ objects of the finite-principal sheaf category. This slice does not prove their
 upgrade, a full ordinary manifold embedding, well-adaptedness, general Weil
 objects, higher identity structure, cohesion or the Myers orbifold comparison.
 It does not complete #36.
+
+## Shared KL in the arbitrary-cover model (#90)
+
+`PresentationGeometry` constructs the square-zero subsheaf and affine map for
+an explicit topology on the presentation site, using only proved scalar
+sheafness. `SmoothGeometricKL`, its derivative, locality and synthetic soundness
+now share this parameter. The representable dual-product comparison additionally
+uses subcanonicity. Both concrete topologies supply these hypotheses from their
+existing proofs. `SmoothOpenKL` instantiates the actual sheaf exponential and
+its affine isomorphism in the arbitrary-principal topology.
+
+Coefficient extraction still evaluates on the concrete presented dual extension
+and transports to actual dual numbers. Reconstruction and uniqueness quantify
+all parameter sheaves and all presentation maps. Differentiation uses the inverse
+of that exponential isomorphism; Taylor, unique slope and the ordinary derivative
+of every globally smooth unary operation follow from the same construction.
+`SmoothTopologyKLComparison` compares the particular exponential, evaluation,
+currying and derivative under forgetting stronger sheafness through their shared
+coefficient descriptions. It makes no general exponential-preservation claim.
+
+`Examples.OpenSyntheticProduct` specializes the existing all-rule synthetic
+interpretation and its derived product proof. The analytic exponential-product
+consumer uses that proof's coefficient equality. The inverse-defined derivative
+also glues on #89's countable cover with no finite subcover. Nonidentity base
+change and a nonzero nilpotent invisible to all real points check the stagewise
+content. The finite-topology examples remain checked.
+
+Kock's [*Synthetic Differential Geometry*, III.7–8](https://users-math.au.dk/kock/sdg99.pdf)
+connects smooth-site sheafness with well-adapted models. The result here supplies
+first-order KL on the constructed arbitrary-principal site of finite
+presentations. Ordinary manifold embedding and full well-adaptedness, general
+Weil KL, higher identity structure, cohesion and the Myers orbifold comparison
+remain unproved. #36 remains incomplete.
+
+Recommended next construction: embed Euclidean principal open loci and all
+ordinary smooth maps between them fully faithfully in this sheaf category.
+The checked open-locus function-algebra identification from #84 and subcanonicity
+supply the algebraic and categorical parts; their compatibility with ordinary
+smooth maps is the next concrete prerequisite for a manifold comparison.

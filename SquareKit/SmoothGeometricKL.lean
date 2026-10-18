@@ -1,16 +1,23 @@
 import SquareKit.SmoothGeometricDual
 import SquareKit.AffineExponential
 
-/-! Experimental geometric KL: universal evaluation in the actual dual presentation
+/-! Experimental shared presentation-based KL for any topology with proved scalar sheafness: universal evaluation in the actual dual presentation
 constructs an inverse to the affine map into the sheaf exponential. -/
 noncomputable section
 namespace SquareKit.SmoothGeometricKL
 open CategoryTheory Opposite SmoothAlgebra SmoothPresentationSite SheafRelation SheafFunction
 attribute [local instance] DualExtension.smoothStructure
 
-variable {X : Sheaf topology Type}
+variable {J : GrothendieckTopology SmoothPresentationSite.Site}
+  [Fact (Presieve.IsSheaf J SmoothPresentationSite.scalarData)]
 
-theorem restrict_comp (F : Sheaf topology Type) {A B C : Code}
+local notation "R" => PresentationGeometry.scalar J
+local notation "D" => PresentationGeometry.infinitesimal J
+
+variable {X : Sheaf J Type}
+
+omit [Fact (Presieve.IsSheaf J scalarData)] in
+theorem restrict_comp (F : Sheaf J Type) {A B C : Code}
     (f : A ⟶ B) (g : B ⟶ C) (x : F.obj.obj (atStage A)) :
     F.obj.map (stageMap g) (F.obj.map (stageMap f) x) =
       F.obj.map (stageMap (f ≫ g)) x := by
@@ -18,20 +25,20 @@ theorem restrict_comp (F : Sheaf topology Type) {A B C : Code}
   rw [← F.obj.map_comp]
   rfl
 
-theorem operation_natural (h : product infinitesimal X ⟶ scalar)
-    {A B : Code} (f : A ⟶ B) (d : infinitesimal.obj.obj (atStage A))
+theorem operation_natural (h : product D X ⟶ R)
+    {A B : Code} (f : A ⟶ B) (d : (D).obj.obj (atStage A))
     (x : X.obj.obj (atStage A)) :
-    h.hom.app (atStage B) (infinitesimal.obj.map (stageMap f) d,
+    h.hom.app (atStage B) ((D).obj.map (stageMap f) d,
       X.obj.map (stageMap f) x) = ringMap f (h.hom.app (atStage A) (d, x)) :=
-  congrArg (fun k : (product infinitesimal X).obj.obj (atStage A) ⟶
-    scalar.obj.obj (atStage B) => k (d, x)) (h.hom.naturality (stageMap f))
+  congrArg (fun k : (product D X).obj.obj (atStage A) ⟶
+    (R).obj.obj (atStage B) => k (d, x)) (h.hom.naturality (stageMap f))
 
 /-- Evaluate at the universal infinitesimal after extending the parameter. -/
-def universalValue (h : product infinitesimal X ⟶ scalar) (A : Code)
+def universalValue (h : product D X ⟶ R) (A : Code)
     (x : X.obj.obj (atStage A)) : DualNumber (Carrier A) :=
   dualToActual A (h.hom.app (atStage (dual A)) (eps A, X.obj.map (stageMap (inl A)) x))
 
-theorem universalValue_natural (h : product infinitesimal X ⟶ scalar)
+theorem universalValue_natural (h : product D X ⟶ R)
     {A B : Code} (f : A ⟶ B) (x : X.obj.obj (atStage A)) :
     universalValue h B (X.obj.map (stageMap f) x) =
       (⟨ringMap f (universalValue h A x).fst,
@@ -42,7 +49,7 @@ theorem universalValue_natural (h : product infinitesimal X ⟶ scalar)
   exact (congrArg (dualToActual B) h').trans (dualMap_actual f _)
 
 /-- Coefficients are a natural pair, extracted without choosing external functions. -/
-def coefficients (h : product infinitesimal X ⟶ scalar) : X ⟶ product scalar scalar :=
+def coefficients (h : product D X ⟶ R) : X ⟶ product R R :=
   ⟨{ app A := ↾fun x => ((universalValue h A.unop.unop x).fst,
        (universalValue h A.unop.unop x).snd)
      naturality A B f := by
@@ -53,12 +60,12 @@ def coefficients (h : product infinitesimal X ⟶ scalar) : X ⟶ product scalar
        · exact (congrArg TrivSqZeroExt.snd
            (universalValue_natural h f.unop.unop x)) }⟩
 
-theorem universal_reconstruction (h : product infinitesimal X ⟶ scalar)
-    (A : Code) (d : infinitesimal.obj.obj (atStage A)) (x : X.obj.obj (atStage A)) :
+theorem universal_reconstruction (h : product D X ⟶ R)
+    (A : Code) (d : (D).obj.obj (atStage A)) (x : X.obj.obj (atStage A)) :
     h.hom.app (atStage A) (d, x) =
       (universalValue h A x).fst + (universalValue h A x).snd * d.val := by
   let f : dual A ⟶ A := dualLift A A Hom.ident d
-  have he : infinitesimal.obj.map (stageMap f) (eps A) = d :=
+  have he : (D).obj.map (stageMap f) (eps A) = d :=
     Subtype.ext (dualLift_eps _ _ _ _)
   have hi : inl A ≫ f = 𝟙 A := dualLift_inl _ _ _ _
   have hx : X.obj.map (stageMap f) (X.obj.map (stageMap (inl A)) x) = x := by
@@ -70,10 +77,10 @@ theorem universal_reconstruction (h : product infinitesimal X ⟶ scalar)
   exact h'
 
 /-- Reconstruction as an equality of sheaf arrows. -/
-def rebuild (p : X ⟶ product scalar scalar) : product infinitesimal X ⟶ scalar :=
-  parameterMap infinitesimal p ≫ affineBody
+def rebuild (p : X ⟶ product R R) : product D X ⟶ R :=
+  parameterMap D p ≫ (PresentationGeometry.affineBody (J := J))
 
-theorem rebuild_coefficients (h : product infinitesimal X ⟶ scalar) :
+theorem rebuild_coefficients (h : product D X ⟶ R) :
     rebuild (coefficients h) = h := by
   apply ObjectProperty.hom_ext
   apply NatTrans.ext
@@ -81,13 +88,13 @@ theorem rebuild_coefficients (h : product infinitesimal X ⟶ scalar) :
   ext p
   exact (universal_reconstruction h A.unop.unop p.1 p.2).symm
 
-theorem coefficients_rebuild (p : X ⟶ product scalar scalar) :
+theorem coefficients_rebuild (p : X ⟶ product R R) :
     coefficients (rebuild p) = p := by
   apply ObjectProperty.hom_ext
   apply NatTrans.ext
   funext A
   ext x
-  have hp := congrArg (fun k : X.obj.obj A ⟶ (product scalar scalar).obj.obj
+  have hp := congrArg (fun k : X.obj.obj A ⟶ (product R R).obj.obj
     (atStage (dual A.unop.unop)) => k x) (p.hom.naturality (stageMap (inl A.unop.unop)))
   change p.hom.app (atStage (dual A.unop.unop))
     (X.obj.map (stageMap (inl A.unop.unop)) x) =
@@ -114,9 +121,9 @@ theorem coefficients_rebuild (p : X ⟶ product scalar scalar) :
     exact AlgebraicKL.dual_reconstruct _ _
   exact congrArg (fun z => (z.fst, z.snd)) hv
 
-theorem coefficients_parameter {Y : Sheaf topology Type}
-    (h : product infinitesimal X ⟶ scalar) (p : Y ⟶ X) :
-    coefficients (parameterMap infinitesimal p ≫ h) = p ≫ coefficients h := by
+theorem coefficients_parameter {Y : Sheaf J Type}
+    (h : product D X ⟶ R) (p : Y ⟶ X) :
+    coefficients (parameterMap D p ≫ h) = p ≫ coefficients h := by
   apply ObjectProperty.hom_ext
   apply NatTrans.ext
   funext A
@@ -129,44 +136,44 @@ theorem coefficients_parameter {Y : Sheaf topology Type}
   rw [hp]
   rfl
 
-abbrev functions := exponential infinitesimal scalar
+abbrev functions := exponential D R
 
-def extract : functions ⟶ product scalar scalar := coefficients (evaluation infinitesimal scalar)
+def extract : functions ⟶ product R R := coefficients (evaluation D R)
 
-theorem extract_curry (h : product infinitesimal X ⟶ scalar) :
+theorem extract_curry (h : product D X ⟶ R) :
     curry h ≫ extract = coefficients h :=
   AffineExponential.extract_curry coefficients coefficients_parameter h
 
-theorem affine_extract : affine ≫ extract = 𝟙 _ :=
-  (AffineExponential.iso coefficients coefficients_parameter affineBody
+theorem affine_extract : (PresentationGeometry.affine (J := J)) ≫ extract = 𝟙 _ :=
+  (AffineExponential.iso coefficients coefficients_parameter (PresentationGeometry.affineBody (J := J))
     rebuild_coefficients coefficients_rebuild).hom_inv_id
 
-theorem extract_affine : extract ≫ affine = 𝟙 _ :=
-  (AffineExponential.iso coefficients coefficients_parameter affineBody
+theorem extract_affine : extract ≫ (PresentationGeometry.affine (J := J)) = 𝟙 _ :=
+  (AffineExponential.iso coefficients coefficients_parameter (PresentationGeometry.affineBody (J := J))
     rebuild_coefficients coefficients_rebuild).inv_hom_id
 
 /-- First-order categorical KL for the original affine map. -/
-def kl : product scalar scalar ≅ functions where
-  hom := affine
+def kl : product R R ≅ functions where
+  hom := (PresentationGeometry.affine (J := J))
   inv := extract
   hom_inv_id := affine_extract
   inv_hom_id := extract_affine
 
-theorem coefficients_unique (h : product infinitesimal X ⟶ scalar)
-    (p : X ⟶ product scalar scalar) (hp : rebuild p = h) : coefficients h = p := by
+theorem coefficients_unique (h : product D X ⟶ R)
+    (p : X ⟶ product R R) (hp : rebuild p = h) : coefficients h = p := by
   calc
     coefficients h = curry h ≫ kl.inv := (extract_curry h).symm
     _ = curry (rebuild p) ≫ kl.inv := by rw [hp]
-    _ = (p ≫ kl.hom) ≫ kl.inv := by rw [rebuild, affine_parameters]; rfl
+    _ = (p ≫ kl.hom) ≫ kl.inv := by rw [rebuild, PresentationGeometry.affine_parameters]; rfl
     _ = p := by rw [Category.assoc, kl.hom_inv_id, Category.comp_id]
 
 /-- Equation at all stages, for two natural coefficient maps. -/
-def AffineEquation (h : product infinitesimal X ⟶ scalar) (a b : X ⟶ scalar) : Prop :=
-  ∀ (A : Code) (d : infinitesimal.obj.obj (atStage A)) (x : X.obj.obj (atStage A)),
+def AffineEquation (h : product D X ⟶ R) (a b : X ⟶ R) : Prop :=
+  ∀ (A : Code) (d : (D).obj.obj (atStage A)) (x : X.obj.obj (atStage A)),
     h.hom.app (atStage A) (d, x) = a.hom.app (atStage A) x + b.hom.app (atStage A) x * d.val
 
-theorem rebuild_eq_of_equation (h : product infinitesimal X ⟶ scalar)
-    (a b : X ⟶ scalar) (he : AffineEquation h a b) : rebuild (lift a b) = h := by
+theorem rebuild_eq_of_equation (h : product D X ⟶ R)
+    (a b : X ⟶ R) (he : AffineEquation h a b) : rebuild (lift a b) = h := by
   apply ObjectProperty.hom_ext
   apply NatTrans.ext
   funext A
@@ -174,21 +181,21 @@ theorem rebuild_eq_of_equation (h : product infinitesimal X ⟶ scalar)
   exact (he A.unop.unop p.1 p.2).symm
 
 /-- KL with arbitrary sheaf parameters and unique natural coefficients. -/
-theorem allParameters (h : product infinitesimal X ⟶ scalar) :
-    ∃! p : (X ⟶ scalar) × (X ⟶ scalar), AffineEquation h p.1 p.2 := by
+theorem allParameters (h : product D X ⟶ R) :
+    ∃! p : (X ⟶ R) × (X ⟶ R), AffineEquation h p.1 p.2 := by
   refine ⟨(coefficients h ≫ fst _ _, coefficients h ≫ snd _ _), ?_, ?_⟩
   · exact universal_reconstruction h
   · intro p hp
     have hc := coefficients_unique h (lift p.1 p.2) (rebuild_eq_of_equation h p.1 p.2 hp)
     apply Prod.ext
-    · exact (congrArg (fun k => k ≫ fst scalar scalar) hc).symm
-    · exact (congrArg (fun k => k ≫ snd scalar scalar) hc).symm
+    · exact (congrArg (fun k => k ≫ fst R R) hc).symm
+    · exact (congrArg (fun k => k ≫ snd R R) hc).symm
 
 /-- Evaluation reconstruction uses the actual internal function object. -/
-theorem evaluation_extract (A : Code) (d : infinitesimal.obj.obj (atStage A))
+theorem evaluation_extract (A : Code) (d : (D).obj.obj (atStage A))
     (f : functions.obj.obj (atStage A)) :
-    (evaluation infinitesimal scalar).hom.app (atStage A) (d, f) =
+    (evaluation D R).hom.app (atStage A) (d, f) =
       (extract.hom.app (atStage A) f).1 + (extract.hom.app (atStage A) f).2 * d.val :=
-  universal_reconstruction (evaluation infinitesimal scalar) A d f
+  universal_reconstruction (evaluation D R) A d f
 
 end SquareKit.SmoothGeometricKL
