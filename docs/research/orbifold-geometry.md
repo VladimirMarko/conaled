@@ -2,7 +2,7 @@
 
 Preliminary research, 2026-10-18. This note evaluates the
 [imported chat and numerical probe](../history/orbifold/README.md). It proposes
-work for an orbifold application; it adds no Lean definitions or proved
+work for the orbifold workstream; it adds no Lean definitions or proved
 geometry. Repository terminology is recorded in [GLOSSARY.md](../../GLOSSARY.md).
 
 Follow-up work is tracked in [#32: paper assessment and formalization](https://github.com/VladimirMarko/conaled/issues/32),
@@ -170,7 +170,7 @@ Proposed boundaries are:
    [RelSquare](../../SquareKit/Relations.lean) only after proving its local
    preservation obligations; its existence supplies no integration error
    theorem.
-4. **Application composition:** state observations and input updates can
+4. **Composition across domains:** state observations and input updates can
    eventually meet FRP contracts; smooth local calculations can use analytic
    AD. Existing [AD](../adr/0003-ad.md) does not differentiate arbitrary seam
    switches, and [interval arithmetic](../adr/0007-incremental-and-enclosure.md)

@@ -102,10 +102,16 @@ does not validate the application extension.
 
 ## Library layout
 
-The [shared glossary](GLOSSARY.md) calls a domain development such as FRP an
-**application**. The proposed orbifold application currently consists of
-[historical artifacts and annotations](docs/history/orbifold/README.md) and
-[preliminary architectural research](docs/research/orbifold-geometry.md).
+The [shared glossary](GLOSSARY.md) distinguishes **workstreams** (development
+efforts), **domain libraries** (reusable mathematics and implementations),
+**mathematical applications** (uses of constructions and theorems), and
+**software applications** (runnable systems). A workstream can span several
+libraries; a simulator can use several mathematical applications.
+
+`Applications/` is the existing home for domain implementations and their
+semantic proofs, as specified by [ADR 0001](docs/adr/0001-modules-and-proof-dependencies.md).
+It is neither a list of runnable programs nor a complete map of workstreams.
+Its contents include specializations, domain theory, and compiler backends.
 
 | Location | Purpose |
 |---|---|
@@ -126,6 +132,36 @@ The [shared glossary](GLOSSARY.md) calls a domain development such as FRP an
 | `Examples/` | Universal compositions between independently implemented backends, plus executable displays. |
 | `ProofAudit.lean` | Exhaustive dependency traversal; rejects every axiom except `propext`, `Classical.choice`, and `Quot.sound`. |
 | `docs/adr/` | Ten architecture decision records, with motivations, rejected alternatives, evidence, and limits. |
+
+## Workstreams and shared components
+
+These are overlapping efforts and component roles, not separate package
+boundaries. In particular, the shared categorical foundation supports more
+than the current compiler frontends.
+
+| Area | Role and scope | Current entry point |
+|---|---|---|
+| Categorical compilation | Compiler machinery built on shared mathematical foundations | `Compiler.lean`, `FirstOrder.lean`, `SquareCompiler.lean`, `SquareKit/` |
+| Frontends and backends | Source languages, target interpretations, and their specializations; components reused across workstreams | [Library layout](#library-layout), [checked results](APPLICATIONS.md) |
+| Felix capability parity | Workstream comparing and porting a declared scope of constructions and proofs | [Source inventory](docs/research/felix-parity.md), [implementation evidence](docs/research/felix-parity-implementation.md) |
+| Felix architectural quality | Repository-wide standard for assumptions, interfaces, reuse, and caller effort | [Architectural standard](docs/agents/architectural-quality.md) |
+| FRP | Workstream spanning reactive semantics, representations, and runtime research | [Integration record](docs/frp-integration.md) |
+| Orbifolds | Workstream spanning geometric foundations, realizations, and prospective simulator software applications | [Imported sources](docs/history/orbifold/README.md), [research](docs/research/orbifold-geometry.md) |
+| FPGA development | Workstream for executable hardware experiments and external tool interfaces | [Hardware research agenda](docs/extensions.md#hardware-research-and-external-realizations) |
+| Hardware architecture derivation | Workstream for deriving and comparing realizations under different architectural choices | [Hardware research agenda](docs/extensions.md#hardware-research-and-external-realizations) |
+| Mathlib reuse and contributions | Shared dependency and upstream contribution boundary for general mathematics | [Dependency policy](docs/adr/0001-modules-and-proof-dependencies.md) |
+
+The [scope assessment](docs/research/development-scope.md) distinguishes existing
+Felix investigation and hardware proofs from the remaining research.
+
+The current source layout remains in place. A possible cleanup would separate
+shared foundations, compiler machinery, domain libraries, and executable
+systems, while workstream documents link across those components. This needs
+a migration design against ADR 0001: import paths, public entrypoints, Lake
+targets, source coverage, and the proof audit must agree on any new layout.
+Creating a directory or Lake package for each workstream would obscure shared
+dependencies. Separate packages should follow actual dependency or build
+boundaries; separate executable targets should follow runnable systems.
 
 ## Composability tests
 

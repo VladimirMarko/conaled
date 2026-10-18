@@ -57,7 +57,7 @@ certified ODE integrator, or renderer. The exact quarter-turn labels do not
 make the floating-point geometric calculations exact.
 
 No orbifold Lean modules have been added. Future checked implementations belong
-to the proposed orbifold application and must meet the repository's usual
+to the orbifold workstream and must meet the repository's usual
 statement-review, checked-example, and proof-audit requirements.
 
 ## Follow-up work
@@ -67,4 +67,4 @@ statement-review, checked-example, and proof-audit requirements.
 - [#33: Generalized gyrovector geometry](https://github.com/VladimirMarko/conaled/issues/33)
   compares the proposed geometric operations and their assumptions.
 - [#34: Verified orbifold simulator](https://github.com/VladimirMarko/conaled/issues/34)
-  tracks the long-term application and its geometric and numerical contracts.
+  tracks the long-term simulator and its geometric and numerical contracts.
