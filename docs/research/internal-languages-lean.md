@@ -940,3 +940,9 @@ nested composition. Its recommendation is to retain the named-rule interface
 with the bounded `Rules.existsHere` helper. The report records caller
 obligations, statement review, run commands, and the limits of this Stage A
 evidence; it does not claim completion of Stage B.
+
+The experimental [sheaf-local image construction](sheaf-local-images.md)
+implements #51's bounded next step: local witnesses, a closed-target
+image/reindexing adjunction, and a finite site where evaluating a sheaf image
+differs from taking the image of the evaluated map. It leaves the presheaf
+adapter and its objectwise evaluation theorem unchanged.
