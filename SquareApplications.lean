@@ -1,3 +1,4 @@
+import Examples.InternalRelations
 import Examples.InternalGraphs
 import Examples.DiskRealizations
 import Examples.OrbifoldComparison

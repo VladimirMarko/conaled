@@ -1,5 +1,6 @@
 import SquareKit.Internal.Graph
 import SquareKit.RelationalCategory
+import SquareKit.RelationComposition
 
 /-! Comparison of interpreted graph composition with existing square pasting.
 Experimental Set graph slice of issue #38. Scope and remaining model work:
@@ -10,10 +11,8 @@ universe u
 open Squares Relational
 
 /-- Existential graph composition retains its intermediate witness in Prop. -/
-def composedGraph (A : Rep.{u}) {T : Type u} (d : A.S → T) : RelRep.{u} where
-  R := A.R
-  S := T
-  Rel r t := ∃ s, A.decode r = s ∧ d s = t
+def composedGraph (A : Rep.{u}) {T : Type u} (d : A.S → T) : RelRep.{u} :=
+  existential (graph A).Rel (fun s t => d s = t)
 
 /-- Equality orientation follows `Relational.graph`, not the internal sequent. -/
 theorem composedGraph_iff (A : Rep.{u}) {T : Type u} (d : A.S → T) (r : A.R) (t : T) :
@@ -26,27 +25,16 @@ theorem composedGraph_iff (A : Rep.{u}) {T : Type u} (d : A.S → T) (r : A.R) (
     obtain ⟨s, hs, ht⟩ := interpreted.mpr h.symm
     exact ⟨s, hs.symm, ht.symm⟩
 
-/-- Change both predicates while retaining both horizontal maps. -/
-def transportRelations {A B : RelRep.{u}} (f : RelSquare A B)
-    (P : A.R → A.S → Prop) (Q : B.R → B.S → Prop)
-    (hP : ∀ r s, A.Rel r s ↔ P r s) (hQ : ∀ r s, B.Rel r s ↔ Q r s) :
-    RelSquare ⟨A.R, A.S, P⟩ ⟨B.R, B.S, Q⟩ where
-  impl := f.impl
-  spec := f.spec
-  preserves h := (hQ _ _).mp (f.preserves ((hP _ _).mpr h))
+-- Preserve the #38 qualified caller name for the shared transport operation.
+export Relational (transportRelations)
 
 /-- Pasting preserves existentially composed predicates before comparison. -/
 def existentialVertical {A B : Rep.{u}} {AS BS : Type u}
     (da : A.S → AS) (db : B.S → BS) (f : Square A B)
     (g : Square (Rep.mk A.S AS da) (Rep.mk B.S BS db))
     (middle : ∀ x, f.spec x = g.impl x) :
-    RelSquare (composedGraph A da) (composedGraph B db) where
-  impl := f.impl
-  spec := g.spec
-  preserves := by
-    rintro r s ⟨a, ha, hs⟩
-    refine ⟨f.spec a, (f.commutes r).trans (congrArg f.spec ha), ?_⟩
-    exact (congrArg db (middle a)).trans ((g.commutes a).trans (congrArg g.spec hs))
+    RelSquare (composedGraph A da) (composedGraph B db) :=
+  existentialSquare (ofSquare f) (ofSquare g) middle
 
 /-- Principal verification seam: both relations are transported using the
 interpreted derivation, and extensionality compares both maps. -/

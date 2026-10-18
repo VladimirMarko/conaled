@@ -85,7 +85,9 @@ those proofs for arbitrary `A → B → C`. `SquareKit.Internal.Squares` then
 connects this theorem to the existing library:
 
 - `existentialVertical` preserves existentially composed graph predicates using
-  the original squares and their pointwise middle-map equality.
+  the original squares and their pointwise middle-map equality. In #45 it
+  specializes `Relational.existentialSquare`, sharing preservation machinery
+  with arbitrary relations.
 - `composedGraph_iff` consumes `inSet`, reversing equalities to match the
   `decode r = s` convention of `Relational.graph`.
 - `vertical_comparison` transports both endpoint predicates with those
@@ -106,8 +108,9 @@ agreement as `Squares.vertical`; neither middle-map identity nor closed
 structure is required.
 
 Ordinary callers retain their original imports, arguments, notation and proof
-obligations. No ordinary module imports the syntax; the aggregate public
-entrypoint includes it through `Examples.InternalGraphs`. The matrix/stack and
+obligations. Existing ordinary modules keep their imports; the aggregate public
+entrypoint includes the internal examples. The new relation-composition module
+imports the interpreted proof, but its callers need not use internal syntax. The matrix/stack and
 arithmetic-pipeline clients are unchanged. The mixed-style example calls the
 ordinary square interfaces beside the new results without new instances or
 notation. Predicate transport retains the original implementation and
@@ -127,11 +130,11 @@ No elaboration regression was identified in this check.
 
 This is an experimental first slice of Stage A. The historical
 [frontend experiment](../history/internal-language-frontends/Frontend.lean)
-remains unchanged. The admitted fragment has equality of unary terms,
-conjunction, existential introduction/elimination and cut. It has no general
-predicate symbols, implication, completeness result, or adapter for arbitrary
-regular categories. No presheaf interpretation, arbitrary-relation associativity,
-or differential cohesive model is claimed.
+remains unchanged. The original #38 fragment had equality of unary terms, conjunction,
+existential introduction/elimination and cut. The #45 extension below adds
+binary relation symbols and arbitrary-relation associativity. Neither slice
+provides implication, completeness, an adapter for arbitrary regular categories,
+a presheaf interpretation, or a differential cohesive model.
 
 ### Statement review and checked applications
 
@@ -159,6 +162,118 @@ uses equivalence of predicates; the final square comparison uses equality of
 both maps, not just their semantic projections. The transport helper's two
 equivalence hypotheses are discharged by the interpreted theorem at both
 endpoints. These cases exercise the public claims rather than proof syntax.
+
+## Implemented Set relation slice (#45)
+
+`SquareKit.Internal.Logic` now uses one formula datatype with typed binary
+relation symbols alongside equality, conjunction and existential quantification.
+`Formula F Γ` still selects the empty relation signature; `Formula F Γ P`
+selects a supplied signature. `FormulaCore` holds the datatype so the public
+abbreviation can keep the old argument order. The `Formula` namespace exports
+the constructors and operations. Existing graph definitions and the complete
+`Examples.InternalGraphs` client remain unchanged in their calls.
+
+The added sequent rules transport a derivation along a capture-avoiding
+substitution and eliminate an existential while retaining another assumption.
+The latter shifts both the retained assumption and the conclusion under the
+binder. Named weakening and witness introduction reuse substitution and cut.
+`sound` covers these rules using `formula_subst`, `formula_shift` and
+`formula_instantiate`; its atom case interprets both terms under the same
+environment. No Set-validity constructor is admitted.
+
+`Associativity.left` means `∃ c, (∃ b, R a b ∧ S b c) ∧ T c d`;
+`Associativity.right` means `∃ b, R a b ∧ ∃ c, S b c ∧ T c d`.
+`forward` and `backward` are derivations in the context of an A endpoint and a
+D endpoint. `Associativity.inSet` applies `sound` to those derivations for
+arbitrary carriers and relations. It supplies the ordinary
+`Relational.compRel_assoc` theorem. The witness order changes, while all three
+relation hypotheses and both free endpoints remain fixed.
+
+`SquareKit.RelationComposition` supplies the external consumer:
+
+- `compRel R S` is the existential predicate and `existential R S` packages it
+  as a `RelRep` with the original endpoint types.
+- `existentialSquare f g middle` maps the middle witness using `f.spec`.
+  Pointwise agreement with `g.impl` supplies the second relation proof.
+- `existential_reassociate` uses `compRel_assoc` to transport both source and
+  target predicates, then `RelSquare.ext` compares both horizontal maps.
+- `Intermediate R S` stores source, middle and target as data, with two proofs.
+  `forgetIntermediate` maps it to the existing `Relational.witness` of the
+  composite. `forgetIntermediate_natural` compares the two squares formed by
+  forgetting before or after applying the preserving maps.
+
+### Obligations and limits
+
+An internal author supplies typed symbols, terms, and rule applications. A Set
+adapter supplies carriers, unary arrows, and a predicate for each binary symbol;
+it reuses the general soundness proof. `Interpretation F` defaults to an empty
+relation signature, so graph adapters need no new field. The relation field's
+default is the everywhere-false interpretation; with an empty signature it is
+unobservable. Adapters for nonempty signatures should provide their intended
+relations explicitly, as `Associativity.model` does.
+
+An application supplies ordinary relations and, for preservation, endpoint maps
+with their local preservation proofs and pointwise agreement at each shared
+carrier. It supplies no decoder, model, internal derivation, or repeated
+soundness proof. The existential and reassociation paths introduce only Prop
+witnesses. Explicit intermediate data is opt-in through `Intermediate`; no
+operation extracts data from an existential proof, enumerates witnesses, or
+claims runtime erasure. The representation and square structures are the
+existing ones. Their exact, relational, enclosure, stability and dependent-family
+contracts are unchanged; no closed or cohesive structure is required.
+
+This completes the arbitrary-relation Set slice, not Stage A or #36. Presheaf
+semantics, a custom frontend, completeness, higher-arity symbols, dependent
+syntax, SDG and cohesion remain outside this implementation.
+
+### Statement review and retained cases
+
+`Examples.InternalRelations` connects the claims to the public interfaces:
+
+- The singleton-to-Bool relation has both outputs, and `no_decoder` rules out
+  any function with exactly that graph. Composition keeps both possible Nat
+  outputs. Bool negation and Nat/Int increment give nontrivial preserving maps
+  across Unit, Bool, Nat and Int; their middle maps agree propositionally.
+- Reassociation is checked as equality of the two transported squares and as
+  preservation of the concrete endpoint 2. Endpoint 3 is rejected using the
+  last two relation hypotheses. An everywhere-false middle relation and an
+  empty middle carrier give separate absent-witness cases.
+- `viaFalse` and `viaTrue` have the same endpoints and different middle data.
+  They are unequal before forgetting and equal afterwards. The naturality
+  theorem is checked both as a square equality and on a concrete witness;
+  the mapped middle and target are true and 1.
+- The internal derivations support substitution and weakening. An atom under
+  a binder of the same sort as the substituted term checks capture avoidance.
+  Ordinary and internal associativity calls coexist with the unchanged graph
+  examples, without added notation or instances.
+
+Statement review found no functionality, totality, decidability or inhabitation
+premises. All carriers and predicates in the public relation results are
+universally quantified. Substitution preserves the relation symbol and acts on
+both arguments; lifted substitution protects the bound variable. Retained
+assumptions and conclusions in existential elimination cannot depend on the
+removed witness. Both equivalences in square transport come from the internal
+proof's Set interpretation. Witness naturality is equality of both maps,
+including the endpoint projection; the forgetful map makes no injectivity claim.
+These cases also exercise the helper rules and binder lemmas used by the new
+proofs. Existing graph cases continue to cover the equality specialization.
+
+On 2026-10-18, three serial Lean runs per unchanged client compared the #38
+baseline `09f90cb7e0338f7d3a9d79b8b1d60feb640118c8` with this implementation.
+The baseline's three internal modules were rebuilt in a temporary artifact
+overlay; other dependencies, the pinned toolchain, and the direnv environment
+were shared. Direct Lean process times (excluding Lake startup) were:
+
+| Unchanged client | Baseline samples (seconds) | Candidate samples (seconds) |
+|---|---|---|
+| `Examples/InternalGraphs.lean` | 0.703, 0.696, 0.696 | 0.674, 0.682, 0.692 |
+| `Examples/MatrixStack.lean` | 0.869, 0.848, 0.874 | 0.851, 0.856, 0.858 |
+| `Examples/ArithmeticPipeline.lean` | 1.215, 1.268, 1.247 | 1.244, 1.203, 1.188 |
+
+No slowdown appeared in this sample. These process timings include import and
+startup costs and do not establish performance neutrality. The two ordinary
+clients and their transitive source imports are unchanged; the graph client
+exercises the changed equality specialization and preservation path.
 
 ## Capability and compatibility evidence
 
