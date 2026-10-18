@@ -12,6 +12,15 @@ compares the original inspected baseline; its “missing” entries are not clai
 about that implementation revision. Independent integration review and milestone
 completion are recorded on #15 by the implementation workflow.
 
+The local extension for [#37](https://github.com/VladimirMarko/conaled/issues/37)
+adds [Cartesian-closed law transport](../../SquareKit/ClosedMap.lean), including
+currying congruence, beta, eta, naturality, uncurrying preservation and composition.
+It requires local category/product/closed preservation, invertible comparisons,
+and either induced equivalence or explicit reflection. The
+[implementation record](felix-parity-implementation.md#closed-law-transport-37)
+lists the checked raw-code and wrapped-function uses. Felix's pinned closed
+transport TODO remains historical upstream status, separate from this local result.
+
 ## Evidence and scope
 
 The Felix baseline remains `6f36d28097db7ea5f5df3263db3e8be08f74e490`; the inspected local baseline is `c17daf5a66b9812fdbc0cb37cd4e9c49b1949ce8`. Mathlib is `56a005855ea17e0b0958f73ec801ae140b0a1679` and Lean is 4.35.0, as recorded in [local provenance](https://github.com/VladimirMarko/conaled/blob/c17daf5a66b9812fdbc0cb37cd4e9c49b1949ce8/docs/SOURCES.md). All links below pin source revisions. Declaration names identify the evidence even when a link covers a module.

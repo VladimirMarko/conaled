@@ -309,12 +309,67 @@ packages reuse generic map composition; category/product laws reuse transport.
 `Examples.MatrixCompilerPreservation.Prim` supplies arbitrary typed matrices,
 and its model/retag/primitive obligations are listed in the #14 ledger.
 
+## Closed law transport (#37)
+
+[Issue #37](https://github.com/VladimirMarko/conaled/issues/37) extends the initial
+milestone with [SquareKit/ClosedMap.lean](../../SquareKit/ClosedMap.lean).
+The older per-ticket records above describe their delivery scope; their closed
+transport exclusions do not describe this extension.
+
+| Capability | Local evidence and hypotheses |
+|---|---|
+| Currying congruence | `ClosedMap.transportCongr`: map congruence, reflection, target composition/currying congruence and currying preservation. |
+| Uncurrying preservation | `ClosedMap.map_uncurry`: category/product/evaluation preservation, target category/product laws and product comparison inverses. No source closed laws or exponential inverse equations are needed for this lemma. |
+| Beta, eta and naturality | `ClosedMap.transportLaws`: lawful target category/products/closure, local preservation, both comparison inverses and reflection. `RawMap.induced` and `induced_reflects` supply the source relation without injectivity. |
+| Identity and composition | `ClosedMap.id`, `comp`, `id_laws`, `comp_laws`, `id_inverse`, `comp_inverse`; reuse `RawMap.comp_laws`, `ProductMap.comp` and comparison composition. |
+| Raw-code consumer | `CodeCategory.closedCongr`, `closedLaws`, `closed_eta` use the existing evaluation map. `closed_eta_not_equal` retains the distinction between raw trees and semantic equivalence. |
+| Non-strict and composed uses | `Examples.ClosedTransport.Wrapped.closedLaws` transports through `Box (a × b)` and `Box (a → b)` comparisons. `composedClosedLaws` interprets raw code through ordinary functions into wrapped operations using shared composition and the induced relation. |
+
+The existing `ClosedMapLaws` fields and comparison inverse equations suffice.
+`map_uncurry` derives the needed coherence from evaluation and product
+preservation. `uncurry_curry` and `curry_uncurry` conjugate the target bijection
+by the comparisons. `ClosedLaws.ofBetaEta` derives naturality from those two
+laws and category/product laws. The source needs no closed-law premise.
+Composition needs no category or closed laws in the intermediate model.
+Operations, congruence, equivalence and laws remain separately selectable;
+object and hom universes are independent.
+
+The raw-code adapter now supplies closed laws through transport. Its callers
+need no structural proofs of beta, eta or naturality and no syntax induction.
+Local obligations are `evaluationClosed` (curry and evaluation preservation) and
+`closedComparisonLaws`, alongside the existing category/product preservation
+and comparison inverses. `CodeCategory.closed_eta` recovers the statement of
+`CategoricalCompiler.closed_eta`. The dependency-free proof in `Compiler.lean`
+remains for that public foundation's import policy; it is not a dependency of
+the transported proof. `FunctionCategory.closedLaws` supplies the ordinary
+function model's laws by reduction. Product `hom_ext` and `pair_comp` move from
+`CommaProducts` to `CartesianMap`, preserving their names and statements for
+both consumers.
+
+The pinned Felix `Homomorphism.agda` supplies exponential comparison arrows
+but leaves `CartesianClosedH` unfinished; `MakeLawful.agda` implements category
+and Cartesian transport and ends with a closed-transport TODO. The local
+construction fills this gap under the stated hypotheses. Mathlib's existing
+`MonoidalClosed` laws are already adapted in `OptionalMathlib`; they concern
+lawful categories with equality. This transport also supports raw syntax and
+chosen hom setoids without quotienting executable representatives.
+
+Statement review checked all new declarations against those hypotheses and
+relations. Raw eta was already provable in the foundation; the missing piece
+was its derivation through the shared interface. The retained cases connect
+beta, eta and environment naturality to `CodeCategory.closedLaws`, check both
+inverse equations for genuinely wrapped carriers, and derive source laws after
+composing interpretations. `Wrapped.captured_offset` checks the expected
+addition result for arbitrary captured and applied values. No claim concerns
+arbitrary functors, arbitrary closed comma categories, or dependent Π-types.
+
 ## Deferred work and limits
 
 [Issue #8](https://github.com/VladimirMarko/conaled/issues/8) owns the full Felix
 port and unfinished constructions. This milestone supplies scoped optional
-preservation needed by existing compilers; it does not claim generic closed-law
-transport, arbitrary comma closedness, initial objects/right distribution beyond
+preservation needed by existing compilers. The #37 extension adds closed-law
+transport under explicit preservation and inverse hypotheses. Neither claims
+arbitrary comma closedness, initial objects/right distribution beyond
 the selected interfaces, traced/feedback constructions, indexed dependent
 frontends, generic hardware optimization, or runtime witness erasure. Upstream
 TODOs are not treated as proved mathematics. Existing AD, scan/FFT, parsing and

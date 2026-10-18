@@ -114,6 +114,25 @@ theorem transportLaws {F : RawMap C D} {E : HomEquiv C} {H : HomEquiv D}
     (H.trans (DC.comp (H.refl _) (UL.unique _)) (H.symm M.terminal)))
 end TerminalMap
 
+namespace ProductLaws
+variable {O : Type u₁} {C : CategoryOps.{u₁,v₁} O} {E : HomEquiv C}
+variable {P : ProductOps C}
+theorem hom_ext (PC : ProductCongr E P) (PL : ProductLaws E P)
+    {a b c} {f g : C.Hom a (P.prod b c)}
+    (h : E.Rel (C.comp P.fst f) (C.comp P.fst g))
+    (k : E.Rel (C.comp P.snd f) (C.comp P.snd g)) : E.Rel f g :=
+  E.trans (E.symm (PL.pair_eta f)) (E.trans (PC.pair h k) (PL.pair_eta g))
+theorem pair_comp (CC : CategoryCongr C E) (CL : CategoryLaws C E)
+    (PC : ProductCongr E P) (PL : ProductLaws E P)
+    {a b c d} (f : C.Hom b c) (g : C.Hom b d) (h : C.Hom a b) :
+    E.Rel (C.comp (P.pair f g) h) (P.pair (C.comp f h) (C.comp g h)) := by
+  apply PL.hom_ext PC
+  · exact E.trans (E.symm (CL.assoc _ _ _))
+      (E.trans (CC.comp (PL.fst_pair _ _) (E.refl _)) (E.symm (PL.fst_pair _ _)))
+  · exact E.trans (E.symm (CL.assoc _ _ _))
+      (E.trans (CC.comp (PL.snd_pair _ _) (E.refl _)) (E.symm (PL.snd_pair _ _)))
+end ProductLaws
+
 namespace ProductMap
 variable {O : Type u₁} {P : Type u₂} {Q : Type u₃}
 variable {C : CategoryOps.{u₁,v₁} O} {D : CategoryOps.{u₂,v₂} P} {K : CategoryOps.{u₃,v₃} Q}

@@ -25,4 +25,8 @@ theorem coproductCongr : CoproductCongr ops.{u} (equality _) coproducts where
 
 theorem closedCongr : ClosedCongr (equality ops.{u}) products closed where
   curry := by intros; subst_vars; rfl
+theorem closedLaws : ClosedLaws (equality ops.{u}) products closed where
+  beta _ := rfl
+  eta _ := rfl
+  natural _ _ := rfl
 end SquareKit.FunctionCategory

@@ -1,6 +1,8 @@
 import SquareKit.FunctionCategory
 import SquareKit.CartesianMap
 import Compiler
+import SquareKit.ClosedMap
+import SquareKit.FunctionOptional
 
 set_option backward.isDefEq.respectTransparency false
 set_option backward.isDefEq.respectTransparency.types false
@@ -23,6 +25,11 @@ def products : ProductOps (ops Prim) where
   fst := .fst
   snd := .snd
   pair := .pair
+
+def closed : ClosedOps (ops Prim) (products Prim) where
+  exp := .arr
+  evaluation := .apply
+  curry := .curry
 
 variable {Prim} {B : Type}
 variable (meaning : {a b : Ty} → Prim a b → Val B a → Val B b)
@@ -89,6 +96,42 @@ theorem productLaws : ProductLaws (equiv meaning) (products Prim) :=
   ProductMap.transportLaws (evaluationLaws meaning) (evaluationReflects meaning)
     (equalityCongr _) FunctionCategory.laws (productComparisonLaws meaning)
     (evaluationProducts meaning) FunctionCategory.productCongr FunctionCategory.productLaws
+
+/-- Raw closures are interpreted as functions; comparison arrows are explicit. -/
+def closedComparison : ClosedMap (evaluation meaning) (closed Prim) FunctionCategory.closed :=
+  fun _ _ => ⟨id, id⟩
+
+theorem closedComparisonLaws (a b : Ty) :
+    ComparisonLaws (equality _) (closedComparison meaning a b) := ⟨rfl, rfl⟩
+
+theorem evaluationClosed : ClosedMapLaws (equality _) (productComparison meaning)
+    (closedComparison meaning) where
+  curry _ := rfl
+  evaluation := rfl
+
+theorem closedCongr : ClosedCongr (equiv meaning) (products Prim) (closed Prim) :=
+  ClosedMap.transportCongr (evaluationLaws meaning) (evaluationReflects meaning)
+    (equalityCongr _) FunctionCategory.closedCongr (evaluationClosed meaning)
+
+/-- Beta, eta and naturality use shared transport, with no induction on raw code. -/
+theorem closedLaws : ClosedLaws (equiv meaning) (products Prim) (closed Prim) :=
+  ClosedMap.transportLaws (evaluationLaws meaning) (evaluationReflects meaning)
+    (equalityCongr _) FunctionCategory.laws FunctionCategory.productCongr
+    FunctionCategory.productLaws FunctionCategory.closedCongr FunctionCategory.closedLaws
+    (productComparisonLaws meaning) (closedComparisonLaws meaning)
+    (evaluationProducts meaning) (evaluationClosed meaning)
+
+/-- Recovery of `CategoricalCompiler.closed_eta` through the public transport interface. -/
+theorem closed_eta {a b c : Ty} (f : Code Prim a (.arr b c)) :
+    Equivalent meaning (.curry (.comp .apply (.pair (.comp f .fst) .snd))) f :=
+  (closedLaws meaning).eta f
+
+/-- Semantic eta does not identify the closure constructor with the original tree. -/
+theorem closed_eta_not_equal :
+    (Code.curry (.comp .apply (.pair (.comp .ident .fst) .snd)) :
+      Code Prim (.arr .base .base) (.arr .base .base)) ≠ .ident := by
+  intro h
+  cases h
 
 /-- The raw trees differ even though their equivalence classes agree. -/
 theorem association_not_equal :

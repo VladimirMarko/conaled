@@ -1,3 +1,4 @@
+import Examples.ClosedTransport
 import Examples.FRPDemand
 import Examples.FRPTrace
 import Examples.FRPFrontier
