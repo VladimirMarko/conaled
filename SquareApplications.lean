@@ -1,5 +1,7 @@
 import Examples.PathTransport
 import Applications.Orbifold.ConnectionAssessment
+import Examples.InternalRelations
+import Examples.InternalGraphs
 import Examples.DiskRealizations
 import Examples.OrbifoldComparison
 import Examples.ClosedTransport
