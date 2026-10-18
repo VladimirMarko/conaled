@@ -508,3 +508,64 @@ One next bounded construction is a second-order real truncated-polynomial
 stage with smooth operations, substitution and projection to the present dual
 stage. A checked nonzero quadratic term and a Hessian comparison would test
 the new information before constructing a smooth site.
+
+## A second-order smooth real stage (#78)
+
+`Applications/AD/SecondStage.lean` realizes the truncated polynomial algebra
+`ℝ[ε]/(ε³)` as a concrete subalgebra of `DualNumber (DualNumber ℝ)`. Its
+members satisfy `z.fst.snd = z.snd.fst`. The element with coordinates `(a,b,c)`
+is `((a,b),(b,2c))`; thus epsilon is the sum of the two ambient dual directions.
+The inherited ring operations, `coeff_mul`, `coeff_ofCoeff`, `ofCoeff_coeff`
+and `normal_form` prove the unique representation `a+bε+cε²`.
+`epsilon_cube` proves epsilon cubed zero; `epsilon_sq_ne_zero` proves its square
+nonzero. `evaluate` and `universal` give the defining universal property:
+for every commutative real algebra and every element with cube zero there is
+exactly one real algebra homomorphism sending epsilon to that element. This
+justifies the truncated-polynomial presentation without postulating ring laws.
+
+The ordinary analytic work lives in `Applications/AD/SecondOrder.lean`.
+Before choosing it, the existing `Jets.lean` polynomial tower and `HigherOrder.lean`
+curve relation were inspected, along with Mathlib's polynomial Taylor/Hasse
+coefficients, iterated derivatives, smoothness of `fderiv`, and differentiation
+of continuous-linear-map application. The polynomial tower covers all orders
+for polynomials, but does not supply arbitrary smooth substitution. The new
+module applies the existing certified `DMap` tangent twice. `lift_comp` uses
+`tangent_comp` and derivative uniqueness; `twice_comp` applies that same law
+again. `twice_formula` differentiates evaluation using `HasFDerivAt.clm_apply`
+and smoothness of the derivative. Restricting to `((x,v),(v,2w))` gives `jet_comp`
+with quadratic coordinate `Df(x)(w) + ½ D²f(x)(v,v)`. Here `D²` is literally
+`fderiv ℝ (fderiv ℝ f)`, applied to both directions. Smoothness discharges the
+analytic hypotheses; no second-order chain rule is assumed.
+
+`Applications/AD/SmoothSecondStage.lean` uses the existing finite-arity
+`Operation` interface. `quadratic_coefficient` exposes the analytic formula;
+`act_substitute` combines `jet_comp` and finite tuple assembly. Projection,
+constant, addition and multiplication laws recover the actual stage algebra,
+for all arities including zero. `project_act` proves that discarding the
+quadratic coordinate preserves every smooth operation and recovers #76.
+`reparam a b` is the actual algebra endomorphism sending epsilon to `aε+bε²`.
+Its coordinate formula is `(x,v,w) ↦ (x,av,bv+a²w)` and `reparam_act` proves
+smooth-operation preservation for all real `a,b`, including noninvertible
+choices. All three ordinary modules remain independent of source syntax.
+
+The checked clients in `Examples/SecondStage.lean` recover a stored coefficient
+of one for epsilon squared, while the ordinary second derivative of the square
+is two. That analytic calculation consumes the existing polynomial jet theorem.
+For the exponential, `exp_jet` differentiates the actual analytic derivative;
+`exp_analytic_coefficient` compares the stored coefficient with one half of
+`deriv (deriv Real.exp)`. At epsilon the coefficients are `(1,1,½)`.
+`projection_loses_quadratic` proves that the nonzero epsilon square becomes
+zero in the first-order projection. A nonidentity reparameterization and a
+nullary client exercise the general laws.
+
+This adds one higher-nilpotence algebra to the earlier first-order family.
+It does not construct the general Weil algebras or their smooth-operation
+extension, the formal-manifold site and descent, or the well-adapted model
+from the primary sources discussed above. Smooth categorical KL, the general
+analytic embedding, cohesion and the orbifold comparison remain open. #36
+is incomplete.
+
+One next bounded construction is a two-generator second-order stage retaining
+mixed products, with smooth operations, compatible maps to the present stage
+and an explicit mixed Hessian comparison. That would test multivariable
+quadratic information before moving to arbitrary Weil presentations.

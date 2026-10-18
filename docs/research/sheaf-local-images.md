@@ -1377,3 +1377,14 @@ by a unique linear map and preserves all smooth operations. The real dual
 case is recovered through equality of derivative formulas. Multi-direction
 examples check the first-order boundary. See the [construction record](algebraic-kl-model.md#compatible-square-zero-stages-77).
 Higher nilpotence, a smooth site and smooth categorical KL remain open.
+
+### A genuine second-order smooth stage (#78)
+
+The real algebra `ℝ[ε]/(ε³)` is now constructed as a subalgebra of iterated dual
+numbers, with unique normal form and its universal property. Arbitrary smooth
+operations satisfy substitution and ring recovery through twice-applied certified
+AD. The dual projection and all reparameterizations `ε ↦ aε+bε²` preserve those
+operations. Exponential and polynomial clients compare quadratic coefficients
+with analytic second derivatives. See the [construction record](algebraic-kl-model.md#a-second-order-smooth-real-stage-78).
+This remains one higher-order stage; a smooth site and smooth categorical KL
+are still open.
