@@ -1247,3 +1247,49 @@ ordinary smooth maps between them fully faithfully in this sheaf category.
 The checked open-locus function-algebra identification from #84 and subcanonicity
 supply the algebraic and categorical parts; their compatibility with ordinary
 smooth maps is the next concrete prerequisite for a manifold comparison.
+
+## Ordinary principal-open embedding (#91)
+
+`EuclideanOpen.Domain` records a finite dimension and a globally smooth defining
+function. Its points are the function's nonzero locus. Morphisms are all maps
+between these domains whose coordinates are smooth on the source open set.
+`OpenFunctions.Map.smooth_iff` identifies this condition with ordinary local
+smoothness; the coordinate representatives have no regularity requirement away
+from the source. Empty domains and dimension zero are included.
+
+`SmoothOpenDuality` reconstructs an ordinary map from every smooth homomorphism
+between the localization algebras. At a source point it composes the algebra
+map with evaluation and uses the existing real-point universal property to
+obtain a target point. Images of coordinate generators prove smoothness.
+The inverse proofs use #84's bijection with the full smooth-function algebra;
+they do not assert point detection for arbitrary presentation quotients.
+Pullback preserves all finite-arity smooth operations and contravariant
+composition.
+
+`EuclideanOpen.embedding` composes this fully faithful contravariant algebra
+construction with the proved arbitrary-cover sheaf Yoneda embedding. The
+result is a covariant fully faithful functor. Its map formula is actual
+algebraic pullback, and its point formula is ordinary evaluation. Full
+Euclidean domains compare to the existing scalar finite powers. Principal
+open inclusions recover localization on generators; intersection inclusions
+recover the existing product-localization maps. Globally smooth operations
+commute with these comparisons.
+
+`Examples.EuclideanOpenEmbedding` recovers reciprocal on the punctured line
+through the full-faithfulness inverse and proves that no continuous ambient
+extension exists. It checks exponential, its existing scalar interpretation,
+composition with reciprocal, arbitrary sheaf-arrow recovery and the absence
+of a point from the zero-dimensional full domain into the empty domain.
+
+Kock's [*Synthetic Differential Geometry*, III.5, Corollary 5.8, pp. 158–159,
+and III.8, Theorem 8.4, p. 176](https://users-math.au.dk/kock/sdg99.pdf)
+reconstructs smooth maps from evaluation after algebra homomorphisms, then
+combines algebraic full faithfulness with Yoneda. This development proves that
+argument for Euclidean principal opens in the constructed site. A full manifold
+embedding, preservation of transversal pullbacks and well-adaptedness remain
+unproved, as do general Weil KL and higher/cohesive/orbifold comparisons.
+
+Recommended next construction: prove compatibility of this embedding with
+ordinary principal-open cover descent, including overlap maps and gluing of
+ordinary smooth maps. This connects the checked local domains to the
+arbitrary-cover topology before assembling manifold atlases. #36 remains open.

@@ -1518,3 +1518,10 @@ and interpreted synthetic product proof compare explicitly with the finite
 model. Derivative locality uses actual sheaf gluing on the countable cover with
 no finite subcover. See the [shared KL record](algebraic-kl-model.md#shared-kl-in-the-arbitrary-cover-model-90)
 for the theorem and remaining manifold, Weil and higher/cohesive obligations.
+
+The #91 `EuclideanOpen.embedding` is fully faithful on Euclidean principal open
+domains and all ordinary smooth maps, including reciprocal without an ambient
+continuous extension. It uses the full function-algebra comparison and the
+existing arbitrary-cover subcanonicity. Scalar powers, operations and open
+inclusions have checked comparisons. The [ordinary embedding record](algebraic-kl-model.md#ordinary-principal-open-embedding-91)
+distinguishes this result from manifold gluing and well-adaptedness.
