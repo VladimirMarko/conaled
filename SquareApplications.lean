@@ -7,6 +7,8 @@ import Examples.SheafRelations
 import Examples.SheafFunctions
 import Examples.SheafFamilies
 import Examples.FamilyCoherence
+import Examples.SheafSums
+import Examples.TypeSums
 import Examples.Frobenius
 import Examples.PresheafInternal
 import Examples.TimedMotion

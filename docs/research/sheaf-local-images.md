@@ -10,7 +10,8 @@ This experimental development implements
 [#57](https://github.com/VladimirMarko/conaled/issues/57),
 [#58](https://github.com/VladimirMarko/conaled/issues/58),
 [#59](https://github.com/VladimirMarko/conaled/issues/59),
-and [#60](https://github.com/VladimirMarko/conaled/issues/60) within the
+[#60](https://github.com/VladimirMarko/conaled/issues/60),
+and [#61](https://github.com/VladimirMarko/conaled/issues/61) within the
 internal-language workstream. It supplies local existential images, their
 Frobenius and Beck–Chevalley laws, sheaf contexts, terms and closed formula
 predicates, regular source-rule soundness, sheaf function spaces, dependent
@@ -585,11 +586,73 @@ comparison square. Its zero term computes to zero after the comparison,
 using the public term theorem and projection law. The earlier empty fibers
 and local-image-without-term evidence remain unchanged.
 
-The next bounded slice should construct dependent sums by composition of
-display maps, with pairing/projection laws, substitution comparison and a
-checked comparison to `DependentSquares.sigmaTy`. The current arbitrary-family
-substitution interface can support that construction, but no sheaf Sigma
-interpretation is established by the Type model alone. Dependent products
-still require an actual right adjoint to reindexing. Identity elimination,
-universes, source dependent syntax, a smooth site and scalar, Kock–Lawvere,
-higher identities and cohesion remain unconstructed.
+The dependent-sum construction below builds on this coherent substitution
+interface. General dependent products remain a separate obligation: they need
+an actual right adjoint to arbitrary reindexing.
+
+## Dependent sums of data
+
+[#61](https://github.com/VladimirMarko/conaled/issues/61) adds
+[SquareKit/FamilySum.lean](../../SquareKit/FamilySum.lean). For display maps
+`q : B → A` and `p : A → Γ`, the sum family is `q ≫ p`. A first term a is a
+section of p; its dependent second term is a section of the actual pullback of
+q along a. `pairTerm` composes that second section with the value comparison.
+`first` and `second` recover both components. The first beta law is an equality
+of sections. The second beta law transports along that equality with `baseIso`
+and equates the complete second section maps, not just their images under q.
+`eta` reconstructs every sum section.
+
+`substitutionIso` uses Mathlib's `pullbackRightPullbackFstIso`: the sum of the
+two reindexed families compares to the pullback of `q ≫ p`. Public value and
+base projection equations hold in both directions. `termSub` transports a
+substituted sum section through its inverse. `secondSub` constructs the
+substituted dependent second section using the existing universal pairing and
+`termEquiv`. Pairing commutes with the sum comparison; the first projection
+commutes with substitution, and the full second projection commutes after
+explicit transport of the first-projection equation. This uses the earlier
+family interface and equality transport without asserting strict pullbacks.
+
+[SquareKit/TypeFamilySum.lean](../../SquareKit/TypeFamilySum.lean) compares the
+composite total space `Σ z : Σ γ, A γ, B z` with the existing
+`Ext Γ (sigmaTy A B)` by an isomorphism preserving both data components and
+the base projection. Existing dependent terms map to actual sections through
+that isomorphism. The second component uses the established `pullbackIso`, so
+the pairing and projection comparisons recover `pairTerm`, `fstTerm` and
+`sndTerm`, including the dependent type of the latter. The eta comparison uses
+`sigma_eta`. The substitution square uses the existing `sigma_subst` equality,
+the Type pullback comparison, and the new categorical sum comparison.
+`split_pair_substitution` also recovers existing `pair_subst`.
+
+[Examples/SheafSums.lean](../../Examples/SheafSums.lean) uses the tower
+`D → 1 → D`, with Bool second fibers and the constant-false first display.
+The sum's false fiber is equivalent to Bool and its true fiber is empty at
+every stage. Through the public sum substitution isomorphism and stagewise
+pullback equivalence, the tower reindexed by negation instead has a Bool fiber
+over true and an empty fiber over false. After restricting to the inhabited
+point, pairing retains an actual true Bool second component. Both beta laws
+and the sum substitution comparison are exercised.
+
+[Examples/TypeSums.lean](../../Examples/TypeSums.lean) reuses the original
+`DependentSquares.Example.AS`, `BS`, `lastIndex` and `tighten`. These have
+fibers `Fin(n+1)` and `Fin(i.val+1)`. The new comparisons derive first and
+second values equal to n for their paired term and compare successor
+substitution with the existing split operation. All representation certificates
+and direct statements in `Dependent.lean` are unchanged.
+
+The generic construction needs only a category with pullbacks. Sheaf callers
+supply ordinary display maps and actual sections; they acquire no syntax or
+model hierarchy. The earlier local-image/empty-section evidence remains
+unchanged. A dependent sum stores both pieces of data and does not turn local
+existence into a section.
+
+The next bounded slice should construct the internal object of dependent
+sections of a sheaf family using pinned Mathlib's
+`LocallyCartesianClosed/Sections.lean`. That file supplies `Over.sections` as
+the right adjoint to the product-family functor `toOver` for a closed object;
+our sheaf exponentials and pullbacks discharge those ingredients. Compare its
+currying and evaluation to the current explicit products and section terms.
+This would be a constructed dependent function-space fragment over a closed
+base, not a claim that arbitrary pullback reindexing already has a right
+adjoint. General dependent products, identity elimination, universes, a source
+dependent calculus, smooth scalars and sites, Kock–Lawvere, higher identities
+and cohesion remain unconstructed.
