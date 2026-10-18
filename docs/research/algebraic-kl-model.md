@@ -569,3 +569,72 @@ One next bounded construction is a two-generator second-order stage retaining
 mixed products, with smooth operations, compatible maps to the present stage
 and an explicit mixed Hessian comparison. That would test multivariable
 quadratic information before moving to arbitrary Weil presentations.
+
+## Free finite-coordinate smooth algebras (#79)
+
+Kock III.5, Proposition 5.1 identifies the smooth functions on `ℝⁿ`, with
+coordinate projections as generators, as the free algebra for the theory of
+smooth operations. The proof uses the theory's actual smooth maps. Proposition
+5.4 discusses quotients by ordinary ideals using the smooth factorization from
+Proposition 5.2. These latter results are prerequisites still to be constructed
+locally. [Author's text, III.5](https://users-math.au.dk/kock/sdg99.pdf).
+
+`SquareKit/SmoothOperations.lean` now owns the existing smooth-function subtype
+and its projection, constant, substitution, addition and multiplication operations.
+The old `Applications.AD.SmoothDual` names remain aliases, preserving clients.
+`SquareKit/SmoothAlgebra.lean` defines `Structure` over an existing real
+commutative algebra. It requires the two smooth-operation laws and proved
+compatibility with that algebra's constants, addition and multiplication. This
+choice retains Mathlib's actual stage rings and pointwise function algebra
+rather than deriving duplicate ring instances from operation syntax.
+Operations are identified by extensional equality of their underlying functions.
+
+`Hom` initially asks only for a function preserving all smooth operations.
+Its preservation of scalar constants, sums and products is derived, producing
+`Hom.toAlgHom`. Identity, composition, extensionality and associativity are
+proved, including compatibility with algebra-map composition. An arbitrary
+algebra map is not asserted smooth. The universal property uses this explicit
+hom type and its composition laws; it needs no additional bundled-category
+construction at this stage.
+
+`Free n` is the actual subalgebra of functions `(Fin n → ℝ) → ℝ` satisfying
+`ContDiff ℝ ∞`. Its smooth operations act pointwise by composition.
+`freeEquiv n` proves `Hom (Free n) A ≃ (Fin n → A)` for every target structure,
+including `n=0`. The inverse interprets a smooth function through the target
+operation action. `evaluate_generator`, `evaluate_unique` and
+`hom_ext_generators` prove the two inverse laws and uniqueness;
+`evaluate_natural` proves naturality in target smooth homomorphisms.
+No polynomial or independently generated expression syntax replaces these
+smooth functions.
+
+A tuple of smooth coordinates defining `ℝᵐ → ℝⁿ` induces
+`pullback : Hom (Free n) (Free m)`. `pullback_apply` is actual precomposition;
+the identity/composition theorems have this contravariant direction.
+`pullback_generator` identifies the coordinate generators' images, and
+`evaluate_pullback` proves interpretation commutes with smooth substitution.
+
+`Applications/AD/SmoothAlgebras.lean` packages the ordinary reals, every
+constructed square-zero stage and the second-order stage using their existing
+proofs. Real dual numbers use the one-dimensional square-zero instance;
+`dual_act` identifies its action with the earlier dual implementation. Existing
+linear stage maps, the second-order projection and reparameterizations become
+smooth homomorphisms. Neither the general theory nor this packaging imports
+source syntax.
+
+`Examples/FreeSmoothAlgebra.lean` uses uniqueness of universal evaluation to
+identify any interpretation of the exponential with the earlier dual and
+second-order analytic coefficient formulas. It includes a concrete evaluation
+at epsilon, nullary uniqueness/constants, and a proved nonidentity exponential
+coordinate pullback with its evaluation/substitution comparison.
+
+The result supplies free smooth algebras and their interpretations in the
+constructed infinitesimal stages. Quotients/localizations, infinitesimal
+coproducts, a formal-manifold site and its topology/descent, and smooth
+categorical KL remain open. It does not supply general Weil algebras,
+well-adaptedness, cohesion or an orbifold comparison. #36 remains incomplete.
+
+One next bounded construction is the finite-coordinate smooth Hadamard
+factorization of `f(y)-f(x)` by the coordinate differences, with smooth
+coefficient functions. This is the missing analytic input for proving that
+ordinary ideals define congruences for all smooth operations and constructing
+quotient smooth algebras.

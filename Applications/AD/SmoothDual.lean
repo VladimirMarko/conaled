@@ -1,4 +1,5 @@
 import Applications.AD.Smooth
+import SquareKit.SmoothOperations
 import Mathlib.Algebra.DualNumber
 
 /-!
@@ -11,7 +12,7 @@ open scoped ContDiff
 namespace Applications.AD.SmoothDual
 
 /-- Ordinary smooth functions identify operations extensionally. -/
-abbrev Operation (n : ℕ) := {f : (Fin n → ℝ) → ℝ // ContDiff ℝ ∞ f}
+abbrev Operation := SquareKit.SmoothAlgebra.Operation
 
 def coordinates {n : ℕ} : (Fin n → DualNumber ℝ) ≃ ((Fin n → ℝ) × (Fin n → ℝ)) where
   toFun z := (fun i => (z i).fst, fun i => (z i).snd)
@@ -51,12 +52,9 @@ theorem act_of_dmap {n : ℕ} (f : Operation n) (d : DMap (Fin n → ℝ) ℝ)
   unfold act
   rw [hd]
 
-def projection {n : ℕ} (i : Fin n) : Operation n := ⟨fun x => x i, contDiff_apply ℝ (fun _ => ℝ) i⟩
-def constant (n : ℕ) (a : ℝ) : Operation n := ⟨fun _ => a, contDiff_const⟩
-
-def substitute {m n : ℕ} (f : Operation n) (g : Fin n → Operation m) : Operation m :=
-  ⟨fun x => f.val (fun i => (g i).val x),
-    f.property.comp (contDiff_pi.mpr (fun i => (g i).property))⟩
+abbrev projection := @SquareKit.SmoothAlgebra.projection
+abbrev constant := SquareKit.SmoothAlgebra.constant
+abbrev substitute := @SquareKit.SmoothAlgebra.substitute
 
 theorem act_projection {n : ℕ} (i : Fin n) (z : Fin n → DualNumber ℝ) :
     act (projection i) z = z i := by
@@ -78,9 +76,8 @@ theorem act_substitute {m n : ℕ} (f : Operation n) (g : Fin n → Operation m)
   rw [tangent_comp]
   rfl
 
-def addition : Operation 2 := ⟨fun x => x 0 + x 1, (contDiff_apply ℝ (fun _ => ℝ) 0).add (contDiff_apply ℝ (fun _ => ℝ) 1)⟩
-def multiplication : Operation 2 :=
-  ⟨fun x => x 0 * x 1, (contDiff_apply ℝ (fun _ => ℝ) 0).mul (contDiff_apply ℝ (fun _ => ℝ) 1)⟩
+abbrev addition := SquareKit.SmoothAlgebra.addition
+abbrev multiplication := SquareKit.SmoothAlgebra.multiplication
 
 theorem act_addition (z : Fin 2 → DualNumber ℝ) : act addition z = z 0 + z 1 := by
   rw [act_of_dmap addition (DMap.add (DMap.linear (ContinuousLinearMap.proj 0))

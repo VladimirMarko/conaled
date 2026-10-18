@@ -1388,3 +1388,14 @@ operations. Exponential and polynomial clients compare quadratic coefficients
 with analytic second derivatives. See the [construction record](algebraic-kl-model.md#a-second-order-smooth-real-stage-78).
 This remains one higher-order stage; a smooth site and smooth categorical KL
 are still open.
+
+### Free smooth algebras and stage interpretation (#79)
+
+The shared smooth-operation interface now has compatible real algebra structure,
+smooth homomorphisms and actual free finite-coordinate smooth function algebras.
+Universal evaluation, uniqueness, target naturality and contravariant coordinate
+pullback are proved. Existing real/dual/square-zero/second-order stages and maps
+are packaged, with nonpolynomial universal-evaluation consumers. See the
+[construction record](algebraic-kl-model.md#free-finite-coordinate-smooth-algebras-79).
+Quotient/localization and infinitesimal coproduct constructions, smooth site/descent
+and smooth KL remain open.
