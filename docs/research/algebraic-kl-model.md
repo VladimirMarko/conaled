@@ -638,3 +638,59 @@ factorization of `f(y)-f(x)` by the coordinate differences, with smooth
 coefficient functions. This is the missing analytic input for proving that
 ordinary ideals define congruences for all smooth operations and constructing
 quotient smooth algebras.
+
+### Smooth Hadamard factorization and ordinary quotients (#80)
+
+`SquareKit/SmoothHadamard.lean` proves global joint smoothness of the
+segment-integral coefficients and the finite-coordinate identity
+`f(x)-f(y) = ∑ i, (xᵢ-yᵢ) gᵢ(x,y)`. The empty coordinate set is included.
+The analytic module is independent of smooth-algebra structures and source
+syntax. Its parameter-integral theorem works on a finite-dimensional real
+normed parameter space with a complete real normed codomain.
+
+The pinned Mathlib supports differentiation under interval integrals with a
+locally uniform integrable derivative bound. We supply that bound by compactness
+of a closed parameter ball times the closed integration interval. Continuity
+supplies measurability and interval integrability. Induction on differentiability
+order, with continuous-linear-map codomains, proves `ContDiff ℝ ∞` of the
+parameter integral. The fundamental theorem of calculus along the segment and
+finite linear expansion then prove factorization. The reused APIs are in
+[Mathlib's parameter interval integration](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Analysis/Calculus/ParametricIntervalIntegral.lean)
+and [fundamental theorem of calculus](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/MeasureTheory/Integral/IntervalIntegral/FundThmCalculus.lean).
+
+Kock's III.5, Proposition 5.2 gives smooth finite Taylor factorization;
+Proposition 5.4 uses its first-order case to show that ordinary ideals respect
+smooth operations. The present result implements that first-order analytic
+input and quotient construction. It does not yet prove the higher-order Taylor
+presentation theorem of Proposition 5.11. See the author's
+[Synthetic Differential Geometry, III.5](https://users-math.au.dk/kock/sdg99.pdf),
+printed pages 154–156 and 159–160.
+
+`SquareKit/SmoothQuotient.lean` places the two tuples in `Fin (n+n)` and
+transports the analytic identity through `evaluate.toAlgHom`. Thus every
+ordinary ideal of any `Structure` algebra is stable under all smooth operations.
+The actual `Ideal.Quotient` receives its smooth operations, with representative
+independence and compatibility with its existing real algebra. The smooth
+projection and lift satisfy uniqueness; `homEquiv` characterizes quotient maps
+by annihilation of the ideal. `lift_toAlgHom` identifies the underlying map
+with Mathlib's ordinary algebra lift. `presentationEquiv` combines this with
+`freeEquiv` to describe maps from presented smooth algebras by generator tuples
+satisfying the ideal's relations. No properness hypothesis excludes zero rings.
+
+`Examples/SmoothQuotient.lean` proves that the kernel of evaluation at zero on
+`Free 1` is neither zero nor the whole ring. Its quotient is isomorphic to ℝ
+through smooth maps with proved inverse laws. The forward map uses the general
+quotient lift; exponential descends to 1 at zero and commutes with evaluation
+on arbitrary quotient elements. The examples also check nullary operations in
+the improper quotient and factorization with no coordinates.
+
+This experimental construction supplies ordinary-ideal quotients. Infinitesimal
+coproducts, smooth localizations, a formal-manifold site and topology/descent,
+smooth categorical KL, well-adaptedness, and higher/cohesive or orbifold
+comparisons remain unproved. #36 remains incomplete.
+
+One next bounded construction is to identify the smooth presentation
+`Free 1 / (x²)` with the existing real dual stage, using iterated factorization
+to identify the universal evaluation's kernel. This would connect ordinary
+smooth quotients to a constructed infinitesimal algebra before attempting a
+formal-manifold site.

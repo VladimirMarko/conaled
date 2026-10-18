@@ -1399,3 +1399,14 @@ are packaged, with nonpolynomial universal-evaluation consumers. See the
 [construction record](algebraic-kl-model.md#free-finite-coordinate-smooth-algebras-79).
 Quotient/localization and infinitesimal coproduct constructions, smooth site/descent
 and smooth KL remain open.
+
+### Smooth ordinary-ideal quotients (#80)
+
+Global smooth Hadamard factorization now proves that ordinary ring ideals
+respect all smooth operations. The actual ideal quotients carry smooth
+structure, with a smooth projection, universal lift and generator/relation
+characterization. Evaluation at zero gives a nontrivial quotient isomorphic
+to ℝ and an exponential consumer. See the
+[construction record](algebraic-kl-model.md#smooth-hadamard-factorization-and-ordinary-quotients-80).
+Infinitesimal presentations/coproducts, smooth site/descent, smooth KL and the
+higher/cohesive target remain open; #36 remains incomplete.

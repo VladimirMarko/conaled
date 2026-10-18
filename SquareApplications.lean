@@ -96,6 +96,7 @@ import Examples.SmoothDual
 import Examples.SmoothSquareZero
 import Examples.SecondStage
 import Examples.FreeSmoothAlgebra
+import Examples.SmoothQuotient
 import Examples.JetScan
 import Examples.MatrixStack
 import Examples.Run
