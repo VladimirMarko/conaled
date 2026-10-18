@@ -1,3 +1,4 @@
+import SquareKit.AffineExponential
 import SquareKit.AlgebraicStage
 
 /-! Experimental categorical first-order KL on the small algebraic site.
@@ -232,18 +233,16 @@ abbrev functions := exponential infinitesimal scalar
 def extract : functions ⟶ product scalar scalar := coefficients (evaluation infinitesimal scalar)
 
 theorem extract_curry (h : product infinitesimal X ⟶ scalar) :
-    curry h ≫ extract = coefficients h := by
-  rw [extract, ← coefficients_parameter, ← uncurry_evaluation, beta]
+    curry h ≫ extract = coefficients h :=
+  AffineExponential.extract_curry coefficients coefficients_parameter h
 
-theorem affine_extract : affine ≫ extract = 𝟙 _ := by
-  rw [affine, extract_curry]
-  exact coefficients_rebuild (𝟙 (product scalar scalar))
+theorem affine_extract : affine ≫ extract = 𝟙 _ :=
+  (AffineExponential.iso coefficients coefficients_parameter affineBody
+    rebuild_coefficients coefficients_rebuild).hom_inv_id
 
-theorem extract_affine : extract ≫ affine = 𝟙 _ := by
-  rw [← affine_parameters, ← rebuild]
-  change curry (rebuild (coefficients (evaluation infinitesimal scalar))) = _
-  rw [rebuild_coefficients]
-  exact eta (𝟙 functions)
+theorem extract_affine : extract ≫ affine = 𝟙 _ :=
+  (AffineExponential.iso coefficients coefficients_parameter affineBody
+    rebuild_coefficients coefficients_rebuild).inv_hom_id
 
 /-- First-order categorical KL for the original affine map. -/
 def kl : product scalar scalar ≅ functions where

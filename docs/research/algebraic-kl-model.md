@@ -755,3 +755,72 @@ KL, cohesion or orbifold comparison is constructed here. #36 remains incomplete.
 One next bounded construction is a small category of finitely presented smooth
 algebras with the dual-extension endofunctor and its universal maps, preparing
 the Yoneda/exponential argument for a smooth presheaf KL model.
+
+### A small smooth presheaf KL model (#82)
+
+`SquareKit/SmoothStage.lean` constructs a small category whose codes include ℝ,
+all `Free n`, quotients by finitely many ordinary ideal relations, and an explicit
+dual-extension constructor. A code lies in `Type`; its interpreted carrier and
+all smooth homomorphisms between two carriers also lie in `Type`. The bundle
+holding a carrier with its algebra structures lies in `Type 1`. This does not
+assert that every code has a normalized finite presentation, or classify all
+smooth algebras. The site is the opposite category, with bottom topology, so its
+Type-valued sheaves are the corresponding presheaves. No geometric cover is used.
+
+The scalar is the actual underlying-carrier functor. Every finite-arity smooth
+operation gives a natural map from the tuple presheaf; morphisms preserve it
+because the category's arrows are smooth homomorphisms. D is the natural subtype
+of square-zero elements with injective inclusion. `SmoothKL.dualFunctor`, its
+inclusion and the natural infinitesimal generator use the proved smooth dual
+universal property. No ring homomorphism is silently asserted smooth.
+
+`dualRepresentable A` proves `D × y(A) ≅ y(Dual A)`. Target naturality is part of
+its two natural transformations; `dualRepresentable_parameter` proves source
+naturality. Universal evaluation is identified with the Yoneda comparison by
+`universalValue_yoneda`. This follows the coproduct/Yoneda method of Kock III.1,
+Lemma 1.1 and Theorem 1.2, now using the smooth dual coproduct of III.5,
+Theorem 5.3; see the author's
+[Synthetic Differential Geometry](https://users-math.au.dk/kock/sdg99.pdf).
+
+The coefficient extraction evaluates an operation at the universal dual stage
+after extending its parameter. Natural reconstruction and both coefficient
+inverse laws are proved for every parameter sheaf in these universes.
+`SmoothKL.kl` is an isomorphism from the scalar pair to the existing categorical
+sheaf exponential `R^D`; its forward arrow is the actual affine map.
+`allParameters`, `coefficients_unique` and `coefficients_parameter` give affine
+existence, uniqueness and substitution for arbitrary parameter presheaves.
+They do not quantify over unrelated external functions on one stage's points.
+
+The shared `SquareKit/AffineExponential.lean` converts natural coefficient
+reconstruction into the exponential isomorphism. Both the earlier algebraic KL
+module and the smooth one use it. Their carrier-specific reconstruction proofs
+remain separate, since the stage morphisms have different universal properties.
+The new model also reuses the algebraic dual-coordinate reconstruction lemma
+and the existing sheaf function-space API. Old algebraic definitions and clients
+retain their statements.
+
+`SmoothDerivative.derivative` is defined through `kl.inv`. Its Taylor and
+uniqueness theorems hold at every stage; parameter assignments are natural
+sheaf arrows. `interpret` maps every ordinary globally smooth unary real
+function to a scalar natural map. `derivative_interpret` calculates extraction
+at the universal dual stage and proves that the model derivative equals the
+interpretation of the ordinary analytic derivative. Its smoothness is proved
+from smooth Frechet differentiation. `derivative_real` exposes the real-stage
+component as a `HasDerivAt` theorem. The model derivative is not defined by
+that analytic formula.
+
+`Examples/SmoothKL.lean` checks exponential, nonlinear parameter substitution,
+a nonzero infinitesimal, and restriction along a nonidentity map doubling ε.
+A one-relation ordinary presentation stage carries an evaluation map, used to
+compute its exponential restriction. At the real stage all external D-points
+are zero, so two different affine slopes have equal external evaluations.
+The internal functions remain distinct by the constructed inverse. This is the
+smooth counterpart of the earlier algebraic boundary example.
+
+The result is smooth first-order categorical KL for this bottom-topology model.
+It supplies no geometric open-cover descent, well-adapted manifold embedding,
+general Weil KL, cohesion or orbifold comparison. #36 remains incomplete.
+One next bounded construction is principal smooth localization for a free
+finite-coordinate stage, with its inverse-element presentation and universal
+mapping property. That would supply candidate basic-open restriction maps
+before a geometric topology is proposed.

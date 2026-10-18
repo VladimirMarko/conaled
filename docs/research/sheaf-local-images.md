@@ -1420,3 +1420,14 @@ presentation `Free 1/(x²)` is identified with that algebra through smooth inver
 maps. See the [construction record](algebraic-kl-model.md#smooth-dual-extensions-and-their-universal-maps-81).
 A small smooth site, categorical smooth KL and the higher/cohesive target remain
 open; #36 remains incomplete.
+
+### Small smooth presheaf KL (#82)
+
+A small category of coded smooth algebras now contains free finite-coordinate
+algebras, finite ordinary-ideal presentations and actual dual extensions.
+Its bottom-topology model has categorical first-order KL for arbitrary parameter
+sheaves. The inverse-defined derivative of every ordinary smooth unary function
+is compared with its analytic derivative, with exponential and presentation
+clients. See the [construction record](algebraic-kl-model.md#a-small-smooth-presheaf-kl-model-82).
+Geometric open-cover descent, well-adaptedness, general Weil KL and the
+higher/cohesive target remain open; #36 remains incomplete.
