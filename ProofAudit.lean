@@ -9,6 +9,9 @@ import Lean.DeclarationRange
 one of the foundation modules, or lies under `SquareKit`, `Applications`, or
 `Examples`. Ownership comes from Lean's module-origin table, so private names,
 generated auxiliaries, instances, constructors, and recursors are included.
+Candidates come from project modules' constant and generated-name metadata plus
+current-module kernel declarations, with duplicate names removed. This preserves
+the module-origin boundary without scanning all dependency declarations.
 Definitions are audited as well as theorem declarations. The only root exclusion
 is Lean's `ConstantInfo.isUnsafe` flag: the compiler creates unsafe runtime
 declarations containing erased proofs (`lcProof`) and unreachable-code markers.
@@ -30,11 +33,14 @@ The import above is the project's complete public entrypoint. Audit coverage
 is over its transitive imports; adding a new source module requires importing
 it from that entrypoint. The command reports the imported project modules,
 all logical declaration and theorem counts, and the union of encountered axioms.
+Enable `trace.ProofAudit.roots` to inspect the exact logical root set.
 -/
 
 namespace ProofAudit
 
 open Lean Elab Command
+
+initialize registerTraceClass `ProofAudit.roots
 
 private def foundationModules : Array Name :=
   #[`Squares, `Compiler, `SquareCompiler, `FirstOrder, `Dependent, `Verification]
@@ -70,7 +76,20 @@ def auditProject : CommandElabM Unit := do
     counts := counts.push { moduleName := env.mainModule }
   let mut runtimeCount : Nat := 0
   let mut unsafeSource : Array Name := #[]
-  for (declName, info) in env.constants do
+  -- Restrict candidates by defining module before examining declarations.
+  -- Include generated-name metadata and current-module kernel declarations.
+  let imported := env.header.moduleNames.mapIdx fun i n =>
+    if isProjectModule n then
+      let data := env.header.moduleData[i]!
+      let regular := data.constants.map fun ci => (ci.name, ci)
+      regular ++ data.extraConstNames.filterMap (fun name =>
+        (env.constants.find? name).map fun ci => (name, ci))
+    else #[]
+  let candidates := env.constants.foldStage2 (fun acc n ci => acc.push (n, ci)) imported.flatten
+  let mut visited : NameSet := {}
+  for (declName, info) in candidates do
+    if visited.contains declName then continue
+    visited := visited.insert declName
     let moduleName := declarationModule env declName
     if isProjectModule moduleName then
       -- Lean's code generator adds unsafe proof-erased runtime declarations
@@ -91,7 +110,8 @@ def auditProject : CommandElabM Unit := do
     throwError "Proof audit found no project declarations; check the public entrypoint imports."
   owned := owned.qsort (fun a b => Name.lt a.1 b.1)
   let mut theoremCount : Nat := 0
-  for (_, info, moduleName) in owned do
+  for (declName, info, moduleName) in owned do
+    trace[ProofAudit.roots] "{declName}"
     if info.isTheorem then theoremCount := theoremCount + 1
     match counts.findIdx? (fun c => c.moduleName == moduleName) with
     | some i =>
