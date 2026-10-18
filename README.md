@@ -102,6 +102,11 @@ does not validate the application extension.
 
 ## Library layout
 
+The [shared glossary](GLOSSARY.md) calls a domain development such as FRP an
+**application**. The proposed orbifold application currently consists of
+[historical artifacts and annotations](docs/history/orbifold/README.md) and
+[preliminary architectural research](docs/research/orbifold-geometry.md).
+
 | Location | Purpose |
 |---|---|
 | `Squares.lean`, `Compiler.lean`, `SquareCompiler.lean` | Exact representation squares, products/exponentials, intrinsically typed simply typed source, target-parametric compilation, and semantic correctness. |

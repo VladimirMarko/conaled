@@ -1,9 +1,16 @@
 # Historical ChatGPT discussions
 
-These files preserve work done in ChatGPT Pro before this repository was established on 2026-10-14. They explain where the initial implementation came from and record ideas for further work. The original documents are preserved unchanged.
+These files preserve ChatGPT discussions and supplied artifacts from the
+repository's origins and later application explorations. They explain where
+implementations came from and record ideas for further work. The original
+documents are preserved unchanged.
 
 ## Origins
 
+- [Orbifold artifacts](orbifold/README.md) preserve a discussion of synthetic
+  orbifolds, simulation, and generalized gyrovector geometry, plus a numerical
+  Python probe. The annotations link current research and distinguish the
+  experiment from a verified implementation.
 - [FRP artifacts](frp/README.md) preserve a pre-repository conversation, two
   untypechecked Lean drafts, explanatory notes, and a Python counterexample.
   The import note links the repaired, checked copies and records their limits.
