@@ -928,3 +928,63 @@ remain open. One next bounded construction is principal localization of
 arbitrary finite-presentation smooth stages with its universal base-change
 square. That would extend the available restriction maps to the formal stages
 needed before a geometric coverage can be justified. #36 remains incomplete.
+
+### Formal-stage localization and base change (#85)
+
+`SquareKit/SmoothPresentation.lean` constructs a finite smooth presentation
+with one additional coordinate and one additional relation. Original relations
+are pulled back along the coordinate inclusion. Its universal map accepts an
+arbitrary smooth map out of the original quotient and a value satisfying the
+new relation. This common construction supplies both inverse coordinates and
+nilsquare coordinates.
+
+`SmoothPresentedLocalization` imposes `p(x)t-1` for any representative `p` of
+an element of the original presentation. `At r s` chooses a representative
+internally for an arbitrary quotient element `s`; callers supply neither a
+coordinate expression nor an inverse. Its `atHomEquiv` classifies maps to every
+smooth target algebra by the condition that `s` maps to a unit. The factorization
+uses the forced ring inverse and proves uniqueness, both inverse laws and target
+naturality. `SmoothLocalizationBaseChange` constructs canonical comparisons
+between equal representatives, with both inverse laws and agreement on the
+original algebra. Unit localization is unchanged; nilpotent localization is
+the improper quotient.
+
+For every smooth map between finite presentations, `atMap` induces localization
+at the image element and satisfies identity and composition. `pushout_universal`
+constructs and uniquely characterizes the factorization of every compatible pair
+of maps to every smooth target. No coordinate presentation of the map is
+required. This is the algebra variance of a geometric pullback, consistent with
+Kock, III.6, Proposition 6.7, p. 167, which obtains inverse-image open sets from
+the localization pushout. [Author's text](https://users-math.au.dk/kock/sdg99.pdf).
+
+`SmoothPresentedDual` gives a finite presentation of the existing smooth
+`DualNumber A` by adjoining a nilsquare coordinate. Its comparison maps are
+smooth and inverse, and preserve the base and ε. `SmoothLocalizationDual`
+then uses #81's dual universal maps to prove that `DualNumber (A{s⁻¹})` is a
+localization of `DualNumber A` at `inl(s)`. `dualHomEquiv` quantifies over all
+smooth targets. The alternative finite presentation, localizing the presented
+dual algebra, has explicit inverse smooth comparisons with this actual dual
+extension. Base inclusions and nilsquare generators commute with the comparison.
+The inherited dual ring, real algebra and smooth operations are retained.
+
+`SmoothFormalLocalizationStage` packages the ordinary localization, its base
+arrow, the universal square and dual comparison in the existing coded stage
+category. `SmoothLocalizationFreeComparison` compares the empty-relation case
+with the preceding free-algebra localization and composes the comparison with
+the full ordinary-open function algebra isomorphism from #84.
+
+The checked nilpotent client is `Free 1/(x²)`. Its ε is nonzero, stays nonzero
+when `1+x` is inverted, and makes localization at `x` trivial. A nonidentity
+smooth map doubles ε. A nonpolynomial representative `exp(x)` admits evaluation
+in the actual real dual algebra; adding `x²` yields the canonical equivalent
+localization. Further clients use the arbitrary-target pushout, the dual
+factorization and nilsquare-generator comparison, and the empty/improper cases.
+These claims retain nilpotent information beyond the real-point locus.
+
+The model still has bottom coverage. No formal cover descent, well-adapted
+manifold embedding, general Weil KL or higher/cohesive comparison follows from
+these algebra squares alone. One next bounded construction is finite
+principal-cover descent for the scalar functor on these presentation stages,
+with the cover condition and compatibility equations stated explicitly.
+That would provide descent evidence before selecting a geometric coverage.
+#36 remains incomplete.

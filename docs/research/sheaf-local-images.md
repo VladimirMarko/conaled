@@ -1455,3 +1455,16 @@ product principal opens. See the [construction record](algebraic-kl-model.md#ful
 Formal-stage cover descent, broader localization base change and infinitesimal
 compatibility, well-adaptedness and higher/cohesive obligations remain open;
 #36 remains incomplete.
+
+### Formal localization and universal base change (#85)
+
+Finite smooth presentations now admit localization at arbitrary quotient
+elements, canonical comparisons between representatives, and algebra pushout
+squares for arbitrary smooth base maps. Actual smooth dual extensions commute
+with localization; inverse comparisons preserve base maps and ε. These arrows
+are packaged as coded stages, and the empty-relation case recovers the prior
+ordinary-open comparison. The nilpotent presentation `Free 1/(x²)` distinguishes
+unit localization from nilpotent localization. See the
+[construction record](algebraic-kl-model.md#formal-stage-localization-and-base-change-85).
+Formal cover descent, well-adaptedness, general Weil KL and higher/cohesive
+obligations remain open; #36 remains incomplete.

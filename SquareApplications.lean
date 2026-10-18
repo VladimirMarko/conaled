@@ -101,6 +101,7 @@ import Examples.SmoothDualExtension
 import Examples.SmoothKL
 import Examples.SmoothLocalization
 import Examples.SmoothLocalizationOpen
+import Examples.SmoothFormalLocalization
 import Examples.JetScan
 import Examples.MatrixStack
 import Examples.Run
