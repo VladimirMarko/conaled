@@ -279,13 +279,19 @@ exponentials or dependent products for an existential fragment.
 Felix's
 [`MakeLawful.agda`](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/MakeLawful.agda)
 proves `LawfulCategoryᶠ` and `LawfulCartesianᶠ` under equivalence induced by the
-interpretation. The local completion of Cartesian-closed law transport is
-tracked in [#37](https://github.com/VladimirMarko/conaled/issues/37), under #8.
-It calls for extending the existing `ClosedMapLaws` interface with transport of currying
-congruence, beta, eta and naturality, including non-strict comparisons.
-The pinned upstream file does not supply those closed-law proofs; its status
-does not limit the local target. `RawMap.transportLaws` already makes reflection
-explicit for category laws. Similarly, predicate
+interpretation. The pinned upstream file does not supply closed-law proofs.
+The local [#37 implementation](felix-parity-implementation.md#closed-law-transport-37)
+provides `ClosedMap.transportCongr` and `ClosedMap.transportLaws` in
+[`ClosedMap.lean`](../../SquareKit/ClosedMap.lean). They derive source currying
+congruence, beta, eta and currying naturality. Full law transport requires target
+congruence and laws, category/product/closed preservation, inverse laws for the
+chosen product and exponential comparisons, and reflection of the chosen source
+relation. Currying congruence needs only map congruence, reflection, target
+composition/currying congruence and currying preservation.
+Comparisons may be non-strict; the source relation may be induced by the
+interpretation. Source closed laws are conclusions, not premises.
+The implementation record includes composed interpretations and the existing
+`CodeCategory` consumer. Similarly, predicate
 preservation can transport a theorem forward, but cannot reflect validity
 without a separate hypothesis. Equality in one selected model is not a proof
 of a syntactic equation valid in every model.

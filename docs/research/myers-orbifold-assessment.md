@@ -130,12 +130,18 @@ Compare Felix at the repository's pinned revision
 condition in a chosen hom equivalence; [Comma/Homomorphism.agda][felix-projections]
 proves categorical preservation for its projections.
 [MakeLawful.agda][felix-laws] transports category and Cartesian laws through
-structure-preserving maps using induced equivalence. The corresponding local
-Cartesian-closed transport is now tracked in
-[#37](https://github.com/VladimirMarko/conaled/issues/37), with beta, eta,
-currying naturality and non-strict comparison requirements. The pinned upstream
-file supplies only the category and Cartesian proofs. These transport results
-support shared foundations; orbifold geometry requires additional mathematics.
+structure-preserving maps using induced equivalence. The pinned upstream file
+supplies only the category and Cartesian proofs. Locally,
+[`ClosedMap.lean`](../../SquareKit/ClosedMap.lean) provides
+`ClosedMap.transportCongr` and `ClosedMap.transportLaws`, deriving source currying
+congruence, beta, eta and currying naturality. Full law transport requires target
+congruence and laws, category/product/closed preservation, inverse laws for the
+chosen product and exponential comparisons, and reflection of the source
+relation; that relation may be induced by the interpretation. The
+[#37 implementation record](felix-parity-implementation.md#closed-law-transport-37)
+documents non-strict comparisons, composed interpretations and reuse by
+`CodeCategory`. These results support shared foundations; orbifold geometry
+requires additional mathematics.
 
 Use the existing [Category.lean](../../SquareKit/Category.lean)
 `ofCategory`, `equality` and `ofCategoryLaws` on Mathlib's action
