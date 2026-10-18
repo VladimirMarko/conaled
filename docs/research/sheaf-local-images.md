@@ -687,16 +687,67 @@ still coexists with absence of a global element, derived through
 `globalEquiv` and the existing no-term result. The consumer also imports the
 ordinary, regular and dependent-sum developments unchanged.
 
-The next bounded slice should turn this adjunction into an actual dependent
-product along a terminal display `Γ → 1`. Pinned Mathlib's
-`LocallyCartesianClosed/ExponentiableMorphism.lean` defines exponentiability
-by a right adjoint to the chosen pullback functor; it does not supply this
-sheaf instance. The existing `toOver`/sections adjunction and the equivalence
-between the terminal slice and the sheaf category provide the ingredients.
-The required comparison is between chosen pullback along `Γ → 1` and
-`toOver Γ`, including their units and counits, rather than another finite
-regular example. This recommendation does not assert arbitrary reindexing
-already has a right adjoint. General dependent products, identity elimination,
-universes, a source dependent calculus, smooth scalars and sites,
-Kock–Lawvere, higher identities and cohesion remain unconstructed. #36 is
-still open.
+The terminal-map dependent-product step is now supplied by #63 below.
+
+## Dependent products along terminal maps (#63)
+
+[SquareKit/TerminalProduct.lean](../../SquareKit/TerminalProduct.lean) constructs
+an actual adjunction `Over.pullback (toUnit Γ) ⊣ pi Γ`. The target of the
+terminal map is the cartesian tensor unit. The generic construction needs a
+cartesian monoidal category, a closed base Γ, braiding and pullbacks. Its
+right adjoint is the existing internal sections functor followed by the
+inverse terminal-slice equivalence.
+
+Mathlib's product choice of `ChosenPullbacksAlong` gives a natural comparison
+with `Over.forget 1 ⋙ toOver Γ`. Uniqueness of right adjoints to `Over.map`
+compares the ordinary limit-based pullback to that choice. Both projection
+laws are proved: the value leg is `Limits.pullback.fst`, and the base leg is
+the existing `Family.reindex`. The ordinary limit choice is captured before
+the local product adapter is introduced. No global instance is changed.
+The resulting `ExponentiableMorphism` witness uses
+`ChosenPullbacksAlong.ofHasPullbacksAlong`, whose functor is precisely
+`Over.pullback`.
+
+The public hom equivalence has both inverses and naturality in the parameter
+and family. Its transpose agrees with section currying after comparison;
+its inverse agrees with section uncurrying. Both adjunction triangle laws
+are proved for the actual pullback functor.
+
+[SquareKit/SheafTerminalProduct.lean](../../SquareKit/SheafTerminalProduct.lean)
+discharges these assumptions for the same `Type(max u v)` sheaves as #62.
+The product object's underlying sheaf is the previously constructed section
+object. Public morphism equalities compare the new transpose and counit with
+`SheafSections.curry` and `evaluation`, including the explicit base-first
+product comparison. Sheaf callers still supply ordinary display maps.
+
+[SquareKit/TypeTerminalProduct.lean](../../SquareKit/TypeTerminalProduct.lean)
+specializes the same pullback adjunction to native Type. For arbitrary
+`A : Γ → Type u`, product elements are equivalent to `(γ : Γ) → A γ`.
+The equivalence factors through actual terminal-slice maps, the pullback
+adjunction, its product comparison and the existing `TypeFamily.terms`.
+Lambda and evaluation satisfy beta and eta. `evaluate_counit` identifies
+component evaluation with the actual pullback counit, including its dependent
+Sigma value. At the terminal context the equivalence lands in the existing
+`DependentSquares.piTy`; lambda/application and the original beta/eta laws
+are reused. This native Type comparison does not identify arbitrary sheaf
+sections with pointwise dependent functions.
+
+[Examples/TerminalProducts.lean](../../Examples/TerminalProducts.lean) names
+Bool negation through the new adjunction, compares its product element with
+the existing exponential name, and evaluates the counit to `(!b,b)`. The
+varying false-point family's product has no global element, using the
+section comparison and existing no-term evidence. A separate native example
+constructs the last element of every `Fin(n+1)` and recovers value n through
+both component evaluation and the actual counit. Existing regular, dependent,
+function-space and sum consumers remain imported together and unchanged.
+
+One next bounded slice is stability of exponentiable maps under pullback,
+applied to sheaf product projections obtained by pulling back `Γ → 1`.
+Pinned `LocallyCartesianClosed/ExponentiableMorphism.lean` lists this closure
+property as TODO; it currently supplies identity and composition closure.
+The terminal-map witness now gives an actual input for that construction.
+A proof must compare the two chosen pullback functors and the transported
+right adjoints, rather than infer stability from finite examples. Arbitrary
+base-map right adjoints and their Beck–Chevalley law remain separate, as do
+source dependent typing, identity elimination, universes, smooth scalars and
+sites, Kock–Lawvere, higher identities and cohesion. #36 remains open.
