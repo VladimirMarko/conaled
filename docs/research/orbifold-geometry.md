@@ -9,6 +9,11 @@ Follow-up work is tracked in [#32: paper assessment and formalization](https://g
 [#33: generalized gyrovector geometry](https://github.com/VladimirMarko/conaled/issues/33),
 and [#34: long-term simulator](https://github.com/VladimirMarko/conaled/issues/34).
 
+The [Myers assessment](myers-orbifold-assessment.md) delivers #32’s
+assessment-only scope: versioned theorem correspondence, pinned-library gaps,
+shared-architecture contracts, and the first disk-action formalization tasks.
+It adds no Lean geometry or synthetic axioms.
+
 ## What to extract from Myers
 
 David Jaz Myers' [paper, version 1](https://arxiv.org/html/2205.15887v1)
