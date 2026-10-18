@@ -1,3 +1,4 @@
+import Examples.OrbifoldComparison
 import Examples.ClosedTransport
 import Examples.FRPDemand
 import Examples.FRPTrace

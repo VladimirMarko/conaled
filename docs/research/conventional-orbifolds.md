@@ -385,3 +385,41 @@ not an effort estimate or a promise that later rows fit one implementation.
 [ml-diff]: https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Geometry/Diffeology/Basic.lean
 [ml-action]: https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/CategoryTheory/Action.lean
 [ml-tangent]: https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Geometry/Manifold/MFDeriv/Tangent.lean
+
+## Implemented coordinate-change comparison
+
+Issue #41 adds the following public modules on the existing dependency pins:
+
+- `Applications/Diffeology/Constructions.lean`: induced and coinduced
+  diffeologies, their smooth-map universal properties, and smooth quotient
+  lifts and maps. Coinduction generates the image plots; it requires no
+  surjectivity assumption. Quotient maps preserve identity and composition.
+- `Applications/Diffeology/Manifolds.lean`: manifold plots, the equivalence
+  between `ContMDiff` and `DSmooth` for finite-dimensional boundaryless
+  sources, and equality of the D-topology with the manifold topology under
+  those hypotheses. Open submanifolds carry the induced diffeology. The
+  smoothness bridge adapts the safe CatDG chart argument cited above, with
+  a shared local plot/section construction proving topology compatibility.
+- `Applications/Orbifolds/Equivariant.lean`: equivariant functors between
+  Mathlib action categories, groupoid equivalences for equivariant bijections
+  and group isomorphisms, stabilizer isomorphisms, and quotient projection
+  squares. This module has only algebraic hypotheses.
+- `Applications/Orbifolds/SmoothComparison.lean`: smooth quotient equivalences
+  constructed from ordinary manifold diffeomorphisms, and tangent
+  intertwining proved by Mathlib's manifold chain rule. Smooth descent itself
+  works for arbitrary diffeological spaces.
+- `Applications/Orbifolds/QuarterTurn.lean`: the reusable C4 action on the
+  open complex unit disk, its stabilizers and tangent action, and the change
+  `(x,y) ↦ (2x,y)` to an ellipse. The tangent action is multiplication by
+  `i^k` in the open-submanifold coordinates. Both open manifolds instantiate
+  the smoothness and topology bridges.
+- `Examples/OrbifoldComparison.lean`: trivial and ineffective actions,
+  arrow-label preservation, smooth quotient maps in both directions, and
+  composition through `RawMap` laws and `Squares.compose`.
+
+The finite linear action is separate from #39's projective motions. The
+comparison does not construct a proper étale atlas, a Morita equivalence,
+or a diffeological tangent space. Its tangent theorems concern ordinary
+manifold tangent maps before taking the orbit quotient. The C4 action on
+`ℝ` that fixes every point has the usual real diffeology as its quotient,
+while each stabilizer still has four elements.
