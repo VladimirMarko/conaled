@@ -18,6 +18,12 @@ checked-in `flake.lock` and validate changes with `nix flake check` and a shell
 smoke check. Lean and library versions remain in `lean-toolchain` and the Lake
 files.
 
+## Commit messages
+
+Use Conventional Commits: `type(scope): description (#123)`.
+The scope is optional; the trailing issue number is required when an issue applies.
+Example: `docs: clarify agent guidance (#123)`.
+
 ## Agent skills
 
 ### Formal development
