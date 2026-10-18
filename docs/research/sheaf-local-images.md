@@ -5,11 +5,12 @@ This experimental development implements
 [#52](https://github.com/VladimirMarko/conaled/issues/52),
 [#53](https://github.com/VladimirMarko/conaled/issues/53),
 [#54](https://github.com/VladimirMarko/conaled/issues/54),
-and [#55](https://github.com/VladimirMarko/conaled/issues/55) within the
+[#55](https://github.com/VladimirMarko/conaled/issues/55),
+and [#56](https://github.com/VladimirMarko/conaled/issues/56) within the
 internal-language workstream. It supplies local existential images, their
 Frobenius and Beck–Chevalley laws, sheaf contexts, terms and closed formula
-predicates, and finite applications. It does not yet prove source-rule
-soundness or complete #36.
+predicates, regular source-rule soundness, and finite applications.
+It does not complete #36.
 
 ## Public interface and caller obligations
 
@@ -244,7 +245,8 @@ existential, the recursive equation uses the lifted substitution and
 `exists_substitution` supplies contextual Beck–Chevalley. This proof does not
 use objectwise evaluation to interpret a sheaf existential. `formula_restrict`
 exposes restriction stability; `Valid` is predicate inclusion, separate from
-`Derives`. No theorem yet connects all derivations to this validity predicate.
+`Derives`. The soundness theorem is supplied separately in
+`SquareKit/Internal/SheafSoundness.lean`.
 
 [Examples/SheafFormula.lean](../../Examples/SheafFormula.lean) extends the
 E/Bool example with `selectedEq`: equality of Bool arguments together with
@@ -272,6 +274,53 @@ continues alongside formula interpretation. The syntax-free sheaf modules have
 no dependency on this adapter. Relation closure is a new obligation only for
 callers who need closed formula predicates; contexts and terms still require
 only carrier sheaf proofs.
+
+## Source-rule soundness and Frobenius
+
+[SquareKit/Internal/SheafSoundness.lean](../../SquareKit/Internal/SheafSoundness.lean)
+proves `sound`: every current `Derives p q` gives `Valid M hM p q`, assuming
+the carrier and relation sheaf proofs already used for formula closure.
+The theorem covers identity, cut, conjunction rules, equality reflexivity,
+symmetry, transitivity and unary congruence, existential introduction,
+arbitrary syntactic substitution, and both existential-elimination rules.
+There are no new source rules or model fields.
+
+`formula_shift` identifies weakening with inverse image along projection;
+`formula_instantiate` identifies instantiation with substitution of the
+interpreted term. Introduction uses that actual term as a pointwise witness
+and includes its image into the local image. Arbitrary source substitution
+uses uniform formula substitution. Elimination uses the local-image adjunction
+against the closed conclusion predicate. For `elimWith`, Frobenius first moves
+the closed ambient hypothesis inside the existential. Formula closure
+discharges these obligations. No local E witnesses are glued or turned into
+a global source section.
+
+`frobenius_valid` applies soundness to the existing `Frobenius.forward` and
+`backward` derivations and takes both inclusions. The separate
+`frobenius_semantic_comparison` uses weakening as preimage and conjunction as
+intersection to identify the result with syntax-free sheaf Frobenius.
+Source derivability, semantic inclusion and this comparison remain distinct.
+
+[Examples/SheafSoundness.lean](../../Examples/SheafSoundness.lean) uses a source
+`elim` derivation to infer `b=b` from local E-reflexivity existence at X.
+`local_premise` and `no_global_premise` check that the antecedent holds locally
+without any pointwise E witness. `frobenius_at_X` applies the source forward
+derivation, which uses `elimWith`, with the inhabited condition `b=b`.
+The selective source instance then connects to the earlier combined-formula
+calculation; its U/V/X consequences retain the W/U support. Introduction uses
+the actual Bool negation term, and a `Derives.subst` instance substitutes
+negation into that introduction derivation. Both finite consequences use the
+public sheaf soundness theorem.
+
+This completes the proof-to-sheaf-model path for the present regular syntax:
+finite typed contexts, unary primitive functions, binary relation atoms,
+equality, conjunction and existence, with the listed sequent rules. It proves
+neither completeness nor preservation of local existential truth by ordinary
+objectwise evaluation. The finite E example still refutes that preservation.
+There is no implication, universal quantifier, dependent-family interpretation,
+SDG scalar or smooth site, higher identity, or cohesive structure in this
+fragment. Ordinary clients and the syntax-free sheaf modules gain no dependency
+on the source adapter; the mixed graph consumer remains unchanged.
 
 ## Statement review and retained cases
 
@@ -315,12 +364,15 @@ The finite counterexample to objectwise preservation of existential truth
 continues to apply.
 
 The context construction supplies those actual pullback squares, and the
-formula interpreter now uses them in its uniform substitution theorem.
-The next bounded slice should prove soundness of the existing regular source
-rules for this closed-predicate interpretation, with checked derivations in
-the finite model. The present closure and substitution results establish
-semantic operations and their laws; they do not establish that every
-`Derives` constructor preserves predicate inclusion.
+formula interpreter uses them in its uniform substitution theorem. Regular
+source soundness now provides the proof-to-model link.
+
+The next bounded slice should interpret the existing relational associativity
+derivations in sheaves and compare them with composition of closed relations
+by local image. The new soundness theorem can reuse those source proofs, while
+the comparison must account for locally existing intermediate witnesses. This
+would connect the sheaf adapter to the earlier relational consumers without
+choosing a geometric site.
 
 A model-map hierarchy, dependent types, geometric sites, scalar objects,
 smoothness, SDG, higher identities and cohesion remain outside this finite

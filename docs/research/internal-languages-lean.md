@@ -946,3 +946,23 @@ implements #51's bounded next step: local witnesses, a closed-target
 image/reindexing adjunction, and a finite site where evaluating a sheaf image
 differs from taking the image of the evaluated map. It leaves the presheaf
 adapter and its objectwise evaluation theorem unchanged.
+
+
+## Checked regular sheaf model (#51–#56)
+
+The [sheaf development](sheaf-local-images.md) now supplies closed predicates
+for the existing regular formulas, sheaf environments and term/substitution
+maps, context-extension pullbacks, and soundness of every current `Derives`
+constructor. Formula substitution uses local-image Beck–Chevalley; elimination
+uses the closed-target adjunction and Frobenius. Source Frobenius is interpreted
+through soundness, separately from its semantic comparison. The finite E/Bool
+model checks local existential elimination at X without a global E witness,
+a selective closed binary relation, and introduction/substitution with natural
+Bool negation. Existing Set/presheaf adapters and ordinary clients remain.
+
+This establishes the regular sheaf part of Stage C, with explicit carrier and
+relation closure obligations. Objectwise evaluation still fails to preserve
+local existential truth. Dependent-family semantics and its comparison with
+`Dependent.lean`, function-type/internal smooth analysis, a constructed SDG
+site and scalar, higher identities, and cohesive structure remain unproved.
+There is no completeness claim or new kernel/trust boundary.
