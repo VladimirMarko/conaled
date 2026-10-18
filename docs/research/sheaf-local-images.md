@@ -8,10 +8,12 @@ This experimental development implements
 [#55](https://github.com/VladimirMarko/conaled/issues/55),
 [#56](https://github.com/VladimirMarko/conaled/issues/56),
 [#57](https://github.com/VladimirMarko/conaled/issues/57),
-and [#58](https://github.com/VladimirMarko/conaled/issues/58) within the
+[#58](https://github.com/VladimirMarko/conaled/issues/58),
+and [#59](https://github.com/VladimirMarko/conaled/issues/59) within the
 internal-language workstream. It supplies local existential images, their
 Frobenius and Beck–Chevalley laws, sheaf contexts, terms and closed formula
-predicates, regular source-rule soundness, sheaf function spaces, and finite applications.
+predicates, regular source-rule soundness, sheaf function spaces, dependent
+context extension, and finite applications.
 It does not complete #36.
 
 ## Public interface and caller obligations
@@ -464,15 +466,79 @@ external type `E(X) → D(X)` has a unique function, because E(X) is empty.
 `no_pointwise_equivalence` rules out even a type equivalence at X. Native Lean
 function spaces therefore cannot replace these sheaf function spaces.
 
-The next bounded slice should construct ordinary sheaf families as morphisms
-`A → Γ`, terms as sections, and substitution by actual pullbacks, proving the
-context-extension pairing universal property. The existing fixed-sort context
-products and these nondependent exponentials do not supply that dependent
-family interface. Compare the resulting laws with the concrete split-family
-operations in `Dependent.lean`, without asserting strict definitional
-substitution or dependent products before constructing them.
+The dependent-family construction below supplies the next comparison with
+`Dependent.lean`; it does not follow from nondependent exponentials alone.
 
-Dependent families and comparison with `Dependent.lean`, model maps, a smooth
-site and scalar, SDG axioms, higher identities and cohesion remain separate
-unproved obligations. No completeness or differential-cohesive-model claim
-follows from this regular fragment.
+Dependent products, model maps, a smooth site and scalar, SDG axioms, higher
+identities and cohesion remain separate unproved obligations. No completeness
+or differential-cohesive-model claim follows from this fragment.
+
+## Dependent families and split-family comparison
+
+[#59](https://github.com/VladimirMarko/conaled/issues/59) constructs the next
+fragment in [SquareKit/Family.lean](../../SquareKit/Family.lean). A family is an
+actual morphism `p : A → Γ`; `Term p` is the subtype of sections with equation
+`t ≫ p = identity`. For any category with pullbacks, `reindex p σ` is the
+second projection of Mathlib's chosen pullback, and `comparison p σ` is its
+first projection. `pair` uses the universal property. Its projection,
+uniqueness and eta laws express context extension; `variableTerm` is the
+diagonal section of p pulled back along itself. `termEquiv` identifies terms
+over σ with maps a satisfying `a ≫ p = σ`.
+
+`termSub` substitutes an actual section and proves both projection equations.
+`identityIso` compares identity substitution with the original total space;
+`compositionIso` reuses Mathlib's pullback pasting isomorphism. Their projection
+laws show that they are comparisons over the base, and substituted terms agree
+after transport. These are isomorphisms between chosen objects, not
+identifications of those objects. Unit and associativity coherence between
+multiple comparison isomorphisms, and a strict splitting, have not been proved.
+
+[SquareKit/SheafFamily.lean](../../SquareKit/SheafFamily.lean) specializes this
+interface to type-valued sheaves. Unlike the exponential adapter, this fragment
+keeps indexing objects, arrows and section universes independent. Sheaf limits
+supply the pullbacks; callers do not provide a family model or new gluing
+proofs. `sectionsEquiv` compares each pullback's sections to compatible pairs.
+`constantIso` identifies substitution of an explicit product projection with
+the explicit product over the new base. `constant_pair` and `constant_termSub`
+transport pairing and substitution through that comparison.
+
+The optional
+[regular-context adapter](../../SquareKit/Internal/SheafFamilies.lean) compares
+existing extended contexts to those products. Its `substitutionIso` uses the
+already proved contextual pullback square; its pairing law recovers every map
+into an extended context through the new chosen pullback. The original regular
+context API is unchanged.
+
+[SquareKit/TypeFamily.lean](../../SquareKit/TypeFamily.lean) imports the existing
+`Dependent.lean`. For arbitrary `A : Γ → Type u`, `display` is its Sigma
+projection and `terms` is an equivalence between its dependent terms and
+sections. The existing `lift` and `p` form a proved pullback, yielding
+`pullbackIso` from `Ext Δ (tySub A σ)` to the chosen categorical pullback.
+Projection, `tmSub`, `extend`, the generic `q`, and eta agree through the
+comparison. This recovers the basic split-family operations without changing
+that implementation or claiming that its Pi/Sigma certificates now interpret
+in sheaves.
+
+[Examples/SheafFamilies.lean](../../Examples/SheafFamilies.lean) uses the actual
+constant-false morphism `1 → Bool`. At every stage its false fiber is inhabited
+and its true fiber is empty. The public section comparison proves that pulling
+back along the existing natural negation reverses these fibers. Pairing yields
+a dependent value over the true point and a term of the further restricted
+family. Public identity and composition transport laws apply to this term,
+including substitution through Bool parameters and negation. There is no
+section over all Bool values. These are ordinary morphism and native Bool
+calculations, without source syntax.
+
+The existing family `E → 1` supplies a different obstruction: its local image
+is top, but `Term` is empty because a section would give an element of E(X).
+The checked `locally_inhabited_without_term` states both facts together.
+Existentially local witnesses cannot be used as dependent terms.
+
+The next bounded slice should prove unit and associativity coherence for these
+canonical substitution comparisons, including compatibility with substituted
+terms and the split Type comparison. The present identity and binary
+composition laws provide the inputs but do not prove that triple substitution
+has path-independent transport. Dependent products still require a right
+adjoint to reindexing; the ordinary exponential does not supply it. A source
+dependent calculus, identity elimination, universes, a smooth site and scalar,
+Kock–Lawvere, higher identities and cohesion remain unconstructed.

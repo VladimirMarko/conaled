@@ -5,6 +5,7 @@ import Examples.SheafFormula
 import Examples.SheafSoundness
 import Examples.SheafRelations
 import Examples.SheafFunctions
+import Examples.SheafFamilies
 import Examples.Frobenius
 import Examples.PresheafInternal
 import Examples.TimedMotion
