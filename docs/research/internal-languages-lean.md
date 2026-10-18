@@ -70,6 +70,96 @@ intuitionistic proof/semantics machinery, SynthLean supplies a richer dependent
 language design to investigate, and the SDG development supplies calculus
 proofs under assumptions whose model still has to be constructed.
 
+## Implemented Set graph slice (#38)
+
+`SquareKit.Internal.Logic` supplies a many-sorted unary signature, finite typed
+contexts, capture-avoiding term/formula substitution, and an explicit restricted
+sequent calculus. `Rules` names its equality, conjunction and existential rules.
+`Interpretation` supplies arbitrary Set carriers and unary arrows; `sound`
+proves validity for every derivation and environment. Carriers need not be
+inhabited. There is no rule admitting arbitrary Lean validity as a derivation.
+
+`SquareKit.Internal.Graph.forward` and `backward` derive the two graph sequents
+for arbitrary sorts and composable arrow symbols. `Graph.inSet` interprets
+those proofs for arbitrary `A → B → C`. `SquareKit.Internal.Squares` then
+connects this theorem to the existing library:
+
+- `existentialVertical` preserves existentially composed graph predicates using
+  the original squares and their pointwise middle-map equality.
+- `composedGraph_iff` consumes `inSet`, reversing equalities to match the
+  `decode r = s` convention of `Relational.graph`.
+- `vertical_comparison` transports both endpoint predicates with those
+  equivalences and uses `RelSquare.ext` to compare both horizontal maps with
+  `Relational.ofSquare (Squares.vertical …)`.
+- `horizontal_comparison` separately specializes
+  `RelationalCategory.graphMap_laws.comp` through the existing comma adapter.
+
+### Caller obligations and scope
+
+Internal authors choose a signature, typed variables and formulas, then apply
+named rules with explicit existential witnesses. The graph proof still exposes
+variable positions; there is no custom elaborator. A Set adapter supplies only
+carriers and arrow interpretations, and reuses `sound`. Applications of
+`Graph.inSet` provide ordinary functions and values. Applications of
+`vertical_comparison` provide the same decoders, squares and pointwise middle
+agreement as `Squares.vertical`; neither middle-map identity nor closed
+structure is required.
+
+Ordinary callers retain their original imports, arguments, notation and proof
+obligations. No ordinary module imports the syntax; the aggregate public
+entrypoint includes it through `Examples.InternalGraphs`. The matrix/stack and
+arithmetic-pipeline clients are unchanged. The mixed-style example calls the
+ordinary square interfaces beside the new results without new instances or
+notation. Predicate transport retains the original implementation and
+specification functions by definition. Its existential witnesses occur in
+`Prop`; it introduces no runtime witness-space conversion.
+
+On 2026-10-18, three serial `direnv exec . lake env lean <file>` runs per
+unchanged client gave median wall times of 1.530 s before and 1.539 s after for
+`Examples/MatrixStack.lean`, and 1.795 s before and 1.856 s after for
+`Examples/ArithmeticPipeline.lean`. The baseline was commit `871c732`; the
+candidate used the same dependency cache and compiled local dependencies.
+These measurements include process startup and are too small a sample to
+establish performance neutrality. The ranges overlap (1.468–1.680 / 1.482–1.621 s
+and 1.781–1.890 / 1.799–1.974 s). Source and transitive-import comparison found
+no changes on either ordinary path; neither imports the internal modules.
+No elaboration regression was identified in this check.
+
+This is an experimental first slice of Stage A. The historical
+[frontend experiment](../history/internal-language-frontends/Frontend.lean)
+remains unchanged. The admitted fragment has equality of unary terms,
+conjunction, existential introduction/elimination and cut. It has no general
+predicate symbols, implication, completeness result, or adapter for arbitrary
+regular categories. No presheaf interpretation, arbitrary-relation associativity,
+or differential cohesive model is claimed.
+
+### Statement review and checked applications
+
+`Examples.InternalGraphs` checks the heterogeneous path
+`Nat × Bool → Nat → Int`, the order-sensitive calculation `3 → 4 → 8` and
+rejection of `7`, substitution of an arbitrary free term under a binder, and a
+same-sort variable capture test. A square with middle maps `0 + n` and `n`
+uses `Nat.zero_add` for their non-definitional agreement. Both endpoint
+relations and both horizontal maps are exercised. An empty-carrier
+specialization checks that no `Nonempty` instance enters the interface; it is
+vacuous on inputs, so the inhabited heterogeneous case supplies the usable
+instance.
+
+Statement review covers the new declarations by dependency group. Typed
+variables and terms prevent ill-sorted substitution; `term_subst`,
+`term_shift`, `formula_subst`, `formula_shift` and `formula_instantiate` relate
+syntax operations to environments, with the arbitrary-term binder example
+checking capture avoidance. The universal `sound` proof covers every constructor
+and therefore every named rule. Existential elimination shifts its conclusion,
+so the conclusion cannot depend on the removed witness. The two graph sequents
+have only their displayed antecedents and choose `f(a)` in the reverse
+direction. Their Set theorem quantifies over all functions and inputs, without
+injectivity, surjectivity or inhabitation hypotheses. The relation comparison
+uses equivalence of predicates; the final square comparison uses equality of
+both maps, not just their semantic projections. The transport helper's two
+equivalence hypotheses are discharged by the interpreted theorem at both
+endpoints. These cases exercise the public claims rather than proof syntax.
+
 ## Capability and compatibility evidence
 
 | Candidate | Source revision, toolchain, license and activity | Language/model and proved interface | Dependency/reuse boundary |
