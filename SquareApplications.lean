@@ -1,3 +1,4 @@
+import Examples.Frobenius
 import Examples.PresheafInternal
 import Examples.TimedMotion
 import Examples.PathTransport

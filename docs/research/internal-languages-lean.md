@@ -929,3 +929,14 @@ audit. No dependency pin, foundational axiom or ADR is changed by this note.
 [lean2]: https://github.com/leanprover/lean2/tree/8072fdf9a0b31abb9d43ab894d7a858639e20ed7
 [lean2-hott]: https://github.com/leanprover/lean2/blob/8072fdf9a0b31abb9d43ab894d7a858639e20ed7/hott/hott.md
 [lean2-book]: https://github.com/leanprover/lean2/blob/8072fdf9a0b31abb9d43ab894d7a858639e20ed7/hott/book.md
+
+## Checked proof-authoring assessment (#50)
+
+The [Frobenius authoring investigation](internal-proof-authoring.md) adds source
+Frobenius sequents interpreted in Set and the constructed presheaf model, and
+an ordinary interval application with two intermediate witnesses. It preserves
+checked direct and helper variants for graph, associativity, Frobenius, and
+nested composition. Its recommendation is to retain the named-rule interface
+with the bounded `Rules.existsHere` helper. The report records caller
+obligations, statement review, run commands, and the limits of this Stage A
+evidence; it does not claim completion of Stage B.
