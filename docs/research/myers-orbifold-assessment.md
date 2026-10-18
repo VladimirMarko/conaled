@@ -86,7 +86,10 @@ as Lean axioms. The latter would violate
 [ADR 0010](../adr/0010-composition-and-proof-audit.md). Even with a model,
 extracting executable coordinates, a metric, a connection and an integrator
 would require separate comparison and refinement results. The assessment
-therefore defers that route; it does not assert that constructing it is impossible.
+therefore defers that route; it does not assert that constructing it is impossible. The
+[internal-language reuse assessment](internal-languages-lean.md) follows up in
+#35 with inspected Lean implementations, a regular-logic experiment connected
+to existing squares, and staged obligations for an internal SDG model.
 
 ## Pinned Mathlib inventory
 
