@@ -864,3 +864,60 @@ assuming the equivalence. No later issue is fixed or published here.
 Arbitrary-map products, source dependent typing, identity elimination,
 universes, smooth scalars/sites, Kock–Lawvere, higher identities and cohesion
 remain separate obligations. This slice does not complete #36.
+
+## Arbitrary sheaf slices through elements (#66)
+
+The experimental `SheafSlice.equivalence` presents `Over Γ` as sheaves on
+`ElementSite.Site Γ.obj`. Mathlib's `Functor.Elements` applied to the
+presheaf has arrows in the restriction direction, so the site is its opposite.
+A site arrow `(V,y) → (U,x)` is a base arrow `f : V → U` with
+`Γ.map f.op x = y`. `ElementSite.up` and `down` identify sieves over `(U,x)`
+with base sieves over U. A sieve covers precisely when its corresponding
+base sieve covers. Their inverse and pullback laws prove the inherited
+Grothendieck topology axioms.
+
+`ElementFamilies` constructs fibers and dependent total spaces using the
+pinned elements, slice and natural-isomorphism APIs. The inspected Mathlib
+`Comma/Presheaf/Basic.lean` equivalence through costructured arrows fixes the
+section universe to the base hom universe. Here those universes remain
+independent: for `C : Type u`, `Category.{v} C` and sections in `Type w`, the
+element site has objects in `Type (max u w)`, arrows in `Type v`, and its
+sheaves still have sections in `Type w`. Taking `w = max u v` supports the
+existing sheaf function-space scope without enlarging the section universe.
+The previously inspected `Sites/Over.lean` localizes over a base-site object,
+whereas this construction allows arbitrary Γ.
+
+Forward sections are the actual fibers `{a // p(a) = x}`. Forward gluing uses
+A's sheaf condition to glue ordinary sections and Γ's separatedness to prove
+that the result still lies over x. For inverse gluing, `ElementSheaf.total_isSheaf`
+first glues the base components with Γ's sheaf condition. Their agreement
+with that glued section produces a compatible family in its element-site
+fiber. The element-site sheaf condition then glues the dependent values.
+No choice of incompatible local inhabitants supplies a global section.
+The public functors act on actual sheaf maps; reconstruction forgets the
+redundant fiber equation and commutes with both the display and restriction.
+Natural reconstruction isomorphisms give the categorical equivalence through
+Mathlib's adjointification, including its triangle law. Ordinary `Family`
+displays and `SheafFamily` pullback displays require no new model data:
+`fiberEquiv` accepts their existing sheaf morphism directly.
+
+`Examples.SheafSlices` applies the public equivalence to the Bool sheaf D on
+the diamond site. The false-point display has an inhabited false fiber and
+empty true fiber. The display `E × D → D` retains E's false restriction along
+W → U, true restriction along W → V, and empty fiber at X. Reconstruction
+retains these restrictions. The inherited proper cover at `(X,b)` remains
+covering and proper. Its U and V fibers are inhabited in the nonconstant
+example, but any compatible family would glue to an impossible X-section.
+The false-point example also supplies a compatible family and amalgamation
+on the same cover at false, checking that the obstruction concerns agreement.
+All earlier clients and historical sources remain in the public build.
+
+One next bounded slice is to transport the existing sheaf cartesian-closed
+construction through this equivalence to construct cartesian closure of each
+slice, with comparisons for the actual slice products, evaluation and currying.
+The universe calculation above permits applying `SheafFunction` on the element
+site. This task has not performed that transport or constructed arbitrary-map
+dependent products. Comparison with the earlier chosen products, source
+dependent typing, identity elimination, universes, smooth scalars/sites,
+Kock–Lawvere, higher identities and cohesion remain separate obligations.
+The slice presentation does not complete #36.
