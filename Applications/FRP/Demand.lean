@@ -87,9 +87,9 @@ theorem process_ready (s : Inputs T α) (t : T) (out : List α)
 theorem done_persists (s : Inputs T α) (ms : Streams T α) (actions : Nat → Action T)
     {i j : Nat} (hij : i ≤ j) (h : request s ms actions i = .done) :
     request s ms actions j = .done := by
-  induction j, hij using Nat.le_induction with
-  | base => exact h
-  | succ j _ ih => simp [request, ih, next_done]
+  have hd : Monotone (fun n => request s ms actions n = .done) :=
+    monotone_nat_of_le_succ (fun n hn => by simp [request, hn, next_done])
+  exact hd hij h
 
 theorem at_most_once (s : Inputs T α) (ms : Streams T α) (actions : Nat → Action T)
     {i j : Nat} {t : T} {out : List α} (hij : i < j)

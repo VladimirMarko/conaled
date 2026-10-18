@@ -150,3 +150,12 @@ direnv exec . ./check.sh
 Exact validation and immutable-candidate review results accompany the task
 handoff. Proof infrastructure is unchanged, so audit regression tests are not
 required for this change.
+
+## Shared proof reassessment
+
+The [shared-transition assessment](frp-shared-transitions.md) records the subsequent
+comparison across the source and request implementations. Consecutive-step
+preservation now reuses Mathlib's relation and monotonicity results; executable
+behavior and public theorem statements remain unchanged. The assessment also
+explains why this evidence does not yet justify a new execution or scheduling
+framework or a missing-capability dependency under #8.

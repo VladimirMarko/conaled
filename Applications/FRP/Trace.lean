@@ -24,6 +24,10 @@ theorem Refines.trans {s q r : State T α} (h : Refines s q) (k : Refines q r) :
     Refines s r :=
   ⟨h.1.trans k.1, fun t ht => (k.2 t (lt_of_lt_of_le ht h.1)).trans (h.2 t ht)⟩
 
+/-- Expose knowledge refinement to Mathlib's generic relation-preservation results. -/
+instance : Std.Refl (Refines (T := T) (α := α)) := ⟨Refines.refl⟩
+instance : IsTrans (State T α) Refines := ⟨fun _ _ _ => Refines.trans⟩
+
 theorem process_refines (s : State T α) (m : Message T α) : Refines s (process s m) := by
   unfold process
   cases h : advance s m.frontier m.packet with
@@ -68,9 +72,8 @@ theorem prefix_valid {s : State T α} (hs : s.Valid) (messages : Nat → Message
 
 theorem prefix_refines (s : State T α) (messages : Nat → Message T α)
     {i j : Nat} (h : i ≤ j) : Refines (sourcePrefix s messages i) (sourcePrefix s messages j) := by
-  induction j, h using Nat.le_induction with
-  | base => exact Refines.refl _
-  | succ j _ ih => exact ih.trans (process_refines _ _)
+  exact Nat.rel_of_forall_rel_succ_of_le Refines
+    (fun n => process_refines (sourcePrefix s messages n) (messages n)) h
 
 theorem prefix_sound {s : State T α} {truth : T → List α}
     (messages : Nat → Message T α) (hs : s.Valid) (old : s.Completes truth)

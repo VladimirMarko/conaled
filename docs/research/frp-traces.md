@@ -123,3 +123,12 @@ The [one-shot demand experiment](frp-demand.md) adds atomic registration and
 response emission, persistent pending work, at-most-once delivery, and progress
 under separate source and consumer fairness assumptions. It reuses this trace
 model and leaves general scheduling outside its scope.
+
+## Shared proof reassessment
+
+The [shared-transition assessment](frp-shared-transitions.md) records the subsequent
+comparison across the source and request implementations. Consecutive-step
+preservation now reuses Mathlib's relation and monotonicity results; executable
+behavior and public theorem statements remain unchanged. The assessment also
+explains why this evidence does not yet justify a new execution or scheduling
+framework or a missing-capability dependency under #8.
