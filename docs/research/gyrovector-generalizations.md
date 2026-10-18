@@ -299,16 +299,13 @@ would lose orientation. With the curvature `-1` metric, the orthonormal frame
 at `a` represented by `u` is `e(w)=(1-|a|²)u w/2`. This distinguishes a unit
 complex phase from the coordinate length of a metric-unit tangent vector.
 
-Felix at revision `6f36d28097db7ea5f5df3263db3e8be08f74e490` supplies the
-relevant architecture: [MakeLawful.agda][gyro-felix-laws] transports category
-and Cartesian laws using the equivalence induced by a preserving map; closed
-transport is TODO there. [Comma/Type.agda][gyro-felix-comma] retains a connector,
-both arrows and their commuting condition.
-[Comma/Homomorphism.agda][gyro-felix-projections] proves category preservation
-for the projections, with further structural instances left as a comment.
-These files establish a reusable algebraic pattern, not geometric theorems.
-
-Use the corresponding local constructions:
+SquareKit already supplies the required semantic maps, law transport, comma
+squares, and agreement constructions. Its
+[implementation record](felix-parity-implementation.md) documents the Felix
+port and local extensions, including
+[closed law transport](../../SquareKit/ClosedMap.lean), which completes the
+corresponding upstream TODO. The disk realization should instantiate these
+existing interfaces:
 
 | Obligation | Existing interface and application |
 |---|---|
@@ -318,9 +315,8 @@ Use the corresponding local constructions:
 | Agreement of independent realizations | [`synchronized`, `synchronize`](../../SquareKit/Combinators.lean), or [`Comma.Exact.agreement`, `agree_comp`](../../SquareKit/CommaAgreement.lean), with the same semantic operation on both sides. |
 | Explicit identification arrows | Mathlib action groupoids and functors, adapted through `RawMap.ofFunctor`; retain labels rather than inducing arrow equivalence from coarse position observations. |
 
-These existing checked interfaces meet the relevant Felix pattern. The missing
-work is proving disk closure, faithful decoding, preservation, and equivariant
-action-groupoid adapters for this geometry. A new geometry-specific square or
+The missing work is proving disk closure, faithful decoding, preservation,
+and equivariant action-groupoid adapters for this geometry. A new geometry-specific square or
 law-transport hierarchy would duplicate the shared foundation. General smooth
 presentation equivalence and descent still need more than a commuting square.
 
@@ -408,7 +404,3 @@ These are reproducible floating-point observations in the sampled region.
 They establish neither universal identities nor intrinsic error bounds.
 The historical probe was not changed. This assessment adds no Lean claims;
 the shared SquareKit results cited above are the existing checked results.
-
-[gyro-felix-laws]: https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/MakeLawful.agda
-[gyro-felix-comma]: https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Comma/Type.agda
-[gyro-felix-projections]: https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Construct/Comma/Homomorphism.agda

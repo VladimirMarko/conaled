@@ -1,11 +1,17 @@
 # Architectural quality
 
-Felix is the minimum standard for the library's elegance, expressive power,
-and architecture. When designing or reviewing library abstractions, compare
-the relevant Felix interfaces and constructions at the revision recorded in
-`docs/SOURCES.md`. Check upstream definitions and proofs; distinguish completed
-capabilities from unfinished work. Use idiomatic Lean and existing Mathlib
-constructions where they meet the same requirements.
+Start with the current local interfaces, proofs, and checked applications.
+For capabilities ported or extended from Felix, consult
+`docs/research/felix-parity-implementation.md` and verify the relevant code.
+Reuse those constructions and idiomatic Mathlib interfaces where their
+hypotheses fit the task.
+
+Felix remains the minimum standard for elegance, expressive power, and
+architecture. Consult its definitions and proofs at the revision recorded in
+`docs/SOURCES.md` when investigating missing capabilities, revisiting an
+architectural decision, checking provenance, or performing an explicitly
+requested upstream comparison. Assess any upstream TODO against the local
+implementation before treating it as remaining work.
 
 Evaluate designs by the generality of their assumptions, the size of the
 interface callers must learn, and the definitions and proofs callers can
@@ -16,11 +22,14 @@ checked specializations of the shared abstractions, preserving their existing
 theorems and semantic distinctions. A specialized application result alone
 does not establish parity with Felix's general construction.
 
-For architectural changes, state the corresponding Felix capability, the
-remaining gaps, and the examples demonstrating reuse and composition. Treat
-gaps as work to resolve, rather than lowering the quality standard. Historical
-discussions in `docs/history/` supply motivation; verify their claims against
-current code and primary sources.
+For architectural changes, state what changes relative to the local
+implementation, the remaining gaps, and examples demonstrating reuse and
+composition. When an upstream comparison is needed, distinguish inherited
+capabilities, local extensions, and unresolved gaps. Treat gaps as work to
+resolve, rather than lowering the quality standard. Keep routine application
+documentation focused on the local APIs it uses; link the implementation
+record for provenance. Historical discussions in `docs/history/` supply
+motivation; verify their claims against current code and primary sources.
 
 ## Scope of parity
 
