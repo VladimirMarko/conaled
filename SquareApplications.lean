@@ -7,6 +7,7 @@ import Examples.SheafRelations
 import Examples.SheafFunctions
 import Examples.SheafFamilies
 import Examples.FamilyCoherence
+import Examples.SheafSections
 import Examples.SheafSums
 import Examples.TypeSums
 import Examples.Frobenius

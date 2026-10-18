@@ -645,14 +645,58 @@ model hierarchy. The earlier local-image/empty-section evidence remains
 unchanged. A dependent sum stores both pieces of data and does not turn local
 existence into a section.
 
-The next bounded slice should construct the internal object of dependent
-sections of a sheaf family using pinned Mathlib's
-`LocallyCartesianClosed/Sections.lean`. That file supplies `Over.sections` as
-the right adjoint to the product-family functor `toOver` for a closed object;
-our sheaf exponentials and pullbacks discharge those ingredients. Compare its
-currying and evaluation to the current explicit products and section terms.
-This would be a constructed dependent function-space fragment over a closed
-base, not a claim that arbitrary pullback reindexing already has a right
-adjoint. General dependent products, identity elimination, universes, a source
-dependent calculus, smooth scalars and sites, Kock–Lawvere, higher identities
-and cohesion remain unconstructed.
+This section-object step is now supplied by #62 below.
+
+## Internal section objects (#62)
+
+[SquareKit/SheafSections.lean](../../SquareKit/SheafSections.lean) instantiates
+Mathlib's actual `Over.sections` for a display `p : A → Γ`. Its closedness and
+sheafification come from the constructed sheaf exponential; chosen pullbacks
+come from existing sheaf limits. The supported section universe remains
+`Type (max u v)` for a site with objects in `Type u` and arrows in `Type v`.
+Local instance adapters expose the definitional agreement between Mathlib's
+cartesian and monoidal sheaf structures. They add no caller assumptions.
+
+`homEquiv` identifies maps `X → sections p` with ordinary maps
+`Γ × X → A` whose composite with p is the first projection. The explicit
+product comparison followed by braiding adapts this base-first convention to
+Mathlib's parameter-first `toOver Γ`. The adjunction supplies both inverses;
+parameter naturality yields the public curry/evaluation laws. Evaluation is
+an actual sheaf morphism and satisfies the display equation.
+
+`globalEquiv` identifies maps from the actual chosen terminal sheaf with
+`Family.Term p`, using a proved product/unit isomorphism. Its inverses name
+terms and recover them. These are internal sections: stagewise elements need
+not be arbitrary functions on same-stage fibers. The earlier function-sheaf
+counterexample remains available.
+
+[SquareKit/SheafSectionsConstant.lean](../../SquareKit/SheafSectionsConstant.lean)
+constructs `constantIso` from sections of `B × Γ → Γ` to the existing
+exponential `Γ ⇒ B`. The classifying hom equivalence is natural in the
+parameter; the isomorphism preserves currying and evaluation. No second
+exponential construction is introduced.
+
+[Examples/SheafSections.lean](../../Examples/SheafSections.lean) compares the
+named Bool negation term with the existing exponential name and recovers
+both Bool values. A parameter-dependent section transported by negation has
+value `(!b,a)`, so the naturality example detects parameter changes. Eta uses
+the new interface. The existing restricted dependent `trueTerm` has a named
+section whose evaluation recovers its true base value. The constant-false
+family has no global section-object element. For `E → 1`, local-image top
+still coexists with absence of a global element, derived through
+`globalEquiv` and the existing no-term result. The consumer also imports the
+ordinary, regular and dependent-sum developments unchanged.
+
+The next bounded slice should turn this adjunction into an actual dependent
+product along a terminal display `Γ → 1`. Pinned Mathlib's
+`LocallyCartesianClosed/ExponentiableMorphism.lean` defines exponentiability
+by a right adjoint to the chosen pullback functor; it does not supply this
+sheaf instance. The existing `toOver`/sections adjunction and the equivalence
+between the terminal slice and the sheaf category provide the ingredients.
+The required comparison is between chosen pullback along `Γ → 1` and
+`toOver Γ`, including their units and counits, rather than another finite
+regular example. This recommendation does not assert arbitrary reindexing
+already has a right adjoint. General dependent products, identity elimination,
+universes, a source dependent calculus, smooth scalars and sites,
+Kock–Lawvere, higher identities and cohesion remain unconstructed. #36 is
+still open.
