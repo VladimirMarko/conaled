@@ -242,3 +242,8 @@ explicit source advancement, availability, and fair-processing assumptions.
 The preceding unimplemented-trace statements describe the original protocol
 slice. The extension retains its boundaries around phase evaluation, switching,
 and general graph scheduling.
+
+The [one-shot demand extension](frp-demand.md) now models a registered request
+and atomic response emission, including no-lost-work and conditional delivery
+proofs. Concurrent callbacks, cancellation, and general runtime scheduling
+remain outside that experiment.

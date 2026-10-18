@@ -116,3 +116,10 @@ The targeted build passed. Full source-check and review results accompany the
 implementation handoff. Proof infrastructure is unchanged, so audit regression tests
 are not required for this change. Both new modules are imported by the public
 entrypoint and included in the normal exhaustive proof audit.
+
+## Registered consumer extension
+
+The [one-shot demand experiment](frp-demand.md) adds atomic registration and
+response emission, persistent pending work, at-most-once delivery, and progress
+under separate source and consumer fairness assumptions. It reuses this trace
+model and leaves general scheduling outside its scope.
