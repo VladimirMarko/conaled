@@ -1342,3 +1342,20 @@ stage. The regression distinguishes internal slopes even though integer-stage
 D has only zero. This is first-order categorical KL with one polynomial
 analytic consumer; imported synthetic source reasoning, a well-adapted smooth
 model, higher/cohesive structure and orbifold interpretation remain open.
+
+## Interpreted synthetic product rule (#75)
+
+The [product-proof record](algebraic-kl-model.md#interpreted-synthetic-product-proof-75)
+now connects a bounded rule-restricted source derivation with the constructed
+algebraic KL model. The derivation adapts the surveyed synthetic Taylor,
+nilsquare and unique-slope argument. Every source rule has model soundness;
+the ordinary natural-map product theorem invokes that source proof rather than
+repeating its calculation in the model.
+
+The fourth-power client obtains its coefficient from this theorem, observes it
+at the polynomial stage and supplies it to Mathlib's external real derivative
+API. Nonzero infinitesimals, nonidentity restriction, the necessity of nilsquare,
+and mixed ordinary/source usage are checked. Source syntax remains optional.
+This interprets one synthetic argument with a polynomial analytic consequence;
+the smooth site, general smooth representation, Weil-general and higher/cohesive
+structure, and orbifold comparisons remain open.

@@ -298,3 +298,115 @@ reasoning beyond the present semantic squaring calculation. Imported-source
 proof interpretation is not established here. The formal-manifold/smooth site,
 arbitrary smooth derivative comparison, higher/cohesive structure and the
 Myers/orbifold obligations above remain unconstructed. #74 does not complete #36.
+
+## Interpreted synthetic product proof (#75)
+
+The source-to-model link now includes the first-order synthetic product argument
+from Brasca and Clemente's SDG repository, revision
+`e4cd622492aba9be421ec0abcf152f58a0ee98df`.
+In [`IsKockLawvere_one/Deriv.lean`][sdg-product], the `leibniz'` field of `deriv`
+uses two Taylor expansions, a ring expansion retaining the quadratic cross
+term, its vanishing for square-zero inputs, and `derivative_unique`.
+`deriv_mul` then exposes the resulting product rule. The argument is
+re-expressed as a source derivation here; no upstream Lean code is copied or
+imported. The inspected original credits Riccardo Brasca and Gabriella Clemente
+and carries Apache-2.0 licensing.
+
+The same revision's [`Basic/Alpha.lean`][sdg-alpha] proves equivalence between
+unique affine expansion and bijectivity of its native affine function. Our
+interpretation uses the categorical affine isomorphism already constructed in
+#74. We do not import the upstream native-function KL typeclass, custom kernel
+or unique-choice axiom. In particular, this is not an instance asserting that
+arbitrary external functions on ordinary real infinitesimals satisfy KL.
+
+[`Internal/SyntheticScalar.lean`](../../SquareKit/Internal/SyntheticScalar.lean)
+provides a bounded model-independent language. `MapExpr n` contains formal
+function parameters, addition, multiplication and derivative symbols.
+`Expr n` is an integer ring-expression syntax whose atoms are base values,
+shifted values and one infinitesimal. It imports no sheaf model. Its admitted
+`Derives` constructors are exactly:
+
+- Reflexivity, symmetry, transitivity and addition/multiplication/negation
+  congruence.
+- A ring certificate: equality of the two encoded expressions in the free
+  `MvPolynomial (Atom n) ℤ` ring. This is a checked syntactic normalization
+  certificate, not arbitrary equality supplied from a target model.
+- The nilsquare equation and a first-order Taylor rule for each formal function.
+- Structural equations for base addition/multiplication and shifted
+  multiplication, expressing the declared pointwise operations.
+
+`product_cross` produces the expansion with an explicit
+`(df*dg)*(epsilon*epsilon)` term. `remove_cross` uses the nilsquare constructor
+to discard precisely that term. `product_expansion` combines these derivations
+with Taylor and structural rules. The separate judgment `Slope f g` has one
+unique-slope inference from a source expansion; `product_rule` applies it to
+`product_expansion`. The product rule is not a primitive constructor. This
+fragment has no binders or general substitution calculus: the derivation is
+parametric in arbitrary `MapExpr n` inputs, so it can be instantiated with
+compound source expressions without adding a semantic-equality rule.
+
+[`Internal/SyntheticScalarSheaf.lean`](../../SquareKit/Internal/SyntheticScalarSheaf.lean)
+constructs an interpretation from any assignment of natural scalar maps to
+function parameters. Formal derivatives become `AlgebraicDerivative.derivative`.
+`sound` covers every `Derives` constructor: polynomial certificates are evaluated
+by the ring homomorphism justified by `Expr.eval_polynomial`; nilsquare comes
+from membership in D; Taylor is #74's theorem. `slope_sound` interprets the
+unique-slope inference using `derivative_unique`, hence the constructed KL
+inverse. Callers supply no product-rule validity or derivative correctness
+field. The proof quantifies every stage, scalar parameter and infinitesimal;
+it never cancels an individual d. `sound_parameters` also accepts any sheaf
+parameter assignment `X → R`.
+
+[`SyntheticProductRule.lean`](../../SquareKit/SyntheticProductRule.lean) is an
+optional adapter. Its `product` theorem for arbitrary natural `f,g : R → R`
+invokes `product_rule` through `slope_sound`. Its right-hand side uses the
+existing natural ring operations and the KL derivatives of f and g.
+`component` exposes the ordinary component equation and `parameters` exposes
+composition with any sheaf parameter map. The generic model and derivative
+modules do not import the source syntax or this adapter. No global proof
+notation is installed.
+
+[`Examples/SyntheticProduct.lean`](../../Examples/SyntheticProduct.lean)
+instantiates that same source consequence at two ordinary squaring maps.
+`derivative_fourth_apply` obtains `4*x^3` from the source-derived product theorem
+and the earlier ordinary squaring derivative. `fourth_at_epsilon` uses this
+coefficient in Taylor at a nonzero dual epsilon. `fourth_flip` checks its
+preservation along the existing, proved nonidentity epsilon-negating map.
+`mixed_styles` uses direct maps and the source-derived derivative together.
+
+`fourth_polynomial` identifies the ordinary map with evaluation of integer
+`X^4`. `modelCoefficient` observes the derivative at the polynomial stage's
+universal variable; `modelCoefficient_eq` recovers the polynomial derivative
+from the source-derived result. `analytic_fourth` then applies Mathlib's
+`Polynomial.hasDerivAt` with the externally evaluated model coefficient.
+The dependency therefore runs from source derivation, through model soundness
+and the actual KL inverse, to an ordinary real analytic statement. Real numbers
+remain external evaluation targets; no general smooth embedding is asserted.
+
+The boundary example `boundary_source` derives the truncated expansion using
+nilsquare. `boundary_no_ring_certificate` proves that its two sides are unequal
+as free polynomials: evaluation at epsilon=1 gives a counterexample. Thus plain
+ring normalization cannot justify discarding that cross term. The existing
+integer-stage versus internal-function regression remains intact.
+
+Statement review inspected the complete constructor list, all-stage uniqueness,
+parameter scope and the analytic coefficient's source dependency. A wrapper
+initially made elaboration unfold the model while solving finite assignment
+indices; simplifying only the source interpretation first resolved that
+regression. Explicit stage arguments likewise avoid expensive inference in the
+restriction client. No heartbeat or trust settings changed. The experimental
+modules are aggregate imported and covered by fresh checking and the exhaustive
+axiom audit.
+
+One next bounded construction is functorial first-order prolongation of smooth
+maps between finite real coordinate spaces: send `(x,v)` to `(f(x), Df(x)v)`,
+prove identity and composition using Mathlib's derivative rules, and compare
+its polynomial instance with the coefficients already recovered here. This is
+a concrete prerequisite for giving smooth maps an action on real dual stages;
+it would not itself construct a formal-manifold site or prove smooth KL.
+The present result interprets this product argument only. Arbitrary smooth
+representation, Weil-general KL, higher/cohesive structure and orbifold
+comparisons remain open, and #36 remains incomplete.
+
+[sdg-product]: https://github.com/riccardobrasca/SDG/blob/e4cd622492aba9be421ec0abcf152f58a0ee98df/SDG/IsKockLawvere_one/Deriv.lean
+[sdg-alpha]: https://github.com/riccardobrasca/SDG/blob/e4cd622492aba9be421ec0abcf152f58a0ee98df/SDG/Basic/Alpha.lean
