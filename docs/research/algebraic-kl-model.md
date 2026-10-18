@@ -5,13 +5,17 @@ Inspected 2026-10-18 at Lean 4.35.0 and Mathlib
 [internal-language assessment](internal-languages-lean.md#pinned-mathlib-model-constructions)
 and the [sheaf implementation record](sheaf-local-images.md). It selects a
 bounded algebraic milestone for [#36](https://github.com/VladimirMarko/conaled/issues/36).
-It does not establish KL, a well-adapted smooth model, or the analytic comparison.
+The #73 slice did not establish KL. The
+[#74 construction](#categorical-kl-and-a-polynomial-consumer-74) below proves
+first-order categorical KL and one polynomial analytic comparison.
+A well-adapted smooth model remains open.
 
-## Recommendation and source evidence
+## Recommendation and source evidence (#73)
 
-Construct the first categorical KL isomorphism on the small algebraic site
-implemented below. Its universal dual-number stage is already checked. This
-avoids introducing smooth-ring presentation and descent machinery before the
+The #73 recommendation was to construct the first categorical KL isomorphism
+on the small algebraic site implemented below, starting from its checked
+universal dual-number stage. This avoids introducing smooth-ring presentation
+and descent machinery before the
 first internal infinitesimal calculation. A later smooth model needs a richer
 site and scalar; there is no claimed equivalence with this algebraic model.
 The generic sheaf, exponential and dependent-product infrastructure remains
@@ -119,7 +123,7 @@ arbitrary `T`, `φ:B→T`, `d*d=0` is `φ(a)+φ(b)*d`. Verify that reconstructio
 is precisely the existing `affine`, and prove coefficient extraction natural
 in `B`. That yields an inverse sheaf arrow, not merely bijectivity at global
 points. Arbitrary parameter uniqueness then follows by transposition.
-These final isomorphisms and inverse comparisons remain unproved locally.
+At the #73 baseline these final isomorphisms and inverse comparisons remained unproved; the #74 construction below supplies them.
 
 ## Pinned API inventory and local boundaries
 
@@ -169,7 +173,7 @@ review evidence are retained in `/tmp/conaled-73`, outside the source diff.
 
 ## One next construction, and the smooth risk
 
-The next bounded outcome should be **the categorical KL inverse on these
+The #73 recommendation was **the categorical KL inverse on these
 stages**, with the representable comparison, coefficient naturality, both
 inverse equations for `affine`, and arbitrary-parameter uniqueness described
 above. Its checked consumer should transpose `(d,x) ↦ (x+d)*(x+d)`, use that
@@ -214,3 +218,83 @@ comparisons. The remaining stages stay provisional.
 [deriv]: https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Analysis/Calculus/Deriv/Polynomial.lean
 [smooth-algebra]: https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Geometry/Manifold/Algebra/SmoothFunctions.lean
 [smooth-sheaf]: https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Geometry/Manifold/Sheaf/Smooth.lean
+
+## Categorical KL and a polynomial consumer (#74)
+
+[`AlgebraicKL.lean`](../../SquareKit/AlgebraicKL.lean) now constructs `kl`, whose
+forward arrow is exactly #73's `AlgebraicStage.affine`. Its inverse `extract`
+is an actual sheaf morphism. This proves first-order categorical KL in the
+selected small algebraic presheaf model, without an external-function KL class.
+
+`dualRepresentable A` packages `dualLift` as `D × yA ≅ y(dual A)`, with the
+infinitesimal first and actual site representables on both sides. Its arrow
+naturality uses `dualLift_natural`; `dualLift_source` and
+`dualRepresentable_parameter` prove the parameter-stage comparison along every
+ring map, using the constructed `dualMap`. No general coproduct closure of the
+code category is required.
+
+For `h : D × X → R`, `universalValue h A x` evaluates at epsilon after
+restricting `x` along the constant inclusion `A → DualNumber A`.
+`universalValue_yoneda` identifies this exact operation with Yoneda evaluation
+through `dualRepresentable`. Its two coordinates give `coefficients h`.
+`universalValue_natural` and `dualMap_coordinates` prove that these coordinates
+form a natural sheaf arrow. Naturality along `dualLift(id,d)` gives
+`universal_reconstruction` at every stage and every parameter section.
+
+`affine_extract` and `extract_affine` prove both inverse equations with the
+existing affine map using the ordinary exponential's curry, beta and eta.
+`extract_curry` connects this inverse with coefficients of arbitrary operations.
+`coefficients_unique` uses the resulting isomorphism and transposition;
+`allParameters` gives unique natural maps `a,b : X → R` for every parameter
+sheaf `X`, with the affine equation at every stage and every square-zero input.
+`coefficients_parameter` proves compatibility with every parameter substitution.
+
+[`AlgebraicDerivative.lean`](../../SquareKit/AlgebraicDerivative.lean) defines
+`derivative f` for any natural `f : R → R` by currying `(d,x) ↦ f(x+d)`,
+applying `kl.inv`, and projecting the slope. `intercept` recovers `f` as the
+constant coefficient; `taylor` proves the first-order equation. The parameter
+version and `derivative_parameters` allow any sheaf `X → R`.
+`derivative_unique` identifies any natural slope satisfying that equation at
+all stages. The definition does not refer to a formal polynomial derivative.
+
+[`Examples/AlgebraicKL.lean`](../../Examples/AlgebraicKL.lean) then proves
+`derivative_square` through this uniqueness theorem, using #73's
+`square_expansion` for the expected slope. `square_at_epsilon` consumes Taylor
+at the nonzero dual-integer infinitesimal. `flip` fixes integer constants and
+negates epsilon; `flip_not_identity` proves it is nonidentity, and
+`derivative_flip` checks derivative preservation along it.
+
+The regression separates external stage functions from internal functions.
+`integers_infinitesimal_zero` proves that integer-stage D has only zero;
+`same_integer_evaluation` shows that slopes zero and one have the same values
+there. Nevertheless `internal_slopes_distinct` distinguishes their actual
+exponential sections using `extract`, and `slope_observations_distinct`
+distinguishes their evaluations after restriction to the dual stage. These
+are comparisons involving the actual exponential and its evaluation, not a
+separate calculation on standalone functions.
+
+For the ordinary consumer, `square_polynomial` identifies the scalar map with
+evaluation of the integer polynomial `X^2` at every stage.
+`coefficient_polynomial` identifies the KL-derived slope with its formal
+derivative. `modelSlope` observes the synthetic derivative at the polynomial
+stage's universal variable; `modelSlope_eq` recovers the formal derivative
+polynomial from that observation. Finally `analytic_square` maps the original
+polynomial and this model-derived coefficient to ℝ and invokes Mathlib's
+`Polynomial.hasDerivAt`. Thus its analytic coefficient comes from the constructed
+KL inverse. ℝ is an external evaluation target, not an object of this site.
+This proves one polynomial comparison, not an embedding of arbitrary smooth maps.
+
+Statement review checked the opposite adapters, both naturality directions,
+all-parameter quantifiers, actual inverse equations, derivative dependency on
+KL, and the model coefficient in the analytic statement. The experimental
+modules are aggregate imported and covered by fresh source checking and the
+exhaustive axiom audit. Ordinary clients and earlier source fragments remain
+available; no foundational, toolchain or heartbeat changes were needed.
+
+One next bounded slice is to interpret the surveyed synthetic first-order
+product-rule proof using this scalar and KL uniqueness, and compare a polynomial
+instance with ordinary differentiation. This would add interpreted synthetic
+reasoning beyond the present semantic squaring calculation. Imported-source
+proof interpretation is not established here. The formal-manifold/smooth site,
+arbitrary smooth derivative comparison, higher/cohesive structure and the
+Myers/orbifold obligations above remain unconstructed. #74 does not complete #36.

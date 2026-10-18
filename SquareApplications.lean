@@ -90,6 +90,7 @@ import Dependent
 import Examples.ArithmeticPipeline
 import Examples.CategoryInstances
 import Examples.AlgebraicScalar
+import Examples.AlgebraicKL
 import Examples.JetScan
 import Examples.MatrixStack
 import Examples.Run

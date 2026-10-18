@@ -1325,3 +1325,20 @@ This begins #36's model construction while the source-domain extensions listed
 above remain provisional. The note separates this algebraic milestone from a
 well-adapted smooth model, the Mathlib analytic comparison, and Myers's stronger
 higher/cohesive hypotheses. No later model or geometric result is claimed.
+
+## Constructed first-order KL and squaring derivative (#74)
+
+The [KL construction record](algebraic-kl-model.md#categorical-kl-and-a-polynomial-consumer-74)
+now proves that #73's actual affine map is an isomorphism. Its coefficient
+extraction is natural at all algebra stages, agrees with the representable
+Yoneda calculation, and gives unique natural coefficients for every parameter
+sheaf. `AlgebraicDerivative` defines the synthetic derivative using this inverse
+and proves Taylor and slope uniqueness.
+
+The squaring consumer derives slope `2*x` through KL, checks a nonzero dual
+infinitesimal and nonidentity restriction, and supplies a Mathlib `HasDerivAt`
+comparison whose coefficient is observed from the model at the polynomial
+stage. The regression distinguishes internal slopes even though integer-stage
+D has only zero. This is first-order categorical KL with one polynomial
+analytic consumer; imported synthetic source reasoning, a well-adapted smooth
+model, higher/cohesive structure and orbifold interpretation remain open.
