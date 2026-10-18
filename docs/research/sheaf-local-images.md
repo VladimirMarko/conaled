@@ -4,10 +4,12 @@ This experimental development implements
 [#51](https://github.com/VladimirMarko/conaled/issues/51),
 [#52](https://github.com/VladimirMarko/conaled/issues/52),
 [#53](https://github.com/VladimirMarko/conaled/issues/53),
-and [#54](https://github.com/VladimirMarko/conaled/issues/54) within the
+[#54](https://github.com/VladimirMarko/conaled/issues/54),
+and [#55](https://github.com/VladimirMarko/conaled/issues/55) within the
 internal-language workstream. It supplies local existential images, their
-Frobenius and Beck–Chevalley laws, sheaf contexts and terms, and finite applications.
-It does not yet supply a sheaf formula interpreter or soundness theorem, or complete #36.
+Frobenius and Beck–Chevalley laws, sheaf contexts, terms and closed formula
+predicates, and finite applications. It does not yet prove source-rule
+soundness or complete #36.
 
 ## Public interface and caller obligations
 
@@ -216,6 +218,61 @@ sheafness and pullbacks are proved results. The syntax-free image/base-change
 modules do not import the adapter. The mixed-style example retains an ordinary
 graph calculation without new model arguments or setup for that calculation.
 
+## Closed formula predicates and substitution
+
+[SquareKit/Internal/SheafFormula.lean](../../SquareKit/Internal/SheafFormula.lean)
+interprets the existing four regular constructors. Atoms and equality reuse
+`Presheaf.Model.atom` and `equality`; conjunction is intersection, and
+existence is `localImage` along the sheaf context projection. The interpretation
+uses the existing presheaf model and carrier sheaf proofs, without new syntax
+or a model hierarchy. To obtain `formula_isSheaf`, callers additionally prove
+that each binary relation subfunctor is a sheaf.
+
+`pairIso` identifies the existing relation product with a two-variable
+context, so `product_isSheaf` follows from context sheafness. `pairTerms`
+interprets the pair of arguments. Atomic closure is inverse-image closure of
+the relation along this morphism. `equality_isSheaf` uses separation of the
+sort carrier: two term values agreeing on a covering sieve are equal.
+Conjunction and existential closure use the earlier intersection and local-image
+results. Formula closure and substitution are proved, never assumed as model
+fields. The adapter retains separate sort, section and indexing universes.
+
+`formula_substitution` covers every formula and syntactic substitution.
+Its atomic and equality cases reuse the existing presheaf interpretation
+results; the conjunction case uses preimage of intersection. Under an
+existential, the recursive equation uses the lifted substitution and
+`exists_substitution` supplies contextual Beck–Chevalley. This proof does not
+use objectwise evaluation to interpret a sheaf existential. `formula_restrict`
+exposes restriction stability; `Valid` is predicate inclusion, separate from
+`Derives`. No theorem yet connects all derivations to this validity predicate.
+
+[Examples/SheafFormula.lean](../../Examples/SheafFormula.lean) extends the
+E/Bool example with `selectedEq`: equality of Bool arguments together with
+the earlier W/U support. Its restriction proof uses constant Bool maps and
+support restriction; its closure proof obtains equal arguments on the
+mandatory W arrow and uses the previously proved support closure. The
+relation therefore tests both arguments and site support.
+
+`existsE_image` connects the interpreted `∃ e, e = e` with the same local image
+and context projection used earlier. `existsE_at_X` holds at the retained empty
+environment, while `presheaf_existsE_false` and `evaluated_existsE_false`
+refute the existing pointwise interpretation and evaluation of that very source
+formula. The comparison uses the earlier context-to-E/terminal isomorphisms
+through `context_top`, and reuses the original no-pointwise-witness result.
+
+`combined` is `∃ e, e = e ∧ R(b,b)`. `combined_predicate` computes it using
+Frobenius and the context top-image theorem, giving U membership and V/X
+nonmembership. `unequalAtom_false` rejects `R(b,not b)` for every Bool and
+site object. `combined_negation` specializes uniform formula substitution
+under this existential and atom; the U membership and X nonmembership
+consequences rewrite by that theorem and the checked negated environment.
+
+Existing ordinary clients retain their interfaces, and the mixed graph example
+continues alongside formula interpretation. The syntax-free sheaf modules have
+no dependency on this adapter. Relation closure is a new obligation only for
+callers who need closed formula predicates; contexts and terms still require
+only carrier sheaf proofs.
+
 ## Statement review and retained cases
 
 The universal claims quantify over all sections and restrictions, with no
@@ -248,22 +305,23 @@ In `SquareKit/Internal/PresheafFrobenius.lean`, conjunction is subfunctor
 intersection and weakening is preimage along a context projection. The new
 sheaf law has the same algebraic shape, with local existential image replacing
 pointwise image. Its proof is a semantic theorem about arbitrary sheaf
-morphisms. There is no sheaf formula interpretation here, and existing source
+morphisms. The closed formula adapter uses this law; existing source
 derivability or presheaf validity does not supply sheaf soundness.
 
 Beck–Chevalley now supplies the semantic law for substituting into an
-existential predicate when context extension gives a pullback square. It
-establishes neither a source formula interpretation nor a soundness theorem.
+existential predicate when context extension gives a pullback square. By
+itself this law establishes neither a formula interpreter nor soundness.
 The finite counterexample to objectwise preservation of existential truth
 continues to apply.
 
-The context construction now supplies those actual pullback squares.
-The next bounded slice should interpret the existing regular formulas as
-closed context predicates and prove their substitution law. Atomic relations
-will need explicit closure hypotheses; equality, conjunction, and local
-existential image must discharge their own closure obligations. The checked
-contextual Beck–Chevalley theorem provides the existential substitution case.
+The context construction supplies those actual pullback squares, and the
+formula interpreter now uses them in its uniform substitution theorem.
+The next bounded slice should prove soundness of the existing regular source
+rules for this closed-predicate interpretation, with checked derivations in
+the finite model. The present closure and substitution results establish
+semantic operations and their laws; they do not establish that every
+`Derives` constructor preserves predicate inclusion.
 
-A full sheaf adapter still needs that formula interpretation and soundness of
-every admitted source rule. Choices about geometric sites, scalar objects, smoothness, SDG,
-higher identities and cohesion remain outside this finite test case.
+A model-map hierarchy, dependent types, geometric sites, scalar objects,
+smoothness, SDG, higher identities and cohesion remain outside this finite
+test case.
