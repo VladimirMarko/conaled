@@ -7,6 +7,16 @@ against the preserved [discussion](history/frp/frp-chat.md) and
 original verification evidence. The five historical artifacts retain their
 original contents. Current declarations live in `Applications/FRP/`.
 
+## Subsequent experimental development
+
+[The frontier protocol experiment](research/frp-runtime-scope.md) adds checked
+complete-window source transitions and partial merge observations under #27.
+It coexists with the denotational models below and follows the repository's
+[parallel-development policy](../README.md#parallel-and-experimental-developments).
+Its module and research note mark the design as experimental. The integration
+record below describes #26; scheduler and full runtime claims remain outside
+both deliveries.
+
 ## Claims and scope
 
 | Originating claim | Current evidence and disposition |

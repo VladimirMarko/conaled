@@ -1,9 +1,17 @@
 import Applications.FRP.Spec
 import SquareKit.Relations
 
-/-! Exploratory complete-window source protocol for #27. A packet closes an interval
-of timestamps, including silence. Time and payload stay generic; rational time is
-executable. No scheduler, phase evaluator, or source honesty is assumed implemented. -/
+/-!
+# Experimental complete-window source protocol
+
+Status: experimental (#27). The design and interface may evolve; the declarations
+and examples remain subject to the normal build and proof audit. Scope and open
+questions are recorded in `docs/research/frp-runtime-scope.md`.
+
+A packet closes an interval of timestamps, including silence. Time and payload
+stay generic; rational time is executable. Source honesty remains an explicit
+hypothesis. This module implements no scheduler or phase evaluator.
+-/
 
 namespace FRPSpec.Frontier
 

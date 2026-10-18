@@ -21,6 +21,27 @@ compositions, and exact coverage. The [historical foundation design](DESIGN.md)
 is preserved unchanged from `foundation-v1`; its build and coverage statements
 describe that earlier delivery, not the current application extension.
 
+## Parallel and experimental developments
+
+`master` supports multiple implementations and parallel lines of development.
+An implementation can be merged while its broader research question remains
+open, provided its stated scope is coherent and it meets the repository's
+architecture, checked-example, build, and proof-audit requirements. Alternative
+implementations can coexist in distinct modules and namespaces, reuse shared
+abstractions, and state their own semantic contracts. Merging one does not
+select it as the sole implementation or require replacing another.
+
+Mark an experimental implementation in its module documentation and link its
+scope and unresolved questions from the relevant research or application note.
+Experimental status means the design and interface may evolve. Its proved
+claims retain their stated assumptions and the same proof standard as the rest
+of the library. A radical architectural departure may need isolated exploration;
+experimental status alone is not a reason to keep checked work off `master`.
+
+The [FRP frontier protocol](docs/research/frp-runtime-scope.md) is an experimental
+implementation of complete-window source updates and merge observations. Its
+scope does not include a scheduler or a complete FRP runtime.
+
 ## Development environment
 
 Install Nix with `nix-command` and `flakes` enabled, and install direnv with

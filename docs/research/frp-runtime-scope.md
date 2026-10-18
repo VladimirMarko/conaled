@@ -1,5 +1,11 @@
 # FRP runtime scope: complete batches and knowledge frontiers
 
+**Status: experimental, developed on `master` alongside other implementations.**
+The protocol and interface may evolve. The proved claims and normal verification
+requirements apply throughout; see the [repository policy](../../README.md#parallel-and-experimental-developments).
+Merging this experiment does not select it as the sole FRP implementation or
+close #27.
+
 Research for [issue #27](https://github.com/VladimirMarko/conaled/issues/27),
 2026-10-18. This note proposes an exploratory slice: a pure executable source
 protocol and complete-batch merge observation. It does not adopt the full
