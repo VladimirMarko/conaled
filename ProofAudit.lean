@@ -9,6 +9,9 @@ import Lean.DeclarationRange
 one of the foundation modules, or lies under `SquareKit`, `Applications`, or
 `Examples`. Ownership comes from Lean's module-origin table, so private names,
 generated auxiliaries, instances, constructors, and recursors are included.
+Candidates come from project modules' constant and generated-name metadata plus
+current-module kernel declarations, with duplicate names removed. This preserves
+the module-origin boundary without scanning all dependency declarations.
 Definitions are audited as well as theorem declarations. The only root exclusion
 is Lean's `ConstantInfo.isUnsafe` flag: the compiler creates unsafe runtime
 declarations containing erased proofs (`lcProof`) and unreachable-code markers.
@@ -30,11 +33,14 @@ The import above is the project's complete public entrypoint. Audit coverage
 is over its transitive imports; adding a new source module requires importing
 it from that entrypoint. The command reports the imported project modules,
 all logical declaration and theorem counts, and the union of encountered axioms.
+Enable `trace.ProofAudit.roots` to inspect the exact logical root set.
 -/
 
 namespace ProofAudit
 
 open Lean Elab Command
+
+initialize registerTraceClass `ProofAudit.roots
 
 private def foundationModules : Array Name :=
   #[`Squares, `Compiler, `SquareCompiler, `FirstOrder, `Dependent, `Verification]
@@ -104,7 +110,8 @@ def auditProject : CommandElabM Unit := do
     throwError "Proof audit found no project declarations; check the public entrypoint imports."
   owned := owned.qsort (fun a b => Name.lt a.1 b.1)
   let mut theoremCount : Nat := 0
-  for (_, info, moduleName) in owned do
+  for (declName, info, moduleName) in owned do
+    trace[ProofAudit.roots] "{declName}"
     if info.isTheorem then theoremCount := theoremCount + 1
     match counts.findIdx? (fun c => c.moduleName == moduleName) with
     | some i =>

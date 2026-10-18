@@ -36,11 +36,21 @@ Timing maps reuse the finite matrix representation over the interval semiring.
 
 The public entrypoint imports every module. The build script computes its
 local import closure, rejects omitted source files, and rechecks each module
-from source. The final audit enumerates every locally defined kernel-safe declaration by
+from source. Independent compilations run concurrently only after their imports
+succeed, with a bounded worker count. Each full run writes to a private temporary
+output directory, reuses external dependency caches, and excludes stale project
+artifacts from its import path. The final audit runs after every project module
+has compiled successfully.
+
+The final audit enumerates every locally defined kernel-safe declaration by
 module origin, including private and generated proof declarations, and traverses
 all transitive axiom dependencies. Only `propext`, `Classical.choice`, and
-`Quot.sound` are permitted. The audit calls Lean's public `collectAxioms` API
-for every root. Since the Lean 4.35 upgrade, this uses Lean's transitive axiom
+`Quot.sound` are permitted. The audit selects imported project modules from Lean's module metadata, includes
+their constants and resolvable generated names, and includes current-module
+kernel declarations. It deduplicates names and retains the module-origin and
+safety checks. This avoids a scan through every dependency declaration without
+narrowing the intended root set. The audit calls Lean's public `collectAxioms`
+API for every root. Since the Lean 4.35 upgrade, this uses Lean's transitive axiom
 summaries for imported declarations, computed when checked modules are exported,
 and traverses local declarations directly. It does not skip audit roots.
 Lean-generated unsafe
@@ -81,3 +91,18 @@ source review, and scope documentation.
 `Examples.JetScan.prepare_correct`, `shaped_evaluation_correct`,
 `source_jet_scan`, `LanguageDerivatives.normalized_product_snapshot`,
 `recognizers_agree`, and the exhaustive command in `ProofAudit.lean`.
+
+## Verification tooling follow-ups
+
+Issue [#42](https://github.com/VladimirMarko/conaled/issues/42) adds parallel fresh
+compilation and module-directed audit enumeration. Public-command regression
+fixtures check scheduling and freshness, and an independent exhaustive scan
+compares exact audit root sets. These tests are empirical evidence; formal
+refinement proofs and their external-state assumptions are follow-up
+[#43](https://github.com/VladimirMarko/conaled/issues/43).
+
+The existing Python source/import scanner remains until
+[#7](https://github.com/VladimirMarko/conaled/issues/7) replaces it with Lean-native
+handling. The bounded scheduler uses its existing dependency graph so this
+performance change does not introduce another parser or change Lake/Nix build
+ownership. Ordinary incremental builds remain Lake's responsibility.

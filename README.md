@@ -77,9 +77,21 @@ lake exe cache get
 The first command obtains the pinned dependencies and their compiled cache.
 `check.sh` uses Python's standard library, resolves the local import graph,
 rejects source modules omitted from the public entrypoint, and **rechecks every
-project module from source** before running `ProofAudit.lean`. It accepts
-`LEAN=/absolute/path/to/lean`. The output from the delivered verification is
-in [verification.txt](verification.txt).
+project module from source** before running `ProofAudit.lean`. Independent
+modules compile concurrently after their local imports succeed. The default
+is up to four workers; use `./check.sh --jobs 1` for serial checking or
+`--jobs N` to set another memory-appropriate limit. The command reports
+compilation, audit, and total elapsed times.
+
+Each full check uses a private temporary output directory under `.lake`, removed
+when the check finishes. It reuses external dependency caches but does not reuse
+project artifacts or populate Lake's incremental build cache. Source-adjacent
+`.olean` files and existing Lake project outputs cannot shadow the fresh outputs.
+The command replaces caller `LEAN_PATH` with the fresh output directory and
+cached dependency paths. It accepts `LEAN=/absolute/path/to/lean` and verifies
+its version against `lean-toolchain`. Keep sources and dependencies stable during
+a check. Historical delivered verification output is in
+[verification.txt](verification.txt).
 
 For incremental development, `lake build` builds the same modules and audit.
 Generated `.olean`, `.ilean`, `.lake`, and cache files are not source artifacts.
@@ -88,8 +100,23 @@ They are intentionally omitted from the download.
 After `lake build`, run `lake env python3 scripts/test-proof-audit.py` to check
 that the audit rejects private forbidden dependencies, admissions, and unsafe
 source declarations. Its temporary fixtures also check that an unused external
-axiom does not cause a false rejection. `check.sh` verifies that the compiler
-version matches `lean-toolchain`.
+axiom does not cause a false rejection. Two additional suites need only the
+development shell and cached dependencies:
+
+```sh
+python3 scripts/test-check.py
+python3 scripts/test-proof-audit-roots.py
+```
+
+The first exercises fresh compilation, concurrency, ordering, stale artifacts,
+coverage, and failure exits through `check.sh`. The second compares the audit's
+exact root set with an independent exhaustive environment scan, including
+private, generated, and current-module declarations. For diagnostics,
+`set_option trace.ProofAudit.roots true in #audit_project_axioms` prints the
+logical roots. The normal audit uses project module metadata to avoid scanning
+unrelated dependency declarations, and Lean's cached transitive axiom summaries.
+Formal refinement proofs for these checks are tracked separately in
+[#43](https://github.com/VladimirMarko/conaled/issues/43).
 
 The original dependency-free foundation remains available:
 
