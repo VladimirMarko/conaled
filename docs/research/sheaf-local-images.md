@@ -978,3 +978,53 @@ The current slice-product right adjoint does not yet provide that arbitrary-map
 pullback adjunction. Its canonical Beck–Chevalley specialization, source
 dependent typing, identity elimination, universes, smooth/Kock–Lawvere models,
 higher identities and cohesion remain separate obligations. #36 remains open.
+
+## Dependent products along arbitrary sheaf maps (#68)
+
+The experimental `SheafDependentProduct.pi f` constructs a right adjoint to
+ordinary `Over.pullback f` for every sheaf map f : A → Γ, with the same
+independent site universes and `Type (max u v)` sections as #67. Its input is
+a display over A and its output is a display over Γ. No adjunction or
+exponentiability witness is required from a caller.
+
+`SliceDependentProduct` isolates the categorical construction. It needs
+pullbacks and a closed object `Over.mk f` in the ordinary cartesian slice.
+It composes the iterated-slice equivalence with Mathlib's internal sections
+adjunction. Flattening `toOver` has exactly the ordinary chosen pullback
+objects; `pullbackComparison` proves compatibility of its map presentation,
+with equations for both value and display projections. The local instances
+do not replace global limit choices. The sheaf specialization supplies the
+closed object using #67. Its exponentiable-morphism witness uses
+`ChosenPullbacksAlong.ofHasPullbacksAlong`, matching the actual left adjoint.
+
+The public hom equivalence, curry, uncurry and counit include beta, eta,
+parameter and family naturality, and the equation expressing evaluation as a
+map over A. Natural right-adjoint uniqueness comparisons recover the existing
+terminal and projection products for every input family. `AdjointComparison`
+proves transposition compatibility and conjugacy of canonical mates under
+these comparisons; the actual counit comparison comes from Mathlib's
+uniqueness law. Arbitrary sheaf pullback squares now instantiate the canonical
+Beck–Chevalley isomorphism and its evaluation equation without an adjunction
+assumption. The terminal-to-projection mate commutes with the same comparisons.
+
+`Examples.FalsePointProduct` calculates a dependent product along the false
+point 1 → D. The representing display is the constant Option Bool sheaf,
+with `some b` over false and `none` over true. An explicit natural Hom
+bijection for every parameter display identifies it with the constructed
+right adjoint. Its false fiber is Bool; its true fiber is a singleton. Actual
+counit evaluation at the false argument returns b. The empty true argument
+fiber requires no evaluation value. `FalsePointBaseChange` uses the canonical
+mate for Boolean negation and the chosen identity-pullback comparison to
+exchange these fibers. `DependentProducts` recovers the earlier projection
+function-space calculation and the nonconstant E function space through
+operation comparisons. `NativeSliceProducts` applies the same categorical
+construction in Type and recovers the existing native dependent function
+whose nth value is the last element of Fin(n+1), including transpose and
+counit compatibility.
+
+One next bounded slice is a source dependent context/type/term fragment with
+substitution interpreted by these sheaf families, before adding dependent
+function syntax. The current semantic Pi operation does not itself supply
+source typing or substitution rules. Identity elimination, universes, smooth
+scalars and Kock–Lawvere, higher identities and cohesion remain separate
+obligations. #36 remains open.

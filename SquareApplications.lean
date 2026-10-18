@@ -1,3 +1,5 @@
+import Examples.DependentProducts
+import Examples.NativeSliceProducts
 import Examples.SheafSliceFunctions
 import Examples.SheafSlices
 import Examples.DependentBaseChange
