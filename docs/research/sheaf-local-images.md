@@ -1239,3 +1239,73 @@ and substitution soundness proofs using these constructed semantic operations.
 This ticket adds no source function syntax. Source Sigma, identity types,
 universes and smooth/Kock–Lawvere or higher/cohesive structure remain absent.
 #36 remains open.
+
+## First-order dependent source functions (#72)
+
+`Internal.DependentFunctions` is an experimental sibling of the normalized
+structural source. It retains the primitive base sort B, indexed family A,
+zero, negation and point over zero. A function type has the form
+`Pi x : B. A(b)`, where the algebraic base expression b may mention x and
+other base variables. Telescopes contain base, dependent and function
+variables. Function variables may be substituted by lambdas or other function
+expressions. Functions are not themselves arguments or results of source Pi;
+family domains and higher-order source types remain outside this fragment.
+The syntax contains no interpretation, arbitrary derived Lean function or
+semantic equality constructor.
+
+Source terms infer their result index structurally. Renaming and simultaneous
+substitution traverse expression trees; lifting preserves the new bound
+variable and weakens assigned expressions. Type and term identity/composition
+laws include conversion transport. `DependentFunctionEquality` generates
+beta/eta, congruence and typed substitution rules independently of models and
+proves preservation of inferred types. `substituted_beta` is derived from
+beta and substitution. No Boolean double-negation rule is assumed in the
+source. `DependentFunctionEmbedding` preserves the old contexts, terms,
+assignments and equality, with checked interpretation agreement on the old
+carriers and their ordinary display adapters. Old clients are unchanged.
+
+`DependentFunctionSheafTerms` interprets every expression in a valuation on an
+actual sheaf carrier. The primitive model signature is unchanged. Function
+formation, lambda and application use `SplitSheafPi`; `SplitSheafConstant`
+provides a base-sort family with strict reindexing. Every source telescope also
+has a canonical environment constructed from split comprehension. Every typed
+source assignment constructs a new valuation and has unconditional
+`assignment_soundness`. General realizations compare valuations along actual
+parameter maps. Their lifting and the full renaming/substitution soundness
+proofs are constructed, including the function-variable cases. Interpretation
+uses expression data; typing certificates contribute only proof-independent
+transport. `dep_sound` and `func_sound` cover every equality constructor.
+
+`DependentFunctionSheafComparison` carries interpreted names through the
+ordinary dependent-product display iso. `ordinaryBody` uses the actual
+pullback functor and `SheafDependentProduct` counit. The input comparison
+identifies it with uncurrying, and a source lambda recovers its interpreted
+body. `derived_ordinary` follows the source beta derivation through full
+soundness to this ordinary operation. `source_substitution_mate` identifies
+the canonical Beck–Chevalley mate, followed by the result-index adapter, with
+the equality transport used in source Pi formation.
+
+The checked source equation is
+`(lambda x. f(neg x))(neg b) = f(neg(neg b))`, with a free dependent-function
+parameter. Its result lies in `A(neg(neg b))`. The finite model uses the earlier
+false-point dependent product as A: its false fiber is Bool and its true
+fiber is Unit. The parameter has a constructed natural interpretation; beta
+on an actual argument reaches the earlier Boolean evaluation theorem. A
+separate use of the original false-point family proves that the extended
+source cannot construct a closed true-fiber inhabitant. The negation
+assignment is realized by the actual negation map, and its Pi comparison is
+the canonical mate with the source index adapter.
+
+The E-based model interprets A using the existing natural E-to-Bool function
+sheaf. The same source proof produces the two old ordinary function names
+through their comparison and evaluation maps. They remain distinct at X,
+where the same-stage function type is a singleton. Here E-to-Bool functions
+are values of the primitive result family; the source Pi domain is still B.
+The example does not claim source family-domain Pi or pointwise sheaf Pi.
+The mixed client also uses the ordinary counit directly.
+
+One next bounded slice is source Pi with primitive-family domains, so an
+E-input function can itself be expressed by source abstraction rather than
+appearing in a primitive result interpretation. Source Sigma, identity types,
+universes and smooth/Kock–Lawvere or higher/cohesive structure remain absent.
+This first-order source fragment does not complete #36.
