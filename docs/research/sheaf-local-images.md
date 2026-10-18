@@ -1468,3 +1468,14 @@ unit localization from nilpotent localization. See the
 [construction record](algebraic-kl-model.md#formal-stage-localization-and-base-change-85).
 Formal cover descent, well-adaptedness, general Weil KL and higher/cohesive
 obligations remain open; #36 remains incomplete.
+
+### Finite principal scalar descent (#86)
+
+Finite ordinary-unit-ideal principal covers now have actual product-localization
+overlaps and all-compatible-tuples scalar gluing. The analytic proof retains
+local ideal coefficients, including nilpotents, and commutes with arbitrary
+smooth base maps. The checked dual presentation compares gluing with actual
+dual numbers. See the [construction record](algebraic-kl-model.md#finite-principal-scalar-descent-86).
+The geometric topology and its subcanonicity still need construction; the
+current model has bottom coverage. KL in the geometric sheaf model,
+well-adaptedness and higher/cohesive obligations remain open. #36 is incomplete.

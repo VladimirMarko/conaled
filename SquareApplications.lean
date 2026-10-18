@@ -102,6 +102,7 @@ import Examples.SmoothKL
 import Examples.SmoothLocalization
 import Examples.SmoothLocalizationOpen
 import Examples.SmoothFormalLocalization
+import Examples.SmoothPrincipalDescent
 import Examples.JetScan
 import Examples.MatrixStack
 import Examples.Run

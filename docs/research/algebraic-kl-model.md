@@ -988,3 +988,51 @@ principal-cover descent for the scalar functor on these presentation stages,
 with the cover condition and compatibility equations stated explicitly.
 That would provide descent evidence before selecting a geometric coverage.
 #36 remains incomplete.
+
+### Finite principal scalar descent (#86)
+
+`PrincipalCover.Covers s` means that a finite ordinary linear combination of the
+quotient elements `s i` equals one. It is equivalent to their ordinary ideal
+being the whole algebra. For a finite presentation, `covers_iff_zero_locus`
+proves equivalence with covering every real point of the relation locus.
+`empty_iff` includes the empty cover exactly for a trivial base algebra.
+This point criterion concerns covers; it does not identify elements of the
+quotient by their real values.
+
+Kock's III.6, Theorem 6.3 (pp. 163–164), proves local determination of finite
+smooth ideals with partition-of-unity coefficient gluing. III.7, Definitions
+7.1–7.2 and Theorem 7.4 (pp. 168–171), use principal smooth localizations and
+point-covering families to obtain a subcanonical open-cover topology. The
+finite-presented setting avoids the additional germ-determined reflection
+needed for his broader category. Our finite cover result follows this analytic
+route while retaining the original ideal. [Author's text](https://users-math.au.dk/kock/sdg99.pdf).
+
+`SmoothIdealLocal.global_iff` proves that local smooth coefficient equations
+characterize membership in a finite ordinary ideal. `SmoothLocalizationLocalIdeal`
+combines that fact with inverse-graph Hadamard division to characterize zero
+in a presented localization. `SmoothIdealGluing.finite_gluing` uses a subordinate
+smooth partition of unity to glue local representatives modulo that ideal.
+The ambient cover includes the relation-nonzero opens, where the ideal is
+locally the whole ring. No bounded-power fraction representation is assumed.
+
+`SmoothElementDescent.atDescentEquiv` identifies the base algebra with **all**
+compatible tuples in `At r (s i)`. Its overlaps are `At r (s i * s j)`;
+`at_overlap_pushout` constructs the universal smooth algebra square, with
+opposite geometric pullback variance. Both directions preserve every finite
+smooth operation. Gluing commutes with arbitrary smooth maps of finite
+presentations and their transported covers. `SmoothDescentDual` compares this
+naturality with the actual dual algebra through the checked dual presentation,
+and recovers arbitrary dual elements, including their infinitesimal parts.
+
+The clients cover the free real line by `x` and `1-x`, neither a unit; glue
+exponential local data; and glue a nonzero ε in `Free 1/(x²)` whose value is
+zero at every real point but whose actual dual coefficient is one. The failed
+zero cover loses separatedness. The improper quotient admits empty gluing.
+
+The existing KL model still uses bottom coverage. This result supplies finite
+scalar descent, not a constructed geometric topology or a proof that its
+representables are sheaves. One next construction is the finite-principal
+Grothendieck topology on presentation stages, with its cover axioms and
+subcanonicity proved from this descent result. KL in that sheaf model,
+well-adaptedness, general Weil KL and higher/cohesive comparisons remain open.
+This does not complete #36.
