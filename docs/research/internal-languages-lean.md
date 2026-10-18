@@ -226,7 +226,105 @@ This completes the arbitrary-relation Set slice, not Stage A or #36. Presheaf
 semantics, a custom frontend, completeness, higher-arity symbols, dependent
 syntax, SDG and cohesion remain outside this implementation.
 
-### Statement review and retained cases
+### Experimental presheaf adapter (#46)
+
+`SquareKit.Internal.Presheaf` constructs a model of the existing fragment over
+any small category `J : Type v`. Sorts and symbols live in `Type u`; section
+carriers live in `Type (max u w)`. The separate section universe permits the
+three small graph sorts to denote large presheaves. Contexts use the existing
+finite typed environments, including the empty context. No syntax, rule,
+notation, or ordinary Set adapter has changed.
+
+`Model.context`, `term`, and `substitution` construct functors and natural
+transformations. `restrict_extend`, `substitution_comp`, `term_substitution`,
+`substitution_lift`, and `projection_substitution` prove their coherence.
+`Model.formula` uses Mathlib `Subfunctor`: relation atoms are preimages of the
+supplied product predicates, equality compares contextual term sections,
+conjunction is intersection, and existence is image along context projection.
+`image_projection` exposes the local witness. Restriction maps that witness
+with the sort's restriction function; it need not be a global section.
+
+`evaluation` compares every formula with its induced Set interpretation.
+`formula_substitution` includes atoms and binders. `exists_adjunction` reuses
+Mathlib's image/preimage adjunction; `frobenius` and `beck_chevalley` hold for
+arbitrary subfunctor predicates on the constructed contexts. Beck–Chevalley is
+restricted to projection and lifted syntactic substitution, with the commuting
+square proved by `projection_substitution`. It makes no assertion about
+arbitrary squares. `Model.sound` covers every admitted derivation rule through
+the objectwise Set proof and the uniform evaluation comparison.
+
+`SquareKit.Internal.PresheafGraphs.graph_valid` consumes `Graph.forward` and
+`Graph.backward` unchanged and equates the interpreted subfunctors.
+`graph_evaluation` consumes that validity and `evaluation`; `evaluated_relation`
+turns its equality orientation to the existing relational graph convention.
+`vertical_evaluation` supplies both endpoint comparisons to the unchanged
+`Graph.vertical_comparison`, retaining both horizontal maps. Its middle-map
+hypothesis is pointwise at each indexing object. These are source derivability,
+model validity, and external comparison, respectively. Preservation supplies
+no reflection or completeness theorem.
+
+### Checked cases and statement review
+
+`Examples.PresheafInternal` constructs a category with coarse and fine stages
+and an arrow from coarse to fine. The presheaf restricts `Nat × Nat` to `Nat`
+by first projection, identifying `(3,4)` and `(3,5)`. Increment followed by
+doubling has fine input `(3,4)`, witness `(4,5)`, and output `(8,10)`.
+The witness restricts to `4`, and the existential predicate restricts to the
+coarse graph with input `3` and output `8`. The square comparison is checked at
+both objects with horizontal translations by two and four. The binary relation
+compares first coordinates: `(3,9)` relates to `(4,0)`, while `(5,0)` does not
+relate to `(4,9)`. Both the atom and its existential image are checked through
+restriction, including the local witness `(3,9)`.
+
+Statement review checked context and substitution directions, the empty
+context, term naturality, equality orientation, and binder scope. Image
+membership gives an actual section at the selected object; no inhabitedness,
+injectivity, or global-section premise is assumed. The examples specialize
+substitution to swapping variables, Beck–Chevalley to that lifted swap,
+Frobenius to a contextual equality, and soundness to retained-assumption
+elimination and substitution. The graph cases exercise the generic evaluation,
+projection-image, and restriction results. The rejected relation case checks
+that the example predicate is not universal. All assumptions are discharged by
+the constructed category, functors, natural transformations, and subfunctors.
+
+### Caller obligations and remaining work
+
+An author writes the same typed derivations as before. An adapter supplies sort
+presheaves, natural transformations for unary symbols, and stable product
+predicates for binary symbols. Equality-only models omit the empty relation
+field. The adapter supplies no soundness proof, substitution law fields, or
+pullback bookkeeping. An external application supplies its natural
+transformations, two commuting squares, and pointwise middle-map agreement.
+It supplies no syntax induction. Existing ordinary clients keep their imports
+and direct calls; the mixed example also calls `Graph.inSet` directly.
+Environment presheaves and local witnesses are opt-in mathematical semantics,
+not additional runtime representations on the ordinary path.
+
+The ordinary-path timing check used source copies from baseline
+`9ea985f78fa98d23a3db3763553c47f629827d2a` and the unchanged candidate clients,
+with the same cached dependencies. Three alternating baseline/candidate
+`lake env lean` runs per file gave median process times of 1.282/1.308 seconds
+for `Examples/InternalGraphs.lean`, 1.279/1.272 for
+`Examples/InternalRelations.lean`, and 1.140/1.119 for `Squares.lean`.
+An earlier candidate sample overlapped the full build and was slower; repeating
+without that load removed that discrepancy. These wall times include startup
+and import loading, not isolated elaboration. The ordinary sources and their
+transitive imports are unchanged. The small sample reveals no attributable
+ordinary-path regression and does not prove performance neutrality. Importing
+the aggregate entrypoint now includes the presheaf modules and their Mathlib
+imports; that additional work is outside the unchanged direct-import path.
+
+This completes the presheaf slice of #46, not #36. Together with #38 and #45 it
+provides the constructed models and graph comparison for the admitted
+fragment. Remaining Stage A assessment should address authoring convenience
+and the shared scope of those slices before selecting a further frontend or
+model interface. A next bounded investigation can use a larger author-written
+derivation to assess binder ergonomics and reuse across both adapters. It
+should not assume a sheaf or SDG interface from this result. Implication,
+universal quantification, sheaf evaluation/descent, dependent syntax,
+infinitesimals, higher identities, and cohesion remain outside this adapter.
+
+## Statement review and retained cases
 
 `Examples.InternalRelations` connects the claims to the public interfaces:
 
@@ -586,8 +684,9 @@ can run before a smooth or higher model exists.
 
 The intended result is evidence that the proof and comparison interfaces are
 reusable and convenient. It is not evidence for Kock–Lawvere, higher identities
-or cohesion. Those require their own constructions. The complete experiment has
-not yet been implemented or checked. A
+or cohesion. Those require their own constructions. The checked Set and presheaf slices above now supply the restricted calculus,
+constructed models, and graph comparison. The broader Stage A assessment and
+#36 remain open. A
 [preserved frontend comparison](../history/README.md#internal-language-frontend-experiment-36)
 checks a single-sorted graph derivation through both direct constructors and
 named rules, with Set soundness. It supports trying named rule lemmas over an
@@ -689,8 +788,8 @@ An author should prove graph composition once using equality, conjunction and
 existential rules, interpret that proof in Set, and use it to identify the
 relational presentation of a vertically pasted exact square. This gives a
 complete first use of internal reasoning outside the geometric workstream.
-The full Stage A experiment still requires the later relational and presheaf
-slices.
+The later relational (#45) and presheaf (#46) slices are recorded above; this
+section preserves the scope of the original first slice.
 
 ### Public verification seam
 
