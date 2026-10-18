@@ -369,8 +369,13 @@ can run before a smooth or higher model exists.
 
 The intended result is evidence that the proof and comparison interfaces are
 reusable and convenient. It is not evidence for Kock–Lawvere, higher identities
-or cohesion. Those require their own constructions. This experiment has not
-yet been implemented or checked.
+or cohesion. Those require their own constructions. The complete experiment has
+not yet been implemented or checked. A
+[preserved frontend comparison](../history/README.md#internal-language-frontend-experiment-36)
+checks a single-sorted graph derivation through both direct constructors and
+named rules, with Set soundness. It supports trying named rule lemmas over an
+explicit derivation core; it does not supply the many-sorted interface,
+presheaf model or square comparison required below.
 
 For arbitrary objects `A`, `B`, `C`, arrows `f : A → B`, `g : B → C`, and
 context variables `a : A`, `c : C`, prove the internal equivalence

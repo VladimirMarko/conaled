@@ -1,4 +1,4 @@
-# Historical ChatGPT discussions
+# Historical discussions and experiments
 
 These files preserve ChatGPT discussions and supplied artifacts from the
 repository's origins and later application explorations. They explain where
@@ -19,6 +19,40 @@ documents are preserved unchanged.
 - [denotational-design-source-register.md](denotational-design-source-register.md) comes from the same second chat and records research sources and design discussion. It gives its research date as 2026-10-13 and states that the uploaded Lean archive was inspected but not rebuilt.
 
 During repository initialization, all 76 non-bundle files in the ZIP were compared with committed files and matched byte for byte. The bundle's history and both release tags were also preserved. This established that the archive's contents had been imported; it was not a new Lean build.
+
+## Internal-language frontend experiment (#36)
+
+[Frontend.lean](internal-language-frontends/Frontend.lean) preserves the checked
+frontend comparison made on 2026-10-18 while decomposing
+[#36](https://github.com/VladimirMarko/conaled/issues/36). It was developed against
+repository revision `173be7d` with the pinned Lean 4.35.0 and Mathlib dependencies,
+then copied unchanged from `/tmp/conaled-36-frontends/Frontend.lean`. The temporary
+path in its embedded run command records its original location. To check the
+preserved copy from the repository root, run:
+
+```sh
+direnv exec . lake env lean docs/history/internal-language-frontends/Frontend.lean
+```
+
+The experiment compares direct derivation constructors with a shallow interface
+of named rules on graph composition. The shallow proof can produce an explicit
+restricted derivation or target Set validity directly. It includes Set soundness,
+substitution under binders, checked examples, a mixed-style ordinary relational
+client, and statement review. Its local transitive axiom audit checks all
+kernel-safe declarations owned by the file against the repository whitelist.
+The original run checked 213 such declarations and passed.
+
+This supports trying named rule lemmas over an explicit derivation core in the
+first implementation slice. It does not settle the production interface: the
+experiment is single-sorted, has only a subset of regular rules, and still exposes
+variable indices. It supplies no presheaf interpretation, square comparison,
+performance measurements, or proof of ordinary import-cost neutrality. See the
+[current research note](../research/internal-languages-lean.md#first-experiment-internal-graphs-external-squares)
+for the broader experiment's obligations.
+
+This file is retained as design evidence, outside the public library and normal
+source-coverage check, like the other historical Lean artifacts. Replacing its
+code in a future implementation is not a reason to discard the comparison.
 
 ## How to use these records
 
