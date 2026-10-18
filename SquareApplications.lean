@@ -93,6 +93,7 @@ import Examples.AlgebraicScalar
 import Examples.AlgebraicKL
 import Examples.SyntheticProduct
 import Examples.SmoothDual
+import Examples.SmoothSquareZero
 import Examples.JetScan
 import Examples.MatrixStack
 import Examples.Run

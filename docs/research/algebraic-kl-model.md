@@ -456,3 +456,55 @@ square-zero extensions `ℝ ⊕ V`, with naturality under linear maps of tangent
 spaces and recovery of this one-dimensional case. That would provide a family
 of compatible first-order stages before addressing higher nilpotence and a
 smooth site.
+
+## Compatible square-zero stages (#77)
+
+`Applications/AD/SmoothSquareZero.lean` extends the smooth-operation interface
+to `TrivSqZeroExt ℝ V`. For inputs `(xᵢ,vᵢ)`, the nilpotent coordinate is
+`∑ i, Df(x)(eᵢ) • vᵢ`. The standard vectors `eᵢ` belong to the finite input
+space of the ordinary function; no basis of `V` is selected. Only this finite
+real input space is differentiated. `V` needs an additive commutative group
+and a real module structure, with no norm or topology. Consequently the
+construction covers every finite-dimensional real vector space and also
+works without a finite-dimensionality hypothesis. The ring/map results use
+Mathlib's right real scalar action and `IsCentralScalar ℝ V`, requiring it
+to agree with the ordinary real action.
+
+`coefficient_sum` identifies the finite coefficient formula with the original
+analytic derivative when `V=ℝ`. `act_real` therefore recovers every operation
+from #76 exactly. Linear maps commute with the finite sum, giving `map_act`.
+Scalar linear observations separate vectors, so `observations_ext` transports
+the already proved dual projection, substitution, constant, addition and
+multiplication laws to these stages. In particular, arbitrary substitution
+uses the existing analytic chain rule through #76, with no new assumed rule
+for vector-valued nilpotents.
+
+The morphisms are precisely real algebra homomorphisms between these stages.
+`map` reuses Mathlib's `TrivSqZeroExt.map`, including its identity/composition
+laws. Conversely, any such homomorphism sends an element `(0,v)` to another
+square-zero element; its real coordinate must vanish because ℝ has no
+nonzero square-zero element. Restriction to that ideal followed by the second
+projection defines `linearPart`. `homEquiv` proves the two constructions
+inverse, and `hom_act` proves that every real algebra homomorphism preserves
+every smooth operation. This characterizes all maps of the family, not only
+chosen coordinate transformations.
+
+`Examples/SmoothSquareZero.lean` checks two independent nonzero directions in
+`V=Fin 2 → ℝ`, their vanishing pairwise products, a nonidentity doubling map
+preserving the exponential, zero arities, and recovery of the previous dual
+exponential client. `mixed_term_lost` shows that multiplying the two independent
+infinitesimals gives zero, while `ordinary_mixed_derivative` proves the ordinary
+mixed derivative of multiplication is one. These stages retain only first-order
+information. The ordinary API remains independent of source syntax.
+
+This is a compatible family of first-order smooth algebras in the sense of the
+finite-operation laws checked above. It does not exhaust the Weil algebras
+in Kock I.16, and supplies neither the higher nilpotence nor the smooth site,
+descent and well-adaptedness discussed in III.5–8 and Dubuc's construction.
+Smooth categorical KL, the analytic embedding, cohesion and the orbifold
+comparisons remain open; #36 is incomplete.
+
+One next bounded construction is a second-order real truncated-polynomial
+stage with smooth operations, substitution and projection to the present dual
+stage. A checked nonzero quadratic term and a Hessian comparison would test
+the new information before constructing a smooth site.

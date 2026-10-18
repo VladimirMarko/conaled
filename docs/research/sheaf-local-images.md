@@ -1368,3 +1368,12 @@ and an optional source-derived fourth-power coefficient comparison. The action
 reuses the existing analytic AD tangent. See the [construction record](algebraic-kl-model.md#smooth-operations-on-the-real-dual-stage-76).
 This is one smooth infinitesimal algebra, not a smooth site or categorical KL;
 #36 remains incomplete.
+
+### Compatible square-zero smooth stages (#77)
+
+Smooth operations now extend to `TrivSqZeroExt ℝ V`, including arbitrary
+finite-dimensional real nilpotent spaces. Every real algebra map is induced
+by a unique linear map and preserves all smooth operations. The real dual
+case is recovered through equality of derivative formulas. Multi-direction
+examples check the first-order boundary. See the [construction record](algebraic-kl-model.md#compatible-square-zero-stages-77).
+Higher nilpotence, a smooth site and smooth categorical KL remain open.
