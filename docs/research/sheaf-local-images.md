@@ -1028,3 +1028,66 @@ function syntax. The current semantic Pi operation does not itself supply
 source typing or substitution rules. Identity elimination, universes, smooth
 scalars and Kock–Lawvere, higher identities and cohesion remain separate
 obligations. #36 remains open.
+
+## Split sheaf-family substitution and comprehension (#69)
+
+The experimental `SplitPresheaf` presents a family over a type-valued functor
+as a functor on its category of elements. Terms are values natural in every
+element arrow. Substitution precomposes with `NatTrans.mapElements`.
+Identity and composition of type and term substitution are definitional
+(equalities proved by `rfl`), including triple substitution. `SplitSheaf.Ty`
+adds the condition that the dependent total presheaf is a sheaf. This accepts
+exactly the appropriate gluing data: `elementSheaf` constructs the corresponding
+sheaf on the element site, and `familyRecovery` recovers the original family
+from its display fibers.
+
+Reindexing constructs its sheaf certificate. The total of the reindexed family
+is a presheaf pullback, proved stagewise using dependent pairs. Comparing it
+with the underlying ordinary sheaf pullback transfers sheafness. Thus every
+accepted type and every substituted type assembles to an actual sheaf display;
+substitution does not require another sheafness assumption. Site object,
+arrow and section universes remain independent, including the useful
+`Type (max u v)` section scope.
+
+Context extension is this dependent total sheaf. Projection, generic variable,
+pairing and lifted substitution act on the explicit dependent pairs. Both
+beta laws, comprehension eta, pairing naturality, and identity/composition of
+lifts are definitional. The extension square is an actual sheaf pullback.
+General type equality has explicit term transport, with reflexivity,
+composition and substitution coherence; transport along the split identity,
+composition and triple laws reduces to the original term.
+
+`ofDisplay` uses #66's actual fibers for any ordinary display;
+`displayIso` is its total reconstruction. Terms correspond to `Family.Term`.
+The substitution, variable and pairing comparisons use the ordinary chosen
+pullbacks and their universal operations. `substitution_identity` and
+`substitution_composition` identify the split comparison with the existing
+identity and composition maps. Triple comparison agrees with substitution by
+the composite and with both `FamilyCoherence` associativity routes.
+`display_term_substitution` combines reconstruction and substitution for an
+arbitrary ordinary display. No existing pullback choice or API changes.
+
+`Examples.SplitNative` compares the operations at each stage with
+`DependentSquares.tySub`, `tmSub`, `Ext`, `p`, `q`, `extend` and `lift`, and
+reuses `TypeFamily.split_pullback`. A natural sheaf term gives a native term at
+each stage; an arbitrary stage function need not give a natural sheaf term.
+This is an external operation comparison, not a claim that the full sheaf
+presentation is definitionally the native model.
+
+`Examples.SplitSheafFamilies` retains the false-point family over D, with
+inhabited false fibers and empty true fibers. Negation reverses the fibers.
+Restriction to the true point yields an actual natural term, which is paired,
+repeatedly substituted, and compared with its reconstructed ordinary value.
+The nonconstant E family retains its false and true overlap restrictions and
+has no X section or global term. Its local inhabitants still cannot form a
+compatible matching family; the inhabited false fiber does admit compatible
+data and gluing. These consumers use the public split operations and actual
+fiber/total comparison.
+
+One next bounded slice is rule-restricted dependent structural syntax for
+contexts, types, terms and substitutions, interpreted by this split
+presentation. No such source language or derivability relation is supplied
+here. Split dependent function and sum formation, identity and universe
+structure, and smooth/Kock–Lawvere or higher/cohesive models remain subsequent
+work. The ordinary arbitrary-map dependent product API remains available.
+#36 remains open.

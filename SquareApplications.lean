@@ -1,3 +1,5 @@
+import Examples.SplitSheafFamilies
+import Examples.SplitNative
 import Examples.DependentProducts
 import Examples.NativeSliceProducts
 import Examples.SheafSliceFunctions
