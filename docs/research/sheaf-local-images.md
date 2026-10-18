@@ -3,10 +3,11 @@
 This experimental development implements
 [#51](https://github.com/VladimirMarko/conaled/issues/51),
 [#52](https://github.com/VladimirMarko/conaled/issues/52),
-and [#53](https://github.com/VladimirMarko/conaled/issues/53) within the
+[#53](https://github.com/VladimirMarko/conaled/issues/53),
+and [#54](https://github.com/VladimirMarko/conaled/issues/54) within the
 internal-language workstream. It supplies local existential images, their
-Frobenius and Beck–Chevalley laws, and finite applications and counterexamples.
-It does not supply a sheaf interpreter for the source language or complete #36.
+Frobenius and Beck–Chevalley laws, sheaf contexts and terms, and finite applications.
+It does not yet supply a sheaf formula interpreter or soundness theorem, or complete #36.
 
 ## Public interface and caller obligations
 
@@ -163,6 +164,58 @@ The new reusable module has no internal-syntax dependency. The example keeps
 an ordinary graph calculation beside the sheaf constructions. Existing graph,
 relation, interval and presheaf clients gain no new arguments or obligations.
 
+## Contexts and terms from the existing syntax
+
+[SquareKit/Internal/SheafContexts.lean](../../SquareKit/Internal/SheafContexts.lean)
+takes the existing `Presheaf.Model` and proofs that each sort carrier is a
+sheaf. It retains that adapter's universes: sorts in `u`, sections in
+`max u w`, and the small indexing category in `v`. `context_isSheaf` glues an
+environment one variable at a time using the corresponding carrier's sheaf
+condition. The proof includes the empty context; it never asks every sort
+for an inhabitant. `context` packages the same presheaf environment functor,
+and `sort` packages each given carrier.
+
+`term`, `substitution`, and `projection` lift the existing natural
+transformations without changing their underlying maps. Substitution identity,
+composition, term substitution, and projection compatibility reuse the
+presheaf equations. These constructions require no assumptions about relation
+predicates. When relations are interpreted as sheaf predicates, their closure
+will be an additional obligation.
+
+For `σ : Sub F Γ Δ`, the interpreted substitution goes from the Δ context to
+the Γ context. `context_pullback` proves that its lift under a new sort and
+the two context projections form a categorical pullback. Given a cone, its
+mediating environment takes the new variable from the extended Γ component
+and its tail from the Δ component. The cone equation proves the lifted
+substitution recovers the former; the head and tail projections determine
+uniqueness. `exists_substitution` applies the general sheaf Beck–Chevalley law
+to this square for arbitrary predicates on the extended Γ context.
+
+[Examples/SheafContexts.lean](../../Examples/SheafContexts.lean) interprets two
+sorts using the existing E and Bool sheaves and gives Bool negation as a
+natural primitive. `emptyIso` and `empty_unique` identify the empty context
+with the terminal sheaf, including its section at X. `singletonIso` identifies
+the one-variable contexts with their sort sheaves: `e_at_X_empty` checks the
+E case, while `boolEnv_distinct` separates the two Bool environments.
+`extendedIso` identifies the E/Bool context with the earlier chosen pullback;
+`extendedSections_apply` computes its product representation as head E value
+and tail Bool value. The projection, lifted substitution, and bottom-map
+comparisons connect every side to the earlier finite square.
+
+`extended_top` uses the contextual substitution theorem. Hence both Bool
+environments at X satisfy local existence, while `no_pointwise_at_X` reuses
+the original obstruction to any E section there. For the W/U selective
+predicate, `selected_image` uses Frobenius and `extended_selected` uses
+contextual Beck–Chevalley; the U/V/X statements retain the expected support.
+`neg_substitution` instantiates term substitution, and `twice_neg_value` uses
+it to check that substituting negation into negation returns the original Bool.
+
+The adapter is opt-in and introduces no new model hierarchy or syntax.
+Its callers supply a presheaf interpretation and carrier sheaf proofs; context
+sheafness and pullbacks are proved results. The syntax-free image/base-change
+modules do not import the adapter. The mixed-style example retains an ordinary
+graph calculation without new model arguments or setup for that calculation.
+
 ## Statement review and retained cases
 
 The universal claims quantify over all sections and restrictions, with no
@@ -204,13 +257,13 @@ establishes neither a source formula interpretation nor a soundness theorem.
 The finite counterexample to objectwise preservation of existential truth
 continues to apply.
 
-The next bounded slice should construct sheaf contexts and term/substitution
-maps for the existing regular signature, proving that substitution along a
-single-variable context extension gives a categorical pullback. That would
-connect the general substitution law to the actual contexts used by the
-source language, before adding the full closed-predicate interpretation.
+The context construction now supplies those actual pullback squares.
+The next bounded slice should interpret the existing regular formulas as
+closed context predicates and prove their substitution law. Atomic relations
+will need explicit closure hypotheses; equality, conjunction, and local
+existential image must discharge their own closure obligations. The checked
+contextual Beck–Chevalley theorem provides the existential substitution case.
 
-A full sheaf adapter still needs a closed-predicate interpretation of equality
-and relations, the context and substitution construction, and soundness of every admitted
-source rule. Choices about geometric sites, scalar objects, smoothness, SDG,
+A full sheaf adapter still needs that formula interpretation and soundness of
+every admitted source rule. Choices about geometric sites, scalar objects, smoothness, SDG,
 higher identities and cohesion remain outside this finite test case.
