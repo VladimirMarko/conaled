@@ -14,6 +14,12 @@ assessment-only scope: versioned theorem correspondence, pinned-library gaps,
 shared-architecture contracts, and the first disk-action formalization tasks.
 It adds no Lean geometry or synthetic axioms.
 
+The [gyrovector generalization assessment](gyrovector-generalizations.md)
+addresses #33: source hypotheses, a proposed interface for based framed
+displacements, exact realization contracts, counterexamples, and follow-up
+proof obligations. It recommends framed development with explicit symmetry
+arrows, starting with the homogeneous disk case. It adds no Lean geometry.
+
 ## What to extract from Myers
 
 David Jaz Myers' [paper, version 1](https://arxiv.org/html/2205.15887v1)
