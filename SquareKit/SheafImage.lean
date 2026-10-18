@@ -69,6 +69,39 @@ theorem preimage_isSheaf (R : Subfunctor B.obj) (f : A ⟶ B)
   rw [← NatTrans.naturality_apply]
   exact hg
 
+/-- Conjunction of closed predicates on an ambient sheaf is closed. -/
+theorem inf_isSheaf (P R : Subfunctor B.obj)
+    (hP : Presieve.IsSheaf J P.toFunctor) (hR : Presieve.IsSheaf J R.toFunctor) :
+    Presieve.IsSheaf J (P ⊓ R).toFunctor := by
+  have hB := (isSheaf_iff_isSheaf_of_type _ _).mp B.property
+  apply (Subfunctor.isSheaf_iff _ hB).mpr
+  intro U b hb
+  constructor
+  · apply (Subfunctor.isSheaf_iff P hB).mp hP U b
+    exact J.superset_covering (by intro V g hg; exact hg.1) hb
+  · apply (Subfunctor.isSheaf_iff R hB).mp hR U b
+    exact J.superset_covering (by intro V g hg; exact hg.2) hb
+
+/-- A closed target condition can move inside a local existential.
+The source predicate is unrestricted; local witnesses need not agree. -/
+theorem frobenius (Q : Subfunctor A.obj) (f : A ⟶ B)
+    (R : Subfunctor B.obj) (hR : Presieve.IsSheaf J R.toFunctor) :
+    localImage (Q ⊓ R.preimage f.hom) f = localImage Q f ⊓ R := by
+  apply le_antisymm
+  · exact le_inf (monotone f inf_le_left) ((adjunction _ f R hR).mpr inf_le_right)
+  · intro U b hb
+    apply (mem_localImage _ _ b).mpr
+    apply J.superset_covering _ hb.1
+    intro V g hg
+    rcases hg with ⟨a, ha, he⟩
+    exact ⟨a, ⟨ha, by change R.obj _ (f.hom.app _ a); rw [he]; exact R.map g.op hb.2⟩, he⟩
+
+/-- The conjunction on the right of Frobenius is a sheaf predicate. -/
+theorem localImage_inf_isSheaf (Q : Subfunctor A.obj) (f : A ⟶ B)
+    (R : Subfunctor B.obj) (hR : Presieve.IsSheaf J R.toFunctor) :
+    Presieve.IsSheaf J (localImage Q f ⊓ R).toFunctor :=
+  inf_isSheaf _ _ (localImage_isSheaf Q f) hR
+
 /-- The top-predicate case is exactly Mathlib's chosen image predicate. -/
 theorem top_eq_range (f : A ⟶ B) :
     localImage ⊤ f = (Subfunctor.range f.hom).sheafify J := by

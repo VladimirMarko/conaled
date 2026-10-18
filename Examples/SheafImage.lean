@@ -312,6 +312,95 @@ example (Q : Subfunctor E.obj) : localImage Q toTerminal ≤ localImage ⊤ toTe
 example : (localImage ⊤ toTerminal).obj (op U) () :=
   restrict ⊤ toTerminal (show U ⟶ X from Arrow.ux).op locally_witnessed
 
+/-- The target condition selects W and U, excluding V and X. -/
+def selective : Subfunctor terminal.obj where
+  obj a := fun _ => a.unop = W ∨ a.unop = U
+  map := by
+    intro a b f x h
+    change a.unop = W ∨ a.unop = U at h
+    change b.unop = W ∨ b.unop = U
+    rcases a with ⟨a⟩; rcases b with ⟨b⟩
+    cases f.unop <;> simp_all
+
+theorem selective_isSheaf : Presieve.IsSheaf topology selective.toFunctor := by
+  apply (Subfunctor.isSheaf_iff _ terminal_isSheaf).mpr
+  intro a b hb
+  rcases a with ⟨a⟩
+  cases a with
+  | W => exact Or.inl rfl
+  | U => exact Or.inr rfl
+  | V => exact hb V (𝟙 V) (by decide)
+  | X =>
+    have h := hb V Arrow.vx (by decide)
+    change V = W ∨ V = U at h
+    rcases h with h | h <;> cases h
+
+/-- Frobenius computes the constrained local image at every object. -/
+theorem selective_image :
+    localImage (⊤ ⊓ selective.preimage toTerminal.hom) toTerminal = selective := by
+  rw [frobenius _ _ _ selective_isSheaf, localImage_top, top_inf_eq]
+
+theorem selective_image_U :
+    (localImage (⊤ ⊓ selective.preimage toTerminal.hom) toTerminal).obj (op U) () := by
+  rw [selective_image]
+  exact Or.inr rfl
+
+theorem selective_image_not_V :
+    ¬ (localImage (⊤ ⊓ selective.preimage toTerminal.hom) toTerminal).obj (op V) () := by
+  rw [selective_image]
+  change ¬ (V = W ∨ V = U)
+  decide
+
+theorem selective_image_not_X :
+    ¬ (localImage (⊤ ⊓ selective.preimage toTerminal.hom) toTerminal).obj (op X) () := by
+  rw [selective_image]
+  change ¬ (X = W ∨ X = U)
+  decide
+
+example : Presieve.IsSheaf topology (localImage ⊤ toTerminal ⊓ selective).toFunctor :=
+  localImage_inf_isSheaf _ _ _ selective_isSheaf
+
+theorem top_predicate_isSheaf :
+    Presieve.IsSheaf topology (⊤ : Subfunctor terminal.obj).toFunctor := by
+  apply (Subfunctor.isSheaf_iff _ terminal_isSheaf).mpr
+  intros; trivial
+
+theorem frobenius_top :
+    localImage (⊤ ⊓ (⊤ : Subfunctor terminal.obj).preimage toTerminal.hom) toTerminal =
+      localImage ⊤ toTerminal ⊓ ⊤ :=
+  frobenius _ _ _ top_predicate_isSheaf
+
+/-- The top specialization still uses local existence at X. -/
+theorem frobenius_top_at_X :
+    (localImage (⊤ ⊓ (⊤ : Subfunctor terminal.obj).preimage toTerminal.hom)
+      toTerminal).obj (op X) () ∧
+    ¬ ((⊤ : Subfunctor E.obj).image toTerminal.hom).obj (op X) () := by
+  rw [frobenius_top]
+  exact ⟨⟨locally_witnessed, trivial⟩, no_pointwise_witness⟩
+
+/-- Every source section belongs to the inverse image of the pointwise image. -/
+theorem pointwise_preimage_top :
+    (((⊤ : Subfunctor E.obj).image toTerminal.hom).preimage toTerminal.hom) = ⊤ := by
+  apply top_unique
+  intro a x _
+  exact ⟨x, trivial, rfl⟩
+
+/-- Without closure, the left side holds at X and the right side fails there. -/
+theorem unclosed_frobenius_at_X :
+    (localImage (⊤ ⊓ (((⊤ : Subfunctor E.obj).image toTerminal.hom).preimage
+      toTerminal.hom)) toTerminal).obj (op X) () ∧
+    ¬ (localImage ⊤ toTerminal ⊓ (⊤ : Subfunctor E.obj).image toTerminal.hom).obj
+      (op X) () := by
+  rw [pointwise_preimage_top, inf_top_eq]
+  exact ⟨locally_witnessed, fun h => no_pointwise_witness h.2⟩
+
+theorem unclosed_frobenius_fails :
+    localImage (⊤ ⊓ (((⊤ : Subfunctor E.obj).image toTerminal.hom).preimage
+      toTerminal.hom)) toTerminal ≠
+      localImage ⊤ toTerminal ⊓ (⊤ : Subfunctor E.obj).image toTerminal.hom := by
+  intro h
+  exact unclosed_frobenius_at_X.2 (h ▸ unclosed_frobenius_at_X.1)
+
 -- Ordinary graph calls and the opt-in presheaf syntax coexist with local images.
 example (n : Nat) : ∃ m, m = n + 1 ∧ 2 * (n + 1) = 2 * m :=
   (Graph.inSet (fun x => x + 1) (fun x => 2 * x) n _).mpr rfl

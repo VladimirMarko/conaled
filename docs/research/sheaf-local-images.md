@@ -1,8 +1,9 @@
 # Sheaf-local existential images
 
-This experimental slice implements [#51](https://github.com/VladimirMarko/conaled/issues/51)
-within the internal-language workstream. It supplies local existential images
-and a finite evaluation counterexample. It does not supply a sheaf interpreter
+This experimental development implements [#51](https://github.com/VladimirMarko/conaled/issues/51)
+and [#52](https://github.com/VladimirMarko/conaled/issues/52) within the
+internal-language workstream. It supplies local existential images, their
+Frobenius law, and finite applications and counterexamples. It does not supply a sheaf interpreter
 for the source language or complete #36.
 
 ## Public interface and caller obligations
@@ -26,6 +27,20 @@ predicate. `monotone` derives monotonicity from this adjunction. An arbitrary
 subfunctor R cannot replace a closed R: the finite example's pointwise image
 contains the image of every source section but fails to contain a target
 section that lies in the image locally.
+
+`frobenius Q f R hR` proves
+
+```lean
+localImage (Q ⊓ R.preimage f.hom) f = localImage Q f ⊓ R
+```
+
+Here Q remains an arbitrary subfunctor, and `hR` proves that R's underlying
+functor is a sheaf. This is the new caller obligation. `inf_isSheaf` proves
+closure of intersection on an ambient sheaf; `localImage_inf_isSheaf` exposes
+it for the right-hand side. The forward inclusion uses monotonicity and the
+closed-target adjunction. For the reverse inclusion, restrict the known R
+section along the covering sieve and attach it to each local Q witness.
+No compatibility or choice of a global source witness is required.
 
 For Q = top, `top_eq_range` identifies the predicate with Mathlib's chosen
 sheaf image predicate. `imageEquiv` identifies sections with those of
@@ -65,6 +80,22 @@ at X. `imageSection` and `imageSection_inclusion` exhibit it through Mathlib's
 image interface. `pointwise_not_sheaf` uses the general adjunction to show
 exactly why the unclosed image cannot serve as a closed target predicate.
 
+`selective` is the terminal predicate inhabited exactly at W and U.
+Restriction preserves its support. `selective_isSheaf` uses the maximal covers
+away from X; at X every covering sieve contains V, where this predicate is
+empty. `selective_image` applies the public Frobenius theorem and
+`localImage_top` to compute its constrained image as `selective` itself.
+The checked U membership and V/X nonmembership follow from that equality.
+The top specialization `frobenius_top_at_X` retains local truth and the absence
+of a pointwise witness for the same map.
+
+For the unclosed pointwise image R, `pointwise_preimage_top` shows that every
+source section satisfies the pulled-back condition. `unclosed_frobenius_at_X`
+then proves the proposed equation's left side at X and refutes its right side;
+`unclosed_frobenius_fails` gives inequality of subfunctors. This R fails the
+closure assumption by `pointwise_not_sheaf`, so the example does not contradict
+the general theorem.
+
 The underlying-presheaf adapter interprets an existential reflexive equality
 in empty context. `singletonIso`, `emptyIso`, and `projection_comparison`
 identify its context projection with E → 1. `formula_image_comparison`
@@ -79,7 +110,7 @@ rule. No reflection theorem or full sheaf-language soundness follows.
 
 The universal claims quantify over all sections and restrictions, with no
 chosen global lift or compatible-witness premise. The sheaf assumptions occur
-on the ambient sheaves and, for the adjunction, explicitly on R. The proof of
+on the ambient sheaves and, for the adjunction and Frobenius, explicitly on R. The proof of
 preimage closure uses naturality to compare restriction sieves. The image
 comparison preserves the actual target section, not just the cardinality of
 its fiber. These claims are exercised by the nontrivial finite site, including
@@ -99,15 +130,24 @@ elaborator settings, notation, instances on existing types, or heartbeat
 increases were needed. The full check also recompiles the existing clients;
 this is a compatibility check, not a claim of a measured speedup.
 
-## Next bounded slice
+## Relation to source logic and the next slice
 
-Prove sheaf-local Frobenius for an arbitrary morphism and a closed target
-predicate, using these same subfunctors and closure operation. That would test
-how closure interacts with conjunction before introducing a formula adapter.
+[#50](https://github.com/VladimirMarko/conaled/issues/50) proves source
+Frobenius and transports it through the Set and presheaf soundness theorems.
+In `SquareKit/Internal/PresheafFrobenius.lean`, conjunction is subfunctor
+intersection and weakening is preimage along a context projection. The new
+sheaf law has the same algebraic shape, with local existential image replacing
+pointwise image. Its proof is a semantic theorem about arbitrary sheaf
+morphisms. There is no sheaf formula interpretation here, and existing source
+derivability or presheaf validity does not supply sheaf soundness.
 
-A full sheaf adapter still needs a closed-predicate interpretation of equality,
-relations and conjunction, sheaf contexts and substitution, Beck–Chevalley for
-context pullback squares, and soundness of every admitted source rule.
-Frobenius and Beck–Chevalley are not consequences established by this ticket's
-adjunction alone. Choices about geometric sites, scalar objects, smoothness,
-SDG, higher identities and cohesion remain outside this finite test case.
+The next bounded slice should prove Beck–Chevalley for local images along
+pullback squares of type-valued sheaves, with a checked finite application.
+This would establish the substitution law needed for existential predicates
+before choosing context and formula representations. Frobenius supplies the
+conjunction law but does not establish this pullback law.
+
+A full sheaf adapter still needs a closed-predicate interpretation of equality
+and relations, sheaf contexts and substitution, and soundness of every admitted
+source rule. Choices about geometric sites, scalar objects, smoothness, SDG,
+higher identities and cohesion remain outside this finite test case.
