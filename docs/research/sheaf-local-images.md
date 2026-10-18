@@ -6,7 +6,8 @@ This experimental development implements
 [#53](https://github.com/VladimirMarko/conaled/issues/53),
 [#54](https://github.com/VladimirMarko/conaled/issues/54),
 [#55](https://github.com/VladimirMarko/conaled/issues/55),
-and [#56](https://github.com/VladimirMarko/conaled/issues/56) within the
+[#56](https://github.com/VladimirMarko/conaled/issues/56),
+and [#57](https://github.com/VladimirMarko/conaled/issues/57) within the
 internal-language workstream. It supplies local existential images, their
 Frobenius and Beck–Chevalley laws, sheaf contexts, terms and closed formula
 predicates, regular source-rule soundness, and finite applications.
@@ -322,6 +323,54 @@ SDG scalar or smooth site, higher identity, or cohesive structure in this
 fragment. Ordinary clients and the syntax-free sheaf modules gain no dependency
 on the source adapter; the mixed graph consumer remains unchanged.
 
+## Ordinary closed relation composition
+
+[SquareKit/SheafRelation.lean](../../SquareKit/SheafRelation.lean) supplies an
+ordinary interface independent of source syntax. `Relation A B` is a subfunctor
+of a product sheaf with explicit pair sections. `productIso` compares that
+representation to Mathlib's chosen categorical product, preserving both
+projections. The explicit product's sheaf proof glues its two components using
+the given sheaves. Objects, morphisms and sections retain independent universes.
+
+`comp R S` applies R first, S second. On the triple product represented as
+`(intermediate, (source, target))`, `joined` intersects the inverse images of
+R and S along `firstPair` and `secondPair`. Composition is the existing
+`localImage` along `endpoints`. The operation and `comp_isSheaf` require no
+closure premise on R or S. `mem_comp` and `witness_comp` characterize a covering
+sieve on which each arrow admits an intermediate section satisfying the two
+restricted relations. These intermediates need not agree on overlaps.
+
+The optional [SheafAssociativity adapter](../../SquareKit/Internal/SheafAssociativity.lean)
+interprets the existing four-sort source signature at any four type-valued
+sheaves on a small indexing category. `source_valid` applies soundness to
+unchanged `Associativity.forward` and `backward`, assuming all three input
+relations are closed. The independent `left_comparison` and `right_comparison`
+identify source predicates with the two ordinary composition parenthesizations.
+They compare witnessing sieves, using the existing presheaf context-image
+characterization only inside each local arrow. They never infer a global
+witness from a covering sieve. `endpointIso` and the predicate-comparison
+theorems express the endpoint environment/product comparison naturally.
+`associative` combines source validity with both comparisons. Ordinary callers
+of composition need no syntax model; callers of this optional associativity
+theorem provide the three relation closure proofs, and its implementation
+constructs the source interpretation.
+
+[Examples/SheafRelations.lean](../../Examples/SheafRelations.lean) uses the chain
+1 → E → Bool → Bool. With top relations, `both_at_X` establishes both local
+parenthesizations at every Bool endpoint through the public associativity
+transport. `no_intermediate_pair_at_X` refutes a pointwise pair of intermediate
+sections, reusing the original no-E-witness proof. Hence evaluating this local
+composition at X cannot be equated with pointwise Set relation composition.
+
+For the selective chain, the final Bool relation is the earlier equal-arguments
+relation supported at W/U. Its intermediate Bool is chosen equal to the target
+Bool in `selected_composition`; the equality requirement is not discarded.
+`selected_chain` uses transported associativity and the prior local E-image
+calculation to compute exactly W/U support. U membership and V/X nonmembership
+hold for every Bool endpoint. All relation-closure hypotheses are discharged.
+The ordinary graph consumer, Set/presheaf associativity and historical examples
+remain unchanged.
+
 ## Statement review and retained cases
 
 The universal claims quantify over all sections and restrictions, with no
@@ -367,13 +416,23 @@ The context construction supplies those actual pullback squares, and the
 formula interpreter uses them in its uniform substitution theorem. Regular
 source soundness now provides the proof-to-model link.
 
-The next bounded slice should interpret the existing relational associativity
-derivations in sheaves and compare them with composition of closed relations
-by local image. The new soundness theorem can reuse those source proofs, while
-the comparison must account for locally existing intermediate witnesses. This
-would connect the sheaf adapter to the earlier relational consumers without
-choosing a geometric site.
+The ordinary relational consumer now completes the present regular-logic
+comparison. More finite regular examples would not address the remaining
+function-space and dependent-model gap. `Dependent.lean` still provides a
+shallow split-family model over types, not dependent sheaf semantics, and no
+smooth site or scalar has been constructed.
 
-A model-map hierarchy, dependent types, geometric sites, scalar objects,
-smoothness, SDG, higher identities and cohesion remain outside this finite
-test case.
+The next bounded slice should instantiate the pinned Mathlib sheaf
+cartesian-closed construction for type-valued sheaves, expose evaluation and
+currying with their beta/eta laws, and compare its chosen products with this
+ordinary product interface. The available construction in
+`Mathlib/CategoryTheory/Sites/CartesianClosed.lean` requires sheafification,
+cartesian monoidal structure and closedness of the presheaf category; those
+hypotheses and universe constraints must be discharged or stated explicitly.
+This would supply function-space semantics needed before internal smooth
+analysis, without extending the source calculus or selecting a geometric site.
+
+Dependent families and comparison with `Dependent.lean`, model maps, a smooth
+site and scalar, SDG axioms, higher identities and cohesion remain separate
+unproved obligations. No completeness or differential-cohesive-model claim
+follows from this regular fragment.
