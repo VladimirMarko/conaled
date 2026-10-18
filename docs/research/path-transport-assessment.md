@@ -298,3 +298,116 @@ Mathlib already constructs Levi-Civita connections. Reuse its characterization
 and uniqueness when installing the disk Riemannian metric; do not create a
 second manifold connection hierarchy. Its current construction alone does
 not discharge the pathwise or regularity obligations above.
+
+## Timed command construction checkpoint for #47
+
+Assessed against conaled `bf9b9e596df756faec5fecabfc592edb85d606c0`,
+Lean 4.35.0 and the Mathlib revision pinned above. The assessment inspects
+`Pose`, `DiskTransport`, `TransportSegments`, `TransportComparison`, and
+`TransportFrames`, together with Mathlib's `DerivHyp`, `ContDiff/RCLike`,
+and `ODE/ExistUnique` APIs. This is a construction checkpoint, not completion
+of [#47](https://github.com/VladimirMarko/conaled/issues/47).
+
+For a unit complex direction `d` and real signed speed `s`, set
+`r(t) = tanh(s*t/2)`. The base pose has position `d*r(t)` and phase `1`.
+Its frame sends `w` to `(1-r(t)^2)*w/2`, so its body velocity is `d*s`.
+The derivative `r' = s*(1-r^2)/2` gives the velocity equation and the
+parallel-frame equation for the existing curvature -1 connection. Mathlib's
+`Real.tanh_sq_lt_one` gives disk validity for every real time; therefore
+any finite nonnegative duration is admissible. The factor `1/2` follows
+from `Pose.frame`. The affine radial constructor from #44 cannot supply
+this constant metric speed without a proved change of clock.
+
+For an initial pose `p`, compose `p` on the left of this base pose. Its
+position is `p.mobius` applied to the base position. `Pose.gyro_gap` and
+`Pose.act_denominator` establish disk validity and exclude poles. The new
+analytic obligation is the derivative of `Pose.derivative` and the identity
+`D²phi(v,w) + Gamma(phi)(Dphi(v),Dphi(w)) = Dphi(Gamma(v,w))`.
+`Pose.frame_comp` alone does not discharge it. A scratch construction checked
+the hyperbolic derivative, diameter velocity and frame equations, and this
+Möbius identity before choosing a command interface.
+
+Turning at fixed position uses phase `p.u * exp(i*omega*t)`. A hold uses the
+constant pose. Both exist for all real times. A turn has identity path
+transport, while its frame obeys the prescribed angular equation. Finite
+words must retain these local clocks and their developed paths, including
+positive-duration holds. Representative changes multiply both position and
+phase by the same C4 scalar; body controls stay fixed.
+
+Existence can therefore use explicit formulas. Uniqueness needs a separate
+argument for the coupled position/frame equation. `Segment.field_unique`
+only covers a fixed supplied path. In coordinates `(z,h)` with `h=u(1)`, the
+coupled vector field is `(h*v, -coefficient(z,h*v)*h + h*i*omega)`. It is
+smooth on the open disk times the frame-coordinate plane. The pinned
+`ContDiffOn.exists_lipschitzOnWith` and
+`ODE_solution_unique_of_mem_Icc_right` provide a route on compact convex
+subdomains away from the disk boundary. Continuity on a finite closed
+interval must justify containment for any solutions compared. No global
+ODE existence assumption or new bundle hierarchy is needed for this route.
+
+## Timed command interface and proof scope
+
+The experimental [timed commands](../../Applications/Orbifold/TimedCommands.lean)
+construct `Control.move v`, `Control.turn omega`, and `Control.hold` from any
+existing `Pose`. A `Command` adds a real duration and its nonnegativity proof.
+Callers supply no differential-equation certificate. Complex numbers represent
+real tangent coordinates; multiplication by `i*omega` is the positive planar
+skew operator. Public move controls accept every complex vector, including
+zero. Internally the velocity is split into its Euclidean norm and unit
+direction, with direction `1` chosen for the zero vector. Pose composition
+places the initial pose on the left of the time-dependent base solution.
+
+`Control.position_equation` and `Control.frame_equation` state the two governing
+equations using actual real-time derivatives. Pose fields prove disk validity
+and unit phase at every real time. `frame_metric` and `frame_pair` give the
+metric-unit frame and its real inner-product law. `control_move_geodesic` and
+`control_move_speed` prove zero covariant acceleration and constant squared
+metric speed `normSq v`. `command_move_transport` connects that frame to the
+constructed #44 segment on the actual clock. A turn's position path is a hold;
+`spin_half_turn` proves its rotating frame can differ from identity path
+transport.
+
+[`Control.unique`](../../Applications/Orbifold/MotionUniqueness.lean) compares
+any pose-valued solution on `[0,T]` with the constructed trajectory. Competing
+solutions must have the stated actual position and frame derivatives on the
+closed interval, interpreted through extensions at endpoints, and the same
+initial pose. This implies the continuity needed by the uniqueness theorem.
+The implementation derives compact bounds away from the boundary for both
+solutions; callers need not choose bounds or prove Lipschitz continuity.
+This theorem includes `T=0`. It does not assert uniqueness for discontinuous
+paths or equations imposed only almost everywhere.
+
+`execute` folds commands in list order, starting each at the preceding framed
+endpoint. `develop` retains the certified position path, while `trace` retains
+the duration and entire framed trajectory of each local clock, including
+turns. Observe each local trajectory on `[0, command.duration]`. The append
+laws prove state composition, trace concatenation, transport composition, and
+addition of elapsed time. Zero-duration commands have identity endpoint and
+transport observations; the recorded zero-duration segment need not equal an
+empty trace. Positive-duration holds retain their elapsed time.
+
+[`CommandComparison`](../../Applications/Orbifold/CommandComparison.lean) uses
+the existing C4 pose action to transform position and frame together. The
+same body controls commute with representative changes at every local time,
+through the whole trace, and through developed transport. `executionFunctor`
+retains the action-groupoid label and source/target evidence. This symmetry
+arrow is separate from the physical command list. Matrix observations agree
+with frames both for the canonical pose matrix and for every certified matrix
+decoding to the same motion. These results use analytic connection
+preservation for moves; they do not identify arbitrary pose increments with
+parallel transport.
+
+[Checked examples](../../Examples/TimedMotion.lean) include a nonconstant move
+reaching the apex at an interior local time, a regular-point representative
+change, a move–turn–move sequence, a positive-duration hold, uniqueness, and
+pose/matrix agreement. The position-only representative-change example checks
+that the point is correct but the initial velocity is wrong when the attached
+frame is left unchanged.
+
+The construction is exact and noncomputable. Simultaneous translation and
+turning, time-dependent controls, force laws, atlas descent, and numerical
+execution remain outside this interface. A numerical follow-up can take one
+command and a finite interval, choose a compact coordinate domain containing
+its exact trajectory, and state a position/frame error norm there before
+selecting an integrator. Discretization error and arithmetic error need
+separate contracts; the exact formulas alone certify neither.

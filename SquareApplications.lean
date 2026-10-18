@@ -1,3 +1,4 @@
+import Examples.TimedMotion
 import Examples.PathTransport
 import Applications.Orbifold.ConnectionAssessment
 import Examples.InternalRelations
