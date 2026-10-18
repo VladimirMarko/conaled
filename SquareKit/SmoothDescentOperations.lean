@@ -6,10 +6,10 @@ namespace SquareKit.SmoothAlgebra.PrincipalCover
 open PresentedLocalization
 variable {n m k : ℕ}
 
-abbrev Sections (r : Fin m → Free n) (p : Fin k → Free n) :=
+abbrev Sections {ι : Type*} (r : Fin m → Free n) (p : ι → Free n) :=
   {a : ∀ i, Carrier r (p i) // Compatible r p a}
 
-def restrict (r : Fin m → Free n) (p : Fin k → Free n) (a : Presentation.Carrier r) : Sections r p :=
+def restrict {ι : Type*} (r : Fin m → Free n) (p : ι → Free n) (a : Presentation.Carrier r) : Sections r p :=
   ⟨fun i => base r (p i) a,fun i j => by
     exact (congrArg (fun h : Hom (Presentation.Carrier r) (Carrier r (p i*p j)) => h a)
       (overlapLeft_base r (p i) (p j))).trans
@@ -32,7 +32,7 @@ def descentEquiv (r : Fin m → Free n) (p : Fin k → Free n)
   right_inv a := Subtype.ext (funext (glue_spec r p hs a))
 
 /-- Finite smooth operations act componentwise on compatible sections. -/
-def sectionAct (r : Fin m → Free n) (p : Fin k → Free n) {l : ℕ}
+def sectionAct {ι : Type*} (r : Fin m → Free n) (p : ι → Free n) {l : ℕ}
     (f : Operation l) (a : Fin l → Sections r p) : Sections r p :=
   ⟨fun i => act f (fun j => (a j).val i),fun i j => by
     rw [(overlapLeft r (p i) (p j)).map_act,(overlapRight r (p i) (p j)).map_act]
@@ -73,7 +73,7 @@ theorem map_overlapRight (r : Fin m → Free n) (p q : Free n)
   apply unique r q
   rw [← Hom.comp_assoc,overlapRight_base,map_base,← Hom.comp_assoc,map_base,Hom.comp_assoc,overlapRight_base]
 
-def transport (r : Fin m → Free n) (p : Fin k → Free n) (t : Fin v → Free u) (q : Fin k → Free u)
+def transport {ι : Type*} (r : Fin m → Free n) (p : ι → Free n) (t : Fin v → Free u) (q : ι → Free u)
     (h : Hom (Presentation.Carrier r) (Presentation.Carrier t))
     (he : ∀ i, h (Presentation.projection r (p i))=Presentation.projection t (q i))
     (a : Sections r p) : Sections t q :=

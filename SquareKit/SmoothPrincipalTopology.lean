@@ -9,14 +9,14 @@ open CategoryTheory Opposite SmoothAlgebra PresentedLocalization PrincipalCover
 
 abbrev Site := Codeᵒᵖ
 
-def principalPresieve (A : Code) {k : ℕ} (s : Fin k → Carrier A) : Presieve (op A) :=
+def principalPresieve {ι : Type*} (A : Code) (s : ι → Carrier A) : Presieve (op A) :=
   Presieve.ofArrows (fun i => op (localization A (s i))) (fun i => (localizationBase A (s i)).op)
 
-def principalSieve (A : Code) {k : ℕ} (s : Fin k → Carrier A) : Sieve (op A) :=
+def principalSieve {ι : Type*} (A : Code) (s : ι → Carrier A) : Sieve (op A) :=
   Sieve.generate (principalPresieve A s)
 
 /-- The pulled-back family is the localization at the image elements, for any smooth map. -/
-theorem principal_refinement {A B : Code} (h : A ⟶ B) {k : ℕ} (s : Fin k → Carrier A) :
+theorem principal_refinement {ι : Type*} {A B : Code} (h : A ⟶ B) (s : ι → Carrier A) :
     (principalPresieve B (fun i => (smoothMap h).toFun (s i))).FactorsThruAlong (principalPresieve A s) h.op := by
   rintro Z g ⟨i⟩
   refine ⟨op (localization A (s i)),(localizationMap h (s i)).op,(localizationBase A (s i)).op,⟨i⟩,?_⟩

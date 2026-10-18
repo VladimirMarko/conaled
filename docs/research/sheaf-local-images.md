@@ -1502,3 +1502,12 @@ actual scalar sheaf condition. The proper line-cover example and the source
 product-rule consumer are in `Examples.GeometricSyntheticProduct`. The exact
 model/ordinary comparison and remaining smooth-geometric obligations are
 recorded in [the KL model note](algebraic-kl-model.md#geometric-sheaf-kl-and-an-interpreted-product-proof-88).
+
+The #89 `SmoothOpenSite` topology admits arbitrary Type-indexed principal
+families covering the real locus of a finite presentation. Its scalar and all
+representables satisfy the full generated-topology sheaf condition, proved by
+locally finite partition gluing of ideal coefficient equations. It contains
+the earlier finite-principal topology. `Examples.ArbitrarySmoothCovers` checks
+countable covers with no finite subcover and both analytic and nilpotent
+consumers. [The KL model note](algebraic-kl-model.md#arbitrary-principal-covers-on-finite-presentations-89)
+records the exact scope and the remaining KL upgrade.

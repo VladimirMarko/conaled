@@ -63,10 +63,10 @@ theorem at_overlap_pushout {B : Type*} [CommRing B] [Algebra ℝ B] [Structure B
         rw [← Hom.comp_assoc,productComparison_inv_rev,Hom.comp_ident]
       _ = _ := by rw [he]
 
-def AtCompatible (r : Fin m → Free n) (s : Fin k → Presentation.Carrier r) (a : ∀ i, At r (s i)) : Prop :=
+def AtCompatible {ι : Type*} (r : Fin m → Free n) (s : ι → Presentation.Carrier r) (a : ∀ i, At r (s i)) : Prop :=
   ∀ i j, atLeft r (s i) (s j) (a i)=atRight r (s i) (s j) (a j)
 
-theorem atCompatible_iff (r : Fin m → Free n) (s : Fin k → Presentation.Carrier r) (a : ∀ i, At r (s i)) :
+theorem atCompatible_iff {ι : Type*} (r : Fin m → Free n) (s : ι → Presentation.Carrier r) (a : ∀ i, At r (s i)) :
     AtCompatible r s a ↔ Compatible r (fun i => representative r (s i)) a := by
   constructor
   · intro ha i j
@@ -79,7 +79,7 @@ theorem atCompatible_iff (r : Fin m → Free n) (s : Fin k → Presentation.Carr
   · intro ha i j
     exact congrArg (productComparison r (s i) (s j)) (ha i j)
 
-abbrev AtSections (r : Fin m → Free n) (s : Fin k → Presentation.Carrier r) :=
+abbrev AtSections {ι : Type*} (r : Fin m → Free n) (s : ι → Presentation.Carrier r) :=
   {a : ∀ i, At r (s i) // AtCompatible r s a}
 
 private theorem rep_cover (r : Fin m → Free n) (s : Fin k → Presentation.Carrier r) (hs : Covers s) :
@@ -103,7 +103,7 @@ theorem at_separated (r : Fin m → Free n) (s : Fin k → Presentation.Carrier 
     (a b : Presentation.Carrier r) (he : ∀ i, atBase r (s i) a=atBase r (s i) b) : a=b :=
   separated r (fun i => representative r (s i)) (rep_cover r s hs) a b he
 
-def atSectionAct (r : Fin m → Free n) (s : Fin k → Presentation.Carrier r) {l : ℕ}
+def atSectionAct {ι : Type*} (r : Fin m → Free n) (s : ι → Presentation.Carrier r) {l : ℕ}
     (f : Operation l) (a : Fin l → AtSections r s) : AtSections r s :=
   ⟨fun i => act f (fun j => (a j).val i),fun i j => by
     rw [(atLeft r (s i) (s j)).map_act,(atRight r (s i) (s j)).map_act]
@@ -132,16 +132,16 @@ theorem at_glue_act (r : Fin m → Free n) (s : Fin k → Presentation.Carrier r
 
 variable {u v : ℕ}
 
-def atTransport (r : Fin m → Free n) (s : Fin k → Presentation.Carrier r)
+def atTransport {ι : Type*} (r : Fin m → Free n) (s : ι → Presentation.Carrier r)
     (t : Fin v → Free u) (h : Hom (Presentation.Carrier r) (Presentation.Carrier t))
     (a : AtSections r s) : AtSections t (fun i => h (s i)) := by
   let b := transport r (fun i => representative r (s i)) t (fun i => representative t (h (s i))) h
     (fun i => by simp) ⟨a.val,(atCompatible_iff r s a.val).mp a.property⟩
   exact ⟨b.val,(atCompatible_iff t (fun i => h (s i)) b.val).mpr b.property⟩
 
-theorem atTransport_apply (r : Fin m → Free n) (s : Fin k → Presentation.Carrier r)
+theorem atTransport_apply {ι : Type*} (r : Fin m → Free n) (s : ι → Presentation.Carrier r)
     (t : Fin v → Free u) (h : Hom (Presentation.Carrier r) (Presentation.Carrier t))
-    (a : AtSections r s) (i : Fin k) :
+    (a : AtSections r s) (i : ι) :
     (atTransport r s t h a).val i=atMap r (s i) t h (a.val i) := rfl
 
 /-- Arbitrary smooth base maps commute with the all-element gluing equivalence. -/

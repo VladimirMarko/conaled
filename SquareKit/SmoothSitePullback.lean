@@ -25,7 +25,7 @@ theorem localization_isPullback {A B : Code} (f : A ⟶ B) (s : Carrier A) :
       (localizationBase A s).op f.op := (localization_isPushout f s).op.flip
 
 /-- Pullback of a generated principal sieve is exactly the generated image-element sieve. -/
-theorem principalSieve_pullback {A B : Code} (f : A ⟶ B) {k : ℕ} (s : Fin k → Carrier A) :
+theorem principalSieve_pullback {ι : Type*} {A B : Code} (f : A ⟶ B) (s : ι → Carrier A) :
     (principalSieve A s).pullback f.op=principalSieve B (fun i => (smoothMap f).toFun (s i)) := by
   apply Sieve.ext
   intro Z g

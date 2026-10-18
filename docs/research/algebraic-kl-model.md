@@ -1148,3 +1148,63 @@ Recommended next construction: extend scalar descent to arbitrary
 point-covering families of principal opens of finite smooth presentations,
 retaining quotient/nilpotent information. That would address the finite-cover
 limitation before claiming the smooth manifold embedding.
+
+## Arbitrary principal covers on finite presentations (#89)
+
+`SmoothAlgebra.OpenCover.Covers` quantifies over every smooth map from the
+presented algebra to ℝ: some member of the family has nonzero image. The
+analytic/descent API allows an index type in `Type u`; the generated site uses
+indices in `Type`, matching its small presentation category. For `Fin k`
+families the condition is proved equivalent to the earlier ordinary unit-ideal
+condition. It is stable under every smooth algebra map. The empty family covers
+exactly a trivial finite presentation. These statements concern covers; scalar
+equality still uses the full quotient ideal.
+
+`SmoothIdealArbitraryGluing.arbitrary_gluing` constructs a subordinate smooth
+partition of unity for an arbitrary open cover. Its assembled function is a
+locally finite `finsum`. At each point, local finiteness gives one neighborhood
+and a finite set containing the supports that meet it. On that neighborhood
+the sum reduces to a finite sum of local ideal coefficient equations. The
+relation list remains finite; neither the input cover nor its local
+representatives have a finiteness or boundedness assumption.
+
+`SmoothOpenDescent` applies this construction to inverse-graph representatives
+of arbitrary compatible localized elements. Existence and uniqueness preserve
+neighborhood ideal membership, including nilpotents. `SmoothOpenDescentOperations`
+proves every finite-arity smooth operation and arbitrary smooth base map
+commutes with gluing. The localization overlaps, compatible sections and
+transport definitions are shared with the previous finite-family development.
+`SmoothOpenDescentHom` glues all smooth maps into the presented algebras.
+
+`SmoothOpenSite.coverage` and `topology` use these actual principal families.
+All-arrow pullback/refinement is proved, the finite-principal topology is
+contained in it, and `SmoothOpenSheaf` proves scalar and every representable
+sheafness on the generated topology. `SmoothOpenScalar` constructs its scalar,
+finite powers and smooth operations from the shared coordinate presheaves,
+with explicit comparisons under forgetting stronger sheafness.
+
+`Examples.ArbitrarySmoothCovers` uses the smooth functions
+`expNegInvGlue((n+1)^2-x^2)` for `n : ℕ`. They cover the line; every finite
+subfamily misses a point beyond its largest radius. Actual categorical
+matching-family gluing recovers an exponential section. The infinite-family
+smooth-operation law is exercised separately. Pulling the same family to the
+thickened line gives another family with no finite subcover, and gluing its
+epsilon sections retains a nonzero dual coefficient invisible to all real
+points. A countable family missing the origin fails the cover condition.
+
+Kock's [*Synthetic Differential Geometry*, III.7, Definition 7.2 and Theorem 7.4,
+pp. 168–172](https://users-math.au.dk/kock/sdg99.pdf) defines covers by real-point
+surjectivity and proves subcanonicity using locally finite partitions and local
+ideal information. The checked construction here restricts objects to finite
+presentations and generators to principal localizations, but no longer
+restricts those families to be finite. It does not identify arbitrary smooth
+algebras with finite presentations.
+
+Recommended next construction: factor the presentation-based first-order KL
+argument over the topology's proved scalar/representable sheafness and
+instantiate it for this arbitrary-cover topology, with a checked comparison to
+#88. KL, its derivative and the synthetic proof interpretation currently remain
+objects of the finite-principal sheaf category. This slice does not prove their
+upgrade, a full ordinary manifold embedding, well-adaptedness, general Weil
+objects, higher identity structure, cohesion or the Myers orbifold comparison.
+It does not complete #36.

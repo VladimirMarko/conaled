@@ -7,11 +7,11 @@ namespace SquareKit.SmoothAlgebra.PrincipalCover
 open PresentedLocalization
 variable {n m k : ℕ} {B : Type*} [CommRing B] [Algebra ℝ B] [Structure B]
 
-def HomCompatible (r : Fin m → Free n) (s : Fin k → Presentation.Carrier r)
+def HomCompatible {ι : Type*} (r : Fin m → Free n) (s : ι → Presentation.Carrier r)
     (h : ∀ i, Hom B (At r (s i))) : Prop :=
   ∀ i j, Hom.comp (atLeft r (s i) (s j)) (h i)=Hom.comp (atRight r (s i) (s j)) (h j)
 
-def mapSections (r : Fin m → Free n) (s : Fin k → Presentation.Carrier r)
+def mapSections {ι : Type*} (r : Fin m → Free n) (s : ι → Presentation.Carrier r)
     (h : ∀ i, Hom B (At r (s i))) (hh : HomCompatible r s h) (b : B) : AtSections r s :=
   ⟨fun i => h i b,fun i j => congrArg (fun f : Hom B (At r (s i*s j)) => f b) (hh i j)⟩
 

@@ -12,7 +12,7 @@ open PresentedLocalization
 variable {n m k : ℕ}
 
 /-- The two restrictions agree in the actual algebra overlap. -/
-def Compatible (r : Fin m → Free n) (p : Fin k → Free n) (a : ∀ i, Carrier r (p i)) : Prop :=
+def Compatible {ι : Type*} (r : Fin m → Free n) (p : ι → Free n) (a : ∀ i, Carrier r (p i)) : Prop :=
   ∀ i j, overlapLeft r (p i) (p j) (a i) = overlapRight r (p i) (p j) (a j)
 
 /-- Every compatible tuple, including tuples containing nilpotent coefficients, has one gluing. -/
