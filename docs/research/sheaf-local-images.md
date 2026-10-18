@@ -9,7 +9,8 @@ This experimental development implements
 [#56](https://github.com/VladimirMarko/conaled/issues/56),
 [#57](https://github.com/VladimirMarko/conaled/issues/57),
 [#58](https://github.com/VladimirMarko/conaled/issues/58),
-and [#59](https://github.com/VladimirMarko/conaled/issues/59) within the
+[#59](https://github.com/VladimirMarko/conaled/issues/59),
+and [#60](https://github.com/VladimirMarko/conaled/issues/60) within the
 internal-language workstream. It supplies local existential images, their
 Frobenius and Beck–Chevalley laws, sheaf contexts, terms and closed formula
 predicates, regular source-rule soundness, sheaf function spaces, dependent
@@ -490,8 +491,8 @@ over σ with maps a satisfying `a ≫ p = σ`.
 `compositionIso` reuses Mathlib's pullback pasting isomorphism. Their projection
 laws show that they are comparisons over the base, and substituted terms agree
 after transport. These are isomorphisms between chosen objects, not
-identifications of those objects. Unit and associativity coherence between
-multiple comparison isomorphisms, and a strict splitting, have not been proved.
+identifications of those objects. The coherence results below compare multiple substitution routes; a strict
+splitting is not asserted.
 
 [SquareKit/SheafFamily.lean](../../SquareKit/SheafFamily.lean) specializes this
 interface to type-valued sheaves. Unlike the exponential adapter, this fragment
@@ -534,11 +535,61 @@ is top, but `Term` is empty because a section would give an element of E(X).
 The checked `locally_inhabited_without_term` states both facts together.
 Existentially local witnesses cannot be used as dependent terms.
 
-The next bounded slice should prove unit and associativity coherence for these
-canonical substitution comparisons, including compatibility with substituted
-terms and the split Type comparison. The present identity and binary
-composition laws provide the inputs but do not prove that triple substitution
-has path-independent transport. Dependent products still require a right
-adjoint to reindexing; the ordinary exponential does not supply it. A source
-dependent calculus, identity elimination, universes, a smooth site and scalar,
-Kock–Lawvere, higher identities and cohesion remain unconstructed.
+The coherence construction below proves the ordinary unit and associativity
+comparison equations missing from this first family slice. Dependent type
+formers and the smooth/higher/cohesive obligations remain separate.
+
+## Coherent chosen substitution
+
+[#60](https://github.com/VladimirMarko/conaled/issues/60) adds
+[SquareKit/FamilyCoherence.lean](../../SquareKit/FamilyCoherence.lean).
+`Family.map` substitutes an ordinary map of families `f : A → B` with
+`f ≫ q = p`, using the existing universal pairing. Its projection, identity
+and composition laws require only the same category with pullbacks.
+`identity_natural` and `composition_natural` prove naturality of the exact
+comparison isomorphisms introduced in #59.
+
+`baseIso` accounts for equality of base arrows. The right unit law compares
+substitution by σ then identity with `identityIso` on the reindexed family.
+The left unit law compares identity then σ with the substituted original
+identity comparison. Both routes include the base-arrow transport from the
+category identity laws. For three substitutions, `innerRoute` first combines
+the inner two, then reindexes that comparison; `outerRoute` first combines the
+outer two and ends with transport by categorical associativity. Both end at
+the pullback along `υ ≫ (τ ≫ σ)`. `associativity` proves equality of these
+actual maps by their two projections.
+
+`mapTerm` transports sections by composition with a family map. Substituting a
+term commutes with that transport. Public `triple_term_inner` and
+`triple_term_outer` show that either coherent route gives the same term as
+direct composite substitution. Both unit specializations reuse the preceding
+section laws and coherence. These statements prove ordinary categorical
+identity/associativity coherence, not definitional equality of chosen objects,
+a strict split CwF, or higher homotopical coherence.
+
+[SquareKit/TypeFamilyCoherence.lean](../../SquareKit/TypeFamilyCoherence.lean)
+uses the existing strict `tySub_id` and `tySub_comp` equations to transport split
+context extensions. The existing `pullbackIso` commutes with identity and
+composition comparison maps. The composition square includes substitution of
+that comparison as a family map; it is not just equality between split
+functions. Term identity and composition agree too, using the existing
+`tmSub` operations and their composition equation.
+
+[Examples/FamilyCoherence.lean](../../Examples/FamilyCoherence.lean) applies
+triple coherence to the restricted dependent family from #59, through Bool
+parameters and two nonidentity negations. Both routes transport its term to
+the direct composite substitution; following its display projections still
+returns true at X for every Bool parameter. Both unit routes are exercised.
+An ordinary `Fin(n+1)` family uses successor substitutions in the split
+comparison square. Its zero term computes to zero after the comparison,
+using the public term theorem and projection law. The earlier empty fibers
+and local-image-without-term evidence remain unchanged.
+
+The next bounded slice should construct dependent sums by composition of
+display maps, with pairing/projection laws, substitution comparison and a
+checked comparison to `DependentSquares.sigmaTy`. The current arbitrary-family
+substitution interface can support that construction, but no sheaf Sigma
+interpretation is established by the Type model alone. Dependent products
+still require an actual right adjoint to reindexing. Identity elimination,
+universes, source dependent syntax, a smooth site and scalar, Kock–Lawvere,
+higher identities and cohesion remain unconstructed.
