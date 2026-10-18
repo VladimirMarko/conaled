@@ -1,3 +1,5 @@
+import Examples.SplitDependentFunctions
+import Examples.SplitDependentFunctionEdges
 import Examples.DependentSource
 import Examples.DependentSourceNative
 import Examples.SplitSheafFamilies

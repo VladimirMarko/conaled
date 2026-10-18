@@ -1167,3 +1167,75 @@ Beck–Chevalley results. This would supply the stable semantic operations
 needed before dependent function rules enter the source fragment. Source
 Pi/Sigma formation, identity types, universes and smooth/Kock–Lawvere or
 higher/cohesive structure remain absent. #36 remains open.
+
+## Substitution-stable split dependent functions (#71)
+
+`SplitSheafPi` constructs experimental dependent functions for arbitrary
+`A : SplitSheaf.Ty Γ` and `B : SplitSheaf.Ty (Ext A)`. Objects of the site
+may live in `Type u` and arrows in `Type v`; sections live in
+`Type (max u v)`. Callers provide no dependent-product, stability or sheaf
+certificates beyond those already carried by A and B.
+
+A function at a base section x retains a dependent result for every further
+restriction of x and every input there, together with naturality for all
+arrows between those inputs. `SplitFunctionDiagram` puts these data on the
+coslice of x's site object. The input and output diagrams have a common type
+independent of the ambient context. Naturality of substitution proves equality
+of the diagrams, hence equality of their section types and of the resulting
+functors. This is the proof of `pi_sub`; it does not turn an isomorphism of
+types into equality. The original split family representation is retained.
+
+`SplitFunctionTerms` proves abstraction/uncurrying beta and eta. Application
+substitutes the supplied argument into B. `SplitFunctionSheaf` proves
+sheafness by comparing the formula, on Γ's element site, with an equalizer
+inside the existing sheaf exponential: functions into the dependent total
+whose projection is the input. The equalizer is a sheaf because its target is
+separated. The existing element-site equivalence then proves that the total
+split Π is a sheaf. The auxiliary paired-result diagram is used for this
+construction; it introduces no source Sigma rules.
+
+Formation stability is a propositional equality. The public lambda,
+uncurrying and application laws exhibit the required transports. Identity,
+composition and triple-substitution transport are proved; the underlying split
+type/term substitution and lift identity/composition laws remain definitional.
+`lamAt` and `unlamAt` give transposition over any substituted context.
+
+`SplitPiComparison` constructs a natural Hom bijection for the actual ordinary
+argument pullback. Yoneda gives `displayIso`, an isomorphism over Γ to
+`SheafDependentProduct.pi (p A)` applied to the display of B. Transposition,
+actual evaluation and display equations agree through this iso. The comparison
+is natural in the parameter and in maps of dependent result displays.
+`SplitPiBaseChange` constructs one map from the proved formation equality and
+another by conjugating the canonical Beck–Chevalley mate with the existing
+split/display adapters. `baseChange_eq` proves these are the same iso by
+comparing their transposes. Identity and composition coherence are equalities
+of actual slice maps after the stated ordinary pullback adapters. The triple
+term-transport theorem handles repeated equality transport. No ordinary
+pullback choice or earlier semantic/source client is changed.
+
+`SplitPiPresentations.ordinaryPresentation` recovers earlier ordinary Π
+presentations using display reconstruction and canonical base change. In
+`Examples.SplitDependentFunctions`, the false-point product therefore has
+Bool fibers at false and singleton fibers at true, using #68's representing
+calculation through the new display comparison. A constructed Boolean body
+abstracts and evaluates to that Boolean at every inhabited false fiber.
+Application after restriction uses a constructed actual argument; empty-index
+uniqueness does not manufacture one at true. Negation exchanges the two
+fibers through the formation equality, with checked double transport and
+canonical-mate composition.
+
+`Examples.SplitDependentFunctionEdges` uses a genuinely dependent result:
+its false argument fiber is inhabited, but a function over all Boolean inputs
+would require an impossible output at true. A separate E-input case recovers
+#68's two distinct natural functions at X, while the external same-stage
+function type is a singleton. Reconstructed E inputs retain the empty X fiber
+and the incompatible false/true overlap restrictions. The new case also checks
+the counit comparison. No identification with arbitrary stagewise function
+spaces is claimed; earlier native Π comparisons retain their stated scope.
+
+The next bounded slice is to extend #70's independent source fragment with
+dependent Π formation, lambda/application, and their rule-restricted equality
+and substitution soundness proofs using these constructed semantic operations.
+This ticket adds no source function syntax. Source Sigma, identity types,
+universes and smooth/Kock–Lawvere or higher/cohesive structure remain absent.
+#36 remains open.
