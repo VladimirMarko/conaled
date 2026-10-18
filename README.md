@@ -42,6 +42,11 @@ The [FRP frontier protocol](docs/research/frp-runtime-scope.md) is an experiment
 implementation of complete-window source updates and merge observations. Its
 scope does not include a scheduler or a complete FRP runtime.
 
+The [rational disk motion backend](docs/research/numerical-motion.md) is an
+experimental executable realization of timed move, turn, and hold commands.
+It proves bounded coordinate error for position and frame, checks its valid
+domain, and preserves quarter-turn representative changes.
+
 ## Development environment
 
 Install Nix with `nix-command` and `flakes` enabled, and install direnv with

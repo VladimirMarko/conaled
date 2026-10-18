@@ -404,10 +404,10 @@ pose/matrix agreement. The position-only representative-change example checks
 that the point is correct but the initial velocity is wrong when the attached
 frame is left unchanged.
 
-The construction is exact and noncomputable. Simultaneous translation and
-turning, time-dependent controls, force laws, atlas descent, and numerical
-execution remain outside this interface. A numerical follow-up can take one
-command and a finite interval, choose a compact coordinate domain containing
-its exact trajectory, and state a position/frame error norm there before
-selecting an integrator. Discretization error and arithmetic error need
-separate contracts; the exact formulas alone certify neither.
+The construction is exact and noncomputable. The
+[rational Euler realization](numerical-motion.md) now implements a bounded
+class of these commands with proved position/frame error, domain checks,
+finite-command composition, and C4 compatibility. Discretization error and
+exact rational arithmetic have separate contracts. Simultaneous translation
+and turning, time-dependent controls, force laws, and atlas descent remain
+outside this interface.

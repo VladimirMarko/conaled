@@ -64,6 +64,7 @@ import Examples.CategoryInstances
 import Examples.JetScan
 import Examples.MatrixStack
 import Examples.Run
+import Examples.NumericalMotion
 import FirstOrder
 import SquareCompiler
 import SquareKit.Arithmetic
