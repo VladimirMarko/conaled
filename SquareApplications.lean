@@ -1,3 +1,4 @@
+import Examples.PathTransport
 import Applications.Orbifold.ConnectionAssessment
 import Examples.DiskRealizations
 import Examples.OrbifoldComparison

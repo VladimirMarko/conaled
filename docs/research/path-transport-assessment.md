@@ -1,4 +1,107 @@
-# Path transport: prerequisite assessment
+# Constructed path transport
+
+[#44](https://github.com/VladimirMarko/conaled/issues/44) now has an experimental
+coordinate construction on the disk, with real-linear transport, connection
+comparison, and pose/matrix observations. The original prerequisite assessment
+is retained below as the record of the route selection.
+
+## Implemented contract
+
+[`ParallelTransport`](../../Applications/Geometry/ParallelTransport.lean)
+constructs the scalar fundamental solution `P(a,b)v=q(b)/q(a)*v` and proves its
+parallel equation and uniqueness on a closed interval. Only the differential
+equation for a nonvanishing `q` is a caller obligation. Identity, composition,
+reversal and uniqueness are proved results, not fields in a transport record.
+Its coordinate comparison is stated for arbitrary real normed vector spaces,
+with actual first/second derivatives and the Christoffel transformation
+formula. It requires constructed source and target solution families and
+uniqueness on the admitted domain. A coordinate map must preserve that domain;
+no theorem claims existence along arbitrary smooth image paths.
+
+[`DiskConnection`](../../Applications/Orbifold/DiskConnection.lean) uses
+`g_z(v,w)=4 Re(conj(v)w)/(1-normSq(z))²` and
+`Gamma_z(u,v)=2 conj(z) u v/(1-normSq(z))` in the existing global real disk
+chart. [`DiskCurvature`](../../Applications/Orbifold/DiskCurvature.lean) proves
+the scale derivative, metric compatibility, torsion-freeness characterization,
+uniqueness of the compatible symmetric coefficient, and curvature `-1`.
+Curvature is computed from derivatives and quadratic terms of the Christoffel
+coefficient through `ConformalConnection.curvatureVector`, with convention
+`R(X,Y)Z=nabla_X nabla_Y Z-nabla_Y nabla_X Z` on constant coordinate fields.
+Positive definiteness is checked on the open disk. These are coordinate
+results, not a newly installed Mathlib Riemannian bundle instance or a new
+manifold hierarchy.
+
+[`DiskTransport`](../../Applications/Orbifold/DiskTransport.lean) admits finite
+endpoint-indexed words of segments. Each segment has a nonnegative real
+duration `T`, a curve and velocity on `[0,T]`, disk-domain evidence, actual
+derivatives including smooth endpoint extensions, and a nonvanishing scalar
+solution of the connection equation. This certificate admits explicitly
+solvable paths without claiming a solver for every smooth curve. Constructors
+in [`TransportSegments`](../../Applications/Orbifold/TransportSegments.lean)
+supply holds, affine real-diameter segments, and circular arcs of radius
+`sqrt(1/5)`. C4 rotations and reversal supply further constructors. Compared
+with the assessment's proposed grammar, the implemented circular constructor
+uses this fixed radius so that a full turn has exactly `-id` transport. Other
+radii or radial phases can be admitted by supplying the same analytic
+certificate; they are not supplied constructors here.
+
+Concatenation appends words and adds durations. Reversal reverses segment
+order and substitutes `T-t`, with its derivative proved. There is no rescaling
+to Mathlib's unit-interval `Path.trans`. Segment clocks are local, and
+`Path.ParallelField` requires the field values to match at every joint.
+`transport_parallel` constructs such fields and `transport_unique` proves
+uniqueness of their terminal value. Norm preservation follows by
+differentiating the metric; polarization proves preservation of its bilinear
+pairing. Zero-velocity segments have identity transport regardless of their
+solution certificate. A positive-duration hold retains its duration.
+
+[`TransportComparison`](../../Applications/Orbifold/TransportComparison.lean)
+proves C4 connection preservation and the transport square using #41's actual
+`mfderiv`. For the ellipse, both Christoffel coefficients and parallel fields
+are expressed directly in ellipse coordinates and compared to the disk using
+the derivative of the existing `diskEllipse` diffeomorphism. The endpoint
+comparison consumes the reusable comparison theorem and proved uniqueness.
+The `Squares.Square` adapter, real-linear ellipse transport, composition, and
+preservation of the pushed metric expose the result to callers. The metric
+and connection on the ellipse are the coordinate transforms of the disk
+ones, not the Euclidean ellipse metric.
+
+[`TransportFrames`](../../Applications/Orbifold/TransportFrames.lean) constructs
+a terminal pose from a transported metric-unit frame and proves agreement for
+every frame vector with the existing pose and certified-matrix observations.
+It does not identify arbitrary motion increments with parallel transport.
+`ClosedLift` retains the path and an action-groupoid arrow **from endpoint to
+source**. Its observation is `D(closing) ∘ P`; the closing symmetry label is
+retained separately and survives the existing disk/ellipse functor.
+
+[`VariableCurvature`](../../Applications/Geometry/VariableCurvature.lean) is a
+second consumer of the scalar construction, for `exp(2x²)(dx²+dy²)` on the real
+plane. Its coefficient `2x u v` is symmetric and metric-compatible. Vertical
+segments use the actual solution `exp(-2 i b t)` at fixed `x=b`, with uniqueness
+and metric preservation. The curvature is computed from the coefficient as
+`-2/exp(x²)²`, and its values at `0` and `1` are proved unequal. The example
+does not assume constant curvature or use disk-specific transport laws.
+
+## Checked applications and limits
+
+[`Examples/PathTransport.lean`](../../Examples/PathTransport.lean) retains the
+full `coordinate_transport` specialization to the ellipse with actual first
+and second derivatives, the nonconstant radial scale `3/4`, an out-and-back path with duration `1`, a
+positive-duration hold, a full curved loop with transport `-id`, quarter-turn
+derivatives at the apex and a regular point, the ellipse calculation,
+variable-curvature transport, and matrix/frame agreement. A regular quarter
+circle has distinct lifted endpoints and closes with the inverse quarter-turn
+arrow. An apex hold separately demonstrates identity path transport with a
+nonidentity closing symmetry.
+
+All modules are in the public import closure and use the existing foundational
+axiom whitelist. The construction is exact and noncomputable. It provides no
+numerical integrator, floating-point bounds, general atlas descent, arbitrary
+smooth-path existence, or global Mathlib bundle installation. Generalizing
+existence beyond supplied scalar solutions still requires the analytic work
+identified by the assessment; it is not needed for these admitted paths.
+
+## Historical prerequisite assessment
 
 Section A of [#44](https://github.com/VladimirMarko/conaled/issues/44), assessed
 against conaled `871c732bc5774e40ee6bf898fb99259cd8242d43`, Lean 4.35.0 and

@@ -589,5 +589,7 @@ The historical probe was not changed. The original numerical assessment adds no 
 status above lists the subsequent checked results.
 
 The [path-transport prerequisite assessment](path-transport-assessment.md)
-selects a timed radial/circular segment route for #44 and records the pinned
-connection/ODE APIs, coefficient checks, and remaining transport proofs.
+records the pinned connection/ODE APIs and the implemented timed-segment
+transport, coordinate comparisons, curvature examples, and frame observations.
+It distinguishes the proved coordinate results from arbitrary-path and
+general-atlas extensions.
