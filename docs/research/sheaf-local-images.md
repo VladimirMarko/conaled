@@ -1309,3 +1309,19 @@ E-input function can itself be expressed by source abstraction rather than
 appearing in a primitive result interpretation. Source Sigma, identity types,
 universes and smooth/Kock–Lawvere or higher/cohesive structure remain absent.
 This first-order source fragment does not complete #36.
+
+## Site and scalar selection (#73)
+
+The [algebraic KL research note](algebraic-kl-model.md) selects a small code
+category closed under polynomial and dual-number extensions, with all ring
+homomorphisms and the trivial topology. `AlgebraicStage` constructs its scalar,
+square-zero subfunctor, natural ring operations and the affine map into the
+actual `SheafFunction` exponential. A checked dual-extension universal property
+and nonzero-infinitesimal evaluation examples support the next construction:
+prove that this particular affine map is an isomorphism and consume its inverse
+for the squaring derivative. KL invertibility remains unproved in this slice.
+
+This begins #36's model construction while the source-domain extensions listed
+above remain provisional. The note separates this algebraic milestone from a
+well-adapted smooth model, the Mathlib analytic comparison, and Myers's stronger
+higher/cohesive hypotheses. No later model or geometric result is claimed.
