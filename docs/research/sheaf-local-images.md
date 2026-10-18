@@ -1494,3 +1494,11 @@ empty cover are checked. See the
 [construction record](algebraic-kl-model.md#finite-principal-geometric-site-and-subcanonicity-87).
 Geometric sheaf-exponential KL, arbitrary-cover/manifold comparisons,
 well-adaptedness and higher/cohesive obligations remain open. #36 is incomplete.
+
+The #88 geometric KL layer uses this finite-principal topology in
+`SmoothGeometricInfinitesimal` and `SmoothGeometricLocality`: square-zero
+sections glue, and locally extracted derivative coefficients glue by the
+actual scalar sheaf condition. The proper line-cover example and the source
+product-rule consumer are in `Examples.GeometricSyntheticProduct`. The exact
+model/ordinary comparison and remaining smooth-geometric obligations are
+recorded in [the KL model note](algebraic-kl-model.md#geometric-sheaf-kl-and-an-interpreted-product-proof-88).

@@ -1093,3 +1093,58 @@ using the represented infinitesimal and the checked dual presentations to
 identify the actual sheaf exponential. That comparison has not been proved.
 Arbitrary-cover and manifold-embedding results, well-adaptedness, general Weil
 KL and higher/cohesive comparisons also remain open. #36 remains incomplete.
+
+## Geometric sheaf KL and an interpreted product proof (#88)
+
+The finite-principal site now supports first-order KL in its actual sheaf
+exponential. `SmoothGeometricInfinitesimal` constructs the square-zero subtype
+sheaf by scalar gluing and separatedness. `SmoothGeometricRepresentable`
+constructs `D × y(A) ≅ y(dual A)` with naturality in both arguments. Its dual
+code is the finite presentation from #85; `dualToActual` transports sections
+to actual dual numbers. `SmoothGeometricKL.universalValue` evaluates a natural
+map at the universal epsilon after extending its parameter to that code.
+Reconstruction and recovery feed the shared `AffineExponential.iso` theorem.
+The resulting `kl` has the original affine map as its forward arrow, with
+both inverse equations and arbitrary sheaf parameters.
+
+`SmoothGeometricDerivative.derivative` extracts through that inverse.
+Taylor and slope uniqueness quantify over all presentation stages and all
+square-zero elements. `derivative_interpret` identifies it with the analytic
+derivative of every globally smooth unary real function. `derivative_real`
+observes the resulting coefficient through `realValue` at the actual free
+zero-coordinate presentation. `SmoothGeometricComparison` compares universal
+values, coefficients and derivatives with #82 on the common category. The
+specific restricted infinitesimal function object is proved a sheaf through
+its old KL isomorphism to scalar pairs. Its constructed comparison to the
+geometric exponential preserves evaluation and currying. No general
+preservation of exponentials by forgetting or restriction is used.
+
+The existing `SyntheticScalar` source language and product derivation are
+unchanged. `SyntheticScalarSoundness.sound_eval` factors the ring-rule induction
+shared by the old algebraic adapter and `SyntheticScalarGeometric`. Each
+adapter supplies Taylor from its own constructed model. All admitted source
+rules and the separate slope judgment are interpreted. The optional
+`GeometricProductRule.product` invokes that source derivation through soundness;
+ordinary model modules have no source imports. In
+`Examples.GeometricSyntheticProduct`, the coefficient for `exp(x)*exp(x)` comes
+from this theorem. Its ordinary `HasDerivAt` consumer uses that coefficient
+identity and the analytic chain rule for `exp(x+x)`. The same client uses
+ordinary smooth operations, arbitrary parameter substitution, a nonidentity
+nilpotent restriction and the earlier internal/external boundary witnesses.
+`SmoothGeometricLocality` glues the extracted coefficient using actual sieve
+matching and sheaf separatedness; the example instantiates the proper line
+cover from #87.
+
+Kock's [*Synthetic Differential Geometry*, II.4–5 and III.7–8](https://users-math.au.dk/kock/sdg99.pdf)
+distinguishes generalized-element exponential semantics from the additional
+open-cover and smooth-embedding obligations of well-adapted models. The local
+construction above establishes the first-order geometric KL chain for the
+finite-cover topology. Arbitrary covers, a manifold embedding and its
+well-adaptedness properties, general Weil objects, higher identity structure,
+cohesion and the Myers orbifold comparison remain unproved. This does not
+complete #36.
+
+Recommended next construction: extend scalar descent to arbitrary
+point-covering families of principal opens of finite smooth presentations,
+retaining quotient/nilpotent information. That would address the finite-cover
+limitation before claiming the smooth manifold embedding.

@@ -1,4 +1,4 @@
-import SquareKit.Internal.SyntheticScalar
+import SquareKit.Internal.SyntheticScalarSoundness
 import SquareKit.AlgebraicDerivative
 
 /-! Experimental interpretation of every synthetic scalar rule in the
@@ -28,19 +28,9 @@ No source product rule or desired equality is required from the assignment. -/
 theorem sound {n} (ρ : Assignment n) (A : Stage) (x : Carrier A)
     (d : infinitesimal.obj.obj (atStage A)) {a b : Expr n} (h : Derives a b) :
     Expr.eval (atom ρ A x d) a = Expr.eval (atom ρ A x d) b := by
-  induction h with
-  | refl _ => rfl
-  | symm _ ih => exact ih.symm
-  | trans _ _ ih ij => exact ih.trans ij
-  | add _ _ ih ij => exact congrArg₂ (·+·) ih ij
-  | mul _ _ ih ij => exact congrArg₂ (·*·) ih ij
-  | neg _ ih => exact congrArg Neg.neg ih
-  | ring hc => rw [Expr.eval_polynomial, Expr.eval_polynomial, hc]
-  | nilsquare => simpa [Expr.eval, atom] using d.property
-  | taylor f => exact AlgebraicDerivative.taylor (map ρ f) A x d
-  | base_add f g => rfl
-  | base_mul f g => rfl
-  | shifted_mul f g => rfl
+  exact sound_eval (atom ρ A x d) d.property
+    (fun f => AlgebraicDerivative.taylor (map ρ f) A x d)
+    (fun _ _ => rfl) (fun _ _ => rfl) (fun _ _ => rfl) h
 
 /-- Unique slopes are interpreted with the inverse of the proved KL map.
 This quantifies all stages and all infinitesimals, never cancelling one d. -/

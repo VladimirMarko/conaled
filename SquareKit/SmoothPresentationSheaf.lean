@@ -64,6 +64,6 @@ theorem yoneda_isSheaf (B : Site) : Presieve.IsSheaf topology (yoneda.obj B) :=
 instance : topology.Subcanonical := GrothendieckTopology.Subcanonical.of_isSheaf_yoneda_obj topology yoneda_isSheaf
 
 /-- The scalar is an object of the actual generated-topology sheaf category. -/
-def scalar : Sheaf topology Type := ⟨scalarData,(isSheaf_iff_isSheaf_of_type _ _).mpr scalar_isSheaf⟩
+abbrev scalar : Sheaf topology Type := ⟨scalarData,(isSheaf_iff_isSheaf_of_type _ _).mpr scalar_isSheaf⟩
 
 end SquareKit.SmoothPresentationSite

@@ -104,6 +104,7 @@ import Examples.SmoothLocalizationOpen
 import Examples.SmoothFormalLocalization
 import Examples.SmoothPrincipalDescent
 import Examples.SmoothGeometricSite
+import Examples.GeometricSyntheticProduct
 import Examples.JetScan
 import Examples.MatrixStack
 import Examples.Run
