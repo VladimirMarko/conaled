@@ -1,3 +1,4 @@
+import Examples.FRPTrace
 import Examples.FRPFrontier
 import Examples.FRP
 import Examples.FullSourceNaturality

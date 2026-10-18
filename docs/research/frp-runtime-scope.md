@@ -233,3 +233,12 @@ axioms restricted to `propext`, `Classical.choice`, and `Quot.sound`. Existing
 module-system migration warnings remain; the new modules build without warnings.
 The four audit regression cases also passed: unused external axiom, private
 transitive forbidden axiom, private admission, and source unsafe declaration.
+
+## Two-source trace extension
+
+The [#29 trace experiment](frp-traces.md) now supplies ordered two-source traces,
+observation persistence, interleaving agreement, and conditional progress under
+explicit source advancement, availability, and fair-processing assumptions.
+The preceding unimplemented-trace statements describe the original protocol
+slice. The extension retains its boundaries around phase evaluation, switching,
+and general graph scheduling.
