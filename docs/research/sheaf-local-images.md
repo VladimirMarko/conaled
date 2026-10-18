@@ -1,10 +1,12 @@
 # Sheaf-local existential images
 
-This experimental development implements [#51](https://github.com/VladimirMarko/conaled/issues/51)
-and [#52](https://github.com/VladimirMarko/conaled/issues/52) within the
+This experimental development implements
+[#51](https://github.com/VladimirMarko/conaled/issues/51),
+[#52](https://github.com/VladimirMarko/conaled/issues/52),
+and [#53](https://github.com/VladimirMarko/conaled/issues/53) within the
 internal-language workstream. It supplies local existential images, their
-Frobenius law, and finite applications and counterexamples. It does not supply a sheaf interpreter
-for the source language or complete #36.
+Frobenius and Beck–Chevalley laws, and finite applications and counterexamples.
+It does not supply a sheaf interpreter for the source language or complete #36.
 
 ## Public interface and caller obligations
 
@@ -106,6 +108,61 @@ does not in general preserve existential images. This does not refute the
 presheaf evaluation theorem, either existing soundness theorem, or a source
 rule. No reflection theorem or full sheaf-language soundness follows.
 
+## Substitution along sheaf pullbacks
+
+[SquareKit/SheafBaseChange.lean](../../SquareKit/SheafBaseChange.lean) proves
+`beckChevalley` for a Mathlib `IsPullback g' f' f g` square:
+
+```text
+A' --g'--> A
+ |         |
+f'         f
+ |         |
+v          v
+B' --g---> B
+```
+
+For any subfunctor Q on A, the equality is
+
+```lean
+(localImage Q f).preimage g.hom = localImage (Q.preimage g'.hom) f'
+```
+
+Callers supply the actual categorical pullback proof. `sections_isPullback`
+maps it through `sheafToPresheaf` and evaluation, using Mathlib's limit
+preservation instances. It introduces no sectionwise lifting assumption.
+On each arrow of a witnessing covering sieve, the sectionwise pullback pairs
+a Q witness with the restricted B' section. The reverse inclusion projects
+that witness and uses commutativity and naturality. Neither direction asks
+local witnesses to agree on overlaps. `beckChevalley_isSheaf` proves closure
+of both predicates using existing image and inverse-image closure; it does
+not even need the square to be a pullback. All three universes remain
+independent, and Q need not be closed.
+
+[Examples/SheafBaseChange.lean](../../Examples/SheafBaseChange.lean) constructs
+the constant Bool sheaf D. Every cover contains an arrow from W, and family
+compatibility forces the Bool values to coincide there; `bool_isSheaf` proves
+the gluing and uniqueness obligations. Its map `base : D → 1` identifies
+false and true at X (`base_not_injective`). Mathlib's chosen pullback of
+E → 1 along this map is a sheaf by the existing sheaf limit machinery.
+`productSections` identifies its sections with E sections paired with Bool;
+the projection and naturality theorems connect this explicit representation
+to the categorical square.
+
+`baseChanged_top` uses the general Beck–Chevalley theorem and the original
+top image calculation. Hence every Bool section at X belongs locally to the
+base-changed image (`locally_at_X`). `no_pointwise_at_X` projects any alleged
+global witness to the forbidden original E section and reuses
+`no_pointwise_witness`. For the source predicate pulled back from `selective`
+along E → 1, `baseChanged_selective` combines Beck–Chevalley with the earlier
+Frobenius computation. Its checked consequences admit both Bool values at U
+and exclude both at V and X. These computations use the public laws rather
+than proving a separate finite version of local existential image.
+
+The new reusable module has no internal-syntax dependency. The example keeps
+an ordinary graph calculation beside the sheaf constructions. Existing graph,
+relation, interval and presheaf clients gain no new arguments or obligations.
+
 ## Statement review and retained cases
 
 The universal claims quantify over all sections and restrictions, with no
@@ -141,13 +198,19 @@ pointwise image. Its proof is a semantic theorem about arbitrary sheaf
 morphisms. There is no sheaf formula interpretation here, and existing source
 derivability or presheaf validity does not supply sheaf soundness.
 
-The next bounded slice should prove Beck–Chevalley for local images along
-pullback squares of type-valued sheaves, with a checked finite application.
-This would establish the substitution law needed for existential predicates
-before choosing context and formula representations. Frobenius supplies the
-conjunction law but does not establish this pullback law.
+Beck–Chevalley now supplies the semantic law for substituting into an
+existential predicate when context extension gives a pullback square. It
+establishes neither a source formula interpretation nor a soundness theorem.
+The finite counterexample to objectwise preservation of existential truth
+continues to apply.
+
+The next bounded slice should construct sheaf contexts and term/substitution
+maps for the existing regular signature, proving that substitution along a
+single-variable context extension gives a categorical pullback. That would
+connect the general substitution law to the actual contexts used by the
+source language, before adding the full closed-predicate interpretation.
 
 A full sheaf adapter still needs a closed-predicate interpretation of equality
-and relations, sheaf contexts and substitution, and soundness of every admitted
+and relations, the context and substitution construction, and soundness of every admitted
 source rule. Choices about geometric sites, scalar objects, smoothness, SDG,
 higher identities and cohesion remain outside this finite test case.

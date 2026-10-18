@@ -1,4 +1,5 @@
 import Examples.SheafImage
+import Examples.SheafBaseChange
 import Examples.Frobenius
 import Examples.PresheafInternal
 import Examples.TimedMotion
