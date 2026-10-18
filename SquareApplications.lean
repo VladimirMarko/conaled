@@ -1,3 +1,4 @@
+import Examples.SheafSliceFunctions
 import Examples.SheafSlices
 import Examples.DependentBaseChange
 import Examples.SheafImage

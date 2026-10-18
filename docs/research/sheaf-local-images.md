@@ -921,3 +921,60 @@ dependent products. Comparison with the earlier chosen products, source
 dependent typing, identity elimination, universes, smooth scalars/sites,
 Kock–Lawvere, higher identities and cohesion remain separate obligations.
 The slice presentation does not complete #36.
+
+## Cartesian closure of arbitrary sheaf slices (#67)
+
+The experimental `SheafSliceFunction.closed` constructs cartesian closure of
+`Over Γ` for every sheaf Γ on a site with objects in `Type u`, arrows in
+`Type v` and sections in `Type (max u v)`. It transports the existing
+sheaf closure along `SheafSlice.equivalence Γ` using Mathlib's
+`cartesianClosedOfEquiv`. Mathlib's local `Over.cartesianMonoidalCategory`
+adapter uses the existing chosen family pullbacks. The public `adjunction`
+instead has the ordinary chosen slice-product functor as its left adjoint;
+`productAdapter` compares these products with the pullback tensor and
+preserves both projections. These instances stay local to the implementation.
+No caller supplies slice closure, and no existing limit choice is replaced.
+
+The public right adjoint, exponential, hom equivalence, evaluation and
+curry/uncurry retain morphisms over Γ. Beta, eta, parameter substitution and
+result naturality come from the constructed adjunction. `familyProduct`
+identifies the underlying ordinary slice product with the existing pullback;
+its projection equations use `Family.comparison` and `Family.reindex`.
+The construction therefore accepts the existing dependent-family displays.
+
+`productComparison` takes the slice product to the explicit pair sheaf on the
+element site, preserving its two projections. `exponentialComparison` is a
+natural isomorphism whose forward map is Mathlib's canonical mate of product
+comparison. Its invertibility follows from the full faithful equivalence and
+product preservation. `ClosedComparison.curry_compare` proves the missing
+generic curry compatibility for that mate using Mathlib's evaluation and
+naturality laws. The sheaf-slice curry, uncurry and evaluation comparisons
+then use these same maps, including the adapters between chosen products.
+`evaluation_curry_apply` exposes their component equation without identifying
+exponential sections with pointwise functions. The element-site and ordinary
+sheaf monoidal presentations are definitionally compatible; explicit instance
+arguments keep instance search from treating their different presentations as
+additional assumptions.
+
+`Examples.SheafSliceFunctions` takes the false-point display as argument and
+`D × D → D` as result and parameter family. Evaluation returns either Boolean
+parameter value on the inhabited false fiber; the true argument fiber remains
+empty. Negating the parameter value preserves its base, and evaluation after
+currying its substitution returns the negated value. The nonconstant argument
+`E × D → D` retains E's distinct W-restrictions through the earlier public
+fiber comparisons. Two constant maps reuse the earlier E-to-D maps, curry in
+the actual slice, and pass through the new exponential comparison. Their
+sections at `(X,b)` are distinct: restriction to `(W,b)` followed by evaluation
+distinguishes false and true. The argument fiber at `(X,b)` is empty, so its
+pointwise function type is a singleton. The resulting impossibility of a
+pointwise-function equivalence is also transported back to the actual slice
+exponential's fiber. This checks the sheaf function space used by the
+construction, including its natural restriction data.
+
+One next bounded slice is to construct the right adjoint to pullback along an
+arbitrary sheaf map from these slice exponentials, comparing its constant
+families and evaluation with the existing terminal and projection products.
+The current slice-product right adjoint does not yet provide that arbitrary-map
+pullback adjunction. Its canonical Beck–Chevalley specialization, source
+dependent typing, identity elimination, universes, smooth/Kock–Lawvere models,
+higher identities and cohesion remain separate obligations. #36 remains open.
