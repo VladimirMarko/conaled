@@ -1,4 +1,5 @@
 import SquareKit.SmoothAlgebra
+import SquareKit.SmoothDualExtension
 import Applications.AD.SmoothSquareZero
 import Applications.AD.SmoothSecondStage
 
@@ -7,13 +8,7 @@ noncomputable section
 namespace Applications.AD.SmoothAlgebras
 open SquareKit.SmoothAlgebra
 
-instance realStructure : Structure ℝ where
-  act f z := f.val z
-  projection _ _ := rfl
-  substitute _ _ _ := rfl
-  constant _ _ _ := rfl
-  addition _ := rfl
-  multiplication _ := rfl
+abbrev realStructure : Structure ℝ := SquareKit.SmoothAlgebra.realStructure
 
 instance squareZeroStructure {V : Type*} [AddCommGroup V] [Module ℝ V]
     [Module ℝᵐᵒᵖ V] [IsCentralScalar ℝ V] : Structure (TrivSqZeroExt ℝ V) where
@@ -52,5 +47,14 @@ def project : Hom SecondStage.Stage (DualNumber ℝ) where
 def reparam (a b : ℝ) : Hom SecondStage.Stage SecondStage.Stage where
   toFun := SecondStage.reparam a b
   map_act := SmoothSecondStage.reparam_act a b
+
+
+/-- The named arbitrary-base structure agrees exactly with the existing real dual instance. -/
+theorem dual_structure_comparison :
+    DualExtension.smoothStructure (A := ℝ) = (inferInstance : Structure (DualNumber ℝ)) := rfl
+
+theorem extended_dual_act {n : ℕ} (f : Operation n) (z : Fin n → DualNumber ℝ) :
+    DualExtension.operation f z = SmoothDual.act f z := by
+  exact (dual_act f z)
 
 end Applications.AD.SmoothAlgebras

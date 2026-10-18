@@ -22,6 +22,15 @@ class Structure (A : Type*) [CommRing A] [Algebra ℝ A] where
 
 export Structure (act)
 
+instance realStructure : Structure ℝ where
+  act f z := f.val z
+  projection _ _ := rfl
+  substitute _ _ _ := rfl
+  constant _ _ _ := rfl
+  addition _ := rfl
+  multiplication _ := rfl
+
+
 variable {A B C D : Type*} [CommRing A] [Algebra ℝ A] [Structure A]
   [CommRing B] [Algebra ℝ B] [Structure B] [CommRing C] [Algebra ℝ C] [Structure C]
   [CommRing D] [Algebra ℝ D] [Structure D]

@@ -1410,3 +1410,13 @@ to ℝ and an exponential consumer. See the
 [construction record](algebraic-kl-model.md#smooth-hadamard-factorization-and-ordinary-quotients-80).
 Infinitesimal presentations/coproducts, smooth site/descent, smooth KL and the
 higher/cohesive target remain open; #36 remains incomplete.
+
+### Smooth infinitesimal coproduct (#81)
+
+Actual Hadamard remainders now prove nilsquare Taylor in arbitrary smooth
+algebras. Their actual dual-number extensions have smooth operations and the
+universal mapping/coproduct property with the real dual algebra. The principal
+presentation `Free 1/(x²)` is identified with that algebra through smooth inverse
+maps. See the [construction record](algebraic-kl-model.md#smooth-dual-extensions-and-their-universal-maps-81).
+A small smooth site, categorical smooth KL and the higher/cohesive target remain
+open; #36 remains incomplete.
