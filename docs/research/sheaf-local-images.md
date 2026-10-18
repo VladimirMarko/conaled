@@ -1091,3 +1091,79 @@ here. Split dependent function and sum formation, identity and universe
 structure, and smooth/Kock–Lawvere or higher/cohesive models remain subsequent
 work. The ordinary arbitrary-map dependent product API remains available.
 #36 remains open.
+
+## Dependent structural source syntax and soundness (#70)
+
+`Internal.DependentStructural` adds an experimental source fragment independent
+of sheaves and native environments. Base expressions are finite trees built
+from variables, a named zero and a named unary operation. Types are B or A(b)
+for such an expression b. Telescopes may interleave B extensions and dependent
+A(b) extensions. Dependent expressions are finite variable paths or a named
+point of A(zero). Substitutions assign source expressions to the finitely many
+base variables and dependent paths, with a certificate equating their source
+types. These finite assignments use Lean functions as their representation;
+no function or semantic map is a constructor of a derived source term.
+
+Substitution normalizes expressions and assignments. `BaseEq`, `DepEq`,
+`TyEq`, `TmEq` and `SubEq` are separate source equality judgments. Their
+primitive rules are reflexivity, symmetry and transitivity for expressions,
+unary-operation congruence, and variablewise assignment congruence;
+type and typed-term judgments lift these expression rules. Equivalence and
+substitution congruence at the other sorts are derived. Conversion uses literal
+equality of normalized source type codes, with explicit transport and its
+composition law. Identity/composition, projection/variable beta and
+comprehension eta follow from the normalization operations. In particular,
+`pairing_naturality` derives composition of a dependent pairing from assignment
+congruence and reflexivity; there is no primitive pairing-naturality rule.
+There are no equations for the named unary operation. Boolean double negation
+is therefore not silently introduced as a source equality.
+
+The interpreter supplies only primitive sheaf data: B, a split family A over
+B, a zero section, a unary B-map, and a point over zero. The last field's
+display equation checks the primitive point's type. Callers supply no
+structural soundness equations. Context interpretation recursively constructs
+#69's actual total sheaves. Base extension uses the split presentation of
+B's terminal display; dependent extension uses A reindexed along the
+interpreted base expression. `realize` constructs the sheaf map of every
+well-typed assignment and proves its equations on all source variables.
+Context extensionality then proves interpretation of identity/composition.
+Types interpret as `SplitSheaf.Ty`, and terms as natural sections.
+
+`DependentSheafSoundness` interprets every source equality rule. Its literal
+intermediate equality concerns source trees and finite assignments, not
+semantic observations. Type substitution has a proved equality; term
+substitution and source conversion use explicit coherent transport along it.
+Projection, generic variable and pairing agree with the split comprehension
+operations. The derived source pairing theorem is sent through general
+soundness, then through #69's natural-term/pullback comparison to an equality
+of ordinary `Family.pair` maps. `Examples.DependentSourceNative` continues the
+same proof through `SplitNative.pairing` to native `DependentSquares.extend`
+at each stage. The native functions are evaluations of constructed natural
+maps; arbitrary stage functions are not asserted to be sheaf terms. The same
+file also uses direct native and ordinary family operations without wrappers.
+
+The diamond interpretation takes B = D and A to be the false-point family.
+The source proof uses an extended context with a variable of A(neg b), a
+substitution negating b, and another dependent weakening. A constructed natural
+section of this context has base true and its dependent value over false;
+the interpreted variable recovers that value. The source unary operation
+computes Boolean negation. Any closed source term of A(neg zero) would
+interpret to the empty true fiber, giving a checked impossibility theorem.
+The same source derivation also interprets with the E-to-E function sheaf as
+the family fiber and its natural identity section as the primitive point.
+Evaluation retains E's distinct false/true overlap restrictions. This reuses
+the derivation with nonconstant E data without postulating a global E section
+or introducing source function-space rules.
+
+Ordinary semantic modules do not import this source layer. Its notation is
+opt-in and introduces no global notation or instances. Existing regular
+syntax and clients are unchanged. Intermediate elaboration problems involved
+proof transports and reduction of context extensions; explicit equations and
+recursion on target telescopes resolved them without heartbeat changes.
+
+One next bounded slice is split dependent-product formation, application and
+substitution comparison using the ordinary arbitrary-map Pi and canonical
+Beck–Chevalley results. This would supply the stable semantic operations
+needed before dependent function rules enter the source fragment. Source
+Pi/Sigma formation, identity types, universes and smooth/Kock–Lawvere or
+higher/cohesive structure remain absent. #36 remains open.

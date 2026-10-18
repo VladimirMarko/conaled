@@ -1,3 +1,5 @@
+import Examples.DependentSource
+import Examples.DependentSourceNative
 import Examples.SplitSheafFamilies
 import Examples.SplitNative
 import Examples.DependentProducts
