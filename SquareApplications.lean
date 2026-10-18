@@ -1,3 +1,4 @@
+import Examples.DiskRealizations
 import Examples.OrbifoldComparison
 import Examples.ClosedTransport
 import Examples.FRPDemand

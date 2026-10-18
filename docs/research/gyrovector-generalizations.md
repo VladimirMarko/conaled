@@ -3,8 +3,8 @@
 Assessment for [#33](https://github.com/VladimirMarko/conaled/issues/33),
 2026-10-18. This develops Response 2 of the
 [historical chat](../history/orbifold/orbifold-simulator-chat.md).
-It proposes implementation boundaries; it adds no Lean geometry or checked
-formal claims. Paper theorems, Isabelle proofs, mathematical arguments in this
+The assessment proposes implementation boundaries. The implementation status
+below records the subsequent checked geometry. Paper theorems, Isabelle proofs, mathematical arguments in this
 note, and the Python probe have different proof status.
 
 The recommended first implementation is exact framed motion in the disk,
@@ -24,6 +24,65 @@ presentation descent and ineffective isotropy remain separate from a motion's
 scalar redundancy. These conventional results are future comparison targets
 for #36's constructed internal model, which remains a project goal.
 
+
+## Experimental implementation (#39)
+
+[ProjectiveMotion](../../Applications/Orbifold/ProjectiveMotion.lean) constructs
+positive similitudes of a complex sesquilinear form as a subgroup of linear
+equivalences, then quotients by the central subgroup of nonzero scalars.
+Mathlib's group quotient supplies identity, composition and inverse. Its
+projectivization action restricts to negative lines and descends to motions.
+`ratio_preserved` proves preservation of the two-point invariant ratio;
+`ratio_eq` and `vectorRatio_smul` establish representative independence.
+
+[StandardForm](../../Applications/Orbifold/StandardForm.lean) supplies the
+Hermitian form `conj(v₀)w₀-conj(v₁)w₁`, positive and negative vectors, and a
+quarter-turn that moves the line through `(1/2,1)`. Scaling by two changes
+vectors but gives the identity motion. These cases consume the public quotient
+and action constructions. The generic algebra requires no signature assumption;
+callers choosing another form must establish the intended geometric signature.
+Composition applies the right operand first. These are exact noncomputable
+real/complex semantics, with no executable numerical or rounding claim.
+
+[Disk](../../Applications/Orbifold/Disk.lean) proves the negative-line/open-disk
+equivalence, including the nonzero denominator and its inverse. The standard
+form is proved nondegenerate. [Similitude matrices](../../Applications/Linear/Similitude.lean)
+restrict Mathlib's arbitrary-basis decoder by the identity `A† J A = c J`.
+The preservation correspondence and inverse encoding laws hold before scalar
+quotienting. Identity, multiplication, inverse and represented point application
+have squares; the multiplication square is the vertical paste of the linear
+and projective layers. Basis changes give `C⁻¹ A C` and `C† J C`, and nonzero
+scalar rescaling preserves the decoded motion.
+
+[Pose](../../Applications/Orbifold/Pose.lean) defines gyroaddition and its
+rotation correction independently of matrix multiplication. `matrix_comp`
+proves the non-unit normalization factor, `motion_comp` proves common projective
+meaning, and `motion_injective` recovers raw pose equality from that meaning.
+The Möbius derivative and the curvature -1 frame convention satisfy `frame_comp`.
+[MatrixDisk](../../Applications/Orbifold/MatrixDisk.lean) derives the matrix
+fractional-linear action and its derivative, proves denominator validity, and
+compares tangent actions for any certified representative decoding to a pose.
+These tangent maps are derivatives of motions, not parallel transport along
+chosen trajectories.
+
+[QuarterTurn](../../Applications/Orbifold/QuarterTurn.lean) reuses the conventional
+C4 disk action and its apex/regular stabilizers. Its pose action is free.
+Prescribed right increments descend to orbits with identity and composition
+laws; the action-groupoid functor retains symmetry labels. The `1/5`
+counterexample checks both equal input orbits and unequal output orbits.
+[DiskRealizations](../../Examples/DiskRealizations.lean) synchronizes the matrix
+and gyro multiplication squares and proves agreement for arbitrary finite
+compositions and frames. Retained cases swap the positive and negative basis
+vectors, rescale by two, and use displacement `1/5` with turn `i`.
+
+Callers supply certified matrix or pose domains, a basis for a matrix realization,
+and a full frame when specifying body increments. Matrix normalization is
+unnecessary. The abstraction does not classify all orientation-preserving
+hyperbolic isometries, formalize a metric/connection or parallel transport,
+or prove a discretization/rounding bound. General orbifold atlases, ineffective
+symmetry, presentation descent and a simulator remain outside this experiment.
+Scalar redundancy in a motion and finite symmetry identification of points
+are separate quotients.
 
 ## Source comparison and hypotheses
 
@@ -277,9 +336,10 @@ all of them.
 
 ## Exact disk realizations and shared law transport
 
-The following are mathematical calculations and proposed Lean obligations,
-not new checked results. The proposed semantic types describe geometric
-points and motions; coordinates and storage belong to their realizations.
+This section records the design that preceded #39. Its disk constructions
+now have the checked implementations listed above; the Lorentz, connection
+and numerical-error extensions remain proposals. The semantic types describe
+geometric points and motions; coordinates and storage belong to realizations.
 
 ### Geometric types before coordinates
 
@@ -351,9 +411,9 @@ specification data; a concrete matrix implementation need not store them.
 The pinned Mathlib also supplies the
 [sesquilinear-form/matrix correspondence](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/LinearAlgebra/SesquilinearForm/Star.lean)
 and a [linear group action on projectivization](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/LinearAlgebra/Projectivization/Action.lean).
-The remaining geometric proofs include negative-line preservation, scalar
-descent, and the disk/frame comparison. These existing ingredients do not
-already constitute that construction.
+These Mathlib ingredients supplied the starting point. `ProjectiveMotion`,
+`Disk`, `Pose` and `MatrixDisk` now prove negative-line preservation, scalar
+descent and the disk/frame comparison.
 
 Preserve only the operations closed on the motion carrier. Adding two valid
 motion matrices can produce a singular matrix, so the matrix backend's
@@ -429,21 +489,17 @@ existing interfaces:
 | Agreement of independent realizations | [`synchronized`, `synchronize`](../../SquareKit/Combinators.lean), or [`Comma.Exact.agreement`, `agree_comp`](../../SquareKit/CommaAgreement.lean), with the same semantic operation on both sides. |
 | Explicit identification arrows | Mathlib action groupoids and functors, adapted through `RawMap.ofFunctor`; retain labels rather than inducing arrow equivalence from coarse position observations. |
 
-The missing work is proving disk closure, faithful decoding, preservation,
-and equivariant action-groupoid adapters for this geometry. A new
-geometry-specific square or law-transport hierarchy would duplicate the shared
-foundation. General smooth
-presentation equivalence and descent still need more than a commuting square.
+The implementation now proves disk closure, faithful pose decoding,
+preservation and equivariant action-groupoid adapters using the shared
+foundation. General smooth presentation equivalence and descent remain
+outside this construction and require more than a commuting square.
 
-The first proof slice should connect a basis-indexed realization of the
-preservation subtype to abstract linear equivalences, then compose its decoder
-with the scalar quotient and point action. Retain a nontrivial change-of-basis
-case and a scalar-rescaling case: they must decode to the same motion even
-when their matrices differ. The disk specialization should establish the
-displayed similitude identity for every admissible `(a,u)`, including the
-quarter-turn at the origin, and prove agreement of both realizations for
-composed motions and their frame actions. This tests abstraction, representation
-independence, and the singular example through the same interfaces.
+The implemented realization connects certified matrices to abstract linear
+equivalences and then the scalar quotient and point action. The retained basis
+swap and non-unit scalar case consume the general preservation results. The
+disk specialization proves the displayed similitude identity for every
+admissible `(a,u)` and agreement of independently composed matrices and poses,
+including their frame actions.
 
 There are three separate contracts. Exact coordinate and projective-matrix
 realizations preserve the same ideal finite step. Approximating continuous
@@ -498,8 +554,10 @@ Then `a⊕a=5/13`, while `a⊕(-a)=0`. The second arguments represent the same
 orbit, but the outputs do not. The same counterexample works for `C₄`, since
 a nonzero point cannot lie in the zero orbit. Simultaneous equivariance
 `γ(a⊕b)=(γa)⊕(γb)` therefore does not imply independent-representative
-invariance. These rational calculations and the stabilizer argument are
-mathematical evidence, not checked Lean results.
+invariance. `QuarterTurn.quotient_addition_values`, `second_inputs_same_orbit`
+and `addition_outputs_different_orbits` now check the C₄ counterexample in
+Lean. The reused conventional C₄ action supplies the checked apex and
+regular-point stabilizer results.
 
 ### Variable curvature limits the homogeneous and post-Lie routes
 
@@ -527,5 +585,5 @@ Changing position alone during relabeling produced the deliberately failing
 residual `0.11224`; position-only associativity had sampled defect `0.18139`.
 These are reproducible floating-point observations in the sampled region.
 They establish neither universal identities nor intrinsic error bounds.
-The historical probe was not changed. This assessment adds no Lean claims;
-the shared SquareKit results cited above are the existing checked results.
+The historical probe was not changed. The original numerical assessment adds no Lean claims. The implementation
+status above lists the subsequent checked results.
