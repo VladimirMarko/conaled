@@ -266,7 +266,105 @@ all of them.
 ## Exact disk realizations and shared law transport
 
 The following are mathematical calculations and proposed Lean obligations,
-not new checked results. They fix the conventions of the preserved
+not new checked results. The proposed semantic types describe geometric
+points and motions; coordinates and storage belong to their realizations.
+
+### Geometric types before coordinates
+
+For this homogeneous slice, take a complex vector space `V` of dimension two
+with a nondegenerate Hermitian form `H` of signature `(1,1)`. A point is a
+negative complex line in `V`: a projective class `[v]` with `H(v,v) < 0`.
+The sign is independent of the nonzero representative because
+`H(λv,λv)=|λ|² H(v,v)`. In a basis where the form is
+`H(v,w)=conjugate(v₀)w₀-conjugate(v₁)w₁`, the chart
+`[v] ↦ v₀/v₁` gives the disk. Negativity ensures `v₁ ≠ 0`.
+The standard negative-line construction and projective unitary action are
+described in [Parker, §§2.2 and 3.3](https://www.maths.dur.ac.uk/users/j.r.parker/img/NCHG.pdf);
+here we specialize the construction to signature `(1,1)`.
+
+Define the proposed motion carrier as projective classes of complex linear
+equivalences `L : V ≃ₗ[ℂ] V` satisfying
+
+```text
+∃ c : ℝ, 0 < c ∧ ∀ v w, H(L v,L w) = c H(v,w).
+L ~ L'  iff  L' = λ • L for some nonzero complex λ.
+```
+
+These are positive Hermitian similitudes modulo scalars. Composition multiplies
+the positive factors, inversion reciprocates them, and scalar multiplication
+changes the factor by `|λ|²`. They therefore act on negative lines by
+`[L] • [v] = [L v]`. The invariant ratio
+`|H(v,w)|² / (H(v,v) H(w,w))` is preserved, giving the hyperbolic distance
+contract after choosing the curvature `-1` normalization. This specifies
+the orientation-preserving motion model; identifying it with all
+orientation-preserving hyperbolic isometries is a separate completeness
+theorem. Complex-antilinear maps would be needed to include reflections.
+
+The useful public operations are identity, composition, inverse, point
+action, and the induced frame action. A lifted pose can be recovered as the
+image of a chosen reference frame. The scalar quotient here removes redundant
+linear representatives of one motion. The orbifold identification by `Γ`
+is a later, different quotient whose symmetry arrows must remain explicit.
+
+### Families of realizations
+
+For each finite basis `β`, let `Jβ` represent `H`. A matrix realization has
+invertible matrices `A` with `A* Jβ A = c Jβ` for some `c > 0`, where `A*`
+is conjugate transpose. Its decoder first uses `Matrix.toLin β β`, then
+takes the projective class of the resulting similitude. This is the
+coordinate expression of the abstract preservation property. It need not
+be the public definition of a motion.
+
+```text
+certified matrices in basis β → Hermitian similitudes → projective motions
+gyro-plus-rotation coordinates ───────────────────────→ projective motions
+```
+
+These arrows form successive exact representation layers. Before projective
+quotienting, a basis gives an equivalence between the certified matrices and
+the abstract similitudes. After quotienting, decoding is intentionally
+many-to-one. A change of basis, with `C` taking new coordinates to old ones,
+changes `A` to `C⁻¹ A C` and `J` to `C* J C`, preserving the decoded motion.
+No preferred basis or matrix normalization belongs in the geometric interface.
+
+Use [`MatrixBackend`](../../Applications/Linear/Matrix.lean)'s existing
+matrix-to-linear-map squares for the coordinate-vector case. Mathlib's
+[`Matrix.toLin` and `LinearMap.toMatrix`](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/LinearAlgebra/Matrix/ToLin.lean)
+provide the arbitrary-basis version, with inverse and composition theorems.
+Restrict those decoders to the preservation subtypes and prove closure of
+the operations. Then use `Squares.Rep.after` and `Squares.vertical` to
+compose with projective motion semantics. The intermediate linear maps are
+specification data; a concrete matrix implementation need not store them.
+
+The pinned Mathlib also supplies the
+[sesquilinear-form/matrix correspondence](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/LinearAlgebra/SesquilinearForm/Star.lean)
+and a [linear group action on projectivization](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/LinearAlgebra/Projectivization/Action.lean).
+The remaining geometric proofs include negative-line preservation, scalar
+descent, and the disk/frame comparison. These existing ingredients do not
+already constitute that construction.
+
+Preserve only the operations closed on the motion carrier. Adding two valid
+motion matrices can produce a singular matrix, so the matrix backend's
+addition square and its full linear compiler cannot be inherited wholesale.
+Composition, identity, inverse, and action are the relevant contracts.
+`Squares.product` still combines represented inputs, for example a motion
+and a point; it does not assert closure under matrix addition.
+
+Gyro-plus-rotation is another exact realization of these motions. A real
+Lorentz realization would instead use sheet- and orientation-preserving
+isometries of a quadratic space of signature `(2,1)`, then choose a basis for
+real matrices. Mathlib's
+[`QuadraticMap.IsometryEquiv`](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/LinearAlgebra/QuadraticForm/IsometryEquiv.lean)
+already expresses the form-preserving linear equivalence. The sheet/orientation
+restrictions and its comparison with projective motions remain obligations.
+That comparison is between geometric models, not a change of basis between
+complex two-dimensional and real three-dimensional spaces. Storage layouts
+or factored products can supply further realizations once their decoding and
+operation laws are proved. No numerical performance ranking is implied.
+
+### Disk coordinates as a specialization
+
+The following formulas fix the conventions of the preserved
 [probe](../history/orbifold/orbifold_gyro_probe.py).
 Let `D = {z : ℂ | |z| < 1}` and let a pose be `(a,u) ∈ D × U(1)`, denoting
 
@@ -283,15 +381,19 @@ because the product of the relevant norms is less than one. The identity
 `1-|a⊕b|² = (1-|a|²)(1-|b|²)/|1+conjugate(a)b|²` proves disk closure;
 the numerator of `gyr` is the conjugate of its denominator, proving unit norm.
 The matrix determinant is `u(1-|a|²)`, hence nonzero. Direct multiplication
+also gives `M(a,u)† J M(a,u) = (1-|a|²) J` for `J=diag(1,-1)`,
+where `†` denotes conjugate transpose. Thus the probe's matrix
+represents a positive Hermitian similitude. It generally does not preserve
+`J` with scale exactly one; the projective semantics makes that normalization
+unnecessary. Matrix multiplication
 gives `M(p) M(q) = λ M(p⋆q)`, where
 `λ = 1+conjugate(a) u b ≠ 0`. Thus matrix multiplication preserves the same
 action **projectively**, rather than as equality of these normalized matrices.
-The matrix carrier must be restricted to these disk automorphisms or their
-nonzero scalar multiples; arbitrary invertible complex matrices need not
-preserve `D`.
+The preservation certificate supplies the required restriction; arbitrary
+invertible complex matrices need not preserve `D`.
 
-The common semantics can initially be disk automorphisms under composition.
-Prove `δ(p⋆q)=δ(p)∘δ(q)` and the analogous projective-matrix law. Equality
+Prove that both realizations decode to the projective motions above and that
+their induced disk action satisfies `δ(p⋆q)=δ(p)∘δ(q)`. Equality
 of actions gives semantic associativity. To obtain literal equality of pose
 pairs, also prove faithfulness: evaluation at zero recovers `a`, and the
 derivative there is `u(1-|a|²)`, recovering `u`. A point observation alone
@@ -316,9 +418,20 @@ existing interfaces:
 | Explicit identification arrows | Mathlib action groupoids and functors, adapted through `RawMap.ofFunctor`; retain labels rather than inducing arrow equivalence from coarse position observations. |
 
 The missing work is proving disk closure, faithful decoding, preservation,
-and equivariant action-groupoid adapters for this geometry. A new geometry-specific square or
-law-transport hierarchy would duplicate the shared foundation. General smooth
+and equivariant action-groupoid adapters for this geometry. A new
+geometry-specific square or law-transport hierarchy would duplicate the shared
+foundation. General smooth
 presentation equivalence and descent still need more than a commuting square.
+
+The first proof slice should connect a basis-indexed realization of the
+preservation subtype to abstract linear equivalences, then compose its decoder
+with the scalar quotient and point action. Retain a nontrivial change-of-basis
+case and a scalar-rescaling case: they must decode to the same motion even
+when their matrices differ. The disk specialization should establish the
+displayed similitude identity for every admissible `(a,u)`, including the
+quarter-turn at the origin, and prove agreement of both realizations for
+composed motions and their frame actions. This tests abstraction, representation
+independence, and the singular example through the same interfaces.
 
 There are three separate contracts. Exact coordinate and projective-matrix
 realizations preserve the same ideal finite step. Approximating continuous
