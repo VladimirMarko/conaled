@@ -1359,3 +1359,12 @@ and mixed ordinary/source usage are checked. Source syntax remains optional.
 This interprets one synthetic argument with a polynomial analytic consequence;
 the smooth site, general smooth representation, Weil-general and higher/cohesive
 structure, and orbifold comparisons remain open.
+
+### Real dual smooth operations (#76)
+
+Finite-arity smooth operations now act on actual real dual numbers, with
+projection/substitution laws, recovery of the dual ring, an exponential example,
+and an optional source-derived fourth-power coefficient comparison. The action
+reuses the existing analytic AD tangent. See the [construction record](algebraic-kl-model.md#smooth-operations-on-the-real-dual-stage-76).
+This is one smooth infinitesimal algebra, not a smooth site or categorical KL;
+#36 remains incomplete.

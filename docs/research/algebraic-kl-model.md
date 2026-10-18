@@ -410,3 +410,49 @@ comparisons remain open, and #36 remains incomplete.
 
 [sdg-product]: https://github.com/riccardobrasca/SDG/blob/e4cd622492aba9be421ec0abcf152f58a0ee98df/SDG/IsKockLawvere_one/Deriv.lean
 [sdg-alpha]: https://github.com/riccardobrasca/SDG/blob/e4cd622492aba9be421ec0abcf152f58a0ee98df/SDG/Basic/Alpha.lean
+
+## Smooth operations on the real dual stage (#76)
+
+`Applications/AD/SmoothDual.lean` constructs an experimental finite-arity
+smooth operation structure on Mathlib's `DualNumber ℝ`. An operation is an
+ordinary function `(Fin n → ℝ) → ℝ` with `ContDiff ℝ ∞`; equality is
+extensional equality of that function. Its action sends a tuple `x + ε v` to
+`f(x) + ε Df(x)(v)`. `act_projection` and `act_substitute` prove the projection
+and arbitrary simultaneous-substitution laws for every pair of finite arities,
+including zero. `act_constant`, `act_addition` and `act_multiplication` recover
+the existing ring operations, including their square-zero cross term.
+
+The construction reuses `Applications/AD/Core.lean`: the small `Smooth`
+module supplies `DMap.ofSmooth` and finite tuple assembly; `act_substitute`
+uses `tangent_comp`. `act_coordinates` identifies the dual action with that
+same tangent implementation. `act_of_dmap` uses `DMap.ext`, whose derivative
+uniqueness proof prevents choosing another tangent for the same primal map.
+These ordinary modules import no source syntax. The inspected pinned APIs are
+Mathlib's `ContDiff.differentiable`, `hasFDerivAt_pi`,
+`ContinuousLinearMap.proj`, `Real.hasDerivAt_exp`, and the existing
+`DualNumber`/`TrivSqZeroExt` ring and coordinate operations.
+
+`Examples/SmoothDual.lean` checks an arbitrary nullary operation, nullary
+substitution, epsilon squared, and the nonpolynomial exponential, including
+`exp(0 + 2ε) = 1 + 2ε`. Its optional algebraic comparison constructs an actual
+ring map from integer dual numbers to real dual numbers and polynomial
+extension by evaluation. `fourth_extension` compares the old fourth-power
+operation with the new one. `fourth_model_coefficient` consumes
+`SyntheticProduct.analytic_fourth`, which depends on `modelCoefficient_eq`
+and hence on the interpreted source derivation. `coefficient_extension`
+then identifies extension of that model coefficient with the real dual tangent.
+The comparison does not assert a functor preserving sheaf exponentials or KL.
+
+The source boundary remains the one described above. Kock's I.16 treats real
+dual numbers as one Weil algebra; III.5 and III.8 discuss the stronger smooth
+algebra and model constructions. This slice checks the finite-operation laws
+for that one algebra. It constructs neither a formal-manifold site nor smooth
+categorical KL. The broader smooth embedding, descent and analytic comparison
+obligations from the earlier sections remain open. #36 remains incomplete.
+[Author's text, I.16 and III.5–8](https://users-math.au.dk/kock/sdg99.pdf).
+
+One next bounded construction is the same smooth action on finite-dimensional
+square-zero extensions `ℝ ⊕ V`, with naturality under linear maps of tangent
+spaces and recovery of this one-dimensional case. That would provide a family
+of compatible first-order stages before addressing higher nilpotence and a
+smooth site.
