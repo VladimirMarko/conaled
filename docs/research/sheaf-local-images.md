@@ -1525,3 +1525,10 @@ continuous extension. It uses the full function-algebra comparison and the
 existing arbitrary-cover subcanonicity. Scalar powers, operations and open
 inclusions have checked comparisons. The [ordinary embedding record](algebraic-kl-model.md#ordinary-principal-open-embedding-91)
 distinguishes this result from manifold gluing and well-adaptedness.
+
+The #92 ordinary principal-open covers now agree with actual localization
+covers and their generated sieves. Embedded overlaps are all-stage categorical
+pullbacks, and compatible ordinary maps glue to the unique sheaf descent.
+The checked countable example has no finite subcover. See the
+[ordinary descent record](algebraic-kl-model.md#ordinary-covers-and-sheaf-descent-92)
+for the precise index scope, empty boundary and remaining manifold assembly.

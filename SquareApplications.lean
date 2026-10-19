@@ -108,6 +108,7 @@ import Examples.GeometricSyntheticProduct
 import Examples.ArbitrarySmoothCovers
 import Examples.OpenSyntheticProduct
 import Examples.EuclideanOpenEmbedding
+import Examples.OrdinaryOpenDescent
 import Examples.JetScan
 import Examples.MatrixStack
 import Examples.Run

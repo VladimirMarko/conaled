@@ -1293,3 +1293,55 @@ Recommended next construction: prove compatibility of this embedding with
 ordinary principal-open cover descent, including overlap maps and gluing of
 ordinary smooth maps. This connects the checked local domains to the
 arbitrary-cover topology before assembling manifold atlases. #36 remains open.
+
+## Ordinary covers and sheaf descent (#92)
+
+`EuclideanOpen.Covers` says that the nonzero loci of an arbitrary family of
+globally smooth functions cover an ordinary principal open domain. Its
+`covers_iff_union` and `covers_iff_algebra` identify this with the union of the
+subdomains and the actual localization algebra's `OpenCover.Covers` condition.
+These statements allow Type u indices. The generated small-site covering
+assertion uses Type indices, including the empty family on an empty domain.
+
+`subdomainIso` identifies the presentation of U_(f*g) with localization of the
+presentation of U_f at g. Both directions are constructed from the existing
+localization universal properties, for arbitrary smooth target algebras.
+`baseChangeMap` gives actual base change along every ordinary smooth map.
+When its pulled-back defining element has a specified globally smooth
+representative on the source, `restriction` constructs the corresponding
+ordinary restriction and proves the commuting localization square. Neither
+construction requires the ordinary map to extend to the ambient space.
+
+`coverSieve_eq` identifies the ordinary family's generated sieve with the
+site's principal sieve. `overlap_universal` proves the all-algebra pushout
+property for U_(f*g*h), and `overlap_site_pullback` and
+`overlap_sheaf_pullback` give the opposite categorical pullbacks. These
+statements quantify all stages, not only ordinary points.
+
+`glue` constructs the unique ordinary smooth map from a compatible family
+into any principal-open target. Target membership comes from a local map;
+smoothness follows from agreement with that map on an open neighborhood.
+There is no finite-subcover, boundedness or ambient-extension assumption.
+`sheaf_exists_unique` separately applies the proved covering sieve's actual
+sheaf condition and Yoneda equivalence, with the all-stage overlap pullbacks,
+to obtain unique descent into every sheaf. `cover_jointly_epic` and
+`glue_sheaf_comparison` identify the embedded cover and ordinary reconstruction
+with this categorical descent. No general colimit-preservation claim is used.
+
+`Examples.OrdinaryOpenDescent` reuses #89's countable defining functions and
+no-finite-subcover theorem. Its exponential family reconstructs through the new
+gluing theorem and compares to sheaf descent. A proper, nonempty overlap,
+reciprocal base change and the empty cover's initial sheaf object are checked.
+
+Kock's [*Synthetic Differential Geometry*, III.7–8, especially the descent
+arguments on pp. 174–175 and the covering assertion on p. 177](https://users-math.au.dk/kock/sdg99.pdf)
+uses subcanonical sheaf gluing to pass from local geometric constructions to
+global ones, and sends open covers to jointly epic sheaf families. The checked
+result here establishes this connection for the constructed principal-open
+embedding. It does not assemble manifolds or prove general transverse-limit
+preservation, well-adaptedness, all Weil KL, or higher/cohesive/orbifold claims.
+
+Recommended next construction: realize ordinary smooth manifolds by gluing
+principal-open charts, with chartwise map descent and independence of common
+refinement. The local algebra, overlap and covering comparisons needed for
+that construction are now checked. #36 remains incomplete.
