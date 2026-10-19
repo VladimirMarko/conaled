@@ -1417,3 +1417,79 @@ Recommended next construction: convert Mathlib's ordinary finite-dimensional
 smooth manifold charts and smooth maps into this atlas realization, with
 chart-choice independence. This directly tests the remaining interface
 between ordinary manifolds and the constructed sheaf model. #36 remains open.
+
+## Mathlib manifold interpretation and arbitrary smooth maps (#94)
+
+`ManifoldRealization.object n M` now constructs the sheaf of an actual Mathlib
+manifold with `M : Type`, `ChartedSpace (Fin n → ℝ) M` and
+`IsManifold 𝓘(ℝ, Fin n → ℝ) ∞ M`. The model is the full finite-dimensional
+real space, so this scope excludes boundary charts. Dimension zero and empty
+manifolds are allowed. Neither Hausdorffness nor second countability is needed
+for the construction. Those assumptions can be added by applications.
+
+`ChartFamily` selects any small covering family of members of Mathlib's
+maximal smooth atlas for the fixed charted-space structure. `preferred` uses
+Mathlib's actual `chartAt`. `chartDomain` constructs a principal presentation
+of each open chart target by the proved smooth-support theorem. `chartPoint`
+is the chart inverse on that target. `ChartFamily.atlas` proves the ordinary
+open-embedding, cover and local-transition obligations of #93; these are not
+extra assumptions supplied by callers.
+
+For `ContMDiff` maps of any two dimensions, `coordinateDefining` describes
+the part of a source chart whose image lies in a selected target chart.
+`coordinateMap` is the actual composite of chart inverse, ordinary map and
+target chart. Its smoothness follows from Mathlib's maximal-atlas smoothness
+lemmas and the equivalence between `ContMDiff` and `ContDiff` on vector spaces.
+Only smoothness on the coordinate domain is used. No global ambient extension
+or whole-source-chart containment is required. Target charts give the proved
+principal cover of each source chart.
+
+`Charts.LocalMap` records ordinary coordinate maps on such covers.
+Its realization descends the local maps into the target chart colimit;
+`section_test` verifies agreement on arbitrary smooth overlap tests.
+`realize_eq` removes all local chart and cover choices, and `realize_comp`
+compares separately chosen covers for two maps and their composite. The old
+`Charts.Refinement` descent now uses this common implementation, preserving
+its public interfaces and the #93 isomorphisms.
+
+`ManifoldRealization.map` is defined for every Mathlib `ContMDiff` map in the
+stated scope. `map_id` and `map_comp` form a checked indexed interpretation,
+with dimensions and manifold types allowed to differ. `atlasIso` and
+`atlas_naturality` compare the preferred atlas with any `ChartFamily`.
+`commonAtlas`, `commonLeft` and `commonRight` construct an ordinary common
+refinement by chart intersections; `comparison_common` identifies its actual
+#93 refinement isomorphism with the interpretation of the identity map.
+Reflexivity and composition of comparisons are proved. These comparisons
+concern families within the fixed maximal smooth atlas, not unrelated
+charted-space structures on the same underlying type.
+
+`principalIso` identifies the interpretation of Mathlib's ordinary open
+submanifold for any existing principal domain with `EuclideanOpen.embedding`.
+It includes empty domains: the local cover is indexed by the points of the
+open, so no inhabitant is chosen for an empty open. The existing one-chart
+comparison is used in the final isomorphism.
+
+`Examples.MathlibManifoldRealization` checks the identity map from a global
+line chart into two overlapping proper target charts. Its
+`no_whole_target_chart` proves that neither target chart contains the entire
+source chart, while `splitIdentity_local` consumes the new interpretation.
+The example also interprets the nonpolynomial exponential and its atlas
+transport, the punctured line with Mathlib's inherited open-submanifold
+structure and its inclusion, its principal-domain comparison, dimension zero,
+and the initial sheaf assigned to the empty manifold.
+
+Kock's [*Synthetic Differential Geometry*, III.8, pp. 174–177](https://users-math.au.dk/kock/sdg99.pdf)
+uses local smooth geometry and sheaf descent in the construction of its
+manifold model. Theorem 8.4 additionally asserts full faithfulness and
+transverse-pullback preservation. The checked construction here uses the
+[pinned Mathlib maximal-atlas smoothness results](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Geometry/Manifold/ContMDiff/Atlas.lean)
+and [open-submanifold structures](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Geometry/Manifold/HasGroupoid.lean).
+It proves choice independence and composition, but does not yet prove
+faithfulness or fullness on arbitrary sheaf morphisms. Transverse-limit
+preservation, full well-adaptedness, general Weil comparisons and
+higher/cohesive/orbifold constructions also remain open.
+
+Recommended next construction: prove full faithfulness of this interpretation
+in its stated manifold scope, reconstructing ordinary smooth maps from
+arbitrary sheaf arrows using chart descent and the existing principal-open
+full faithfulness. #36 remains incomplete.

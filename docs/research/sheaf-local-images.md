@@ -1540,3 +1540,11 @@ and chartwise map laws. Countable cover and nonidentity transition examples
 are checked. The [atlas record](algebraic-kl-model.md#ordinary-atlas-realization-and-refinement-93)
 states the size and geometric assumptions and the remaining Mathlib manifold
 bridge, full faithfulness and well-adaptedness obligations.
+
+The #94 bridge constructs #93 atlases from actual Mathlib smooth manifolds and
+interprets every `ContMDiff` map by principal refinements of its source charts.
+Its indexed identity/composition laws, arbitrary chart-family transport and
+actual common-refinement comparison are checked, as is the prior principal-open
+object comparison. The [manifold interpretation record](algebraic-kl-model.md#mathlib-manifold-interpretation-and-arbitrary-smooth-maps-94)
+states the boundaryless finite-dimensional scope and distinguishes map-choice
+independence from the still-unproved full faithfulness and well-adaptedness.

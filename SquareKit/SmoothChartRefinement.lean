@@ -1,4 +1,4 @@
-import SquareKit.SmoothChartMaps
+import SquareKit.SmoothLocalChartMaps
 
 /-! Experimental descent along ordinary chart refinements. Cover data and
 lifts are ordinary smooth maps; the inverse sheaf map is constructed by descent. -/
@@ -24,76 +24,18 @@ structure Refinement (B A : Charts M) where
 namespace Refinement
 variable (r : Refinement B A)
 
-def localSection (i : A.Index) (k : r.Cover i) :
-    embedding.obj (subdomain (A.domain i) (r.defining i k)) ⟶ B.realization :=
-  embedding.map (r.lift i k) ≫ B.chart (r.index i k)
+/-- The identity-function instance of ordinary local chart descent. -/
+def localMap : LocalMap A B id :=
+  ⟨r.Cover, r.defining, r.covers, r.index, r.lift, r.agreement⟩
 
-theorem local_compatible (i : A.Index) (k l : r.Cover i) :
-    embedding.map (overlapLeft (A.domain i) (r.defining i k) (r.defining i l)) ≫ r.localSection i k =
-    embedding.map (overlapRight (A.domain i) (r.defining i k) (r.defining i l)) ≫ r.localSection i l := by
-  let rel : B.Relation :=
-    ⟨r.index i k, r.index i l, overlap (A.domain i) (r.defining i k) (r.defining i l),
-      overlapLeft _ _ _ ≫ r.lift i k, overlapRight _ _ _ ≫ r.lift i l, fun x => by
-        change B.coordinate _ ((show EuclideanOpen.Map _ _ from r.lift i k) _) =
-          B.coordinate _ ((show EuclideanOpen.Map _ _ from r.lift i l) _)
-        rw [← r.agreement, ← r.agreement]
-        rfl⟩
-  simpa only [localSection, ← Category.assoc, ← Functor.map_comp] using B.chart_compatible rel
-
-def sectionMap (i : A.Index) : embedding.obj (A.domain i) ⟶ B.realization :=
-  (sheaf_exists_unique (A.domain i) (r.defining i) (r.covers i) B.realization
-    (r.localSection i) (r.local_compatible i)).choose
-
+abbrev localSection := r.localMap.localSection
+abbrev local_compatible := r.localMap.local_compatible
+abbrev sectionMap := r.localMap.sectionMap
 @[reassoc] theorem section_restrict (i : A.Index) (k : r.Cover i) :
-    embedding.map (subInclusion (A.domain i) (r.defining i k)) ≫ r.sectionMap i =
-      r.localSection i k :=
-  (sheaf_exists_unique (A.domain i) (r.defining i) (r.covers i) B.realization
-    (r.localSection i) (r.local_compatible i)).choose_spec.1 k
-
-/-- A descended chart section agrees with any refining chart on every ordinary
-smooth test on their overlap. Inverse-image covers make this a local assertion. -/
-theorem section_test (i : A.Index) (j : B.Index) (D : Domain)
-    (a : D ⟶ A.domain i) (b : D ⟶ B.domain j)
-    (h : ∀ x, A.coordinate i ((show EuclideanOpen.Map _ _ from a) x) =
-      B.coordinate j ((show EuclideanOpen.Map _ _ from b) x)) :
-    embedding.map a ≫ r.sectionMap i = embedding.map b ≫ B.chart j := by
-  apply cover_jointly_epic D (fun k => inverseDefining a (r.defining i k))
-    (inverse_covers a (r.defining i) (r.covers i)) B.realization
-  intro k
-  let inc := subInclusion D (inverseDefining a (r.defining i k))
-  let t := inverseRestriction a (r.defining i k)
-  have square : inc ≫ a = t ≫ subInclusion (A.domain i) (r.defining i k) :=
-    (inverseRestriction_square a (r.defining i k)).symm
-  let rel : B.Relation :=
-    ⟨r.index i k, j, subdomain D (inverseDefining a (r.defining i k)),
-      t ≫ r.lift i k, inc ≫ b, fun x => by
-        change B.coordinate _ ((show EuclideanOpen.Map _ _ from r.lift i k) _) = _
-        rw [← r.agreement]
-        exact h ((show EuclideanOpen.Map _ _ from inc) x)⟩
-  change embedding.map inc ≫ _ = embedding.map inc ≫ _
-  rw [← Category.assoc, ← Functor.map_comp, square, Functor.map_comp, Category.assoc,
-    r.section_restrict]
-  simpa only [localSection, ← Category.assoc, ← Functor.map_comp] using B.chart_compatible rel
-
-theorem section_compatible : A.Compatible r.sectionMap := by
-  intro s
-  apply cover_jointly_epic s.domain (fun k => inverseDefining s.left (r.defining s.first k))
-    (inverse_covers s.left (r.defining s.first) (r.covers s.first)) B.realization
-  intro k
-  let D := subdomain s.domain (inverseDefining s.left (r.defining s.first k))
-  let inc : D ⟶ s.domain := subInclusion _ _
-  let t := inverseRestriction s.left (r.defining s.first k)
-  have left : ∀ x, A.coordinate s.first ((show EuclideanOpen.Map _ _ from inc ≫ s.left) x) =
-      B.coordinate (r.index s.first k) ((show EuclideanOpen.Map _ _ from t ≫ r.lift s.first k) x) :=
-    fun x => r.agreement s.first k ((show EuclideanOpen.Map _ _ from t) x)
-  have right : ∀ x, A.coordinate s.second ((show EuclideanOpen.Map _ _ from inc ≫ s.right) x) =
-      B.coordinate (r.index s.first k) ((show EuclideanOpen.Map _ _ from t ≫ r.lift s.first k) x) := by
-    intro x
-    exact (s.agreement ((show EuclideanOpen.Map _ _ from inc) x)).symm.trans (left x)
-  change embedding.map inc ≫ _ = embedding.map inc ≫ _
-  simpa only [Functor.map_comp, Category.assoc] using
-    (r.section_test s.first _ D (inc ≫ s.left) (t ≫ r.lift s.first k) left).trans
-      (r.section_test s.second _ D (inc ≫ s.right) (t ≫ r.lift s.first k) right).symm
+    embedding.map (subInclusion (A.domain i) (r.defining i k)) ≫ r.sectionMap i = r.localSection i k :=
+  r.localMap.section_restrict i k
+abbrev section_test := r.localMap.section_test
+abbrev section_compatible := r.localMap.section_compatible
 
 def inverse : A.realization ⟶ B.realization := A.descend r.sectionMap r.section_compatible
 
