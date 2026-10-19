@@ -11,6 +11,14 @@ representations, compositional semantic contracts, and commuting squares.
 Felix is a mathematical reference, not a build dependency. The public entrypoint
 is `SquareApplications.lean`.
 
+**Our language-design ambition is to make the mathematical setting a first-class
+parameter of programming and proof.** Authors should be able to factor out the
+structure and principles an argument needs, then reuse familiar reasoning in
+every setting that supplies them. Categorical compilation and internal-language
+development should progressively constrain this language's shape. Read the
+[shared language direction](docs/language-direction.md) for the goal, design
+criteria and distinction from current capabilities.
+
 **Every implemented correctness claim has a Lean proof.** The complete build
 ends with an exhaustive transitive axiom audit of local kernel declarations,
 including private definitions and generated proof auxiliaries. No placeholder,

@@ -1,5 +1,11 @@
 # Architectural quality
 
+When designing compiler frontends, internal proof interfaces, or interpretation
+and transport facilities, read the [shared language direction](../language-direction.md).
+Evaluate author effort and reuse across mathematical settings, including the
+requirements an argument exposes; improved concrete notation alone does not
+fulfill that direction.
+
 Start with the current local interfaces, proofs, and checked applications.
 For capabilities ported or extended from Felix, consult
 `docs/research/felix-parity-implementation.md` and verify the relevant code.

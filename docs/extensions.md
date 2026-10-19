@@ -12,6 +12,13 @@ Felix architectural parity comes first. Exact mathematical meanings remain
 separate from executable representations, observation guarantees, and costs.
 Machine choices belong in particular realizations or explicit parameters.
 
+The [shared language direction](language-direction.md) connects categorical
+compilation to internal reasoning: make the mathematical setting a first-class
+parameter, so authors can factor out a construction's requirements and reuse
+it across suitable targets and models. Use progress in both workstreams to
+constrain the language's design; this ambition concerns semantics and admissible
+reasoning as well as the author interface.
+
 ## Existing work to reuse
 
 1. **Establish Felix architectural parity.** Reuse the inventory and plan in

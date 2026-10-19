@@ -1,5 +1,11 @@
 # Internal languages and proved models in Lean
 
+The [shared language direction](../language-direction.md) records the long-term
+author experience: familiar mathematical programming and proof with the setting
+as a first-class parameter. Explicit derivation interfaces in this record are
+implementation evidence, not the intended ceiling on usability. Developments
+here and in categorical compilation should progressively constrain the language.
+
 Research for [issue #35](https://github.com/VladimirMarko/conaled/issues/35),
 inspected on 2026-10-18. This note distinguishes a proved mathematical model,
 an interpretation theorem, and a proof interface for users. None implies the
