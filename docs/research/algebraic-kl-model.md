@@ -1345,3 +1345,75 @@ Recommended next construction: realize ordinary smooth manifolds by gluing
 principal-open charts, with chartwise map descent and independence of common
 refinement. The local algebra, overlap and covering comparisons needed for
 that construction are now checked. #36 remains incomplete.
+
+## Ordinary atlas realization and refinement (#93)
+
+`EuclideanOpen.Atlas` is a small atlas on a topological type in `Type`.
+Its charts are principal open subsets of finite real coordinate spaces,
+with open embeddings covering the underlying space. Dimensions may vary.
+The transition condition supplies ordinary smooth maps on neighborhoods of
+every point in a chart intersection. It requires neither an ambient global
+extension nor a sheaf realization. Hausdorffness, second countability and a
+fixed dimension are not imposed. Applications can impose these separately.
+
+The underlying `Charts` presentation records the coordinate maps.
+`Charts.Relation` consists of all pairs of ordinary smooth maps from a
+principal domain into charts that agree in the underlying space. Thus it
+includes tests on refinements of arbitrary overlaps. `openDefining_locus`
+uses Mathlib's proved smooth-support theorem for Euclidean open subsets;
+`inverseRestriction` and `inverse_covers` construct pullbacks of principal
+covers along arbitrary ordinary smooth maps. No single-principal-overlap
+assumption is made. `Atlas.subdivision` proves that arbitrary principal-cover
+subdivision retains the ordinary atlas conditions.
+
+`Charts.realization` is a multicoequalizer in the existing arbitrary-cover
+sheaf category. Mathlib constructs its colimits by sheafifying presheaf
+colimits. `Charts.homEquiv` identifies arrows into **every sheaf** with chart
+maps compatible on every overlap test. `Charts.Map.realize` sends chartwise
+ordinary maps to sheaf maps; its identity and composition laws are checked.
+Different chart choices for the same underlying function induce equal maps.
+This interface requires each source chart to land in a chosen target chart.
+It also supports maps after the specified ordinary cover refinements through
+`refinement_naturality`.
+
+A `Charts.Refinement` consists of a chartwise identity map and ordinary
+principal covers of the old charts with smooth lifts into the refining
+charts. Its inverse realization map is constructed with #92's every-sheaf
+descent. `section_test` proves its equality on arbitrary ordinary overlap
+tests using inverse-image covers; it is the step that makes the descended
+chart maps compatible. `Refinement.iso`, `subdivisionIso` and
+`overlapRefinementIso` prove replacement of charts and overlap tests by covers
+with commuting chart maps. `commonRefinementIso` has reflexivity and
+composition coherence. These proofs do not assume that the domain embedding
+preserves arbitrary colimits.
+
+`singleIso` recovers an embedded principal domain, and `coverAtlasIso`
+recovers it from any ordinary principal cover. The checked application
+`Examples.OrdinaryChartRealization` uses the countable cover with no finite
+subcover, an atlas whose two coordinate orientations differ by negation,
+the induced reflection and its involution law, and an atlas with no charts
+on the empty space. The reflection example has a proved nonidentity chart
+transition. The universal property is also specialized to arbitrary sheaf
+targets on the infinite atlas.
+
+Kock's [*Synthetic Differential Geometry*, III.8, pp. 174–177](https://users-math.au.dk/kock/sdg99.pdf)
+uses local sheaf arguments in constructing the manifold model. Theorem 8.4
+also requires full faithfulness and transverse-pullback preservation, and
+its covering assertion uses jointly epic families. The present construction
+supplies atlas colimits and cover comparisons in our finite-presentation
+site; it does not identify that site with every model in Kock's theorem.
+
+The bridge from Mathlib's `ChartedSpace` and `IsManifold` structures remains
+unconstructed. For ordinary finite-dimensional manifolds without boundary,
+chart images are open Euclidean sets; the smooth-support theorem removes
+that domain-presentation obstacle. A bridge must still extract the atlas
+and its local transition proofs and identify manifold smooth maps with the
+supported locally chartwise maps, independently of chart choice. Full
+faithfulness for all manifolds, preservation of transverse limits, full
+well-adaptedness, general Weil comparisons, and higher/cohesive/orbifold
+constructions remain unproved.
+
+Recommended next construction: convert Mathlib's ordinary finite-dimensional
+smooth manifold charts and smooth maps into this atlas realization, with
+chart-choice independence. This directly tests the remaining interface
+between ordinary manifolds and the constructed sheaf model. #36 remains open.

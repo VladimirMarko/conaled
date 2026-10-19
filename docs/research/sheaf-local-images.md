@@ -1532,3 +1532,11 @@ pullbacks, and compatible ordinary maps glue to the unique sheaf descent.
 The checked countable example has no finite subcover. See the
 [ordinary descent record](algebraic-kl-model.md#ordinary-covers-and-sheaf-descent-92)
 for the precise index scope, empty boundary and remaining manifold assembly.
+
+The #93 ordinary atlas layer now constructs a sheaf multicoequalizer of chart
+maps and all smooth overlap tests. It has an every-sheaf universal property,
+ordinary principal-cover refinement isomorphisms, common-refinement coherence,
+and chartwise map laws. Countable cover and nonidentity transition examples
+are checked. The [atlas record](algebraic-kl-model.md#ordinary-atlas-realization-and-refinement-93)
+states the size and geometric assumptions and the remaining Mathlib manifold
+bridge, full faithfulness and well-adaptedness obligations.
