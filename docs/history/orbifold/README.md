@@ -1,5 +1,11 @@
 # Historical orbifold artifacts
 
+For the later standalone Lean formalization, read the
+[curated archive guide](standalone-formalization/README.md). It includes the
+original checkpoint, reuse review and interpretation cautions; it is outside
+the production library. The files described below are the earlier simulator
+conversation and numerical probe.
+
 Imported on 2026-10-18 from `/home/vlad/Downloads/orbifold/`. Both supplied
 files are preserved byte for byte. This README supplies later annotations;
 the chat's proposals and numerical results are not checked Lean claims.
@@ -56,9 +62,10 @@ implement a Lorentz-matrix backend. It has no general atlas engine, force law,
 certified ODE integrator, or renderer. The exact quarter-turn labels do not
 make the floating-point geometric calculations exact.
 
-No orbifold Lean modules have been added. Future checked implementations belong
-to the orbifold workstream and must meet the repository's usual
-statement-review, checked-example, and proof-audit requirements.
+This historical import added no orbifold Lean modules. Subsequent checked
+implementations live in `Applications/Orbifold/` and `Applications/Orbifolds/`;
+consult the current research and implementation records before treating the
+chat's proposals as remaining work.
 
 ## Follow-up work
 

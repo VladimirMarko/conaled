@@ -28,6 +28,10 @@ Example: `docs: clarify agent guidance (#123)`.
 
 ### Formal development
 
+Before using the standalone orbifold formalization as a source, proof reference,
+or implementation example, read
+`docs/history/orbifold/standalone-formalization/README.md`.
+
 When adding or changing Lean definitions and theorems, use
 `.agents/skills/example-driven-development/SKILL.md` to develop checked
 specializations and applications alongside the theory. For every new or changed
