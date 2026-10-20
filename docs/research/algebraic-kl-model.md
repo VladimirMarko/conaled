@@ -10,6 +10,12 @@ transverse-pullback preservation is deferred as the next task. The dated
 assessments below remain historical evidence; the new note audits current
 capabilities and states the missing compatibility theorems.
 
+After accepted #99, the [#97 decision gate](transverse-pullback-decision.md)
+keeps general transverse-pullback preservation deferred. The selected quotient
+tangent comparison is constructed; its next identified gap is source-language
+interpretation and soundness. The gate records the pinned ordinary APIs and
+the additional all-stage comparison a future preservation theorem would need.
+
 
 Inspected 2026-10-18 at Lean 4.35.0 and Mathlib
 `56a005855ea17e0b0958f73ec801ae140b0a1679`. This continues the
