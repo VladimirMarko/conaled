@@ -1,5 +1,16 @@
 # A small algebraic site for the first KL construction (#73)
 
+## Current higher/differential decision (#96)
+
+The [finite-quotient tangent investigation](myers-tangent-integration.md)
+selects a first-order consequence of Myers Proposition 4.3.5 after #95. It
+recommends testing finite torsor invariance under the existing dual extension,
+with quotient tangent transport and KL comparison in the same model. General
+transverse-pullback preservation is deferred as the next task. The dated
+assessments below remain historical evidence; the new note audits current
+capabilities and states the missing compatibility theorems.
+
+
 Inspected 2026-10-18 at Lean 4.35.0 and Mathlib
 `56a005855ea17e0b0958f73ec801ae140b0a1679`. This continues the
 [internal-language assessment](internal-languages-lean.md#pinned-mathlib-model-constructions)

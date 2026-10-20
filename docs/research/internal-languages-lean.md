@@ -1,5 +1,16 @@
 # Internal languages and proved models in Lean
 
+## Current higher/differential decision (#96)
+
+The [finite-quotient tangent investigation](myers-tangent-integration.md)
+selects a first-order consequence of Myers Proposition 4.3.5 after #95. It
+recommends testing finite torsor invariance under the existing dual extension,
+with quotient tangent transport and KL comparison in the same model. General
+transverse-pullback preservation is deferred as the next task. The dated
+assessments below remain historical evidence; the new note audits current
+capabilities and states the missing compatibility theorems.
+
+
 The [shared language direction](../language-direction.md) records the long-term
 author experience: familiar mathematical programming and proof with the setting
 as a first-class parameter. Explicit derivation interfaces in this record are

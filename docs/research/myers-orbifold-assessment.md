@@ -1,5 +1,16 @@
 # Myers orbifolds: correspondence and first Lean slice
 
+## Current higher/differential decision (#96)
+
+The [finite-quotient tangent investigation](myers-tangent-integration.md)
+selects a first-order consequence of Myers Proposition 4.3.5 after #95. It
+recommends testing finite torsor invariance under the existing dual extension,
+with quotient tangent transport and KL comparison in the same model. General
+transverse-pullback preservation is deferred as the next task. The dated
+assessments below remain historical evidence; the new note audits current
+capabilities and states the missing compatibility theorems.
+
+
 Assessment for [issue #32](https://github.com/VladimirMarko/conaled/issues/32),
 2026-10-18. This delivers the issue's assessment-only option. It adds no Lean
 claims, axioms, dependency changes, or simulator. The selected source is
