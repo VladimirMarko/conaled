@@ -113,6 +113,10 @@ import Examples.OrdinaryChartRealization
 import Examples.MathlibManifoldRealization
 import Examples.ManifoldFullFaithfulness
 import Examples.SmoothTorsors
+import Examples.QuotientDescent
+import Examples.DiscreteSmoothMapping
+import Examples.SmoothQuotientArcs
+import Examples.QuarterTurnArcs
 import Examples.JetScan
 import Examples.MatrixStack
 import Examples.Run

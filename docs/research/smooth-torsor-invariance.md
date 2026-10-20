@@ -137,6 +137,10 @@ classical quarter-turn tangent calculation. #99 must consume the constructed
 torsor/descent interfaces and prove these further comparisons. Ordinary
 manifold full faithfulness alone does not discharge them.
 
+The [#99 construction record](finite-quotient-tangents.md) describes the
+subsequent quotient, pointed infinitesimal comparison and classical tangent
+consumers, together with the remaining source interpretation.
+
 [#98]: https://github.com/VladimirMarko/conaled/issues/98
 [#100]: https://github.com/VladimirMarko/conaled/issues/100
 [#36]: https://github.com/VladimirMarko/conaled/issues/36

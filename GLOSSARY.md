@@ -62,6 +62,17 @@ Recovery of global objects and their morphisms from compatible local objects
 and morphisms on a cover. For torsors, compatibility retains equivariant
 isomorphisms and their cocycle equations, not only isomorphism classes.
 
+**Action quotient**:
+A groupoid-valued quotient of a group action whose objects over a parameter
+are torsors equipped with equivariant maps into the acted-on space.
+Its arrows retain stabilizers, including elements that act trivially.
+_Avoid_: Orbit set as a synonym when isotropy or transport matters.
+
+**Homotopy pullback**:
+A pullback whose objects include a comparison isomorphism between their two
+images. Its arrows must commute with that comparison. For groupoids this is
+an isocomma groupoid; a strict equality of images omits boundary data.
+
 ## Realizations and executable systems
 
 **Realization**:
