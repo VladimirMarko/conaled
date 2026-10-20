@@ -18,6 +18,13 @@ all-stage manifold reconstruction. Their older missing-capability lists must
 be read at their dated baselines. None of these developments constructs the
 higher/differential compatibility below.
 
+The subsequent [reuse and outsourcing assessment](higher-theory-reuse-and-outsourcing.md)
+identifies existing Agda torsor and differential-HoTT proof blocks. It recommends
+developing the source interpretation alongside the torsor checkpoint, with
+coherent delegated packages rather than a solely serial prerequisite sequence.
+It supplements the reuse search below without claiming those libraries already
+provide the constructed smooth interpretation.
+
 ## Selected result and classical target
 
 Use Myers, *Orbifolds as Microlinear Types in Synthetic Differential Cohesive
