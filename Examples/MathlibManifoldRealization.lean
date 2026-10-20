@@ -1,4 +1,5 @@
 import SquareKit.SmoothManifoldOpenComparison
+import SquareKit.SmoothManifoldLocalSmoothness
 import Mathlib.Analysis.SpecialFunctions.ExpDeriv
 
 /-! Experimental consumers of the actual Mathlib manifold bridge: smooth maps
@@ -60,6 +61,23 @@ theorem splitIdentity_local (b : Bool) :
       embedding.map (coordinateMap (splitFamily.chart b) id ((globalFamily 1).smooth ())
         (splitFamily.smooth b) contMDiff_id) ≫ splitFamily.charts.chart b :=
   (globalFamily 1).interpret_chart splitFamily id contMDiff_id () b
+
+/-- The local coordinate criterion accepts a cover that cannot be replaced by
+a single target chart, as witnessed by `no_whole_target_chart`. -/
+theorem splitIdentity_smooth_from_coordinates :
+    ContMDiff (Model 1) (Model 1) ∞ (id : Space 1 → Space 1) :=
+  (globalFamily 1).contMDiff_of_localMap splitFamily
+    ((globalFamily 1).localMap splitFamily id contMDiff_id)
+
+/-- Continuity and smoothness follow from an arbitrary coordinate description;
+neither is an additional hypothesis of the reconstruction step. -/
+theorem smooth_from_coordinates {n m : ℕ} {M N : Type}
+    [TopologicalSpace M] [TopologicalSpace N]
+    [ChartedSpace (Space n) M] [ChartedSpace (Space m) N]
+    (A : ChartFamily n M) (B : ChartFamily m N) (f : M → N)
+    (l : Charts.LocalMap A.charts B.charts f) :
+    Continuous f ∧ ContMDiff (Model n) (Model m) ∞ f :=
+  ⟨(A.contMDiff_of_localMap B l).continuous, A.contMDiff_of_localMap B l⟩
 
 def exponential (x : Space 1) : Space 1 := fun _ => Real.exp (x 0)
 

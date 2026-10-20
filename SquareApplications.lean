@@ -111,6 +111,7 @@ import Examples.EuclideanOpenEmbedding
 import Examples.OrdinaryOpenDescent
 import Examples.OrdinaryChartRealization
 import Examples.MathlibManifoldRealization
+import Examples.ManifoldFullFaithfulness
 import Examples.JetScan
 import Examples.MatrixStack
 import Examples.Run

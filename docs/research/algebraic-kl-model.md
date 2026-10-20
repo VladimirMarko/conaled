@@ -1484,12 +1484,75 @@ manifold model. Theorem 8.4 additionally asserts full faithfulness and
 transverse-pullback preservation. The checked construction here uses the
 [pinned Mathlib maximal-atlas smoothness results](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Geometry/Manifold/ContMDiff/Atlas.lean)
 and [open-submanifold structures](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Geometry/Manifold/HasGroupoid.lean).
-It proves choice independence and composition, but does not yet prove
-faithfulness or fullness on arbitrary sheaf morphisms. Transverse-limit
-preservation, full well-adaptedness, general Weil comparisons and
-higher/cohesive/orbifold constructions also remain open.
+That delivery established choice independence and composition. The following
+construction supplies the previously missing full faithfulness.
 
-Recommended next construction: prove full faithfulness of this interpretation
-in its stated manifold scope, reconstructing ordinary smooth maps from
-arbitrary sheaf arrows using chart descent and the existing principal-open
-full faithfulness. #36 remains incomplete.
+## Full faithfulness of the manifold interpretation (#95)
+
+`SquareKit/SmoothManifoldFullFaithfulness.lean` constructs
+`ManifoldRealization.homEquiv` between all functions satisfying Mathlib
+`ContMDiff (Model n) (Model m) ∞` and all arrows
+`object n M ⟶ object m N`. Its forward map is the existing `map`.
+`reconstruct_map` and `map_reconstruct` prove both inverse laws.
+The dimensions may differ. The scope remains Type-sized, finite-dimensional
+real boundaryless manifolds, including empty and zero-dimensional manifolds.
+No Hausdorffness, second countability, global chart, ambient extension, or
+full-faithfulness hypothesis has been added.
+
+The reconstruction has two separate ingredients. `SmoothRealPointCovers`
+proves that every covering sieve lifts real points and constructs a point of
+the actual generated site. Consequently evaluation at the real stage preserves
+sheaf colimits. `SmoothOpenRealSections` identifies real sections of each
+ordinary open with its points. `SmoothChartRealSections.realEquiv` then
+identifies real sections of a covering chart realization with its underlying
+point set. Equal ordinary chart points are related by a zero-dimensional
+ordinary overlap test. These results concern real sections only; they do not
+identify arbitrary infinitesimal sections by their real-point values.
+
+`SmoothOrdinaryCoverLifting.covering_local_inclusion` proves that every site
+cover, tested on an ordinary open, contains ordinary coordinate inclusions
+around each source point. The proof uses actual local units in the full
+smooth-function algebra and induction on the generated topology.
+`SmoothChartLocalLifting.local_chart_principal` combines this refinement with
+local surjectivity of sheafification of the chart diagram's presheaf colimit.
+It factors any arrow from an ordinary open into a chart realization through a
+target chart locally. It does not require the arrow to land in one chart
+globally.
+
+`SmoothChartReconstruction` derives local coordinate data for the reconstructed
+point function from these factorizations. Descent recovers the original arrow
+at all stages. `ChartFamily.contMDiff_of_localMap` proves actual Mathlib
+smoothness from the coordinate data, deriving continuity as well. Thus the
+all-stage inverse law uses local factorization and sheaf descent, rather than
+point detection.
+
+The same equivalence is available for arbitrary covering `ChartFamily`
+choices. `reconstruct_comparison`, `reconstruct_atlas`, `reconstruct_id`, and
+`reconstruct_comp` prove compatibility with the existing comparisons and
+categorical laws. `homEquiv_principal` identifies the correspondence under
+`principalIso`; `principalIso_naturality` proves agreement with the existing
+algebraic pullback maps. These are ordinary Lean APIs. Source syntax remains
+opt-in.
+
+`Examples.ManifoldFullFaithfulness` exercises the inverse on arbitrary arrows,
+distinguishes constant maps, and reuses the split target atlas for which
+`no_whole_target_chart` excludes a global target-chart choice. The disjoint
+union of two zero-dimensional Euclidean spaces supplies an actual Mathlib
+manifold with no global Euclidean chart, with a checked proof of that fact.
+Its map to the line also tests different dimensions. Further cases recover the
+nonextendable reciprocal, compare principal and atlas inverses, check
+composition, and cover empty sources and the absence of an arrow from a point
+to the empty manifold.
+
+Kock's [*Synthetic Differential Geometry*, III.3 and III.8, pp. 141 and 176–177](https://users-math.au.dk/kock/sdg99.pdf)
+uses Hausdorff, countably based manifolds. Theorem 8.4 obtains full faithfulness
+through the smooth-function algebra functor and Yoneda, and also establishes
+the axioms of a fully well-adapted model. The construction here instead proves
+full faithfulness of the existing atlas colimit without those global manifold
+restrictions. It does not prove transverse-limit preservation or the remaining
+well-adaptedness axioms.
+
+General Weil KL, transverse-limit preservation, full well-adaptedness, and
+higher/cohesive compatibility remain separate unproved claims. The next
+decision task is the targeted Myers/higher/cohesive requirements assessment
+in #96. This result does not complete #36.
