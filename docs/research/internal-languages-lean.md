@@ -10,6 +10,10 @@ transverse-pullback preservation is deferred as the next task. The dated
 assessments below remain historical evidence; the new note audits current
 capabilities and states the missing compatibility theorems.
 
+The [Agda transfer interface contract](agda-transfer-interface.md) (#101)
+selects transport over concatenation for the first higher proof port. It
+separates the compiling scalar caller from the proposed identity fragment,
+ordinary groupoid interpretation, and remaining smooth-model obligations.
 
 The [shared language direction](../language-direction.md) records the long-term
 author experience: familiar mathematical programming and proof with the setting
