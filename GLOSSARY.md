@@ -51,6 +51,17 @@ Reusable definitions, operations, and proofs for a subject such as reactive
 computation, geometry, or circuits. A domain library can support multiple
 workstreams and systems.
 
+**Sheaf torsor**:
+A sheaf over a base with a group-sheaf action that is locally isomorphic to
+the regular action of that group. Local triviality permits a torsor with no
+global section; global triviality is equivalent to having a global section.
+_Avoid_: Trivial torsor as a synonym for locally trivial torsor.
+
+**Effective descent**:
+Recovery of global objects and their morphisms from compatible local objects
+and morphisms on a cover. For torsors, compatibility retains equivariant
+isomorphisms and their cocycle equations, not only isomorphism classes.
+
 ## Realizations and executable systems
 
 **Realization**:

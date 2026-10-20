@@ -112,6 +112,7 @@ import Examples.OrdinaryOpenDescent
 import Examples.OrdinaryChartRealization
 import Examples.MathlibManifoldRealization
 import Examples.ManifoldFullFaithfulness
+import Examples.SmoothTorsors
 import Examples.JetScan
 import Examples.MatrixStack
 import Examples.Run
@@ -122,6 +123,7 @@ import SquareKit.Arithmetic
 import SquareKit.Combinators
 import SquareKit.FirstOrder
 import SquareKit.Relations
+import SquareKit.SheafTorsorDescent
 import SquareKit.STLCRelations
 import Squares
 import Verification

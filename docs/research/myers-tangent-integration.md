@@ -331,3 +331,8 @@ recorded outside the source diff and reported on #96 after both axes pass.
 [quotient]: https://arxiv.org/html/2205.15887v1#S5.SS4.Thmthm1
 [prism]: https://arxiv.org/abs/1908.08034v3
 [archive]: ../history/orbifold/standalone-formalization/README.md
+
+The subsequent [#98 implementation record](smooth-torsor-invariance.md)
+records the constructed torsor comparison and its remaining source-language
+and quotient-application obligations. The assessment above remains the
+decision and evidence recorded for #96.
