@@ -1,3 +1,4 @@
+import Examples.DependentCongruence
 import SquareKit.GroupoidTransport
 import Examples.AgdaTransferCaller
 import Examples.AgdaTransferModels

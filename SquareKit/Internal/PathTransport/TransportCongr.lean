@@ -1,4 +1,5 @@
 import SquareKit.Internal.PathTransport.Derived
+import SquareKit.Internal.PathTransport.StructuralCongruence
 namespace SquareKit.Internal.PathTransport.Typed.Authoring
 open SquareKit.Internal.PathTransport
 universe u
@@ -11,10 +12,10 @@ def endpoint_congr (hΓ : CtxDeriv Γ γ) (x y : BasePoint Γ γ) (p q : Path x 
     SubEqDeriv Γ γ (pathCtx Γ .base x.raw) (pathCode (baseCode γ) x.code)
       (consSub p.raw (consSub y.raw Expr.var)) (endpointCode (baseCode γ) x.code y.code p.code)
       (consSub q.raw (consSub y.raw Expr.var)) (endpointCode (baseCode γ) x.code y.code q.code) := by
-  apply SubEqDeriv.pairingTerm (.pathFamily hΓ (.base hΓ) x.deriv)
-    (.section hΓ (.base hΓ) y.deriv)
-  have ee := e.annotateType (pathFamilyAt_code (baseCode γ) x.code y.code).symm
-  simpa only [pathFamilyRaw_at] using ee
+  exact SubEqDeriv.pairingConverted (.pathFamily hΓ (.base hΓ) x.deriv)
+    (.refl (.section hΓ (.base hΓ) y.deriv)) (pathFamilyRaw_at .base x.raw y.raw)
+    (pathFamilyAt_code (baseCode γ) x.code y.code)
+    (pathFamilyAt_code (baseCode γ) x.code y.code) e
 
 def transport_congr (hΓ : CtxDeriv Γ γ) {x y : BasePoint Γ γ}
     (p q : Path x y) (b c : FiberElement x)
