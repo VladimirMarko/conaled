@@ -5,12 +5,12 @@ import Mathlib.CategoryTheory.SingleObj
 import Mathlib.Data.ZMod.Basic
 
 /-!
-# Preliminary cases for the identity-fragment implementation
+# Raw and semantic comparison cases
 
-These cases exercise raw substitution, arrow-valued identity, and set-valued
-semantic elimination. They do not yet exercise a source `tr-concat`
-derivation. In particular, the action equations below are independent
-expected results for the eventual source soundness theorem.
+These preliminary cases exercise raw substitution, arrow-valued identity and
+set-valued semantic elimination. Their independent action calculations are
+expected results. `Examples.AgdaTransferModels` connects those results to the
+complete transferred source proof and its all-rule interpreter.
 -/
 namespace Examples.GroupoidTransport
 
