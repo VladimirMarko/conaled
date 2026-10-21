@@ -1,0 +1,62 @@
+import Examples.GroupoidTransport
+
+/- Evaluator comparison after baseline archival. No source-transfer claim. -/
+set_option backward.isDefEq.respectTransparency false
+set_option backward.defeqAttrib.useBackward true
+open CategoryTheory
+namespace Evaluation106
+universe u v w
+
+theorem directAssoc {C : Type u} [Category.{v} C]
+    {x y z t : C} (p : x ⟶ y) (q : y ⟶ z) (r : z ⟶ t) :
+    (p ≫ q) ≫ r = p ≫ (q ≫ r) := Category.assoc p q r
+
+theorem directAction {C : Type u} [Category.{v} C] (B : C ⥤ Type w)
+    {x y z t : C} (p : x ⟶ y) (q : y ⟶ z) (r : z ⟶ t)
+    (b : B.obj x) :
+    B.map ((p ≫ q) ≫ r) b = B.map (p ≫ (q ≫ r)) b :=
+  congrArg (fun s => B.map s b) (directAssoc p q r)
+
+open Examples.GroupoidTransport
+
+theorem c4Assoc (p q r : point ⟶ point) :
+    (p ≫ q) ≫ r = p ≫ (q ≫ r) := directAssoc p q r
+
+theorem faithfulAction (p q r : point ⟶ point) (b : ZMod 4) :
+    faithful.map ((p ≫ q) ≫ r) b = faithful.map (p ≫ (q ≫ r)) b :=
+  directAction faithful p q r b
+
+theorem trivialAction (p q r : point ⟶ point) (b : Fin 2) :
+    ineffective.map ((p ≫ q) ≫ r) b = ineffective.map (p ≫ (q ≫ r)) b :=
+  directAction ineffective p q r b
+
+theorem labeledComposite : ((label 1 ≫ label 1) ≫ label 1) = label 3 := by
+  change ((1 : ZMod 4) + 1) + 1 = 3
+  decide
+
+theorem faithfulValues :
+    faithful.map ((label 1 ≫ label 1) ≫ label 1) (0 : ZMod 4) = (3 : ZMod 4) ∧
+    faithful.map (label 1 ≫ (label 1 ≫ label 1)) (0 : ZMod 4) = (3 : ZMod 4) := by
+  constructor
+  · change ((1 : ZMod 4) + (1 + 1)) + 0 = 3
+    decide
+  · apply (faithfulAction (label 1) (label 1) (label 1) 0).symm.trans
+    change ((1 : ZMod 4) + (1 + 1)) + 0 = 3
+    decide
+
+theorem trivialValues :
+    ineffective.map ((label 1 ≫ label 1) ≫ label 1) (0 : Fin 2) = (0 : Fin 2) ∧
+    ineffective.map (label 1 ≫ (label 1 ≫ label 1)) (0 : Fin 2) = (0 : Fin 2) := by
+  constructor
+  · rfl
+  · exact (trivialAction (label 1) (label 1) (label 1) 0).symm.trans rfl
+
+#print axioms directAssoc
+#print axioms directAction
+#print axioms c4Assoc
+#print axioms faithfulAction
+#print axioms trivialAction
+#print axioms labeledComposite
+#print axioms faithfulValues
+#print axioms trivialValues
+end Evaluation106

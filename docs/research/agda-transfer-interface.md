@@ -206,7 +206,10 @@ The [#104 design record](contextual-j-design.md) and
 accepted framework baseline, additional first-port framework work, proof
 translation, dependency inspection and debugging. They preserve checked and
 rejected alternatives. The observed framework intervention is not an estimate
-of independent translation cost; that requires the uncontaminated #106 run.
+of independent translation cost. The subsequent [independent #106 baseline](agda-transfer-independent-baseline/README.md)
+preserves the fresh author's attempt against the frozen #105 snapshot. It
+stopped at its prospective budget without completing general associativity;
+the partial results do not establish economical library reuse.
 
 [#101]: https://github.com/VladimirMarko/conaled/issues/101
 [#100]: https://github.com/VladimirMarko/conaled/issues/100

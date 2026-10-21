@@ -1,0 +1,91 @@
+protocol.md 3c88e9c3b9a5146a207fca18bb8e042337ba9d7238e5cb5674593f104414cd78
+MANIFEST.sha256 502e3e3d1128ae34f38739861c92504871c236bfc0369aa035014fc13e8280ab
+unassisted-baseline.tar.gz 27c81261b1ff1452acfdb2d999eaab6cd9c8293100fdbae057a9c9308d9f129f
+All 122 manifest entries match live archived files.
+All 123 archive files match disk.
+Counter({'debugging': 11, 'helpers': 9, 'translation': 7, 'investigation': 7, 'validation': 2, 'application': 1})
+Failed cycles: [4, 6, 7, 11, 13, 14, 16, 17, 18, 19, 20, 26, 29, 30, 34, 35, 37]
+Commands:
+4 translation exit=1: Expose exact generated source associativity obligation
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+5 investigation exit=0: Inspect generated J and pairing congruence signatures
+  ['rg', '-n', '-A', '20', 'def TmEqDeriv.pathInductionAtCongr|def SubEqDeriv.pairingCongr|def SubEqDeriv.pairingTerm|def TmEqDeriv.substitutionCongr|def TmEqDeriv.native|def TmEqDeriv.raw', 'SquareKit/Internal/PathTransport/Typed.lean', 'SquareKit/Internal/PathTransport/NativeNormalization.lean']
+6 translation exit=1: Build four-entry dependent tail and associativity motive
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+7 translation exit=1: Retry dependent tail construction using pinned Python
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+8 debugging exit=0: Align named endpoints by matching sequential weakening presentations
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+9 helpers exit=0: Build dependent endpoint substitution congruence through z
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+10 helpers exit=0: Extend endpoint congruence through dependent path q
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+11 helpers exit=1: Lift endpoint substitution equality through generated J congruence
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+12 investigation exit=0: Inspect raw elimination substitution and identity simplification
+  ['rg', '-n', '-A', '12', 'def eliminationSub|def argsSub|argsSub.*elimination|eliminationSub.*argsSub|def typeSound|def castCode', 'SquareKit/Internal/PathTransport/RawContext.lean', 'SquareKit/Internal/PathTransport/Typed.lean']
+13 debugging exit=1: Normalize eliminationSub and reflexive annotation casts in congruence call
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+14 debugging exit=1: Normalize telescope total-context representation
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+15 investigation exit=0: Find telescope normalization declarations used by generic congruence
+  ['rg', '-n', '-A', '8', 'telTotal|telCons|telNil', 'SquareKit/Internal/PathTransport/Typed.lean']
+16 debugging exit=1: Expose dependent index equalities instead of implicit elaboration
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+17 debugging exit=1: Supply explicit raw endpoint and path parameters to J congruence
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+18 debugging exit=1: Inspect remaining substitution-code alignment obligations with fixed endpoints
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+19 debugging exit=1: Retain unsolved annotation goals after raw normalization
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+20 debugging exit=1: Discharge definitionally equal context indices explicitly
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+21 helpers exit=0: Normalize congruence result to named concatenation type and annotations
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+22 application exit=0: Check reflexive-first-path source specialization with arbitrary later paths
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+23 investigation exit=0: Inspect generic endpoint normalization and first-port root coherence for reusable lemmas
+  ['cat', 'SquareKit/Internal/PathTransport/TransferRoot.lean', 'SquareKit/Internal/PathTransport/SourceReindex.lean']
+24 translation exit=0: Normalize the general motive branch endpoint and first-path raw syntax
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+25 helpers exit=0: Adapt frozen projection-coherence pattern to the four-entry tail
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+26 helpers exit=1: Adapt first-path root annotation coherence without source equality reflection
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+27 debugging exit=0: Normalize nested substitution before stripping inner path casts
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+28 helpers exit=0: Instantiate generic reindexed concat beta for the inner path composition
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+29 translation exit=1: Attempt to connect the checked reflexive specialization to the exact substituted motive
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+30 translation exit=1: Normalize nested identity type of the substituted branch
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+31 translation exit=0: Compute the right side under the general reflexive substitution
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+32 investigation exit=0: Search frozen raw and annotation reindexing support for concatenation
+  ['rg', '-n', 'concat.*(reindex|sub)|reindex.*concat|concat.*raw|j_sub|j_heq', 'SquareKit/Internal/PathTransport/RawReindex.lean', 'SquareKit/Internal/PathTransport/ReindexCoherence.lean', 'SquareKit/Internal/PathTransport/Concatenation.lean', 'SquareKit/Internal/PathTransport/Model.lean', 'SquareKit/Internal/PathTransport/DerivedCoherence.lean']
+33 investigation exit=0: Inspect concat raw substitution law and semantic J transport requirements
+  ['sh', '-c', 'cat SquareKit/Internal/PathTransport/RawReindex.lean; sed -n "1,75p" SquareKit/Internal/PathTransport/ReindexCoherence.lean; sed -n "145,200p" SquareKit/Internal/PathTransport/ReindexCoherence.lean']
+34 helpers exit=1: Expose named concat annotation naturality needed to reuse fresh branch conversions
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+35 debugging exit=1: Attempt semantic J substitution for concat annotation naturality
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+36 investigation exit=0: Check generic source J rebuilding as an alternative to named concat naturality
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+37 helpers exit=1: Compare raw motives of generic rebuilt and fresh named concat commands
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+38 debugging exit=0: Close raw motive comparison using the substitution-renaming law
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+39 validation exit=0: Check explicit statement of retained specialization against intended iterated source identity
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+40 validation exit=0: Recheck partial artifact and inspect transitive axioms of every named local declaration
+  ['lake', 'env', 'lean', 'baseline106/work/Attempt.lean']
+Final partial identical to cycle 40.
+['rev-parse', 'HEAD'] exit=0
+8b1ed308f29cbe9d00e03c8b6b7780ffeb4b7c17
+
+['status', '--porcelain=v1'] exit=0
+?? baseline106/
+
+['diff', '--exit-code', '8b1ed308f29cbe9d00e03c8b6b7780ffeb4b7c17', '--', '.'] exit=0
+
