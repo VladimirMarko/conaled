@@ -1,3 +1,4 @@
+import Examples.GroupoidTransport
 import Examples.SplitDependentFunctions
 import Examples.SplitDependentFunctionEdges
 import Examples.DependentSource

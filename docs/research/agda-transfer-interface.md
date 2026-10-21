@@ -13,6 +13,36 @@ uses the [language direction] and the accepted [#96 assessment]. External
 sessions are optional. One local implementer can complete the experiment and
 its review loop. A broad library port is conditional on its result.
 
+## Implementation progress on #102
+
+The first implementation groundwork is present, but the transfer experiment
+is **not complete**. The named source interface and consumer theorem below
+remain requirements, not available APIs.
+
+- `SquareKit.Internal.PathTransport.Syntax` provides raw `Expr` syntax,
+  capture-avoiding simultaneous substitution, and identity/composition laws.
+  Its contextual-J node records the number of generalized parameters. It
+  does not yet have typing or conversion judgments.
+- `SquareKit.Internal.PathTransport.GroupoidIdentity` constructs arrow-valued
+  identity for sections of a constant groupoid family. It proves endpoint
+  conjugation, reflexivity/composition naturality and strict context
+  reindexing. Its `basePathEquiv` concerns this semantic family, not yet the
+  interpretation of source identity.
+- `SquareKit.Internal.PathTransport.BasedPath` constructs the groupoid of
+  paths from a fixed source and dependent elimination for set-valued motives,
+  with reflexive computation and naturality. It does not supply arbitrary
+  groupoid-valued motives or generalized dependent-tail elimination.
+- `Examples.GroupoidTransport` checks raw binder substitution and C₄ labels,
+  faithful translation, ineffective action, and semantic based elimination.
+  These are preliminary cases. Neither action case consumes a source proof.
+
+Run `direnv exec . lake build Examples.GroupoidTransport` for these imports,
+and `direnv exec . ./check.sh` for the full fresh-source check and audit.
+There is no working `transportConcat` or `transport_concat_action` handoff yet.
+No Agda proof has transferred through source soundness at this stage. The
+smooth-model obligations below are unchanged. No SynthLean declarations have
+been adapted.
+
 ## Selected theorem and actual dependency boundary
 
 Select `tr-concat` in
