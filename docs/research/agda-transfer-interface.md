@@ -1,47 +1,72 @@
 # First Agda proof-transfer contract
 
+The [contextual-J design record](contextual-j-design.md) preserves the
+implementation experiments for #104, including rejected encodings, checked
+constructions, author-interface friction, and alternatives still worth testing.
+
 This is the interface decision for [#101], under [#100] and [#36]. It selects
 one experiment: port transport over concatenation from agda-unimath into an
 opt-in Lean-hosted identity fragment, interpret it in ordinary groupoids, and
-retain finite-group labels in two action-family consumers. The proposed higher
-interfaces below are **not implemented**. Existing scalar interfaces supply
+retain finite-group labels in two action-family consumers. The selected `tr-concat`
+handoff below is **not implemented**. Existing scalar interfaces supply
 compiled authoring evidence; they do not supply higher semantics.
 
 The baseline is conaled `5dbd73f` (the committed [reuse assessment]); Lean
 4.35.0 and Mathlib `56a005855ea17e0b0958f73ec801ae140b0a1679`. This decision
-uses the [language direction] and the accepted [#96 assessment]. External
-sessions are optional. One local implementer can complete the experiment and
-its review loop. A broad library port is conditional on its result.
+uses the [language direction] and the accepted [#96 assessment]. The approved
+[#102] experiment requires an independent second-proof author for [#106].
+The framework and first port may share an author; their implementers and
+reviewers are ineligible for that independent baseline. The second author
+must start in a fresh session, receive only the frozen public repository and
+handoff, and work without inherited implementation context, coaching or API
+repairs during the baseline. Archive the baseline before any assisted
+correction, and label assisted results separately. A contaminated attempt
+must be replaced by an unexposed author and, if its solution leaked, a new
+scoped theorem; assisted retries cannot count as the independent baseline.
+A broad library port is conditional on the technical and independent-author results.
 
 ## Implementation progress on #102
 
-The first implementation groundwork is present, but the transfer experiment
-is **not complete**. The named source interface and consumer theorem below
-remain requirements, not available APIs.
+The typed contextual identity fragment is implemented for #104. The selected
+Agda proof and its action consumers remain the #105 handoff; the independent
+second proof remains #106.
 
-- `SquareKit.Internal.PathTransport.Syntax` provides raw `Expr` syntax,
-  capture-avoiding simultaneous substitution, and identity/composition laws.
-  Its contextual-J node records the number of generalized parameters. It
-  does not yet have typing or conversion judgments.
-- `SquareKit.Internal.PathTransport.GroupoidIdentity` constructs arrow-valued
-  identity for sections of a constant groupoid family. It proves endpoint
-  conjugation, reflexivity/composition naturality and strict context
-  reindexing. Its `basePathEquiv` concerns this semantic family, not yet the
-  interpretation of source identity.
-- `SquareKit.Internal.PathTransport.BasedPath` constructs the groupoid of
-  paths from a fixed source and dependent elimination for set-valued motives,
-  with reflexive computation and naturality. It does not supply arbitrary
-  groupoid-valued motives or generalized dependent-tail elimination.
-- `Examples.GroupoidTransport` checks raw binder substitution and C₄ labels,
-  faithful translation, ineffective action, and semantic based elimination.
-  These are preliminary cases. Neither action case consumes a source proof.
+- `SquareKit.Internal.PathTransport.Typed` supplies generated context, type,
+  term, telescope and simultaneous-substitution derivations. Judgmental type
+  and term conversion are separate from source identity. The same derivation
+  is interpreted across supported models; constructor-recursive interpretation
+  agrees with its model-parametric code.
+- `SplitFamily` constructs split groupoid families, normalized sections and
+  identities whose objects are actual fiber arrows. Identity reindexing is
+  endpoint conjugation. `identityFiberEquiv` retains the arrow data.
+- `GroupoidModel.Instance.fullModel` in `GroupoidSoundness` constructs every
+  supported operation and law, including arbitrary finite dependent-tail J, strict reflexive
+  computation and rebuilt-J substitution. `universeModel` uses explicit
+  universe lifts for independently sized base objects, arrows and fibers.
+- `Authoring.NamedCaller.pathInductionGeneralizingZQB` retains `z`,
+  `q : y = z`, and `b : fiber x`. Its motive is `q = q`, with reflexive branch.
+  `reflexiveApplication` is an actual source J derivation;
+  `interpreted_beta` consumes generic source soundness. The additional
+  `rebuilt_interpretation` case compares substituted and rebuilt source J
+  terms after adding an earlier parameter.
+- `Examples.TypedPathTransport` specializes source conversion and the named
+  caller to the constructed groupoid model. `Examples.GroupoidTransport`
+  retains the preliminary C₄ label/action checks; those action equations do
+  not yet consume the selected Agda proof.
 
-Run `direnv exec . lake build Examples.GroupoidTransport` for these imports,
+The author API includes named base points, `Motive.reflexivity`, and
+`PathCommand` operations for application, reflexive computation and rebuilding.
+Library definitions still manage raw context arithmetic and semantic code
+casts internally. These helpers were developed by the framework authors;
+their use does not establish independent-author usability. The
+[design record](contextual-j-design.md) preserves the tested alternatives,
+representation costs, and remaining frontend questions.
+
+Run `direnv exec . lake build Examples.TypedPathTransport` for the new cases,
 and `direnv exec . ./check.sh` for the full fresh-source check and audit.
 There is no working `transportConcat` or `transport_concat_action` handoff yet.
-No Agda proof has transferred through source soundness at this stage. The
-smooth-model obligations below are unchanged. No SynthLean declarations have
-been adapted.
+No Agda proof or upstream Agda build is claimed by #104. The smooth-model
+obligations below are unchanged. No SynthLean declarations have been adapted.
 
 ## Selected theorem and actual dependency boundary
 
@@ -316,9 +341,9 @@ checks below. An equation alone would not demonstrate a higher bridge.
 
 ## Missing operations and first transfer acceptance
 
-All proposed higher declarations are missing. Groupoid structures are
-available in Mathlib; a checked model of this source fragment is not. The
-minimal new work is precisely:
+The original interface decision identified the following prerequisite list.
+The #104 core and model are now implemented as described above; the selected
+proof, consumers and independent-author experiment remain the later handoffs:
 
 1. Signature, typed contexts/terms/substitutions, Id and conversion judgments;
    simultaneous substitution, comprehension and their laws.
@@ -331,9 +356,11 @@ minimal new work is precisely:
 5. Ordinary consumer and the two finite-action cases below, in the normal
    build and exhaustive audit.
 
-These are prerequisites **inside one bounded implementation slice**. Do not
-turn them into a serial ticket sequence or add a full HoTT library first.
-If the selected minimal core forces an unanticipated universe/Π requirement,
+The original single-slice scheduling instruction is superseded by the approved
+[#104] framework, [#105] first-proof/consumer port and [#106] independent-author
+sequence. These remain prerequisites of the same bounded experiment; completing
+the framework or first port alone does not complete it. Do not add a full HoTT
+library first. If the selected core forces an unanticipated universe/Π requirement,
 record the exact failed caller and revise the contract before expanding it.
 
 For a concrete acceptance test, use the one-object groupoid of C₄ with labels
@@ -448,3 +475,8 @@ ambient Lean or an external Agda library.
 [transport]: https://github.com/UniMath/agda-unimath/blob/75518656f287c203b41cb7f71df46e02b987a084/src/foundation-core/transport-along-identifications.lagda.md
 [identity]: https://github.com/UniMath/agda-unimath/blob/75518656f287c203b41cb7f71df46e02b987a084/src/foundation-core/identity-types.lagda.md
 [hottlean]: https://github.com/sinhp/HoTTLean/blob/31133dd5b25226ea897f8aa5e2e43b61392459eb/HoTTLean/Groupoids/Id.lean
+
+[#102]: https://github.com/VladimirMarko/conaled/issues/102
+[#104]: https://github.com/VladimirMarko/conaled/issues/104
+[#105]: https://github.com/VladimirMarko/conaled/issues/105
+[#106]: https://github.com/VladimirMarko/conaled/issues/106
