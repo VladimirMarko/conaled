@@ -359,3 +359,48 @@ Git preserves the initial foundation and each application/integration step.
 `foundation-v1` identifies the original delivery. `applications-v2` identifies
 this extension. The archive's Git bundle restores the branch and tags with
 ordinary `git clone`; see the commands in [README.md](README.md).
+
+## Optimization specifications and interpretation transport
+
+`Applications/Optimization/Basic.lean` accepts ordinary admissible sets and
+objectives. `Optimization.minimizers` combines feasibility with Mathlib's
+`IsMinOn`; `pareto` separately describes nondominated costs. `value` uses a
+complete-lattice infimum. `Attained` and the noncomputable `select` distinguish
+existence of a least-cost candidate from its selection. `pullback` and
+`pullbackWorkload` are function composition, including explicit workload maps.
+
+`Applications/Optimization/Transport.lean` exposes the extra obligations for
+transport. `minimizer_image` proves optimality among interpreted source
+candidates. `minimizer_transport` proves global target optimality when every
+target candidate has a dominating source lift; exact coverage suffices via
+`minimizer_transport_of_surjOn`. Both require monotone cost agreement and the
+global theorem also requires admissibility preservation. `minimizer_reflect`
+uses an order embedding. `value_transport` uses an infimum-preserving map and
+exact coverage. These are sufficient hypotheses, not necessity claims.
+
+`Applications/Optimization/Relations.lean` connects ordinary realization proofs
+to `Relational.RelSquare`. `selectionSquare` relates decoded outputs to
+set-valued minima by membership; `attainedSelectionSquare` restricts a classical
+selector to inputs with attainment evidence. `boundSquare` instead relates a
+feasible output to a stated cost bound. Both preserve the problem/workload
+index in their output contract. No compiler syntax or executable optimizer is
+required.
+
+`Examples/Optimization.lean` checks exact semiring matrix reassociation for
+shapes 2×5, 5×20, 20×5. The two plans use 400/550 scalar multiplications and
+40/25 intermediate scalar slots, so work and storage choose opposite plans.
+The counting models exclude additions, inputs, final output, kernel workspace,
+and physical allocation or scheduling costs. The theorem
+`matrix_work_transport` consumes ordinary matrix equality and cost proofs.
+`matrix_pareto` shows both plans are nondominated but neither is jointly least.
+The scope is exactly these two plans, not every matrix algorithm.
+
+Further checked cases include a real positive-ray objective with infimum zero
+and no minimizer (`positive_infimum`, `positive_not_attained`), an approximate
+realization for each positive tolerance, exact indexed matrix selection,
+reflection and complete-lattice value transport, a dominating lift without
+surjectivity, and a cheaper target outside the source image.
+`semantic_only_not_optimal` exhibits a commuting semantic square whose cost
+ranking reverses. No theorem is attributed to the unavailable textbook snapshot.
+The motivating [research report](docs/research/compositional-optimization.md)
+records the broader questions and proposed extensions.

@@ -443,3 +443,12 @@ need not wait for it or for recursion support.
 [felix-laws]: https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/MakeLawful.agda
 
 [credits]: https://arxiv.org/abs/2006.15036
+
+## Checked specification fragment (#112)
+
+The bounded specification and transport interface is now implemented in
+[`Applications/Optimization`](../../Applications/Optimization/Basic.lean), with
+[checked clients](../../Examples/Optimization.lean). The mathematical
+calculations above motivated this fragment; the remaining research proposals
+are not claimed as implemented. [Coverage and assumptions](../../APPLICATIONS.md#optimization-specifications-and-interpretation-transport)
+name the delivered declarations, counting exclusions, and relational contracts.
