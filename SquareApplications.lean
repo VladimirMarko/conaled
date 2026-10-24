@@ -1,3 +1,4 @@
+import Examples.BranchingGraphTransport
 import Examples.Optimization
 import Examples.DependentCongruence
 import SquareKit.GroupoidTransport

@@ -358,3 +358,8 @@ cannot express either the internal presentation or the generic-model comparison,
 record the missing capability and revise the interface. Success justifies a
 further issue for a non-discrete example; it does not justify a universal
 language or an infinite-tower implementation.
+
+The first experiment now has a [checked implementation record](branching-graph-transport.md)
+for paired Set interpretations, route comparison, substitution and the
+non-reflecting projection. The finite-setting and mixed-square experiments
+remain separate follow-ups.
