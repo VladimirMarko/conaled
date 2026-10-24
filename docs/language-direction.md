@@ -116,6 +116,12 @@ in GitHub Issues; this document establishes the direction against which those
 choices should be assessed, without prescribing a speculative implementation
 sequence.
 
+The [2026-10-24 language architecture research](research/language-architecture-research.md)
+records the owner's constraints for continued embedded development, the proposed
+`slean` dialect and multiple surfaces, Agda reuse, Lean self-modeling, and
+composable internal settings. It investigates semantic contracts and low-cost
+design tests without selecting a replacement implementation or fixed pipeline.
+
 Landin's [*The Next 700 Programming Languages*](https://homepages.inf.ed.ac.uk/wadler/papers/papers-we-love/landin-next-700.pdf)
 separates a common expressive framework from choices of abstract entities and
 primitives. The project's ambition extends that separation to the structure
