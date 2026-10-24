@@ -1,4 +1,5 @@
 import Examples.FiniteSetting
+import Examples.MixedSetting
 import Examples.BranchingGraphTransport
 import Examples.Optimization
 import Examples.DependentCongruence

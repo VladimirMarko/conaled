@@ -361,9 +361,17 @@ language or an infinite-tower implementation.
 
 The first experiment now has a [checked implementation record](branching-graph-transport.md)
 for paired Set interpretations, route comparison, substitution and the
-non-reflecting projection. The mixed-square experiment remains a separate follow-up.
+non-reflecting projection. The mixed-square experiment now has the checked evidence linked below.
 
 The second experiment now has a [checked Set-family implementation record](finite-setting.md)
 for the finite presentation, model/section equivalence, parameter substitution
-and generic partition. The slice-topos classifier and the mixed-square experiment
-remain separate obligations.
+and generic partition. The slice-topos classifier remains a separate obligation.
+
+The third experiment now has a [checked mixed-square implementation](mixed-setting.md):
+an explicit pullback equivalence over the substituted context, generic partition
+and arbitrary-model correspondence, dependent composition coherence, componentwise
+ambient selection, and the existing graph derivation on both constructed families.
+The record states its universe restriction and retains the non-reflection boundary.
+It proposes a walking-arrow presheaf experiment with restriction-compatible
+presentation/model data as the next non-discrete test. General internal classifiers,
+geometric-morphism pseudopullbacks and unbounded nesting remain open.
