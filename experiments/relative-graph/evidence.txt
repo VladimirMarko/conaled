@@ -94,7 +94,7 @@ PrimitiveLaws: 96 safe roots; axioms [Quot.sound, Classical.choice, propext]
 ClosedGraph: 7 safe roots; axioms [Quot.sound, Classical.choice, propext]
 AcceptedGraph: 28 safe roots; axioms [Quot.sound, Classical.choice, propext]
 GraphChecks: 4 safe roots; axioms [Quot.sound, Classical.choice, propext]
-Existing GraphAdapter: 44 safe roots; axioms [Quot.sound, Classical.choice, propext]
+GraphAdapter after review corrections: 69 safe roots; axioms [Quot.sound, Classical.choice, propext]
 No unsafe source declaration or forbidden transitive axiom reported for these artifacts.
 
 The kernel-checked results derive both primitive equations from Model.mem and
@@ -103,3 +103,13 @@ both graph implications from the stored closed theorem memberships. threeStep
 uses those results twice. SetTheory and Model remain explicit; model_exists
 additionally retains the checker-acceptance equation. No unconditional set model,
 installed-Lean emitter correspondence, or host reflection is claimed.
+
+#127 review correction validation
+All eight graph modules recompiled from source against the same fresh pinned
+ConLeche checkout after extracting graph_denotes_shift and reusing ArtifactAudit
+in GraphAdapter. Exit 0; checker/mismatch cases still pass and all current-module
+audits pass. Logs: /tmp/conaled-language-supervision/127-round2-<module>.log.
+Original graph_denotes keeps its statement and now specializes the shared proof
+at offset 0; ClosedGraph.shiftedGraphDenotes specializes it at offset 1. The
+existing per-declaration GraphAdapter inventories are retained, with the new
+shared theorem added. Root policy is now implemented by one audit command.

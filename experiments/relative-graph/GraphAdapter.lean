@@ -1,3 +1,4 @@
+import ArtifactAudit
 import Lean
 import ConLeche.Denotes
 
@@ -60,6 +61,51 @@ theorem eq_denotes {ρ : Nat → V} {Ae ae be : Expr} {A a b : V}
   rw [m.eq_equality u φ ρ _ A a b he hAu haA hbA] at h
   simpa only [eqExpr, eqv] using h
 
+/-- The graph formula under an arbitrary prefix of unrelated binders.
+The assignment equation states exactly how its free variables are interpreted. -/
+theorem graph_denotes_shift (A B C F G x z : V) (offset : Nat) (ρ : Nat → V)
+    (hρ : ∀ i, ρ (offset + i) = assignment x z A B C F G i)
+    (hB : B ∈ˢ univ (Level.eval φ u)) (hC : C ∈ˢ univ (Level.eval φ u))
+    (hf : ∀ a, a ∈ˢ A → app F a ∈ˢ B)
+    (hg : ∀ b, b ∈ˢ B → app G b ∈ˢ C) (hx : x ∈ˢ A) (hz : z ∈ˢ C) :
+    Denotes m.cval env φ ρ ((composite u).liftLooseBVars offset 0)
+      (truthVal (∃ y, y ∈ˢ B ∧ y = app F x ∧ z = app G y)) ∧
+    Denotes m.cval env φ ρ ((result u).liftLooseBVars offset 0)
+      (truthVal (z = app G (app F x))) := by
+  have atIndex (i : Nat) : Denotes m.cval env φ ρ (.bvar (offset + i))
+      (assignment x z A B C F G i) := by
+    rw [← hρ i]
+    exact Denotes.bvar
+  have underWitness (y : V) (i : Nat) :
+      Denotes m.cval env φ (push y ρ) (.bvar (offset + (i + 1)))
+        (assignment x z A B C F G i) := by
+    rw [← hρ i, ← Nat.add_assoc]
+    exact Denotes.bvar
+  have hbody (y : V) (hy : y ∈ˢ B) :
+      Denotes m.cval env φ (push y ρ) ((body u).liftLooseBVars offset 1)
+        (truthVal (y = app F x ∧ z = app G y)) := by
+    have hleft := eq_denotes pr (underWitness y 5) (Denotes.bvar (i := 0))
+      (Denotes.app (underWitness y 3) (underWitness y 1)) hB hy (hf x hx)
+    have hright := eq_denotes pr (underWitness y 4) (underWitness y 0)
+      (Denotes.app (underWitness y 2) (Denotes.bvar (i := 0))) hC hz (hg y hy)
+    have hand := Denotes.const (cval := m.cval) (φ := φ) (ρ := push y ρ)
+      (us := []) pr.and_lookup (by simpa using pr.and_levels.symm)
+    have h := Denotes.app (Denotes.app hand hleft) hright
+    rw [pr.and_law] at h
+    simpa [body, eqExpr, Expr.liftLooseBVars, Nat.add_comm, assignment, push] using h
+  have hex := Denotes.const (cval := m.cval) (φ := φ) (ρ := ρ)
+    (us := [u]) pr.exists_lookup (by simpa using pr.exists_levels.symm)
+  have h := Denotes.app (Denotes.app hex (atIndex 5)) (Denotes.lam (atIndex 5) hbody)
+  change Denotes _ _ _ _ _
+    (app (app _ B) (lamV B (fun y => truthVal (y = app F x ∧ z = app G y)))) at h
+  rw [pr.exists_law B _ hB] at h
+  constructor
+  · simpa only [composite, Expr.liftLooseBVars, Nat.add_comm, Nat.zero_le, ↓reduceIte] using h
+  · have h := eq_denotes pr (atIndex 4) (atIndex 0)
+      (Denotes.app (atIndex 2) (Denotes.app (atIndex 3) (atIndex 1)))
+      hC hz (hg _ (hf x hx))
+    simpa [result, eqExpr, Expr.liftLooseBVars, Nat.add_comm, assignment] using h
+
 theorem graph_denotes (A B C F G x z : V)
     (hB : B ∈ˢ univ (Level.eval φ u)) (hC : C ∈ˢ univ (Level.eval φ u))
     (hf : ∀ a, a ∈ˢ A → app F a ∈ˢ B)
@@ -68,34 +114,8 @@ theorem graph_denotes (A B C F G x z : V)
       (truthVal (∃ y, y ∈ˢ B ∧ y = app F x ∧ z = app G y)) ∧
     Denotes m.cval env φ (assignment x z A B C F G) (result u)
       (truthVal (z = app G (app F x))) := by
-  let ρ := assignment x z A B C F G
-  have hbody (y : V) (hy : y ∈ˢ B) :
-      Denotes m.cval env φ (push y ρ) (body u)
-        (truthVal (y = app F x ∧ z = app G y)) := by
-    have hleft := eq_denotes pr
-      (ρ := push y ρ) (Ae := .bvar 6) (ae := .bvar 0)
-      (be := .app (.bvar 4) (.bvar 2))
-      Denotes.bvar Denotes.bvar (Denotes.app Denotes.bvar Denotes.bvar)
-      hB hy (hf x hx)
-    have hright := eq_denotes pr
-      (ρ := push y ρ) (Ae := .bvar 5) (ae := .bvar 1)
-      (be := .app (.bvar 3) (.bvar 0))
-      Denotes.bvar Denotes.bvar (Denotes.app Denotes.bvar Denotes.bvar)
-      hC hz (hg y hy)
-    have hand := Denotes.const (cval := m.cval) (φ := φ) (ρ := push y ρ)
-      (us := []) pr.and_lookup (by simpa using pr.and_levels.symm)
-    have h := Denotes.app (Denotes.app hand hleft) hright
-    rw [pr.and_law] at h
-    exact h
-  have hex := Denotes.const (cval := m.cval) (φ := φ) (ρ := ρ)
-    (us := [u]) pr.exists_lookup (by simpa using pr.exists_levels.symm)
-  have hb : Denotes m.cval env φ ρ (.bvar 5) B := Denotes.bvar
-  have h := Denotes.app (Denotes.app hex hb) (Denotes.lam hb hbody)
-  rw [pr.exists_law B _ hB] at h
-  refine ⟨h, ?_⟩
-  exact eq_denotes pr Denotes.bvar Denotes.bvar
-    (Denotes.app Denotes.bvar (Denotes.app Denotes.bvar Denotes.bvar))
-    hC hz (hg _ (hf x hx))
+  exact graph_denotes_shift pr A B C F G x z 0 (assignment x z A B C F G)
+      (fun i => by rw [Nat.zero_add]) hB hC hf hg hx hz
 
 /-- Native carrier membership is retained, including empty carrier sets. -/
 def Member (A : V) := {a : V // a ∈ˢ A}
@@ -166,31 +186,11 @@ end GraphAdapter
 #print axioms GraphAdapter.Primitives.and_law
 #print axioms GraphAdapter.Primitives.exists_law
 #print axioms GraphAdapter.eq_denotes
+#print axioms GraphAdapter.graph_denotes_shift
 #print axioms GraphAdapter.graph_denotes
 #print axioms GraphAdapter.Member
 #print axioms GraphAdapter.arrow
 #print axioms GraphAdapter.graph_comparison
 #print axioms GraphAdapter.graph_truth
 
--- Current-module roots include generated and private kernel declarations.
--- As in ProofAudit, runtime artifacts are skipped by safety metadata;
--- source declarations marked unsafe are rejected.
-open Lean Elab Command in
-run_cmd do
-  let env ← getEnv
-  let candidates := env.constants.foldStage2 (fun acc n ci => acc.push (n, ci)) #[]
-  let mut roots : Array Name := #[]
-  for (n, ci) in candidates do
-    if (env.getModuleIdxFor? n).isSome then continue
-    if ci.isUnsafe then
-      if (declRangeExt.find? env n).isSome then
-        throwError "Unsafe source declaration {n}"
-    else
-      roots := roots.push n
-  let mut union : NameSet := {}
-  for n in roots do
-    for a in (← liftCoreM (Lean.collectAxioms n)) do
-      unless a == ``propext || a == ``Classical.choice || a == ``Quot.sound do
-        throwError "Forbidden axiom {a} in {n}"
-      union := union.insert a
-  logInfo m!"GraphAdapter current-module audit: {roots.size} safe roots; axioms {union.toList}"
+#audit_graph_module

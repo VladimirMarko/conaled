@@ -78,35 +78,9 @@ theorem shiftedGraphDenotes (pr : GraphAdapter.Primitives m u φ) (proof : V) (A
       (truthVal (∃ y, y ∈ˢ B ∧ y = app F x ∧ z = app G y)) ∧
     Denotes m.cval env φ (push proof (assignment x z A B C F G)) ((result u).liftLooseBVars 1 0)
       (truthVal (z = app G (app F x))) := by
-  let ρ := push proof (assignment x z A B C F G)
-  have hbody (y : V) (hy : y ∈ˢ B) :
-      Denotes m.cval env φ (push y ρ) ((body u).liftLooseBVars 1 1)
-        (truthVal (y = app F x ∧ z = app G y)) := by
-    have hleft := eq_denotes pr
-      (ρ := push y ρ) (Ae := .bvar 7) (ae := .bvar 0)
-      (be := .app (.bvar 5) (.bvar 3))
-      Denotes.bvar Denotes.bvar (Denotes.app Denotes.bvar Denotes.bvar)
-      hB hy (hf x hx)
-    have hright := eq_denotes pr
-      (ρ := push y ρ) (Ae := .bvar 6) (ae := .bvar 2)
-      (be := .app (.bvar 4) (.bvar 0))
-      Denotes.bvar Denotes.bvar (Denotes.app Denotes.bvar Denotes.bvar)
-      hC hz (hg y hy)
-    have hand := Denotes.const (cval := m.cval) (φ := φ) (ρ := push y ρ)
-      (us := []) pr.and_lookup (by simpa using pr.and_levels.symm)
-    have h := Denotes.app (Denotes.app hand hleft) hright
-    rw [pr.and_law] at h
-    exact h
-  have hex := Denotes.const (cval := m.cval) (φ := φ) (ρ := ρ)
-    (us := [u]) pr.exists_lookup (by simpa using pr.exists_levels.symm)
-  have hb : Denotes m.cval env φ ρ (.bvar 6) B := Denotes.bvar
-  have h := Denotes.app (Denotes.app hex hb) (Denotes.lam hb hbody)
-  rw [pr.exists_law B _ hB] at h
-  refine ⟨h, ?_⟩
-  exact eq_denotes pr Denotes.bvar Denotes.bvar
-    (Denotes.app Denotes.bvar (Denotes.app Denotes.bvar Denotes.bvar))
-    hC hz (hg _ (hf x hx))
-
+  exact graph_denotes_shift pr A B C F G x z 1
+    (push proof (assignment x z A B C F G))
+    (fun i => by simp only [Nat.add_comm, push]) hB hC hf hg hx hz
 
 theorem closedImplication (c : ConstantInfo) (hc : c ∈ env.consts)
     (P Q : Expr) (p q : Prop)

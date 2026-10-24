@@ -77,7 +77,9 @@ actual theorem membership through the entire telescope. It requires A, B and C
 to belong to their carrier universe, F to belong to `piV A (fun _ => B)`, G to
 belong to `piV B (fun _ => C)`, and both endpoints to belong to their carriers.
 Application membership supplies the closure assumptions needed by the open
-adapter. After applying the theorem's denoted function to a proof of its premise,
+adapter. `graph_denotes_shift` proves the formula interpretation under an arbitrary
+prefix of unrelated binders; the open formula and implication codomain use its
+zero-binder and one-binder specializations. After applying the theorem's denoted function to a proof of its premise,
 `Denotes_functional` identifies the result with the intended truth value and
 `of_mem_truthVal` yields the implication. Both directions use this membership
 route; they do not bypass it by proving graph composition independently.
@@ -99,8 +101,8 @@ mismatch. No native set-theory instance or unrestricted host reflection is claim
 
 Run `direnv exec . bash experiments/relative-graph/reproduce.sh` from conaled.
 It clones the same pinned revisions listed below into a fresh temporary directory,
-builds ConLeche, and compiles the isolated modules in dependency order. Each new
-artifact runs `#audit_graph_module`, which scans all safe current-module kernel
+builds ConLeche, and compiles the isolated modules in dependency order. The adapter and each new
+artifact run `#audit_graph_module`, which scans all safe current-module kernel
 declarations, including private and generated declarations, rejects unsafe
 source declarations, and checks transitive axioms against the repository's
 three-axiom whitelist. The audit command audits its own module too. The script
