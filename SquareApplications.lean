@@ -1,3 +1,4 @@
+import Examples.GraphEmission
 import Examples.GraphTarget
 import Examples.FiniteSetting
 import Examples.MixedSetting

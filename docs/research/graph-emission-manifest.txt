@@ -1,0 +1,92 @@
+Eq
+signature: [u_1]:3970007004:none:ind:2:1:[Eq]:[Eq.refl]:0:false:false:false
+type: {α : Sort u_1} → α → α → Prop
+body: <not-available>
+Eq.refl
+signature: [u_1]:3843735716:none:ctor:Eq:0:2:0:false
+type: ∀ {α : Sort u_1} (a : α), @Eq.{u_1} α a a
+body: <not-available>
+Eq.rec
+signature: [u, u_1]:1050737851:none:rec:[Eq]:2:1:1:1:true:false:Eq.refl:0:1204402234
+type: {α : Sort u_1} →
+  {a : α} →
+    {motive : (a_1 : α) → (t : @Eq.{u_1} α a a_1) → Sort u} →
+      (refl : motive a (@Eq.refl.{u_1} α a)) → {a_1 : α} → (t : @Eq.{u_1} α a a_1) → motive a_1 t
+body: <not-available>
+rule Eq.refl, fields=0: fun {α : Sort u_1} (a : α) (motive : (a_1 : α) → (t : @Eq.{u_1} α a a_1) → Sort u)
+    (refl : motive a (@Eq.refl.{u_1} α a)) =>
+  refl
+And
+signature: []:2232915537:none:ind:2:0:[And]:[And.intro]:0:false:false:false
+type: (a b : Prop) → Prop
+body: <not-available>
+And.intro
+signature: []:2469061797:none:ctor:And:0:2:2:false
+type: ∀ {a b : Prop} (left : a) (right : b), And a b
+body: <not-available>
+Exists
+signature: [u]:3900730662:none:ind:2:0:[Exists]:[Exists.intro]:0:false:false:false
+type: {α : Sort u} → (p : α → Prop) → Prop
+body: <not-available>
+Exists.intro
+signature: [u]:1089933557:none:ctor:Exists:0:2:2:false
+type: ∀ {α : Sort u} {p : α → Prop} (w : α) (h : p w), @Exists.{u} α p
+body: <not-available>
+Exists.rec
+signature: [u]:1422772981:none:rec:[Exists]:2:0:1:1:false:false:Exists.intro:2:2127994776
+type: ∀ {α : Sort u} {p : α → Prop} {motive : (t : @Exists.{u} α p) → Prop}
+  (intro : ∀ (w : α) (h : p w), motive (@Exists.intro.{u} α p w h)) (t : @Exists.{u} α p), motive t
+body: <not-available>
+rule Exists.intro, fields=2: fun {α : Sort u} (p : α → Prop) (motive : (t : @Exists.{u} α p) → Prop)
+    (intro : ∀ (w : α) (h : p w), motive (@Exists.intro.{u} α p w h)) (w : α) (h : p w) =>
+  intro w h
+Eq.symm
+signature: [u]:3416241219:(some 2819966993):theorem
+type: ∀ {α : Sort u} {a b : α} (h : @Eq.{u} α a b), @Eq.{u} α b a
+body: fun {α : Sort u} {a b : α} (h : @Eq.{u} α a b) =>
+  @Eq.rec.{0, u} α a (fun (x : α) (h : @Eq.{u} α a x) => @Eq.{u} α x a) (@rfl.{u} α a) b h
+Eq.trans
+signature: [u]:2833799593:(some 1736612116):theorem
+type: ∀ {α : Sort u} {a b c : α} (h₁ : @Eq.{u} α a b) (h₂ : @Eq.{u} α b c), @Eq.{u} α a c
+body: fun {α : Sort u} {a b c : α} (h₁ : @Eq.{u} α a b) (h₂ : @Eq.{u} α b c) =>
+  @Eq.rec.{0, u} α b (fun (x : α) (h : @Eq.{u} α b x) => @Eq.{u} α a x) h₁ c h₂
+congrArg
+signature: [u, v]:2722762766:(some 2643130269):theorem
+type: ∀ {α : Sort u} {β : Sort v} {a₁ a₂ : α} (f : α → β) (h : @Eq.{u} α a₁ a₂), @Eq.{v} β (f a₁) (f a₂)
+body: fun {α : Sort u} {β : Sort v} {a₁ a₂ : α} (f : α → β) (h : @Eq.{u} α a₁ a₂) =>
+  @Eq.rec.{0, u} α a₁ (fun (x : α) (h : @Eq.{u} α a₁ x) => @Eq.{v} β (f a₁) (f x)) (@rfl.{v} β (f a₁)) a₂ h
+rfl
+signature: [u]:871798398:(some 2491513339):definition
+type: ∀ {α : Sort u} {a : α}, @Eq.{u} α a a
+body: fun {α : Sort u} {a : α} => @Eq.refl.{u} α a
+And.left
+signature: []:3459337720:(some 142998889):theorem
+type: ∀ {a b : Prop} (self : And a b), a
+body: fun (a b : Prop) (self : And a b) => self.1
+And.right
+signature: []:2340164271:(some 2365167394):theorem
+type: ∀ {a b : Prop} (self : And a b), b
+body: fun (a b : Prop) (self : And a b) => self.2
+Exists.elim
+signature: [u]:1306956270:(some 1544435354):theorem
+type: ∀ {α : Sort u} {p : α → Prop} {b : Prop} (h₁ : @Exists.{u} α fun (x : α) => p x) (h₂ : ∀ (a : α), p a → b), b
+body: fun {α : Sort u} {p : α → Prop} {b : Prop} (h₁ : @Exists.{u} α fun (x : α) => p x) (h₂ : ∀ (a : α), p a → b) =>
+  @_private.Init.Core.0.Exists.elim.match_1_1.{u} α p (fun (h₁ : @Exists.{u} α fun (x : α) => p x) => b) h₁
+    fun (a : α) (h : p a) => h₂ a h
+Exists.casesOn
+signature: [u]:1766844013:(some 3398275430):definition
+type: ∀ {α : Sort u} {p : α → Prop} {motive : (t : @Exists.{u} α p) → Prop} (t : @Exists.{u} α p)
+  (intro : ∀ (w : α) (h : p w), motive (@Exists.intro.{u} α p w h)), motive t
+body: fun {α : Sort u} {p : α → Prop} {motive : (t : @Exists.{u} α p) → Prop} (t : @Exists.{u} α p)
+    (intro : ∀ (w : α) (h : p w), motive (@Exists.intro.{u} α p w h)) =>
+  @Exists.rec.{u} α p motive (fun (w : α) (h : p w) => intro w h) t
+_private.Init.Core.0.Exists.elim.match_1_1
+signature: [u_1]:1003687882:(some 1123591733):definition
+type: ∀ {α : Sort u_1} {p : α → Prop} (motive : (@Exists.{u_1} α fun (x : α) => p x) → Prop)
+  (h₁ : @Exists.{u_1} α fun (x : α) => p x)
+  (h_1 : ∀ (a : α) (h : p a), motive (@Exists.intro.{u_1} α (fun (x : α) => p x) a h)), motive h₁
+body: fun {α : Sort u_1} {p : α → Prop} (motive : (@Exists.{u_1} α fun (x : α) => p x) → Prop)
+    (h₁ : @Exists.{u_1} α fun (x : α) => p x)
+    (h_1 : ∀ (a : α) (h : p a), motive (@Exists.intro.{u_1} α (fun (x : α) => p x) a h)) =>
+  @Exists.casesOn.{u_1} α (fun (x : α) => p x) (fun (x : @Exists.{u_1} α fun (x : α) => p x) => motive x) h₁
+    fun (w : α) (h : p w) => h_1 w h

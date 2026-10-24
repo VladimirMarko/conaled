@@ -123,3 +123,9 @@ No source client, #107/#108 theorem selection, relative model, reflection rule,
 or model-existence assumption changes. The next concrete contract is emission
 from these explicit declaration codes with structural expected-type checks,
 installed primitive identification and an artifact axiom audit.
+
+The bounded emitter is now implemented in
+[graph core emission](graph-emission-implementation.md). It consumes these
+explicit declaration codes, checks independent expected propositions, expands
+installed helpers and enforces the measured primitive dependency boundary.
+The proved target semantics and the tested emission connection remain distinct.
