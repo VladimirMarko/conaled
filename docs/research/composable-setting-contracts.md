@@ -361,5 +361,9 @@ language or an infinite-tower implementation.
 
 The first experiment now has a [checked implementation record](branching-graph-transport.md)
 for paired Set interpretations, route comparison, substitution and the
-non-reflecting projection. The finite-setting and mixed-square experiments
-remain separate follow-ups.
+non-reflecting projection. The mixed-square experiment remains a separate follow-up.
+
+The second experiment now has a [checked Set-family implementation record](finite-setting.md)
+for the finite presentation, model/section equivalence, parameter substitution
+and generic partition. The slice-topos classifier and the mixed-square experiment
+remain separate obligations.
