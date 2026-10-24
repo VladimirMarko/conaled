@@ -1,0 +1,75 @@
+#126 isolated observation, 2026-10-24
+Main baseline ad1c9b35d20cdc2add0086e98eef2ef1d3afaabe, initially clean.
+Commands and pinned revisions: reproduce.sh and docs/research/relative-graph-model.md.
+Original isolated build directories: /tmp/conaled-114/con-leche and /tmp/conaled-114/lean4lean.
+Selected builds started without .lake outputs; no upstream source changes.
+ConLeche selected target: ConLeche.MainTheorem, Build completed successfully (536 jobs).
+Lean4Lean selected targets: Theory.Typing.Basic, Theory.Typing.Lemmas, Theory.Typing.UniqueTyping;
+Build completed successfully (49 jobs), with admitted-declaration warnings.
+An initial request for nonexistent Lean4Lean.Theory.Typing was corrected to these explicit modules.
+Lean 4.35.0, x86_64-unknown-linux-gnu, eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release.
+Lean 4.33.0-rc2, x86_64-unknown-linux-gnu, d8b18978322de05a8f3dba51ef03cf5461676c17, Release.
+
+ConLecheAudit.lean output:
+ConLeche.model_exists.{w} (V : Type w) [ConLeche.SetTheory V] (pins : List ConLeche.NatOpPinSet)
+  (ds : Array ConLeche.Declaration) (env : ConLeche.Env)
+  (accepted : ConLeche.Cached.checkDecls ConLeche.CheckMode.verified pins ds = Except.ok env) :
+  Nonempty (ConLeche.Model V env)
+'ConLeche.model_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConLeche.Denotes_functional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConLeche.Model.mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConLeche.Model.eq_equality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConLeche.SetModel.app_lamV' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConLeche.SetModel.app_mem_piV' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConLeche.SetTheory.of_mem_truthVal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConLeche.SetTheory.eq_of_mem_eqv' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Lean4LeanAudit.lean output:
+'Lean4Lean.VExpr.liftN_zero' depends on axioms: [propext]
+'Lean4Lean.VEnv.IsDefEq' depends on axioms: [propext]
+'Lean4Lean.VEnv.HasType.instN' depends on axioms: [propext, Quot.sound]
+'Lean4Lean.VEnv.IsDefEq.uniq' depends on axioms: [propext, sorryAx, Quot.sound]
+
+GraphAdapter.lean output:
+'GraphAdapter.existsName' does not depend on any axioms
+'GraphAdapter.eqExpr' does not depend on any axioms
+'GraphAdapter.result' does not depend on any axioms
+'GraphAdapter.body' does not depend on any axioms
+'GraphAdapter.composite' does not depend on any axioms
+'GraphAdapter.assignment' does not depend on any axioms
+'GraphAdapter.Primitives' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.Primitives.mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.Primitives.rec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.Primitives.recOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.Primitives.casesOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.Primitives.eqInfo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.Primitives.eq_lookup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.Primitives.eq_levels' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.Primitives.andInfo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.Primitives.and_lookup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.Primitives.and_levels' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.Primitives.existsInfo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.Primitives.exists_lookup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.Primitives.exists_levels' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.Primitives.and_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.Primitives.exists_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.eq_denotes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.graph_denotes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.Member' does not depend on any axioms
+'GraphAdapter.arrow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.graph_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GraphAdapter.graph_truth' depends on axioms: [propext, Classical.choice, Quot.sound]
+GraphAdapter current-module audit: 44 safe roots; axioms [Quot.sound, Classical.choice, propext]
+
+Audit negative fixtures (temporary copies of GraphAdapter.lean):
+- private theorem auditAdmission : False := by sorry => Forbidden axiom sorryAx; nonzero exit.
+- private axiom auditForbidden : False => Forbidden axiom; nonzero exit.
+- unsafe def auditUnsafe : Nat := 0 => Unsafe source declaration; nonzero exit.
+Each declaration was inserted before `end GraphAdapter`; the unchanged audit ran afterward.
+These probes tested the isolated audit, not the upstream runtime/compiler trust surface.
+
+Full reproduce.sh run completed successfully from fresh clones at
+/tmp/conaled-relative-graph.smZgqo. Both selected builds, both inventories and
+GraphAdapter checking/audit passed as described above (Lean4Lean diagnostic sorryAx retained).
+Full combined log: /tmp/conaled-126-review/reproduce.log.
+No main-project dependencies or library inputs changed.

@@ -335,8 +335,10 @@ not as a formal refinement theorem.
 ## Bounded implementation follow-ups
 
 These scopes are tracked by #124, #125 and #126 respectively. The first has a
-[checked implementation](graph-target-implementation.md); the other two retain
-their separate emission and relative-model contracts.
+[checked implementation](graph-target-implementation.md), the second has an
+[emission implementation](graph-emission-implementation.md), and the third has an
+[isolated feasibility assessment](relative-graph-model.md) with a conditional
+formula adapter and explicit remaining primitive-model obligations.
 
 1. **Represent and interpret the graph core image.** Define typed K syntax,
    substitutions, restricted judgments and native Set denotation for the
