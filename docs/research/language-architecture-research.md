@@ -118,7 +118,7 @@ a general importer or replacement language implementation.
 | Agda internal-declaration information retention | [#115](https://github.com/VladimirMarko/conaled/issues/115) |
 | slean and Agda-like surfaces with superficial translation | [#116](https://github.com/VladimirMarko/conaled/issues/116) |
 | LLM authoring comparison, with execution dependent on #116 | [#117](https://github.com/VladimirMarko/conaled/issues/117) |
-| Composable interpretation routes and nested internal settings | [#118](https://github.com/VladimirMarko/conaled/issues/118) |
+| Composable interpretation routes and nested internal settings ([worked contracts](composable-setting-contracts.md)) | [#118](https://github.com/VladimirMarko/conaled/issues/118) |
 
 The existing embedded-interface repair [#107](https://github.com/VladimirMarko/conaled/issues/107)
 and independent retest [#108](https://github.com/VladimirMarko/conaled/issues/108)

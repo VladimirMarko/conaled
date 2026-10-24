@@ -5,6 +5,10 @@ preserved conversation supplied by the project owner. It proposes design tests,
 not a replacement for the existing Lean embedding or a fixed compilation chain.
 The governing direction remains [mathematical settings as parameters](../language-direction.md).
 
+The [worked semantic contracts](composable-setting-contracts.md) develop this
+survey for #118: graph transport, a predicate-dependent internal presentation,
+its mixed square, explicit failures, and bounded implementation experiments.
+
 ## What Vickers's tower consists of
 
 Vickers, [*Generalized point-free spaces, pointwise*](https://arxiv.org/pdf/2206.01113),

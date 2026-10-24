@@ -36,6 +36,16 @@ An interpretation of those operations in a target representation, with the
 preservation obligations needed for compiler correctness. A backend can describe
 a mathematical analysis as well as executable code or hardware.
 
+**Transport route**:
+A translation of specified judgments together with a map of their semantic
+interpretations and a comparison connecting the two. Its preservation contract
+does not by itself provide reflection back to the source.
+
+**Internal setting construction**:
+A construction of a setting from presentation data expressed within a base
+language, with interpretation and substitution rules for those data.
+_Avoid_: External model parameter as a synonym for an internally presented setting.
+
 **Specialization**:
 A general construction instantiated with particular objects, operations,
 representations, or assumptions. Its guarantees follow by discharging the
