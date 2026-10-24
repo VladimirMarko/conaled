@@ -61,12 +61,31 @@ not an object-language quantifier over the host's whole universe hierarchy.
 |---|---|
 | Data types and terms | Three carrier parameters `A B C : Type v`, variables, and applications of `f` and `g` with their declared domains. No type-valued source terms or quantification over all types inside formulas. |
 | Propositions | `Eq` on a carrier, `And`, `Exists` over a carrier; implication and universal carrier quantification close sequents. Carrier and arrow parameters occur only in the declaration telescope. No arbitrary `Prop` parameter or impredicative propositional quantifier in source formulas. |
-| Expressions | Bound variables, constants with explicit universe instances, application, lambda and dependent function binders. `Sort` occurs in telescope and primitive signatures. The canonical emitter expands lets, removes metadata, and closes free variables; no metavariables, literals, projections or unresolved names remain. |
+| Expressions | Bound variables, constants with explicit universe instances, application, lambda and dependent function binders. `Sort` occurs in telescope and primitive signatures. The image also admits `Expr.proj And 0` and `Expr.proj And 1` for conjunction elimination at K formulas. It contains no lets, metadata, free variables, metavariables, literals, arbitrary structure projections or unresolved names. |
 | Proof operations | Identity and composition of implications; conjunction introduction/elimination; reflexivity, symmetry, transitivity and congruence of equality; existential introduction/elimination into propositions. These are typed schemas, instantiated only at K formulas and carriers. |
 | Primitive environment E₀ | Fixed installed definitions of `Eq`, `Eq.refl`, the equality eliminator, `And` with its constructor/eliminator, and `Exists` with its constructor/eliminator. Helpers for symmetry/transitivity/congruence and projections have explicit checked bodies over these primitives. The implementation must list their exact installed names, universe parameters, types, bodies or recursor metadata, and dependency closure; this design does not assert that every helper already expands to a particular minimal constant list. |
 | Environment extension | Start with E₀ and the abstract parameter telescope. Append only fresh theorem names whose type and body are generated together and checked in that environment. No arbitrary axioms, imported theorem bodies, new inductives, opaque semantic oracles, unsafe definitions or recursive definitions are admitted by the backend. |
-| Conversion | Typed substitution and alpha-renaming; beta reduction, delta unfolding of the listed helpers, and iota rules for the admitted eliminators. Support proof irrelevance at proposition types. Expand lets before emission. No reliance on arbitrary delta unfolding, quotient reduction, unrestricted inductive reduction or data eta is allowed. Any additional installed-kernel conversion used by a future emitter must be exposed and justified. |
+| Conversion | Typed substitution and alpha-renaming; beta reduction, delta unfolding of the listed helpers, iota rules for the admitted recursors, and the two `And` projection reductions on `And.intro`. Support proof irrelevance at proposition types. Expand lets before emission. No reliance on arbitrary delta unfolding, quotient reduction, unrestricted inductive reduction or data eta is allowed. Any additional installed-kernel conversion used by a future emitter must be exposed and justified. |
 | Universes | Carrier variables have sort `Sort (v+1)`; their binder types live in `Sort (v+2)`. Formula results live in `Sort 0`. Record primitive universe instantiations and the `imax` rule for dependent function formation, including propositions. Check level expressions against the declaration's parameter list; no cumulativity assumption. |
+
+The conjunction projection forms were added to this inventory after the #125
+emission experiment: on pinned Lean 4.35.0, expanding `And.left` and `And.right`
+produces `Expr.proj And 0` and `Expr.proj And 1`, respectively. They implement
+exactly K's `Code.left` and `Code.right` schemas. `GraphTarget.sound` interprets
+those schemas by the native conjunction projections; `left_iota` and
+`right_iota` compare the resulting native proofs after introduction. This
+justifies the bounded choice of operations. These are proofs about K and its
+native denotation, not a proved interpretation of `Lean.Expr.proj` or of kernel
+conversion. The emitted projection reductions remain part of the tested/trusted
+emission connection. No projection from an arbitrary structure, data product,
+or other inductive type is admitted by this revision.
+
+The implemented emitter constructs this image from typed K code and the pinned
+helper bodies. Its final checks enforce closure, expected proposition structure,
+primitive dependencies and kernel typing. They do not separately recognize the
+admitted Expr constructors or prove grammar membership for an arbitrary input.
+There is no arbitrary Expr import interface. A future importer or fragment
+recognizer would need its own constructor checks and correctness contract.
 
 Lean's actual expression datatype and kernel conversion support more than this
 image. The pinned [expression source](https://github.com/leanprover/lean4/blob/v4.35.0/src/Lean/Expr.lean)
@@ -82,7 +101,8 @@ references outside the declared closure. Validate that closure, not just the
 surface identifiers. The repository's allowed axioms (`propext`,
 `Classical.choice`, `Quot.sound`) remain the audit ceiling. This fragment's
 mathematical proof uses none of those principles; a claim of an empty transitive
-axiom list for generated artifacts awaits actual emission and audit.
+axiom list requires actual emission and audit. The #125 emitter measures empty
+sets for both graph declarations; see [its implementation record](graph-emission-implementation.md).
 
 ## Six independent obligations
 

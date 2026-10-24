@@ -57,6 +57,19 @@ in the target code. The final primitive boundary is:
 | `And`, `And.intro` | Conjunction and introduction; projection expressions eliminate it |
 | `Exists`, `Exists.intro`, `Exists.rec` | Proposition-valued existential and its introduction/elimination |
 
+Expanding `And.left` and `And.right` retains `Expr.proj And 0` and
+`Expr.proj And 1`. The [target contract](lean-core-target-contract.md#fragment-k-and-its-environment)
+now includes those two forms and their reductions on `And.intro`. They implement
+K's conjunction elimination schemas, whose native meanings are proved by
+`GraphTarget.sound`. No arbitrary structure projection is supported. The native
+`left_iota` and `right_iota` results compare K proofs; they do not establish a
+semantic theorem about emitted Expr projections or kernel conversion.
+
+The emitter builds expressions from typed K code and pinned helper bodies. The
+final checks do not include a separate Expr-constructor recognizer; dependency
+and kernel checks alone are not a proof of fragment membership. The supported
+interface emits the two graph declarations, without importing arbitrary Expr.
+
 The audit follows types, available bodies, inductive constructor references,
 constructor parents and recursor rule expressions. It rejects unknown names,
 unsafe constants, axioms and every dependency outside the boundary. The helper
