@@ -114,3 +114,10 @@ image/existential semantics and compare evaluation at a stage with formation;
 the existing external index selection alone cannot prove these naturality
 obligations. This is a concrete next interface extension, not evidence that
 internal model formation or general classifier coherence is already solved.
+
+The walking-arrow experiment now has a
+[checked presheaf implementation](presheaf-setting.md): stable parameter and
+model predicates, natural model/section equivalence, substitution comparison,
+generic data, composition, and graph interpretation through presheaf soundness.
+Its negative case rejects independent stage partitions. General classifiers
+and ambient change remain separate contracts.
