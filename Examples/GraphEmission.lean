@@ -41,6 +41,14 @@ def expectFailure (message : String) (action : TermElabM Unit) : TermElabM Unit 
 
 run_elab do
   let (ty, body) ← emit forwardDeclaration
+  checkShape ty
+  checkShape (← expandHelpers body)
+  expectFailure "graph unsupported projection: Prod.0" <|
+    checkShape (.proj ``Prod 0 (.bvar 0))
+  expectFailure "graph unsupported projection: And.2" <|
+    checkShape (.proj ``And 2 (.bvar 0))
+  expectFailure "graph unsupported constructor: letE" <|
+    checkShape (.letE `h (.sort .zero) (.bvar 0) (.bvar 0) false)
   expectFailure "graph expression is not closed" <| install `BadBinder ty (.bvar 0)
   expectFailure "graph name already exists" <| install `GraphEmitted.forward ty body
   expectFailure "graph unknown constant: MissingGraphPrimitive" <|

@@ -66,9 +66,14 @@ K's conjunction elimination schemas, whose native meanings are proved by
 semantic theorem about emitted Expr projections or kernel conversion.
 
 The emitter builds expressions from typed K code and pinned helper bodies. The
-final checks do not include a separate Expr-constructor recognizer; dependency
-and kernel checks alone are not a proof of fragment membership. The supported
-interface emits the two graph declarations, without importing arbitrary Expr.
+`checkShape` gate recursively checks both emitted type and expanded body. It
+admits bound variables, sorts, constants, applications, lambdas, dependent
+function binders and the two `And` projections. It rejects other projections,
+lets, metadata, literals, free locals and metavariables. Constant closure,
+closedness, expected-type comparison and kernel typing are separate checks.
+This executable shape gate is not a proved K typing or conversion judgment.
+The supported interface emits the two graph declarations, without importing
+arbitrary Expr.
 
 The audit follows types, available bodies, inductive constructor references,
 constructor parents and recursor rule expressions. It rejects unknown names,
@@ -93,7 +98,8 @@ These equalities use proof irrelevance after checking identical native
 propositions; they do not preserve computational witness data.
 
 The retained failure checks require the designated diagnostic. They cover an
-open binder, a closed corrupted binder, a wrong universe instance, an opposite
+unsupported `Prod` projection, an invalid `And` projection index, a let node,
+an open binder, a closed corrupted binder, a wrong universe instance, an opposite
 direction body, duplicate names, unknown constants, disallowed foundational
 axioms, changed environment signatures and a missing transitive constructor.
 The changed-conclusion test specializes the actual emitted type to coincident

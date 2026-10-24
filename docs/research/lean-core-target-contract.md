@@ -81,11 +81,14 @@ emission connection. No projection from an arbitrary structure, data product,
 or other inductive type is admitted by this revision.
 
 The implemented emitter constructs this image from typed K code and the pinned
-helper bodies. Its final checks enforce closure, expected proposition structure,
-primitive dependencies and kernel typing. They do not separately recognize the
-admitted Expr constructors or prove grammar membership for an arbitrary input.
-There is no arbitrary Expr import interface. A future importer or fragment
-recognizer would need its own constructor checks and correctness contract.
+helper bodies. Its final checks enforce the admitted Expr constructor shapes,
+closure, expected proposition structure, primitive dependencies and kernel
+typing. The executable shape gate allows only the listed constructors, including
+`And` projections at indices zero and one; it rejects other projection names or
+indices, lets, metadata, literals, free locals and metavariables. This bounded
+shape check is not a proved K typing or conversion judgment for arbitrary input.
+There is no arbitrary Expr import interface. A future importer or verified
+fragment recognizer would need its own correctness contract.
 
 Lean's actual expression datatype and kernel conversion support more than this
 image. The pinned [expression source](https://github.com/leanprover/lean4/blob/v4.35.0/src/Lean/Expr.lean)

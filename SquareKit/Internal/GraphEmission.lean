@@ -199,6 +199,21 @@ def checkEnvironment (manifest : List (Name × String) := environmentManifest) :
       throwError "graph environment signature mismatch: {n}"
   discard <| auditClosure (primitives ++ helpers) (primitives ++ helpers)
 
+/-- Executable artifact-shape gate; not a judgment for arbitrary Lean programs. -/
+def checkShape : Expr → MetaM Unit
+  | .bvar _ | .sort _ | .const _ _ => pure ()
+  | .app f a => checkShape f *> checkShape a
+  | .lam _ t b _ | .forallE _ t b _ => checkShape t *> checkShape b
+  | .proj name index e => do
+      unless name == ``And && index < 2 do
+        throwError "graph unsupported projection: {name}.{index}"
+      checkShape e
+  | .letE .. => throwError "graph unsupported constructor: letE"
+  | .mdata .. => throwError "graph unsupported constructor: mdata"
+  | .lit .. => throwError "graph unsupported constructor: lit"
+  | .fvar .. => throwError "graph unsupported constructor: fvar"
+  | .mvar .. => throwError "graph unsupported constructor: mvar"
+
 /-- Structural equality ignores binder names, but does not normalize propositions. -/
 def compareType (actual expected : Expr) : MetaM Unit := do
   unless actual == expected do throwError "graph expected-type mismatch"
@@ -231,6 +246,8 @@ elab "#emit_graph " f:ident b:ident : command => liftTermElabM do
     let (ty, body) ← emit d
     compareType ty (← expected back)
     let body ← expandHelpers body
+    checkShape ty
+    checkShape body
     let closure ← auditClosure (ty.getUsedConstants.toList ++ body.getUsedConstants.toList)
     install name ty body
     unless (← collectAxioms name).isEmpty do throwError "graph artifact has axioms"
