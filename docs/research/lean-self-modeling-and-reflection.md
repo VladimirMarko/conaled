@@ -197,3 +197,9 @@ Two checks should accompany any later extension:
 An interpretation graph may contain many valid finite paths. A cycle of
 translations does not by itself certify reflection, conservativity, or the
 host's consistency. Those require their own statements and proofs.
+
+The [bounded Lean core target specification](lean-core-target-contract.md) now
+selects the existing graph consumer, specifies its canonical core image and
+semantic square, and records pinned Lean4Lean/ConLeche assumptions and gaps.
+It distinguishes the fragment interpretation from a relative model route and
+leaves emission correspondence explicit; no new backend is implemented.
