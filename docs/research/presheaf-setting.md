@@ -5,6 +5,9 @@ Issue [#122](https://github.com/VladimirMarko/conaled/issues/122) extends the
 The experimental implementation is
 [`PresheafSetting`](../../SquareKit/Internal/PresheafSetting.lean), with
 [walking-arrow cases](../../Examples/PresheafSetting.lean).
+Issue [#123](https://github.com/VladimirMarko/conaled/issues/123) adds
+[`PresheafRepresentation`](../../SquareKit/Internal/PresheafRepresentation.lean)
+and its [checked applications](../../Examples/PresheafRepresentation.lean).
 
 ## Source and models
 
@@ -106,24 +109,93 @@ The graph claims compare subfunctors or their actual stage evaluations and
 reuse source derivations; they do not infer naturality from unrelated Set
 proofs.
 
+## Pullbacks and representation in the slice
+
+`pullbackLift` constructs the unique natural map into the existing chosen
+pullback from any commuting pair. `pullbackLift_original` and
+`pullbackLift_projection` give its factorizations; `pullback_hom_ext` gives
+uniqueness. `chosen_isPullback` packages these in Mathlib's `IsPullback`, whose
+`isLimit` supplies the pullback cone's universal property. `formed_isPullback`
+transports that property through the existing `comparison` isomorphism. Both
+squares retain the projection to the context and the map to the original total
+presheaf.
+
+For every natural map σ:Y→X, `modelOverEquiv T σ` is an equivalence
+
+```text
+Model (subst T σ) ≃ (Over.mk σ ⟶ Over.mk (projection T)).
+```
+
+`classify` first uses `modelSectionEquiv`, then the section graph and `totalMap`.
+`representedModel` pulls back both predicates of the actual `genericModel`.
+`represented_generic` identifies it with substitution of that model, transported
+along the arrow's equation over X. `represented_classify` and
+`classify_represented` are the two inverse laws. `represented_injective` proves
+uniqueness from equality of the recovered models and the equation to the base.
+Although its proof uses P's Boolean tag, this determines the entire fibre:
+the left summand lifts a proposition and the right summand is a singleton.
+Their elements carry no additional proof-relevant data. The inverse law is an
+equality of models, including both P and Q, not only a tag equation.
+
+`reindex` absorbs the dependent presentation equality for arbitrary arrows in
+`Over X`. `reindex_id` and `reindex_comp` prove its coherence.
+`represented_natural` and `classify_natural` prove that precomposition of maps
+over X corresponds to this model substitution. `classify_subst` exposes the
+common composable-substitution case without casts. `classify_section` connects
+the equivalence to #122's model/section correspondence, and
+`classify_comparison` identifies the universally lifted classifying map with
+the formed section via #122's comparison. `classify_generic` identifies the
+generic model's map with the identity of the representing slice object.
+
+`represented_graph` applies the existing graph source soundness to the
+classifying map followed by the generic Boolean observation.
+`represented_graph_P` identifies its true result with the input model's P.
+The walking-arrow applications test the universal lift on the coarse left
+point and fine right point, retaining distinct Boolean labels under the
+noninjective `forget`. They identify that lift with `comparison.inv` by
+uniqueness. They also classify and recover the inhabited right model, check
+uniqueness and flip substitution, and compare the old graph route with the
+universal lift. The generic model's coarse left point exercises a positive P
+case. The earlier `separate_not_natural` and `separate_not_model` remain checked
+negative cases.
+
+The missing connections before #123 were a limit witness for the chosen
+square and maps over X for the model correspondence. The existing stage
+calculations already justified the expected left/right observations; the new
+applications connect those expectations to the universal lift and classification.
+Statement review covered arbitrary source presheaves for lifting, both
+factorizations, uniqueness, both model inverse laws, the equation over X,
+substitution along every slice arrow, identity/composition, and the actual
+generic model. Equality transports are internal to `representedModel` and
+`reindex`; `Model.cast` explicitly proves they preserve both predicates.
+No hypothesis assumes the requested representation or assumes source
+parameter decidability.
+
 ## Scope and further contracts
 
 Carriers are in `Type 0`; the small indexing category may be in any universe.
 This bound matches the existing graph signature and avoids silently introducing
-heterogeneous carrier lifts. The same constructions work on any such small
-base; only the distinguishing cases specialize to the walking arrow.
+heterogeneous carrier lifts. The construction and representation apply to any
+such small base; only the distinguishing cases specialize to the walking arrow.
+Classical host selection enters through the existing model/section equivalence.
+It does not add excluded middle or a decidability axiom to the finite source
+presentation. Proof irrelevance for Set subobjects and the singleton summand
+justifies the extensionality used here; this argument would not classify richer
+fibres with multiple witnesses sharing a tag.
 
-This constructs a presheaf object over X with a natural model/section
-correspondence. It does not construct a non-discrete internal locale, a general
-internal-site classifier, slice-topos equivalences, change of site, or arbitrary
-nesting. The categorical universal property of the chosen pullback is also not
-packaged as a Mathlib limit cone here. #107/#108's independent experiment is
-unchanged.
+The bounded #118 experiments now have categorical meaning as a chosen presheaf
+pullback and a model assignment naturally represented by an object of `Over X`.
+This closes the specific universal-property gap left by #122. It does not
+supply the full slice-topos classifier from the
+[worked research contract](composable-setting-contracts.md): that statement
+quantifies over geometric morphisms from arbitrary toposes and compares model
+categories with geometric morphisms into a slice topos. The present theorem
+quantifies over objects and arrows of one fixed presheaf slice.
 
-A bounded next step could package the projection's classifying property in the
-presheaf slice, using natural maps over X and its generic model. A route that
-changes the ambient category needs an additional contract identifying which
-functors preserve the relevant subobjects, unions and images, together with
-comparison coherence. Neither general closure under internal constructions nor
-an infinite tower follows from the present naturality laws. Those require
-separate size and categorical universal-property obligations.
+No additional bounded follow-up is needed for these experiments. A future
+ambient-base-change task would need a specified functor preserving the relevant
+subobjects, unions and images, with generic-model and composition comparisons.
+General internal-site classifiers, richer identity data, closure under arbitrary
+internal constructions, reflection and infinite-tower objects remain broader
+ambitions. None follows from this representation theorem. #107/#108's independent
+experiment remains unchanged.

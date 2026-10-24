@@ -372,6 +372,10 @@ an explicit pullback equivalence over the substituted context, generic partition
 and arbitrary-model correspondence, dependent composition coherence, componentwise
 ambient selection, and the existing graph derivation on both constructed families.
 The record states its universe restriction and retains the non-reflection boundary.
-It proposes a walking-arrow presheaf experiment with restriction-compatible
-presentation/model data as the next non-discrete test. General internal classifiers,
-geometric-morphism pseudopullbacks and unbounded nesting remain open.
+The [walking-arrow presheaf extension](presheaf-setting.md) now proves
+restriction-compatible formation, a categorical pullback for the chosen square,
+and natural representation of finite models by maps over the context, including
+the actual generic model. These complete the bounded experiments' categorical
+contracts within one presheaf slice. The full slice-topos classifier quantified
+over arbitrary source toposes, geometric-morphism pseudopullbacks and unbounded
+nesting remain open; the bounded results do not claim them.
