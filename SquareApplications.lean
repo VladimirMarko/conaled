@@ -1,3 +1,4 @@
+import Examples.GraphTarget
 import Examples.FiniteSetting
 import Examples.MixedSetting
 import Examples.PresheafSetting

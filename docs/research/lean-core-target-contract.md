@@ -3,9 +3,11 @@
 Design specification for [#114](https://github.com/VladimirMarko/conaled/issues/114),
 2026-10-24, against local commit `c3b9cb62a89f23df20c4bfd808402ac9be1f1603`.
 This develops [the self-modeling research](lean-self-modeling-and-reflection.md).
-The proposed backend and its metatheorems are **not implemented**. The worked
-example below is a mathematical specification, with existing checked source
-proofs identified separately. No Lean declarations or dependencies change.
+The [typed target and native denotation](graph-target-implementation.md) now
+implement the first bounded experiment. Concrete Lean expression emission and
+installed-environment correspondence remain unimplemented. The worked example
+below records the design specification; the implementation note identifies
+its checked target specializations.
 
 ## Consumer and generated artifact
 
@@ -165,9 +167,9 @@ Thus both interpretations give the two implications already consumed by
 
 For a concrete mathematical instance, take natural-number carriers,
 `f(n)=n+1`, `g(n)=2*n`, and `x=2`. Both source and target formulas reduce to
-`(∃y. y=3 ∧ z=2*y) ↔ z=6`; the reverse witness is 3. This is a paper
-specialization of the existing theorem, not a newly checked example or a
-requirement to add natural-number recursion to K. The external model supplies
+`(∃y. y=3 ∧ z=2*y) ↔ z=6`; the reverse witness is 3. This design calculation now has a
+[checked target specialization](../../Examples/GraphTarget.lean). It does not
+require adding natural-number recursion to K: the external model supplies
 the two functions. Empty carriers remain allowed: when A is empty there is no
 assignment of x, and the universally closed judgment is vacuous.
 
@@ -309,7 +311,9 @@ not as a formal refinement theorem.
 
 ## Bounded implementation follow-ups
 
-These are proposed scopes, not completed work or newly created issues.
+These scopes are tracked by #124, #125 and #126 respectively. The first has a
+[checked implementation](graph-target-implementation.md); the other two retain
+their separate emission and relative-model contracts.
 
 1. **Represent and interpret the graph core image.** Define typed K syntax,
    substitutions, restricted judgments and native Set denotation for the
