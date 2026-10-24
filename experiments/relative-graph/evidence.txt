@@ -73,3 +73,33 @@ Full reproduce.sh run completed successfully from fresh clones at
 GraphAdapter checking/audit passed as described above (Lean4Lean diagnostic sorryAx retained).
 Full combined log: /tmp/conaled-126-review/reproduce.log.
 No main-project dependencies or library inputs changed.
+
+#127 isolated observation, 2026-10-24
+Main baseline f0e71326205eceb2537e8d0219eb65730cf0715a, initially clean.
+Fresh reproduction: /tmp/conaled-relative-graph.g7ZiQc.
+Driver log: /tmp/conaled-language-supervision/127-reproduce.log.
+Commands and pins: reproduce.sh (unchanged upstream revisions from #126).
+ConLeche selected target: ConLeche.MainTheorem, Build completed successfully (536 jobs).
+Each new artifact compiled from source against that fresh isolated build.
+Acceptance is an executed verified-checker check, not a kernel theorem.
+Both explicit environment constant lists and projection tables match checker output.
+Primitive environment: 9 constants, 2 tables. Closed environment: 11 constants, 2 tables.
+Graph checks: primitive and closed environments accepted; parameter, direction, and table mismatches rejected.
+
+Exhaustive current-module audits (including safe private/generated kernel declarations):
+ArtifactAudit: 3 safe roots; axioms [Quot.sound, Classical.choice, propext]
+GraphEnvironment: 16 safe roots; axioms [propext]
+GraphDeclarations: 38 safe roots; axioms [propext]
+PrimitiveLaws: 96 safe roots; axioms [Quot.sound, Classical.choice, propext]
+ClosedGraph: 7 safe roots; axioms [Quot.sound, Classical.choice, propext]
+AcceptedGraph: 28 safe roots; axioms [Quot.sound, Classical.choice, propext]
+GraphChecks: 4 safe roots; axioms [Quot.sound, Classical.choice, propext]
+Existing GraphAdapter: 44 safe roots; axioms [Quot.sound, Classical.choice, propext]
+No unsafe source declaration or forbidden transitive axiom reported for these artifacts.
+
+The kernel-checked results derive both primitive equations from Model.mem and
+exact primitive signatures, specialize the conditional comparison, and recover
+both graph implications from the stored closed theorem memberships. threeStep
+uses those results twice. SetTheory and Model remain explicit; model_exists
+additionally retains the checker-acceptance equation. No unconditional set model,
+installed-Lean emitter correspondence, or host reflection is claimed.

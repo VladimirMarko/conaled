@@ -1,20 +1,124 @@
 # Relative set-model feasibility for the graph signature
 
-Assessment for [#126](https://github.com/VladimirMarko/conaled/issues/126), at
-local baseline `ad1c9b35d20cdc2add0086e98eef2ef1d3afaabe`.
+Current result for [#127](https://github.com/VladimirMarko/conaled/issues/127),
+built on #126 at `f0e71326205eceb2537e8d0219eb65730cf0715a`.
 
-The pinned ConLeche model theorem builds and its selected transitive axiom
-inventory meets the repository's whitelist. A conditional formula adapter is
-checked in isolation. Adoption remains pending: the experiment does not
-construct an accepted graph environment or derive the meanings of `And` and
-`Exists` from its installed declarations. Those two primitive interpretation
-laws are explicit premises of the adapter. They are not consequences claimed
-for an arbitrary `ConLeche.Model`.
+The bounded ConLeche graph environment now has derived `And` and `Exists`
+interpretation laws and two accepted closed graph declarations. The primitive
+laws follow from arbitrary `Model.mem` and the exact formation, constructor,
+and dependent eliminator signatures. They are not additional semantic
+premises. The model still requires an explicit `V` and `[SetTheory V]`.
 
 The [native graph target](graph-target-implementation.md) and
 [Lean expression emitter](graph-emission-implementation.md) remain independent.
 Neither imports this experiment. The fresh-theorem and ordinary-client contracts
-of #107/#108 are unchanged.
+of #107/#108 and the main project's dependencies are unchanged.
+
+## Bounded environment and checked declarations
+
+[GraphEnvironment.lean](../../experiments/relative-graph/GraphEnvironment.lean)
+submits three inductive blocks: the pinned Eq basis, the pinned And block, and
+an explicitly written Exists block. Exists has carrier parameter `u`, two
+parameters `A : Sort u` and `P : A → Prop`, constructor
+`∀ w:A, P w → Exists A P`, and dependent Prop eliminator
+`∀ motive:Exists A P → Prop, (∀ w h, motive (Exists.intro A P w h)) →
+∀ t, motive t`. Its motive cannot eliminate into an arbitrary sort.
+
+The stored environment lists nine constants and two projection tables. The
+explicit stored records preserve the exact constant values and predict the
+installer's recursor parameter counts and inductive metadata. The And table
+contains two proof fields; the Exists table contains a witness and its proof,
+with the carrier-level projection guards. These tables are compared against
+the checker's output, not inferred from a successful type check alone.
+
+[GraphDeclarations.lean](../../experiments/relative-graph/GraphDeclarations.lean)
+adds `graph_forward` and `graph_backward`, bringing the constant count to eleven.
+Both have the closed telescope `A B C f g x z`, with carriers in `Sort (succ v)`.
+The forward proof eliminates Exists, projects the two And proofs, and uses
+Eq.rec to substitute `y = f x` into `z = g y`. The backward proof chooses `f x`
+and pairs reflexivity with the given endpoint equation. A small local binder
+helper abstracts typed free variables into de Bruijn indices; it is not an
+exporter or a translation from installed `Lean.Expr`.
+
+[GraphChecks.lean](../../experiments/relative-graph/GraphChecks.lean) runs the
+pinned verified checker and compares both the constant list and projection
+tables with these explicit environments. It also checks rejection of an Exists
+block with a wrong parameter count and the forward proof paired with the
+backward statement, and detects an expected environment with missing tables.
+Acceptance is an **executed check**, not a kernel theorem proving the checker
+equation. The semantic model-existence wrapper therefore retains that equation
+as an explicit premise. Runtime execution supplies evidence for it without
+introducing `native_decide`, an axiom, or an unchecked proof conversion.
+
+## Derived primitive meanings and closed membership
+
+[PrimitiveLaws.lean](../../experiments/relative-graph/PrimitiveLaws.lean) proves
+both equations required by `GraphAdapter.Primitives`. `Record` records a stored
+constant's lookup, membership in the environment, and exact constant value
+(name, level parameters, and type). It permits the installer's changed inductive
+and recursor metadata. `Records` contains only these syntax facts.
+
+`and_law` and `exists_law` use `Model.mem` to obtain membership in the denotation
+of each signature. Formation puts the result in `univZero`; constructor
+membership proves introduction. For elimination, the motive is the truth value
+of the corresponding host conjunction or witness proposition. The minor premise
+is constructed from its input memberships. Truth-value extensionality then
+identifies the result. In And elimination the motive is placed in the recursor's
+existing universe, since truth values belong to every universe. No coherence
+field for unrelated universe assignments is assumed or needed.
+
+`primitives` packages the derived equations. The concrete record certificates
+are kernel-checked using the explicit stored lists. Exists predicates are
+interpreted by `lamV A`; `app_lamV` is used only on members of A. Empty carrier
+sets require no separate inhabitedness assumption.
+
+[ClosedGraph.lean](../../experiments/relative-graph/ClosedGraph.lean) specializes
+actual theorem membership through the entire telescope. It requires A, B and C
+to belong to their carrier universe, F to belong to `piV A (fun _ => B)`, G to
+belong to `piV B (fun _ => C)`, and both endpoints to belong to their carriers.
+Application membership supplies the closure assumptions needed by the open
+adapter. After applying the theorem's denoted function to a proof of its premise,
+`Denotes_functional` identifies the result with the intended truth value and
+`of_mem_truthVal` yields the implication. Both directions use this membership
+route; they do not bypass it by proving graph composition independently.
+
+[AcceptedGraph.lean](../../experiments/relative-graph/AcceptedGraph.lean)
+instantiates the primitive package and the closed membership results for the
+explicit eleven-constant environment. Its application uses the derived formula
+comparison, retaining the order `y = F x` and `z = G y`. Model existence remains
+relative to SetTheory and the checker equation. The semantic results themselves
+apply to every model of that explicit environment.
+
+Statement review checked the full binder telescope, the additional implication
+proof binder, and the Exists witness shift. Constructor and eliminator membership
+are discharged from the model, rather than supplied as graph correctness
+assumptions. The endpoint order is also exercised by the rejected proof/statement
+mismatch. No native set-theory instance or unrestricted host reflection is claimed.
+
+## Reproduction and audit boundary
+
+Run `direnv exec . bash experiments/relative-graph/reproduce.sh` from conaled.
+It clones the same pinned revisions listed below into a fresh temporary directory,
+builds ConLeche, and compiles the isolated modules in dependency order. Each new
+artifact runs `#audit_graph_module`, which scans all safe current-module kernel
+declarations, including private and generated declarations, rejects unsafe
+source declarations, and checks transitive axioms against the repository's
+three-axiom whitelist. The audit command audits its own module too. The script
+retains separate build, checker, and audit logs in the printed directory.
+
+The main-project import graph is unchanged. These artifacts remain outside its
+build and use their own exhaustive audits. The installed Lean compiler/runtime,
+filesystem, and executed checker comparison are still part of the validation
+boundary; axiom inventories do not certify them. The earlier Lean4Lean diagnostic
+still intentionally reports `sorryAx` and does not contribute to the ConLeche
+proofs.
+
+## Historical #126 assessment
+
+The remaining sections record the initial feasibility assessment and its
+then-open obligations. #127 discharges the bounded primitive and closed graph
+obligations described there; broader adoption and host-emission correspondence
+remain outside this experiment.
 
 ## Pinned builds and selected inventories
 

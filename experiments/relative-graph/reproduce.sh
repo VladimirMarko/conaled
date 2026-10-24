@@ -15,7 +15,10 @@ git -C "$run_dir/lean4lean" checkout --quiet --detach 67f63b0c818920dfaed2ad07cc
   lean --version | tee "$run_dir/conleche-version.txt"
   lake build ConLeche.MainTheorem 2>&1 | tee "$run_dir/conleche-build.log"
   lake env lean "$artifact_dir/ConLecheAudit.lean" 2>&1 | tee "$run_dir/conleche-audit.log"
-  lake env lean "$artifact_dir/GraphAdapter.lean" 2>&1 | tee "$run_dir/adapter.log"
+  for module in ArtifactAudit GraphAdapter GraphEnvironment GraphDeclarations PrimitiveLaws ClosedGraph AcceptedGraph GraphChecks; do
+    lake env lean -R "$artifact_dir" -o ".lake/build/lib/lean/$module.olean" \
+      "$artifact_dir/$module.lean" 2>&1 | tee "$run_dir/$module.log"
+  done
 )
 (
   cd "$run_dir/lean4lean"
