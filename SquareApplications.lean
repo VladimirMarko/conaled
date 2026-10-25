@@ -1,3 +1,4 @@
+import Applications.Elaboration.Examples
 import Applications.Progress.Examples
 import Examples.GraphEmission
 import Examples.GraphTarget
