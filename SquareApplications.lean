@@ -1,3 +1,7 @@
+import Examples.SierpinskiPoints
+import Examples.SierpinskiLocal
+import Examples.SierpinskiSheaf
+import SquareKit.SierpinskiClassifier
 import Examples.SliceUniversal
 import Examples.FiniteClassifier
 import Examples.PresheafClassifier
