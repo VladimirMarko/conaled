@@ -1,6 +1,10 @@
 import Applications.Elaboration.Examples
 import Applications.Progress.Examples
 import Examples.GraphTranslationValidation
+import Examples.SierpinskiPoints
+import Examples.SierpinskiLocal
+import Examples.SierpinskiSheaf
+import SquareKit.SierpinskiClassifier
 import Examples.SliceUniversal
 import Examples.FiniteClassifier
 import Examples.PresheafClassifier
