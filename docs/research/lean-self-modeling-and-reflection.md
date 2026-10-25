@@ -203,3 +203,9 @@ selects the existing graph consumer, specifies its canonical core image and
 semantic square, and records pinned Lean4Lean/ConLeche assumptions and gaps.
 It distinguishes the fragment interpretation from a relative model route and
 leaves emission correspondence explicit; no new backend is implemented.
+
+The [host/target separation investigation](host-target-separation.md) inventories
+these boundaries and checks two pinned binder contracts under the current host.
+It distinguishes a local representation/meaning bridge from upstream rule and
+checker compatibility, including ConLeche's removal of proposition-status binder
+metadata.
