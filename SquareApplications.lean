@@ -1,3 +1,4 @@
+import Examples.ConstantSheafStreams
 import Examples.GraphEmission
 import Examples.GraphTarget
 import Examples.FiniteSetting
