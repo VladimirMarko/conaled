@@ -324,8 +324,8 @@ cannot discharge this general requirement.
 [Van Oosten's topos notes](https://ncatlab.org/nlab/files/vanOosten-ToposTheory.pdf),
 [Hemelaer and Rogers, Proposition 3](https://link.springer.com/article/10.1007/s10485-020-09626-6)
 
-Here is a mathematical counterexample specific to streams, not a checked local
-formalization. Let `X = {0,1}^N` with the product topology and take the constant
+The following stream counterexample was initially a mathematical argument;
+the checked #144 construction is recorded below. Let `X = {0,1}^N` with the product topology and take the constant
 sheaf inverse image `Δ : Set → Sh(X)`. A section of `Δ({0,1}^N)` is a locally
 constant map into the set of bit sequences with discrete topology. A section
 of the countable product of `Δ{0,1}` is a family of locally constant bit-valued
@@ -479,3 +479,76 @@ It separates source fidelity, constraint solutions, target typing and final
 acceptance, with substitution/environment compatibility and two admissible
 strategies. The note states its monomorphic universe boundary, caller effort,
 checked dependent-data examples and unsupported inference features.
+
+## Checked constant-sheaf counterexample (#144)
+
+`Examples/ConstantSheafStreams.lean` formalizes the example on the small site
+of opens of `Nat → Bool`, with the product topology and discrete topology on
+Bool. Sheaves take values in `Type 0`. Local constancy of a stream-valued
+section refers to the underlying set of streams; it does not equip the target
+with Cantor's product topology.
+
+`SquareKit/LocallyConstantSheaf.lean` constructs the sheaf of locally constant
+functions on an arbitrary small topological space. It proves that the constant
+presheaf maps locally bijectively to it. Mathlib's sheafification machinery
+then supplies a natural isomorphism from `CategoryTheory.constantSheaf` to
+this concrete functor `delta`. Thus the functor used in the counterexample is
+the actual constant sheaf, rather than the constant presheaf or an unrelated
+family of section types. The construction uses the usual open-cover topology,
+as in [Van Oosten's notes, §0.2](https://ncatlab.org/nlab/files/vanOosten-ToposTheory.pdf).
+
+`SquareKit/SheafIndexedProduct.lean` extends the existing explicit binary
+sheaf-product interface to indexed products. Coordinatewise gluing proves the
+sheaf condition; its isomorphism to Mathlib's categorical product preserves
+every projection. `SquareKit/ConstantSheafProducts.lean` defines the comparison
+from locally constant I-tuples to I families of locally constant values. The
+categorical version is proved equal to Mathlib's `piComparison`, after the
+standard Type product isomorphism. Its finite inverse uses
+`LocallyConstant.unflip`; a binary-product isomorphism handles unequal factors.
+All these comparisons are natural sheaf morphisms, including restrictions.
+
+The coordinate projections give a global section of the product sheaf. Were
+it the image of a locally constant stream-valued section, assembling its
+coordinates would give the identity on Cantor space as a locally constant map.
+A locally constant map from a compact space has finite image, whereas the
+identity here has infinite image. `identity_not_locallyConstant` checks that
+contradiction, using the injection sending n to the bit stream supported only
+at n. `categoricalCoordinates_not_image` retains the specified global section
+in the actual categorical product. `canonical_not_iso` and
+`countable_power_not_preserved` deduce the categorical obstruction.
+
+For every n, including zero, `prefixIso` is an isomorphism and
+`prefix_coordinates` identifies the finite coordinate family with its preimage.
+`prefix_value` states the independent observation: index i of that section is
+exactly the original bit at i. These positive finite statements coexist with
+the negative countable statement; no convergence or reconstruction premise is
+silently supplied.
+
+`SquareKit/ProductStreams.lean` uses Mathlib's product endofunctor and category
+of coalgebras. In any category with binary products and the specified countable
+power, that power, with head and shifted tail, is a final stream coalgebra.
+The proof constructs the unique map by its finite observations. Ordinary
+function streams in Type are a checked instance. In the sheaf example,
+`transported_structure` identifies the transported structure with the mapped
+head/tail pair followed by the proved finite binary-product comparison.
+`coalgebraComparison` proves that the countable comparison respects this
+structure. Since a map between final coalgebras must be invertible,
+`transported_not_final` follows from the failed comparison.
+
+The positive contract is deliberately separate. An invertible coalgebra
+comparison transfers finality (`final_of_comparison`). For routes from Type,
+`final_of_preservesPower` requires preservation of the one countable diagram
+of copies of the output type and the explicit coalgebra comparison equation;
+it does not require preservation of arbitrary limits or arbitrary final
+coalgebras. The Cantor constant-sheaf route satisfies the equation and fails
+the countable preservation hypothesis. Existing slice/dependent-product routes
+can use their proved comparison isomorphisms only after matching the stream
+object and its head/tail structure to this contract. Finite-prefix or
+finite-limit preservation alone cannot fill that obligation.
+
+This counterexample restricts the admissible morphisms for a final-stream
+preservation interface. A broader interface can retain the comparison and its
+observation laws without promising invertibility. The formal result uses
+countable products; no additional identification with an internal exponential,
+no productivity or termination theorem, and no lazy runtime implementation is
+claimed. The #107/#108 authoring and independent-retest boundary is unchanged.

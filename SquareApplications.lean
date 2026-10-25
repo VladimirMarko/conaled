@@ -4,6 +4,7 @@ import Examples.GraphTranslationValidation
 import Examples.SliceUniversal
 import Examples.FiniteClassifier
 import Examples.PresheafClassifier
+import Examples.ConstantSheafStreams
 import Examples.GraphEmission
 import Examples.GraphTarget
 import Examples.FiniteSetting
