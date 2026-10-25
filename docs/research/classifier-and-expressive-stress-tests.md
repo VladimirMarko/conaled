@@ -438,3 +438,60 @@ existing representation squares. General multi-object or weak higher
 interpretations need additional interfaces and coherence proofs. This
 fixture supplies none of the dependent-elimination rules needed for a full
 HoTT interpretation and does not change #107/#108's authoring boundary.
+
+## Checked finite universe (#143)
+
+`SquareKit/FiniteUniverse.lean` implements Ufin with a wrapper around Nat as
+objects and `Fin n ≃ Fin m` as arrows. Its `decode` functor acts by the actual
+bijection. `Examples/FiniteUniverse.lean` checks the transposition at 2: it
+fixes the code and exchanges the two decoded points. `discrete_loss` proves
+that an action on decoded points cannot factor through the functor to
+`Discrete Nat`, because that functor identifies swap with identity.
+
+`Enumeration A` keeps a code and a decoding equivalence to A. Its `map`
+conjugates an arbitrary bijection by the two enumerations. Naturality,
+identity, composition and change-of-enumeration coherence are proved once.
+`sumCode` and `productCode` enumerate actual dependent pairs and sections;
+`sumEquiv` and `productEquiv` move both base indices and fibre values.
+Their element-level naturality and composition laws feed the same enumeration
+contract. The checked examples include unequal fibre sizes 1 and 2, simultaneous
+base/fibre swaps, the empty sum and the singleton empty product. Enumeration
+uses `Fintype.equivFin`, hence classical choice; no executable canonical ordering
+is claimed. The computation examples concern decoded data, independently of
+which enumeration was chosen.
+
+The two routes are realization into the groupoid of finite sets with chosen
+Fintype structures and classification back into Ufin. They use the existing
+`GroupoidTransport.Route` interface. `construction_roundtrip` compares the
+same enumerated input and bijection through the composed route; sum and product
+clients recover the independently calculated pair and section. Route
+composition and context reindexing reuse the existing naturality laws.
+
+The bounded generic-family result is `familyEquiv`: for any functor from a
+small category into the finite-set groupoid, the total set of the classified
+decoding family is equivalent to the original total set over the same base.
+`family_projection` preserves the projection and `family_transport` compares
+every base arrow. This is a chosen objectwise pullback comparison with transport,
+not a claim to classify all small maps in an arbitrary category. It does not
+supply a categorical universal property for arbitrary fibrations or univalence.
+The need to retain substitution comparisons is consistent with
+[Clairambault–Dybjer, §3.1, Definition 7 and Proposition 4](https://arxiv.org/pdf/1112.3456),
+which formulate preservation using coherent comparison isomorphisms.
+
+A small second-level construction is also checked: `LargerCode` has finite
+codes and a `universe` tag. Its decoding lands in `Grpd.{0,0}`; finite tags
+decode to discrete finite groupoids, and the universe tag decodes to the whole
+Ufin groupoid. `larger_swap` retains its nonidentity arrow. `no_finite_self`
+proves that no finite set can even enumerate Ufin's objects. Both code types
+live in Lean `Type 0`, but the second decoding has the larger codomain
+`Grpd.{0,0} : Type 1`, not the finite-set decoding family. This respects the
+separation of universes discussed in the
+[HoTT book, §1.3](https://github.com/HoTT/book/blob/578b85cc8d586b1677ec4335148adeb443057d24/preliminaries.tex).
+
+The remaining nesting theorem would require a second code groupoid with
+appropriate equivalences as code arrows, a coherent groupoid-valued decoding,
+and closure/comparison maps for dependent sums and products of its supported
+groupoid families, including families over Ufin. The tagged function alone
+establishes none of those closure or genericity claims. No Type:Type,
+identification of host equality with bijections, general small-map classifier,
+or new identity eliminator is used. The #107/#108 boundary is unchanged.

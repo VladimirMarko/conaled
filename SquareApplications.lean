@@ -15,6 +15,7 @@ import Examples.PathTransportUniqueness
 import Examples.TypedPathTransport
 import Examples.GroupoidTransport
 import Examples.GroupoidRoutes
+import Examples.FiniteUniverse
 import Examples.SecondIdentity
 import Examples.SplitDependentFunctions
 import Examples.SplitDependentFunctionEdges
