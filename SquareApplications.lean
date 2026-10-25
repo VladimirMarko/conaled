@@ -1,3 +1,4 @@
+import Applications.Progress.Examples
 import Examples.GraphEmission
 import Examples.GraphTarget
 import Examples.FiniteSetting

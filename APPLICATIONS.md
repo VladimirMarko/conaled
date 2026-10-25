@@ -404,3 +404,32 @@ surjectivity, and a cheaper target outside the source image.
 ranking reverses. No theorem is attributed to the unavailable textbook snapshot.
 The motivating [research report](docs/research/compositional-optimization.md)
 records the broader questions and proposed extensions.
+
+## Finite evaluation and stream progress
+
+`Applications/Progress/` is an experimental deterministic atomic-step model.
+`Evaluates` and `Delivers` define finite operational traces independently of
+search. Numeric fuel/result/cost certificates have a sound Boolean checker;
+exhaustion means unknown. Sequential evaluation adds transition counts and
+requires the first postcondition to establish the next termination domain.
+
+Guarded state producers deliver each finite unfolding, with map, zip and
+inclusive scan laws. A realization that inserts one silent step per emission
+delivers the same values and final underlying state in twice as many steps.
+The bound excludes indefinite silent stuttering. Silent loops and a filter
+with no matches have no finite output; filtering needs explicit next-match
+progress evidence. Filtering the Boolean toggle supplies that evidence through
+the checker, while emitting `none` remains a productive alternative.
+
+`Processor` separates operations from `DeliversWithin` and `Causal` laws.
+Executable Mealy and finite-drop machines connect finite input lists to stream
+observations. Their compositions substitute demand functions, add transition
+bounds, and preserve prefix coherence. They reuse `Optimization.membershipRep`
+and `Relational.compose` for indexed admissibility and finite observation
+squares. Checked examples retain outputs, machine states and transition counts.
+
+These results count model transitions, treating each callback and list operation
+as atomic. They do not establish host runtime cost, scheduler fairness, general
+termination inference, conversion normalization, or a lazy heap implementation.
+The [contract note](docs/progress-contracts.md) records those boundaries and the
+relation to the separate recursion compiler work in #109.
