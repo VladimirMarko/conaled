@@ -470,3 +470,12 @@ algorithms agree. Transport to another mathematical setting must separately
 preserve the required natural numbers, well-foundedness, coalgebra/fixed-point
 structure and observations; the existence of these constructions in Lean's
 host mathematics does not supply them in every internal setting.
+
+## Checked bounded elaboration
+
+The [bounded elaboration experiment](bounded-elaboration.md) implements the
+#147 contract for typed natural expressions and length-indexed vector packages.
+It separates source fidelity, constraint solutions, target typing and final
+acceptance, with substitution/environment compatibility and two admissible
+strategies. The note states its monomorphic universe boundary, caller effort,
+checked dependent-data examples and unsupported inference features.
