@@ -1,8 +1,12 @@
+import SquareKit.Internal.GraphEmissionSquares
 import Lean
-import SquareKit.Internal.GraphTargetComparison
+import SquareKit.Internal.GraphEmissionContract
+import SquareKit.Internal.GraphEmissionTyping
+import SquareKit.Internal.GraphPrimitiveEnvironment
 
 /-! Experimental emission of the inspectable graph target into Lean 4.35 core.
-The metaprogram is tested, not a formalized model of the Lean kernel. -/
+The producer has bounded typing and denotation proofs. Environment inspection,
+installation, and execution remain an explicit trusted host boundary. -/
 namespace SquareKit.Internal.GraphEmission
 open Lean Meta Elab Command
 open GraphTarget
@@ -73,7 +77,7 @@ def context (m : Model) (Γ : List Ty)
   | s :: Γ => context m Γ fun ρ xs =>
       withLocalDeclD `x (m.carrier s) fun x => k (extend ρ x) (xs.push x)
 
-def emit (d : GraphTarget.Declaration) : MetaM (Expr × Expr) := do
+def emitInferred (d : GraphTarget.Declaration) : MetaM (Expr × Expr) := do
   let u := Level.succ (.param `v)
   withLocalDeclD `A (.sort u) fun a =>
   withLocalDeclD `B (.sort u) fun b =>
@@ -87,6 +91,11 @@ def emit (d : GraphTarget.Declaration) : MetaM (Expr × Expr) := do
         let ty ← mkForallFVars binders (← formula m ρ d.conclusion)
         let body ← mkLambdaFVars binders (← code m ρ d.code h)
         return (← instantiateMVars ty, ← instantiateMVars body)
+
+/-- The installation path consumes only the proved pure producer. The inferred
+implementation remains available as a separate, unverified producer. -/
+def emit (d : GraphTarget.Declaration) : MetaM (Expr × Expr) :=
+  pure (GraphEmissionPure.emit d)
 
 /- Independent host statement; no target formula or emitter is consulted. -/
 set_option hygiene false in
@@ -199,6 +208,17 @@ def checkEnvironment (manifest : List (Name × String) := environmentManifest) :
       throwError "graph environment signature mismatch: {n}"
   discard <| auditClosure (primitives ++ helpers) (primitives ++ helpers)
 
+/-- Exact declaration records include types, helper bodies, universe names,
+constructor metadata and recursor rules. Expr comparison ignores binder names,
+which have no binding or typing significance. No hashes identify this boundary. -/
+def checkExactEnvironment
+    (expected : List ConstantInfo := GraphPrimitiveEnvironment.declarations) : MetaM Unit := do
+  unless expected.map (·.name) == primitives ++ helpers do
+    throwError "graph exact environment names mismatch"
+  for ci in expected do
+    unless (← getConstInfo ci.name) == ci do
+      throwError "graph exact environment mismatch: {ci.name}"
+
 /-- Executable artifact-shape gate; not a judgment for arbitrary Lean programs. -/
 def checkShape : Expr → MetaM Unit
   | .bvar _ | .sort _ | .const _ _ => pure ()
@@ -218,15 +238,29 @@ def checkShape : Expr → MetaM Unit
 def compareType (actual expected : Expr) : MetaM Unit := do
   unless actual == expected do throwError "graph expected-type mismatch"
 
-def install (name : Name) (ty body : Expr) : MetaM Unit := do
+def installDeclaration (decl : Lean.Declaration) : MetaM Unit := do
+  let .thmDecl value := decl | throwError "graph expected theorem declaration"
+  let name := value.name
+  let ty := value.type
+  let body := value.value
   if (← getEnv).contains name then throwError "graph name already exists: {name}"
   if ty.hasMVar || body.hasMVar || ty.hasFVar || body.hasFVar ||
       ty.hasLooseBVars || body.hasLooseBVars then
     throwError "graph expression is not closed"
-  let decl := Lean.Declaration.thmDecl { name, levelParams := [`v], type := ty, value := body }
-  -- Synchronous check gives callers the kernel diagnostic before any mutation.
   discard <| ofExceptKernelException ((← getEnv).addDeclCore 0 1000 decl none)
   addDecl decl
+
+def install (name : Name) (ty body : Expr) : MetaM Unit :=
+  installDeclaration (.thmDecl { name, levelParams := [`v], type := ty, value := body })
+
+/-- The exact declaration payload is constructed by the pure producer. The
+post-install comparison checks the host mutation against that same record. -/
+def installProduced (name : Name) (d : GraphTarget.Declaration) : MetaM Unit := do
+  checkEnvironment
+  checkExactEnvironment
+  installDeclaration (GraphEmissionPure.declaration name d)
+  unless (← getConstInfo name) == GraphEmissionPure.constantInfo name d do
+    throwError "graph installed payload mismatch: {name}"
 
 /-- Print the checked environment's exact types, bodies and recursor signatures. -/
 elab "#graph_manifest" : command => liftTermElabM do
@@ -241,15 +275,16 @@ elab "#graph_manifest" : command => liftTermElabM do
 
 elab "#emit_graph " f:ident b:ident : command => liftTermElabM do
   checkEnvironment
+  checkExactEnvironment
   for (name, d, back) in [(f.getId, forwardDeclaration, false),
       (b.getId, backwardDeclaration, true)] do
     let (ty, body) ← emit d
     compareType ty (← expected back)
-    let body ← expandHelpers body
     checkShape ty
     checkShape body
     let closure ← auditClosure (ty.getUsedConstants.toList ++ body.getUsedConstants.toList)
-    install name ty body
+      (primitives ++ helpers)
+    installProduced name d
     unless (← collectAxioms name).isEmpty do throwError "graph artifact has axioms"
     logInfo m!"graph dependencies: {closure}"
     logInfo m!"graph {name}: axioms {← collectAxioms name}"

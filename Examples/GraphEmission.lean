@@ -87,3 +87,121 @@ run_elab do
   for _ in [:3] do actual := actual.bindingBody!.instantiate1 (mkConst ``Nat)
   compareType actual right
   expectFailure "graph expected-type mismatch" <| compareType actual wrong
+
+namespace GraphEmissionChecked
+open SquareKit.Internal
+open GraphTarget
+
+/-- An outer equality survives both the object and proof binders of elimWith. -/
+def retained : GraphTarget.Formula [.input, .input] := .eq (.var .zero) (.var (.succ .zero))
+def witness : GraphTarget.Formula [.middle, .input, .input] :=
+  .eq (.var .zero) (.app .first (.var (.succ .zero)))
+def mapped : GraphTarget.Formula [.input, .input] :=
+  .eq (.app .first (.var .zero)) (.app .first (.var (.succ .zero)))
+
+def withDeclaration : GraphTarget.Declaration :=
+  ⟨[.input, .input], .conj retained (.ex witness), mapped, .elimWith (.congr .left)⟩
+
+/-- Substitution replaces both source variables with applications, in reversed order. -/
+def swapApplications : GraphTarget.Sub [.middle, .middle] [.input, .input]
+  | _, .zero => .app .first (.var (.succ .zero))
+  | _, .succ .zero => .app .first (.var .zero)
+
+def middleEquality : GraphTarget.Formula [.middle, .middle] :=
+  .eq (.var .zero) (.var (.succ .zero))
+
+def substitutionDeclaration : GraphTarget.Declaration :=
+  ⟨[.input, .input], middleEquality.subst swapApplications,
+    (GraphTarget.Formula.eq (.var (.succ .zero)) (.var .zero)).subst swapApplications,
+    .subst swapApplications (.symm .ident)⟩
+
+def quantified : GraphTarget.Formula [.input] :=
+  .ex (.eq (.var .zero) (.app .first (.var (.succ .zero))))
+
+def chooseOlder : GraphTarget.Sub [.input] [.input, .input]
+  | _, .zero => .var (.succ .zero)
+
+def underBinderDeclaration : GraphTarget.Declaration :=
+  ⟨[.input, .input], quantified.subst chooseOlder, quantified.subst chooseOlder,
+    .subst chooseOlder (.ident : Code quantified quantified)⟩
+
+example : GraphEmissionPure.ArtifactTyped (GraphEmissionPure.emit withDeclaration) := GraphEmissionPure.emit_typed _
+example : GraphEmissionPure.ArtifactDenotes.{1} (GraphEmissionPure.emit substitutionDeclaration)
+    substitutionDeclaration.denote.{1} := GraphEmissionPure.emit_denotes _
+example : GraphEmissionPure.ArtifactTyped (GraphEmissionPure.emit underBinderDeclaration) := GraphEmissionPure.emit_typed _
+
+def sourceForward : GraphEmissionPure.SourceProgram :=
+  ⟨[.input, .output], Graph.composite .first .second, Graph.result .first .second, forward⟩
+
+example : GraphEmissionPure.ArtifactTyped (GraphEmissionPure.emit sourceForward.target) ∧
+    GraphEmissionPure.ArtifactDenotes.{0} (GraphEmissionPure.emit sourceForward.target) sourceForward.denote.{0} :=
+  GraphEmissionPure.source_emission sourceForward
+
+/-- Independently written raw predicate: at the existential binder the stack is
+w, x, z, g, f, C, B, A. The different indices distinguish all three uses. -/
+def expectedPredicate : CoreSyntax.Expr :=
+  .app2 (.const ``And [])
+    (.app3 (.const ``Eq [.succ (.param `v)]) (.bvar 6) (.bvar 0)
+      (.app (.bvar 4) (.bvar 1)))
+    (.app3 (.const ``Eq [.succ (.param `v)]) (.bvar 5) (.bvar 2)
+      (.app (.bvar 3) (.bvar 0)))
+
+def endpoints : GraphEmissionPure.Assignment [.input, .output]
+  | _, .zero => .bvar 0
+  | _, .succ .zero => .bvar 1
+
+example : GraphEmissionPure.formula GraphEmissionPure.parameterModel.shift.shift endpoints forwardDeclaration.premise =
+    CoreSyntax.Expr.app2 (.const ``Exists [.succ (.param `v)]) (.bvar 5)
+      (.lam (.bvar 5) expectedPredicate) := rfl
+
+/-- The raw syntax connection also carries the independently computed arithmetic meaning. -/
+example : CoreSyntax.InLean
+    (fun e => GraphEmissionPure.FormulaDenotes (Graph.model (fun n : Nat => n + 1) (fun n => n * 2))
+      GraphEmissionPure.parameterModel.shift.shift endpoints
+      (Graph.environment (fun n : Nat => n + 1) (fun n => n * 2) 2 6)
+      e (∃ y : Nat, y = 3 ∧ 6 = y * 2))
+    (GraphEmissionPure.formula GraphEmissionPure.parameterModel.shift.shift endpoints forwardDeclaration.premise).toLean :=
+  GraphEmissionPure.formula_toLean_denotes _ _ _ _ _
+
+/-- The proved conversion keeps the universe argument rather than erasing it. -/
+example : (CoreSyntax.Expr.const ``Eq [.zero]).toLean ≠
+    (CoreSyntax.Expr.const ``Eq [.succ (.param `v)]).toLean := by
+  intro h
+  have h' := CoreSyntax.Expr.toLean_injective h
+  cases h'
+
+set_option hygiene false in
+def expectedWith : TermElabM Expr := Term.withLevelNames [`v] do
+  let ty ← Term.elabType (← `(∀ (A B C : Type v) (f : A → B) (_g : B → C) (old new : A),
+    (new = old ∧ ∃ w, w = f new) → f new = f old))
+  Term.synthesizeSyntheticMVarsNoPostponing
+  instantiateMVars ty
+
+run_elab do
+  checkExactEnvironment
+  for (name, d) in [(`GraphEmitted.withOuter, withDeclaration),
+      (`GraphEmitted.substituted, substitutionDeclaration),
+      (`GraphEmitted.underBinder, underBinderDeclaration)] do
+    installProduced name d
+  compareType (GraphEmissionPure.emit withDeclaration).1 (← expectedWith)
+  expectFailure "graph exact environment mismatch: Eq" <|
+    checkExactEnvironment (GraphPrimitiveEnvironment.declarations.map fun ci =>
+      match ci with
+      | .inductInfo i => if i.name == ``Eq then .inductInfo { i with numParams := i.numParams + 1 } else ci
+      | _ => ci)
+  expectFailure "graph exact environment mismatch: Eq.trans" <|
+    checkExactEnvironment (GraphPrimitiveEnvironment.declarations.map fun ci =>
+      match ci with
+      | .thmInfo t => if t.name == ``Eq.trans then .thmInfo { t with value := .sort .zero } else ci
+      | _ => ci)
+
+example (x y : Nat) (h : x = y) : some x = some y :=
+  GraphEmitted.withOuter Nat (Option Nat) Bool some (fun _ => true) y x ⟨h, some x, rfl⟩
+
+example (f : Nat → Option Nat) (x y : Nat) (h : f y = f x) : f x = f y :=
+  GraphEmitted.substituted Nat (Option Nat) Bool f (fun _ => true) y x h
+
+example (f : Nat → Option Nat) (old new : Nat) (h : ∃ w, w = f old) : ∃ w, w = f old :=
+  GraphEmitted.underBinder Nat (Option Nat) Bool f (fun _ => true) old new h
+
+end GraphEmissionChecked

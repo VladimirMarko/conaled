@@ -1,128 +1,140 @@
-# Emitting the graph declarations in Lean core
+# Verified emission of the bounded graph core
 
-[#125](https://github.com/VladimirMarko/conaled/issues/125) implements the
-bounded emission experiment after [the typed target](graph-target-implementation.md).
-[`GraphEmission`](../../SquareKit/Internal/GraphEmission.lean) consumes the
-explicit `forwardDeclaration` and `backwardDeclaration` data. It traverses
-`Term`, `Formula` and every `Code` constructor to build actual `Lean.Expr`
-types and proof bodies. It does not extract code from source proofs in Prop.
+[#132](https://github.com/VladimirMarko/conaled/issues/132) extends the tested
+[#125](https://github.com/VladimirMarko/conaled/issues/125) emitter with a pure
+producer and separate typing and denotation proofs. The producer covers every
+`GraphTarget.Code` constructor, including simultaneous substitution and both
+existential eliminators. It does not extract executable code from source proofs
+in `Prop`.
 
-## Declaration and environment checks
+## Pure construction and exact conversion
 
-The telescope is `A B C : Type v`, `f : A → B`, `g : B → C`, `z : C`,
-`x : A`, then the premise. Reversing the target context list when creating
-local declarations puts its newest variable `x` at index zero. Lean's local
-variable abstraction manages data and proof binders together. Substitution
-changes the data assignment; existential branches extend it with the witness.
-Every constant carries an explicit universe instance in the completed Expr.
-Metavariables, free locals and loose bound variables are rejected before
-installation.
+[`CoreSyntax`](../../SquareKit/Internal/CoreSyntax.lean) represents bound
+variables, sorts, named constants with universe arguments, application,
+lambda, and dependent function types. `Expr.ofLean_toLean` proves that its
+partial decoder recovers every converted expression. `Expr.toLean_injective`
+and `inLean_toLean` transfer independently stated relations to actual
+`Lean.Expr`; conversion cannot erase a wrong index, constant, or universe.
+The module proves renaming and simultaneous substitution composition, including
+their interaction with weakening and binders.
 
-`#emit_graph ForwardName BackwardName` independently elaborates these expected
-propositions from host syntax, without consulting target formulas or emission:
+[`GraphEmissionPure`](../../SquareKit/Internal/GraphEmissionPure.lean) constructs
+all primitive arguments explicitly. There is no inference through `mkAppM`.
+`formula_subst`, `formula_instantiate`, `formula_rename`, and `formula_weaken`
+connect source substitutions and binder changes to emitted syntax.
 
-```lean
-∀ (A B C : Type v) (f : A → B) (g : B → C) (z : C) (x : A),
-  (∃ y, y = f x ∧ z = g y) → z = g (f x)
-∀ (A B C : Type v) (f : A → B) (g : B → C) (z : C) (x : A),
-  z = g (f x) → ∃ y, y = f x ∧ z = g y
-```
+The declaration telescope starts with `A B C : Type v`, `f : A → B`, and
+`g : B → C`. The target context is newest first; its tail is abstracted first.
+The proof hypothesis is last. For the graph declarations the resulting order
+is `A B C f g z x h`. Every carrier has universe `Level.succ (Level.param v)`;
+Eq, Exists, and their helpers receive that explicit universe. `congrArg`
+receives it for both domain and codomain. Any new binder shifts the model,
+object assignment, and existing proof expressions together.
 
-Structural Expr equality compares their binder structure, constant names,
-universe instances and endpoints with emitted types. Binder names are ignored;
-there is no conversion-based relaxation of the proposition comparison.
-Fresh names are required. A synchronous `Environment.addDeclCore` check uses
-kernel checking enabled, followed by ordinary `addDecl` installation. This
-makes a kernel rejection observable before mutating the environment, including
-when ordinary declaration checking runs asynchronously.
+## Typing, meaning, and composition
 
-Lean **4.35.0** is enforced. `environmentManifest` records the primitive and
-helper level parameters, structural hashes of their types and bodies, and
-inductive, constructor and recursor metadata. The hashes detect accidental
-environment drift; they are neither cryptographic authentication nor a proved
-environment correspondence. The pinned toolchain and its installed environment
-remain trusted inputs. The human-readable [manifest](graph-emission-manifest.txt)
-records exact types, helper bodies and recursor rules with `pp.all`. Reproduce it
-by importing `GraphEmission` and running `#graph_manifest`.
+[`CoreTyping`](../../SquareKit/Internal/CoreTyping.lean) defines the admitted
+core typing judgment independently of target code. It has explicit de Bruijn
+lookup, sort, dependent function, application, lambda, and weakening rules.
+Its primitive rules specify the complete raw applications for Eq, And,
+Exists, reflexivity, symmetry, transitivity, congruence, conjunction operations,
+and existential introduction/elimination. They are the standard native Lean
+primitive schemas. This is a declarative fragment judgment, not a model of
+Lean's checker algorithm or a universal checker-acceptance theorem.
 
-Helpers (`Eq.symm`, `Eq.trans`, `congrArg`, `rfl`, conjunction projections,
-`Exists.elim`, `Exists.casesOn` and the pinned private elimination matcher)
-expand to their checked installed bodies before installation. Expansion is
-bounded and fails on exhaustion. There is no arbitrary-constant constructor
-in the target code. The final primitive boundary is:
+[`GraphEmissionTyping`](../../SquareKit/Internal/GraphEmissionTyping.lean)
+requires `ModelTyped` and `AssignmentTyped` for open terms. The model supplies
+actual carrier and arrow typing derivations in a raw context; every assigned
+object expression must have its carrier type. `code_typed` proves preservation
+for arbitrary supported code. `context_typed` abstracts an arbitrary typed
+continuation. `parameterModel_typed`, `closeParameters_typed`, and
+`emitCore_typed` discharge all those compatibility premises for a complete
+artifact, yielding `HasType [] body type`. `emit_typed` transfers this result to
+the exact Lean expressions.
 
-| Primitive | Role |
-| --- | --- |
-| `Eq`, `Eq.refl`, `Eq.rec` | Carrier equality, reflexivity and equality elimination |
-| `And`, `And.intro` | Conjunction and introduction; projection expressions eliminate it |
-| `Exists`, `Exists.intro`, `Exists.rec` | Proposition-valued existential and its introduction/elimination |
+`TermDenotes` and `FormulaDenotes` interpret primitive syntax relative to an
+explicit interpretation and assignment. The existential rule interprets its
+new bound variable and shifts outer expressions. They are open relational
+interpretations; an arbitrary aliased assignment is not claimed to define a
+functional evaluator. `formula_toLean_denotes` establishes that the actual
+emitted proposition syntax denotes `Formula.eval`. Complete declarations use
+the explicitly constructed parameter and binder assignments.
 
-Expanding `And.left` and `And.right` retains `Expr.proj And 0` and
-`Expr.proj And 1`. The [target contract](lean-core-target-contract.md#fragment-k-and-its-environment)
-now includes those two forms and their reductions on `And.intro`. They implement
-K's conjunction elimination schemas, whose native meanings are proved by
-`GraphTarget.sound`. No arbitrary structure projection is supported. The native
-`left_iota` and `right_iota` results compare K proofs; they do not establish a
-semantic theorem about emitted Expr projections or kernel conversion.
+[`GraphEmissionProof`](../../SquareKit/Internal/GraphEmissionProof.lean)
+separately defines primitive proof derivations indexed by the raw proposition
+and its meaning, proves their soundness, and proves `code_denotes` for every
+constructor. It uses no equality of host proofs to establish syntax meaning.
+[`GraphEmissionContract`](../../SquareKit/Internal/GraphEmissionContract.lean)
+proves telescope abstraction and `emit_denotes`. Its producer-independent
+`ArtifactDenotes` relation decodes both the type and body. Typing is the separate
+`ArtifactTyped` contract; neither is replaced by the other.
 
-The emitter builds expressions from typed K code and pinned helper bodies. The
-`checkShape` gate recursively checks both emitted type and expanded body. It
-admits bound variables, sorts, constants, applications, lambdas, dependent
-function binders and the two `And` projections. It rejects other projections,
-lets, metadata, literals, free locals and metavariables. Constant closure,
-closedness, expected-type comparison and kernel typing are separate checks.
-This executable shape gate is not a proved K typing or conversion judgment.
-The supported interface emits the two graph declarations, without importing
-arbitrary Expr.
+[`GraphEmissionSquares`](../../SquareKit/Internal/GraphEmissionSquares.lean)
+uses the existing `Relational.RelSquare` and composition operation. It composes
+source formula preservation, an explicitly supplied executable code certificate,
+and the pure producer. `source_emission` gives typing and denotation for the
+composite. Alternate producers can supply the same artifact relations without
+returning the pure producer's exact bytes. General validation of such producers
+belongs to #133.
 
-The audit follows types, available bodies, inductive constructor references,
-constructor parents and recursor rule expressions. It rejects unknown names,
-unsafe constants, axioms and every dependency outside the boundary. The helper
-environment is audited separately before expansion. The measured forward
-closure contains all eight primitives above. The backward closure contains
-all except `Eq.rec` and `Exists.rec`. Both installed declarations have **empty
-transitive axiom sets**, measured with Lean's `collectAxioms`. The fragment
-rejects even `Classical.choice` and `propext`, which the broader repository
-allows. No claim about the axiom set of the metaprogram itself follows from
-that artifact result.
+## Primitive environment and installation
 
-## Checked uses and limits
+The environment contract is the pinned Lean 4.35.0 declarations recorded in
+[`GraphPrimitiveEnvironment`](../../SquareKit/Internal/GraphPrimitiveEnvironment.lean).
+These are complete `ConstantInfo` records: names, universe parameters, exact
+types and bodies, safety fields, constructor and inductive metadata, and
+recursor rules. `checkExactEnvironment` compares those records structurally
+before installation. Lean's expression comparison ignores binder names, which
+have no binding significance. The older hash manifest remains a regression
+diagnostic; it is not used to justify the semantic connection.
 
-[`Examples.GraphEmission`](../../Examples/GraphEmission.lean) calls the actual
-installed declarations in both directions. Incrementing 2 gives witness 3;
-doubling it gives output 6. A separate specialization uses Nat, Option Nat and
-Nat × Bool to detect sort confusion. Another instantiates carriers in Type 1.
-Universal proof comparisons connect the emitted forward proof to
-`GraphTarget.graph_equivalence` and the backward proof to `Graph.inSet`.
-These equalities use proof irrelevance after checking identical native
-propositions; they do not preserve computational witness data.
+The direct primitive operations are Eq, And, Exists, Eq.refl, Eq.symm,
+Eq.trans, congrArg, And.intro, And.left, And.right, Exists.intro, and
+Exists.elim. Their inspected dependency closure also includes Eq.rec,
+Exists.rec, rfl, Exists.casesOn, and the pinned private Exists elimination
+matcher. The exact records make that closure inspectable. The closure audit
+rejects unknown, unsafe, axiomatic, or unapproved dependencies.
 
-The retained failure checks require the designated diagnostic. They cover an
-unsupported `Prod` projection, an invalid `And` projection index, a let node,
-an open binder, a closed corrupted binder, a wrong universe instance, an opposite
-direction body, duplicate names, unknown constants, disallowed foundational
-axioms, changed environment signatures and a missing transitive constructor.
-The changed-conclusion test specializes the actual emitted type to coincident
-Nat carriers, matches it to the intended host proposition, checks that reversed
-composition is still a well-typed proposition, and requires structural rejection.
+`GraphEmission.emit` wraps the proved pure function.
+`GraphEmissionPure.declaration` constructs the complete theorem payload with
+one universe parameter, `v`. `installProduced` passes that very declaration
+to installation and compares the installed `ConstantInfo` with the producer's
+record. `constantInfo_type` and `constantInfo_value` identify its fields with
+the proved expressions. The body is installed unchanged; `expandHelpers` is
+retained only for the older experimental interface and regression tests.
+`emitInferred` preserves that separate unverified producer.
 
-The first executable obligation was an absent emission interface for the
-concrete forward/backward clients. Subsequent kernel checks exposed the
-existential introduction argument convention and the need for synchronous
-failure reporting; both were corrected without changing the mathematical
-expectations. Statement review checked quantifier order, witness binding,
-function order, universe specialization and the proof-irrelevant scope of the
-comparison examples. They introduce no inhabitance or choice hypotheses.
+`#emit_graph` still compares the two types with independently elaborated graph
+statements. The synchronous `Environment.addDeclCore` check reports rejection
+before `addDecl` mutates the environment. Installed graph declarations have
+empty transitive axiom sets in the retained execution checks.
 
-The target's `sound`, `translate_derivation` and comparison theorems remain
-formal proofs about the restricted syntax and native semantics. Actual Expr
-emission, expected-type construction, helper expansion, environment checks and
-dependency traversal are executable code with retained tests. There is no
-formal theorem identifying a model of Lean expressions with `Formula.eval`,
-no full Lean self-model and no reflection from arbitrary core declarations.
-Kernel acceptance establishes that the installed body proves its installed
-type; the independent structural check and checked clients supply the bounded
-connection to the intended graph proposition. Arbitrary core import, runtime
-IR and environment-extension semantics remain outside this experiment.
+The Lean elaborator, compiled execution of the pure functions, environment
+inspection, declaration installation, serialization, and the host kernel are
+trusted execution boundaries. The formal results concern the represented
+syntax, its specified primitive environment, the bounded typing judgment, and
+native interpretation. They do not prove that an arbitrary serialized binary,
+checker implementation, or runtime executes that model. There is no native
+axiom shortcut, new global axiom, full Lean self-model, or reflection from
+arbitrary core declarations.
 
-The earlier #107/#108 proof selection and ordinary native clients are unchanged.
+## Checked applications and corruption cases
+
+[`Examples.GraphEmission`](../../Examples/GraphEmission.lean) retains the
+installed forward/backward clients, the numeric witness 3 and output 6,
+distinct Nat/Option/product carriers, and Type 1 specialization. New cases
+exercise `elimWith` while retaining an outer equality, simultaneous
+substitution by reversed function applications, and substitution beneath an
+existential binder. They use the universal typing and denotation results and
+the composed source/emission square.
+
+An independently written raw existential predicate fixes the positions of
+witness, endpoints, both functions, and all carriers. Its arithmetic
+specialization uses the actual syntax-denotation theorem. The conversion
+injectivity example distinguishes universe arguments. Runtime failure cases
+cover open and closed binder corruption, universe corruption, reversed
+conclusions that remain well-typed propositions, helper-body corruption,
+inductive metadata corruption, unsupported syntax, dependency drift, and
+name collisions. These checks supplement the universal proofs.
+
+The existing #107/#108 repair and independent-author boundary is unchanged.

@@ -13,6 +13,12 @@ here. Its reported exploit outcomes are not used as evidence for a new local
 validation claim. The source comparisons and proposals below do not constitute
 new Lean proofs or a new upstream build.
 
+The gap analysis below records the baseline before #132. Its pure producer,
+bounded core typing, syntax-denotation proofs, exact environment records and
+installation path are now described in the
+[emission implementation record](graph-emission-implementation.md). The
+relative-model, validator and execution connections remain separate tasks.
+
 ## The exact local gap
 
 The [typed graph target](../../SquareKit/Internal/GraphTarget.lean) already has
