@@ -370,3 +370,71 @@ only their specified set-valued transport contract, not arbitrary source
 judgments or reflection. The fixture establishes first-level groupoid
 behaviour, not second identities, univalence, or a general higher-type model.
 It changes neither #107's authoring implementation nor #108's independent test.
+
+## Checked second-identity fixture (#142)
+
+[`DoubleDelooping`](../../SquareKit/DoubleDelooping.lean) constructs a Mathlib
+strict bicategory from a commutative group. It has one object, one 1-arrow,
+and group elements as 2-arrows. Its hom-category is the existing `SingleObj`
+groupoid. Whiskering, unitors, associator, pentagon, triangle and exchange
+are checked in the `Bicategory` instance; `Bicategory.Strict` checks strictness.
+Every 1-arrow has a strict inverse. Vertical and horizontal 2-composition both
+reduce to the group's multiplication, with Mathlib's composition order.
+Commutativity proves interchange, and group inversion supplies 2-inverses.
+The C₂ specialization in
+[`Examples.SecondIdentity`](../../Examples/SecondIdentity.lean) checks the
+cardinalities: one object, one 1-arrow, two 2-arrows.
+
+The primary motivation is the distinction in the HoTT book's
+[§2.1, including the Eckmann–Hilton argument](https://github.com/HoTT/book/blob/578b85cc8d586b1677ec4335148adeb443057d24/basics.tex)
+between paths and paths between paths. Commutativity of second-loop
+composition explains the abelian hypothesis here. Hofmann–Streicher's
+[§5.1 groupoid example](https://people.csail.mit.edu/jgross/personal-website/papers/academic-papers-local/agroupoidinterpretationoftypetheroy.pdf)
+retains distinct first-identity objects but interprets their identity families
+discretely. Those references motivate the test; the strict finite structure
+and route comparisons above are separate Lean results.
+
+[`Internal.TwoLoop`](../../SquareKit/Internal/TwoLoop.lean) is an opt-in source
+for algebraic 2-loops at that fixed object and fixed 1-arrow. It contains
+variables, identity, vertical and horizontal composition, and inverse. Its
+explicit equation judgment has congruence, both unit laws, associativity,
+both inverse laws and interchange; `sound` proves every derivation valid in
+every double delooping supplied here. `Expr.eval_subst` checks substitution.
+No dependent types, identity eliminator, universes, arbitrary higher type
+theory or third-identity witnesses are part of this source. The equations
+are strict laws in the host logic; the interpreted 2-arrows themselves are
+data in `Type` and are not native Lean equality proofs.
+
+The same source pasting diagram is interpreted in C₂ labels (`ZMod 2`) and
+in Boolean XOR. The independent observations are the label's natural-number
+representative and the Boolean's 0/1 value. `encode` is a proved group
+equivalence; the shared `map_vertical` and `map_horizontal` results preserve
+both compositions. `interpretationSquare` uses the existing `Squares.Square`
+contract to compare all source expressions under a group homomorphism.
+`routes_agree`, `observations_agree` and `route_roundtrip` specialize that
+comparison. The selected diagram combines horizontal composition, inverse,
+vertical composition and identity; it yields the nonidentity cell in both
+routes. The source interchange proof has checked interpretations in both.
+Replacing its generator by a double yields identity, using the shared
+substitution theorem. Ordinary clients can apply interchange and cancellation
+without using source syntax.
+
+The forgetting target is a terminal groupoid promoted through Mathlib's
+`LocallyDiscrete` construction. Truncation preserves both compositions but
+identifies the selected diagram with identity. `no_groupoid_observation`
+proves the obstruction for any ordinary category promoted this way: each
+fixed-boundary 2-hom is a subsingleton, so no observer can recover both labels.
+`no_native_identity_observation` states the corresponding obstruction for a
+native Lean equality proof. This concerns dimension-preserving identity
+interpretations. It does not say that an arbitrary set cannot store labels
+as ordinary data, or that moving a label to a different dimension preserves
+the original contract.
+
+Future higher routes must retain the appropriate cell data and preserve
+both compositions and their interaction; preserving objects and 1-arrows
+alone is insufficient. The required common interface here is a commutative
+group and its homomorphisms, realized through Mathlib's bicategory and the
+existing representation squares. General multi-object or weak higher
+interpretations need additional interfaces and coherence proofs. This
+fixture supplies none of the dependent-elimination rules needed for a full
+HoTT interpretation and does not change #107/#108's authoring boundary.
