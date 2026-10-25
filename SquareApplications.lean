@@ -1,3 +1,6 @@
+import Examples.SliceUniversal
+import Examples.FiniteClassifier
+import Examples.PresheafClassifier
 import Examples.GraphEmission
 import Examples.GraphTarget
 import Examples.FiniteSetting
