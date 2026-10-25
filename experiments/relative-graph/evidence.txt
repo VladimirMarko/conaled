@@ -113,3 +113,38 @@ Original graph_denotes keeps its statement and now specializes the shared proof
 at offset 0; ClosedGraph.shiftedGraphDenotes specializes it at offset 1. The
 existing per-declaration GraphAdapter inventories are retained, with the new
 shared theorem added. Root policy is now implemented by one audit command.
+
+#134 pin alignment replay, 2026-10-25
+Fresh isolated upstream clone at 8e166ca53cd1f864b63c13cc1d326d38316d00ea.
+The release pin 67f04630d88718e81aa4d07ab64501f68f105398 is a strict ancestor:
+merge-base --is-ancestor old new exits 0; reverse exits 1.
+Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc.
+No upstream patches, external Lake packages, or changed formal statements.
+
+Fresh lake build ConLeche.MainTheorem: exit 0, 536 jobs.
+ConLecheAudit: exit 0; all eight selected axiom inventories contain only
+propext, Classical.choice, Quot.sound. Model existence retains SetTheory and
+the exact checker-acceptance equality.
+All eight local modules compiled from source in dependency order: exit 0 each.
+ArtifactAudit: Graph artifact audit: 3 safe roots; axioms [Quot.sound, Classical.choice, propext]
+GraphAdapter: Graph artifact audit: 69 safe roots; axioms [Quot.sound, Classical.choice, propext]
+GraphEnvironment: Graph artifact audit: 16 safe roots; axioms [propext]
+GraphDeclarations: Graph artifact audit: 38 safe roots; axioms [propext]
+PrimitiveLaws: Graph artifact audit: 96 safe roots; axioms [Quot.sound, Classical.choice, propext]
+ClosedGraph: Graph artifact audit: 7 safe roots; axioms [Quot.sound, Classical.choice, propext]
+AcceptedGraph: Graph artifact audit: 28 safe roots; axioms [Quot.sound, Classical.choice, propext]
+GraphChecks: Graph checks: primitive and closed environments accepted; parameter, direction, and table mismatches rejected
+GraphChecks: Graph artifact audit: 4 safe roots; axioms [Quot.sound, Classical.choice, propext]
+
+The equivalent ConLeche commands from reproduce.sh were run individually in
+the new clone. Shell syntax and invalid-option exit were checked separately;
+the optional historical Lean4Lean branch was not rerun for this alignment.
+The unchanged main library reuses #132's fresh validation at base 7025bdf.
+
+Minimal ConRon compatibility probe against the new built Expr: expected exit 1,
+Unknown identifier ConLeche.BinderMeta; Expr.lam and Expr.forallE each print
+(type body : ConLeche.Expr) : ConLeche.Expr. This is an interface probe, not
+a ConRon build or audit. See pin-alignment.md for the separate port obligation.
+
+Raw build, per-module audit, provenance, and probe logs:
+/home/vlad/.local/state/conaled-supervision/2026-10-25/128/134/
