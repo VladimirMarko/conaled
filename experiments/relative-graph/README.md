@@ -4,12 +4,17 @@ These files belong to the [#126 feasibility assessment](../../docs/research/rela
 They are not library modules and are deliberately outside `SquareApplications`,
 Lake's conaled targets and the repository's exhaustive `ProofAudit` roots.
 They require the exact upstream checkouts listed in the assessment.
+The [pin-alignment record](pin-alignment.md) verifies that the selected
+ConLeche revision is newer than the release bundle and records the separate
+ConRon port blocker.
 
 Run from the conaled root:
 
 ```sh
 direnv exec . bash experiments/relative-graph/reproduce.sh
 ```
+
+Use `--conleche-only` to replay only the selected ConLeche route.
 
 The script creates temporary pinned checkouts, builds the selected upstream
 import closures and checks the adapter and inventories there. It changes no

@@ -188,9 +188,11 @@ two versions' expression annotations, checker functions or interpretation
 relations. Use a common pin or prove the required translation/refinement before
 composing those proofs.
 
-The owner prefers alignment to the newer of the two investigated ConLeche
-revisions, adapting local code and selected upstream theorems as necessary.
-Verify revision ordering from upstream history before choosing the pin.
+The [#134 alignment record](../../experiments/relative-graph/pin-alignment.md)
+verifies that the existing experiment pin `8e166ca` is a strict descendant of
+the release pin `67f0463`, so it remains the selected newer revision. ConRon
+still needs a coordinated port: its arena interfaces require binder metadata
+removed by that revision. No aligned execution-refinement composition is claimed.
 Separately investigate distinguishing the host toolchain from the modeled
 target version: a library should be able to describe a Lean version without
 being compiled by that version. Versioned target judgments, environments and
