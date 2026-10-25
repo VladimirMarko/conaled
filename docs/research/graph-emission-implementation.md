@@ -138,3 +138,11 @@ inductive metadata corruption, unsupported syntax, dependency drift, and
 name collisions. These checks supplement the universal proofs.
 
 The existing #107/#108 repair and independent-author boundary is unchanged.
+
+## Translation validator
+
+The [bounded validator](graph-translation-validator.md) checks exact source
+propositions, primitive environment records and actual theorem payloads. It
+shares this producer's typing and denotation relations, while also accepting
+a raw double-symmetry transformation through a different replay certificate.
+Its installed-record examples carry kernel-checked acceptance equations.

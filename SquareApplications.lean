@@ -1,5 +1,6 @@
 import Applications.Elaboration.Examples
 import Applications.Progress.Examples
+import Examples.GraphTranslationValidation
 import Examples.GraphEmission
 import Examples.GraphTarget
 import Examples.FiniteSetting
