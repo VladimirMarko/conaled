@@ -15,6 +15,7 @@ import Examples.AgdaTransferDiagnostics
 import Examples.PathTransportUniqueness
 import Examples.TypedPathTransport
 import Examples.GroupoidTransport
+import Examples.GroupoidRoutes
 import Examples.SplitDependentFunctions
 import Examples.SplitDependentFunctionEdges
 import Examples.DependentSource

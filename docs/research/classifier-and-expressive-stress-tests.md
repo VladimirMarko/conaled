@@ -318,3 +318,55 @@ A full inverse, as in the parse isomorphism, is sufficient but stronger than
 observation preservation. A proposition-only route remains useful for
 membership, with that weaker contract stated explicitly. Neither fixture
 changes #107's authoring regression or supplies #108's reserved theorem.
+
+## Checked groupoid route fixture (#141)
+
+[`Examples.GroupoidRoutes`](../../Examples/GroupoidRoutes.lean) reuses C₄ and
+the existing generated source transport term. Its family has fibre `ZMod 2`;
+a label acts by addition of its parity. Label 1 exchanges 0 and 1, while
+label 2 acts trivially. The base labels remain distinct. `not_constant`
+proves that this family is not naturally isomorphic to the constant
+two-element family, and `swapPair` is an arrow between dependent pairs
+retaining the base label that moves their fibre values.
+
+[`GroupoidTransportRoutes`](../../SquareKit/GroupoidTransportRoutes.lean)
+packages a base functor and a natural map of fibres. The route's transport
+comparison follows from naturality. Identity, composition and reindexing use
+Mathlib functors and natural transformations; their laws and arrow/fibre
+comparisons are checked. This small contract needs categories, with independent
+object universes, rather than a groupoid or a universal intermediate language.
+The groupoid source interpreter is used separately in the fixture.
+
+Each coordinate route negates the C₄ base label and adds 1 to the fibre
+coordinate. The routes compose: after two stages both the label and the fibre
+coordinate are restored. `source_route` and `composed_source_route` compare
+the same generated source transport term, rather than unrelated calculations.
+The source comparison reduces through the existing all-rule interpreter;
+`two_transports` also consumes the existing interpreted concatenation proof.
+`double_source_label` preserves every source label even when instantiated
+with the ineffective family from `Examples.GroupoidTransport`.
+
+Substitution has two checked meanings here. Precomposition with the
+nonidentity label-negation functor changes the ambient family;
+`substitution_source`, `substituted_label`, and `substitution_composition`
+compare transport, base arrows, and composed routes under that substitution.
+`SourceSubstitution.weakened_transport` separately specializes the existing
+source reindexing rule to a context extended by one unused base point. It
+substitutes both the path and fibre element before selecting a model.
+No new source rule or authoring API is introduced.
+
+The forgetting route lands in a discrete one-object base with a singleton
+fibre. `orbit_exact` identifies equality of its fibre outputs with the
+source's same-orbit relation. Its transport square commutes, but neither
+individual fibre values nor C₄ labels can be recovered: the two impossibility
+theorems quantify over every proposed decoder. In particular label 2 is lost
+even though its ineffective action alone could not have detected that loss.
+Faithfulness on base arrows and preservation of the chosen fibre observation
+are additional requirements for a route claiming the stronger contract.
+
+Callers supply a functor on base objects and arrows and a natural fibre map;
+they need no syntax wrapper for the ordinary route laws. These routes preserve
+only their specified set-valued transport contract, not arbitrary source
+judgments or reflection. The fixture establishes first-level groupoid
+behaviour, not second identities, univalence, or a general higher-type model.
+It changes neither #107's authoring implementation nor #108's independent test.
