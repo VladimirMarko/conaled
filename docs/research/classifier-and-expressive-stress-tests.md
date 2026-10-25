@@ -268,3 +268,53 @@ data, would miss the intended architectural test.
 
 Validation for this note: inspected the cited local interfaces and primary
 sources. No Lean definitions changed and no Lean build was run.
+
+## Checked witness and vector fixture (#140)
+
+[`Examples.ExpressiveWitnesses`](../../Examples/ExpressiveWitnesses.lean)
+implements the first bounded witness and nonconstant-family tests. Its source
+constructions are ordinary Lean data and sections of `DependentSquares`, not
+new syntax for a general dependent compiler.
+
+The grammar `(ε + true)(ε + true)` has two parses of `[true]`: the token is
+consumed by the left or right operand. A `ParsedWord` dependent pair retains
+the selected `Concat` tree, including its concatenation/yield certificate.
+The direct route observes whether the left word is nonempty. The second route
+uses `derivativeConcatIso` and observes the derivative's sum tag. The
+`observation_preserved` theorem compares those independently defined
+observations for every tree; `selected_roundtrip` recovers the entire selected
+pair. Both concrete trees reduce to their expected distinct tags. The
+`observation_does_not_factor` theorem proves that forgetting to `Nonempty`
+prevents recovery of that distinction. This is transport of a selected parse,
+not enumeration of every parse by the parser's decision procedure.
+
+The vector source family is `Fin n → Bool`. The direct split-family route and
+a length-certified list route interpret the same section, whose entry at
+index `i` is true exactly when `i` is even. `compileSection` works for any
+section of this family: `decode_encode` discharges the local semantic law,
+then `TermCert.reindex`, `SubCert.compose`, `sectionCert`, `pCert` and `qCert`
+supply transport and context extension. The fixture checks dependent sums,
+both projections, dependent lookup/elimination, substitution along `n ↦ n/2`,
+and composition with `n ↦ n+2`. Its output lists at lengths 0 and 1 are `[]`
+and `[true]`; the two-step route at 0 also produces `[true]`. The empty fibre
+has one vector and the singleton-index fibre has distinct true/false vectors;
+`fibres_not_equivalent` rules out identifying those fibres.
+
+Callers supply a family, a section, representation meaning functions and
+commuting substitution certificates. List lookup requires `i : Fin n`; no
+lookup at length 0 is available. The sum and extension rules come from the
+existing split-family model. Its chosen reindexing computes strictly, while
+`TermCert.reindex` handles the general equality transport. No sheaf route,
+intensional identity rule, internal universe, arbitrary source elaboration,
+or codata rule is established by this fixture. All displayed data routes are
+computable; reduction examples are kernel proofs, not native-evaluation
+axioms. The fixture introduces no foreign execution boundary.
+
+The negative vector theorem concerns the particular constant `Unit` carrier
+that erases every entry. It does not rule out constant encodings containing
+tags or length data. To retain the tested contract a route must preserve
+indexed lookup; for parses it must preserve the selected tree observation.
+A full inverse, as in the parse isomorphism, is sufficient but stronger than
+observation preservation. A proposition-only route remains useful for
+membership, with that weaker contract stated explicitly. Neither fixture
+changes #107's authoring regression or supplies #108's reserved theorem.
