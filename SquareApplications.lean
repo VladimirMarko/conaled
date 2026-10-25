@@ -19,6 +19,7 @@ import Examples.SplitDependentFunctionEdges
 import Examples.DependentSource
 import Examples.DependentFunctionSourceEdges
 import Examples.DependentSourceNative
+import Examples.ExpressiveWitnesses
 import Examples.SplitSheafFamilies
 import Examples.SplitNative
 import Examples.DependentProducts
