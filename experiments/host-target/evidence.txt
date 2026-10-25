@@ -1,0 +1,39 @@
+Issue #136 affected-closure verification, 2026-10-25
+Base: ad8e7a56de5027eed620486fe63f154eecdd3cd3
+Command: direnv exec . python3 experiments/host-target/check.py --jobs 2
+No changes to main library source, toolchain or dependencies.
+
+SHA-256 inputs:
+e101482186505bd7825fc3774f266ec81208f44c989be041b004b29c40e57887  experiments/host-target/Contracts.lean
+8fda63a04405077d1fcbb59d4e940a806247dc7199d93c7686adb7aadd165979  experiments/host-target/check.py
+d226fd175275156f0b5b795afd362422b191992244e4442c5814614c7bc3845d  scripts/check.py
+88658915ea3cd75901486bd3f84b788434ddfff50d708b0e08038e4b39d47ee5  experiments/relative-graph/ArtifactAudit.lean
+
+Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+[1/13] ArtifactAudit (0.69s)
+Graph artifact audit: 3 safe roots; axioms [Quot.sound, Classical.choice, propext]
+[2/13] SquareKit.Internal.CoreSyntax (0.92s)
+Graph artifact audit: 143 safe roots; axioms [Quot.sound, propext]
+[3/13] SquareKit.Internal.Logic (1.42s)
+Graph artifact audit: 230 safe roots; axioms [Quot.sound, propext]
+[4/13] SquareKit.Internal.CoreTyping (0.89s)
+Graph artifact audit: 62 safe roots; axioms []
+[5/13] SquareKit.Internal.Graph (0.89s)
+Graph artifact audit: 49 safe roots; axioms [Quot.sound, propext]
+[6/13] Squares (0.87s)
+Graph artifact audit: 95 safe roots; axioms [Quot.sound, propext]
+[7/13] SquareKit.Internal.GraphTarget (1.27s)
+Graph artifact audit: 241 safe roots; axioms [Quot.sound, propext]
+[8/13] SquareKit.Internal.GraphTargetComparison (1.02s)
+Graph artifact audit: 50 safe roots; axioms [Quot.sound, propext]
+[9/13] SquareKit.Internal.GraphEmissionPure (1.42s)
+Graph artifact audit: 141 safe roots; axioms [Quot.sound, propext]
+[10/13] SquareKit.Internal.GraphEmissionTyping (2.12s)
+Graph artifact audit: 54 safe roots; axioms [Quot.sound, propext]
+[11/13] SquareKit.Internal.GraphEmissionProof (2.30s)
+Graph artifact audit: 100 safe roots; axioms [Quot.sound, propext]
+[12/13] SquareKit.Internal.GraphEmissionContract (0.60s)
+Graph artifact audit: 32 safe roots; axioms [Quot.sound, propext]
+[13/13] Contracts (0.55s)
+Graph artifact audit: 121 safe roots; axioms [Quot.sound, propext]
+PASS: 13 freshly compiled modules; exhaustive per-module audits; 2 workers.
