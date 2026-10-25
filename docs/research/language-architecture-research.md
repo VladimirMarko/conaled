@@ -37,6 +37,41 @@ references to primary sources.
 | What survives Agda elaboration, and can familiar dialects support LLM authors? | [Agda core and slean frontends](agda-core-and-slean-frontends.md) |
 | Which Lean-in-Lean claims are compatible with incompleteness and Löb's theorem? | [Lean self-modeling and reflection](lean-self-modeling-and-reflection.md) |
 | What do functorial transport and Vickers's towers each require? | [Composable internal languages and relativization](composable-internal-languages-and-relativization.md) |
+| How can we prove actual emission correspondence and connect the kernel experiments? | [Verified emission and kernel connections](verified-emission-kernel-connections.md) |
+| What remains for arbitrary-source classification and early expressive tests? | [Relative classifiers and expressive stress tests](classifier-and-expressive-stress-tests.md) |
+| How should codata, termination and elaboration compose? | [Codata, termination and elaboration contracts](codata-elaboration-termination-contracts.md) |
+
+The 2026-10-25 follow-up revises the proposed sequencing: proving the bounded
+emitter's correspondence should proceed now, alongside arbitrary-source
+classification and small tests of computational witnesses, dependent families,
+higher identities, universes and codata. These tests should expose design
+constraints before an application demands the richer features. Keeping several
+frontends and implementation strategies available does not require leaving
+their semantic correspondence unproved. The follow-up notes specify research
+findings and next proof obligations; they do not add Lean results.
+
+## Approved follow-up work
+
+The owner approved the following workstreams on 2026-10-25. GitHub Issues own
+their acceptance criteria and dependency ordering; all four are children of
+the shared language workstream [#36](https://github.com/VladimirMarko/conaled/issues/36).
+
+| Workstream | Super-issue |
+| --- | --- |
+| Proved emitter and translation validator, relative artifact/acceptance connection, newer kernel pins, host/target version separation and kernel experiment | [#128](https://github.com/VladimirMarko/conaled/issues/128) |
+| Arbitrary-source finite classifier and the Sierpiński test with nonidentity model morphisms | [#129](https://github.com/VladimirMarko/conaled/issues/129) |
+| Computational witnesses, dependent families, groupoid transport, second identities, a finite-set universe and the stream transport counterexample | [#130](https://github.com/VladimirMarko/conaled/issues/130) |
+| Codata research and composable termination/productivity and elaboration contracts | [#131](https://github.com/VladimirMarko/conaled/issues/131) |
+
+Both emission approaches must preserve the repository's Felix-compatible
+separation of operations, semantic equivalence and laws, with reusable
+structure-preserving maps and composition. Align the investigated ConLeche
+routes to the newer revision rather than retaining a version mismatch. Study
+host/target version separation without making it a prerequisite for that work.
+The owner's reported `cqueens 16 = 14772512` kernel work is a direct lead to
+inspect in the incoming textbook formalization; it has not been reproduced
+here. Immediate lazy runtime support remains outside the required scope, while
+the contracts must leave room for future laziness and codata.
 
 ## A family of routes with explicit contracts
 
