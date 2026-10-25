@@ -137,6 +137,7 @@ import Examples.QuarterTurnArcs
 import Examples.JetScan
 import Examples.MatrixStack
 import Examples.Run
+import Examples.OrderCertificate
 import Examples.NumericalMotion
 import FirstOrder
 import SquareCompiler
