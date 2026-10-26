@@ -75,8 +75,16 @@
         "ADWH.Chapter13.KnapsackWork",
         "ADWH.Chapter13.KnapsackArray"
       ],
-      "destinations": [],
-      "scope": "Instrumented composition and two resource interpretations; no general runtime or cost equality claim."
+      "destinations": [
+        "Applications/Resources/Measured.lean",
+        "Applications/Resources/Thinning.lean",
+        "Applications/Resources/Knapsack.lean",
+        "Applications/Resources/KnapsackSourceCosts.lean",
+        "Examples/Resources.lean"
+      ],
+      "scope": "Instrumented composition and two resource interpretations; no general runtime or cost equality claim.",
+      "candidate": "1d479aefc990fc0ddff562551034b500632978d2",
+      "declaration_map": "docs/research/adwh-resource-provenance.tsv"
     },
     {
       "issue": 155,
@@ -161,6 +169,17 @@
       "destination_declaration": "Bracketing.Tree",
       "issue": 153,
       "candidate": "1921bbe44f52b211deeb096b8dc0b80d86f828d6",
+      "disposition": "partial reconstruction"
+    },
+    {
+      "snapshot": "adwh-checkpoint-233",
+      "archive_member": "project/adwh-lean/ADWH/Chapter10/ThinningCosts.lean",
+      "member_sha256": "6903a4fb7f7915a6727d8515896ac16c01a52fda774bee04d0ef6ebdbfee718d",
+      "source_declaration": "ADWH.Chapter10.ThinningCosts.bumpRun",
+      "destination_file": "Applications/Resources/Thinning.lean",
+      "destination_declaration": "Resources.Thinning.bumpRun",
+      "issue": 154,
+      "candidate": "1d479aefc990fc0ddff562551034b500632978d2",
       "disposition": "partial reconstruction"
     }
   ]
