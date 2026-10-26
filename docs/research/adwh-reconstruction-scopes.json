@@ -253,8 +253,17 @@
       "modules": [
         "ADWH.Chapter11.Segments"
       ],
-      "destinations": [],
-      "scope": "Increasing-subsequence enumeration, all-optima membership and actual merged adjacent-thinning LUS. Other representations, edit distance and cost models remain reference."
+      "destinations": [
+        "Applications/Subsequences/Candidates.lean",
+        "Applications/Subsequences/Frontier.lean",
+        "Applications/Subsequences/Selection.lean",
+        "Applications/Subsequences/Observation.lean",
+        "Applications/Optimization/Relations.lean",
+        "Examples/IncreasingSubsequences.lean"
+      ],
+      "scope": "Increasing-subsequence enumeration, all-optima membership and actual merged adjacent-thinning LUS. Other representations, edit distance and cost models remain reference.",
+      "candidate": "585db6b5054d8b117b90135c29e00b74c295c073",
+      "declaration_map": "docs/research/adwh-increasing-subsequences-provenance.tsv"
     },
     {
       "issue": 165,
