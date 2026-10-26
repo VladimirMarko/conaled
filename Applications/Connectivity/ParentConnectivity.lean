@@ -64,27 +64,6 @@ theorem requestStep_sameComponent_iff {ds out : DSA} {u v : Int}
     sameComponent_right_of_root hru x, sameComponent_left_of_root hrv y,
     sameComponent_right_of_root hrv x, sameComponent_left_of_root hru y]
 
-private theorem connected_mono {vs : List Int} {old new : List (Int × Int)}
-    (hsub : ∀ e ∈ old, e ∈ new) {u v : Int} (h : Connected vs old u v) :
-    Connected vs new u v := by
-  induction h with
-  | refl hv => exact Connected.refl hv
-  | edge hu hv he => exact Connected.edge hu hv (hsub _ he)
-  | symm _ ih => exact Connected.symm ih
-  | trans _ _ ih1 ih2 => exact Connected.trans ih1 ih2
-
-private theorem connected_nil_iff (vs : List Int) (u v : Int) :
-    Connected vs [] u v ↔ u = v ∧ u ∈ vs := by
-  constructor
-  · intro h
-    induction h with
-    | refl hv => exact ⟨rfl, hv⟩
-    | edge _ _ he => simp at he
-    | symm _ ih => exact ⟨ih.1.symm, by simpa [ih.1] using ih.2⟩
-    | trans _ _ ih1 ih2 => exact ⟨ih1.1.trans ih2.1, ih1.2⟩
-  · rintro ⟨rfl, hu⟩
-    exact Connected.refl hu
-
 private theorem connected_endpoints {vs : List Int} {links : List (Int × Int)}
     {u v : Int} (h : Connected vs links u v) : u ∈ vs ∧ v ∈ vs := by
   induction h with
@@ -99,8 +78,9 @@ theorem requestHistory_connected_iff {n : Int} {requests : List (Int × Int)}
   induction h with
   | start =>
       intro u v
-      rw [sameComponent_start, connected_nil_iff, ListPartition.mem_vertices_iff,
+      rw [sameComponent_start, ListPartition.connected_nil_iff, ListPartition.mem_vertices_iff,
         valid_startDSA_iff]
+      change (0 < u ∧ u ≤ n) ∧ u = v ↔ u = v ∧ (1 ≤ u ∧ u ≤ n)
       omega
   | @snoc requests ds out a b hh hstep ih =>
       have hF := requestHistory_forest hh
@@ -115,7 +95,7 @@ theorem requestHistory_connected_iff {n : Int} {requests : List (Int × Int)}
           ((valid_iff_mem_vertices hh b).mp hvb) (by simp)
       have hmono {u v : Int} (hc : Connected (vertices n) requests u v) :
           Connected (vertices n) (requests ++ [(a, b)]) u v :=
-        connected_mono (fun _ he => List.mem_append_left _ he) hc
+        ListPartition.connected_mono (fun _ he => List.mem_append_left _ he) hc
       intro u v
       constructor
       · intro hs

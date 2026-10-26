@@ -85,7 +85,7 @@ private theorem mem_carrier_iff (ds : DS) (v : Vertex) :
   · rintro ⟨name, xs, hx, hv⟩
     exact ⟨xs, List.mem_map.mpr ⟨(name, xs), hx, rfl⟩, hv⟩
 
-private theorem head_member {xs : List Vertex} {name : Name}
+theorem head_member {xs : List Vertex} {name : Name}
     (h : xs.head? = some name) : name ∈ xs := by
   obtain ⟨ys, rfl⟩ := List.head?_eq_some_iff.mp h
   simp
@@ -329,7 +329,7 @@ theorem findDS_representative {vs : List Vertex} {ds : DS}
   exact ⟨(carrier_mem_universe h name).mp ((mem_carrier_iff ds name).mpr ⟨name, xs, hx, hn⟩),
     (findDS_partition_iff h name name).mpr ⟨xs, hx, hn⟩⟩
 
-private theorem sameBlock_symm {ds : DS} {u v : Vertex} (h : SameBlock ds u v) :
+theorem sameBlock_symm {ds : DS} {u v : Vertex} (h : SameBlock ds u v) :
     SameBlock ds v u := by
   obtain ⟨name, xs, hx, hu, hv⟩ := h
   exact ⟨name, xs, hx, hv, hu⟩
@@ -589,7 +589,7 @@ theorem unionDS_least_equivalence {vs : List Vertex} {ds out : DS} {n1 n2 : Name
     · exact htrans u n2 v (htrans u n1 n2 (hold u n1 hc.1) hlink) (hold n2 v hc.2)
     · exact htrans u n1 v (htrans u n2 n1 (hold u n2 hc.1) (hsym n1 n2 hlink)) (hold n1 v hc.2)
 
-private theorem connected_mono {vs : List Vertex} {old new : List (Vertex × Vertex)}
+theorem connected_mono {vs : List Vertex} {old new : List (Vertex × Vertex)}
     (hsub : ∀ e ∈ old, e ∈ new) {u v : Vertex} (h : Connected vs old u v) :
     Connected vs new u v := by
   induction h with
@@ -598,7 +598,7 @@ private theorem connected_mono {vs : List Vertex} {old new : List (Vertex × Ver
   | symm _ ih => exact Connected.symm ih
   | trans _ _ ih1 ih2 => exact Connected.trans ih1 ih2
 
-private theorem connected_nil_iff (vs : List Vertex) (u v : Vertex) :
+theorem connected_nil_iff (vs : List Vertex) (u v : Vertex) :
     Connected vs [] u v ↔ u = v ∧ u ∈ vs := by
   constructor
   · intro h
@@ -610,7 +610,7 @@ private theorem connected_nil_iff (vs : List Vertex) (u v : Vertex) :
   · rintro ⟨rfl, hu⟩
     exact Connected.refl hu
 
-private theorem sameBlock_start_iff (n u v : Int) :
+theorem sameBlock_start_iff (n u v : Int) :
     SameBlock (startDS n) u v ↔ u = v ∧ u ∈ vertices n := by
   constructor
   · rintro ⟨name, xs, hm, hu, hv⟩
