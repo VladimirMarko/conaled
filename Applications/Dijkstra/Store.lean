@@ -37,4 +37,20 @@ theorem accum_lookup (f : α → β → α) (a : Store n α)
     · simp [valuesAt, h, accumStep, lookup_write]
     · simp [valuesAt, h, accumStep, lookup_write]
 
+theorem valuesAt_map_unique {β : Type v} (vs : List (Fin n)) (f : Fin n → β)
+    (h : vs.Nodup) (u : Fin n) :
+    valuesAt u (vs.map (fun v => (v,f v))) = if u∈vs then [f u] else [] := by
+  induction vs with
+  | nil => simp [valuesAt]
+  | cons v vs ih =>
+      have hn := List.nodup_cons.mp h
+      by_cases hv : v=u
+      · subst v
+        simp only [List.map_cons,valuesAt,List.filterMap_cons,
+          List.mem_cons_self,ite_true]
+        change f u :: valuesAt u (vs.map (fun v => (v,f v))) = [f u]
+        rw [ih hn.2,ite_eq_right hn.1]
+      · simpa only [List.map_cons,valuesAt,List.filterMap_cons,ite_eq_right hv,
+          List.mem_cons,Ne.symm hv,false_or] using ih hn.2
+
 end Dijkstra.Store
