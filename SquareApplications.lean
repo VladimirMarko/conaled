@@ -1,3 +1,4 @@
+import Examples.PotentialAccounting
 import Examples.SymmetricLists
 import Examples.RandomAccessLists
 import Examples.EditAlignment

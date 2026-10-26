@@ -7,8 +7,8 @@ No commutativity is required: observations are combined in execution order.
 This is the additive pair form of writer composition, without a new syntax or
 state backend. Resource bounds remain separate predicates. -/
 namespace Resources
-universe u v w
-variable {α β γ : Type u} {C : Type v} {D : Type w}
+universe u v w x y
+variable {α : Type u} {β : Type x} {γ : Type y} {C : Type v} {D : Type w}
 
 abbrev Measured (α : Type u) (C : Type v) := α × C
 
@@ -52,7 +52,7 @@ theorem reweight_bound [Preorder C] [Preorder D] (h : C → D) (hm : Monotone h)
     (reweight h r).2 ≤ h bound := hm hb
 
 /-- Package an existing measured function and its erasure proof directly. -/
-def erasureSquare {C : Type u} (f : α → Measured β C) (g : α → β)
+def erasureSquare {α β C : Type u} (f : α → Measured β C) (g : α → β)
     (correct : ∀ x, (f x).1 = g x) :
     Squares.Square ⟨α, α, id⟩ ⟨Measured β C, β, Prod.fst⟩ where
   impl := f

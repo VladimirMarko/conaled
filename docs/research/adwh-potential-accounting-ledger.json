@@ -1,0 +1,887 @@
+{
+  "issue": 173,
+  "archive_sha256": "8a5e2b2d5535a149a67111c6adf9ba9e173cbbd2a986d63dc702d75178252e63",
+  "source_sha256": {
+    "project/adwh-lean/ADWH/Chapter02/Timing.lean": "6dea2ad79dc7a0395021a9d47c61f4f17cc04f3ddab9dc4453d6dc3445067366",
+    "project/adwh-lean/ADWH/Chapter02/Amortized.lean": "1c4a6678ac6d8dcca48a6978a1d3bf3b87adc27744dd3fa365fa5801bd556cb8",
+    "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean": "471d2e0e69d68ae55b32142ca8dd19969f427fab3b46cd6b52645cd94c87877c"
+  },
+  "counts": {
+    "Chapter02/Timing.lean": 43,
+    "Chapter02/Amortized.lean": 17,
+    "Chapter03/SymmetricListCosts.lean": 47
+  },
+  "declarations": [
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "Bits",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.Bits",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "value",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.value",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "inc",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.inc",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "inc_ne_nil",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.inc_ne_nil",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "value_inc",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.value_inc",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "Canonical",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.Canonical",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "canonical_cons_nonempty",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.canonical_cons_nonempty",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "canonical_inc",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.canonical_inc",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "value_lt_two_pow_length",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.value_lt_two_pow_length",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "advance",
+      "status": "reused",
+      "destination": "Resources.BinaryCounter.advance",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Standard Function/List iteration and its length/index/membership laws; exact finite source recurrence retained by definitional equality."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "value_advance",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.value_advance",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "canonical_advance",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.canonical_advance",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "iteratePrefix",
+      "status": "reused",
+      "destination": "Resources.BinaryCounter.iteratePrefix",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Standard Function/List iteration and its length/index/membership laws; exact finite source recurrence retained by definitional equality."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "bits",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.bits",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "length_iteratePrefix",
+      "status": "reused",
+      "destination": "Resources.BinaryCounter.length_iteratePrefix",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Standard Function/List iteration and its length/index/membership laws; exact finite source recurrence retained by definitional equality."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "length_bits",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.length_bits",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "getElem",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.getElem",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "values_iteratePrefix",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.values_iteratePrefix",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "bits_values",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.bits_values",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "bits_canonical",
+      "status": "reused",
+      "destination": "Resources.BinaryCounter.bits_canonical",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Standard Function/List iteration and its length/index/membership laws; exact finite source recurrence retained by definitional equality."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "encode",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.encode",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "sourceInc",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.sourceInc",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Only encountered digits are checked; malformed untouched suffixes survive. Checked [0,2] example."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "sourceInc_encode",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.sourceInc_encode",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "sourcePrefix",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.sourcePrefix",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "sourcePrefix_encode",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.sourcePrefix_encode",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "source_bits_eq",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.source_bits_eq",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "ones",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.ones",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "leadingOnes",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.leadingOnes",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "flipCost",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.flipCost",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "incWithCost",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.incWithCost",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "incWithCost_eq",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.incWithCost_eq",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "flipCost_eq_leadingOnes_add_one",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.flipCost_eq_leadingOnes_add_one",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "ones_le_length",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.ones_le_length",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "flipCost_le_length_add_one",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.flipCost_le_length_add_one",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "flipCost_potential",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.flipCost_potential",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "totalCost",
+      "status": "reused",
+      "destination": "Resources.BinaryCounter.totalCost",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Shared trajectory-dependent budget, with source zero/successor equations proved explicitly."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "advanceWithCost",
+      "status": "reused",
+      "destination": "Resources.BinaryCounter.advanceWithCost",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Shared Resources.run on replicated Unit operations; advanceWithCost_succ is the exact source recurrence."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "advanceWithCost_eq",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.advanceWithCost_eq",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "totalCost_potential",
+      "status": "reused",
+      "destination": "Resources.BinaryCounter.totalCost_potential",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Instantiation of shared telescoping potential law, retaining both boundary potentials."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "totalCost_le",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.totalCost_le",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "totalCost_from_zero",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.totalCost_from_zero",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "bitsTransitionCost",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.bitsTransitionCost",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Timing.lean",
+      "declaration": "bitsTransitionCost_bound",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.bitsTransitionCost_bound",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Amortized.lean",
+      "declaration": "run",
+      "status": "generalized",
+      "destination": "Resources.run",
+      "file": "Applications/Resources/Workload.lean",
+      "note": "Shared Measured.bind executor; ordered arbitrary AddMonoid observations, source recurrence is run_cons. No competing source executor."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Amortized.lean",
+      "declaration": "budget",
+      "status": "adapted",
+      "destination": "Resources.budget",
+      "file": "Applications/Resources/Potential.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Amortized.lean",
+      "declaration": "run_state",
+      "status": "generalized",
+      "destination": "Resources.run_state",
+      "file": "Applications/Resources/Workload.lean",
+      "note": "Shared Measured.bind executor; ordered arbitrary AddMonoid observations, source recurrence is run_cons. No competing source executor."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Amortized.lean",
+      "declaration": "run_append",
+      "status": "generalized",
+      "destination": "Resources.run_append",
+      "file": "Applications/Resources/Workload.lean",
+      "note": "Shared Measured.bind executor; ordered arbitrary AddMonoid observations, source recurrence is run_cons. No competing source executor."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Amortized.lean",
+      "declaration": "budget_append",
+      "status": "adapted",
+      "destination": "Resources.budget_append",
+      "file": "Applications/Resources/Potential.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Amortized.lean",
+      "declaration": "charge_iff_signed",
+      "status": "adapted",
+      "destination": "Resources.charge_iff_signed",
+      "file": "Applications/Resources/Potential.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Amortized.lean",
+      "declaration": "run_potential",
+      "status": "adapted",
+      "destination": "Resources.run_potential",
+      "file": "Applications/Resources/Potential.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Amortized.lean",
+      "declaration": "run_potential_exact",
+      "status": "adapted",
+      "destination": "Resources.run_potential_exact",
+      "file": "Applications/Resources/Potential.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Amortized.lean",
+      "declaration": "run_cost_le",
+      "status": "adapted",
+      "destination": "Resources.run_cost_le",
+      "file": "Applications/Resources/Potential.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Amortized.lean",
+      "declaration": "run_zero_potential",
+      "status": "adapted",
+      "destination": "Resources.run_zero_potential",
+      "file": "Applications/Resources/Potential.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Amortized.lean",
+      "declaration": "budget_constant",
+      "status": "adapted",
+      "destination": "Resources.budget_constant",
+      "file": "Applications/Resources/Potential.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Amortized.lean",
+      "declaration": "budget_le_constant",
+      "status": "adapted",
+      "destination": "Resources.budget_le_constant",
+      "file": "Applications/Resources/Potential.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Amortized.lean",
+      "declaration": "run_constant_charge",
+      "status": "adapted",
+      "destination": "Resources.run_constant_charge",
+      "file": "Applications/Resources/Potential.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Amortized.lean",
+      "declaration": "counter_run",
+      "status": "reused",
+      "destination": "Resources.BinaryCounter.counter_run",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Shared Resources.run on replicated Unit operations; advanceWithCost_succ is the exact source recurrence."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Amortized.lean",
+      "declaration": "counter_potential",
+      "status": "reused",
+      "destination": "Resources.BinaryCounter.counter_potential",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Instantiation of shared telescoping potential law, retaining both boundary potentials."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Amortized.lean",
+      "declaration": "counter_zero_bound",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.counter_zero_bound",
+      "file": "Applications/Resources/BinaryCounter.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Amortized.lean",
+      "declaration": "initial_potential_matters",
+      "status": "adapted",
+      "destination": "Resources.initial_potential_matters",
+      "file": "Applications/Resources/Potential.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "potential",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.potential",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "potential_nil",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.potential_nil",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "potential_reverse",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.potential_reverse",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "potential_le_length",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.potential_le_length",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "lengthRun",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.lengthRun",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "lengthRun_exact",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.lengthRun_exact",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "splitRun",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.splitRun",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "splitRun_value",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.splitRun_value",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "splitRun_work",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.splitRun_work",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "reverseRun",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.reverseRun",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "reverseRun_value",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.reverseRun_value",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "reverseRun_work",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.reverseRun_work",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "rebalanceRun",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.rebalanceRun",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Measured.bind sequences actual length, split and reverse visits; independent value/work laws preserve source equations."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "rebalanceRun_value",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.rebalanceRun_value",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "rebalanceRun_work",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.rebalanceRun_work",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "tailRun",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.tailRun",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "tailCharge",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.tailCharge",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "tailRun_value",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.tailRun_value",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "tailRun_singleton",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.tailRun_singleton",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "tailRun_work_le",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.tailRun_work_le",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "tailCharge_potential",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.tailCharge_potential",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "initRun",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.initRun",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "initRun_value",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.initRun_value",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "initRun_singleton",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.initRun_singleton",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "cons_potential",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.cons_potential",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "snoc_potential",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.snoc_potential",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "Operation",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.Operation",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "Result",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.Result",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "execute",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.execute",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "execute_inv",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.execute_inv",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "listStep",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.listStep",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "execute_abstraction",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.execute_abstraction",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "execute_charge_potential",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.execute_charge_potential",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "execute_work_le",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.execute_work_le",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "execute_work_potential",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.execute_work_potential",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "chargeStep",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.chargeStep",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "workStep",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.workStep",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "run_same_state",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.run_same_state",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "run_inv",
+      "status": "reused",
+      "destination": "Resources.SymmetricCosts.run_inv",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Shared run_invariant/run_value_fusion over accepted symmetric-list semantics."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "run_abstraction",
+      "status": "reused",
+      "destination": "Resources.SymmetricCosts.run_abstraction",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Shared run_invariant/run_value_fusion over accepted symmetric-list semantics."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "run_charge_potential",
+      "status": "reused",
+      "destination": "Resources.SymmetricCosts.run_charge_potential",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Instantiation of shared telescoping potential law, retaining both boundary potentials."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "run_work_potential",
+      "status": "reused",
+      "destination": "Resources.SymmetricCosts.run_work_potential",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Instantiation of shared telescoping potential law, retaining both boundary potentials."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "run_charge_empty",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.run_charge_empty",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "run_work_empty",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.run_work_empty",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "head_observation",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.head_observation",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "last_observation",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.last_observation",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricListCosts.lean",
+      "declaration": "initial_potential_needed",
+      "status": "adapted",
+      "destination": "Resources.SymmetricCosts.initial_potential_needed",
+      "file": "Applications/Resources/SymmetricCosts.lean",
+      "note": "Source premises and actual implementation branch contracts retained; grouped statement review in adwh-potential-accounting.md."
+    }
+  ],
+  "shared_changes": {
+    "Applications/Resources/Measured.lean": {
+      "generalized_declarations": [
+        "bind",
+        "bind_value",
+        "bind_assoc",
+        "bind_pure",
+        "pure_bind",
+        "bind_erases",
+        "reweight_bind"
+      ],
+      "change": "Input/intermediate/output value universes are independent; cost universes and algebraic hypotheses unchanged. Actual Nat-length to SymList \u03b1 rebalance is a checked consumer.",
+      "unchanged_boundary": "erasureSquare explicitly binds \u03b1, \u03b2 and C in the same universe required by Squares.Rep; its previous contract is retained."
+    }
+  }
+}
