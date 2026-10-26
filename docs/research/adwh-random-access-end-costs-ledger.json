@@ -1,0 +1,731 @@
+{
+  "issue": 182,
+  "archive_sha256": "8a5e2b2d5535a149a67111c6adf9ba9e173cbbd2a986d63dc702d75178252e63",
+  "source_sha256": {
+    "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean": "26bdb3a5f21959ffa672adf502b020d20f05d1a9449a2904ca26b710e016fb7c"
+  },
+  "selected_count": 80,
+  "deferred_count": 0,
+  "declarations": [
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 33,
+      "declaration": "UncachedTree",
+      "status": "reused",
+      "destination": "Bracketing.Tree",
+      "file": "Applications/Bracketing/Basic.lean",
+      "note": "Replaced the source duplicate with the accepted representation/law; no parallel uncached datatype or cache-erasure function."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 38,
+      "declaration": "structuralSize",
+      "status": "reused",
+      "destination": "Bracketing.size",
+      "file": "Applications/Bracketing/Basic.lean",
+      "note": "Replaced the source duplicate with the accepted representation/law; no parallel uncached datatype or cache-erasure function."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 42,
+      "declaration": "eraseCache",
+      "status": "reused",
+      "destination": "RandomAccess.erase",
+      "file": "Applications/Sequences/RandomAccess/Basic.lean",
+      "note": "Replaced the source duplicate with the accepted representation/law; no parallel uncached datatype or cache-erasure function."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 46,
+      "declaration": "structuralSize_erasure",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.structuralSize_erasure",
+      "file": "Applications/Resources/RandomAccess/CacheCosts.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 52,
+      "declaration": "cachedSize_refines_structural",
+      "status": "reused",
+      "destination": "RandomAccess.cached_size_erasure",
+      "file": "Applications/Sequences/RandomAccess/TreeBuild.lean",
+      "note": "Replaced the source duplicate with the accepted representation/law; no parallel uncached datatype or cache-erasure function."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 57,
+      "declaration": "cached_node",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.cached_node",
+      "file": "Applications/Resources/RandomAccess/CacheCosts.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 61,
+      "declaration": "structuralSizeRun",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.structuralSizeRun",
+      "file": "Applications/Resources/RandomAccess/CacheCosts.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 68,
+      "declaration": "structuralSizeRun_value",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.structuralSizeRun_value",
+      "file": "Applications/Resources/RandomAccess/CacheCosts.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 74,
+      "declaration": "structuralSizeRun_work",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.structuralSizeRun_work",
+      "file": "Applications/Resources/RandomAccess/CacheCosts.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 83,
+      "declaration": "cachedSizeRun",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.cachedSizeRun",
+      "file": "Applications/Resources/RandomAccess/CacheCosts.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 87,
+      "declaration": "cachedSizeRun_exact",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.cachedSizeRun_exact",
+      "file": "Applications/Resources/RandomAccess/CacheCosts.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 91,
+      "declaration": "size_run_comparison",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.size_run_comparison",
+      "file": "Applications/Resources/RandomAccess/CacheCosts.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 99,
+      "declaration": "ones",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.ones",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 104,
+      "declaration": "zeros",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.zeros",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 109,
+      "declaration": "ones_add_zeros",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.ones_add_zeros",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 114,
+      "declaration": "consTRun",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.consTRun",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 121,
+      "declaration": "consRARun",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.consRARun",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 123,
+      "declaration": "consTRun_value",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.consTRun_value",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 129,
+      "declaration": "consRARun_value",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.consRARun_value",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 132,
+      "declaration": "consRARun_refinement",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.consRARun_refinement",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 136,
+      "declaration": "consTRun_potential",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.consTRun_potential",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Derived from accepted BinaryCounter count/potential laws through exact skeleton and cost correspondence."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 148,
+      "declaration": "consTRun_count_bounds",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.consTRun_count_bounds",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Derived from accepted BinaryCounter count/potential laws through exact skeleton and cost correspondence."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 160,
+      "declaration": "consRARun_log_bound",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.consRARun_log_bound",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 167,
+      "declaration": "bits",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.bits",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 172,
+      "declaration": "bits_consT",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.bits_consT",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 178,
+      "declaration": "bits_length",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.bits_length",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 183,
+      "declaration": "bits_canonical",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.bits_canonical",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 204,
+      "declaration": "bits_value",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.bits_value",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 216,
+      "declaration": "pushManyRun",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.pushManyRun",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Resources.run executes source foldl; shared run_state and run_potential_exact provide execution and telescoping laws."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 219,
+      "declaration": "pushManyRun_value",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.pushManyRun_value",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Resources.run executes source foldl; shared run_state and run_potential_exact provide execution and telescoping laws."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 224,
+      "declaration": "pushManyRun_potential",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.pushManyRun_potential",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Resources.run executes source foldl; shared run_state and run_potential_exact provide execution and telescoping laws."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 231,
+      "declaration": "pushManyRun_cost_lower",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.pushManyRun_cost_lower",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Resources.run executes source foldl; shared run_state and run_potential_exact provide execution and telescoping laws."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 242,
+      "declaration": "pushManyRun_empty_bounds",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.pushManyRun_empty_bounds",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Resources.run executes source foldl; shared run_state and run_potential_exact provide execution and telescoping laws."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 249,
+      "declaration": "toRARun",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.toRARun",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Shared run on reversed input; toRARun_cons proves the exact source tail-before-head recurrence, including cost."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 256,
+      "declaration": "toRARun_value",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.toRARun_value",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Shared run on reversed input; toRARun_cons proves the exact source tail-before-head recurrence, including cost."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 261,
+      "declaration": "toRARun_potential",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.toRARun_potential",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Shared run on reversed input; toRARun_cons proves the exact source tail-before-head recurrence, including cost."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 271,
+      "declaration": "toRARun_linear_bound",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.toRARun_linear_bound",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Shared run on reversed input; toRARun_cons proves the exact source tail-before-head recurrence, including cost."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 275,
+      "declaration": "borrowCost",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.borrowCost",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 280,
+      "declaration": "unconsTRun",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.unconsTRun",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 290,
+      "declaration": "unconsTRun_exact",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.unconsTRun_exact",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 299,
+      "declaration": "unconsRARun",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.unconsRARun",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 306,
+      "declaration": "unconsRARun_exact",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.unconsRARun_exact",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 311,
+      "declaration": "borrowCost_bounds",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.borrowCost_bounds",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 317,
+      "declaration": "unconsRARun_log_bound",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.unconsRARun_log_bound",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 324,
+      "declaration": "unconsT_potential",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.unconsT_potential",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 353,
+      "declaration": "unconsRA_potential",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.unconsRA_potential",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 367,
+      "declaration": "decBits",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.decBits",
+      "file": "Applications/Resources/BinaryCounter/Decrement.lean",
+      "note": "Moved to the shared binary-counter owner; original canonical nonempty predecessor domain retained."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 372,
+      "declaration": "decBits_spec",
+      "status": "adapted",
+      "destination": "Resources.BinaryCounter.decBits_spec",
+      "file": "Applications/Resources/BinaryCounter/Decrement.lean",
+      "note": "Moved to the shared binary-counter owner; original canonical nonempty predecessor domain retained."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 399,
+      "declaration": "bits_unconsT",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.bits_unconsT",
+      "file": "Applications/Resources/RandomAccess/End.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 427,
+      "declaration": "drainRun",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.drainRun",
+      "file": "Applications/Resources/RandomAccess/Drain.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 437,
+      "declaration": "drainRun_spec",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.drainRun_spec",
+      "file": "Applications/Resources/RandomAccess/Drain.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 460,
+      "declaration": "drainRun_cost_lower",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.drainRun_cost_lower",
+      "file": "Applications/Resources/RandomAccess/Drain.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 474,
+      "declaration": "zeros_le_elements",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.zeros_le_elements",
+      "file": "Applications/Resources/RandomAccess/Drain.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 487,
+      "declaration": "full_drain_value",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.full_drain_value",
+      "file": "Applications/Resources/RandomAccess/Drain.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 497,
+      "declaration": "full_drain_linear_bounds",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.full_drain_linear_bounds",
+      "file": "Applications/Resources/RandomAccess/Drain.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 506,
+      "declaration": "headRARun",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.headRARun",
+      "file": "Applications/Resources/RandomAccess/Drain.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 510,
+      "declaration": "tailRARun",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.tailRARun",
+      "file": "Applications/Resources/RandomAccess/Drain.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 514,
+      "declaration": "headRARun_value",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.headRARun_value",
+      "file": "Applications/Resources/RandomAccess/Drain.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 517,
+      "declaration": "tailRARun_value",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.tailRARun_value",
+      "file": "Applications/Resources/RandomAccess/Drain.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 520,
+      "declaration": "head_tail_log_bounds",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.head_tail_log_bounds",
+      "file": "Applications/Resources/RandomAccess/Drain.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 526,
+      "declaration": "fetchRAError",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fetchRAError",
+      "file": "Applications/Resources/RandomAccess/EndCases.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 531,
+      "declaration": "fetchRAError_nil",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fetchRAError_nil",
+      "file": "Applications/Resources/RandomAccess/EndCases.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 533,
+      "declaration": "fetchRAError_refinement",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fetchRAError_refinement",
+      "file": "Applications/Resources/RandomAccess/EndCases.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 540,
+      "declaration": "fetchRAError_error_iff",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fetchRAError_error_iff",
+      "file": "Applications/Resources/RandomAccess/EndCases.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 556,
+      "declaration": "fetchRAError_ok_iff",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fetchRAError_ok_iff",
+      "file": "Applications/Resources/RandomAccess/EndCases.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 562,
+      "declaration": "four_element_tree",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.four_element_tree",
+      "file": "Applications/Resources/RandomAccess/EndCases.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 567,
+      "declaration": "four_element_borrow_derivation",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.four_element_borrow_derivation",
+      "file": "Applications/Resources/RandomAccess/EndCases.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 579,
+      "declaration": "bulk_answer_intermediate_states",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.bulk_answer_intermediate_states",
+      "file": "Applications/Resources/RandomAccess/EndCases.lean",
+      "note": "Public trace/final contracts derived via shared reachable scan fusion / accepted bulk refinement."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 584,
+      "declaration": "bulk_answer_final_state",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.bulk_answer_final_state",
+      "file": "Applications/Resources/RandomAccess/EndCases.lean",
+      "note": "Public trace/final contracts derived via shared reachable scan fusion / accepted bulk refinement."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 589,
+      "declaration": "borrowCost_consT",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.borrowCost_consT",
+      "file": "Applications/Resources/RandomAccess/Cycles.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 596,
+      "declaration": "pushPopRun",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.pushPopRun",
+      "file": "Applications/Resources/RandomAccess/Cycles.lean",
+      "note": "Actual carry then actual borrow composed with Resources.bind; partial result and accumulated count retained."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 601,
+      "declaration": "pushPopRun_exact",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.pushPopRun_exact",
+      "file": "Applications/Resources/RandomAccess/Cycles.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 609,
+      "declaration": "mixedRun",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.mixedRun",
+      "file": "Applications/Resources/RandomAccess/Cycles.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 619,
+      "declaration": "mixedRun_exact",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.mixedRun_exact",
+      "file": "Applications/Resources/RandomAccess/Cycles.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 629,
+      "declaration": "fullDigits",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fullDigits",
+      "file": "Applications/Resources/RandomAccess/Cycles.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 633,
+      "declaration": "fullDigits_valid",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fullDigits_valid",
+      "file": "Applications/Resources/RandomAccess/Cycles.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 638,
+      "declaration": "fullDigits_length",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fullDigits_length",
+      "file": "Applications/Resources/RandomAccess/Cycles.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 643,
+      "declaration": "fullDigits_cons_cost",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fullDigits_cons_cost",
+      "file": "Applications/Resources/RandomAccess/Cycles.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 649,
+      "declaration": "mixed_fullDigits_exact",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.mixed_fullDigits_exact",
+      "file": "Applications/Resources/RandomAccess/Cycles.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "line": 657,
+      "declaration": "no_uniform_mixed_charge",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.no_uniform_mixed_charge",
+      "file": "Applications/Resources/RandomAccess/Cycles.lean",
+      "note": "Original quantifiers, raw/valid domain and counted branch behavior retained; see grouped statement review."
+    }
+  ]
+}
