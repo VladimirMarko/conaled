@@ -1,3 +1,4 @@
+import Examples.OrderedSearch
 import Examples.SymmetricLists
 import Examples.RandomAccessLists
 import Examples.EditAlignment
