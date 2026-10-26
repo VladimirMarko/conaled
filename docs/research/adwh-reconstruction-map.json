@@ -2947,7 +2947,7 @@
       "imports": [
         "Std"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         171
       ],
@@ -8469,8 +8469,10 @@
         "ADWH.Chapter09.MinimumSpanningForest",
         "ADWH.Chapter01.Iteration"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        172
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter09-forest-kruskal-client.json",
         "member_sha256": "4009496ea8450584c91dd27409c191efff6a242f92cfea83d17bdb02f6142964",
@@ -8514,8 +8516,10 @@
         "ADWH.Chapter01.Permutations",
         "ADWH.Chapter07.CoinChangeSelectors"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        172
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter09-forest-kruskal-source.json",
         "member_sha256": "83036d261915fa657c941c1afb28d8b5f7ca6468c98315cb7646ba7107b0e844",
@@ -8535,8 +8539,10 @@
       "imports": [
         "ADWH.Chapter09.ForestKruskalSource"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        172
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter09-forest-partition.json",
         "member_sha256": "66c63d0f647696d7f5ae7f5c83fb38316f2b4428f6dc1c7d89af5563c6ec289e",
@@ -9099,8 +9105,10 @@
       "imports": [
         "ADWH.Chapter09.ForestPartition"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        172
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter09-minimum-spanning-forest.json",
         "member_sha256": "3c49dea183b9cf1e4166b932d7f3d1de7e0cbaca29d315dbba9ed088950977c1",

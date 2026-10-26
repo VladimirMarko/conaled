@@ -391,8 +391,28 @@
       "modules": [
         "ADWH.Chapter03.RandomAccessLists"
       ],
+      "destinations": [
+        "Applications/Sequences/RandomAccess/Basic.lean",
+        "Applications/Sequences/RandomAccess/Access.lean",
+        "Applications/Sequences/RandomAccess/Borrow.lean",
+        "Applications/Sequences/RandomAccess/TreeBuild.lean",
+        "Applications/Sequences/RandomAccess/Representation.lean",
+        "Examples/RandomAccessLists.lean"
+      ],
+      "scope": "Complete finite cached-tree binary random-access list semantics, canonicality, actual executors and representation consumers. Cost, allocation and amortization models remain reference.",
+      "candidate": "dc4c3ffae854d6c9e734241c25febef07914b7e3",
+      "declaration_map": "docs/research/adwh-random-access-lists-provenance.tsv"
+    },
+    {
+      "issue": 172,
+      "modules": [
+        "ADWH.Chapter09.ForestKruskalSource",
+        "ADWH.Chapter09.ForestPartition",
+        "ADWH.Chapter09.MinimumSpanningForest",
+        "ADWH.Chapter09.ForestKruskalClient"
+      ],
       "destinations": [],
-      "scope": "Complete finite cached-tree binary random-access list semantics, canonicality, actual executors and representation consumers. Cost, allocation and amortization models remain reference."
+      "scope": "Complete nested-forest semantic closure, arbitrary-integer-label tree clients and corrected global minimum spanning forests, preserving exact source order and printed-wrapper failures. Costs, enumeration and other graph algorithms remain reference."
     }
   ],
   "related_commitments": [
