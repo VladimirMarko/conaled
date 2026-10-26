@@ -517,8 +517,26 @@
         "ADWH.Chapter09.PrimExchange",
         "ADWH.Chapter09.PrimCorrectness"
       ],
+      "destinations": [
+        "Applications/Prim/Core.lean",
+        "Applications/Prim/Correctness.lean",
+        "Applications/Prim/Exchange.lean",
+        "Applications/Prim/Observation.lean",
+        "Applications/Kruskal/Correctness.lean",
+        "Examples/Prim.lean"
+      ],
+      "scope": "Complete ordinary growing-tree Prim closure, exact retained residuals, visited-cut exchange and independent minimum spanning trees. Array, sentinel and execution-cost families remain reference.",
+      "candidate": "16db707769c322fa17f2c48e24208f81292008da",
+      "declaration_map": "docs/research/adwh-prim-provenance.tsv"
+    },
+    {
+      "issue": 184,
+      "modules": [
+        "ADWH.Chapter09.DijkstraSentinel",
+        "ADWH.Chapter09.GraphWorkedExamples"
+      ],
       "destinations": [],
-      "scope": "Selected ordinary growing-tree Prim closure, exact kept residuals, visited-cut exchange and independent minimum spanning trees. Array, sentinel and execution-cost families remain reference."
+      "scope": "Selected future full finite-sentinel module and figure_finite_source only. Exact raw arithmetic and state refinement on the all-reachable strict-range domain; other figure declarations remain separate."
     }
   ],
   "related_commitments": [

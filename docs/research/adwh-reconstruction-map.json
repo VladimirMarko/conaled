@@ -7869,8 +7869,10 @@
       "imports": [
         "ADWH.Chapter09.DijkstraPaths"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        184
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter09-dijkstra-sentinel.json",
         "member_sha256": "2323bd8a5619e5c3a2f7a21f774137b368d974f5d4a7b92cea94a68e3d5cefb0",
@@ -8673,8 +8675,10 @@
         "ADWH.Chapter09.PrimArray",
         "ADWH.Chapter09.DijkstraSentinel"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        184
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter09-graph-worked-examples.json",
         "member_sha256": "6eef806bb04a849dd51982353ad076a876a5667e052aff3c297b1630033f25bf",
@@ -9218,7 +9222,7 @@
         "ADWH.Chapter09.Kruskal",
         "ADWH.Chapter01.Permutations"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         183
       ],
@@ -9241,7 +9245,7 @@
       "imports": [
         "ADWH.Chapter09.PrimExchange"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         183
       ],
@@ -9286,7 +9290,7 @@
       "imports": [
         "ADWH.Chapter09.PrimCore"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         183
       ],
