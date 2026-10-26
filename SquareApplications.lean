@@ -1,4 +1,5 @@
 import Examples.BoundedSegments
+import Examples.KnapsackWorkload
 import Examples.RunCompression
 import Examples.Connectivity
 import Examples.RationalSearch
