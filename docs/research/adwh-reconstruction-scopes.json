@@ -357,8 +357,15 @@
         "ADWH.Chapter09.Kruskal",
         "ADWH.Chapter09.DisjointSets"
       ],
-      "destinations": [],
-      "scope": "Complete flat disjoint-set Kruskal client, independent spanning-tree global optimum, exact source order and numbered-domain failures. Reuses prior disjoint sets. Nested forests, corrected all-edge minimum spanning forests, other graph algorithms and resource models remain reference."
+      "destinations": [
+        "Applications/Kruskal/Basic.lean",
+        "Applications/Kruskal/Correctness.lean",
+        "Applications/Kruskal/Observation.lean",
+        "Examples/Kruskal.lean"
+      ],
+      "scope": "Complete flat disjoint-set Kruskal client, independent spanning-tree global optimum, exact source order and numbered-domain failures. Reuses prior disjoint sets. Nested forests, corrected all-edge minimum spanning forests, other graph algorithms and resource models remain reference.",
+      "candidate": "1a90ef08aae99406ff64c65c84d230921fe82ff1",
+      "declaration_map": "docs/research/adwh-kruskal-provenance.tsv"
     }
   ],
   "related_commitments": [
