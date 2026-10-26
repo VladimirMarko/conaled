@@ -1,4 +1,5 @@
 import Examples.BoundedSegments
+import Examples.SelectionTies
 import Examples.RunCompression
 import Examples.Resources
 import Examples.HeuristicSearch

@@ -1,4 +1,4 @@
-import Std
+import Applications.Optimization.SelectionSpec
 
 namespace Bracketing
 variable {α : Type}
@@ -147,9 +147,8 @@ def sourceMinWith (score : α → Nat) : (xs : List α) → xs ≠ [] → α
   | x :: y :: ys, _ => sourceSmaller score x (sourceMinWith score (y :: ys) (by simp))
 
 /-- Independent first-minimum contract, retaining the first occurrence on ties. -/
-def FirstMinimum (score : α → Nat) (xs : List α) (a : α) : Prop :=
-  ∃ before after, xs = before ++ a :: after ∧
-    (∀ b ∈ before, score a < score b) ∧ (∀ b ∈ after, score a ≤ score b)
+abbrev FirstMinimum (score : α → Nat) (xs : List α) (a : α) : Prop :=
+  Optimization.FirstMinimum score xs a
 
 theorem FirstMinimum.mem {score : α → Nat} {xs : List α} {a : α}
     (h : FirstMinimum score xs a) : a ∈ xs := by
