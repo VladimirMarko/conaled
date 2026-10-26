@@ -388,7 +388,7 @@ private theorem walk_members {vs : List Vertex} {es p : List Edge} {u v : Vertex
       · exact he
       · exact ih hf
 
-private theorem walk_restrict {vs : List Vertex} {old new p : List Edge} {u v : Vertex}
+theorem walk_restrict {vs : List Vertex} {old new p : List Edge} {u v : Vertex}
     (h : Walk vs old u p v) (hsub : p ⊆ new) : Walk vs new u p v := by
   induction h with
   | nil hu => exact Walk.nil hu
@@ -440,7 +440,7 @@ private theorem walk_avoids {vs : List Vertex} {es p : List Edge} {u v : Vertex}
   have hne : e ≠ f := fun hh => hf (hh ▸ he)
   exact (List.mem_erase_of_ne hne).mpr (walk_members h he)
 
-private theorem tree_path_edge_cut {vs : List Vertex} {ts p : List Edge} {a b : Vertex}
+theorem tree_path_edge_cut {vs : List Vertex} {ts p : List Edge} {a b : Vertex}
     (ht : EdgeForest vs ts) (hp : Walk vs ts a p b) (hn : p.Nodup)
     {f : Edge} (hf : f ∈ p) :
     ¬ Reach vs (ts.erase f) a b ∧
