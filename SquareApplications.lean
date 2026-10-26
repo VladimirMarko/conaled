@@ -1,3 +1,4 @@
+import Examples.EditAlignment
 import Examples.IncreasingSubsequences
 import Examples.BoundedSegments
 import Examples.KnapsackWorkload
