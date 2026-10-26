@@ -63,7 +63,7 @@ reference. #159 pins a static rational/infinity adapter on top of #155, with the
 Nat theorem reuse distinguished from new local transport proofs. #158 now pins its
 list/array histories, finite connectivity and query/cycle-rejection consumers.
 [#161](https://github.com/VladimirMarko/conaled/issues/161) pins bounded segment
-optima and the source thinning scan; subsequences and cost models remain reference.
+optima and the source thinning scan; #164 supplies the subsequence slice, while cost models remain reference.
 [#162](https://github.com/VladimirMarko/conaled/issues/162) pins complete immutable
 knapsack initialization, rows and observation, extending #154 with exact selection
 and whole-workload scalar recovery.
@@ -71,12 +71,13 @@ and whole-workload scalar recovery.
 and lexical versus minimum-count choice, including first/last/descending ties.
 #165 pins occurrence-rank selection, median and monotone-value transport.
 #164 pins increasing-subsequence enumeration and ordered thinning, including
-shared witness observations. #166 scopes Huffman global optimality; its empty
-destinations record selected future scope.
+shared witness observations. #166 scopes Huffman global optimality, #167 fixed-price
+edit alignment with cached row refinement, and #168 ordered partitions with greedy
+paragraph layout. Their empty destinations record selected future scope.
 
 ## Dispositions and declaration coverage
 
-[Scope records](adwh-reconstruction-scopes.json) link #151–#155 and #157–#166
+[Scope records](adwh-reconstruction-scopes.json) link #151–#155 and #157–#168
 and pin the #151–#155 and #157–#165 candidate destinations. Resolve candidate paths
 at those exact commits until integration; they need not exist at the map's base
 commit. Candidate evidence is partial reconstruction pending acceptance, never

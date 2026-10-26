@@ -297,6 +297,25 @@
       ],
       "destinations": [],
       "scope": "Weighted-path global optimum, occurrence-safe exchange and exact-occurrence queue realization; only selected tree/list/iteration helpers. Coding models, queue costs and other Huffman realizations remain reference."
+    },
+    {
+      "issue": 167,
+      "modules": [
+        "ADWH.Chapter13.EditDistance",
+        "ADWH.Chapter13.EditDistanceCached",
+        "ADWH.Chapter13.EditExamples"
+      ],
+      "destinations": [],
+      "scope": "Fixed-price independent alignment optimum, recursive reference and actual uncached/cached rows with all-entry refinement and distinct tie policies. Weighted prices, LCS, all-minima enumeration and cost instrumentation remain reference."
+    },
+    {
+      "issue": 168,
+      "modules": [
+        "ADWH.Chapter12.Partitions",
+        "ADWH.Chapter12.ParagraphGreedy"
+      ],
+      "destinations": [],
+      "scope": "Ordered contiguous partitions, four generators and guarded pruning; actual greedy paragraph layout and helper with independent global lexicographic optimum. Waste objectives, cached frontiers and resource models remain reference."
     }
   ],
   "related_commitments": [
