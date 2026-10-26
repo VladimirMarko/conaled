@@ -1,3 +1,4 @@
+import Examples.RationalSearch
 import Examples.Resources
 import Examples.HeuristicSearch
 import Examples.ScanFusion

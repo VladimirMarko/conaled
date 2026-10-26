@@ -81,8 +81,9 @@ follow-up for a checked static finite rational/infinity adapter. It requires a
 positive common scale for a finite collection of rational edge and heuristic
 values, omits blocked edges with a proved graph interpretation, and transports
 walk costs, heuristic premises and minimum distances in both directions. Tie
-selection needs its own compatibility proof. This adapter is not implemented
-here.
+selection needs its own compatibility proof. The
+[static rational adapter](adwh-rational-search.md) now supplies these contracts and the composed distance consumer, including explicit normalization
+for signed rational heuristics.
 
 #111 still needs explicit edge-assignment patches, predecessor access, retained
 state, initialization/repair/observation contracts, update-stable heuristics and
