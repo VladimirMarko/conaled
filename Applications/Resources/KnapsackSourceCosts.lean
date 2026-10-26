@@ -46,7 +46,7 @@ theorem sourceWrites_exact (old : Array (Selection α)) (ps : List (Nat × Selec
     sourceWritesRun old ps = (assign old ps, 8*ps.length+1) := by
   induction ps generalizing old with
   | nil => rfl
-  | cons p ps ih => simp [sourceWritesRun, ih, assign, Nat.mul_add, Nat.add_assoc]
+  | cons p ps ih => simp [sourceWritesRun, ih, assign, DynamicProgramming.arrayAssign, Nat.mul_add, Nat.add_assoc]
 
 theorem stepMeasured_sourceScalar (capacity : Nat) (i : Item α) (old : Array (Selection α)) :
     reweight (fun w : Work => w.2.2.2) (stepMeasured capacity i old) =

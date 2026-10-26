@@ -53,7 +53,9 @@ operations. Neither measures the internal cost of deciding the relation.
 
 The actual row uses the existing #151 `Item`, `Selection`, `add` and empty
 selection. `better` preserves the source's skip-on-value-tie behavior. Every
-entry reads the same old row, then the writes apply to an explicit copy.
+entry reads the same old row, then the writes apply to an explicit copy. The semantic update uses
+`DynamicProgramming.arrayAssign`, shared with the bracketing and value-DP
+clients; `writes_exact` connects the measured writes to that operation.
 The first three observations recover the source `ArrayWork` row equation:
 `(capacity + 1, capacity + 1 - weight, capacity + 1)`, counting weight tests,
 value comparisons and update calls. These counts exclude initialization,

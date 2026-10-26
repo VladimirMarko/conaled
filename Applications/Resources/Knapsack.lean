@@ -1,4 +1,5 @@
 import Applications.Resources.Measured
+import Applications.DynamicProgramming.Batch
 import Applications.Optimization.KnapsackThinning
 
 /-! Source 0/1-knapsack row instrumentation. The first three observations are
@@ -47,7 +48,7 @@ theorem entries_exact (i : Item α) (old : Array (Selection α)) (indices : List
       omega
 
 def assign (old : Array (Selection α)) (updates : List (Nat × Selection α)) : Array (Selection α) :=
-  updates.foldl (fun a p => a.setIfInBounds p.1 p.2) old
+  DynamicProgramming.arrayAssign old updates
 
 def writes (old : Array (Selection α)) : List (Nat × Selection α) → Measured (Array (Selection α)) Work
   | [] => (old, (0,0,0,1))
@@ -57,7 +58,7 @@ theorem writes_exact (old : Array (Selection α)) (updates : List (Nat × Select
     writes old updates = (assign old updates, (0,0,updates.length,8*updates.length+1)) := by
   induction updates generalizing old with
   | nil => rfl
-  | cons p ps ih => simp [writes, bind, ih, assign, Nat.mul_add, Nat.add_comm, Nat.add_left_comm]
+  | cons p ps ih => simp [writes, bind, ih, assign, DynamicProgramming.arrayAssign, Nat.mul_add, Nat.add_comm, Nat.add_left_comm]
 
 def copy (old : Array (Selection α)) : Measured (Array (Selection α)) Work :=
   (old.toList.toArray, (0,0,0,2*old.size+1))
