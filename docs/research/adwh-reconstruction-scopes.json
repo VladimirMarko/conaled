@@ -295,8 +295,20 @@
         "ADWH.Chapter01.Iteration",
         "ADWH.Chapter01.Permutations"
       ],
-      "destinations": [],
-      "scope": "Weighted-path global optimum, occurrence-safe exchange and exact-occurrence queue realization; only selected tree/list/iteration helpers. Coding models, queue costs and other Huffman realizations remain reference."
+      "destinations": [
+        "Applications/Huffman/Basic.lean",
+        "Applications/Huffman/Exchange.lean",
+        "Applications/Huffman/Priority.lean",
+        "Applications/Huffman/SourcePriority.lean",
+        "Applications/Huffman/Observation.lean",
+        "Applications/Search/ExactPriority.lean",
+        "SquareKit/Iteration.lean",
+        "Applications/Bracketing/Basic.lean",
+        "Examples/Huffman.lean"
+      ],
+      "scope": "Weighted-path global optimum, occurrence-safe exchange and exact-occurrence queue realization; only selected tree/list/iteration helpers. Coding models, queue costs and other Huffman realizations remain reference.",
+      "candidate": "b89cf3ea30522781aac80edd12869652ccb0e30e",
+      "declaration_map": "docs/research/adwh-huffman-provenance.tsv"
     },
     {
       "issue": 167,

@@ -71,15 +71,16 @@ and whole-workload scalar recovery.
 and lexical versus minimum-count choice, including first/last/descending ties.
 #165 pins occurrence-rank selection, median and monotone-value transport.
 #164 pins increasing-subsequence enumeration and ordered thinning, including
-shared witness observations. #166 scopes Huffman global optimality, #167 fixed-price
+shared witness observations. #166 pins Huffman global optimality and exact queue
+construction. #167 scopes fixed-price
 edit alignment with cached row refinement, and #168 ordered partitions with greedy
 paragraph layout. #169 scopes disjoint-set Kruskal and global spanning-tree
-optimality. Their empty destinations record selected future scope.
+optimality. The empty destinations for #167–#169 record selected future scope.
 
 ## Dispositions and declaration coverage
 
 [Scope records](adwh-reconstruction-scopes.json) link #151–#155 and #157–#169
-and pin the #151–#155 and #157–#165 candidate destinations. Resolve candidate paths
+and pin the #151–#155 and #157–#166 candidate destinations. Resolve candidate paths
 at those exact commits until integration; they need not exist at the map's base
 commit. Candidate evidence is partial reconstruction pending acceptance, never
 a whole-module parity assertion. The pinned candidate commits are retained in the integration ancestry, so their

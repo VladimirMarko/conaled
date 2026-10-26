@@ -444,6 +444,7 @@ provenance; it also records source contracts still outside that slice.
 | [Generalized-cost bracketing](docs/research/adwh-bracketing.md) | Recursive, cached and interval-array selection agree, including first ties. |
 | [Instrumented execution](docs/research/adwh-resources.md) and [immutable knapsack workload](docs/research/adwh-knapsack-workload.md) | Event reweighting, complete old-row table refinement and exact whole-workload counts. |
 | [Static search](docs/research/adwh-static-search.md) and [rational-cost adapter](docs/research/adwh-rational-search.md) | Independent path optimum, lawful queues and finite rational scaling with blocked infinity edges. |
+| [Huffman construction](docs/research/adwh-huffman.md) | Duplicate-safe global weighted-path optimum and exact-occurrence queues; distinct tree ties agree on cost. |
 | [Adjacent-run compression](docs/research/adwh-run-compression.md) | Adjacent boundaries, suffix-fold equivalence and injective relabeling. |
 | [Connectivity](docs/research/adwh-connectivity.md) | List and weighted-parent histories realize the same finite connectivity, query and cycle-rejection observations. |
 | [Stable sorting](docs/research/adwh-stable-sorting.md) | Sorted permutation and equal-key order remain separate contracts. |
