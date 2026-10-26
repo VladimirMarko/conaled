@@ -1,4 +1,6 @@
 import Examples.EditAlignment
+import Examples.ParagraphLayout
+import Examples.OrderedPartitions
 import Examples.IncreasingSubsequences
 import Examples.BoundedSegments
 import Examples.KnapsackWorkload
