@@ -1,3 +1,4 @@
+import Examples.RandomAccessLists
 import Examples.EditAlignment
 import Examples.ParagraphLayout
 import Examples.OrderedPartitions
