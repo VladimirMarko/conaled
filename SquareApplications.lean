@@ -1,3 +1,4 @@
+import Examples.RankSelection
 import Examples.RunCompression
 import Examples.Connectivity
 import Examples.RationalSearch
