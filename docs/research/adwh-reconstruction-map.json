@@ -1864,8 +1864,10 @@
       "imports": [
         "ADWH.Chapter01.InfiniteListFusion"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "partial reconstruction",
+      "scope_issues": [
+        170
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/lazy-list-evaluation.json",
         "member_sha256": "7376aa0f8e3c60532a6e6ad77515f6581dc3c758deb0af086ae2722004b8f8bc",
@@ -3034,7 +3036,7 @@
       "imports": [
         "Std"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         170
       ],
@@ -3060,7 +3062,7 @@
         "ADWH.Chapter01.LazyListEvaluation",
         "ADWH.Chapter01.LazyListMaps"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         170
       ],

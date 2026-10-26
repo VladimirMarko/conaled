@@ -372,10 +372,19 @@
       "issue": 170,
       "modules": [
         "ADWH.Chapter03.SymmetricLists",
-        "ADWH.Chapter03.SymmetricPrefixes"
+        "ADWH.Chapter03.SymmetricPrefixes",
+        "ADWH.Chapter01.LazyListEvaluation"
       ],
-      "destinations": [],
-      "scope": "Complete finite symmetric-list semantics and 15 finite prefix declarations with representation consumers. The remaining cost/evaluator and lazy-domain declarations remain reference."
+      "destinations": [
+        "Applications/Sequences/Symmetric/Core.lean",
+        "Applications/Sequences/Symmetric/Prefixes.lean",
+        "Applications/Sequences/Symmetric/Finite.lean",
+        "Applications/Sequences/Symmetric/Observation.lean",
+        "Examples/SymmetricLists.lean"
+      ],
+      "scope": "Complete finite symmetric-list semantics and 15 finite prefix declarations, with finite scan recurrence correspondence and composed representation consumers. The remaining cost/evaluator and lazy-domain declarations remain reference.",
+      "candidate": "866018f06f4c7c237565505cb2835c2f487293b7",
+      "declaration_map": "docs/research/adwh-symmetric-lists-ledger.json"
     },
     {
       "issue": 171,

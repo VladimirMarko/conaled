@@ -445,6 +445,7 @@ provenance; it also records source contracts still outside that slice.
 | [Instrumented execution](docs/research/adwh-resources.md) and [immutable knapsack workload](docs/research/adwh-knapsack-workload.md) | Event reweighting, complete old-row table refinement and exact whole-workload counts. |
 | [Static search](docs/research/adwh-static-search.md) and [rational-cost adapter](docs/research/adwh-rational-search.md) | Independent path optimum, lawful queues and finite rational scaling with blocked infinity edges. |
 | [Huffman construction](docs/research/adwh-huffman.md) | Duplicate-safe global weighted-path optimum and exact-occurrence queues; distinct tree ties agree on cost. |
+| [Symmetric lists and prefixes](docs/research/adwh-symmetric-lists.md) | Actual rebalancing and prefix algorithms refine standard lists, with composed endpoint and prefix-length observations. |
 | [Adjacent-run compression](docs/research/adwh-run-compression.md) | Adjacent boundaries, suffix-fold equivalence and injective relabeling. |
 | [Kruskal spanning trees](docs/research/adwh-kruskal.md) | Global signed-weight optimum, exact stable source execution and composed tree/cost consumers on the numbered domain. |
 | [Connectivity](docs/research/adwh-connectivity.md) | List and weighted-parent histories realize the same finite connectivity, query and cycle-rejection observations. |
