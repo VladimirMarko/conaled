@@ -153,3 +153,8 @@ A plain `diff -u` between manifests identifies path/content changes without
 extracting either snapshot. Extract the relevant sources for semantic review.
 Keep at least every snapshot used by reconstruction provenance; completion of
 the migration does not itself make its historical evidence disposable.
+
+The [reconstruction coverage map](../../research/adwh-reconstruction-map.md)
+links every main-library module to a mathematical review family, the preserved
+correspondence and scoped tasks. It also documents the byte-level successor
+comparison tool and the semantic/dependency review needed after comparison.

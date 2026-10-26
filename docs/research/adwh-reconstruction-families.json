@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "scope": "Routing groups for reconstruction review, not package boundaries or claims of a common abstraction. First matching selector assigns each module. Per-module correspondence supplies the source contract; imports preserve cross-group dependencies.",
+  "families": [
+    {
+      "id": "infrastructure",
+      "selector": "^ADWH(?:\\.AuditCounterexamples)?$",
+      "title": "Public aggregation and audit counterexamples",
+      "rationale": "Reference import ownership and audit failure cases; no mathematical package is proposed."
+    },
+    {
+      "id": "floating",
+      "selector": "\\.(?:Floating|NumeralsFloating|DecimalFloating|DecimalInternal|DecimalSource|DecimalCandidates|DecimalGreedy|DecimalCosts)|\\.Expressions.*(?:Float|Decimal|Magnitude)",
+      "title": "Finite numeral and floating arithmetic",
+      "rationale": "Interpretation, normalization and rounding error contracts must preserve their exact arithmetic model."
+    },
+    {
+      "id": "partial-lists",
+      "selector": "\\.Chapter01\\.(?:Partial|Lazy|Infinite|Collapse)",
+      "title": "Partial and demand-sensitive lists",
+      "rationale": "Domain observations, demand and fusion have different hypotheses from finite total list folds."
+    },
+    {
+      "id": "list-folds",
+      "selector": "\\.Chapter01\\.|\\.Chapter02\\.(?:Build|Prune|Context|Uniform)|\\.Chapter03\\.PrefixScan|\\.Chapter08\\.(?:Foldrn|GenericIteration)",
+      "title": "Finite list folds, scans and compression",
+      "rationale": "Sequence observations connect folds, scans, context concatenation and run compression; use standard List results where contracts agree."
+    },
+    {
+      "id": "resource-analysis",
+      "selector": "\\.Chapter02\\.",
+      "title": "Asymptotic, recurrence and amortized reasoning",
+      "rationale": "Operation-count interpretations and growth arguments are reusable independently of the algorithm whose cost they bound."
+    },
+    {
+      "id": "sequence-representations",
+      "selector": "\\.Chapter03\\.",
+      "title": "Array and tree representations of sequences",
+      "rationale": "Indexing, flattening and end-operation observations justify representation changes."
+    },
+    {
+      "id": "ordered-search",
+      "selector": "\\.Chapter04\\.|\\.Chapter11\\.LUSTree",
+      "title": "Ordered search trees, sets and grid search",
+      "rationale": "Search, split/join and order invariants support consumers; grid query lower bounds remain separate contracts."
+    },
+    {
+      "id": "sorting",
+      "selector": "\\.Chapter05\\.|\\.Chapter07\\.(?:Insertion|Selection|Sorting|Inversion|Permutation|Lexicographic)|\\.Chapter15\\.Sorting|\\.Chapter07\\.LiteralPick",
+      "title": "Sorting, ordered merging and permutation observations",
+      "rationale": "Permutation, sortedness, stability and comparison traces must remain distinct; include search-derived sorting as another realization."
+    },
+    {
+      "id": "selection",
+      "selector": "\\.Chapter06\\.",
+      "title": "Rank, extrema and finite selection",
+      "rationale": "Rank semantics relate implementations; adversary and recurrence bounds retain their own quantifiers."
+    },
+    {
+      "id": "coin-choice",
+      "selector": "\\.Chapter(?:07|10|13)\\.Coin",
+      "title": "Coin enumeration, greedy choice and tabulation",
+      "rationale": "Coin multiplicity and optimum semantics connect greedy, thinned and tabulated implementations without assuming every denomination system is canonical."
+    },
+    {
+      "id": "tree-greedy",
+      "selector": "\\.Chapter08\\.",
+      "title": "Weighted tree construction and priority queues",
+      "rationale": "Fringe/weight observations connect enumerations and greedy builders; queue laws serve independent consumers."
+    },
+    {
+      "id": "connectivity",
+      "selector": "\\.Chapter09\\.DisjointSets",
+      "title": "Connectivity partitions and disjoint-set representations",
+      "rationale": "Partition and request-history observations connect list and array stores without equating representative identities."
+    },
+    {
+      "id": "graph-optima",
+      "selector": "\\.Chapter09\\.",
+      "title": "Graph paths, spanning forests and tours",
+      "rationale": "Independent graph/path semantics support minimum proofs; shortest paths, forests and tours are separate optimization domains."
+    },
+    {
+      "id": "thinning",
+      "selector": "\\.Chapter10\\.(?:Thinning|GeneralScheme|Merge)|\\.Chapter11\\.HistoricalThinning|\\.Chapter07\\.Greedy",
+      "title": "Dominance coverage and candidate pruning",
+      "rationale": "Coverage, origin membership and objective compatibility support multiple optimization consumers."
+    },
+    {
+      "id": "knapsack",
+      "selector": "\\.Chapter(?:10|13)\\.(?:Knapsack|Fractional)",
+      "title": "Capacity-constrained selection and frontier refinement",
+      "rationale": "Feasible sublists, fractional boundaries and integer/array variants require explicit domain adapters."
+    },
+    {
+      "id": "layered-paths",
+      "selector": "\\.Chapter10\\.Network",
+      "title": "Layered path optimization",
+      "rationale": "Layer sequence semantics preserve failure and empty-input behavior; endpoint shortest paths are a different specification."
+    },
+    {
+      "id": "subsequences",
+      "selector": "\\.Chapter(?:11|13)\\.(?:LCS|LUS|Edit)",
+      "title": "Subsequence and edit-distance optimization",
+      "rationale": "Independent embeddings/edit scripts connect recursive, cached and frontier representations; edit weights remain explicit."
+    },
+    {
+      "id": "segments",
+      "selector": "\\.Chapter11\\.",
+      "title": "Contiguous segment optimization",
+      "rationale": "Enumeration, prefix/scan observations and maxima must agree about empty segments and index occurrences."
+    },
+    {
+      "id": "partitions",
+      "selector": "\\.Chapter12\\.",
+      "title": "Ordered partition and boundary optimization",
+      "rationale": "Partition admissibility and objective laws support bank-transfer and paragraph clients; closure and tie directions are local assumptions."
+    },
+    {
+      "id": "numeric-dp",
+      "selector": "\\.Chapter13\\.",
+      "title": "Numeric and shuttle recurrences",
+      "rationale": "Recurrence semantics connect streams, memo tables and independent shuttle objectives; no common scheduler is assumed."
+    },
+    {
+      "id": "alphabetic-trees",
+      "selector": "\\.Chapter14\\.GarsiaWachs",
+      "title": "Alphabetic tree greedy optimization",
+      "rationale": "Fringe-preserving reductions and reconstruction connect the optimum to list and AVL executions."
+    },
+    {
+      "id": "interval-dp",
+      "selector": "\\.Chapter14\\.",
+      "title": "Interval and bracketing dynamic programming",
+      "rationale": "Fixed-fringe tree semantics connect exhaustive, recursive, cached and array outputs; monotonicity is weaker than associativity."
+    },
+    {
+      "id": "queens",
+      "selector": "\\.Chapter15\\.Queens",
+      "title": "Finite constraint counting and queens representations",
+      "rationale": "Enumeration, masks, propagation and certificate multiplicity require explicit agreement; stock n16 proof remains open."
+    },
+    {
+      "id": "expression-search",
+      "selector": "\\.Chapter15\\.Expressions",
+      "title": "Arithmetic expression enumeration",
+      "rationale": "Expression meaning and bounded enumeration justify counting/search; rounding models belong to the floating family."
+    },
+    {
+      "id": "sliding-puzzles",
+      "selector": "\\.Chapter16\\.Puzzle",
+      "title": "Sliding-puzzle transitions, parity and certificates",
+      "rationale": "Board encodings, reachability parity and minimum-path witnesses connect this concrete search family; generated proof chunks retain their owning certificate."
+    },
+    {
+      "id": "geometric-paths",
+      "selector": "\\.Chapter16\\.Warehouse",
+      "title": "Geometric path safety, metrics and warehouse search",
+      "rationale": "Ray and obstacle safety, rounded metrics and finite graph realization need explicit geometry-to-search contracts."
+    },
+    {
+      "id": "planning-client",
+      "selector": "\\.Chapter15\\.Rush",
+      "title": "Rush-hour geometry and hierarchical planning",
+      "rationale": "Vehicle encodings, macro moves and plan expansion connect geometric legality to the planning search consumer."
+    },
+    {
+      "id": "finite-puzzles",
+      "selector": "\\.Chapter15\\.(?:Jugs|Lunar|River)",
+      "title": "Finite puzzle transition realizations",
+      "rationale": "Conservation, move legality and finite-state encoding obligations remain per client; shared search machinery is accepted only after proving each transition adapter."
+    },
+    {
+      "id": "search",
+      "selector": "\\.Chapter(?:15|16)\\.",
+      "title": "Transition search, planning and heuristic minima",
+      "rationale": "Independent path and completed-run semantics connect queues, visited stores and planners; fuel, no goal and success remain distinct."
+    }
+  ]
+}
