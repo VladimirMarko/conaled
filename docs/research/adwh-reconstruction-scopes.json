@@ -121,8 +121,13 @@
         "ADWH.Chapter02.Build",
         "ADWH.Chapter02.BuildEquality"
       ],
-      "destinations": [],
-      "scope": "Adjacent-run compression and independent sequence observation; remaining Build contracts stay reference."
+      "destinations": [
+        "Applications/Sequences/RunCompression.lean",
+        "Examples/RunCompression.lean"
+      ],
+      "scope": "Equality-only adjacent compression via Mathlib destutter and independent run semantics; generic guarded-drop theory and counted executor/value bridge remain reference.",
+      "candidate": "e78b5110b876e08b1445fe315fa2353de98ee2cb",
+      "declaration_map": "docs/research/adwh-run-compression-provenance.tsv"
     },
     {
       "issue": 158,
@@ -132,6 +137,16 @@
       ],
       "destinations": [],
       "scope": "Connectivity and successful list/array histories with actual dependency closure; other graph contracts remain reference."
+    },
+    {
+      "issue": 160,
+      "modules": [
+        "ADWH.Chapter05.KeyedMerge",
+        "ADWH.Chapter05.KeyedMergeDomain",
+        "ADWH.Chapter05.Sorting"
+      ],
+      "destinations": [],
+      "scope": "Keyed merge, independent stable sorting and input-local compatibility; only the necessary source merge bridge from Sorting. Other sorting algorithms and cost models remain reference."
     }
   ],
   "related_commitments": [

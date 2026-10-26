@@ -2161,7 +2161,7 @@
       "imports": [
         "ADWH.Chapter02.Amortized"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         157
       ],
@@ -2184,7 +2184,7 @@
       "imports": [
         "ADWH.Chapter02.Build"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         157
       ],
@@ -4436,8 +4436,10 @@
       "imports": [
         "ADWH.Chapter05.Sorting"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        160
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter05-keyed-merge.json",
         "member_sha256": "0e9c16ccc727705fd4592193aceddc542c08504c887ab1a81676f36a92b2f952",
@@ -4457,8 +4459,10 @@
       "imports": [
         "ADWH.Chapter05.KeyedMerge"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        160
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter05-keyed-merge-domain.json",
         "member_sha256": "1cb3e3453d025ad6a0016df29eb1bacbfe8c1724bcb5c8800a86b332f18aeaad",
@@ -4932,8 +4936,10 @@
       "imports": [
         "Std"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        160
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/sorting.json",
         "member_sha256": "9a84e0676aeda643cfbb414e729bbad9ca3eb0cbf743fb0733af483df4191c34",

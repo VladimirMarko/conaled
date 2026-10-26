@@ -46,7 +46,7 @@ not erase those distinctions.
 | Constraint counting/queens; transition search/planning; concrete puzzle/geometric realizations | #155 covers bounded static heuristic search. #137 separately owns checker/CSP intake. Concrete encodings, certificate chunks and geometric safety remain attached to their own semantics. |
 | Infrastructure | Preserve aggregate coverage and counterexample evidence while integrating selected modules through conaled's existing public entrypoint and audit. |
 
-The two new bounded proposals are
+The initial bounded follow-ups are
 [#157, adjacent-run compression](https://github.com/VladimirMarko/conaled/issues/157)
 and [#158, connectivity refinement](https://github.com/VladimirMarko/conaled/issues/158).
 Their specs name inspected source interfaces, independent semantics and checked
@@ -54,10 +54,17 @@ clients. Other rows remain owned by #149 as untouched reference, not silently
 deferred. Further issue slices must name a public contract and actual clients
 before assigning a shared abstraction.
 
+[#160, keyed merge and stable sorting](https://github.com/VladimirMarko/conaled/issues/160)
+now scopes the corresponding source contracts, preserving the distinction between
+sorted permutation and equal-key order. #157 has a pinned reconstruction candidate
+and declaration ledger; its counted executor and generic guarded-drop results remain
+reference. #159 owns the static rational-cost adapter on top of #155; its source
+coverage will be recorded with the implementation candidate.
+
 ## Dispositions and declaration coverage
 
-[Scope records](adwh-reconstruction-scopes.json) link #151–#155, #157 and #158
-and pin the #151–#155 candidate destinations. Resolve candidate paths
+[Scope records](adwh-reconstruction-scopes.json) link #151–#155, #157, #158 and #160
+and pin the #151–#155 and #157 candidate destinations. Resolve candidate paths
 at those exact commits until integration; they need not exist at the map's base
 commit. Candidate evidence is partial reconstruction pending acceptance, never
 a whole-module parity assertion. The pinned candidate commits are retained in the integration ancestry, so their
@@ -83,7 +90,7 @@ Use these dispositions with an explicit source scope:
 
 A replacement record identifies `(snapshot, archive_member, source_declaration,
 member_sha256)` plus the destination file/declaration, immutable commit, issue,
-disposition and exact scope. The scope file contains concrete #151–#155 examples;
+disposition and exact scope. The scope file contains concrete #151–#155 examples and the #157 declaration ledger;
 the linked candidate declaration maps supply the full pilot detail. This map
 does not copy their entire acceptance history. Future records must preserve
 source exceptions, failure behavior, ties and theorem assumptions.
