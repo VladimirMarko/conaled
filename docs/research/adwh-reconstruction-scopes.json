@@ -317,8 +317,17 @@
         "ADWH.Chapter13.EditDistanceCached",
         "ADWH.Chapter13.EditExamples"
       ],
-      "destinations": [],
-      "scope": "Fixed-price independent alignment optimum, recursive reference and actual uncached/cached rows with all-entry refinement and distinct tie policies. Weighted prices, LCS, all-minima enumeration and cost instrumentation remain reference."
+      "destinations": [
+        "Applications/EditAlignment/Semantics.lean",
+        "Applications/EditAlignment/Recursive.lean",
+        "Applications/EditAlignment/Rows.lean",
+        "Applications/EditAlignment/Cached.lean",
+        "Applications/EditAlignment/Observation.lean",
+        "Examples/EditAlignment.lean"
+      ],
+      "scope": "Fixed-price independent alignment optimum, recursive reference and actual uncached/cached rows with all-entry refinement and distinct tie policies. Weighted prices, LCS, all-minima enumeration and cost instrumentation remain reference.",
+      "candidate": "0b966585c5aca27546da4a2d360a944ebc070624",
+      "declaration_map": "docs/research/adwh-edit-alignment-provenance.tsv"
     },
     {
       "issue": 168,
