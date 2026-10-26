@@ -1,3 +1,4 @@
+import Examples.CoinChoice
 import Examples.SelectionTies
 import Examples.RunCompression
 import Examples.Resources
