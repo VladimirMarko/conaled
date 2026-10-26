@@ -11,17 +11,26 @@ Review intent directly in this session,
 without subagents or another Standards review. Ordinary `code-review` loops
 provide the Standards and Spec checks; this review is optional.
 
-1. Establish which relevant discussion survives in the session and which issue
-   version recorded the agreement. Read the current written spec using the
-   repository's tracker guidance and compare it with that version. Authorship
-   alone does not establish retained context after compaction. If the discussion
-   or original issue version cannot be established, report that limitation and
-   review against the available spec. Manual invocation works without discovering
-   or contacting any other session.
-2. Pin the candidate commit and inspect its implementation and ordinary review
-   results. Use retained intent as an acceptance criterion when the relevant
-   context survives and the issue is unchanged. Reconcile changed requirements
-   or obsolete codebase assumptions before applying remembered intent. Ask the
+1. Establish which relevant discussion survives and identify the acceptance
+   requirements and version that recorded the agreement. These may be saved
+   conversation requirements, a supplied document, or an issue. Consult the
+   repository's tracker guidance only when an issue applies. Compare current
+   requirements with the agreed version; a conversation-only task needs no
+   issue. Authorship alone does not establish retained context after compaction.
+   If discussion or the agreed version is unavailable, state the limitation and
+   assess the available requirements without claiming recovered intent. Manual
+   invocation works without discovering or contacting another session.
+2. Pin the candidate commit and inspect its files with `git show` or an isolated
+   checkout, including relevant unchanged definitions; do not substitute live
+   checkout contents. Inspect ordinary Standards and Spec outcomes and their
+   validation evidence for that same candidate and acceptance scope. Missing,
+   stale, skipped, or blocked ordinary review cannot support implementation
+   approval. An intent assessment may proceed with those limitations stated;
+   report its outcome separately and leave implementation approval pending
+   until both ordinary axes pass on the candidate.
+   Use retained intent as an acceptance criterion when relevant context survives
+   and the requirements remain applicable. Reconcile changed requirements or
+   obsolete codebase assumptions before applying remembered intent. Ask the
    user when missing or conflicting decisions affect acceptance; keep acceptance
    pending on those decisions.
 3. Report findings with evidence from the candidate. Label findings grounded in
@@ -40,5 +49,7 @@ provide the Standards and Spec checks; this review is optional.
    intent again on the resulting candidate. Repeat while required findings
    remain, retaining prior findings until verified fixed or explicitly resolved
    with a reason. If blocked, report the candidate, unresolved findings, and
-   needed decision. Acceptance names the exact reviewed candidate and context
-   limitations; later changes require review again.
+   needed decision. Report intent findings and ordinary-review status separately.
+   Acceptance names the exact reviewed candidate, requirement version, and
+   context limitations; implementation approval also requires both ordinary
+   axes to pass for that candidate. Later changes require review again.

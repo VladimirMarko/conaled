@@ -41,6 +41,21 @@ identifiers and retain their status across rounds: unresolved, fixed with
 review evidence, or explicitly resolved with a documented reason. A fresh
 review does not erase prior findings.
 
+## Validation of the candidate
+
+Validate the captured candidate in an isolated checkout using the repository's
+development environment and required checks. Earlier results may be reused
+only with evidence that the validated source tree, dependencies, configuration,
+and other relevant inputs match this candidate. Record the commands, results,
+input identity, and coverage in the review record.
+
+A live-checkout check may depend on unrelated edits excluded from the review
+snapshot. When those inputs differ or their identity is uncertain, run the
+applicable checks against the captured candidate. Missing or failed required
+validation prevents passing; report limitations explicitly. Apply this rule to
+every correction candidate and verify the final delivered task content matches
+the approved snapshot, accounting for recorded unrelated exclusions.
+
 ## Repeat until passing
 
 1. Run `code-review` with the pinned base, candidate, spec, and existing finding
