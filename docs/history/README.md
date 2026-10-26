@@ -20,6 +20,17 @@ documents are preserved unchanged.
 
 During repository initialization, all 76 non-bundle files in the ZIP were compared with committed files and matched byte for byte. The bundle's history and both release tags were also preserved. This established that the archive's contents had been imported; it was not a new Lean build.
 
+## Algorithm Design with Haskell (#149)
+
+[Preserved textbook snapshots](algorithm-design-haskell/README.md) retain the
+complete checkpoint 233 preview, its archive checksum and a per-file manifest.
+The mathematical library, source correspondence and kernel experiments remain
+available independently of the original Downloads location. The collection
+records how to add a later snapshot and connect changed source declarations to
+the reconstruction without replacing earlier evidence. See the
+[assessment and reconstruction plan](../research/adwh-preview-233-assessment.md)
+for current reuse recommendations and validation limits.
+
 ## Internal-language frontend experiment (#36)
 
 [Frontend.lean](internal-language-frontends/Frontend.lean) preserves the checked
