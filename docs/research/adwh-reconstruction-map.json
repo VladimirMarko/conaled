@@ -13189,8 +13189,9 @@
       "imports": [
         "ADWH.Chapter13.KnapsackMaxima"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
+        153,
         154
       ],
       "source_correspondence": {
@@ -13856,8 +13857,10 @@
       "imports": [
         "ADWH.Chapter13.KnapsackMaxima"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "partial reconstruction",
+      "scope_issues": [
+        153
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/explicit-domain-bracketing.json",
         "member_sha256": "7be1e6aa610141fe2f168e8294fd4bbe998638107ef0ebb8d06b78b20672dbb0",
@@ -13877,8 +13880,10 @@
       "imports": [
         "ADWH.Chapter14.ExplicitDomain.Bracketing"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "partial reconstruction",
+      "scope_issues": [
+        153
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/explicit-domain-bracketing-recursive.json",
         "member_sha256": "21a9d71e3ece622faa558d7107f6fd6862aab0c48831a82a877baa82c307acba",
@@ -13923,8 +13928,10 @@
         "ADWH.Chapter14.ExplicitDomain.BracketingRecursive",
         "ADWH.Chapter14.MatrixBracketingRecursive"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "partial reconstruction",
+      "scope_issues": [
+        153
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter14-generic-cached.json",
         "member_sha256": "b57859426f57c3756edd3b0bde19d7b7057886763867f67126e4b996813f28c2",
@@ -13965,8 +13972,10 @@
       "imports": [
         "ADWH.Chapter14.ExplicitDomain.BracketingRecursive"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "partial reconstruction",
+      "scope_issues": [
+        153
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter14-generic-intervals.json",
         "member_sha256": "0c75f4954b47a07eb6b8535d0784eadc9659e9799b681ff43f2f8cb1bc35b343",
@@ -14008,8 +14017,10 @@
         "ADWH.Chapter14.ExplicitDomain.MatrixBracketingCached",
         "ADWH.Chapter13.KnapsackArray"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "partial reconstruction",
+      "scope_issues": [
+        153
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/explicit-domain-matrix-bracketing-array.json",
         "member_sha256": "4dd858c2f41f0415277da0ce8392bfabad4a74554fcba56ccfb741de3a71638c",
@@ -15282,7 +15293,7 @@
         "ADWH.Chapter14.ExplicitDomain.GenericIntervals",
         "ADWH.Chapter14.ExplicitDomain.MatrixBracketingArray"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         153
       ],
@@ -15328,7 +15339,7 @@
         "ADWH.Chapter14.GeneralizedCost",
         "ADWH.Chapter14.ExplicitDomain.GenericCached"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         153
       ],
@@ -15351,7 +15362,7 @@
       "imports": [
         "ADWH.Chapter14.ExplicitDomain.BracketingRecursive"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         153
       ],

@@ -42,12 +42,31 @@
     {
       "issue": 153,
       "modules": [
-        "ADWH.Chapter14.GeneralizedCost",
+        "ADWH.Chapter13.KnapsackArray",
+        "ADWH.Chapter14.ExplicitDomain.Bracketing",
+        "ADWH.Chapter14.ExplicitDomain.BracketingRecursive",
+        "ADWH.Chapter14.ExplicitDomain.GenericCached",
+        "ADWH.Chapter14.ExplicitDomain.GenericIntervals",
+        "ADWH.Chapter14.ExplicitDomain.MatrixBracketingArray",
+        "ADWH.Chapter14.GeneralizedArray",
         "ADWH.Chapter14.GeneralizedCached",
-        "ADWH.Chapter14.GeneralizedArray"
+        "ADWH.Chapter14.GeneralizedCost"
       ],
-      "destinations": [],
-      "scope": "Generalized-cost bracketing and necessary ExplicitDomain dependencies; dependencies are not whole-module acceptance."
+      "destinations": [
+        "Applications/Bracketing/Array.lean",
+        "Applications/Bracketing/Basic.lean",
+        "Applications/Bracketing/Cached.lean",
+        "Applications/Bracketing/Interpretation.lean",
+        "Applications/Bracketing/Recursive.lean",
+        "Applications/Bracketing/Selection.lean",
+        "Applications/Bracketing/TableSupport.lean",
+        "Applications/DynamicProgramming/Batch.lean",
+        "Applications/DynamicProgramming/Knapsack.lean",
+        "Examples/Bracketing.lean"
+      ],
+      "scope": "Generalized-cost bracketing and selected dependency declarations, exact cached/array agreement and shared batch client. Only named declarations are reconstructed; no whole dependency-module acceptance.",
+      "candidate": "1921bbe44f52b211deeb096b8dc0b80d86f828d6",
+      "declaration_map": "docs/research/adwh-bracketing-provenance.tsv"
     },
     {
       "issue": 154,
@@ -131,6 +150,17 @@
       "destination_declaration": "SquareKit.ListFusion.foldr_reachable",
       "issue": 152,
       "candidate": "ad74f360854d199724516f5f3a91dfab0977ff7a",
+      "disposition": "partial reconstruction"
+    },
+    {
+      "snapshot": "adwh-checkpoint-233",
+      "archive_member": "project/adwh-lean/ADWH/Chapter14/ExplicitDomain/Bracketing.lean",
+      "member_sha256": "94f39f9b1473bb2363eff0143082c58dea8c30997236be4a56079a7d9319db99",
+      "source_declaration": "ADWH.Chapter14.ExplicitDomain.Bracketing.Tree",
+      "destination_file": "Applications/Bracketing/Basic.lean",
+      "destination_declaration": "Bracketing.Tree",
+      "issue": 153,
+      "candidate": "1921bbe44f52b211deeb096b8dc0b80d86f828d6",
       "disposition": "partial reconstruction"
     }
   ]
