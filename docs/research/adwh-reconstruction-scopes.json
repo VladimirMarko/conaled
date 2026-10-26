@@ -162,14 +162,37 @@
       "declaration_map": "docs/research/adwh-connectivity-provenance.tsv"
     },
     {
+      "issue": 159,
+      "modules": [
+        "ADWH.Chapter16.HeuristicCore",
+        "ADWH.Chapter16.HeuristicOptimality",
+        "ADWH.Chapter16.HeuristicTermination"
+      ],
+      "candidate": "fac11e59ccbc336928c1e160271d6cd094806d94",
+      "destinations": [
+        "Applications/Search/RationalCost.lean",
+        "Examples/RationalSearch.lean"
+      ],
+      "declaration_map": "docs/research/adwh-rational-search-provenance.tsv",
+      "scope": "New finite rational/infinity adapter reuses the accepted Nat search contracts; no additional whole-source-module reconstruction. Signed normalization changes priorities; retained-state incremental repair remains111."
+    },
+    {
       "issue": 160,
       "modules": [
         "ADWH.Chapter05.KeyedMerge",
         "ADWH.Chapter05.KeyedMergeDomain",
         "ADWH.Chapter05.Sorting"
       ],
-      "destinations": [],
-      "scope": "Keyed merge, independent stable sorting and input-local compatibility; only the necessary source merge bridge from Sorting. Other sorting algorithms and cost models remain reference."
+      "destinations": [
+        "Applications/Sorting/Merge.lean",
+        "Applications/Sorting/Sort.lean",
+        "Applications/Sorting/SourceMerge.lean",
+        "Applications/Sorting/Stable.lean",
+        "Examples/StableSorting.lean"
+      ],
+      "scope": "All18named KeyedMerge/KeyedMergeDomain declarations plus source merge/equality bridge. Independent stable-sort specification, standard merge/insertion realization agreement and key-preserving transport;64other Sorting declarations remain reference.",
+      "candidate": "2ae85eb19ba20832ae0aadcdde5d2e8aa9a643ec",
+      "declaration_map": "docs/research/adwh-stable-sorting-provenance.tsv"
     },
     {
       "issue": 161,
