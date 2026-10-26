@@ -168,43 +168,38 @@ theorem nextrow3Rec_ne_nil [DecidableEq α] (xs : List α) (y : α) (row : List 
     | cons es row => cases row <;> simp [nextrow3Rec]
 
 /-- Exact suffix-row specification, with the source I/R/D witness cached at every entry. -/
-def modelRow3 [DecidableEq α] : List α → List α → List (Pair α)
-  | [], ys => [cache (ys.map Op.insert)]
-  | x :: xs, ys => cache (mceIRD (x :: xs) ys) :: modelRow3 xs ys
+def modelRow3 [DecidableEq α] (xs ys : List α) : List (Pair α) :=
+  xs.tails.map (fun suffix => cache (mceIRD suffix ys))
 
-theorem modelRow3_ne_nil [DecidableEq α] (xs ys : List α) : modelRow3 xs ys ≠ [] := by
-  cases xs <;> simp [modelRow3]
+theorem modelRow3_cons [DecidableEq α] (x : α) (xs ys : List α) :
+    modelRow3 (x :: xs) ys = cache (mceIRD (x :: xs) ys) :: modelRow3 xs ys := by
+  simp [modelRow3]
+
+theorem modelRow3_ne_nil [DecidableEq α] (xs ys : List α) : modelRow3 xs ys ≠ [] :=
+  DynamicProgramming.suffixRow_ne_nil _ _
 
 theorem modelRow3_length [DecidableEq α] (xs ys : List α) :
-    (modelRow3 xs ys).length = xs.length + 1 := by
-  induction xs with
-  | nil => rfl
-  | cons x xs ih => simp [modelRow3, ih]
+    (modelRow3 xs ys).length = xs.length + 1 :=
+  DynamicProgramming.suffixRow_length _ _
 
 theorem modelRow3_head [DecidableEq α] (xs ys : List α) :
-    (modelRow3 xs ys).headD (0, []) = cache (mceIRD xs ys) := by
-  cases xs <;> simp [modelRow3, mceIRD_nil_left]
+    (modelRow3 xs ys).headD (0, []) = cache (mceIRD xs ys) :=
+  DynamicProgramming.suffixRow_head _ _ _
 
 theorem modelRow3_last [DecidableEq α] (xs ys : List α) :
     (modelRow3 xs ys).getLastD (0, []) = cache (ys.map Op.insert) := by
-  induction xs with
-  | nil => rfl
-  | cons x xs ih =>
-    rw [modelRow3, lastD_cons_of_ne_nil _ _ _ (modelRow3_ne_nil xs ys), ih]
+  simpa only [modelRow3, mceIRD_nil_left] using
+    DynamicProgramming.suffixRow_last (fun suffix => cache (mceIRD suffix ys)) xs (0, [])
 
 theorem modelRow3_valid [DecidableEq α] (xs ys : List α) :
     ∀ p ∈ modelRow3 xs ys, CacheValid p := by
-  induction xs with
-  | nil => simp [modelRow3, cache_valid]
-  | cons x xs ih =>
-    intro p hp
-    rcases List.mem_cons.mp hp with rfl | hp
-    · exact cache_valid _
-    · exact ih p hp
+  intro p hp
+  obtain ⟨suffix, _, rfl⟩ := List.mem_map.mp hp
+  exact cache_valid _
 
 theorem firstrow3_eq_model [DecidableEq α] (xs : List α) : firstrow3 xs = modelRow3 xs [] := by
   induction xs with
-  | nil => rfl
+  | nil => simp [modelRow3, mceIRD_nil_left, firstrow3, cache, cachedCons, ecost, costE]
   | cons x xs ih =>
     change cachedCons (.delete x) ((firstrow3 xs).headD (0, [])) :: firstrow3 xs =
       cache (mceIRD (x :: xs) []) :: modelRow3 xs []
@@ -214,11 +209,7 @@ theorem firstrow3_eq_model [DecidableEq α] (xs : List α) : firstrow3 xs = mode
 theorem nextrow3Rec_eq_model [DecidableEq α] (xs : List α) (y : α) (ys : List α) :
     nextrow3Rec xs y (modelRow3 xs ys) = modelRow3 xs (y :: ys) := by
   induction xs with
-  | nil =>
-    change [cachedCons (.insert y) (cache (ys.map Op.insert))] =
-      [cache ((y :: ys).map Op.insert)]
-    rw [cachedCons_cache]
-    rfl
+  | nil => simp [modelRow3, mceIRD_nil_left, nextrow3Rec, cachedCons_cache]
   | cons x xs ih =>
     have hh := modelRow3_head xs ys
     cases he : modelRow3 xs ys with
@@ -226,7 +217,7 @@ theorem nextrow3Rec_eq_model [DecidableEq α] (xs : List α) (y : α) (ys : List
     | cons es2 rest =>
       have hc : es2 = cache (mceIRD xs ys) := by simpa [he] using hh
       rw [he] at ih
-      simp only [modelRow3]
+      simp only [modelRow3_cons]
       rw [he, nextrow3Rec, ih, hc, modelRow3_head]
       by_cases h : x = y <;> simp [mceIRD, h, cachedCons_cache, cachedBest_cache]
 
@@ -259,16 +250,8 @@ theorem editTable3_cache_valid [DecidableEq α] (xs ys : List α) :
   exact modelRow3_valid xs ys
 
 theorem modelRow3_entry [DecidableEq α] (xs ys : List α) (i : Nat) (h : i ≤ xs.length) :
-    (modelRow3 xs ys)[i]? = some (cache (mceIRD (xs.drop i) ys)) := by
-  induction xs generalizing i with
-  | nil =>
-    have hi : i = 0 := by simpa using h
-    subst i
-    simp [modelRow3, mceIRD_nil_left]
-  | cons x xs ih =>
-    cases i with
-    | zero => rfl
-    | succ i => simpa [modelRow3] using ih i (by simpa using h)
+    (modelRow3 xs ys)[i]? = some (cache (mceIRD (xs.drop i) ys)) :=
+  DynamicProgramming.suffixRow_entry _ _ _ h
 
 theorem editTable3_entry [DecidableEq α] (xs ys : List α) (i : Nat) (h : i ≤ xs.length) :
     (editTable3 xs ys)[i]? = some (cache (mceIRD (xs.drop i) ys)) := by
