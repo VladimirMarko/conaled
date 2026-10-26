@@ -6,41 +6,71 @@ disable-model-invocation: true
 
 For inter-skill use, follow [the host invocation policy](../writing-for-agents/SKILL-MECHANICS.md#using-a-skill-from-another-skill).
 
-The user has asked for a **retrospective**. You are suggesting improvements to the coding agent's **environment** to improve future runs.
+Suggest improvements to the coding agent's environment based on session and
+repository evidence. This workflow produces recommendations; implement them
+when the user has requested implementation. Propose global configuration
+changes separately and never silently apply them.
 
-## Steps
+## Procedure
 
-1. Use and follow [writing-for-agents](../writing-for-agents/SKILL.md) for the writing style guide.
+1. Follow [writing-for-agents](../writing-for-agents/SKILL.md) when proposing
+   changes to agent guidance.
+2. Read primary sources for the specified session, defaulting to the current
+   session. Use available session logs where relevant. State gaps in evidence;
+   distinguish observed session failures from repository observations and
+   hypothetical risks.
+3. Discover applicable repository guidance through AGENTS.md and its pointers,
+   including development, architecture, domain, and review guidance. Use the
+   host policy for any CLAUDE.md fallback. Inspect existing docs and checks
+   before proposing additions.
+4. Assess the categories below where the evidence supports them. For each
+   candidate, record the problem, supporting source or observation, proposed
+   intervention, and how its effect could be assessed. Consider maintenance
+   cost and false positives when choosing automation.
+5. Present supported recommendations in severity order. Report limitations and
+   allow no supported findings; category coverage is not a quota for changes.
 
-2. Read the primary sources for the session the user specifies. This may mean searching through session logs on this machine. If the user doesn't specify a session, default to the current one.
+## Improvement categories
 
-3. Look for candidates for improvement in these categories.
+- **Navigation:** When discovery took unnecessary effort, identify the missing
+  or misleading pointer, hidden dependency, or stale reference. Prefer fixing
+  the existing route to adding another document.
+- **Formalization quality:** When proved claims diverged from intended
+  mathematics, inspect assumptions, vacuity, definitions, and whether checked
+  uses exercised the intended public results. Use the statement-review and
+  checked-case guidance in [example-driven-development](../example-driven-development/SKILL.md)
+  as the reference for recommendations. Compilation and axiom auditing alone
+  do not establish that a statement captures human intent.
+- **Automated checks:** Read the repository's build/check commands, their
+  implementation, relevant regression suites, and enforcement configuration.
+  In this repository start with README build/audit and environment guidance,
+  `check.sh`, and the relevant scripts. Distinguish a missing check, an existing
+  check not run, a broken check, and missing automatic enforcement. Qualify
+  conclusions when remote enforcement is unknown. Prefer extending suitable
+  existing checks over recreating them; follow Nix/direnv tooling conventions.
+- **Standards:** When a mistake escaped implementation or review, determine
+  whether a reliable mechanical check or a clarified judgement criterion would
+  address it. Recommend checks for mechanically decidable rules where their
+  cost and accuracy justify them. Place guidance in its existing authoritative
+  source: agent docs, ADRs, skills, or a standards file if present.
+- **Instruction load and no-ops:** When steering files are unwieldy, find
+  duplication, stale guidance, or instructions shown not to change behaviour.
+  Prefer short conditional pointers in AGENTS.md. Do not infer ineffectiveness
+  merely because an instruction sounds obvious.
+- **Tool economy:** When tool calls were costly, identify avoidable output,
+  repeated discovery, or unnecessary work and propose a measurable reduction.
+- **Information access:** When missing information impeded work, identify the
+  specific source and an appropriate access mechanism, such as retained logs
+  or read-only service access.
 
-- **Navigation**: how easy was it for the agent to find the right files? Are there hidden dependencies between files? Would a **navigation pointer** make it easier? _Use when_ the session took a long time to find a piece of information.
-- **Automated checks**: are there automated checks that could catch errors the agent made? Linting, typing, tests, filesystem linters? Read the repo's own check command first (its `package.json`/build-tool `lint`/`check` scripts, its CI workflow), so a check that already exists but sits unwired or silently broken is the finding, not a reinvention. A repo with no **guardrail** (no pre-commit hook and no CI job running its lint/typecheck/test command) is itself a finding: an un-linted repo is a standing missed opportunity, not a neutral default. _Use when_ the agent made a mistake an automated check could have caught, or the repo has no guardrail at all.
-- **Coding standards**: should the **reviewer agent** be given a new rule to enforce? Should an existing rule be removed or clarified? Classify the violation first: a **mechanical** one (a fixed syntactic pattern, a banned API, an import shape, a file-location rule) gets a deterministic check, full stop: a custom rule in the repo's own linter, a new pre-commit hook, or a new CI job, whichever the repo's language and existing guardrail make cheapest. Default to building the check over writing the rule. Reserve `CODING_STANDARDS.md` for genuine **judgement calls** (cross-file consistency, "matches the surrounding style," anything no guardrail could ever substitute for). _Use when_ the reviewer agent failed to catch a mistake.
-- **Global AGENTS.md**: are there any steering instructions that should be moved to coding standards (or automated checks) instead? _Use when_ the AGENTS.md file is particularly large - in the repo OR the user's global scope.
-- **Tool economy**: did the agent make expensive tool calls that could be streamlined? Is there any custom tooling (CLI's, MCP's) that is particularly token-inefficient? _Use when_ the agent made an expensive tool call.
-- **No-ops**: look for instructions in steering files that don't modify the agent's behavior. _Use when_ the steering files are large and unwieldy.
-- **Information access**: look for opportunities to increase the agent's access to information. Teeing dev server logs, readonly access to third-party services. _Use when_ a crucial piece of information was not available to the agent.
+## Implementation and review
 
-4. Present these candidates to the user, in order of severity.
+Implementers apply relevant architectural and mathematical standards while
+choosing definitions, interfaces, proofs, and checked uses. Independent review
+checks those decisions. Reviewers may need to explore unchanged definitions,
+instances, assumptions, dependencies, and applications beyond the diff.
 
-## Reference
-
-### Implementation vs Review
-
-Remember that all work goes through two stages: implementation and review. The implementation agent has the most **context pressure**. They are responsible for exploration, writing code, and debugging failures.
-
-The review agent has the least context pressure - it receives a diff, so no exploration needed. It often does not need to write code or debug.
-
-This means that the review agent should be responsible for imposing coding standards, not the implementation agent.
-
-### Files
-
-You have access to several files in the repo:
-
-- `AGENTS.md`: prefer applicable repository guidance; consult `CLAUDE.md` as a fallback when present and appropriate. Automatic loading and precedence depend on the host, as described in the shared invocation policy. Keep these files short, usually containing **navigation pointers**. Propose global configuration changes separately; do not silently apply them.
-- `CODING_STANDARDS.md`: this file is read during review, not implementation. Add **navigation pointers** to docs folders if the standards file gets more than 1,000 lines long.
-- Docs: use docs as references files, pointed to by other files. Look for existing docs before writing new ones.
-- Skills: use skills for docs (since their description goes into the agent's context window), or for user-invoked commands. Follow the advice in the `writing-for-agents` skill.
+Keep shared procedures in their existing sources. Refer to the
+[review-and-fix procedure](../../../docs/agents/review-loop.md) for review loops
+and to example-driven-development for formal development. Reading these
+references during a retrospective does not launch an implementation workflow.
