@@ -557,6 +557,60 @@
       "scope": "Complete finite-sentinel Dijkstra and figure_finite_source. Exact raw Int arithmetic and encoded-state refinement under all-vertex reachability and strict range; machine integers and other figures remain separate.",
       "candidate": "48b7655155950c4452bebf1268de1866d0f6129f",
       "declaration_map": "docs/research/adwh-dijkstra-sentinel-provenance.tsv"
+    },
+    {
+      "issue": 186,
+      "modules": [
+        "ADWH.Chapter09.PrimWeights",
+        "ADWH.Chapter09.PrimArray",
+        "ADWH.Chapter09.PrimArrayOptimality",
+        "ADWH.Chapter09.GraphWorkedExamples"
+      ],
+      "destinations": [
+        "Applications/Prim/Array.lean",
+        "Applications/Prim/ArrayObservation.lean",
+        "Applications/Prim/ArrayOptimality.lean",
+        "Applications/Prim/Weights.lean",
+        "Examples/PrimArray.lean"
+      ],
+      "scope": "Row-major matrix overwrite semantics and array Prim with independent spanning-tree minima and actual Prim/Kruskal cost consumers; construction costs and finite sentinels remain separate.",
+      "candidate": "30bbde79d154d1e8d942561c023a5e44d12ca420",
+      "declaration_map": "docs/research/adwh-prim-array-provenance.tsv"
+    },
+    {
+      "issue": 187,
+      "modules": [
+        "ADWH.Chapter09.DijkstraCosts",
+        "ADWH.Chapter03.Arrays"
+      ],
+      "destinations": [
+        "Applications/Optimization/SelectionMap.lean",
+        "Applications/Resources/Dijkstra/Execution.lean",
+        "Applications/Resources/Dijkstra/Observation.lean",
+        "Applications/Resources/Dijkstra/StoreCosts.lean",
+        "Examples/DijkstraCosts.lean"
+      ],
+      "scope": "Complete measured finite Dijkstra state execution and seven measured Store helpers; exact failed-suffix charges, actual segmented execution and target observations. Path, matrix and saved-root costs remain separate.",
+      "candidate": "6fee0b52bccf29e70e9c9cba8664f70b6c2dd31e",
+      "declaration_map": "docs/research/adwh-dijkstra-cost-provenance.tsv"
+    },
+    {
+      "issue": 190,
+      "modules": [
+        "ADWH.Chapter03.TreeFlatteningCosts",
+        "ADWH.Chapter02.Asymptotics"
+      ],
+      "destinations": [
+        "Applications/Resources/Growth.lean",
+        "Applications/Resources/TreeFlattening/Cached.lean",
+        "Applications/Resources/TreeFlattening/Core.lean",
+        "Applications/Resources/TreeFlattening/Growth.lean",
+        "Applications/Resources/TreeFlattening/Observation.lean",
+        "Examples/TreeFlatteningCosts.lean"
+      ],
+      "scope": "Complete tree-flattening costs through shared erased-tree semantics, exact raw execution correspondence, composed consumers and standard Mathlib growth claims. Only NatO/NatTheta definitions are replaced; other asymptotic source remains separate.",
+      "candidate": "855ce1f29ae0b7c7a7aec8321ead07be39c6ff32",
+      "declaration_map": "docs/research/adwh-tree-flattening-ledger.json"
     }
   ],
   "related_commitments": [

@@ -455,6 +455,9 @@ provenance; it also records source contracts still outside that slice.
 | [Random-access end costs](docs/research/adwh-random-access-end-costs.md) | Separate carry/borrow potentials, charged partial draining and mixed-cycle impossibility with composed consumers. |
 | [Finite-sentinel Dijkstra](docs/research/adwh-dijkstra-sentinel.md) | Exact raw Int execution, strict-range state refinement, and composed distance/parent/queue observations. |
 | [Growing-tree Prim](docs/research/adwh-prim.md) | Exact retained-edge execution, independent signed minimum spanning trees and composed Kruskal cost agreement. |
+| [Array Prim](docs/research/adwh-prim-array.md) | Two-pass matrix construction, signed array execution and independent MST costs across actual Prim/Kruskal realizations. |
+| [Dijkstra execution costs](docs/research/adwh-dijkstra-cost.md) | Exact source operation counts, failed-suffix charging and measured target/segmented consumers. |
+| [Tree flattening costs](docs/research/adwh-tree-flattening.md) | Raw cache-independent traversal, copied-cell counts, composed queries and standard asymptotic growth. |
 | [Finite Dijkstra](docs/research/adwh-dijkstra.md) | Exact link-array execution, globally shortest ordered paths, unreachable targets and agreement with the accepted closed search queue. |
 | [Ordered binary search](docs/research/adwh-ordered-search.md) | Exact inversion, monotone finite cuts, actual doubling and composed least-threshold rounding. |
 | [Connectivity](docs/research/adwh-connectivity.md) | List and weighted-parent histories realize the same finite connectivity, query and cycle-rejection observations. |

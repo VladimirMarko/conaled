@@ -38,7 +38,7 @@ not erase those distinctions.
 | Asymptotic/recurrence/amortized reasoning; sequence representations | #154 starts instrumented composition. Growth proofs, array/tree indexing and allocation models remain to be selected against actual consumers. |
 | Ordered search; sorting; rank/selection | Keep sortedness, permutation, stability, rank and query lower bounds distinct. Tree split/join clients may justify shared laws; naming overlap does not. |
 | Coin choice; weighted tree construction | Compare enumeration, greedy and tabulated realizations against independent objective semantics. Canonical denominations and tree exchange hypotheses are local premises. |
-| Connectivity; graph paths/forests/tours | #158 covers partition observations and list/array histories; #169/#172 cover Kruskal tree/forest minima; #180 covers finite Dijkstra. #183 covers ordinary Prim and #184 finite-sentinel Dijkstra; array Prim, other finite sentinels, graph costs and jogger tours remain separate obligations. |
+| Connectivity; graph paths/forests/tours | #158 covers partition observations and list/array histories; #169/#172 cover Kruskal tree/forest minima; #180 covers finite Dijkstra. #183 covers ordinary Prim, #184 finite-sentinel Dijkstra and #186 matrix/array Prim. #187 adds Dijkstra state execution costs; other finite sentinels, graph costs and jogger tours remain separate obligations. |
 | Thinning; knapsack; layered paths | #151 covers a bounded dominance/optimization slice. Fractional boundaries, integer tables, other frontier variants and full cost recovery remain. Layered paths are not endpoint shortest paths. |
 | Subsequences/edit distance; contiguous segments; ordered partitions | Reuse enumeration/optimization transport only after preserving embeddings, edit weights, empty segments, admissibility and tie direction. Bank and paragraph clients retain distinct objectives. |
 | Numeric/shuttle recurrences; interval DP; alphabetic trees | #153 covers generalized-cost bracketing. Numeric tables, shuttle objectives, other interval optimizations and Garsia–Wachs reductions/AVL execution remain. |
@@ -84,11 +84,14 @@ closed-search queue agreement. #181 pins measured lookup and bulk update costs;
 #182 pins carry/borrow accounting and its mixed-cycle counterexample.
 #183 pins ordinary growing-tree Prim with visited-cut exchange and actual
 Kruskal cost agreement. #184 pins finite-sentinel Dijkstra and its range proof.
+#186 pins matrix overwrite semantics and array Prim with attained-cost comparisons.
+#187 pins measured Dijkstra execution and exact failure charging. #190 completes
+tree-flattening traversal costs, raw cache-erasure simulation and standard growth claims.
 
 ## Dispositions and declaration coverage
 
-[Scope records](adwh-reconstruction-scopes.json) link #151–#155, #157–#173 and #179–#184
-and pin the #151–#155, #157–#173 and #179–#184 candidate destinations. Resolve candidate paths
+[Scope records](adwh-reconstruction-scopes.json) link #151–#155, #157–#173, #179–#184, #186–#187 and #190
+and pin the #151–#155, #157–#173, #179–#184, #186–#187 and #190 candidate destinations. Resolve candidate paths
 at those exact commits until integration; they need not exist at the map's base
 commit. Candidate evidence is partial reconstruction pending acceptance, never
 a whole-module parity assertion. The pinned candidate commits are retained in the integration ancestry, so their
