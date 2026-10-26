@@ -265,8 +265,15 @@
         "ADWH.Chapter06.SelectionRank",
         "ADWH.Chapter06.SelectionBaseline"
       ],
-      "destinations": [],
-      "scope": "Occurrence-rank semantics, three-way selection with valid pivots, standard sort/index, median and monotone transport. Source sorting/cost closures and median-of-medians balance remain reference."
+      "destinations": [
+        "Applications/Selection/Rank.lean",
+        "Applications/Selection/ThreeWay.lean",
+        "Applications/Selection/Consumers.lean",
+        "Examples/RankSelection.lean"
+      ],
+      "scope": "Occurrence-rank semantics, three-way selection with valid pivots, standard sort/index, median and monotone transport. Source sorting/cost closures and median-of-medians balance remain reference.",
+      "candidate": "7919dec139807daefb1a63b5fb28a1a4f5d52c88",
+      "declaration_map": "docs/research/adwh-rank-selection-provenance.tsv"
     },
     {
       "issue": 166,

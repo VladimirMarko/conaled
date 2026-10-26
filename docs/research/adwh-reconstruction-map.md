@@ -69,13 +69,14 @@ knapsack initialization, rows and observation, extending #154 with exact selecti
 and whole-workload scalar recovery.
 [#163](https://github.com/VladimirMarko/conaled/issues/163) pins coin enumeration
 and lexical versus minimum-count choice, including first/last/descending ties.
-#164 scopes increasing subsequences, #165 occurrence-rank selection and #166
-Huffman global optimality. Their empty destinations record selected future scope.
+#165 pins occurrence-rank selection, median and monotone-value transport.
+#164 scopes increasing subsequences and #166 Huffman global optimality;
+their empty destinations record selected future scope.
 
 ## Dispositions and declaration coverage
 
 [Scope records](adwh-reconstruction-scopes.json) link #151–#155 and #157–#166
-and pin the #151–#155 and #157–#163 candidate destinations. Resolve candidate paths
+and pin the #151–#155, #157–#163 and #165 candidate destinations. Resolve candidate paths
 at those exact commits until integration; they need not exist at the map's base
 commit. Candidate evidence is partial reconstruction pending acceptance, never
 a whole-module parity assertion. The pinned candidate commits are retained in the integration ancestry, so their
