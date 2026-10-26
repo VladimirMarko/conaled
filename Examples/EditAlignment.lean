@@ -73,6 +73,11 @@ example : reconstruct answerD = ("abca".toList, "bac".toList) ∧
     reconstruct answerI = ("abca".toList, "bac".toList) :=
   ⟨tied_minima.1.1.reconstruct, tied_minima.2.1.reconstruct⟩
 
+-- The shared row laws also apply to an evaluator with no edit semantics.
+example {α : Type} (xs : List α) (i : Nat) (hi : i ≤ xs.length) :
+    (xs.tails.map List.length)[i]? = some (xs.length - i) := by
+  simpa using DynamicProgramming.suffixRow_entry List.length xs i hi
+
 -- Every suffix entry is exposed, including the terminal insertion-only column.
 theorem all_uncached_entries :
     (editTable ([0, 1] : List Nat) [1])[0]? = some [.delete 0, .copy 1] ∧

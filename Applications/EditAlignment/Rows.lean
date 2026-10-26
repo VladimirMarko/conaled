@@ -1,5 +1,5 @@
 import Applications.EditAlignment.Recursive
-import Mathlib.Data.List.Infix
+import Applications.DynamicProgramming.SuffixRow
 
 /-! Actual uncached row folds, refined at every source suffix. -/
 set_option autoImplicit false
@@ -70,34 +70,33 @@ theorem nextrow_ne_nil [DecidableEq α] (xs : List α) (y : α)
   exact nextrowRec_ne_nil xs y row
 
 /-- Reference row indexed by all source suffixes. -/
-def modelRow [DecidableEq α] : List α → List α → List (Script α)
-  | [], ys => [ys.map Op.insert]
-  | x :: xs, ys => mce (x :: xs) ys :: modelRow xs ys
+def modelRow [DecidableEq α] (xs ys : List α) : List (Script α) :=
+  xs.tails.map (fun suffix => mce suffix ys)
 
-theorem modelRow_ne_nil [DecidableEq α] (xs ys : List α) : modelRow xs ys ≠ [] := by
-  cases xs <;> simp [modelRow]
+theorem modelRow_cons [DecidableEq α] (x : α) (xs ys : List α) :
+    modelRow (x :: xs) ys = mce (x :: xs) ys :: modelRow xs ys := by
+  simp [modelRow]
+
+theorem modelRow_ne_nil [DecidableEq α] (xs ys : List α) : modelRow xs ys ≠ [] :=
+  DynamicProgramming.suffixRow_ne_nil _ _
 
 theorem modelRow_length [DecidableEq α] (xs ys : List α) :
-    (modelRow xs ys).length = xs.length + 1 := by
-  induction xs with
-  | nil => rfl
-  | cons x xs ih => simp [modelRow, ih]
+    (modelRow xs ys).length = xs.length + 1 :=
+  DynamicProgramming.suffixRow_length _ _
 
 theorem modelRow_head [DecidableEq α] (xs ys : List α) :
-    (modelRow xs ys).headD [] = mce xs ys := by
-  cases xs <;> simp [modelRow, mce_nil_left]
+    (modelRow xs ys).headD [] = mce xs ys :=
+  DynamicProgramming.suffixRow_head _ _ _
 
 theorem modelRow_last [DecidableEq α] (xs ys : List α) :
     (modelRow xs ys).getLastD [] = ys.map Op.insert := by
-  induction xs with
-  | nil => rfl
-  | cons x xs ih =>
-    rw [modelRow, lastD_cons_of_ne_nil _ _ _ (modelRow_ne_nil xs ys), ih]
+  simpa only [modelRow, mce_nil_left] using
+    DynamicProgramming.suffixRow_last (fun suffix => mce suffix ys) xs []
 
 theorem firstrow_eq_model [DecidableEq α] (xs : List α) :
     firstrow xs = modelRow xs [] := by
   induction xs with
-  | nil => rfl
+  | nil => simp [modelRow, mce_nil_left, firstrow]
   | cons x xs ih =>
     simp only [firstrow, List.map_cons, List.tails_cons]
     change (.delete x :: xs.map Op.delete) :: firstrow xs =
@@ -108,7 +107,7 @@ theorem firstrow_eq_model [DecidableEq α] (xs : List α) :
 theorem nextrowRec_eq_model [DecidableEq α] (xs : List α) (y : α) (ys : List α) :
     nextrowRec xs y (modelRow xs ys) = modelRow xs (y :: ys) := by
   induction xs with
-  | nil => rfl
+  | nil => simp [modelRow, mce_nil_left, nextrowRec]
   | cons x xs ih =>
     have hh := modelRow_head xs ys
     cases he : modelRow xs ys with
@@ -116,7 +115,7 @@ theorem nextrowRec_eq_model [DecidableEq α] (xs : List α) (y : α) (ys : List 
     | cons es2 rest =>
       have hc : es2 = mce xs ys := by simpa [he] using hh
       rw [he] at ih
-      simp only [modelRow]
+      simp only [modelRow_cons]
       rw [he, nextrowRec, ih, hc, modelRow_head]
       by_cases h : x = y
       · subst y
@@ -147,16 +146,8 @@ theorem editTable_ne_nil [DecidableEq α] (xs ys : List α) : editTable xs ys �
   exact modelRow_ne_nil xs ys
 
 theorem modelRow_entry [DecidableEq α] (xs ys : List α) (i : Nat) (h : i ≤ xs.length) :
-    (modelRow xs ys)[i]? = some (mce (xs.drop i) ys) := by
-  induction xs generalizing i with
-  | nil =>
-    have hi : i = 0 := by simpa using h
-    subst i
-    simp [modelRow, mce_nil_left]
-  | cons x xs ih =>
-    cases i with
-    | zero => rfl
-    | succ i => simpa [modelRow] using ih i (by simpa using h)
+    (modelRow xs ys)[i]? = some (mce (xs.drop i) ys) :=
+  DynamicProgramming.suffixRow_entry _ _ _ h
 
 theorem editTable_entry [DecidableEq α] (xs ys : List α) (i : Nat) (h : i ≤ xs.length) :
     (editTable xs ys)[i]? = some (mce (xs.drop i) ys) := by

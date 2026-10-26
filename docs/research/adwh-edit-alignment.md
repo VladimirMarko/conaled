@@ -33,6 +33,14 @@ outer right fold over target symbols. Source utility implementations for tails,
 three-way zip and last are not copied. The local last-element lemma only states
 a law of the standard operation.
 
+`modelRow` and `modelRow3` specialize standard `xs.tails.map evaluate`.
+`Applications.DynamicProgramming.SuffixRow` shares the nonempty, length, head,
+last and optional-entry laws for arbitrary evaluators and result types. Length
+and indexed entries reuse `List.length_tails` and `List.getElem_tails`; neither
+client repeats an induction on source suffixes. Their evaluators retain the
+uncached and cached tie policies. The public model-row names and source-shaped
+statements remain available as thin specializations.
+
 `editTable_entry` proves that position `i ≤ xs.length` is exactly
 `mce (xs.drop i) ys`. The row length is `xs.length + 1`; the last column is the
 insertion-only solution from empty source. Initialization, next-row refinement
@@ -77,7 +85,8 @@ more expensive than copy. For `abca → bac`, the uncached solver selects
 reconstruct the same input/output and have observed cost 6. Their witnesses
 are unequal. A shared first-minimum specialization checks the tie convention.
 
-All three row entries for `[0,1] → [1]` are checked through the entry theorems,
+A suffix-length evaluator also consumes the shared optional-entry law without
+edit-specific assumptions. All three row entries for `[0,1] → [1]` are checked through the entry theorems,
 including the terminal insertion column, with cached scores 2, 0 and 2. The
 length theorem rejects the next position. A deliberately invalid cache assigns
 score 0 to delete/insert; comparison then selects its true cost-4 script over
