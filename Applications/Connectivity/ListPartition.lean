@@ -271,7 +271,7 @@ theorem partition_distinct_blocks_disjoint {vs : List Vertex} {ds : DS}
   have he := same_member_block_eq (carrier_nodup h) hx hy hv hw
   exact hne (congrArg Prod.fst he)
 
-private theorem carrier_singletons (vs : List Vertex) :
+theorem carrier_singletons (vs : List Vertex) :
     carrier (vs.map (fun v => (v, [v]))) = vs := by
   induction vs with
   | nil => rfl

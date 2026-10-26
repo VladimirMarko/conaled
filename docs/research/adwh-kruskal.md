@@ -65,7 +65,10 @@ completion, spanning-subforest maximality identifies its edges up to permutation
 with the returned tree. This proves the global optimum over all competitors.
 
 The source's `perm_sum_int`, `head_member`, `sameBlock_symm` and `reach_nil_iff`
-helpers now delegate to Mathlib or accepted ListPartition facts. The source
+helpers now delegate to Mathlib or accepted ListPartition facts. Following review
+I169-1, `reach_mono` also specializes the accepted `connected_mono` theorem to
+endpoint-map inclusion. The existing ListPartition `carrier_singletons` helper
+is public, and the Kruskal helper forwards to that unchanged proof. The source
 stable-sort helper proofs are replaced by the accepted sorting interface. Three
 unused premises were removed: `ts.Nodup` from `exchange_cost_identity`, `e ∉ ts`
 from `cut_exchange`, and `NumberedGraph` from `gstepK2_sizes`. These statements are
@@ -173,9 +176,9 @@ Archive and selected member bytes were verified against the extracted reference:
 | `project/adwh-lean/ADWH/Chapter09/Kruskal.lean` | `430e187d6d491e9304cbb4071a29c22036371d5e69630c76ef2e80d1aed97f49` |
 | `project/adwh-lean/ADWH/Chapter09/DisjointSets.lean` | `2ce4a50a4188afea8c7a94a152d37f9f4a906ed356162912ee1b2f948e1acd49` |
 
-The [206-row declaration ledger](adwh-kruskal-provenance.tsv) records all 139 named
+The [208-row declaration ledger](adwh-kruskal-provenance.tsv) records all 139 named
 Kruskal declarations, its sixteen anonymous diagnostics under their D01–D16
-labels, 31 reused DisjointSets declarations and twenty local additions. Private
+labels, 33 reused DisjointSets declarations and twenty local additions. Private
 helpers use their lexical names in the ledger; generated constructor and private
 compiler names are covered by their containing declaration. Additional anonymous
 consumer applications are covered by `Examples.Kruskal`. Reused connectivity
