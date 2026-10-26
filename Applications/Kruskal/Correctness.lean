@@ -146,13 +146,10 @@ private theorem reach_of_edges {vs : List Vertex} {old new : List Edge}
 
 theorem reach_mono {vs : List Vertex} {small large : List Edge} {u v : Vertex}
     (hsub : small ⊆ large) (h : Reach vs small u v) : Reach vs large u v := by
-  induction h with
-  | refl hv => exact reach_refl hv
-  | edge hu hv hm =>
-      obtain ⟨e, he, hh⟩ := List.mem_map.mp hm
-      exact Connected.edge hu hv (List.mem_map.mpr ⟨e, hsub he, hh⟩)
-  | symm _ ih => exact reach_symm ih
-  | trans _ _ ih ik => exact reach_trans ih ik
+  apply Connectivity.ListPartition.connected_mono ?_ h
+  intro pair hp
+  obtain ⟨e, he, rfl⟩ := List.mem_map.mp hp
+  exact List.mem_map.mpr ⟨e, hsub he, rfl⟩
 
 theorem reach_cons_iff {vs : List Vertex} {fs : List Edge} {e : Edge}
     (hu : source e ∈ vs) (hv : target e ∈ vs) (u v : Vertex) :
@@ -647,8 +644,8 @@ private theorem reach_nil_iff (vs : List Vertex) (u v : Vertex) :
   Connectivity.ListPartition.connected_nil_iff vs u v
 
 private theorem carrier_singletons (vs : List Vertex) :
-    Connectivity.ListPartition.carrier (vs.map (fun v => (v, [v]))) = vs := by
-  induction vs <;> simp_all [Connectivity.ListPartition.carrier]
+    Connectivity.ListPartition.carrier (vs.map (fun v => (v, [v]))) = vs :=
+  Connectivity.ListPartition.carrier_singletons vs
 
 private theorem singletons_rep (vs ws : List Vertex) (hp : ws.Perm vs) (hn : vs.Nodup)
     (rest : List Edge) : StateRep vs (ws.map (fun v => (v, [v])), [], rest) := by
