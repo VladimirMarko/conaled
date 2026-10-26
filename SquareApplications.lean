@@ -18,6 +18,7 @@ import Examples.HeuristicSearch
 import Examples.Huffman
 import Examples.Kruskal
 import Examples.NestedKruskal
+import Examples.Dijkstra
 import Examples.ScanFusion
 import Examples.Bracketing
 import Applications.Elaboration.Examples

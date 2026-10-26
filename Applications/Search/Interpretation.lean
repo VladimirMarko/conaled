@@ -43,6 +43,28 @@ def DistanceResult (g : Graph V) (goal : V → Bool) (s : V) : Option Nat → Pr
   | some c => ∃ t, Walk g s t c ∧ goal t = true ∧
       ∀ u d, Walk g s u d → goal u = true → c ≤ d
 
+omit [DecidableEq V] in
+/-- Completed shortest-distance observations are unique, including absence of a goal. -/
+theorem DistanceResult.unique {g : Graph V} {goal : V → Bool} {s : V}
+    {a b : Option Nat} (ha : DistanceResult g goal s a) (hb : DistanceResult g goal s b) :
+    a = b := by
+  cases a with
+  | none =>
+      cases b with
+      | none => rfl
+      | some b =>
+          obtain ⟨t, ht, hg, _⟩ := hb
+          exact False.elim (Bool.noConfusion ((ha t b ht).symm.trans hg))
+  | some a =>
+      cases b with
+      | none =>
+          obtain ⟨t, ht, hg, _⟩ := ha
+          exact False.elim (Bool.noConfusion ((hb t a ht).symm.trans hg))
+      | some b =>
+          obtain ⟨ta, hta, hga, hma⟩ := ha
+          obtain ⟨tb, htb, hgb, hmb⟩ := hb
+          exact congrArg some (Nat.le_antisymm (hma tb b htb hgb) (hmb ta a hta hga))
+
 def distanceRep (g : Graph V) (goal : V → Bool) (s : V) : Relational.RelRep :=
   ⟨Option Nat, Unit, fun out _ => DistanceResult g goal s out⟩
 
