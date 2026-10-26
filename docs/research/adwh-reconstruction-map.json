@@ -2978,7 +2978,7 @@
         "ADWH.Chapter03.TreeFlatteningCosts",
         "ADWH.Chapter02.LogarithmicScales"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         181
       ],
@@ -3096,7 +3096,7 @@
         "ADWH.Chapter03.RandomAccessLists",
         "ADWH.Chapter02.Asymptotics"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         181
       ],
@@ -9218,8 +9218,10 @@
         "ADWH.Chapter09.Kruskal",
         "ADWH.Chapter01.Permutations"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        183
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter09-prim-core.json",
         "member_sha256": "e9b071d384f84617ebe70d1ccbff3b0d6365a718deea65e323c3024308b9239d",
@@ -9239,8 +9241,10 @@
       "imports": [
         "ADWH.Chapter09.PrimExchange"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        183
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter09-prim-correctness.json",
         "member_sha256": "7788ea428a2e08df1993073903c124381cdf311a976a774eba2a9f21cee3a872",
@@ -9282,8 +9286,10 @@
       "imports": [
         "ADWH.Chapter09.PrimCore"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        183
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter09-prim-exchange.json",
         "member_sha256": "41f8f37d3a82d77f12370f032a592b43be09bb6dc0e6eb7464a0ffa5c40de9ff",

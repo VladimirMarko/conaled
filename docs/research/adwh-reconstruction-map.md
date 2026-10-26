@@ -80,14 +80,15 @@ optimality, with the numbered source adapter and exact residual behavior.
 lists. #172 pins nested Kruskal and global minimum spanning forests.
 #173 pins potential accounting and #179 pins ordered binary search.
 #180 pins finite Dijkstra distances, ordered paths, target stopping and actual
-closed-search queue agreement. #181 scopes measured lookup and bulk update costs;
+closed-search queue agreement. #181 pins measured lookup and bulk update costs;
 #182 scopes carry/borrow accounting and its mixed-cycle counterexample.
-Empty destinations for #181 and #182 record selected future scope.
+#183 scopes ordinary growing-tree Prim with visited-cut exchange.
+Empty destinations for #182 and #183 record selected future scope.
 
 ## Dispositions and declaration coverage
 
-[Scope records](adwh-reconstruction-scopes.json) link #151–#155, #157–#173 and #179–#182
-and pin the #151–#155, #157–#173 and #179–#180 candidate destinations. Resolve candidate paths
+[Scope records](adwh-reconstruction-scopes.json) link #151–#155, #157–#173 and #179–#183
+and pin the #151–#155, #157–#173 and #179–#181 candidate destinations. Resolve candidate paths
 at those exact commits until integration; they need not exist at the map's base
 commit. Candidate evidence is partial reconstruction pending acceptance, never
 a whole-module parity assertion. The pinned candidate commits are retained in the integration ancestry, so their

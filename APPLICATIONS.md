@@ -451,6 +451,7 @@ provenance; it also records source contracts still outside that slice.
 | [Kruskal spanning trees](docs/research/adwh-kruskal.md) | Global signed-weight optimum, exact stable source execution and composed tree/cost consumers on the numbered domain. |
 | [Nested Kruskal forests](docs/research/adwh-forest-kruskal.md) | Global minimum spanning forests on empty/disconnected graphs, arbitrary-label tree consumers, exact source failures and explicit vertex-order normalization. |
 | [Potential accounting](docs/research/adwh-potential-accounting.md) | Shared measured workloads and potential laws, exact binary writes and symmetric-list charge/work consumers. |
+| [Random-access costs](docs/research/adwh-random-access-costs.md) | Measured lookup and ordered updates, exact worst-case counts and index-only bound counterexamples. |
 | [Finite Dijkstra](docs/research/adwh-dijkstra.md) | Exact link-array execution, globally shortest ordered paths, unreachable targets and agreement with the accepted closed search queue. |
 | [Ordered binary search](docs/research/adwh-ordered-search.md) | Exact inversion, monotone finite cuts, actual doubling and composed least-threshold rounding. |
 | [Connectivity](docs/research/adwh-connectivity.md) | List and weighted-parent histories realize the same finite connectivity, query and cycle-rejection observations. |

@@ -491,8 +491,16 @@
         "ADWH.Chapter03.RandomAccessLookupCosts",
         "ADWH.Chapter03.TreeFlatteningCosts"
       ],
-      "destinations": [],
-      "scope": "Whole lookup/update cost module plus two perfect-tree witnesses only. Actual branch counts, logarithmic represented-length bounds, ordered bulk updates and counterexamples. Remaining helper declarations are reference."
+      "destinations": [
+        "Applications/Resources/RandomAccess/Bulk.lean",
+        "Applications/Resources/RandomAccess/Families.lean",
+        "Applications/Resources/RandomAccess/Lookup.lean",
+        "Applications/Resources/RandomAccess/Observation.lean",
+        "Examples/RandomAccessCosts.lean"
+      ],
+      "scope": "Whole lookup/update cost module plus two perfect-tree witnesses only. Actual branch counts, logarithmic represented-length bounds, ordered bulk updates and counterexamples. Remaining helper declarations are reference.",
+      "candidate": "f68c79000bdb1ce223c403d38f8dd06e20cfbf29",
+      "declaration_map": "docs/research/adwh-random-access-costs-ledger.json"
     },
     {
       "issue": 182,
@@ -501,6 +509,16 @@
       ],
       "destinations": [],
       "scope": "Selected future carry/borrow, cache-size comparison, separate amortized bounds, bounded drain and mixed-cycle impossibility client. Depends on lookup costs; not reconstructed yet."
+    },
+    {
+      "issue": 183,
+      "modules": [
+        "ADWH.Chapter09.PrimCore",
+        "ADWH.Chapter09.PrimExchange",
+        "ADWH.Chapter09.PrimCorrectness"
+      ],
+      "destinations": [],
+      "scope": "Selected ordinary growing-tree Prim closure, exact kept residuals, visited-cut exchange and independent minimum spanning trees. Array, sentinel and execution-cost families remain reference."
     }
   ],
   "related_commitments": [
