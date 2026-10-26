@@ -401,9 +401,28 @@ realization for each positive tolerance, exact indexed matrix selection,
 reflection and complete-lattice value transport, a dominating lift without
 surjectivity, and a cheaper target outside the source image.
 `semantic_only_not_optimal` exhibits a commuting semantic square whose cost
-ranking reverses. No theorem is attributed to the unavailable textbook snapshot.
+ranking reverses. These original examples are independent of the textbook snapshot.
 The motivating [research report](docs/research/compositional-optimization.md)
 records the broader questions and proposed extensions.
+
+
+`Applications/Optimization/Thinning.lean` reconstructs finite candidate refinement
+from preserved ADWH checkpoint 233. Coverage, candidate origin and sublist order
+remain distinct; map, extension and fold laws support both order-preserving and
+order-changing realizations. Retained minima reach original candidates through
+`minimizer_transport`. `NetworkThinning.lean` recovers layered-network generation,
+adjacent pruning, failure and source tie behavior. `KnapsackThinning.lean` proves
+a new 0/1-knapsack frontier globally optimal over feasible input sublists, using
+`OrderDual Nat` for maximization. It permits zero weights and duplicate labels.
+
+`Examples/Thinning.lean` checks incompatible network layers, a feasible network
+requiring a non-greedy suffix, order-changing coverage, candidate origin, and
+first-cost ties. Knapsack checks empty input and a capacity-5 optimum of value 9.
+The composed `knapsackValues` square observes the actual frontier's values while
+preserving refinement of all feasible candidate values. The
+[reconstruction record](docs/research/adwh-thinning-reconstruction.md) states
+provenance, statement review and limits, including the source knapsack capacity
+table and global tie equivalence that remain outside this slice.
 
 ## Finite evaluation and stream progress
 
