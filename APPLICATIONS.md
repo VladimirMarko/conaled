@@ -432,6 +432,34 @@ preserving refinement of all feasible candidate values. The
 provenance, statement review and limits, including the source knapsack capacity
 table and global tie equivalence that remain outside this slice.
 
+### Textbook reconstruction clients
+
+The [coverage map](docs/research/adwh-reconstruction-map.md) routes the preserved
+textbook to scoped reconstruction records. Each record names independent
+semantics, executable realizations, checked public examples and declaration
+provenance; it also records source contracts still outside that slice.
+
+| Reconstructed client | Contract and examples |
+| --- | --- |
+| [Generalized-cost bracketing](docs/research/adwh-bracketing.md) | Recursive, cached and interval-array selection agree, including first ties. |
+| [Instrumented execution](docs/research/adwh-resources.md) and [immutable knapsack workload](docs/research/adwh-knapsack-workload.md) | Event reweighting, complete old-row table refinement and exact whole-workload counts. |
+| [Static search](docs/research/adwh-static-search.md) and [rational-cost adapter](docs/research/adwh-rational-search.md) | Independent path optimum, lawful queues and finite rational scaling with blocked infinity edges. |
+| [Adjacent-run compression](docs/research/adwh-run-compression.md) | Adjacent boundaries, suffix-fold equivalence and injective relabeling. |
+| [Connectivity](docs/research/adwh-connectivity.md) | List and weighted-parent histories realize the same finite connectivity, query and cycle-rejection observations. |
+| [Stable sorting](docs/research/adwh-stable-sorting.md) | Sorted permutation and equal-key order remain separate contracts. |
+| [Bounded segments](docs/research/adwh-bounded-segments.md) | The actual thinning scan selects a global bounded-length segment optimum. |
+| [Coin choice](docs/research/adwh-coin-choice.md) | Enumeration, lexical greedy choice and minimum-count choice retain their distinct objectives and ties. |
+| [Occurrence-rank selection](docs/research/adwh-rank-selection.md) | Three-way selection, standard sort/index, lower median and monotone value transport agree on rank. |
+| [Increasing subsequences](docs/research/adwh-increasing-subsequences.md) | Merged thinning selects a longest strictly increasing sublist while preserving source witness choices. |
+
+`Optimization.FirstMinimum` and `LastMinimum` specify positional tie choices
+independently of the shared selector. `argmin_eq_some_iff_firstMinimum` and
+`argminLast_eq_some_iff` connect those specifications to execution; bracketing,
+segments and coin choice reuse them. `Optimization.observationSquare` retains
+the problem index and maps the permitted witness set through any observation.
+Segments and subsequences compose it with their selection squares to expose
+optimum sums and lengths. Equal optimum values do not identify tied witnesses.
+
 ## Finite evaluation and stream progress
 
 `Applications/Progress/` is an experimental deterministic atomic-step model.
