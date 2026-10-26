@@ -1,3 +1,4 @@
+import Examples.ParagraphLayout
 import Examples.OrderedPartitions
 import Examples.IncreasingSubsequences
 import Examples.BoundedSegments
