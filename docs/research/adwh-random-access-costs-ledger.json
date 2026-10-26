@@ -1,0 +1,1398 @@
+{
+  "issue": 181,
+  "archive_sha256": "8a5e2b2d5535a149a67111c6adf9ba9e173cbbd2a986d63dc702d75178252e63",
+  "source_sha256": {
+    "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean": "c1df20833c4dd42ce1ae64a584a4b63596b29e3202e24fd14c10104d5e3e0568",
+    "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean": "26bdb3a5f21959ffa672adf502b020d20f05d1a9449a2904ca26b710e016fb7c",
+    "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean": "1d3b29808ce0d6e2c6b2f48d91cddccd0ec307fda47d53b8144282277e512641",
+    "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean": "e816b3cefe8e48732a786f7210de682143a9d246e3b75019e6520b01ef264090"
+  },
+  "selected_count": 49,
+  "deferred_count": 124,
+  "declarations": [
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "fetchListRun",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fetchListRun",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "fetchListRun_value",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fetchListRun_value",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "fetchListRun_count",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fetchListRun_count",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "fetchTRun",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fetchTRun",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "fetchTRun_value",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fetchTRun_value",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "fetchTRun_count",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fetchTRun_count",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "fetchRARun",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fetchRARun",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "fetchRARun_value",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fetchRARun_value",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "fetchRARun_refinement",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fetchRARun_refinement",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "fetchRARun_count_bound",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fetchRARun_count_bound",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "valid_length_lower",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.valid_length_lower",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Accepted Valid/Perfect structure and standard Nat.log2/power laws; no custom logarithmic/asymptotic framework."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "digits_log_bound",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.digits_log_bound",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Accepted Valid/Perfect structure and standard Nat.log2/power laws; no custom logarithmic/asymptotic framework."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "valid_length_upper",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.valid_length_upper",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Accepted Valid/Perfect structure and standard Nat.log2/power laws; no custom logarithmic/asymptotic framework."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "digits_log_exact",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.digits_log_exact",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Accepted Valid/Perfect structure and standard Nat.log2/power laws; no custom logarithmic/asymptotic framework."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "fetchRARun_last_count",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fetchRARun_last_count",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "fetchRARun_log_bound",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.fetchRARun_log_bound",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "updateTRun",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.updateTRun",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "updateTRun_value",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.updateTRun_value",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "updateTRun_count",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.updateTRun_count",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "updateRARun",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.updateRARun",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "updateRARun_value",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.updateRARun_value",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "updateRARun_count",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.updateRARun_count",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "updateRARun_refinement",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.updateRARun_refinement",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "updateRARun_log_bound",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.updateRARun_log_bound",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "updateRA_digit_length",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.updateRA_digit_length",
+      "file": "Applications/Resources/RandomAccess/Lookup.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "bulkRun",
+      "status": "reused",
+      "destination": "Resources.RandomAccessCosts.bulkRun",
+      "file": "Applications/Resources/RandomAccess/Bulk.lean",
+      "note": "Shared Resources.run and invariant/value fusion. bulkRun_cons proves exact source recurrence including one loop visit."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "bulk",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.bulk",
+      "file": "Applications/Resources/RandomAccess/Bulk.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "bulkRun_value",
+      "status": "reused",
+      "destination": "Resources.RandomAccessCosts.bulkRun_value",
+      "file": "Applications/Resources/RandomAccess/Bulk.lean",
+      "note": "Shared Resources.run and invariant/value fusion. bulkRun_cons proves exact source recurrence including one loop visit."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "bulk_valid",
+      "status": "reused",
+      "destination": "Resources.RandomAccessCosts.bulk_valid",
+      "file": "Applications/Resources/RandomAccess/Bulk.lean",
+      "note": "Shared Resources.run and invariant/value fusion. bulkRun_cons proves exact source recurrence including one loop visit."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "bulk_refinement",
+      "status": "reused",
+      "destination": "Resources.RandomAccessCosts.bulk_refinement",
+      "file": "Applications/Resources/RandomAccess/Bulk.lean",
+      "note": "Shared Resources.run and invariant/value fusion. bulkRun_cons proves exact source recurrence including one loop visit."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "bulkRun_count_bound",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.bulkRun_count_bound",
+      "file": "Applications/Resources/RandomAccess/Bulk.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "bulkRun_log_bound",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.bulkRun_log_bound",
+      "file": "Applications/Resources/RandomAccess/Bulk.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "bulk_last_count",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.bulk_last_count",
+      "file": "Applications/Resources/RandomAccess/Bulk.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "bulk_last_log_exact",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.bulk_last_log_exact",
+      "file": "Applications/Resources/RandomAccess/Bulk.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "sparse",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.sparse",
+      "file": "Applications/Resources/RandomAccess/Families.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "sparse_valid",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.sparse_valid",
+      "file": "Applications/Resources/RandomAccess/Families.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "sparse_value",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.sparse_value",
+      "file": "Applications/Resources/RandomAccess/Families.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "sparse_fetch_cost",
+      "status": "reused",
+      "destination": "Resources.RandomAccessCosts.sparse_fetch_cost",
+      "file": "Applications/Resources/RandomAccess/Families.lean",
+      "note": "Zero-index specialization of the arbitrary-index family theorem; source contract preserved without duplicate induction."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "no_index_only_zero_bound",
+      "status": "reused",
+      "destination": "Resources.RandomAccessCosts.no_index_only_zero_bound",
+      "file": "Applications/Resources/RandomAccess/Families.lean",
+      "note": "Zero-index specialization of the arbitrary-index family theorem; source contract preserved without duplicate induction."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "perfectTree_values",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.perfectTree_values",
+      "file": "Applications/Resources/RandomAccess/Families.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "sparse_fetch_cost_at",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.sparse_fetch_cost_at",
+      "file": "Applications/Resources/RandomAccess/Families.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "no_index_only_bound",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.no_index_only_bound",
+      "file": "Applications/Resources/RandomAccess/Families.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "no_eventual_index_function_bound",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.no_eventual_index_function_bound",
+      "file": "Applications/Resources/RandomAccess/Families.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "sparse_update_zero",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.sparse_update_zero",
+      "file": "Applications/Resources/RandomAccess/Families.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "bulk_sparse_zero_cost",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.bulk_sparse_zero_cost",
+      "file": "Applications/Resources/RandomAccess/Families.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "bulk_head_zero_cost",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.bulk_head_zero_cost",
+      "file": "Applications/Resources/RandomAccess/Families.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessLookupCosts.lean",
+      "declaration": "no_all_inputs_log_lower",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.no_all_inputs_log_lower",
+      "file": "Applications/Resources/RandomAccess/Families.lean",
+      "note": "Source branch/domain and exact count contracts retained; see statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "UncachedTree",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "structuralSize",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "eraseCache",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "structuralSize_erasure",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "cachedSize_refines_structural",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "cached_node",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "structuralSizeRun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "structuralSizeRun_value",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "structuralSizeRun_work",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "cachedSizeRun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "cachedSizeRun_exact",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "size_run_comparison",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "ones",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "zeros",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "ones_add_zeros",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "consTRun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "consRARun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "consTRun_value",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "consRARun_value",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "consRARun_refinement",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "consTRun_potential",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "consTRun_count_bounds",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "consRARun_log_bound",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "bits",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "bits_consT",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "bits_length",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "bits_canonical",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "bits_value",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "pushManyRun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "pushManyRun_value",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "pushManyRun_potential",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "pushManyRun_cost_lower",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "pushManyRun_empty_bounds",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "toRARun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "toRARun_value",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "toRARun_potential",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "toRARun_linear_bound",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "borrowCost",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "unconsTRun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "unconsTRun_exact",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "unconsRARun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "unconsRARun_exact",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "borrowCost_bounds",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "unconsRARun_log_bound",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "unconsT_potential",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "unconsRA_potential",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "decBits",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "decBits_spec",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "bits_unconsT",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "drainRun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "drainRun_spec",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "drainRun_cost_lower",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "zeros_le_elements",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "full_drain_value",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "full_drain_linear_bounds",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "headRARun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "tailRARun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "headRARun_value",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "tailRARun_value",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "head_tail_log_bounds",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "fetchRAError",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "fetchRAError_nil",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "fetchRAError_refinement",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "fetchRAError_error_iff",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "fetchRAError_ok_iff",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "four_element_tree",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "four_element_borrow_derivation",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "bulk_answer_intermediate_states",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "bulk_answer_final_state",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "borrowCost_consT",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "pushPopRun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "pushPopRun_exact",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "mixedRun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "mixedRun_exact",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "fullDigits",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "fullDigits_valid",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "fullDigits_length",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "fullDigits_cons_cost",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "mixed_fullDigits_exact",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/RandomAccessEndCosts.lean",
+      "declaration": "no_uniform_mixed_charge",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "nodes",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "pending",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "appendWithCost",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "appendWithCost_exact",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "fromTWithCost",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "fromTWithCost_value",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "copies",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "fromTWithCost_count",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "fromTsWithCost",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "fromTs",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "fromTsWithCost_exact",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "fromTs_refinement",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "fromTs_singleton",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "fromTs_suffix",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "pending_append",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "nodes_perfect",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "copies_perfect",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "fromTWithCost_perfect_exact",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "fromTsWithCost_perfect_exact",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "fromTWithCost_perfect_bounds",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "perfectTree",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.perfectTree",
+      "file": "Applications/Resources/RandomAccess/Families.lean",
+      "note": "Only required helper closure from TreeFlatteningCosts; uses accepted cached Tree/node and Perfect."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "perfectTree_valid",
+      "status": "adapted",
+      "destination": "Resources.RandomAccessCosts.perfectTree_valid",
+      "file": "Applications/Resources/RandomAccess/Families.lean",
+      "note": "Only required helper closure from TreeFlatteningCosts; uses accepted cached Tree/node and Perfect."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "recursive_flatten_theta",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "declaration": "stack_flatten_theta",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "log2_bracket",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "log2_mono",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "sqrt_bracket",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "le_sqrt_iff",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "sqrt_square",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "square_le_two_pow",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "log2_le_sqrt",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "n_log2_bigO_n_sqrt",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "two_pow_log2_bigO_linear",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "two_pow_even_log2",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "two_pow_even_sqrt",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "linear_plus_sqrt_not_bigO_sqrt_log2",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "LogScale",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "RootScale",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "logScale_bounds",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "rootScale_bounds",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "logScale_theta",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "rootScale_theta",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "interpolated_n_log_bigO_n_sqrt",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "interpolated_linear_plus_sqrt_not_bigO",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "cubic_lower_terms_bounds",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/LogarithmicScales.lean",
+      "declaration": "cubic_lower_terms_theta",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Outside issue181; preserved reference owned by149. See explicit remaining-scope review."
+    }
+  ]
+}
