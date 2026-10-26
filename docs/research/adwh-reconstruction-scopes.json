@@ -507,8 +507,19 @@
       "modules": [
         "ADWH.Chapter03.RandomAccessEndCosts"
       ],
-      "destinations": [],
-      "scope": "Selected future carry/borrow, cache-size comparison, separate amortized bounds, bounded drain and mixed-cycle impossibility client. Depends on lookup costs; not reconstructed yet."
+      "destinations": [
+        "Applications/Resources/BinaryCounter/Decrement.lean",
+        "Applications/Resources/RandomAccess/CacheCosts.lean",
+        "Applications/Resources/RandomAccess/Cycles.lean",
+        "Applications/Resources/RandomAccess/Drain.lean",
+        "Applications/Resources/RandomAccess/End.lean",
+        "Applications/Resources/RandomAccess/EndCases.lean",
+        "Applications/Resources/RandomAccess/EndObservation.lean",
+        "Examples/RandomAccessEndCosts.lean"
+      ],
+      "scope": "Complete carry/borrow accounting, cached-size comparison, separate potentials, bounded drain and arbitrary-potential mixed-cycle impossibility. Composed consumers retain counted work.",
+      "candidate": "9c0a2649f9601c6294850f2b057698650360da9a",
+      "declaration_map": "docs/research/adwh-random-access-end-costs-ledger.json"
     },
     {
       "issue": 183,
@@ -535,8 +546,17 @@
         "ADWH.Chapter09.DijkstraSentinel",
         "ADWH.Chapter09.GraphWorkedExamples"
       ],
-      "destinations": [],
-      "scope": "Selected future full finite-sentinel module and figure_finite_source only. Exact raw arithmetic and state refinement on the all-reachable strict-range domain; other figure declarations remain separate."
+      "destinations": [
+        "Applications/Dijkstra/Core.lean",
+        "Applications/Dijkstra/Sentinel/Encoding.lean",
+        "Applications/Dijkstra/Sentinel/Observation.lean",
+        "Applications/Dijkstra/Sentinel/Range.lean",
+        "Applications/Dijkstra/Store.lean",
+        "Examples/DijkstraSentinel.lean"
+      ],
+      "scope": "Complete finite-sentinel Dijkstra and figure_finite_source. Exact raw Int arithmetic and encoded-state refinement under all-vertex reachability and strict range; machine integers and other figures remain separate.",
+      "candidate": "48b7655155950c4452bebf1268de1866d0f6129f",
+      "declaration_map": "docs/research/adwh-dijkstra-sentinel-provenance.tsv"
     }
   ],
   "related_commitments": [
