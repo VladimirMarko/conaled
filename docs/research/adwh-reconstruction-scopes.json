@@ -316,6 +316,15 @@
       ],
       "destinations": [],
       "scope": "Ordered contiguous partitions, four generators and guarded pruning; actual greedy paragraph layout and helper with independent global lexicographic optimum. Waste objectives, cached frontiers and resource models remain reference."
+    },
+    {
+      "issue": 169,
+      "modules": [
+        "ADWH.Chapter09.Kruskal",
+        "ADWH.Chapter09.DisjointSets"
+      ],
+      "destinations": [],
+      "scope": "Complete flat disjoint-set Kruskal client, independent spanning-tree global optimum, exact source order and numbered-domain failures. Reuses prior disjoint sets. Nested forests, corrected all-edge minimum spanning forests, other graph algorithms and resource models remain reference."
     }
   ],
   "related_commitments": [

@@ -7949,7 +7949,8 @@
       ],
       "module_disposition": "partial reconstruction",
       "scope_issues": [
-        158
+        158,
+        169
       ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/disjoint-sets.json",
@@ -9046,8 +9047,10 @@
       "imports": [
         "ADWH.Chapter09.DisjointSets"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        169
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/kruskal.json",
         "member_sha256": "965cf20f961397bce90aa7c6f792a55c65dbc5ddaec74b6a01464f7db2702997",
