@@ -1,4 +1,5 @@
 import Examples.ScanFusion
+import Examples.Bracketing
 import Applications.Elaboration.Examples
 import Applications.Progress.Examples
 import Examples.GraphTranslationValidation
