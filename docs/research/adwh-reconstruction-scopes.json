@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "scope": "Pinned evidence of proposed or partial source slices, not live issue completion. Candidate paths are resolved at the candidate commit until integrated. Empty destinations mean no reconstruction selected here.",
+  "scopes": [
+    {
+      "issue": 151,
+      "modules": [
+        "ADWH.Chapter10.MergedFold",
+        "ADWH.Chapter10.NetworkPaths",
+        "ADWH.Chapter10.NetworkThinning",
+        "ADWH.Chapter10.Thinning",
+        "ADWH.Chapter10.ThinningMinimum",
+        "ADWH.Chapter13.Knapsack"
+      ],
+      "candidate": "abc2a1a66151e7f263eddaf254ce43f1aa348e1b",
+      "destinations": [
+        "Applications/Optimization/Thinning.lean",
+        "Applications/Optimization/ThinningRelations.lean",
+        "Applications/Optimization/NetworkPaths.lean",
+        "Applications/Optimization/NetworkThinning.lean",
+        "Applications/Optimization/KnapsackThinning.lean",
+        "Examples/Thinning.lean"
+      ],
+      "declaration_map": "docs/research/adwh-thinning-provenance.tsv",
+      "scope": "Candidate slice only; use declaration map for coverage. Generic frontier plus layered-network and feasible-sublist clients; no whole-module completion."
+    },
+    {
+      "issue": 152,
+      "modules": [
+        "ADWH.Chapter01.Lists",
+        "ADWH.Chapter01.ScanFusion"
+      ],
+      "candidate": "ad74f360854d199724516f5f3a91dfab0977ff7a",
+      "destinations": [
+        "SquareKit/ListFusion.lean",
+        "Applications/Parallel/InclusiveScan.lean",
+        "Examples/ScanFusion.lean"
+      ],
+      "declaration_map": "docs/research/adwh-scan-bridge.md",
+      "scope": "Reachable fusion and inclusive scan bridge only; other list operations, scans and cost contracts remain reference."
+    },
+    {
+      "issue": 153,
+      "modules": [
+        "ADWH.Chapter14.GeneralizedCost",
+        "ADWH.Chapter14.GeneralizedCached",
+        "ADWH.Chapter14.GeneralizedArray"
+      ],
+      "destinations": [],
+      "scope": "Generalized-cost bracketing and necessary ExplicitDomain dependencies; dependencies are not whole-module acceptance."
+    },
+    {
+      "issue": 154,
+      "modules": [
+        "ADWH.Chapter10.ThinningCosts",
+        "ADWH.Chapter13.KnapsackWork",
+        "ADWH.Chapter13.KnapsackArray"
+      ],
+      "destinations": [],
+      "scope": "Instrumented composition and two resource interpretations; no general runtime or cost equality claim."
+    },
+    {
+      "issue": 155,
+      "modules": [
+        "ADWH.Chapter16.HeuristicCore",
+        "ADWH.Chapter16.HeuristicCoverage",
+        "ADWH.Chapter16.HeuristicOptimality",
+        "ADWH.Chapter16.HeuristicTermination",
+        "ADWH.Chapter16.HeuristicSemantics",
+        "ADWH.Chapter16.HeuristicExamples",
+        "ADWH.Chapter16.PriorityInterface",
+        "ADWH.Chapter16.PrioritySearchQueue"
+      ],
+      "destinations": [],
+      "scope": "Static A*/M* and queue interpretation; incremental rational/infinity repair stays #111."
+    },
+    {
+      "issue": 157,
+      "modules": [
+        "ADWH.Chapter02.Build",
+        "ADWH.Chapter02.BuildEquality"
+      ],
+      "destinations": [],
+      "scope": "Adjacent-run compression and independent sequence observation; remaining Build contracts stay reference."
+    },
+    {
+      "issue": 158,
+      "modules": [
+        "ADWH.Chapter09.DisjointSets",
+        "ADWH.Chapter09.DisjointSetsArrayRefinement"
+      ],
+      "destinations": [],
+      "scope": "Connectivity and successful list/array histories with actual dependency closure; other graph contracts remain reference."
+    }
+  ],
+  "related_commitments": [
+    111,
+    137,
+    109,
+    113
+  ],
+  "declaration_examples": [
+    {
+      "snapshot": "adwh-checkpoint-233",
+      "archive_member": "project/adwh-lean/ADWH/Chapter10/Thinning.lean",
+      "member_sha256": "296ed3f3e0801e0cbc9e230aea128a54985a4c2874f4a1326b80fc53fb50d930",
+      "source_declaration": "ADWH.Chapter10.Thinning.Covers",
+      "destination_file": "Applications/Optimization/Thinning.lean",
+      "destination_declaration": "Optimization.Thinning.Covers",
+      "issue": 151,
+      "candidate": "abc2a1a66151e7f263eddaf254ce43f1aa348e1b",
+      "disposition": "partial reconstruction"
+    },
+    {
+      "snapshot": "adwh-checkpoint-233",
+      "archive_member": "project/adwh-lean/ADWH/Chapter10/Thinning.lean",
+      "member_sha256": "296ed3f3e0801e0cbc9e230aea128a54985a4c2874f4a1326b80fc53fb50d930",
+      "source_declaration": "ADWH.Chapter10.Thinning.IsThinning",
+      "destination_file": "Applications/Optimization/Thinning.lean",
+      "destination_declaration": "Optimization.Thinning.IsThinning",
+      "issue": 151,
+      "candidate": "abc2a1a66151e7f263eddaf254ce43f1aa348e1b",
+      "disposition": "partial reconstruction"
+    },
+    {
+      "snapshot": "adwh-checkpoint-233",
+      "archive_member": "project/adwh-lean/ADWH/Chapter01/Lists.lean",
+      "member_sha256": "6f08454e2deeb5fe00df14e997b9d7f24bd53ba979546c8636bc3254e4a151b0",
+      "source_declaration": "ADWH.Chapter01.Lists.foldr_fusion_reachable",
+      "destination_file": "SquareKit/ListFusion.lean",
+      "destination_declaration": "SquareKit.ListFusion.foldr_reachable",
+      "issue": 152,
+      "candidate": "ad74f360854d199724516f5f3a91dfab0977ff7a",
+      "disposition": "partial reconstruction"
+    }
+  ]
+}
