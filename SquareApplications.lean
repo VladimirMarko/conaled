@@ -17,6 +17,7 @@ import Examples.PresheafSetting
 import Examples.PresheafRepresentation
 import Examples.BranchingGraphTransport
 import Examples.Optimization
+import Examples.Thinning
 import Examples.DependentCongruence
 import SquareKit.GroupoidTransport
 import Examples.AgdaTransferCaller
