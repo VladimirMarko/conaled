@@ -7,6 +7,11 @@ disable-model-invocation: true
 Use `implement` for a whole task that fits one implementation-and-review loop.
 Work in the current checkout and branch by default. The main agent implements;
 a reviewer subagent coordinates review and requests corrections from it.
+Use an isolated worktree when requested or when concurrent writers make the
+current checkout unsuitable. Establish the task's starting state in that
+worktree, preserving any existing task changes that must be included. Snapshot
+capture does not prevent editing collisions; leave other agents' files, index,
+and branches alone.
 
 Use [implement-spec](../implement-spec/SKILL.md) when the work calls for a ticket
 graph, parallel implementers, and an integration branch. This lightweight
@@ -45,7 +50,9 @@ validation results and any limitations for the reviewer.
 
 When implementation is ready, use the shared procedure's current-checkout
 capture rules. Keep unrelated content at its baseline version in the snapshot;
-preserve its live contents.
+preserve its live contents. Validate the captured candidate under the shared
+procedure's validation rules before presenting it for approval; live-checkout
+results alone may describe a different tree.
 
 Start a reviewer subagent and give it the base and candidate SHAs, saved full
 requirements, repository standards pointers, validation results, and review

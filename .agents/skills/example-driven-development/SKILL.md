@@ -72,8 +72,12 @@ statement. Inspect elaborated types or explicit arguments when notation,
 inference, coercions, or instances could conceal the difference. Check:
 
 - Quantifier order, types, domains, and the scope of implicit parameters.
-- Hypotheses: are they justified in the intended uses, satisfiable, and weaker
-  than simply assuming the desired conclusion?
+- Hypotheses: are they justified in the intended uses, and do they support the
+  intended mathematical contribution? Check satisfiability when usable inputs
+  are claimed. Equivalent information can be appropriate in equivalence,
+  transport, and interface laws; identify what the result establishes across
+  those formulations. Flag circular assumptions or vacuity when they undermine
+  the intended claim.
 - The conclusion: which equality, relation, direction, or notion of correctness
   is proved? Does it cover the intended inputs and edge cases?
 - Definitions used in the statement: do their semantics match the explanation,
@@ -91,8 +95,12 @@ is no quota per declaration. For proof-only refactoring, retain existing cases
 and check that the public statements and assumptions remain the same.
 
 Consume public definitions and theorem statements so cases survive changes to
-proof construction. Avoid inspecting private lemmas, proof syntax, or source
-text to establish correctness. A proof by `rfl` can be appropriate; its value
+proof construction. Keep checked cases independent of private proof structure;
+source-text or proof-syntax assertions do not establish mathematical correctness.
+During statement review and connection checking, inspect definitions and
+relevant derivations, including private helpers when needed, to establish what
+a statement means and whether a case uses the intended public result.
+A proof by `rfl` can be appropriate; its value
 depends on whether the independently stated claim checks the intended meaning.
 A claim equating a definition to itself provides no such evidence.
 
