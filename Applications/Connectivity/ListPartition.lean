@@ -367,7 +367,7 @@ theorem findDS_equal_iff_sameBlock {vs : List Vertex} {ds : DS}
     rw [(findDS_partition_iff h u name).mpr ⟨xs, hx, hux⟩,
       (findDS_partition_iff h v name).mpr ⟨xs, hx, hvx⟩]
 
-private theorem lookupDS_of_member {vs : List Vertex} {ds : DS}
+theorem lookupDS_of_member {vs : List Vertex} {ds : DS}
     (h : IsPartitionOf vs ds) {name : Name} {xs : List Vertex} (hm : (name, xs) ∈ ds) :
     lookupDS ds name = some xs := by
   obtain ⟨ys, hy⟩ := (lookupDS_defined_iff ds name).mpr (List.mem_map.mpr ⟨(name, xs), hm, rfl⟩)
