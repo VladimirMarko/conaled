@@ -191,7 +191,7 @@
         "Examples/StableSorting.lean"
       ],
       "scope": "All 18 named KeyedMerge/KeyedMergeDomain declarations plus source merge/equality bridge. Independent stable-sort specification, standard merge/insertion realization agreement and key-preserving transport; 64 other Sorting declarations remain reference.",
-      "candidate": "2ae85eb19ba20832ae0aadcdde5d2e8aa9a643ec",
+      "candidate": "f15095c87ae1c9613b148e43ec329dcbc793e3f6",
       "declaration_map": "docs/research/adwh-stable-sorting-provenance.tsv"
     },
     {
@@ -201,6 +201,16 @@
       ],
       "destinations": [],
       "scope": "Bounded prefix/segment optima, source thinning and single-witness scan through maxSegmentThinScan_nonnegative; subsequence/LUS definitions and other representation/cost modules remain reference."
+    },
+    {
+      "issue": 162,
+      "modules": [
+        "ADWH.Chapter13.Knapsack",
+        "ADWH.Chapter13.KnapsackArray",
+        "ADWH.Chapter13.KnapsackWork"
+      ],
+      "destinations": [],
+      "scope": "Complete immutable-array workload, exact recursive selection agreement, initialization/all rows/output traversal and measured source projections. Recursive/list scalar work, bit complexity and physical-memory claims remain reference."
     }
   ],
   "related_commitments": [

@@ -64,10 +64,13 @@ Nat theorem reuse distinguished from new local transport proofs. #158 now pins i
 list/array histories, finite connectivity and query/cycle-rejection consumers.
 [#161](https://github.com/VladimirMarko/conaled/issues/161) scopes bounded segment
 optima and the source thinning scan; subsequences and cost models remain reference.
+[#162](https://github.com/VladimirMarko/conaled/issues/162) scopes complete immutable
+knapsack initialization, rows and observation, extending #154 without treating the
+accepted single-row model as whole-workload acceptance.
 
 ## Dispositions and declaration coverage
 
-[Scope records](adwh-reconstruction-scopes.json) link #151–#155 and #157–#161
+[Scope records](adwh-reconstruction-scopes.json) link #151–#155 and #157–#162
 and pin the #151–#155 and #157–#160 candidate destinations. Resolve candidate paths
 at those exact commits until integration; they need not exist at the map's base
 commit. Candidate evidence is partial reconstruction pending acceptance, never
