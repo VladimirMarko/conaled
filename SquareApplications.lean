@@ -1,3 +1,4 @@
+import Examples.HeuristicSearch
 import Examples.ScanFusion
 import Applications.Elaboration.Examples
 import Applications.Progress.Examples
