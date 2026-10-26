@@ -153,3 +153,12 @@ All 244 provenance rows, their source hash and retained destinations were valida
 The public entrypoint imports the examples and all four implementation modules.
 Fresh full compilation, exhaustive axiom audit and independent reviews belong
 to the coordinating integration run.
+
+The [increasing-subsequence reconstruction](adwh-increasing-subsequences.md)
+continues the source's deferred later section under #164. It also extracts
+`Optimization.observationSquare` from the segment score observation;
+`Segments.scoreObservation` forwards to it with `List.sum`. All segment public
+observation statements and image semantics remain unchanged. The shared
+selector gains `maxsWith_sublist` and `maxsWith_eq_filter_of_mem`, sourced from
+the later section and recorded in the #164 declaration ledger. The counts above
+remain the historical scope of #161.

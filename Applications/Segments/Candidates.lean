@@ -272,4 +272,24 @@ theorem mss0_ne_nil (bound : Nat) (xs : List Int) : mss0 bound xs ≠ [] := by
     (List.flatMap_eq_nil_iff.mp he) xs (self_mem_tails xs)
   exact hx hh
 
+/-- The cached source selector always retains a sublist in the input order. -/
+theorem maxsWith_sublist (score : α → Int) (xs : List α) :
+    (maxsWith score xs).Sublist xs := by
+  cases xs with
+  | nil => exact .refl _
+  | cons x xs =>
+    rw [maxsWith_cons]
+    exact List.filter_sublist
+
+/-- Any returned maximum identifies the exact stable filter, including ties. -/
+theorem maxsWith_eq_filter_of_mem (score : α → Int) (xs : List α) (winner : α)
+    (hw : winner ∈ maxsWith score xs) :
+    maxsWith score xs = xs.filter (fun x => decide (score x = score winner)) := by
+  cases xs with
+  | nil => simp at hw
+  | cons first rest =>
+    rw [maxsWith_cons] at hw ⊢
+    have he := of_decide_eq_true (List.mem_filter.mp hw).2
+    rw [← he]
+
 end Segments
