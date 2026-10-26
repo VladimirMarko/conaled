@@ -59,12 +59,15 @@ now scopes the corresponding source contracts, preserving the distinction betwee
 sorted permutation and equal-key order. #157 has a pinned reconstruction candidate
 and declaration ledger; its counted executor and generic guarded-drop results remain
 reference. #159 owns the static rational-cost adapter on top of #155; its source
-coverage will be recorded with the implementation candidate.
+coverage will be recorded with the implementation candidate. #158 now pins its
+list/array histories, finite connectivity and query/cycle-rejection consumers.
+[#161](https://github.com/VladimirMarko/conaled/issues/161) scopes bounded segment
+optima and the source thinning scan; subsequences and cost models remain reference.
 
 ## Dispositions and declaration coverage
 
-[Scope records](adwh-reconstruction-scopes.json) link #151–#155, #157, #158 and #160
-and pin the #151–#155 and #157 candidate destinations. Resolve candidate paths
+[Scope records](adwh-reconstruction-scopes.json) link #151–#155, #157, #158, #160 and #161
+and pin the #151–#155, #157 and #158 candidate destinations. Resolve candidate paths
 at those exact commits until integration; they need not exist at the map's base
 commit. Candidate evidence is partial reconstruction pending acceptance, never
 a whole-module parity assertion. The pinned candidate commits are retained in the integration ancestry, so their

@@ -133,10 +133,33 @@
       "issue": 158,
       "modules": [
         "ADWH.Chapter09.DisjointSets",
+        "ADWH.Chapter09.DisjointSetsArrayCore",
+        "ADWH.Chapter09.DisjointSetsArrayForest",
+        "ADWH.Chapter09.DisjointSetsArrayComponents",
+        "ADWH.Chapter09.DisjointSetsArrayUnion",
+        "ADWH.Chapter09.DisjointSetsArrayHistory",
+        "ADWH.Chapter09.DisjointSetsArrayRoots",
+        "ADWH.Chapter09.DisjointSetsArrayConnectivity",
         "ADWH.Chapter09.DisjointSetsArrayRefinement"
       ],
-      "destinations": [],
-      "scope": "Connectivity and successful list/array histories with actual dependency closure; other graph contracts remain reference."
+      "destinations": [
+        "Applications/Connectivity/ListPartition.lean",
+        "Applications/Connectivity/Observation.lean",
+        "Applications/Connectivity/ParentArray.lean",
+        "Applications/Connectivity/ParentComponents.lean",
+        "Applications/Connectivity/ParentConnectivity.lean",
+        "Applications/Connectivity/ParentCounts.lean",
+        "Applications/Connectivity/ParentForest.lean",
+        "Applications/Connectivity/ParentHistory.lean",
+        "Applications/Connectivity/ParentUnion.lean",
+        "Applications/Connectivity/Realizations.lean",
+        "Applications/Connectivity/Refinement.lean",
+        "Applications/Connectivity/Requests.lean",
+        "Examples/Connectivity.lean"
+      ],
+      "scope": "Actual list/weighted-parent-array operations and successful request histories with independent finite connectivity and query/cycle-rejection consumers; only named retained declarations. Event trace/cost models and other graph algorithms remain reference.",
+      "candidate": "0c43496b673fcec493140a8ec71c0331252ed927",
+      "declaration_map": "docs/research/adwh-connectivity-provenance.tsv"
     },
     {
       "issue": 160,
@@ -147,6 +170,14 @@
       ],
       "destinations": [],
       "scope": "Keyed merge, independent stable sorting and input-local compatibility; only the necessary source merge bridge from Sorting. Other sorting algorithms and cost models remain reference."
+    },
+    {
+      "issue": 161,
+      "modules": [
+        "ADWH.Chapter11.Segments"
+      ],
+      "destinations": [],
+      "scope": "Bounded prefix/segment optima, source thinning and single-witness scan through maxSegmentThinScan_nonnegative; subsequence/LUS definitions and other representation/cost modules remain reference."
     }
   ],
   "related_commitments": [
