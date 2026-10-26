@@ -43,21 +43,11 @@ private theorem list_find_isName {vs : List Int} {ds : ListPartition.DS}
   obtain ⟨xs, member, _⟩ := (ListPartition.findDS_partition_iff h u a).mp success
   exact List.mem_map.mpr ⟨(a, xs), member, rfl⟩
 
-private theorem list_head_member {xs : List Int} {a : Int} (h : xs.head? = some a) :
-    a ∈ xs := by
-  obtain ⟨tail, rfl⟩ := List.head?_eq_some_iff.mp h
-  simp
-
 private theorem list_find_sameBlock {vs : List Int} {ds : ListPartition.DS}
     (h : ListPartition.IsPartitionOf vs ds) {u a : Int}
     (success : ListPartition.findDS ds u = some a) : ListPartition.SameBlock ds u a := by
   obtain ⟨xs, member, hu⟩ := (ListPartition.findDS_partition_iff h u a).mp success
-  exact ⟨a, xs, member, hu, list_head_member (h.2.2 a xs member)⟩
-
-private theorem list_sameBlock_symm {ds : ListPartition.DS} {u v : Int}
-    (h : ListPartition.SameBlock ds u v) : ListPartition.SameBlock ds v u := by
-  obtain ⟨name, xs, member, hu, hv⟩ := h
-  exact ⟨name, xs, member, hv, hu⟩
+  exact ⟨a, xs, member, hu, ListPartition.head_member (h.2.2 a xs member)⟩
 
 private theorem list_sameBlock_trans {vs : List Int} {ds : ListPartition.DS}
     (h : ListPartition.IsPartitionOf vs ds) {u v w : Int}
@@ -70,7 +60,7 @@ private theorem list_sameBlock_to_name {vs : List Int} {ds : ListPartition.DS}
     (success : ListPartition.findDS ds u = some a) (x : Int) :
     ListPartition.SameBlock ds x a ↔ ListPartition.SameBlock ds x u := by
   have together := list_find_sameBlock h success
-  exact ⟨fun hx => list_sameBlock_trans h hx (list_sameBlock_symm together),
+  exact ⟨fun hx => list_sameBlock_trans h hx (ListPartition.sameBlock_symm together),
     fun hx => list_sameBlock_trans h hx together⟩
 
 private theorem list_sameBlock_from_name {vs : List Int} {ds : ListPartition.DS}
@@ -79,20 +69,7 @@ private theorem list_sameBlock_from_name {vs : List Int} {ds : ListPartition.DS}
     ListPartition.SameBlock ds a x ↔ ListPartition.SameBlock ds u x := by
   have together := list_find_sameBlock h success
   exact ⟨fun hx => list_sameBlock_trans h together hx,
-    fun hx => list_sameBlock_trans h (list_sameBlock_symm together) hx⟩
-
-private theorem list_sameBlock_start (n u v : Int) :
-    ListPartition.SameBlock (ListPartition.startDS n) u v ↔
-      u = v ∧ u ∈ ListPartition.vertices n := by
-  constructor
-  · rintro ⟨name, xs, member, hu, hv⟩
-    obtain ⟨w, hw, he⟩ := List.mem_map.mp member
-    cases he
-    have hu' := List.mem_singleton.mp hu
-    have hv' := List.mem_singleton.mp hv
-    exact ⟨hu'.trans hv'.symm, by simpa [hu'] using hw⟩
-  · rintro ⟨rfl, hu⟩
-    exact ⟨u, [u], List.mem_map.mpr ⟨u, hu, rfl⟩, by simp, by simp⟩
+    fun hx => list_sameBlock_trans h (ListPartition.sameBlock_symm together) hx⟩
 
 theorem componentRefines_start (n : Int) :
     ComponentRefines (startDSA n) (ListPartition.startDS n) := by
@@ -104,7 +81,7 @@ theorem componentRefines_start (n : Int) :
   · rw [universeEq]
     exact ListPartition.startDS_partition n
   · intro u v
-    rw [sameComponent_start, list_sameBlock_start, domain]
+    rw [sameComponent_start, ListPartition.sameBlock_start_iff, domain]
     exact and_comm
 
 theorem componentRefines_find_decision {array : DSA} {list : ListPartition.DS}

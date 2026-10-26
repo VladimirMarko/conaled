@@ -76,14 +76,17 @@ verified against the preserved SHA-256 manifest before adaptation. The
 [declaration ledger](adwh-connectivity-provenance.tsv) records snapshot,
 archive-relative member, member hash, original declaration, visibility,
 destination and disposition for 404 explicitly named definitions, abbreviations,
-structures, inductives and theorems: 306 adapted and 98 deferred. Private names
+structures, inductives and theorems: 301 adapted, 5 reused and 98 deferred. Private names
 use their source spelling, not Lean's generated private-name prefix. Anonymous
 instances, examples and generated constructor/proof declarations are not
 separate ledger rows; the exhaustive project audit includes their compiled
 mathematical declarations.
 
 The nine retained source modules are relocated by mathematical responsibility.
-Their operations and theorem assumptions are preserved. Event traces and
+Their operations and theorem assumptions are preserved. Five identical helper
+proofs are consolidated in public `ListPartition` lemmas for head membership,
+block symmetry, singleton initialization, edge monotonicity and empty-edge
+connectivity; the array/refinement modules use those results directly. Event traces and
 associated observed-execution cost bounds (`DisjointSetsArrayTrace` and the
 trace-facing part of `DisjointSetsArrayForest`) remain reference. Removed
 historical diagnostic declarations remain available in the snapshot; the new
