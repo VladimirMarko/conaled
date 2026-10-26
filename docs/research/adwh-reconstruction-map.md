@@ -38,7 +38,7 @@ not erase those distinctions.
 | Asymptotic/recurrence/amortized reasoning; sequence representations | #154 starts instrumented composition. Growth proofs, array/tree indexing and allocation models remain to be selected against actual consumers. |
 | Ordered search; sorting; rank/selection | Keep sortedness, permutation, stability, rank and query lower bounds distinct. Tree split/join clients may justify shared laws; naming overlap does not. |
 | Coin choice; weighted tree construction | Compare enumeration, greedy and tabulated realizations against independent objective semantics. Canonical denominations and tree exchange hypotheses are local premises. |
-| Connectivity; graph paths/forests/tours | #158 starts partition observations and list/array histories. Dijkstra, spanning-tree minima and jogger tours remain separate obligations. |
+| Connectivity; graph paths/forests/tours | #158 covers partition observations and list/array histories; #169/#172 cover Kruskal tree/forest minima; #180 covers finite Dijkstra. Prim, finite sentinels, graph costs and jogger tours remain separate obligations. |
 | Thinning; knapsack; layered paths | #151 covers a bounded dominance/optimization slice. Fractional boundaries, integer tables, other frontier variants and full cost recovery remain. Layered paths are not endpoint shortest paths. |
 | Subsequences/edit distance; contiguous segments; ordered partitions | Reuse enumeration/optimization transport only after preserving embeddings, edit weights, empty segments, admissibility and tie direction. Bank and paragraph clients retain distinct objectives. |
 | Numeric/shuttle recurrences; interval DP; alphabetic trees | #153 covers generalized-cost bracketing. Numeric tables, shuttle objectives, other interval optimizations and Garsia–Wachs reductions/AVL execution remain. |
@@ -79,13 +79,15 @@ optimality, with the numbered source adapter and exact residual behavior.
 #170 pins finite symmetric lists and prefixes; #171 pins binary random-access
 lists. #172 pins nested Kruskal and global minimum spanning forests.
 #173 pins potential accounting and #179 pins ordered binary search.
-#180 scopes finite Dijkstra distances, paths and target stopping.
-Empty destinations for #180 record selected future scope.
+#180 pins finite Dijkstra distances, ordered paths, target stopping and actual
+closed-search queue agreement. #181 scopes measured lookup and bulk update costs;
+#182 scopes carry/borrow accounting and its mixed-cycle counterexample.
+Empty destinations for #181 and #182 record selected future scope.
 
 ## Dispositions and declaration coverage
 
-[Scope records](adwh-reconstruction-scopes.json) link #151–#155, #157–#173 and #179–#180
-and pin the #151–#155, #157–#173 and #179 candidate destinations. Resolve candidate paths
+[Scope records](adwh-reconstruction-scopes.json) link #151–#155, #157–#173 and #179–#182
+and pin the #151–#155, #157–#173 and #179–#180 candidate destinations. Resolve candidate paths
 at those exact commits until integration; they need not exist at the map's base
 commit. Candidate evidence is partial reconstruction pending acceptance, never
 a whole-module parity assertion. The pinned candidate commits are retained in the integration ancestry, so their

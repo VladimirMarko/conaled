@@ -469,8 +469,38 @@
         "ADWH.Chapter09.DijkstraAllPaths",
         "ADWH.Chapter09.DijkstraTarget"
       ],
+      "destinations": [
+        "Applications/Dijkstra/AllPaths.lean",
+        "Applications/Dijkstra/Core.lean",
+        "Applications/Dijkstra/Observation.lean",
+        "Applications/Dijkstra/Optimality.lean",
+        "Applications/Dijkstra/Paths.lean",
+        "Applications/Dijkstra/Semantics.lean",
+        "Applications/Dijkstra/Store.lean",
+        "Applications/Dijkstra/Target.lean",
+        "Applications/Search/Interpretation.lean",
+        "Examples/Dijkstra.lean"
+      ],
+      "scope": "Complete mathematical-infinity finite Dijkstra distance/path/target closure with accepted-search semantics and actual queue comparison. Finite sentinels, costs and other graph families remain reference.",
+      "candidate": "e0d76c86040f38728289977c355b848cd6c7d8e3",
+      "declaration_map": "docs/research/adwh-dijkstra-provenance.tsv"
+    },
+    {
+      "issue": 181,
+      "modules": [
+        "ADWH.Chapter03.RandomAccessLookupCosts",
+        "ADWH.Chapter03.TreeFlatteningCosts"
+      ],
       "destinations": [],
-      "scope": "Complete mathematical-infinity finite Dijkstra distance/path/target closure with accepted-search semantics and actual queue comparison. Finite sentinels, costs and other graph families remain reference."
+      "scope": "Whole lookup/update cost module plus two perfect-tree witnesses only. Actual branch counts, logarithmic represented-length bounds, ordered bulk updates and counterexamples. Remaining helper declarations are reference."
+    },
+    {
+      "issue": 182,
+      "modules": [
+        "ADWH.Chapter03.RandomAccessEndCosts"
+      ],
+      "destinations": [],
+      "scope": "Selected future carry/borrow, cache-size comparison, separate amortized bounds, bounded drain and mixed-cycle impossibility client. Depends on lookup costs; not reconstructed yet."
     }
   ],
   "related_commitments": [

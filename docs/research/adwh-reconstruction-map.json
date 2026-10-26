@@ -2930,8 +2930,10 @@
         "ADWH.Chapter03.RandomAccessLookupCosts",
         "ADWH.Chapter02.Amortized"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        182
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/random-access-end-costs.json",
         "member_sha256": "a5d313c2521ba3c912cd7441d500a53d0aa4f4c494cde6998de13062da2ec614",
@@ -2976,8 +2978,10 @@
         "ADWH.Chapter03.TreeFlatteningCosts",
         "ADWH.Chapter02.LogarithmicScales"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        181
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/random-access-lookup-costs.json",
         "member_sha256": "7e9f951602e959cafabef521c924acd3376b532cb2912f02921d6c2496bd5cbd",
@@ -3092,8 +3096,10 @@
         "ADWH.Chapter03.RandomAccessLists",
         "ADWH.Chapter02.Asymptotics"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        181
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/tree-flattening-costs.json",
         "member_sha256": "3358ed1c4372b4dbee2db90341b099a97b05bfb96422dfbe5e71c20c050cb6b4",
@@ -7616,7 +7622,7 @@
       "imports": [
         "ADWH.Chapter09.DijkstraPaths"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         180
       ],
@@ -7640,7 +7646,7 @@
         "ADWH.Chapter03.Arrays",
         "ADWH.Chapter07.CoinChangeSelectors"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         180
       ],
@@ -7728,7 +7734,7 @@
       "imports": [
         "ADWH.Chapter09.DijkstraCore"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         180
       ],
@@ -7776,7 +7782,7 @@
         "ADWH.Chapter09.DijkstraOptimality",
         "ADWH.Chapter07.InversionCount"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         180
       ],
@@ -7885,7 +7891,7 @@
         "ADWH.Chapter09.DijkstraPaths",
         "ADWH.Chapter01.Iteration"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         180
       ],
