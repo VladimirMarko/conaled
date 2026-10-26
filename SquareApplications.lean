@@ -1,3 +1,4 @@
+import Examples.KnapsackWorkload
 import Examples.RunCompression
 import Examples.Resources
 import Examples.HeuristicSearch

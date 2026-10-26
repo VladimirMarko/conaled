@@ -76,14 +76,13 @@ ordinary row shape premise is explicit in the bound. This model does not equate
 many immutable API calls with a free physical copy. It models one bulk copy and
 writes to a fresh indexed store, with no compiler or physical allocation theorem.
 
-Remaining source declarations include `rawRun`/`recursiveRun` and their bounds,
-list-row `stepRun`/`tableRun`/`listRun`, `arrayRunRows`/`arrayRun` and their
-whole-workload bounds, observation of returned names, and
-`complete_variants_optimal`. Their later recovery must connect initialization,
-all rows and final observation. This delivery makes no new global knapsack
-optimality, selection-witness equivalence, bit-complexity, peak-space or runtime
-claim. The source's multi-row `arrayTableWithCost_eq` and `swag3WithCost_eq`
-likewise remain outside this row slice.
+The [complete immutable workload](adwh-knapsack-workload.md) under #162 now
+connects initialization, all rows and final names observation to exact source
+selection and independent global optimality. It recovers `arrayRunRows`,
+`arrayRun`, their scalar bounds, the first three whole-run counts and the array
+component of `complete_variants_optimal`. This #154 record retains the scope
+and evidence for the shared row used by that extension. Recursive/list scalar
+work, bit complexity, peak space and runtime claims remain outside both slices.
 
 ## Checked uses and statement review
 
