@@ -1,3 +1,4 @@
+import Examples.DijkstraSentinel
 import Examples.RandomAccessCosts
 import Examples.PotentialAccounting
 import Examples.OrderedSearch

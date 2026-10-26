@@ -157,9 +157,13 @@ instances with the exact `score_le_iff` bridge. These counts do not claim the
 whole Arrays, CoinChangeSelectors, InversionCount, Iteration or
 GraphWorkedExamples modules.
 
-`DijkstraSentinel` remains deferred. Its raw sum guards the edge sentinel but
-not an infinite accumulated label; the source refinement needs all vertices
-reachable, bounded edges and `n * bound < sentinel`. This mathematical-infinity
-slice therefore does not complete that finite-Int executor. NumericCached,
-roots/saved roots, execution costs, jogger variants, shortest-path structure
-modules, and Prim's ordinary/array closures remain separate work.
+The original #180 candidate `e0d76c8` deferred `DijkstraSentinel`. The separate
+[#184 reconstruction](adwh-dijkstra-sentinel.md) now supplies that raw executor
+and its correspondence under all-vertex reachability, bounded edges and
+`n * bound < sentinel`. Its source sum guards the edge sentinel but not an
+infinite accumulated label. #184 also moves the existing private association
+lemma to public `Dijkstra.Store.valuesAt_map_unique`, shared by the genuine and
+raw executors; the ledger records its current destination and historical pin.
+NumericCached, roots/saved roots, execution costs, broader jogger clients,
+shortest-path structure modules, and Prim's ordinary/array closures remain
+separate work.
