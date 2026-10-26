@@ -1,3 +1,4 @@
+import Examples.TreeFlatteningCosts
 import Examples.DijkstraSentinel
 import Examples.RandomAccessEndCosts
 import Examples.RandomAccessCosts

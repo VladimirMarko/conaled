@@ -1,0 +1,244 @@
+{
+  "issue": 190,
+  "archive_sha256": "8a5e2b2d5535a149a67111c6adf9ba9e173cbbd2a986d63dc702d75178252e63",
+  "source_sha256": {
+    "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean": "1d3b29808ce0d6e2c6b2f48d91cddccd0ec307fda47d53b8144282277e512641"
+  },
+  "selected_count": 22,
+  "already_accepted_count": 2,
+  "deferred_count": 0,
+  "declarations": [
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 31,
+      "declaration": "nodes",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.nodes",
+      "file": "Applications/Resources/TreeFlattening/Core.lean",
+      "note": "Reuse structuralSizeRun work on Bracketing.Tree; nodes_leaf/nodes_fork recover the exact source recurrence."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 35,
+      "declaration": "pending",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.pending",
+      "file": "Applications/Resources/TreeFlattening/Core.lean",
+      "note": "Shared Bracketing tree contract; exact raw cached execution recovered by cachedFromTWithCost_erasure / cachedFromTsWithCost_erasure. Original domain and count retained."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 40,
+      "declaration": "appendWithCost",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.appendWithCost",
+      "file": "Applications/Resources/TreeFlattening/Core.lean",
+      "note": "Shared Bracketing tree contract; exact raw cached execution recovered by cachedFromTWithCost_erasure / cachedFromTsWithCost_erasure. Original domain and count retained."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 46,
+      "declaration": "appendWithCost_exact",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.appendWithCost_exact",
+      "file": "Applications/Resources/TreeFlattening/Core.lean",
+      "note": "Shared Bracketing tree contract; exact raw cached execution recovered by cachedFromTWithCost_erasure / cachedFromTsWithCost_erasure. Original domain and count retained."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 53,
+      "declaration": "fromTWithCost",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.fromTWithCost",
+      "file": "Applications/Resources/TreeFlattening/Core.lean",
+      "note": "Shared Bracketing tree contract; exact raw cached execution recovered by cachedFromTWithCost_erasure / cachedFromTsWithCost_erasure. Original domain and count retained."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 61,
+      "declaration": "fromTWithCost_value",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.fromTWithCost_value",
+      "file": "Applications/Resources/TreeFlattening/Core.lean",
+      "note": "Shared Bracketing tree contract; exact raw cached execution recovered by cachedFromTWithCost_erasure / cachedFromTsWithCost_erasure. Original domain and count retained."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 67,
+      "declaration": "copies",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.copies",
+      "file": "Applications/Resources/TreeFlattening/Core.lean",
+      "note": "Shared Bracketing tree contract; exact raw cached execution recovered by cachedFromTWithCost_erasure / cachedFromTsWithCost_erasure. Original domain and count retained."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 71,
+      "declaration": "fromTWithCost_count",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.fromTWithCost_count",
+      "file": "Applications/Resources/TreeFlattening/Core.lean",
+      "note": "Shared Bracketing tree contract; exact raw cached execution recovered by cachedFromTWithCost_erasure / cachedFromTsWithCost_erasure. Original domain and count retained."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 81,
+      "declaration": "fromTsWithCost",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.fromTsWithCost",
+      "file": "Applications/Resources/TreeFlattening/Core.lean",
+      "note": "Shared Bracketing tree contract; exact raw cached execution recovered by cachedFromTWithCost_erasure / cachedFromTsWithCost_erasure. Original domain and count retained."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 93,
+      "declaration": "fromTs",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.fromTs",
+      "file": "Applications/Resources/TreeFlattening/Core.lean",
+      "note": "Shared Bracketing tree contract; exact raw cached execution recovered by cachedFromTWithCost_erasure / cachedFromTsWithCost_erasure. Original domain and count retained."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 95,
+      "declaration": "fromTsWithCost_exact",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.fromTsWithCost_exact",
+      "file": "Applications/Resources/TreeFlattening/Core.lean",
+      "note": "Shared Bracketing tree contract; exact raw cached execution recovered by cachedFromTWithCost_erasure / cachedFromTsWithCost_erasure. Original domain and count retained."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 114,
+      "declaration": "fromTs_refinement",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.fromTs_refinement",
+      "file": "Applications/Resources/TreeFlattening/Core.lean",
+      "note": "Shared Bracketing tree contract; exact raw cached execution recovered by cachedFromTWithCost_erasure / cachedFromTsWithCost_erasure. Original domain and count retained."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 117,
+      "declaration": "fromTs_singleton",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.fromTs_singleton",
+      "file": "Applications/Resources/TreeFlattening/Core.lean",
+      "note": "Shared Bracketing tree contract; exact raw cached execution recovered by cachedFromTWithCost_erasure / cachedFromTsWithCost_erasure. Original domain and count retained."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 120,
+      "declaration": "fromTs_suffix",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.fromTs_suffix",
+      "file": "Applications/Resources/TreeFlattening/Core.lean",
+      "note": "Shared Bracketing tree contract; exact raw cached execution recovered by cachedFromTWithCost_erasure / cachedFromTsWithCost_erasure. Original domain and count retained."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 124,
+      "declaration": "pending_append",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.pending_append",
+      "file": "Applications/Resources/TreeFlattening/Core.lean",
+      "note": "Shared Bracketing tree contract; exact raw cached execution recovered by cachedFromTWithCost_erasure / cachedFromTsWithCost_erasure. Original domain and count retained."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 130,
+      "declaration": "nodes_perfect",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.nodes_perfect",
+      "file": "Applications/Resources/TreeFlattening/Growth.lean",
+      "note": "Original Perfect-rank hypotheses and exact offsets/bounds retained on erased tree; full measured erasure simulation transports to actual cached execution."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 138,
+      "declaration": "copies_perfect",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.copies_perfect",
+      "file": "Applications/Resources/TreeFlattening/Growth.lean",
+      "note": "Original Perfect-rank hypotheses and exact offsets/bounds retained on erased tree; full measured erasure simulation transports to actual cached execution."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 147,
+      "declaration": "fromTWithCost_perfect_exact",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.fromTWithCost_perfect_exact",
+      "file": "Applications/Resources/TreeFlattening/Growth.lean",
+      "note": "Original Perfect-rank hypotheses and exact offsets/bounds retained on erased tree; full measured erasure simulation transports to actual cached execution."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 155,
+      "declaration": "fromTsWithCost_perfect_exact",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.fromTsWithCost_perfect_exact",
+      "file": "Applications/Resources/TreeFlattening/Growth.lean",
+      "note": "Original Perfect-rank hypotheses and exact offsets/bounds retained on erased tree; full measured erasure simulation transports to actual cached execution."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 160,
+      "declaration": "fromTWithCost_perfect_bounds",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.fromTWithCost_perfect_bounds",
+      "file": "Applications/Resources/TreeFlattening/Growth.lean",
+      "note": "Original Perfect-rank hypotheses and exact offsets/bounds retained on erased tree; full measured erasure simulation transports to actual cached execution."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 171,
+      "declaration": "perfectTree",
+      "status": "reused-181",
+      "destination": "Resources.RandomAccessCosts.perfectTree",
+      "file": "Applications/Resources/RandomAccess/Families.lean",
+      "note": "Already accepted #181; reused without implementation or statement changes."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 175,
+      "declaration": "perfectTree_valid",
+      "status": "reused-181",
+      "destination": "Resources.RandomAccessCosts.perfectTree_valid",
+      "file": "Applications/Resources/RandomAccess/Families.lean",
+      "note": "Already accepted #181; reused without implementation or statement changes."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 180,
+      "declaration": "recursive_flatten_theta",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.recursive_flatten_theta",
+      "file": "Applications/Resources/TreeFlattening/Growth.lean",
+      "note": "Actual cached-source execution growth under standard Mathlib IsTheta atTop on real-cast Nat costs; explicit original integer constants and thresholds retained. No custom NatTheta predicate restored."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/TreeFlatteningCosts.lean",
+      "line": 190,
+      "declaration": "stack_flatten_theta",
+      "status": "adapted",
+      "destination": "Resources.TreeFlattening.stack_flatten_theta",
+      "file": "Applications/Resources/TreeFlattening/Growth.lean",
+      "note": "Actual cached-source execution growth under standard Mathlib IsTheta atTop on real-cast Nat costs; explicit original integer constants and thresholds retained. No custom NatTheta predicate restored."
+    }
+  ],
+  "dependency_dispositions": [
+    {
+      "source": "project/adwh-lean/ADWH/Chapter02/Asymptotics.lean",
+      "declarations": [
+        "NatO",
+        "NatTheta"
+      ],
+      "status": "replaced-interface",
+      "destination": [
+        "Asymptotics.IsBigO",
+        "Asymptotics.IsTheta",
+        "Resources.isBigO_of_nat_bound"
+      ],
+      "note": "Only historical definition dependency. Explicit source natural witnesses retained in Growth proofs; standard Mathlib real-cast interface used. Other Asymptotics declarations and all LogarithmicScales remain out of scope."
+    }
+  ]
+}
