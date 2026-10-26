@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "issue": "https://github.com/VladimirMarko/conaled/issues/150",
+  "snapshot": "adwh-checkpoint-233",
+  "archive": "docs/history/algorithm-design-haskell/checkpoint-233.zip",
+  "archive_sha256": "8a5e2b2d5535a149a67111c6adf9ba9e173cbbd2a986d63dc702d75178252e63",
+  "member_manifest_sha256": "c24bc957a652b5be67200b0be9348f61263c440c3b7cab16d2aa5732a1cf3c8f",
+  "verified_members_before_and_after": 10463,
+  "matched_source_fingerprints": 1240,
+  "matched_control_fingerprints": 5,
+  "worktree_base": "69430f359c3678a8d36a7518f5e9206145cb07d6",
+  "status": "passed",
+  "stage": "completed",
+  "started_utc": "2026-10-26T00:36:24.125125+00:00",
+  "lean_version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "compiled_modules": 1240,
+  "build_seconds": 1260.788168979001,
+  "audit": {
+    "declarations": 83281,
+    "status": "passed",
+    "theorem_declarations_including_generated": 51041
+  },
+  "audit_seconds": 203.0274414359992,
+  "coverage": {
+    "status": "passed",
+    "coverage_sha256": "4f893163006dfd2e504d30ce105bbf45090df67712b743f67c516804df762f59",
+    "requested_reference_count": 17846,
+    "checked_reference_count": 17846,
+    "with_mathlib": false,
+    "scope": "Checks theorem references against current audited declarations; does not establish that the source-to-Lean coverage claims are complete."
+  },
+  "source_and_controls_unchanged": true,
+  "total_seconds": 1474.4773072449989,
+  "allowed_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "workers": 4,
+  "lean_workers_per_module": 1,
+  "supplied_project_objects_used": false,
+  "optional_mathlib_references_skipped": 0,
+  "elapsed_scope": "Gate source/control checks, fresh build, audit, coverage and final source/control comparison; excludes archive restoration and later evidence packaging.",
+  "evidence_directory": "/home/vlad/.local/state/conaled-supervision/2026-10-26/149/150",
+  "correspondence_hash_crosscheck": {
+    "matching": 973,
+    "mismatching": 266,
+    "no_correspondence": 1
+  },
+  "reproducer": "docs/research/adwh-reference-validation.py",
+  "reproducer_sha256": "a45257b2d7c740a353d5fb4a63e40905e21eab1a47d7cdc01a30bfc8c3319426",
+  "reproducer_validation": {
+    "archive_restore_and_all_member_hashes": "passed",
+    "executed_build_audit_body_ast_equivalence": "passed",
+    "failure_receipts": "passed: archive digest, invalid ZIP, missing member",
+    "build_audit_tail_unchanged_after_failure_receipt_fix": true
+  },
+  "evidence_sha256": {
+    "validate.py": "45ab810230fbca905b45298d17096f7f5b7e3c840d5acacb503ace7be33a7841",
+    "result.json": "a5a759db8ca2892669aa3f1612971ee886980160a4b5ac5f92165bcd2354d81d",
+    "commands.jsonl": "57dedf93c481e4bda790934d443ce734ce2b6850e5c522fae42f055c5c318d4f",
+    "audit-command.json": "f4351f7a4b0535770a14034b1fec6633d32ba0521cca3ff31790925c33938dcc",
+    "proof-audit.jsonl": "9578451de184c0016afc8f87d50c9a86759aff27827a089da9ed43b4bb3021ed",
+    "coverage-validation.json": "981d9b4d307269933f5f201fb11636368e0b0af554d74504c5057f1b1eb03fbc",
+    "source-and-controls.json": "27fd22fb5bdb550dd7aa94039d55db12b20800246b925a5b8d4b10d8a80294c2",
+    "integrity.json": "5d2775e309f39aa5c1d846bd41dfc95ae69824ff4104545bcf94bf2a5790cbb8",
+    "correspondence-hash-crosscheck.json": "4e370845f7f9445d01671f09a87d0edac1b1f7d056572f67a3db6f1731f58f22",
+    "reproduction-smoke.json": "a745aba144a4d10f81e1a4defe6fc43b1bf4b5c1c302702ba35771061b86712e"
+  },
+  "scope_exclusions": [
+    "optional ADWHMathlib",
+    "kernel experiments",
+    "stock sixteen-queens proof",
+    "source-to-textbook semantic coverage review",
+    "production conaled integration"
+  ],
+  "reproducer_elapsed_scope": "Portable driver total_seconds includes restoration; historical gate timing above excludes restoration."
+}
