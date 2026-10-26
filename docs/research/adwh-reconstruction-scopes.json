@@ -237,8 +237,16 @@
         "ADWH.Chapter07.CoinChangeDecreasing",
         "ADWH.Chapter07.CoinChangeMinima"
       ],
-      "destinations": [],
-      "scope": "Aligned coin-tuple enumeration, quotient/residual lexical greedy and minimum-count selectors with exact ties. Canonicality, work bounds, residual variants and all-minima selectors remain reference."
+      "destinations": [
+        "Applications/CoinChoice/Basic.lean",
+        "Applications/CoinChoice/Presentation.lean",
+        "Applications/CoinChoice/Selection.lean",
+        "Applications/CoinChoice/Descending.lean",
+        "Examples/CoinChoice.lean"
+      ],
+      "scope": "Aligned coin-tuple enumeration, quotient/residual lexical greedy and minimum-count selectors with exact ties. Canonicality, work bounds, residual variants and all-minima selectors remain reference.",
+      "candidate": "b52cbd8e11c474f0864d0844379edfdc1b21e400",
+      "declaration_map": "docs/research/adwh-coin-choice-provenance.tsv"
     },
     {
       "issue": 164,

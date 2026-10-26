@@ -67,13 +67,15 @@ optima and the source thinning scan; subsequences and cost models remain referen
 [#162](https://github.com/VladimirMarko/conaled/issues/162) pins complete immutable
 knapsack initialization, rows and observation, extending #154 with exact selection
 and whole-workload scalar recovery.
-[#163](https://github.com/VladimirMarko/conaled/issues/163) scopes coin enumeration
-and lexical versus minimum-count choice; it has no reconstruction candidate yet.
+[#163](https://github.com/VladimirMarko/conaled/issues/163) pins coin enumeration
+and lexical versus minimum-count choice, including first/last/descending ties.
+#164 scopes increasing subsequences, #165 occurrence-rank selection and #166
+Huffman global optimality. Their empty destinations record selected future scope.
 
 ## Dispositions and declaration coverage
 
-[Scope records](adwh-reconstruction-scopes.json) link #151–#155 and #157–#163
-and pin the #151–#155 and #157–#162 candidate destinations. Resolve candidate paths
+[Scope records](adwh-reconstruction-scopes.json) link #151–#155 and #157–#166
+and pin the #151–#155 and #157–#163 candidate destinations. Resolve candidate paths
 at those exact commits until integration; they need not exist at the map's base
 commit. Candidate evidence is partial reconstruction pending acceptance, never
 a whole-module parity assertion. The pinned candidate commits are retained in the integration ancestry, so their
