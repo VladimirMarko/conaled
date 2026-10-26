@@ -6141,8 +6141,10 @@
       "imports": [
         "Std"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        163
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/coin-change.json",
         "member_sha256": "29003eed9c599ed4caf5c4084fa560848b4bedf1ff48ac1a0d4c78bf872f8358",
@@ -6204,8 +6206,10 @@
       "imports": [
         "Std"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        163
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/coin-change-decreasing.json",
         "member_sha256": "293e94a43a52789b62716a929856eb122bfd9ae39b1c40a811849142e87b8a02",
@@ -6267,8 +6271,10 @@
       "imports": [
         "ADWH.Chapter07.CoinChangeDecreasing"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        163
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/coin-change-minima.json",
         "member_sha256": "a418bae2343181037dc5d8033978b0bf345906b002f2273d4203f30f7022712b",
@@ -11698,7 +11704,7 @@
         "Std",
         "ADWH.Chapter10.Thinning"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         161
       ],
@@ -11957,8 +11963,10 @@
         "ADWH.Chapter12.BankCached",
         "ADWH.Chapter12.BankTransfers"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "partial reconstruction",
+      "scope_issues": [
+        162
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter12-bank-primitive-costs.json",
         "member_sha256": "20f4c49a094185341dd76f3406c3884827e4180f475f10da8484caab914d7004",

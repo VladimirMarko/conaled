@@ -199,18 +199,43 @@
       "modules": [
         "ADWH.Chapter11.Segments"
       ],
-      "destinations": [],
-      "scope": "Bounded prefix/segment optima, source thinning and single-witness scan through maxSegmentThinScan_nonnegative; subsequence/LUS definitions and other representation/cost modules remain reference."
+      "destinations": [
+        "Applications/Segments/Candidates.lean",
+        "Applications/Segments/Prefixes.lean",
+        "Applications/Segments/Maximum.lean",
+        "Applications/Segments/Observation.lean",
+        "Examples/BoundedSegments.lean"
+      ],
+      "scope": "Bounded prefix/segment optima, source thinning and single-witness scan through maxSegmentThinScan_nonnegative; subsequence/LUS definitions and other representation/cost modules remain reference.",
+      "candidate": "2d0bbac95b5cbe5b09931c38c71e733393bee25c",
+      "declaration_map": "docs/research/adwh-bounded-segments-provenance.tsv"
     },
     {
       "issue": 162,
       "modules": [
         "ADWH.Chapter13.Knapsack",
         "ADWH.Chapter13.KnapsackArray",
-        "ADWH.Chapter13.KnapsackWork"
+        "ADWH.Chapter13.KnapsackWork",
+        "ADWH.Chapter12.BankPrimitiveCosts"
+      ],
+      "destinations": [
+        "Applications/Resources/KnapsackSemantics.lean",
+        "Applications/Resources/KnapsackWorkload.lean",
+        "Examples/KnapsackWorkload.lean"
+      ],
+      "scope": "Complete immutable-array workload, exact recursive selection agreement, initialization/all rows/output traversal and measured source projections. Recursive/list scalar work, bit complexity and physical-memory claims remain reference.",
+      "candidate": "10ae7ff4edfeea184d4072e994778f9917e0527a",
+      "declaration_map": "docs/research/adwh-knapsack-workload-provenance.tsv"
+    },
+    {
+      "issue": 163,
+      "modules": [
+        "ADWH.Chapter07.CoinChange",
+        "ADWH.Chapter07.CoinChangeDecreasing",
+        "ADWH.Chapter07.CoinChangeMinima"
       ],
       "destinations": [],
-      "scope": "Complete immutable-array workload, exact recursive selection agreement, initialization/all rows/output traversal and measured source projections. Recursive/list scalar work, bit complexity and physical-memory claims remain reference."
+      "scope": "Aligned coin-tuple enumeration, quotient/residual lexical greedy and minimum-count selectors with exact ties. Canonicality, work bounds, residual variants and all-minima selectors remain reference."
     }
   ],
   "related_commitments": [
