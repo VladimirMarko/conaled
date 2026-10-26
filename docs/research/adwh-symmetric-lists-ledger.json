@@ -1,0 +1,996 @@
+{
+  "issue": 170,
+  "archive_sha256": "8a5e2b2d5535a149a67111c6adf9ba9e173cbbd2a986d63dc702d75178252e63",
+  "source_sha256": {
+    "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean": "259b40fb4710846f4dd4d9dfede16548ade259c65428c1a025b75190377810d2",
+    "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean": "4b22ff629c7967c09580e77acd2278135b2cbbfb4a966e85d90d73cbe03f1e5c",
+    "project/adwh-lean/ADWH/Chapter01/LazyListEvaluation.lean": "4f6308bd80e6b10c58d2eb97dbccf40abb8e3b625e2f93b1d5288c6e277ad01c"
+  },
+  "count_note": "121 declarations in two primary modules, including five same-line simp declarations missed by the initial scope inventory; 86 selected and 35 deferred. Two finite helper declarations additional.",
+  "declarations": [
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "SymList",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.SymList",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "fromSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.fromSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "Inv",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.Inv",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "single",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.single",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "invSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.invSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "single_eq_true_iff",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.single_eq_true_iff",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "invSL_eq_true_iff",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.invSL_eq_true_iff",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "nilSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.nilSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "nullSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.nullSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "singleSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.singleSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "lengthSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.lengthSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "inv_nilSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.inv_nilSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "fromSL_nilSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.fromSL_nilSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "length_fromSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.length_fromSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "nullSL_eq_true_iff",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.nullSL_eq_true_iff",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "nullSL_eq_true_iff_nilSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.nullSL_eq_true_iff_nilSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "lengthSL_eq_zero_iff",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.lengthSL_eq_zero_iff",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "singleSL_eq_true_iff",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.singleSL_eq_true_iff",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "reverse_eq_self_of_length_le_one",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.reverse_eq_self_of_length_le_one",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "reverseSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.reverseSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "inv_reverseSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.inv_reverseSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "reverseSL_reverseSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.reverseSL_reverseSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "fromSL_reverseSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.fromSL_reverseSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "consSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.consSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "snocSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.snocSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "inv_consSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.inv_consSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "inv_snocSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.inv_snocSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "fromSL_consSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.fromSL_consSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "fromSL_snocSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.fromSL_snocSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "headSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.headSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "lastSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.lastSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "headSL_eq_head",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.headSL_eq_head",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "lastSL_eq_headSL_reverseSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.lastSL_eq_headSL_reverseSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "lastSL_eq_getLast",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.lastSL_eq_getLast",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "splitSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.splitSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "fromSL_splitSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.fromSL_splitSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "inv_splitSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.inv_splitSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "tailSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.tailSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "inv_tailSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.inv_tailSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "fromSL_tailSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.fromSL_tailSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "initSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.initSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "initSL_empty_back",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.initSL_empty_back",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "initSL_singleton_back",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.initSL_singleton_back",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "initSL_long_back",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.initSL_long_back",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "inv_initSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.inv_initSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "fromSL_initSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.fromSL_initSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "lengthSL_reverseSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.lengthSL_reverseSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "lengthSL_splitSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.lengthSL_splitSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "tailSL_length_lt",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.tailSL_length_lt",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "initSL_length_lt",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.initSL_length_lt",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "headSL_eq_none_iff",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.headSL_eq_none_iff",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "fromSL_eq_cons",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.fromSL_eq_cons",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "dropWhileSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.dropWhileSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "inv_dropWhileSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.inv_dropWhileSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "fromSL_dropWhileSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.fromSL_dropWhileSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "toSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.toSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "inv_toSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.inv_toSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "fromSL_toSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.fromSL_toSL",
+      "file": "Applications/Sequences/Symmetric/Core.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "inits",
+      "status": "reused",
+      "destination": "Sequences.Symmetric.inits",
+      "file": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "note": "Standard List semantics/laws; checked source recurrence or representation bridge."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "scanl_snocSL_refinement",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.scanl_snocSL_refinement",
+      "file": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "initsViaSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.initsViaSL",
+      "file": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "initsViaSL_eq_inits",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.initsViaSL_eq_inits",
+      "file": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "scanl_reverse_refinement",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.scanl_reverse_refinement",
+      "file": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "initsReverseScan",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.initsReverseScan",
+      "file": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "initsReverseScan_eq_inits",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.initsReverseScan_eq_inits",
+      "file": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "inits_append_singleton",
+      "status": "reused",
+      "destination": "Sequences.Symmetric.inits_append_singleton",
+      "file": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "note": "Standard List semantics/laws; checked source recurrence or representation bridge."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "inits_eq_dropLast_append",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.inits_eq_dropLast_append",
+      "file": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "initsSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.initsSL",
+      "file": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "inv_initsSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.inv_initsSL",
+      "file": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "fromSL_initsSL",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.fromSL_initsSL",
+      "file": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricLists.lean",
+      "declaration": "initsSL_members_valid",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.initsSL_members_valid",
+      "file": "Applications/Sequences/Symmetric/Prefixes.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "representation_front",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.representation_front",
+      "file": "Applications/Sequences/Symmetric/Finite.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "representation_back",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.representation_back",
+      "file": "Applications/Sequences/Symmetric/Finite.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "representations_four",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.representations_four",
+      "file": "Applications/Sequences/Symmetric/Finite.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "four_foldl_snoc",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.four_foldl_snoc",
+      "file": "Applications/Sequences/Symmetric/Finite.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "four_foldr_cons",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.four_foldr_cons",
+      "file": "Applications/Sequences/Symmetric/Finite.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "four_mixed",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.four_mixed",
+      "file": "Applications/Sequences/Symmetric/Finite.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "inits_bridge",
+      "status": "reused",
+      "destination": "Sequences.Symmetric.inits_bridge",
+      "file": "Applications/Sequences/Symmetric/Finite.lean",
+      "note": "Standard List semantics/laws; checked source recurrence or representation bridge."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "scanRun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "scanRun_value",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "scanRun_work",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "scanRun_length",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "count_scanRun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "symmetricRun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "reverseScanRun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "symmetricRun_value",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "reverseScanRun_value",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "count_symmetricRun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "count_reverseScanRun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "online_outer_linear",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "symmetricRun_symbols",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "reverseScanRun_symbols",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "online_symbols_quadratic",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "tails_append_singleton",
+      "status": "reused",
+      "destination": "Sequences.Symmetric.tails_append_singleton",
+      "file": "Applications/Sequences/Symmetric/Finite.lean",
+      "note": "Standard List semantics/laws; checked source recurrence or representation bridge."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "offlineInits",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.offlineInits",
+      "file": "Applications/Sequences/Symmetric/Finite.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "offlineInits_value",
+      "status": "reused",
+      "destination": "Sequences.Symmetric.offlineInits_value",
+      "file": "Applications/Sequences/Symmetric/Finite.lean",
+      "note": "Standard List semantics/laws; checked source recurrence or representation bridge."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "offlineRun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "offlineRun_value",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "offlineRun_work",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "offlineRun_length",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "count_offlineRun",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Explicit evaluator/demand-cost family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "finitePrefix",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.finitePrefix",
+      "file": "Applications/Sequences/Symmetric/Finite.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "prefix_succ",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.prefix_succ",
+      "file": "Applications/Sequences/Symmetric/Finite.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "scanState_symmetric_inv",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.scanState_symmetric_inv",
+      "file": "Applications/Sequences/Symmetric/Finite.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "scanState_symmetric_value",
+      "status": "adapted",
+      "destination": "Sequences.Symmetric.scanState_symmetric_value",
+      "file": "Applications/Sequences/Symmetric/Finite.lean",
+      "note": "Original premises retained; see grouped statement review."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "scanState_reverse_value",
+      "status": "reused",
+      "destination": "Sequences.Symmetric.scanState_reverse_value",
+      "file": "Applications/Sequences/Symmetric/Finite.lean",
+      "note": "Standard List semantics/laws; checked source recurrence or representation bridge."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "semantic_scan_refinement",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Lazy-domain family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "symmetricOnline",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Lazy-domain family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "reverseScanOnline",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Lazy-domain family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "ordinaryOnline",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Lazy-domain family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "symmetricOnline_refinement",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Lazy-domain family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "reverseScanOnline_refinement",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Lazy-domain family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "online_same_semantics",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Lazy-domain family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "symmetricOnline_finite",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Lazy-domain family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "reverseScanOnline_finite",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Lazy-domain family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "symmetricOnline_stream",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Lazy-domain family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "reverseScanOnline_stream",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Lazy-domain family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "online_observes_every_prefix",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Lazy-domain family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "online_result_is_infinite",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Lazy-domain family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "reverseSemantic",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Lazy-domain family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter03/SymmetricPrefixes.lean",
+      "declaration": "reverseSemantic_stream",
+      "status": "deferred",
+      "destination": null,
+      "file": null,
+      "note": "Lazy-domain family; retained in checkpoint, owned by #149."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter01/LazyListEvaluation.lean",
+      "declaration": "scanState",
+      "status": "adapted-private",
+      "destination": "Sequences.Symmetric.sourceScanState",
+      "file": "Applications/Sequences/Symmetric/Finite.lean",
+      "note": "Finite recurrence only; sourceScanState_eq_foldl proves arbitrary-seed correspondence. No lazy imports."
+    },
+    {
+      "source": "project/adwh-lean/ADWH/Chapter01/LazyListEvaluation.lean",
+      "declaration": "scanState_succ",
+      "status": "adapted-private",
+      "destination": "Sequences.Symmetric.sourceScanState_succ",
+      "file": "Applications/Sequences/Symmetric/Finite.lean",
+      "note": "Finite recurrence only; sourceScanState_eq_foldl proves arbitrary-seed correspondence. No lazy imports."
+    }
+  ]
+}
