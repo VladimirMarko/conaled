@@ -1,33 +1,11 @@
 """Revalidate ADWH checkpoint 233 in a new directory; run through direnv.
 Usage: python3 docs/research/adwh-reference-validation.py NEW_STATE_DIRECTORY
 """
+from datetime import datetime, timezone
 from pathlib import Path
 import concurrent.futures as cf, hashlib, importlib.util, json, os, re, subprocess, time, traceback, sys, zipfile, shutil
 S = Path(sys.argv[1]).resolve()
 S.mkdir(exist_ok=False, parents=True)
-archive_root = Path(__file__).resolve().parents[1] / 'history/algorithm-design-haskell'
-meta = json.loads((archive_root / 'checkpoint-233.json').read_text())
-
-def sha(p):
-    with p.open('rb') as f:
-        return hashlib.file_digest(f, 'sha256').hexdigest()
-assert sha(archive_root / meta['archive']) == meta['archive_sha256']
-assert sha(archive_root / meta['member_manifest']) == meta['member_manifest_sha256']
-restored = S / 'restored'
-with zipfile.ZipFile(archive_root / meta['archive']) as z:
-    z.extractall(restored)
-rows = (archive_root / meta['member_manifest']).read_text().splitlines()
-assert len(rows) == meta['regular_files']
-for row in rows:
-    h, n = row.split('  ', 1)
-    assert sha(restored / n) == h, n
-B = S / 'build'
-shutil.copytree(restored / 'project/adwh-lean', B)
-O = S / 'fresh-objects'
-O.mkdir(exist_ok=False)
-spec = importlib.util.spec_from_file_location('gate', B / 'scripts/check.py')
-g = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(g)
 
 def save(n, v):
     (S / n).write_text(json.dumps(v, indent=2) + '\n')
@@ -36,10 +14,39 @@ def stop():
     if any(((S.parent / n).exists() for n in ['STOP', 'USAGE-UNKNOWN'])):
         raise RuntimeError('Coordinator stop sentinel')
 start = time.monotonic()
-result = {'status': 'running', 'stage': 'integrity', 'started_utc': g.datetime.now(g.timezone.utc).isoformat()}
+result = {'status': 'running', 'stage': 'integrity', 'started_utc': datetime.now(timezone.utc).isoformat()}
 save('result.json', result)
 try:
     stop()
+    archive_root = Path(__file__).resolve().parents[1] / 'history/algorithm-design-haskell'
+    meta = json.loads((archive_root / 'checkpoint-233.json').read_text())
+
+    def sha(p):
+        with p.open('rb') as f:
+            return hashlib.file_digest(f, 'sha256').hexdigest()
+    result['stage'] = 'archive_integrity'
+    assert sha(archive_root / meta['archive']) == meta['archive_sha256']
+    assert sha(archive_root / meta['member_manifest']) == meta['member_manifest_sha256']
+    result['stage'] = 'archive_restoration'
+    restored = S / 'restored'
+    with zipfile.ZipFile(archive_root / meta['archive']) as z:
+        z.extractall(restored)
+    result['stage'] = 'member_integrity'
+    rows = (archive_root / meta['member_manifest']).read_text().splitlines()
+    assert len(rows) == meta['regular_files']
+    for row in rows:
+        h, n = row.split('  ', 1)
+        assert sha(restored / n) == h, n
+    result['stage'] = 'prepare_sources'
+    B = S / 'build'
+    shutil.copytree(restored / 'project/adwh-lean', B)
+    O = S / 'fresh-objects'
+    O.mkdir(exist_ok=False)
+    spec = importlib.util.spec_from_file_location('gate', B / 'scripts/check.py')
+    g = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(g)
+    stop()
+    result['stage'] = 'source_gate'
     before = g.source_gate(B, 'ADWH')
     controls = g.control_gate()
     supplied = json.loads((B / 'reports/verification.json').read_text())

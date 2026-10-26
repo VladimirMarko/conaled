@@ -93,7 +93,12 @@ direnv exec . python3 docs/research/adwh-reference-validation.py /tmp/adwh-valid
 The tracked driver adds archive restoration to the local run's build driver;
 it does not change the supplied gate or Lean sources. It checks `STOP` and
 `USAGE-UNKNOWN` files in the destination's parent between build completions.
-Revalidation requires no Downloads artifact or supplied project objects.
+Revalidation requires no Downloads artifact or supplied project objects. The portable
+driver records the failing stage and traceback even when archive integrity or
+restoration fails. Its total elapsed time includes restoration; the historical
+gate timing above excludes it. Three synthetic failure checks run with
+`direnv exec . python3 scripts/test-adwh-reference-validation.py`. The build and
+audit body is unchanged by the failure-receipt correction.
 
 The production conaled audit uses its own module ownership rules and enumerates
 module metadata plus current-module declarations. It separates compiler-created

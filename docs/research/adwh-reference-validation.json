@@ -48,10 +48,12 @@
     "no_correspondence": 1
   },
   "reproducer": "docs/research/adwh-reference-validation.py",
-  "reproducer_sha256": "96d824d5796f05e77eded92a1bbea9f56f1323f71a2cfbbfdf6cb4e5311c716a",
+  "reproducer_sha256": "a45257b2d7c740a353d5fb4a63e40905e21eab1a47d7cdc01a30bfc8c3319426",
   "reproducer_validation": {
     "archive_restore_and_all_member_hashes": "passed",
-    "executed_build_audit_body_ast_equivalence": "passed"
+    "executed_build_audit_body_ast_equivalence": "passed",
+    "failure_receipts": "passed: archive digest, invalid ZIP, missing member",
+    "build_audit_tail_unchanged_after_failure_receipt_fix": true
   },
   "evidence_sha256": {
     "validate.py": "45ab810230fbca905b45298d17096f7f5b7e3c840d5acacb503ace7be33a7841",
@@ -71,5 +73,6 @@
     "stock sixteen-queens proof",
     "source-to-textbook semantic coverage review",
     "production conaled integration"
-  ]
+  ],
+  "reproducer_elapsed_scope": "Portable driver total_seconds includes restoration; historical gate timing above excludes restoration."
 }
