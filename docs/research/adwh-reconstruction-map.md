@@ -57,7 +57,7 @@ before assigning a shared abstraction.
 ## Dispositions and declaration coverage
 
 [Scope records](adwh-reconstruction-scopes.json) link #151–#155, #157 and #158
-and pin the #151/#152/#153 candidate destinations. Resolve candidate paths
+and pin the #151–#155 candidate destinations. Resolve candidate paths
 at those exact commits until integration; they need not exist at the map's base
 commit. Candidate evidence is partial reconstruction pending acceptance, never
 a whole-module parity assertion. The pinned candidate commits are retained in the integration ancestry, so their
@@ -83,7 +83,7 @@ Use these dispositions with an explicit source scope:
 
 A replacement record identifies `(snapshot, archive_member, source_declaration,
 member_sha256)` plus the destination file/declaration, immutable commit, issue,
-disposition and exact scope. The scope file contains concrete #151/#152/#153 examples;
+disposition and exact scope. The scope file contains concrete #151–#155 examples;
 the linked candidate declaration maps supply the full pilot detail. This map
 does not copy their entire acceptance history. Future records must preserve
 source exceptions, failure behavior, ties and theorem assumptions.

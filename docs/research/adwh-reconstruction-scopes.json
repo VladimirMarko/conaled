@@ -89,17 +89,31 @@
     {
       "issue": 155,
       "modules": [
+        "ADWH.Chapter08.LeftistQueue",
         "ADWH.Chapter16.HeuristicCore",
         "ADWH.Chapter16.HeuristicCoverage",
-        "ADWH.Chapter16.HeuristicOptimality",
-        "ADWH.Chapter16.HeuristicTermination",
-        "ADWH.Chapter16.HeuristicSemantics",
         "ADWH.Chapter16.HeuristicExamples",
+        "ADWH.Chapter16.HeuristicOptimality",
+        "ADWH.Chapter16.HeuristicSemantics",
+        "ADWH.Chapter16.HeuristicTermination",
         "ADWH.Chapter16.PriorityInterface",
         "ADWH.Chapter16.PrioritySearchQueue"
       ],
-      "destinations": [],
-      "scope": "Static A*/M* and queue interpretation; incremental rational/infinity repair stays #111."
+      "destinations": [
+        "Applications/Search/HeuristicCore.lean",
+        "Applications/Search/HeuristicCoverage.lean",
+        "Applications/Search/HeuristicOptimality.lean",
+        "Applications/Search/HeuristicSemantics.lean",
+        "Applications/Search/HeuristicTermination.lean",
+        "Applications/Search/Interpretation.lean",
+        "Applications/Search/LeftistQueue.lean",
+        "Applications/Search/PriorityInterface.lean",
+        "Applications/Search/PrioritySearchQueue.lean",
+        "Examples/HeuristicSearch.lean"
+      ],
+      "scope": "Static Nat-cost A*/M*, finite-domain termination, queue laws and distance interpretation. Only named source declarations are reconstructed; rational/infinity adaptation stays #159 and incremental repair stays #111.",
+      "candidate": "3efc9d926333c19f697a21afe7dd08af53e3a8cd",
+      "declaration_map": "docs/research/adwh-search-provenance.tsv"
     },
     {
       "issue": 157,
@@ -180,6 +194,17 @@
       "destination_declaration": "Resources.Thinning.bumpRun",
       "issue": 154,
       "candidate": "1d479aefc990fc0ddff562551034b500632978d2",
+      "disposition": "partial reconstruction"
+    },
+    {
+      "snapshot": "adwh-checkpoint-233",
+      "archive_member": "project/adwh-lean/ADWH/Chapter16/HeuristicOptimality.lean",
+      "member_sha256": "99e99791c3873dd51d61f3fe2f41f0f7d83526e6f0b1c12dcc9dbc41160df074",
+      "source_declaration": "ADWH.Chapter16.HeuristicSearch.astar_correct",
+      "destination_file": "Applications/Search/HeuristicOptimality.lean",
+      "destination_declaration": "Search.Heuristic.astar_correct",
+      "issue": 155,
+      "candidate": "3efc9d926333c19f697a21afe7dd08af53e3a8cd",
       "disposition": "partial reconstruction"
     }
   ]
