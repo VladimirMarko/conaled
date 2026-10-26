@@ -361,11 +361,29 @@
         "Applications/Kruskal/Basic.lean",
         "Applications/Kruskal/Correctness.lean",
         "Applications/Kruskal/Observation.lean",
-        "Examples/Kruskal.lean"
+        "Examples/Kruskal.lean",
+        "Applications/Connectivity/ListPartition.lean"
       ],
       "scope": "Complete flat disjoint-set Kruskal client, independent spanning-tree global optimum, exact source order and numbered-domain failures. Reuses prior disjoint sets. Nested forests, corrected all-edge minimum spanning forests, other graph algorithms and resource models remain reference.",
-      "candidate": "1a90ef08aae99406ff64c65c84d230921fe82ff1",
+      "candidate": "fc1df9c157811518a1fe0b720da861e30e1465ee",
       "declaration_map": "docs/research/adwh-kruskal-provenance.tsv"
+    },
+    {
+      "issue": 170,
+      "modules": [
+        "ADWH.Chapter03.SymmetricLists",
+        "ADWH.Chapter03.SymmetricPrefixes"
+      ],
+      "destinations": [],
+      "scope": "Complete finite symmetric-list semantics and 15 finite prefix declarations with representation consumers. The remaining cost/evaluator and lazy-domain declarations remain reference."
+    },
+    {
+      "issue": 171,
+      "modules": [
+        "ADWH.Chapter03.RandomAccessLists"
+      ],
+      "destinations": [],
+      "scope": "Complete finite cached-tree binary random-access list semantics, canonicality, actual executors and representation consumers. Cost, allocation and amortization models remain reference."
     }
   ],
   "related_commitments": [

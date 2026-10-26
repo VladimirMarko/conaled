@@ -76,10 +76,12 @@ construction. #167 pins fixed-price
 edit alignment with cached row refinement. #168 pins ordered partitions with greedy
 paragraph layout. #169 pins disjoint-set Kruskal and global spanning-tree
 optimality, with the numbered source adapter and exact residual behavior.
+#170 scopes finite symmetric lists and prefixes; #171 scopes binary random-access
+lists. Their empty destinations record selected future scope.
 
 ## Dispositions and declaration coverage
 
-[Scope records](adwh-reconstruction-scopes.json) link #151–#155 and #157–#169
+[Scope records](adwh-reconstruction-scopes.json) link #151–#155 and #157–#171
 and pin the #151–#155 and #157–#169 candidate destinations. Resolve candidate paths
 at those exact commits until integration; they need not exist at the map's base
 commit. Candidate evidence is partial reconstruction pending acceptance, never
