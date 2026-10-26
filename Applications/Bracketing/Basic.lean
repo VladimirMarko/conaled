@@ -1,9 +1,10 @@
 import Applications.Optimization.SelectionSpec
 
 namespace Bracketing
-variable {α : Type}
+universe u
+variable {α : Type u}
 
-inductive Tree (α : Type) where
+inductive Tree (α : Type u) where
   | leaf : α → Tree α
   | fork : Tree α → Tree α → Tree α
   deriving DecidableEq, Repr
