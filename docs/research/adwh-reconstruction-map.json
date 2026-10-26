@@ -1799,8 +1799,10 @@
       "imports": [
         "Std"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        166
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/iteration.json",
         "member_sha256": "4d95fe46ebb29c7eb40fb096d3f443e7ab6f98967d373405995a8ab3622bdb80",
@@ -1990,8 +1992,10 @@
       "imports": [
         "ADWH.Chapter01.Lists"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        166
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/permutations.json",
         "member_sha256": "7c5dbad15d3dcc33370028af2997042f0caac7b850ec7dd9d7b5e2cc85fdc26a",
@@ -4004,8 +4008,10 @@
         "ADWH.Chapter04.SearchTreeBasics",
         "ADWH.Chapter05.Sorting"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        165
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter04-tree-partitions.json",
         "member_sha256": "2b8665583039caf64ea563fb99cbbe73932f67510b457f742314e101dcedd486",
@@ -4828,8 +4834,10 @@
       "imports": [
         "ADWH.Chapter05.QuickCosts"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        165
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter05-quick-selection.json",
         "member_sha256": "4fa3fcb8b04b1e0374b3c0891831530ad21650034d05529564964667bb821b36",
@@ -5821,8 +5829,10 @@
         "ADWH.Chapter05.TopDownMergeCosts",
         "ADWH.Chapter05.QuickSelection"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        165
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter06-selection-baseline.json",
         "member_sha256": "19f277fc5f55cb5c5a13a20e5a92b50d4f4723bff561232c274b21cdbcf9ab17",
@@ -5948,8 +5958,10 @@
       "imports": [
         "ADWH.Chapter06.MedianBalance"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        165
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter06-selection-rank.json",
         "member_sha256": "9114734870e0ca67cfcdaaa606583df9ff688cf3d3f2b5051c933535a883bb59",
@@ -5970,8 +5982,10 @@
         "ADWH.Chapter05.QuickSelection",
         "ADWH.Chapter04.TreePartitions"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        165
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter06-selection-three-way.json",
         "member_sha256": "6579482c21f7432917a0f3eb6143c491e5ac4d9afbca4403c450bf67ac689114",
@@ -7100,8 +7114,10 @@
         "ADWH.Chapter08.HuffmanTree",
         "ADWH.Chapter01.Permutations"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        166
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter08-huffman-exchange.json",
         "member_sha256": "06e03ba9357daf02b820229af3ddfa6ad441c586720d2bb73aee6f77b2f4035f",
@@ -7166,8 +7182,10 @@
         "ADWH.Chapter08.LeftistQueueCosts",
         "ADWH.Chapter01.Iteration"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        166
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter08-huffman-priority.json",
         "member_sha256": "b60bb28f95abaf09c5e9264f94b3f1aeff95bb6786162b61b8704e0d842636c5",
@@ -7252,8 +7270,10 @@
       "imports": [
         "ADWH.Chapter08.TreeEnumeration"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        166
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter08-huffman-tree.json",
         "member_sha256": "e7eb9409aa048450799f45a6c3e5b7142435a53823c9f30ca9cb578e88088fea",
@@ -7317,7 +7337,8 @@
       ],
       "module_disposition": "partial reconstruction",
       "scope_issues": [
-        155
+        155,
+        166
       ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter08-leftist-queue.json",
@@ -7404,8 +7425,10 @@
       "imports": [
         "ADWH.Chapter08.Foldrn"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        166
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/tree-enumeration.json",
         "member_sha256": "bb1ba89483ab0cacf68e7407b67905e77b0bf5f738a823ffe044392727e7d0f1",
@@ -11706,7 +11729,8 @@
       ],
       "module_disposition": "partial reconstruction",
       "scope_issues": [
-        161
+        161,
+        164
       ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/segments.json",

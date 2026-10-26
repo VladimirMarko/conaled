@@ -239,6 +239,40 @@
       ],
       "destinations": [],
       "scope": "Aligned coin-tuple enumeration, quotient/residual lexical greedy and minimum-count selectors with exact ties. Canonicality, work bounds, residual variants and all-minima selectors remain reference."
+    },
+    {
+      "issue": 164,
+      "modules": [
+        "ADWH.Chapter11.Segments"
+      ],
+      "destinations": [],
+      "scope": "Increasing-subsequence enumeration, all-optima membership and actual merged adjacent-thinning LUS. Other representations, edit distance and cost models remain reference."
+    },
+    {
+      "issue": 165,
+      "modules": [
+        "ADWH.Chapter04.TreePartitions",
+        "ADWH.Chapter05.QuickSelection",
+        "ADWH.Chapter06.SelectionThreeWay",
+        "ADWH.Chapter06.SelectionRank",
+        "ADWH.Chapter06.SelectionBaseline"
+      ],
+      "destinations": [],
+      "scope": "Occurrence-rank semantics, three-way selection with valid pivots, standard sort/index, median and monotone transport. Source sorting/cost closures and median-of-medians balance remain reference."
+    },
+    {
+      "issue": 166,
+      "modules": [
+        "ADWH.Chapter08.TreeEnumeration",
+        "ADWH.Chapter08.HuffmanTree",
+        "ADWH.Chapter08.HuffmanExchange",
+        "ADWH.Chapter08.HuffmanPriority",
+        "ADWH.Chapter08.LeftistQueue",
+        "ADWH.Chapter01.Iteration",
+        "ADWH.Chapter01.Permutations"
+      ],
+      "destinations": [],
+      "scope": "Weighted-path global optimum, occurrence-safe exchange and exact-occurrence queue realization; only selected tree/list/iteration helpers. Coding models, queue costs and other Huffman realizations remain reference."
     }
   ],
   "related_commitments": [
