@@ -1,3 +1,4 @@
+import Examples.Resources
 import Examples.ScanFusion
 import Examples.Bracketing
 import Applications.Elaboration.Examples
