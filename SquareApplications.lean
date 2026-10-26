@@ -2,6 +2,7 @@ import Examples.BoundedSegments
 import Examples.KnapsackWorkload
 import Examples.CoinChoice
 import Examples.SelectionTies
+import Examples.RankSelection
 import Examples.RunCompression
 import Examples.Connectivity
 import Examples.RationalSearch
