@@ -1,4 +1,5 @@
 import Examples.Resources
+import Examples.HeuristicSearch
 import Examples.ScanFusion
 import Examples.Bracketing
 import Applications.Elaboration.Examples
