@@ -451,6 +451,7 @@ provenance; it also records source contracts still outside that slice.
 | [Bounded segments](docs/research/adwh-bounded-segments.md) | The actual thinning scan selects a global bounded-length segment optimum. |
 | [Coin choice](docs/research/adwh-coin-choice.md) | Enumeration, lexical greedy choice and minimum-count choice retain their distinct objectives and ties. |
 | [Occurrence-rank selection](docs/research/adwh-rank-selection.md) | Three-way selection, standard sort/index, lower median and monotone value transport agree on rank. |
+| [Ordered partitions and paragraph layout](docs/research/adwh-paragraph-layout.md) | Exact generator/pruning orders and global lexicographic layout optimum, with conditional helper agreement. |
 | [Edit alignment](docs/research/adwh-edit-alignment.md) | Independent fixed-price global optimum and all-entry cached row refinement, with distinct optimal script ties. |
 | [Increasing subsequences](docs/research/adwh-increasing-subsequences.md) | Merged thinning selects a longest strictly increasing sublist while preserving source witness choices. |
 

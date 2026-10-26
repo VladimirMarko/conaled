@@ -335,8 +335,20 @@
         "ADWH.Chapter12.Partitions",
         "ADWH.Chapter12.ParagraphGreedy"
       ],
-      "destinations": [],
-      "scope": "Ordered contiguous partitions, four generators and guarded pruning; actual greedy paragraph layout and helper with independent global lexicographic optimum. Waste objectives, cached frontiers and resource models remain reference."
+      "destinations": [
+        "Applications/OrderedPartitions/Left.lean",
+        "Applications/OrderedPartitions/Right.lean",
+        "Applications/OrderedPartitions/Enumeration.lean",
+        "Applications/Paragraphs/Candidates.lean",
+        "Applications/Paragraphs/Greedy.lean",
+        "Applications/Paragraphs/Helper.lean",
+        "Applications/Paragraphs/Observation.lean",
+        "Examples/OrderedPartitions.lean",
+        "Examples/ParagraphLayout.lean"
+      ],
+      "scope": "Ordered contiguous partitions, four generators and guarded pruning; actual greedy paragraph layout and helper with independent global lexicographic optimum. Waste objectives, cached frontiers and resource models remain reference.",
+      "candidate": "90b8566d9925407172189beb2c498ed4e8e20673",
+      "declaration_map": "docs/research/adwh-paragraph-layout-provenance.tsv"
     },
     {
       "issue": 169,
