@@ -51,11 +51,15 @@ fold-fusion theorem are reused without a parallel-execution claim.
 `Maximum.lean` implements `maxWith` using the existing `argmin`, an `OrderDual Int`
 objective and an empty-input fallback. The nil, singleton and cons-cons theorems
 recover the source foldr1/Down recurrence exactly, including first-biased ties.
-There is no additional generic selector implementation. `FirstMaximum` is an
-independent decomposition: scores before the chosen occurrence are strictly
-smaller, and scores after it are no greater. The source theorem establishes
-that contract; `maxWith_eq_of_firstMaximum` lets a caller certify a precise
-answer through the shared selector's first-element theorem.
+`FirstMaximum` is an alias of `Optimization.FirstMinimum` specialized to
+`OrderDual Int`; Bracketing uses the same predicate specialized to `Nat`.
+This independent decomposition requires strictly smaller scores before the
+chosen occurrence and no greater scores after it. Certification and its
+converse reuse `Optimization.argmin_firstMinimum` and
+`Optimization.argmin_eq_some_of_firstMinimum`. Membership and maximality
+reuse `argmin_correct`. The public source names and their assumptions remain
+unchanged; `maxWith_eq_of_firstMaximum` certifies an exact answer through the
+shared converse.
 
 `maxSegmentThinScan_eq` proves exact equality with suffix-prefix realization.
 `maxSegmentThinScan_optimal` compares the result with all bounded contiguous
@@ -112,6 +116,15 @@ the nonempty suffix candidate list. First-maximum certificates distinguish
 exact tie choices from score equality. No result assumes the final global
 optimum as a premise of its algorithm correctness theorem.
 
+The tie-contract consolidation was reviewed by reducing the dual-order alias:
+its strict-before and weak-after inequalities are definitionally the original
+integer maximum conditions. The converse still requires a positional
+certificate, and certification still requires a nonempty list; arbitrary empty
+fallbacks are unchanged. Existing distinct-tie, repeated-zero, zero-capacity
+and negative-input examples exercise the unchanged public statements.
+`Examples.SelectionTies` also checks the shared predicate at `Nat` and reversed
+`Int` scores, including first versus last ties.
+
 ## Provenance, remaining scope and validation
 
 The reference is
@@ -121,7 +134,7 @@ The reference is
 The bytes were verified before adaptation. The
 [declaration ledger](adwh-bounded-segments-provenance.tsv) records all 244 named
 source definitions, abbreviations, structures, inductives and theorems:
-129 adapted, 9 reused through existing constructions, and 106 deferred.
+125 adapted, 13 reused through existing constructions, and 106 deferred.
 Anonymous source examples and generated declarations are not separate ledger
 rows; compiled project declarations remain covered by the exhaustive audit.
 

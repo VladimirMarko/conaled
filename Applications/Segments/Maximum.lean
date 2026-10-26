@@ -1,4 +1,5 @@
 import Applications.Segments.Prefixes
+import Applications.Optimization.SelectionTies
 
 /-! First-maximum segment selection through the shared OrderDual argmin. -/
 set_option autoImplicit false
@@ -36,71 +37,38 @@ theorem maxWith_cons_cons (score : α → Int) (fallback x y : α) (xs : List α
     simp [cost]
 
 /-- Independent order-sensitive specification of the first maximum in a list. -/
-def FirstMaximum (score : α → Int) (xs : List α) (winner : α) : Prop :=
-  ∃ before after, xs = before ++ winner :: after ∧
-    (∀ x ∈ before, score x < score winner) ∧
-    (∀ x ∈ after, score x ≤ score winner)
+abbrev FirstMaximum (score : α → Int) (xs : List α) (winner : α) : Prop :=
+  Optimization.FirstMinimum (fun x => OrderDual.toDual (score x)) xs winner
 
 theorem firstMaximum_mem (score : α → Int) (xs : List α) (winner : α)
-    (h : FirstMaximum score xs winner) : winner ∈ xs := by
-  obtain ⟨before, after, rfl, _, _⟩ := h
-  simp
+    (h : FirstMaximum score xs winner) : winner ∈ xs :=
+  (Optimization.Thinning.argmin_correct _ xs winner
+    (Optimization.argmin_eq_some_of_firstMinimum _ xs winner h)).1
 
 theorem firstMaximum_maximal (score : α → Int) (xs : List α) (winner : α)
-    (h : FirstMaximum score xs winner) : ∀ x ∈ xs, score x ≤ score winner := by
-  obtain ⟨before, after, rfl, hb, ha⟩ := h
-  intro x hx
-  rcases List.mem_append.mp hx with hx | hx
-  · exact Int.le_of_lt (hb x hx)
-  · rcases List.mem_cons.mp hx with rfl | hx
-    · exact Int.le_refl _
-    · exact ha x hx
+    (h : FirstMaximum score xs winner) : ∀ x ∈ xs, score x ≤ score winner :=
+  (Optimization.Thinning.argmin_correct _ xs winner
+    (Optimization.argmin_eq_some_of_firstMinimum _ xs winner h)).2
 
 /-- An independent first-maximum certificate determines the exact shared selector. -/
 theorem maxWith_eq_of_firstMaximum (score : α → Int) (fallback : α) (xs : List α)
     (winner : α) (h : FirstMaximum score xs winner) : maxWith score fallback xs = winner := by
-  obtain ⟨before, after, rfl, hb, ha⟩ := h
-  let cost : α → OrderDual Int := fun x => OrderDual.toDual (score x)
-  have select : ∀ pre : List α, (∀ x ∈ pre, score x < score winner) →
-      Optimization.Thinning.argmin cost (pre ++ winner :: after) = some winner := by
-    intro pre
-    induction pre with
-    | nil => intro _; exact Optimization.Thinning.argmin_first cost winner after ha
-    | cons x pre ih =>
-      intro hx
-      have rest := ih (fun y hy => hx y (by simp [hy]))
-      have strict := hx x (by simp)
-      simp only [List.cons_append, Optimization.Thinning.argmin, rest]
-      simp [cost, show ¬ score winner ≤ score x by omega]
   unfold maxWith
-  rw [show Optimization.Thinning.argmin (fun x => OrderDual.toDual (score x))
-      (before ++ winner :: after) = some winner from select before hb]
+  rw [Optimization.argmin_eq_some_of_firstMinimum _ xs winner h]
   rfl
 
 theorem maxWith_firstMaximum (score : α → Int) (fallback : α) (xs : List α)
     (hn : xs ≠ []) : FirstMaximum score xs (maxWith score fallback xs) := by
-  induction xs with
-  | nil => exact False.elim (hn rfl)
-  | cons x xs ih =>
-    cases xs with
-    | nil => exact ⟨[], [], rfl, by simp, by simp⟩
-    | cons y ys =>
-      have hf := ih (by simp)
-      have hm := firstMaximum_maximal score (y :: ys) _ hf
-      by_cases hx : score (maxWith score fallback (y :: ys)) ≤ score x
-      · rw [maxWith_cons_cons]
-        simp only [hx, decide_true, ite_true]
-        exact ⟨[], y :: ys, rfl, by simp,
-          fun z hz => Int.le_trans (hm z hz) hx⟩
-      · have hlt : score x < score (maxWith score fallback (y :: ys)) := by omega
-        obtain ⟨before, after, hcat, hb, ha⟩ := hf
-        rw [maxWith_cons_cons]
-        simp only [hx, decide_false, Bool.false_eq_true, ite_false]
-        refine ⟨x :: before, after, congrArg (List.cons x) hcat, ?_, ha⟩
-        intro z hz
-        rcases List.mem_cons.mp hz with rfl | hz
-        · exact hlt
-        · exact hb z hz
+  let cost : α → OrderDual Int := fun x => OrderDual.toDual (score x)
+  cases h : Optimization.Thinning.argmin cost xs with
+  | none => exact False.elim (hn ((Optimization.Thinning.argmin_eq_none_iff cost xs).mp h))
+  | some winner =>
+    have hw : maxWith score fallback xs = winner := by
+      change (Optimization.Thinning.argmin cost xs).getD fallback = winner
+      rw [h]
+      rfl
+    rw [hw]
+    exact Optimization.argmin_firstMinimum cost xs winner h
 
 theorem maxWith_mem (score : α → Int) (fallback : α) (xs : List α) (hn : xs ≠ []) :
     maxWith score fallback xs ∈ xs :=
