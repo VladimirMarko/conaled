@@ -1,3 +1,4 @@
+import Examples.DijkstraCosts
 import Examples.DijkstraSentinel
 import Examples.RandomAccessEndCosts
 import Examples.RandomAccessCosts
