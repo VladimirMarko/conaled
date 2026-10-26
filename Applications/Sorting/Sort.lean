@@ -28,7 +28,7 @@ theorem sortBy_sorted_compatible_on [LE κ] [Std.IsPreorder κ]
   match xs with
   | [] => simp [sortBy, KeySorted]
   | [x] => simp [sortBy, KeySorted]
-  | x :: y :: xs => 
+  | x :: y :: xs =>
     rw [sortBy, List.mergeSort]
     simp only [List.MergeSort.Internal.splitInTwo_fst, List.MergeSort.Internal.splitInTwo_snd]
     apply merge_sorted_compatible_on key cmp
@@ -61,7 +61,7 @@ theorem sortOn_correct [LE κ] [DecidableLE κ] [Std.IsLinearPreorder κ]
   refine ⟨?_, sortBy_perm _ _⟩
   apply sortBy_sorted_compatible key
   intro a b
-  exact ⟨of_decide_eq_true, fun h => 
+  exact ⟨of_decide_eq_true, fun h =>
     (Std.le_total (a := key a) (b := key b)).resolve_left (of_decide_eq_false h)⟩
 
 theorem sortOn_stable [LE κ] [DecidableLE κ] [Std.IsLinearPreorder κ] [DecidableEq κ]

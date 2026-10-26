@@ -23,7 +23,7 @@ theorem merge_sorted_compatible_on [LE κ] [Std.IsPreorder κ]
   match xs, ys with
   | [], ys => simpa using hy
   | xs, [] => simpa using hx
-  | x :: xs, y :: ys => 
+  | x :: xs, y :: ys =>
     rw [List.cons_merge_cons]
     split
     · rename_i hxy
@@ -65,7 +65,7 @@ theorem mergeBy_sorted [LE κ] [DecidableLE κ] [Std.IsLinearPreorder κ]
     KeySorted key (mergeBy key xs ys) := by
   apply merge_sorted_compatible key _ _ xs ys hx hy
   intro a b
-  exact ⟨of_decide_eq_true, fun h => 
+  exact ⟨of_decide_eq_true, fun h =>
     (Std.le_total (a := key a) (b := key b)).resolve_left (of_decide_eq_false h)⟩
 
 theorem mergeBy_filter [LE κ] [DecidableLE κ] [Std.IsPreorder κ] [DecidableEq κ]
@@ -76,7 +76,7 @@ theorem mergeBy_filter [LE κ] [DecidableLE κ] [Std.IsPreorder κ] [DecidableEq
   match xs, ys with
   | [], ys => simp [mergeBy]
   | xs, [] => simp [mergeBy]
-  | x :: xs, y :: ys => 
+  | x :: xs, y :: ys =>
     unfold mergeBy
     rw [List.cons_merge_cons]
     simp only [decide_eq_true_eq]
