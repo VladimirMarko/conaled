@@ -1,3 +1,4 @@
+import Examples.RunCompression
 import Examples.Resources
 import Examples.HeuristicSearch
 import Examples.ScanFusion
