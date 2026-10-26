@@ -11,6 +11,7 @@ import Examples.StableSorting
 import Examples.Resources
 import Examples.HeuristicSearch
 import Examples.Huffman
+import Examples.Kruskal
 import Examples.ScanFusion
 import Examples.Bracketing
 import Applications.Elaboration.Examples
