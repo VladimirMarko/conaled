@@ -449,6 +449,7 @@ provenance; it also records source contracts still outside that slice.
 | [Symmetric lists and prefixes](docs/research/adwh-symmetric-lists.md) | Actual rebalancing and prefix algorithms refine standard lists, with composed endpoint and prefix-length observations. |
 | [Adjacent-run compression](docs/research/adwh-run-compression.md) | Adjacent boundaries, suffix-fold equivalence and injective relabeling. |
 | [Kruskal spanning trees](docs/research/adwh-kruskal.md) | Global signed-weight optimum, exact stable source execution and composed tree/cost consumers on the numbered domain. |
+| [Nested Kruskal forests](docs/research/adwh-forest-kruskal.md) | Global minimum spanning forests on empty/disconnected graphs, arbitrary-label tree consumers, exact source failures and explicit vertex-order normalization. |
 | [Connectivity](docs/research/adwh-connectivity.md) | List and weighted-parent histories realize the same finite connectivity, query and cycle-rejection observations. |
 | [Stable sorting](docs/research/adwh-stable-sorting.md) | Sorted permutation and equal-key order remain separate contracts. |
 | [Bounded segments](docs/research/adwh-bounded-segments.md) | The actual thinning scan selects a global bounded-length segment optimum. |

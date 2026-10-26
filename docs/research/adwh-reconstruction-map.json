@@ -2103,8 +2103,10 @@
       "imports": [
         "ADWH.Chapter02.Timing"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        173
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/amortized.json",
         "member_sha256": "499d58e3bff98aad34a23c06642901926763f51c25152b98eeb9321c3b879073",
@@ -2775,8 +2777,10 @@
       "imports": [
         "Std"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        173
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/timing.json",
         "member_sha256": "9cc895b82c166393d46d0c43a9977d95175ddd16e722abc2d5392a48f3e48b97",
@@ -2994,8 +2998,10 @@
         "ADWH.Chapter03.SymmetricLists",
         "ADWH.Chapter02.Amortized"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        173
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/symmetric-list-costs.json",
         "member_sha256": "4c1143a92b6e0fb84b11d6a5c810a425d6649c746cbd29b4b28985097785ce38",
@@ -3196,8 +3202,10 @@
       "imports": [
         "Std"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        179
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/binary-search.json",
         "member_sha256": "8f0a2fee1ebb7400fbe817e442e23dc59f4f4e1a21866f9dbbd89c9293a5c3f0",
@@ -8469,7 +8477,7 @@
         "ADWH.Chapter09.MinimumSpanningForest",
         "ADWH.Chapter01.Iteration"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         172
       ],
@@ -8516,7 +8524,7 @@
         "ADWH.Chapter01.Permutations",
         "ADWH.Chapter07.CoinChangeSelectors"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         172
       ],
@@ -8539,7 +8547,7 @@
       "imports": [
         "ADWH.Chapter09.ForestKruskalSource"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         172
       ],
@@ -9105,7 +9113,7 @@
       "imports": [
         "ADWH.Chapter09.ForestPartition"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         172
       ],

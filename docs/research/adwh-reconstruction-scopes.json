@@ -411,8 +411,36 @@
         "ADWH.Chapter09.MinimumSpanningForest",
         "ADWH.Chapter09.ForestKruskalClient"
       ],
+      "destinations": [
+        "Applications/Kruskal/AllMinima.lean",
+        "Applications/Kruskal/Nested.lean",
+        "Applications/Kruskal/NestedPartition.lean",
+        "Applications/Kruskal/Forest.lean",
+        "Applications/Kruskal/NestedClient.lean",
+        "Applications/Kruskal/ForestObservation.lean",
+        "Examples/NestedKruskal.lean"
+      ],
+      "scope": "Complete nested-forest semantic closure, arbitrary-integer-label tree clients and corrected global minimum spanning forests, preserving exact source order and printed-wrapper failures. Costs, enumeration and other graph algorithms remain reference.",
+      "candidate": "239a440723174b4bc6028583450bbc02a2bf116f",
+      "declaration_map": "docs/research/adwh-forest-kruskal-provenance.tsv"
+    },
+    {
+      "issue": 173,
+      "modules": [
+        "ADWH.Chapter02.Timing",
+        "ADWH.Chapter02.Amortized",
+        "ADWH.Chapter03.SymmetricListCosts"
+      ],
       "destinations": [],
-      "scope": "Complete nested-forest semantic closure, arbitrary-integer-label tree clients and corrected global minimum spanning forests, preserving exact source order and printed-wrapper failures. Costs, enumeration and other graph algorithms remain reference."
+      "scope": "Complete finite potential accounting, binary counter writes and symmetric-list workload charges/structural visits. Reuses measured composition and accepted symmetric semantics. Runtime, lazy-prefix and random-access cost families remain reference."
+    },
+    {
+      "issue": 179,
+      "modules": [
+        "ADWH.Chapter04.BinarySearch"
+      ],
+      "destinations": [],
+      "scope": "Complete finite binary search, arbitrary-pivot refinement, threshold cuts and actual doubling/global least-threshold clients. Source midpoint variants retain distinct execution choices. Search trees, linear search and cost families remain reference."
     }
   ],
   "related_commitments": [
