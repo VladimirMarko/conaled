@@ -156,6 +156,14 @@ recipes can have isomorphic shapes without being identified as algorithms.
 `Scanner.compose` builds a correct nested scanner from any two correct local
 scanners. Left powers, right powers and bushes preserve this distinction.
 
+`Scanner.inclusive_correct` bridges the exclusive prefixes plus total to
+standard `List.scanl`, preserving ordered monoid multiplication.
+`Scanner.inclusive_fusion` interprets all states through a commuting law on
+reachable states. The [textbook reconstruction record](docs/research/adwh-scan-bridge.md)
+tracks provenance, retained arbitrary-accumulator fusion, and checked composed
+plan clients for sums, ordered words and word lengths. Empty and singleton
+plans and the source's failure of unrestricted fusion are checked as well.
+
 FFT uses factor trees with leaves of sizes one and two and arbitrary
 composition. The recursive implementation performs nested transforms,
 transposition and twiddle multiplication. Its proof reindexes the result to
