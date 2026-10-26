@@ -34,10 +34,8 @@ def witnessSquare : Relational.RelSquare (Optimization.inputRep Problem)
 /-- Forget the witness, retaining the original problem and all admissible scores. -/
 def scoreObservation : Relational.RelSquare
     (Optimization.membershipRep (I := Problem) (id : List Int → List Int))
-    (Optimization.membershipRep (I := Problem) (id : Int → Int)) where
-  impl r := (r.1, r.2.sum)
-  spec s := (s.1, List.sum '' s.2)
-  preserves h := ⟨h.1, ⟨_, h.2, rfl⟩⟩
+    (Optimization.membershipRep (I := Problem) (id : Int → Int)) :=
+  Optimization.observationSquare List.sum
 
 def scoreSquare : Relational.RelSquare (Optimization.inputRep Problem)
     (Optimization.membershipRep (I := Problem) (id : Int → Int)) :=

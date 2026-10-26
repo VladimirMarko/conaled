@@ -22,6 +22,15 @@ def membershipRep {I P R : Type u} (decode : R → P) : Relational.RelRep.{u} wh
   S := I × Set P
   Rel r s := r.1 = s.1 ∧ decode r.2 ∈ s.2
 
+/-- Observe permitted outputs through any function, retaining the problem index.
+No objective, injectivity or inverse is needed to forget witness detail. -/
+def observationSquare {I P Q : Type u} (observe : P → Q) :
+    Relational.RelSquare (membershipRep (I := I) (id : P → P))
+      (membershipRep (I := I) (id : Q → Q)) where
+  impl r := (r.1, observe r.2)
+  spec s := (s.1, observe '' s.2)
+  preserves h := ⟨h.1, ⟨_, h.2, rfl⟩⟩
+
 /-- An ordinary optimality proof supplies a relational square without syntax
 translation. Existence of `realize` with this proof already entails attainment. -/
 def selectionSquare {I P R K : Type u} [Preorder K]
