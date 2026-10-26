@@ -78,13 +78,14 @@ paragraph layout. #169 pins disjoint-set Kruskal and global spanning-tree
 optimality, with the numbered source adapter and exact residual behavior.
 #170 pins finite symmetric lists and prefixes; #171 pins binary random-access
 lists. #172 pins nested Kruskal and global minimum spanning forests.
-#173 scopes potential accounting and #179 scopes ordered binary search.
-Empty destinations for #173 and #179 record selected future scope.
+#173 pins potential accounting and #179 pins ordered binary search.
+#180 scopes finite Dijkstra distances, paths and target stopping.
+Empty destinations for #180 record selected future scope.
 
 ## Dispositions and declaration coverage
 
-[Scope records](adwh-reconstruction-scopes.json) link #151–#155, #157–#173 and #179
-and pin the #151–#155 and #157–#172 candidate destinations. Resolve candidate paths
+[Scope records](adwh-reconstruction-scopes.json) link #151–#155, #157–#173 and #179–#180
+and pin the #151–#155, #157–#173 and #179 candidate destinations. Resolve candidate paths
 at those exact commits until integration; they need not exist at the map's base
 commit. Candidate evidence is partial reconstruction pending acceptance, never
 a whole-module parity assertion. The pinned candidate commits are retained in the integration ancestry, so their

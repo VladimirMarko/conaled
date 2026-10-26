@@ -431,16 +431,46 @@
         "ADWH.Chapter02.Amortized",
         "ADWH.Chapter03.SymmetricListCosts"
       ],
-      "destinations": [],
-      "scope": "Complete finite potential accounting, binary counter writes and symmetric-list workload charges/structural visits. Reuses measured composition and accepted symmetric semantics. Runtime, lazy-prefix and random-access cost families remain reference."
+      "destinations": [
+        "Applications/Resources/Measured.lean",
+        "Applications/Resources/Workload.lean",
+        "Applications/Resources/Potential.lean",
+        "Applications/Resources/BinaryCounter.lean",
+        "Applications/Resources/SymmetricCosts.lean",
+        "Applications/Resources/SymmetricWorkload.lean",
+        "Examples/PotentialAccounting.lean"
+      ],
+      "scope": "Complete finite potential accounting, binary counter writes and symmetric-list workload charges/structural visits. Reuses measured composition and accepted symmetric semantics. Runtime, lazy-prefix and random-access cost families remain reference.",
+      "candidate": "24a11061d821587d8d217ac6fa7b3b00f3ab4f02",
+      "declaration_map": "docs/research/adwh-potential-accounting-ledger.json"
     },
     {
       "issue": 179,
       "modules": [
         "ADWH.Chapter04.BinarySearch"
       ],
+      "destinations": [
+        "Applications/Search/Ordered/Exact.lean",
+        "Applications/Search/Ordered/Threshold.lean",
+        "Applications/Search/Ordered/Global.lean",
+        "Applications/Search/Ordered/Consumers.lean",
+        "Examples/OrderedSearch.lean"
+      ],
+      "scope": "Complete finite binary search, arbitrary-pivot refinement, threshold cuts and actual doubling/global least-threshold clients. Source midpoint variants retain distinct execution choices. Search trees, linear search and cost families remain reference.",
+      "candidate": "7448fecd84108b26236d1f3c687d033dab450765",
+      "declaration_map": "docs/research/adwh-ordered-search-provenance.tsv"
+    },
+    {
+      "issue": 180,
+      "modules": [
+        "ADWH.Chapter09.DijkstraCore",
+        "ADWH.Chapter09.DijkstraOptimality",
+        "ADWH.Chapter09.DijkstraPaths",
+        "ADWH.Chapter09.DijkstraAllPaths",
+        "ADWH.Chapter09.DijkstraTarget"
+      ],
       "destinations": [],
-      "scope": "Complete finite binary search, arbitrary-pivot refinement, threshold cuts and actual doubling/global least-threshold clients. Source midpoint variants retain distinct execution choices. Search trees, linear search and cost families remain reference."
+      "scope": "Complete mathematical-infinity finite Dijkstra distance/path/target closure with accepted-search semantics and actual queue comparison. Finite sentinels, costs and other graph families remain reference."
     }
   ],
   "related_commitments": [

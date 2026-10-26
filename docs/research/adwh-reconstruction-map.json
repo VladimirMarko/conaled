@@ -2103,7 +2103,7 @@
       "imports": [
         "ADWH.Chapter02.Timing"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         173
       ],
@@ -2777,7 +2777,7 @@
       "imports": [
         "Std"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         173
       ],
@@ -2998,7 +2998,7 @@
         "ADWH.Chapter03.SymmetricLists",
         "ADWH.Chapter02.Amortized"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         173
       ],
@@ -3202,7 +3202,7 @@
       "imports": [
         "Std"
       ],
-      "module_disposition": "scoped task",
+      "module_disposition": "partial reconstruction",
       "scope_issues": [
         179
       ],
@@ -7616,8 +7616,10 @@
       "imports": [
         "ADWH.Chapter09.DijkstraPaths"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        180
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter09-dijkstra-all-paths.json",
         "member_sha256": "311713daa5d1e3eea79f9d1d7d3c4afdb57cc341a887cb183d3124849807f2dc",
@@ -7638,8 +7640,10 @@
         "ADWH.Chapter03.Arrays",
         "ADWH.Chapter07.CoinChangeSelectors"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        180
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter09-dijkstra-core.json",
         "member_sha256": "a58da7665a37ca75953f2634fd8a8ca6d122c32ee77cbe567d0c086f391f287c",
@@ -7724,8 +7728,10 @@
       "imports": [
         "ADWH.Chapter09.DijkstraCore"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        180
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter09-dijkstra-optimality.json",
         "member_sha256": "4a72987ab6117885ee6b88988091e1762c1942cea76c103b26457eea7ec2a9fb",
@@ -7770,8 +7776,10 @@
         "ADWH.Chapter09.DijkstraOptimality",
         "ADWH.Chapter07.InversionCount"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        180
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter09-dijkstra-paths.json",
         "member_sha256": "67f3a2a48e6c59236d585ff09bf3c4474ebb11bcb1aea20bb2980291fa17e6ae",
@@ -7877,8 +7885,10 @@
         "ADWH.Chapter09.DijkstraPaths",
         "ADWH.Chapter01.Iteration"
       ],
-      "module_disposition": "untouched reference",
-      "scope_issues": [],
+      "module_disposition": "scoped task",
+      "scope_issues": [
+        180
+      ],
       "source_correspondence": {
         "archive_member": "project/adwh-lean/correspondence/chapter09-dijkstra-target.json",
         "member_sha256": "ee3bd7433f3f828b0c8e75a80c1307c1e83fbdf09108aff87d1b115a8ff1a78b",
