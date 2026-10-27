@@ -30,6 +30,11 @@ changes separately and never silently apply them.
 5. Present supported recommendations in severity order. Report limitations and
    allow no supported findings; category coverage is not a quota for changes.
 
+When assessing whether agents discover and apply workflow guidance, use the
+[workflow audit method and baseline](../../../docs/agents/workflow-audits.md).
+Separate original unprompted plans from diagnostic follow-ups and execution
+evidence; a planning trial alone does not establish implementation compliance.
+
 ## Improvement categories
 
 - **Navigation:** When discovery took unnecessary effort, identify the missing

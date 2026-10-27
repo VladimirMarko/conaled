@@ -18,6 +18,20 @@ checked-in `flake.lock` and validate changes with `nix flake check` and a shell
 smoke check. Lean and library versions remain in `lean-toolchain` and the Lake
 files.
 
+## Implementation and validation
+
+For implementation tasks, including documentation, tooling, and skill changes,
+use `.agents/skills/implement/SKILL.md` by default. Independent Standards and
+Spec review is part of completion unless the user explicitly changes that
+requirement. When already assigned work within an implementation/review loop,
+continue that loop rather than starting another. Planning and read-only
+investigation do not start an implementation loop.
+
+Before choosing validation for a change, read the build and audit section in
+`README.md`. Match checks to the changed artifacts; formal changes require
+the applicable fresh build and proof audit. The implementation workflow owns
+review coordination, including reuse when originator review is requested.
+
 ## Commit messages
 
 Use Conventional Commits: `type(scope): description (#123)`.

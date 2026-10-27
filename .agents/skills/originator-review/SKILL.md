@@ -10,6 +10,11 @@ does not qualify. This is provenance, not a role another reviewer acquires.
 Review intent directly in this session,
 without subagents or another Standards review. Ordinary `code-review` loops
 provide the Standards and Spec checks; this review is optional.
+Follow the shared procedure's [review-reuse rules](../../../docs/agents/review-loop.md#reuse-across-review-entry-points):
+reuse matching ordinary outcomes and the existing loop. A no-change intent
+assessment does not trigger another Standards/Spec review. When participating
+before ordinary approval, send intent findings into that loop so corrections
+can be reviewed together.
 
 1. Establish which relevant discussion survives and identify the acceptance
    requirements and version that recorded the agreement. These may be saved
@@ -40,9 +45,11 @@ provide the Standards and Spec checks; this review is optional.
    [the shared review procedure](../../../docs/agents/review-loop.md). For
    `implement-spec`, the implementer handles corrections and the ticket and
    integration reviewers rerun the applicable loops. For a whole-task workflow,
-   assign an implementer for corrections and a reviewer to coordinate its single
-   implementation-and-review loop. When invoked independently, establish these
-   assignments with the available workflow; no originating-session discovery is
+   reuse the implementer and reviewer coordinating its single
+   implementation-and-review loop. When invoked independently, recover the
+   existing record and outcomes first; establish missing
+   assignments only when corrections or missing ordinary review require them;
+   no originating-session discovery is
    required. These agents handle implementation and ordinary review only; keep
    the originator's intent review here.
 5. After corrections pass the applicable `code-review` loops, directly review

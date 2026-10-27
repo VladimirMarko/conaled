@@ -241,7 +241,10 @@ the main build does not certify them.
 
 For formal development, use checked specializations and applications alongside
 the theory, and review each new or changed statement against its intended
-mathematics. Repository workflow instructions are in [AGENTS.md](AGENTS.md).
+mathematics. [AGENTS.md](AGENTS.md#implementation-and-validation) routes
+implementation tasks to the default independent review workflow and validation
+requirements. Optional originator review adds retained-intent assessment within
+the same [review procedure](docs/agents/review-loop.md#reuse-across-review-entry-points).
 
 ## Historical material
 

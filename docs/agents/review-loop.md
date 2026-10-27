@@ -41,6 +41,29 @@ identifiers and retain their status across rounds: unresolved, fixed with
 review evidence, or explicitly resolved with a documented reason. A fresh
 review does not erase prior findings.
 
+## Reuse across review entry points
+
+Use one ordinary review loop and finding record for a task's acceptance scope.
+`implement`, direct `code-review`, and optional `originator-review` may refer to
+that same loop; invoking another entry point does not require another review
+of an unchanged candidate. Reuse completed Standards and Spec outcomes only
+when base, candidate, requirements, applicable standards, and validation inputs
+match. Record that reuse rather than dispatching the same reviews again.
+
+The coordinator reconciles findings and evidence; it does not perform a third
+Standards or Spec review. Originator review assesses retained intent directly
+in the originating session. When requested during implementation, collect its
+findings with ordinary findings before preparing the next candidate where
+practical. Its corrections go through the existing implementer and reviewer;
+reuse them while available, or hand their record to replacements.
+
+A changed candidate still requires both ordinary axes to review the full task
+scope. Retain prior analysis and matching validation evidence so reviewers can
+focus on changed content, affected dependencies, and unresolved findings without
+repeating unchanged exploration. A no-change originator assessment does not
+invalidate ordinary approval. Originator review cannot replace either ordinary
+axis, and ordinary review cannot claim the originator's retained intent.
+
 ## Validation of the candidate
 
 Validate the captured candidate in an isolated checkout using the repository's

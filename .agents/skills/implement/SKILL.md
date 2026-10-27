@@ -1,12 +1,13 @@
 ---
 name: implement
-description: "Implement a conversation task or written spec in the current checkout, with independent review and repeated fixes until both review axes pass."
-disable-model-invocation: true
+description: "Use for implementation tasks from a conversation or written spec, including code, documentation, tooling, and skills. Work in the current checkout with independent review and fixes; planning and read-only investigation do not start this workflow."
 ---
 
 Use `implement` for a whole task that fits one implementation-and-review loop.
 Work in the current checkout and branch by default. The main agent implements;
 a reviewer subagent coordinates review and requests corrections from it.
+When an enclosing workflow already assigns implementation or review work,
+complete that assignment within its existing loop instead of launching another.
 Use an isolated worktree when requested or when concurrent writers make the
 current checkout unsuitable. Establish the task's starting state in that
 worktree, preserving any existing task changes that must be included. Snapshot
@@ -76,5 +77,7 @@ commits or publication; this workflow does not require either.
 
 [Originator review](../originator-review/SKILL.md) is optional and can be invoked
 manually in the originating session, including after this workflow completes.
-Route its required changes through this same implementation-and-review loop
-before originator re-review. Originator participation is not a completion gate.
+Use the shared procedure's review-reuse rules: originator review adds direct
+intent assessment, not another ordinary review loop. Route its required changes
+through the existing loop before originator re-review. Originator participation
+is not a completion gate unless requested by the user.

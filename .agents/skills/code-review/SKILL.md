@@ -82,6 +82,10 @@ alone are not findings. Respect requirements for reusable abstractions.
 
 ## 4. Dispatch independent reviews
 
+First apply the shared procedure's [review-reuse rules](../../../docs/agents/review-loop.md#reuse-across-review-entry-points).
+If matching completed outcomes cover this request, report their provenance and
+reuse them instead of dispatching duplicate reviews.
+
 Spawn Standards and Spec subagents in parallel when both axes can run. Give
 both the pinned scope from step 1, relevant candidate source paths, validation
 evidence and limitations, and the existing finding record with stable IDs.
