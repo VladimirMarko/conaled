@@ -7,6 +7,9 @@ documents are preserved unchanged.
 
 ## Origins
 
+- [Square-compiler artifacts](square-compiler/README.md) preserve the original
+  design, an earlier verification log, and its checksum manifest. The archive
+  note records their scope and links current design and validation guidance.
 - [Orbifold artifacts](orbifold/README.md) preserve a discussion of synthetic
   orbifolds, simulation, and generalized gyrovector geometry, plus a numerical
   Python probe. The annotations link current research and distinguish the

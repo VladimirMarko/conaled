@@ -1,16 +1,26 @@
 # Application translations and what their composition establishes
 
+**Scope:** This maintained document describes selected compiler applications
+and later algorithm, optimization, and progress developments. It began with
+the original application delivery and is not a complete monorepo inventory.
+Use the [current library map](README.md#what-is-in-the-library) for broader
+coverage, [architectural guidance](docs/agents/architectural-quality.md) for
+design requirements, and [build/audit instructions](README.md#build-and-audit)
+for validating a particular checkout. Theorem references describe mathematical
+contracts; this document and historical logs do not certify a fresh build.
+
 ## Result
 
-This delivery extends the original Lean foundation with implementations and
-proofs for all eight supplied source families. The coverage is explicit:
+The original application development extended the Lean foundation with
+implementations and proofs for eight supplied source families. Its coverage
+is described below, followed by later developments:
 completed first-order and algebraic constructions are implemented as generic
 libraries; the incomplete higher-order AD draft is represented by a full
 higher-order curve theorem and a complete polynomial derivative-tower fragment.
 This is an original formal reconstruction, not a transcription of the papers
 or a port of the ConCat GHC plugin.
 
-The main change to the framework is the addition of **relational squares**.
+That development added **relational squares** to the framework.
 Exact representations still use decoding functions and ordinary commuting
 squares. Enclosures, analytic derivatives, and signal stability also need
 relations. They share one composition interface, with proved conversions to
@@ -19,7 +29,7 @@ witness squares when a literal four-arrow square is desired.
 All correctness claims in this document name checked Lean declarations. The
 ADRs describe decisions and restrictions; they are not substitutes for proofs.
 The source and dependency provenance is in [docs/SOURCES.md](docs/SOURCES.md).
-The historical [DESIGN.md](DESIGN.md) is preserved unchanged from
+The [archived design](docs/history/square-compiler/DESIGN.md) is preserved unchanged from
 `foundation-v1`; its statements about missing backends and a dependency-free
 build refer to that earlier delivery.
 
@@ -330,9 +340,11 @@ universe/identity-type frontend, or general LCCC compiler theorem.
 
 ## 9. Verification and trust boundary
 
-`check.sh` verifies that the complete public entrypoint covers every local Lean
-file, rejects admissions and unsafe source constructs, then rechecks all
-modules in dependency order. It ends by running `ProofAudit.lean`.
+`check.sh` verifies public-entrypoint coverage for the integrated source modules,
+rejects admissions and unsafe source constructs, then rechecks those modules
+in dependency order. It ends by running `ProofAudit.lean`. Its scope excludes
+isolated experiments and historical imports; see the
+[build coverage](README.md#build-and-audit).
 
 The audit enumerates project-owned declarations using Lean's module metadata,
 including private declarations, generated equations, instances and theorem
@@ -352,8 +364,11 @@ an arbitrary axiom under an unrelated name, native-decision trust through
 private proof passes. These checks test the audit itself; they are not included
 as accepted source modules.
 
-The delivered [verification.txt](verification.txt) records compiler version,
-module checks, executable results, declaration counts and the final audit.
+The [historical verification log](docs/history/square-compiler/verification.txt)
+records compiler version, module checks, executable results, declaration counts
+and the audit for an earlier checkout. Its [provenance](docs/history/square-compiler/README.md)
+delimits that evidence; it does not validate the current source or later results.
+Follow the [current build instructions](README.md#build-and-audit) for fresh validation.
 Kernel checking validates the formal statements; the explicit independent
 semantics and coverage above explain what those statements establish.
 
@@ -365,8 +380,10 @@ finite changes/enclosure, timing, matrices, and composition/auditing.
 
 Git preserves the initial foundation and each application/integration step.
 `foundation-v1` identifies the original delivery. `applications-v2` identifies
-this extension. The archive's Git bundle restores the branch and tags with
-ordinary `git clone`; see the commands in [README.md](README.md).
+the initial application extension, not all later additions described here.
+The [history index](docs/history/README.md) records the imported baseline and
+source discussions; the [artifact archive](docs/history/square-compiler/README.md)
+preserves the original design and historical validation records.
 
 ## Optimization specifications and interpretation transport
 

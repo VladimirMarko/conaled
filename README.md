@@ -248,11 +248,13 @@ the same [review procedure](docs/agents/review-loop.md#reuse-across-review-entry
 
 ## Historical material
 
-[DESIGN.md](DESIGN.md) preserves the original `foundation-v1` design.
-[APPLICATIONS.md](APPLICATIONS.md) records the subsequent compiler application
-development. Their release-oriented descriptions are evidence for those scopes,
-not a complete description of today's monorepo. Historical verification output
-in [verification.txt](verification.txt) is not a check of the current checkout.
+The [square-compiler archive](docs/history/square-compiler/README.md) preserves
+the original `foundation-v1` design, historical verification output, and its
+checksum manifest. These records describe earlier checkouts; use the
+[current design pointers](DESIGN.md) and [build/audit instructions](#build-and-audit)
+for today's work. [APPLICATIONS.md](APPLICATIONS.md) remains a maintained,
+selective coverage document, including later developments; it is not part of
+the frozen archive.
 [docs/history/](docs/history/) preserves imported discussions and source material;
 use its provenance and scope notes before treating those artifacts as current
 implementation evidence.

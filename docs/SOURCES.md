@@ -103,7 +103,10 @@ inputs; no network read of a manuscript is needed to check the Lean project.
 * Lean: `leanprover/lean4:v4.35.0`, recorded in `lean-toolchain`.
 * Mathlib: [v4.35.0](https://github.com/leanprover-community/mathlib4/tree/56a005855ea17e0b0958f73ec801ae140b0a1679), exact revision `56a005855ea17e0b0958f73ec801ae140b0a1679`.
 * Transitive package revisions: `lake-manifest.json`.
-* Axiom dependency audit: `ProofAudit.lean`, with the actual output in `verification.txt`.
+* Axiom dependency audit: [ProofAudit.lean](../ProofAudit.lean). Use the
+  [build and audit instructions](../README.md#build-and-audit) to validate the
+  current candidate. The [archived output](history/square-compiler/verification.txt)
+  records an earlier checkout only; see its [provenance](history/square-compiler/README.md).
 
 The current check uses the unmodified official Lean compiler and the pinned
 Mathlib cache. The original hosted delivery used a launcher compatibility shim
@@ -111,4 +114,5 @@ to locate its compiler without `/proc/self/exe`; the current build uses the
 official toolchain directly.
 
 Further primary sources concerning the original dependent model and the
-LCCC/type-theory qualifications remain in the historical `DESIGN.md`.
+LCCC/type-theory qualifications remain in the
+[archived foundation design](history/square-compiler/DESIGN.md).
