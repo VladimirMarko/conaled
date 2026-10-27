@@ -467,6 +467,8 @@ is adequate. The two-outcome attempt relation is one discriminating example;
 the generic behavior contract is not restricted to that enumeration.
 
 The checked experiment supplies the first formal comparisons. Interface
-comparison, richer output/partial-write models, interrupted handler semantics,
+comparison now has a [bounded finite-event experiment](external-interaction-interfaces.md),
+including a checked limitation of its authority enforcement. Richer
+output/partial-write models, interrupted handler semantics,
 and OS adapter experiments remain open under #194. Production tooling and the
 #195 Lean migration remain unchanged.
