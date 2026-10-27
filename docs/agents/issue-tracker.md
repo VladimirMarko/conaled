@@ -4,6 +4,11 @@ Issues and specs live in GitHub Issues for VladimirMarko/conaled.
 Use the `gh` CLI from this clone, or pass
 `--repo VladimirMarko/conaled` explicitly.
 
+When placing new work or coordinating related issues, consult the
+[workstream index and organization guidance](../../README.md#workstreams-and-shared-components).
+Use its links to find existing scope owners and related efforts; keep task
+acceptance criteria and dependencies in the issues.
+
 ## Operations
 
 - Create: `gh issue create --title "..." --body-file <file>`.

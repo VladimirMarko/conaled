@@ -175,21 +175,42 @@ Its contents include specializations, domain theory, and compiler backends.
 
 ## Workstreams and shared components
 
-These are overlapping efforts and component roles, not separate package
-boundaries. In particular, the shared categorical foundation supports more
-than the current compiler frontends.
+This is a navigational index of overlapping efforts. Use it to find related
+work and the issues that own scope and acceptance criteria. It is neither an
+exhaustive inventory nor a fixed hierarchy; nested efforts live in their
+umbrella issues. Research notes provide context, while GitHub Issues own task
+scope, dependencies, and completion status.
 
-| Area | Role and scope | Current entry point |
+| Effort | Scope | Issues and context |
 |---|---|---|
-| Categorical compilation | Compiler machinery built on shared mathematical foundations | `Compiler.lean`, `FirstOrder.lean`, `SquareCompiler.lean`, `SquareKit/` |
-| Frontends and backends | Source languages, target interpretations, and their specializations; components reused across workstreams | [Library layout](#library-layout), [checked results](APPLICATIONS.md) |
-| Felix capability parity | Workstream comparing and porting a declared scope of constructions and proofs | [Source inventory](docs/research/felix-parity.md), [implementation evidence](docs/research/felix-parity-implementation.md) |
-| Felix architectural quality | Repository-wide standard for assumptions, interfaces, reuse, and caller effort | [Architectural standard](docs/agents/architectural-quality.md) |
-| FRP | Workstream spanning reactive semantics, representations, and runtime research | [Integration record](docs/frp-integration.md) |
-| Orbifolds | Workstream spanning geometric foundations, realizations, and prospective simulator software applications | [Imported sources](docs/history/orbifold/README.md), [research](docs/research/orbifold-geometry.md) |
-| FPGA development | Workstream for executable hardware experiments and external tool interfaces | [Hardware research agenda](docs/extensions.md#hardware-research-and-external-realizations) |
-| Hardware architecture derivation | Workstream for deriving and comparing realizations under different architectural choices | [Hardware research agenda](docs/extensions.md#hardware-research-and-external-realizations) |
-| Mathlib reuse and contributions | Shared dependency and upstream contribution boundary for general mathematics | [Dependency policy](docs/adr/0001-modules-and-proof-dependencies.md) |
+| Felix port and completion | Port and extend Felix's constructions and proofs beyond the initial parity milestone | [#8](https://github.com/VladimirMarko/conaled/issues/8), [implementation evidence](docs/research/felix-parity-implementation.md) |
+| Shared internal language | Reusable internal reasoning, interpretations, and differential cohesive models | [#36](https://github.com/VladimirMarko/conaled/issues/36), [language direction](docs/language-direction.md), [nested efforts](docs/research/language-architecture-research.md#approved-follow-up-work) |
+| FRP | Reactive semantics, representations, and runtime research | [Integration record](docs/frp-integration.md), runtime scope [#27](https://github.com/VladimirMarko/conaled/issues/27), incremental state machine [#31](https://github.com/VladimirMarko/conaled/issues/31) |
+| Orbifolds | Geometric foundations, realizations, and simulator development | Theory [#32](https://github.com/VladimirMarko/conaled/issues/32), simulator [#34](https://github.com/VladimirMarko/conaled/issues/34), [research](docs/research/orbifold-geometry.md) |
+| Algorithm Design with Haskell reconstruction | Textbook algorithms and proofs, derivation, optimization, and certified evaluation | [#149](https://github.com/VladimirMarko/conaled/issues/149); placement as a distinct workstream or within existing efforts remains open |
+| Data-structure toolkits | Reusable construction, assessment, and optimization across settings | [#174](https://github.com/VladimirMarko/conaled/issues/174), [research](docs/research/functional-data-structures.md) |
+| FPGA development | Executable hardware experiments and external tool interfaces | [Research agenda](docs/extensions.md#hardware-research-and-external-realizations); proposed scope |
+| Hardware architecture derivation | Derive and compare realizations under different architectural choices | [Research agenda](docs/extensions.md#hardware-research-and-external-realizations); proposed scope |
+
+Keep this structure provisional. Add, split, combine, rename, or retire entries
+when that helps people find work or resolve coordination problems. A task may
+contribute to several efforts, and useful work need not wait for a workstream
+classification. Clarify which issue owns a deliverable's acceptance criteria
+and link its consumers instead of duplicating the task. Update the index when
+its links or descriptions misdirect readers; do not require exhaustive
+classification or a new umbrella issue merely to fill a row.
+
+Workstream names must not calcify the project's architecture. Choose module,
+package, and executable boundaries from actual reuse, dependencies, build
+needs, and runnable systems. Allow research to change the organization;
+revisit applicable ADRs when implementation boundaries change.
+
+Shared components and standards cut across these efforts: categorical
+foundations, compiler frontends and backends ([library layout](#library-layout)),
+the [architectural quality standard](docs/agents/architectural-quality.md), and
+the [Mathlib dependency policy](docs/adr/0001-modules-and-proof-dependencies.md).
+The shared categorical foundation supports more than the current compiler
+frontends.
 
 The [scope assessment](docs/research/development-scope.md) distinguishes existing
 Felix investigation and hardware proofs from the remaining research.
