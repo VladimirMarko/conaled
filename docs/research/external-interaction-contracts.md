@@ -1,11 +1,13 @@
-# External interaction contracts: first research milestone
+# External interaction contracts: research and bounded checked models
 
 Research for [#194](https://github.com/VladimirMarko/conaled/issues/194), within
 [#196](https://github.com/VladimirMarko/conaled/issues/196). Assessed against
 repository revision `a24253f0dacb6721bdbfb25acca0fd1e62aabcf3` on 2026-10-27.
-This note proposes discriminating models and a staged investigation. Its worked
-models are mathematical sketches, not kernel-checked Lean results. It does not
-complete #194, select an ADR, or authorize a production measurement port.
+The initial assessment proposes discriminating models and a staged investigation.
+Its paper models remain sketches except for the bounded specializations listed
+under [checked observation contracts](#checked-observation-contracts). Those
+specializations do not complete #194, select an ADR, or authorize a production
+measurement port.
 
 The next useful step is to formalize observations and conditional refinement
 for the two consumers below, then compare author interfaces against those same
@@ -404,7 +406,7 @@ commitment.
 
 ## Evidence limits
 
-This milestone inspected source and primary publications and constructed
+The initial research milestone inspected source and primary publications and constructed
 paper models. No Lean files or production scripts changed, no OS fault
 experiment or full build ran, and no executable refinement was established.
 The ITree source used is arXiv version 2; the rely-guarantee source is the 2012
@@ -413,3 +415,58 @@ were accessed on 2026-10-27 and describe interfaces, not a measured runtime.
 Direct access to several Open Group function pages failed; their contents
 are not used to assert target behavior. The future adapter experiment must
 pin the implementation and platform it actually exercises.
+
+## Checked observation contracts
+
+The next experiment adds bounded models to the integrated library. The source
+assessment above remains tied to its original revision. These models formalize
+selected obligations, not all failure combinations in the research matrix.
+The public entrypoint imports [ExternalInteraction](../../Examples/ExternalInteraction.lean),
+so its imports participate in the existing exhaustive proof audit without a
+new exception or separate audit policy.
+
+[InteractionContracts](../../SquareKit/InteractionContracts.lean) uses arbitrary
+state types, relations and sets of behaviors. It reuses Mathlib's relational
+composition and reflexive-transitive closure. Its safety predicate is a small
+relational endpoint contract; it does not replace Std's monadic WP machinery.
+Its `Run` represents an infinite sequence of permitted steps, with no implicit
+fairness hypothesis. `Refines` connects arbitrary source and target behavior
+carriers, not only finite traces or executable representations.
+
+| Checked claim | Public result and connected case |
+|---|---|
+| Stable intermediate assertions permit sequential safety through finite boundary interference | `Interaction.safe_interference_seq`; both `Evidence.publication_then_recovery_then_ack` and `Snapshot.compile_sealed` instantiate it. `published_attempt_acknowledged` supplies a nonempty successful pipeline. |
+| Safety is compatible with recovery interrupted forever | `Evidence.interrupted_run`, `interrupted_consistent`, `interrupted_no_reexecution`, and `interrupted_no_ack`; `recovery_safety_without_progress` also shows a successful recovery is allowed. No finite timeout is used to infer divergence. |
+| Missing acknowledgement cannot decide whether an external effect occurred | `Evidence.ambiguous_worlds_admissible`, `unknown_observation`, `unknown_effect_differs`, and `no_effect_decision` show two permitted worlds with identical observations and different effects. `retry_duplicates` checks that repeating the effect increments twice. |
+| Captured-input integrity does not establish a coherent historical revision | `Snapshot.ordered_capture`, `individually_observed`, and `never_coexisted`; `compiled_collection_not_coherent` applies the compilation contract to the actual mixed collection, even through a permitted live-input mutation. |
+| Live-path compilation can disagree with the captured input | `Snapshot.live_read_counterexample`; `missing_stability_counterexample` independently refutes dropping the stability premise of sequential safety. |
+| Refinement transports only properties respected by the observation relation | `Interaction.Refines.property` gives `Evidence.coarse_preserves_count`, while `coarse_loses_publication` refutes publication preservation through the same coarse refinement. `count_observer_composes` exercises `Refines.trans`; `ambiguous_observation_allowed` also consumes the existing optimization observation square. |
+| Specifications need no finite or decidable input representation | `Snapshot.compile_sealed` quantifies over arbitrary input types; `arbitrary_collections` constructs a usable model result through that public contract. |
+
+Statement review retains the following boundaries. The sequential theorem is
+partial correctness: it requires related endpoints and supplies no termination
+or result-existence claim. Its interference occurs at the component boundary;
+internal interruptions must be represented in the component semantics. The
+recovery model permits repeated loss of acknowledgement and preserves a visible
+publication, but does not establish durability, ownership enforcement or
+progress in a real store. Its observation is an optional effect count; actual
+stdout, signals, process identity and resource limits are still unmodeled.
+
+The snapshot model records the inputs consumed by an abstract compilation, not
+the correctness of a compiler or a proof-check result. `Seal` seals a supplied
+collection and makes no atomic live-snapshot claim. Its environment can change
+live inputs but cannot alter the captured collection; enforcing that separation
+is an adapter obligation. The mixed collection is obtained by ordered reads
+from a finite history and never coexists in that history. This is a checked
+counterexample, not a claim that every mixed capture is incoherent.
+
+The effect-count observation relation deliberately forgets publication. The
+successful count theorem and failed publication property therefore test the
+meaning of refinement, rather than suggesting that any observation relation
+is adequate. The two-outcome attempt relation is one discriminating example;
+the generic behavior contract is not restricted to that enumeration.
+
+The checked experiment supplies the first formal comparisons. Interface
+comparison, richer output/partial-write models, interrupted handler semantics,
+and OS adapter experiments remain open under #194. Production tooling and the
+#195 Lean migration remain unchanged.
