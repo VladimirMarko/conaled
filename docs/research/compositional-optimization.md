@@ -452,3 +452,13 @@ The bounded specification and transport interface is now implemented in
 calculations above motivated this fragment; the remaining research proposals
 are not claimed as implemented. [Coverage and assumptions](../../APPLICATIONS.md#optimization-specifications-and-interpretation-transport)
 name the delivered declarations, counting exclusions, and relational contracts.
+
+## Checked retained-state fragment (#113)
+
+The vector-sum case and retained-state composition are now implemented in
+[`Applications/Incremental/Stateful.lean`](../../Applications/Incremental/Stateful.lean)
+and its vector-sum realizations. The [implementation record](stateful-incremental.md)
+separates their semantic contracts, abstract operation counts, retained-cell
+model, prefix-output lower bound, and future executable-target obligations.
+This supplies the bounded stateful fragment proposed above, without a universal
+optimizer or automatic cache extraction.

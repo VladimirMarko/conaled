@@ -223,6 +223,14 @@ pointwise `x + -x` equals zero while interval evaluation on `[-1,1]` gives
 `[-2,2]`. Both facts are proved. Equality of point functions does not justify
 equality of their interval analyses.
 
+The [retained-state incremental realization](docs/research/stateful-incremental.md)
+extends finite-change semantics with separate backend operations and validity
+laws. It composes cached vector sums with a downstream cached consumer, proves
+ordered assignment correctness, and counts work in an explicit indexed-store
+model. A materialized-prefix lower bound shows why observation choice matters.
+These resource theorems do not assert Lean runtime costs or restrict future
+compilation targets to Lean.
+
 ## 6. Convolution and languages preserve the chosen information
 
 Word convolution sums over the finitely many prefix/suffix splits of a word.

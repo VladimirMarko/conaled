@@ -1,3 +1,4 @@
+import Examples.StatefulIncremental
 import Examples.DijkstraCosts
 import Examples.TreeFlatteningCosts
 import Examples.DijkstraSentinel
