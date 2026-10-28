@@ -1,3 +1,4 @@
+import Examples.FIFOContracts
 import Examples.AbstractFIFO
 import Examples.CurryHoward
 import Examples.ProbabilisticProgress
