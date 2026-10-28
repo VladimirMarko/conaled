@@ -204,6 +204,7 @@ import SquareKit.Relations
 import SquareKit.SheafTorsorDescent
 import SquareKit.STLCRelations
 import Examples.TemporalFRP
+import Examples.TemporalMonitor
 import Squares
 import Verification
 
