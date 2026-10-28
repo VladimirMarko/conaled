@@ -1,3 +1,5 @@
+import Examples.MetropolisHastings
+import Examples.ProbabilityCorrelation
 import Examples.StatefulIncremental
 import Examples.ExternalInteraction
 import Examples.InteractionTransport
