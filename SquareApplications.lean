@@ -202,6 +202,7 @@ import SquareKit.FirstOrder
 import SquareKit.Relations
 import SquareKit.SheafTorsorDescent
 import SquareKit.STLCRelations
+import Examples.TemporalFRP
 import Squares
 import Verification
 
