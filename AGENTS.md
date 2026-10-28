@@ -29,8 +29,9 @@ investigation do not start an implementation loop.
 
 Before choosing validation for a change, read the build and audit section in
 `README.md`. Match checks to the changed artifacts; formal changes require
-the applicable fresh build and proof audit. The implementation workflow owns
-review coordination, including reuse when originator review is requested.
+the applicable build and proof audit using the acceptance modes defined there.
+The implementation workflow owns review coordination, including reuse when
+originator review is requested.
 
 ## Commit messages
 

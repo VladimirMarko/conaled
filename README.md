@@ -152,27 +152,45 @@ lake exe cache get
 ```
 
 The first command obtains the pinned dependencies and their compiled cache.
-`check.sh` uses Python's standard library, resolves the local import graph,
-rejects source modules omitted from the public entrypoint, and **rechecks every
-integrated project module from source** before running `ProofAudit.lean`. Independent
-modules compile concurrently after their local imports succeed. The default
-is up to four workers; use `./check.sh --jobs 1` for serial checking or
-`--jobs N` to set another memory-appropriate limit. The command reports
-compilation, audit, and total elapsed times.
+`./check.sh` is the routine acceptance command. It checks the source policy and
+public-entrypoint coverage, builds every integrated module with stock Lake's
+incremental dependency tracking, then executes `ProofAudit.lean`. The exhaustive
+audit runs on every invocation, including when compilation is entirely cached.
+Successful builds remain in Lake's normal output directories for later reuse.
+Lake owns incremental scheduling; this wrapper adds no persistent cache.
 
-Each full check uses a private temporary output directory under `.lake`, removed
-when the check finishes. It reuses external dependency caches but does not reuse
-project artifacts or populate Lake's incremental build cache. Source-adjacent
-`.olean` files and existing Lake project outputs cannot shadow the fresh outputs.
-The command replaces caller `LEAN_PATH` with the fresh output directory and
-cached dependency paths. It accepts `LEAN=/absolute/path/to/lean` and verifies
-its version against `lean-toolchain`. Keep sources and dependencies stable during
-a check. The check covers root Lean modules and `SquareKit/`, `Applications/`,
-and `Examples/`; archived sources and isolated `experiments/` are outside that
-coverage. Their own records must establish what was checked.
+For focused development, use `lake build Applications.Interaction.Measurement`
+(or another module target). A bare `lake build` builds the configured library
+and audit, but does not replace `./check.sh`'s source-policy and coverage checks.
 
-For incremental development, `lake build` builds the same modules and audit.
-Generated `.olean`, `.ilean`, `.lake`, and cache files are not source artifacts.
+Use `./check.sh --fresh` for a cache-independent project rebuild after changing
+the build tooling, toolchain, or dependency configuration, or when stale outputs
+are suspected. The [fresh verification workflow](.github/workflows/fresh-verification.yml)
+also runs weekly on the default branch and supports manual dispatch once pushed
+to GitHub with Actions enabled. Fresh mode recompiles every project module into
+a private temporary directory, audits those outputs, and removes the directory.
+It reuses external dependency caches but neither reuses project artifacts nor
+populates Lake's incremental cache. Use `--fresh --jobs 1` for serial compilation,
+or `--fresh --jobs N` to set a memory-appropriate limit (default: up to four).
+
+Both modes discard caller `LEAN_PATH` and verify the compiler version against
+`lean-toolchain`. Incremental mode uses Lake's configured import paths and
+compiler. Fresh mode uses only its new project outputs and dependency caches;
+it also supports `LEAN=/absolute/path/to/lean`. `--jobs` and `LEAN` overrides are
+rejected outside fresh mode rather than silently ignored.
+
+Keep sources, dependencies, and configuration stable during a check. Use an
+isolated checkout when other agents may edit them, and do not share writable
+project build directories across active checkouts. Routine acceptance trusts
+Lake's input tracking and local artifacts; it is not a certificate against
+artifact tampering or undeclared external inputs. Periodic fresh builds provide
+an independent check of project cache state. Future verified reuse is tracked
+in [#222](https://github.com/VladimirMarko/conaled/issues/222).
+
+Both modes cover root Lean modules and `SquareKit/`, `Applications/`, and
+`Examples/`; archived sources and isolated `experiments/` require their own
+validation. Generated `.olean`, `.ilean`, `.lake`, and cache files are not source
+artifacts. The command reports build, audit, and total elapsed times.
 
 After `lake build`, run `lake env python3 scripts/test-proof-audit.py` to check
 that the audit rejects private forbidden dependencies, admissions, and unsafe
@@ -185,8 +203,9 @@ python3 scripts/test-check.py
 python3 scripts/test-proof-audit-roots.py
 ```
 
-The first exercises fresh compilation, concurrency, ordering, stale artifacts,
-coverage, and failure exits through `check.sh`. The second compares the audit's
+The first exercises incremental reuse and invalidation, repeated auditing, fresh
+compilation, concurrency, ordering, stale artifacts, coverage, and failure exits
+through `check.sh`. The second compares the audit's
 exact root set with an independent exhaustive environment scan, including
 private, generated, and current-module declarations. For diagnostics,
 `set_option trace.ProofAudit.roots true in #audit_project_axioms` prints the

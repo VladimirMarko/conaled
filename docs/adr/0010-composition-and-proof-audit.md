@@ -34,13 +34,29 @@ Keep the weighted-convolution-to-regex-to-trie and independent recognizer/parser
 agreement theorems in the language library, where they can be reused directly.
 Timing maps reuse the finite matrix representation over the interval semiring.
 
-The public entrypoint imports every module. The build script computes its
-local import closure, rejects omitted source files, and rechecks each module
-from source. Independent compilations run concurrently only after their imports
-succeed, with a bounded worker count. Each full run writes to a private temporary
-output directory, reuses external dependency caches, and excludes stale project
-artifacts from its import path. The final audit runs after every project module
-has compiled successfully.
+The public entrypoint imports every module. The verification command computes
+its local import closure, rejects omitted source files, and checks source policy.
+Routine acceptance uses stock Lake incremental compilation and runs the
+exhaustive audit on every invocation, even if no modules need recompilation.
+This trusts Lake's dependency tracking and the local build artifacts. Validation
+must use stable candidate inputs, dependencies, and configuration.
+
+A separate `--fresh` mode rechecks every project module from source, with
+bounded concurrent compilation after imports succeed. It uses private temporary
+outputs, reuses external dependency caches, and excludes existing project
+artifacts. Run this mode weekly and after build-tooling, toolchain, or dependency
+configuration changes, or suspected cache errors. Both modes audit only after
+all required compilation succeeds.
+
+Issue [#223](https://github.com/VladimirMarko/conaled/issues/223) revises the earlier
+fresh-on-every-acceptance policy. Recompiling unchanged modules on every check
+increases development cost as the library grows. Lake's ordinary invalidation
+is sufficient for routine acceptance; the fresh check independently exercises
+source compilation without project cache reuse. A stale result could validate
+an older statement or hide an integration failure, so the periodic check remains
+useful. Neither mode establishes truth of the intended specification or freezes
+concurrently changing inputs. A future conditional guarantee for cache reuse
+belongs to [#222](https://github.com/VladimirMarko/conaled/issues/222).
 
 The final audit enumerates every locally defined kernel-safe declaration by
 module origin, including private and generated proof declarations, and traverses
@@ -66,8 +82,9 @@ axiom reached from a mathematical root still fails the audit.
   enclosure, signal stability, and higher-order logical relations.
 * Audit only named headline theorems: could miss a placeholder in an unused
   implementation or auxiliary proof.
-* Rebuild the public entrypoint from cached local `.olean` files: would fail to
-  check whether edited source still proves the packaged results.
+* Import arbitrary cached local `.olean` files without Lake dependency tracking:
+  this can miss source changes. Routine acceptance instead asks Lake to rebuild
+  changed inputs and their affected dependents before auditing.
 
 ## Consequences
 
@@ -105,4 +122,6 @@ The existing Python source/import scanner remains until
 [#7](https://github.com/VladimirMarko/conaled/issues/7) replaces it with Lean-native
 handling. The bounded scheduler uses its existing dependency graph so this
 performance change does not introduce another parser or change Lake/Nix build
-ownership. Ordinary incremental builds remain Lake's responsibility.
+ownership. Routine incremental verification delegates compilation to Lake. The
+fresh mode retains the bounded scheduler. The policy change does not claim that the
+remaining Python scanner is a complete Lean parser.

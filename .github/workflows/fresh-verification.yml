@@ -1,0 +1,33 @@
+name: Fresh verification
+
+on:
+  schedule:
+    - cron: '23 4 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fresh-verification-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: cachix/install-nix-action@75c75c31ebece974e48ebc36b4ad125bd97bd97b # v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Fetch pinned dependency cache
+        run: nix develop --command lake exe cache get
+      - name: Fresh project compilation and exhaustive audit
+        run: nix develop --command ./check.sh --fresh --jobs 2
+      - name: Verification command and audit-root regressions
+        run: |
+          nix develop --command python3 scripts/test-check.py
+          nix develop --command python3 scripts/test-proof-audit-roots.py

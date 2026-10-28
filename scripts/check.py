@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Recheck every project Lean module, then its exhaustive transitive axiom audit."""
+"""Verify project coverage and sources, build with Lake, and run the axiom audit."""
 
 from __future__ import annotations
 
@@ -117,10 +117,17 @@ def positive_jobs(value):
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--fresh", action="store_true",
+                        help="recompile every project module in private temporary outputs")
     parser.add_argument("--jobs", "-j", type=positive_jobs,
-                        default=min(4, os.cpu_count() or 1),
-                        help="maximum concurrent project compilers (default: up to 4); use 1 for serial")
+                        default=None,
+                        help="fresh mode only: maximum concurrent compilers (default: up to 4)")
     args = parser.parse_args()
+    if not args.fresh and args.jobs is not None:
+        parser.error("--jobs requires --fresh; incremental compilation uses Lake's scheduler")
+    if not args.fresh and "LEAN" in os.environ:
+        parser.error("LEAN override requires --fresh; incremental compilation uses Lake's pinned compiler")
+    args.jobs = args.jobs or min(4, os.cpu_count() or 1)
     started = time.monotonic()
     sources = list(ROOT.glob("*.lean"))
     for directory in ("SquareKit", "Applications", "Examples"):
@@ -172,11 +179,11 @@ def main() -> int:
     if not mathlib.is_dir():
         raise RuntimeError("Mathlib build cache is missing. Run `lake exe cache get` first.")
     env = os.environ.copy()
-    # Fresh checks use only this run's project outputs and dependency caches.
-    # Neither source-adjacent oleans nor Lake's incremental project outputs may
-    # shadow a freshly compiled module. Caller LEAN_PATH is intentionally replaced.
+    # Build tools own the import path; caller artifacts must not shadow it.
+    env.pop("LEAN_PATH", None)
     lean = env.get("LEAN", "lean")
-    version = subprocess.check_output([lean, "--version"], cwd=ROOT, env=env, text=True).strip()
+    version_command = [lean, "--version"] if args.fresh else ["lake", "env", "lean", "--version"]
+    version = subprocess.check_output(version_command, cwd=ROOT, env=env, text=True).strip()
     print(version, flush=True)
     toolchain = (ROOT / "lean-toolchain").read_text(encoding="utf-8").strip()
     expected = toolchain.rsplit(":v", 1)[-1]
@@ -185,20 +192,35 @@ def main() -> int:
         raise RuntimeError(f"Expected {toolchain}, got {version}.")
     print("Source guard passed: no admissions, source axioms, unsafe/partial definitions, native_decide, or skipped kernel checking.", flush=True)
     print(f"Source/coverage/version checks: {time.monotonic() - started:.2f}s", flush=True)
-    print(f"Rechecking {len(order)} local modules from source with {args.jobs} workers.", flush=True)
-    (ROOT / ".lake").mkdir(exist_ok=True)
-    with tempfile.TemporaryDirectory(prefix="fresh-check-", dir=ROOT / ".lake") as directory:
-        output = Path(directory)
-        env["LEAN_PATH"] = os.pathsep.join([str(output), *(str(p) for p in dependency_paths)])
+    if not args.fresh:
+        print(f"Building {len(order) - 1} project modules with Lake (incremental).", flush=True)
         build_started = time.monotonic()
-        compile_modules(modules, dependencies, [n for n in order if n != "ProofAudit"],
-                        lean, env, output, args.jobs)
-        print(f"Fresh compilation: {time.monotonic() - build_started:.2f}s", flush=True)
+        # Explicit module targets avoid library/default-target ambiguity and build
+        # every inventoried module, including imports used only by the audit.
+        subprocess.run(["lake", "build", *["+" + n for n in order if n != "ProofAudit"]],
+                       cwd=ROOT, env=env, check=True)
+        print(f"Incremental compilation: {time.monotonic() - build_started:.2f}s", flush=True)
         audit_started = time.monotonic()
-        source = modules["ProofAudit"].relative_to(ROOT)
-        subprocess.run([lean, "-o", str(output / "ProofAudit.olean"), str(source)],
+        # Run the audit even when Lake reuses all project artifacts. Do not write
+        # an olean behind Lake's back or use a cached audit's old success message.
+        subprocess.run(["lake", "env", "lean", str(modules["ProofAudit"].relative_to(ROOT))],
                        cwd=ROOT, env=env, check=True)
         print(f"Proof audit: {time.monotonic() - audit_started:.2f}s", flush=True)
+    else:
+        print(f"Rechecking {len(order)} local modules from source with {args.jobs} workers.", flush=True)
+        (ROOT / ".lake").mkdir(exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix="fresh-check-", dir=ROOT / ".lake") as directory:
+            output = Path(directory)
+            env["LEAN_PATH"] = os.pathsep.join([str(output), *(str(p) for p in dependency_paths)])
+            build_started = time.monotonic()
+            compile_modules(modules, dependencies, [n for n in order if n != "ProofAudit"],
+                            lean, env, output, args.jobs)
+            print(f"Fresh compilation: {time.monotonic() - build_started:.2f}s", flush=True)
+            audit_started = time.monotonic()
+            source = modules["ProofAudit"].relative_to(ROOT)
+            subprocess.run([lean, "-o", str(output / "ProofAudit.olean"), str(source)],
+                           cwd=ROOT, env=env, check=True)
+            print(f"Proof audit: {time.monotonic() - audit_started:.2f}s", flush=True)
     print(f"PASS: all {len(order)} modules checked; exhaustive axiom audit passed. "
           f"Total: {time.monotonic() - started:.2f}s", flush=True)
     return 0

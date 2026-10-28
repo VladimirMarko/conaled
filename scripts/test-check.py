@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exercise the public fresh-verification command with real Lean fixture projects."""
+"""Exercise incremental and fresh verification with real Lean fixture projects."""
 
 from pathlib import Path
 import os
@@ -21,6 +21,7 @@ class FreshVerification(unittest.TestCase):
         (self.root / "Applications").mkdir()
         (self.root / ".lake").mkdir()
         (self.root / ".lake/packages").symlink_to(ROOT / ".lake/packages")
+        (self.root / "lakefile.toml").write_text('name = "fixture"\n[[lean_lib]]\nname = "SquareApplications"\nglobs = ["SquareApplications", "Applications.+", "ProofAudit"]\n')
         for name in ("check.sh", "lean-toolchain", "scripts/check.py"):
             shutil.copy2(ROOT / name, self.root / name)
         self.write("SquareApplications", "import Applications.A\nimport Applications.B\n")
@@ -31,12 +32,35 @@ class FreshVerification(unittest.TestCase):
     def write(self, module, source):
         (self.root / (module.replace(".", "/") + ".lean")).write_text(source)
 
-    def check(self, *args):
+    def check(self, *args, fresh=True):
         env = os.environ.copy()
         # Caller search paths must not provide fixture project artifacts.
         env.pop("LEAN_PATH", None)
-        return subprocess.run(["./check.sh", *args], cwd=self.root, env=env,
+        return subprocess.run(["./check.sh", *(["--fresh"] if fresh else []), *args], cwd=self.root, env=env,
                               capture_output=True, text=True, timeout=45)
+
+    def test_incremental_reuses_sources_but_reruns_audit_and_invalidates_imports(self):
+        self.write("Applications.A", "def a : Nat := 7\n")
+        self.write("Applications.B", "import Applications.A\nexample : a = 7 := rfl\n")
+        for module, marker in (("Applications.A", "compilation-count"),
+                               ("ProofAudit", "audit-count")):
+            path = self.root / (module.replace(".", "/") + ".lean")
+            original = path.read_text()
+            path.write_text("import Lean\n" + original + f'''run_cmd do
+  let path : System.FilePath := "{marker}"
+  let previous ← if ← path.pathExists then IO.FS.readFile path else pure "0"
+  IO.FS.writeFile path (toString (previous.toNat! + 1))
+''')
+        for expected in ("1", "2"):
+            result = self.check(fresh=False)
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            self.assertEqual((self.root / "compilation-count").read_text(), "1")
+            self.assertEqual((self.root / "audit-count").read_text(), expected)
+        self.write("Applications.A", "def a : Nat := 8\n")
+        result = self.check(fresh=False)
+        self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual((self.root / "audit-count").read_text(), "2")
+        self.assertNotIn("PASS: all", result.stdout)
 
     def test_independent_compilation_overlaps_and_audit_waits(self):
         for name, other in (("A", "B"), ("B", "A")):
@@ -110,31 +134,37 @@ run_cmd IO.FS.writeFile "dependent-ran" "yes"
 
     def test_omitted_source_is_rejected_before_compilation(self):
         self.write("Applications.Omitted", "def omitted : Nat := 0\n")
-        result = self.check()
-        self.assertNotEqual(result.returncode, 0)
-        self.assertIn("Applications.Omitted", result.stderr)
-        self.assertFalse((self.root / "audit-ran").exists())
+        for fresh in (False, True):
+            with self.subTest(fresh=fresh):
+                result = self.check(fresh=fresh)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn("Applications.Omitted", result.stderr)
+                self.assertFalse((self.root / "audit-ran").exists())
 
     def test_audit_failure_is_not_reported_as_success(self):
         self.write("ProofAudit", "import SquareApplications\n#check missingAuditDeclaration\n")
-        result = self.check()
-        self.assertNotEqual(result.returncode, 0)
-        self.assertIn("missingAuditDeclaration", result.stdout + result.stderr)
-        self.assertNotIn("PASS: all", result.stdout)
+        for fresh in (False, True):
+            with self.subTest(fresh=fresh):
+                result = self.check(fresh=fresh)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn("missingAuditDeclaration", result.stdout + result.stderr)
+                self.assertNotIn("PASS: all", result.stdout)
 
     def test_source_guard_rejects_admission(self):
         self.write("Applications.A", "theorem admitted : False := by sorry\n")
-        result = self.check()
-        self.assertNotEqual(result.returncode, 0)
-        self.assertIn("Forbidden source construct", result.stderr)
-        self.assertFalse((self.root / "audit-ran").exists())
+        for fresh in (False, True):
+            with self.subTest(fresh=fresh):
+                result = self.check(fresh=fresh)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn("Forbidden source construct", result.stderr)
+                self.assertFalse((self.root / "audit-ran").exists())
 
     def test_compiler_version_must_match_pin(self):
         (self.root / "lean-toolchain").write_text("leanprover/lean4:v0.0.0\n")
         # An explicit executable avoids elan trying to install the fake pin.
         env = os.environ.copy()
         env["LEAN"] = subprocess.check_output(["elan", "which", "lean"], text=True).strip()
-        result = subprocess.run(["./check.sh"], cwd=self.root, env=env,
+        result = subprocess.run(["./check.sh", "--fresh"], cwd=self.root, env=env,
                                 capture_output=True, text=True, timeout=15)
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("Expected leanprover/lean4:v0.0.0", result.stderr)
