@@ -1,6 +1,7 @@
 import Examples.FIFOContracts
 import Examples.AbstractFIFO
 import Examples.CompiledTemporalPayload
+import Examples.ArithmeticStaging
 import Examples.CurryHoward
 import Examples.ProbabilisticProgress
 import Examples.MetropolisHastings
