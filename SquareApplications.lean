@@ -209,6 +209,7 @@ import SquareKit.SheafTorsorDescent
 import SquareKit.STLCRelations
 import Examples.TemporalFRP
 import Examples.TemporalMonitor
+import Examples.MeasurementAttempt
 import Squares
 import Verification
 
