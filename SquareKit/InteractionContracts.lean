@@ -1,5 +1,4 @@
-import Mathlib.Logic.Relation
-import Mathlib.Data.Set.Basic
+import SquareKit.RelationTransport
 
 /-!
 # Conditional safety and observation contracts
@@ -15,6 +14,14 @@ universe u v w
 /-- Partial correctness of every related endpoint; no result existence claim. -/
 def Safe {S : Type u} (P : S → Prop) (C : S → S → Prop) (Q : S → Prop) : Prop :=
   ∀ ⦃s t⦄, P s → C s t → Q t
+
+theorem safe_iff_subset_requirement {S : Type u} (P Q : Set S) (C : S → S → Prop) :
+    Safe P C Q ↔ P ⊆ SquareKit.RelationTransport.requirement C Q := by
+  constructor
+  · intro h s hs t hst
+    exact h hs hst
+  · intro h s t hs hst
+    exact h hs t hst
 
 /-- An assertion survives one permitted environment step. -/
 def Stable {S : Type u} (R : S → S → Prop) (Q : S → Prop) : Prop :=
@@ -42,6 +49,19 @@ def Refines {S : Type u} {T : Type v} (obs : S → T → Prop)
     (source : Set S) (target : Set T) : Prop :=
   ∀ ⦃t⦄, t ∈ target → ∃ s ∈ source, obs s t
 
+theorem refines_iff_subset_image {S : Type u} {T : Type v} (obs : S → T → Prop)
+    (source : Set S) (target : Set T) :
+    Refines obs source target ↔ target ⊆ SquareKit.RelationTransport.image obs source :=
+  Iff.rfl
+
+/-- Backward requirements suffice for every behavior covered by refinement.
+The refinement witness need not cover every source world related to a target. -/
+theorem Refines.requirement {S : Type u} {T : Type v} {obs : S → T → Prop}
+    {source : Set S} {target Q : Set T} (h : Refines obs source target)
+    (required : source ⊆ SquareKit.RelationTransport.requirement obs Q) : target ⊆ Q :=
+  Set.Subset.trans ((refines_iff_subset_image obs source target).mp h)
+    ((SquareKit.RelationTransport.image_requirement obs source Q).mpr required)
+
 theorem Refines.trans {S : Type u} {T : Type v} {U : Type w}
     {a : Set S} {b : Set T} {c : Set U} {r : S → T → Prop} {q : T → U → Prop}
     (h : Refines r a b) (j : Refines q b c) : Refines (Relation.Comp r q) a c := by
@@ -56,8 +76,7 @@ theorem Refines.property {S : Type u} {T : Type v} {obs : S → T → Prop}
     {P : S → Prop} {Q : T → Prop} (hp : ∀ s ∈ source, P s)
     (respects : ∀ s t, obs s t → P s → Q t) : ∀ t ∈ target, Q t := by
   intro t ht
-  obtain ⟨s, hs, hst⟩ := h ht
-  exact respects s t hst (hp s hs)
+  exact h.requirement (fun s hs t hst => respects s t hst (hp s hs)) ht
 
 /-- An infinite sequence of permitted steps; no fairness condition is implicit. -/
 def Run {S : Type u} (step : S → S → Prop) (states : Nat → S) : Prop :=

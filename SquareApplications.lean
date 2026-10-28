@@ -1,5 +1,6 @@
 import Examples.StatefulIncremental
 import Examples.ExternalInteraction
+import Examples.InteractionTransport
 import Examples.InteractionInterfaces
 import Examples.DijkstraCosts
 import Examples.TreeFlatteningCosts

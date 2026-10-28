@@ -3,11 +3,12 @@
 Research for [#196](https://github.com/VladimirMarko/conaled/issues/196),
 2026-10-28. Inspection baseline:
 [`6f4bead0d1ec9686b31a6d6f1e628926e61ec1d1`](https://github.com/VladimirMarko/conaled/tree/6f4bead0d1ec9686b31a6d6f1e628926e61ec1d1).
-Repository links below refer to that baseline unless describing historical commits.
+Historical inspection refers to that baseline; relative source links also include
+the bounded predicate-transport experiment described below.
 This is a scoped investigation, not completion of #196 or an architectural decision.
-Named Lean declarations are existing source evidence; displayed derivations and
-proposed experiments are **not newly checked Lean claims**. No runtime or physical
-recovery experiment was performed.
+The relation-level laws and specializations identified in the checked-experiment
+section now have Lean proofs. Other proposed constructions remain mathematical
+research. No runtime or physical recovery experiment was performed.
 
 Optimization already contributes to the interaction study: its indexed
 `observationSquare` is reused by
@@ -128,8 +129,8 @@ For the second law, expand the left side as
 `∀ z, (∃ y, r(x,y) ∧ q(y,z)) → Q(z)`; moving the witness into the
 universal premise gives the right side. No finiteness, decidability,
 termination, totality or choice is needed. For the graph `r(x,y) := f(x)=y`,
-`U_r(Q)=f*Q` and `E_r(P)=f '' P`. These are prospective relation-level
-lemmas, grounded in Mathlib's existing
+`U_r(Q)=f*Q` and `E_r(P)=f '' P`. These laws are now proved in
+[`RelationTransport`](../../SquareKit/RelationTransport.lean), using Mathlib's existing
 [`Relation.Comp`](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Logic/Relation.lean)
 and [`Set.image_subset_iff`, `image_comp`, `preimage_comp`](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Data/Set/Image.lean).
 
@@ -258,22 +259,58 @@ model errors or the trusted checking/execution boundary documented in
 strategies, correlated failures and distributed impossibility results remain
 broader #196 investigations; this note has not established a common encoding.
 
-## Bounded next checked experiment
+## Checked predicate-transport experiment
 
-Within #194's existing consumers, first test the small relation-level laws
-above using Mathlib sets and `Relation.Comp`. Require checked graph
-specializations matching `pullback` and `observationSquare`, then recover the
-existing `Safe` and `Refines.property` formulations. Keep admissible-observation
-inhabitation explicit. This stage depends only on current shared contracts.
+The follow-up starts from research commit
+[`f592d81`](https://github.com/VladimirMarko/conaled/commit/f592d81d2b695bc21b8fdd5529820f93bfbee94f).
+[`SquareKit.RelationTransport`](../../SquareKit/RelationTransport.lean) supplies
+`image`, `requirement`, their adjunction `image_requirement`, both composition
+laws, and graph specializations. `requirement_restricted_converse` identifies
+the universal requirement over admissible worlds with Mathlib's `kernImage`
+on the admissible-world subtype. None requires finite carriers, decidable
+predicates, executable choice or progress.
 
-Next apply the same laws to the evidence and captured-compilation cases.
-Acceptance requires both successful witnesses and the lost-acknowledgment,
-empty-fiber, delayed-attempt and missing-stability counterexamples. Compare
-direct relations with event interpretation against the same independent
-specifications. Record which primitive obligations are proved once and which
-remain at each call site; moving the same proofs into a record is not an
-improvement in caller effort. If these laws merely rename existing proofs,
-keep them as examples rather than introducing a public abstraction.
+[`InteractionContracts`](../../SquareKit/InteractionContracts.lean) connects
+`Safe` to a subset of a requirement and `Refines` to a subset of an image.
+`Refines.requirement` uses the adjunction to transfer a backward requirement;
+the existing `Refines.property` now derives from that rule with its public
+statement unchanged. Callers still prove the observation respects the desired
+property. The shared theorem removes repeated extraction of refinement
+witnesses, not those semantic obligations.
+
+The retained cases in
+[`Examples.InteractionTransport`](../../Examples/InteractionTransport.lean) are:
+
+| Claim | Checked connection |
+|---|---|
+| Increment then double sends 3 to 8 | `possible_eight` uses `image_comp` and `image_graph`; reversing the order would give 7. |
+| Objective bounds and indexed observations | `objective_requirement` uses `requirement_graph` with `Optimization.pullback`; `observation_image` uses `image_graph` with `observationSquare`. |
+| Silence is possible but does not prove absence | `silence_admissible` supplies an attempted-world witness; `silence_not_absence` uses `requirement_restricted_converse` and the world with one effect. |
+| Impossible observations can satisfy false universally | `impossible_observation` proves membership in `kernImage observer ∅` and absence from the admissible image. |
+| Recovery preserves effects and permits acknowledgment | `recovery_requirement` uses `requirement_comp`; `recovery_enabled` uses publication stability; `recovery_witness` combines their conclusions with a permitted recovery step. |
+| Captured compilation survives permitted interference | `captured_requirement` uses composition twice and `captured_stable`; `captured_safe` returns the ordinary safety interface. |
+| Coarse refinement preserves the retained count | `refined_count` uses `Refines.requirement`; the existing publication-loss counterexample remains applicable. |
+
+Statement review separated two recovery obligations: acknowledgment already
+sets its flag, so publication is unnecessary for endpoint acknowledgment
+safety. Publication instead proves that a finishing step is enabled after
+every finite recovery. The safety example preserves the effect count as well
+as acknowledgment; the separate witness uses enabledness. Neither rules out
+the existing infinite interrupted run. Existing `missing_stability_counterexample`,
+`retry_duplicates`, `delayed_attempt`, and the successful captured pipeline in
+`ExternalInteraction` remain the negative and nonvacuity cases. Direct relations
+and event interpretation keep their existing independent contracts.
+
+The examples expose intermediate requirements by rewriting composition,
+without introducing a recovery record or new event language. For these short
+pipelines this is an alternative proof form, not evidence of less total author
+effort than `safe_interference_seq`. Domain-specific connections therefore stay
+in `Examples`; only the general relation laws and contract bridges are public
+shared machinery. Targeted validation is `lake build Examples.InteractionTransport`;
+the whole candidate still requires the repository's fresh build, axiom audit
+and independent reviews before acceptance.
+
+## Remaining bounded follow-up
 
 A later bounded resource case can count recovery attempts and external effects
 separately, including an interrupted attempt. Its acceptance criterion is an
@@ -281,4 +318,5 @@ explicit fault-budget assumption and a counterexample without that budget.
 It depends on the first comparison and a chosen transition/cost model; it is
 not authorization to select a universal recovery IR. Any formal implementation
 must follow statement review, checked specializations, fresh build and exhaustive
-axiom audit. The current milestone changes documentation only.
+axiom audit. This milestone establishes predicate transport and bounded model
+examples, not an OS adapter, a runtime recovery guarantee or completion of #196.
