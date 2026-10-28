@@ -55,7 +55,7 @@ and typed calculi. Category theory extends this through internal languages and
 models; homotopy theory gives dependent identity types geometric meaning.
 Linear logic connects further to protocols and resource-sensitive computation.
 There are useful connections to topology, physics, linguistics, games, and
-verification, but no canonical list of six mutually equivalent subjects.
+verification.
 Each connection needs its own fragment, equations, and preservation contract.
 [Proofs and Types](https://paultaylor.eu/stable/Proofs%2BTypes),
 [Lambek and Scott](https://assets.cambridge.org/97805213/56534/excerpt/9780521356534_excerpt.pdf),
