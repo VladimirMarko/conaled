@@ -1,3 +1,4 @@
+import Examples.CurryHoward
 import Examples.ProbabilisticProgress
 import Examples.MetropolisHastings
 import Examples.ProbabilityCorrelation
