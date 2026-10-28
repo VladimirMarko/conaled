@@ -20,6 +20,9 @@ pipeline, kernel extension, or package split. Missing entries are uninvestigated
 not impossible. Entry identifiers are stable handles for adding evidence;
 they are not names of new library abstractions.
 
+The [integration assessment](correspondence-contracts-and-integration.md)
+compares shared contracts and proposes bounded adapters between these routes.
+
 ## Reading and extending an entry
 
 Each entry records a **fragment/profile**, **counterpart**, **direction and
