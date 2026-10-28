@@ -266,8 +266,8 @@ tests to evaluate, not a measured reduction in author effort.
 ### Scoped implementation follow-up for X1
 
 The child scopes do not explicitly own their joint relational integration test.
-Create a follow-up under #202, blocked on the accepted #203/#206 interfaces:
-**“Compose compiled payload relations with finite temporal delivery witnesses.”**
+[#215: Compose compiled payload relations with finite temporal delivery witnesses](https://github.com/VladimirMarko/conaled/issues/215)
+tracks this follow-up under #202, blocked on the accepted #203/#206 interfaces.
 Its deliverables are the five X1 steps, a reusable same-horizon witness relation,
 identity/composition laws, equality and nonfunctional-relation specializations,
 and the delayed/known-empty/forgotten-horizon negative cases. Require one direct
@@ -275,8 +275,9 @@ and one optional syntax client, an authored-content/bookkeeping comparison,
 statement review, checked examples, fresh build/audit and independent review.
 Place reusable lemmas with their owning libraries and the cross-kind application
 in `Examples`; do not require a universal route datatype. No integrated-validation
-claim is made before that issue passes. A tracker-ready draft accompanies this
-research handoff; the coordinating workflow owns creation and its final number.
+claim is made before that issue passes. Its compiled payload carriers are
+restricted to `Type` (universe zero), matching the current compiler; the
+standalone until-certificate relation may remain universe-polymorphic.
 
 ## Coordination and decisions left open
 
