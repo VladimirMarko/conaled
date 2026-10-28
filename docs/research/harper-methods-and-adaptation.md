@@ -7,6 +7,12 @@ This delivers a research and integration assessment. The experiments below
 are proposed contracts for #210 and #211, not new Lean theorems or an adopted
 language architecture. It extends the [correspondence survey](curry-howard-correspondences.md).
 
+Implementation update: the proposed experiments below are retained as the
+research snapshot. The [shared FIFO client](abstract-fifo-client.md) and
+[modular cost contract](modular-fifo-costs.md) now record #210/#211's bounded
+adaptations and checked examples. Their guarantees use explicit Lean interfaces;
+they do not implement the cited frameworks' full phase or sealing mechanisms.
+
 The immediate opportunity is **client proof reuse across representations and
 cost models**. Existing relational compilation and potential accounting already
 provide much of the mathematical infrastructure. Harper and collaborators supply

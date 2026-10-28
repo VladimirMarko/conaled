@@ -3,9 +3,22 @@
 Research for [#202](https://github.com/VladimirMarko/conaled/issues/202),
 2026-10-28. Source inspection baseline:
 `441f618a044c040adaeb85acace27e76cdc68f57`, Lean 4.35.0 and Mathlib
-`56a005855ea17e0b0958f73ec801ae140b0a1679`. This is a research-phase integration
-proposal. It does not claim that the proposed adapters or child experiments
-have passed formal validation.
+`56a005855ea17e0b0958f73ec801ae140b0a1679`. The original text is a research-phase integration
+proposal; it records the declarations and planned tests at that baseline.
+The implementation update below identifies the subsequent formal results.
+
+**Implementation status:** the research baseline and proposed tests below are
+retained as a dated design record. The
+[compiled temporal-payload experiment](compiled-temporal-payload.md)
+now supplies X1's same-horizon relation, compiler-to-batch lifting, honest FRP
+terminal map, positive/negative cases and authored-content accounting.
+The [proof/program bridge](curry-howard-implementation.md),
+[temporal adapter](../temporal-frp.md), [shared FIFO client](abstract-fifo-client.md),
+[public cost contract](modular-fifo-costs.md) and
+[path coverage report](path-correspondence-coverage.md) provide the other bounded
+consumer evidence. The [result index](curry-howard-correspondences.md#results-of-the-bounded-experiments)
+collects their exact scopes. None establishes a universal correspondence calculus
+or a measured reduction in development time.
 
 **Keep cooperating fragments, connected through their existing semantic
 interfaces.** The common requirement is a translation with a specified
@@ -18,8 +31,8 @@ The [atlas](logic-correspondence-atlas.md) supplies the range of connections.
 The [temporal assessment](temporal-logic-frp-contracts.md) selects a next/until
 certificate fragment and an FRP observation contract; the
 [Harper assessment](harper-methods-and-adaptation.md) selects shared-client and
-private-potential experiments. Their proposed formal follow-ups remain separate
-from the accepted declarations inspected here. The
+private-potential experiments. Their implementation reports distinguish subsequent results from the
+declarations inspected at this research baseline. The
 [language direction](../language-direction.md) requires familiar author-facing
 constructions, explicit requirements, and an unchanged ordinary Lean path.
 
@@ -247,7 +260,9 @@ for these tests and leaves backend-specific IR choices open.
 
 ### Caller obligations to measure
 
-These are prospective acceptance measurements, not claimed improvements.
+These were the prospective acceptance measurements. The linked implementation
+reports now record authored constructions and residual obligations; they do not
+claim a measured improvement in developer time.
 Count independently authored constructions/proofs and residual bookkeeping,
 not just lines of code. Count a reused theorem once even if instantiated twice.
 
@@ -259,13 +274,16 @@ not just lines of code. Count a reused theorem once even if instantiated twice.
 | Path route | One transport construction and an arrow-sensitive observation | Existing source interpretation/reindexing and naturality | Model-specific fibre action and coherent comparisons; unsupported higher identity |
 
 The baseline is the existing direct client, not a deliberately cumbersome new
-encoding. Record actual counts after child implementation and retain unchanged
-ordinary Lean applications. Until then this research establishes interfaces and
-tests to evaluate, not a measured reduction in author effort.
+encoding. The X1 report now counts its shared source proof, scalar obligations,
+relational adapter and index transports; the FIFO reports identify the single
+client theorem and per-implementation obligations. Ordinary Lean applications
+remain available. These structural counts do not measure development effort.
 
-### Scoped implementation follow-up for X1
+### X1 implementation and original follow-up contract
 
-The child scopes do not explicitly own their joint relational integration test.
+The original child scopes did not own their joint relational integration test.
+The [implementation report](compiled-temporal-payload.md) now records the
+checked route and its author obligations. The original follow-up contract was:
 [#215: Compose compiled payload relations with finite temporal delivery witnesses](https://github.com/VladimirMarko/conaled/issues/215)
 tracks this follow-up under #202, blocked on the accepted #203/#206 interfaces.
 Its deliverables are the five X1 steps, a reusable same-horizon witness relation,
@@ -297,6 +315,7 @@ Remaining design questions concern evidence from these consumers: whether a
 shared indexed client interface earns its cost, which comparison data must be
 proof-relevant, and whether repeated modal interactions justify an MTT-style
 presentation. The initial tests can answer these without forcing a global
-choice of logic framework or IR. Existing semantic composition is delivered;
-the proposed cross-fragment integration and its author-effort measurements are
-explicitly outstanding.
+choice of logic framework or IR. Existing semantic composition and the bounded X1 cross-fragment integration
+are delivered. Its implementation report records actual construction and
+obligation counts. General author-effort savings, a shared indexed client
+interface and a global modal presentation remain unestablished.

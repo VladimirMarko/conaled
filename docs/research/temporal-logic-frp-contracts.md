@@ -5,8 +5,14 @@ Research for [#205](https://github.com/VladimirMarko/conaled/issues/205),
 `c4f469dd2dfdf4dce471fb355b9ab478d3d62dd5`. This note specifies the bounded
 experiment for [#206](https://github.com/VladimirMarko/conaled/issues/206) and
 the monitor scope for [#207](https://github.com/VladimirMarko/conaled/issues/207).
-The proposed definitions and theorem obligations below are not implemented or
-claimed as checked Lean results.
+At that inspection baseline, the definitions and theorem obligations below
+were proposals rather than checked Lean results.
+
+Implementation update: the text below preserves the original proposal.
+[Finite temporal certificates and the FRP adapter](../temporal-frp.md) implement
+#206; [bounded monitoring](../temporal-monitor.md) implements #207. Those reports
+state the checked contracts, processing-clock limits and distinction between
+certificate mapping, monitoring and causal realization.
 
 Use **discrete processing steps** for the first temporal interpretation, with
 FRP query timestamps retained as separate values. Adapt a next/until witness

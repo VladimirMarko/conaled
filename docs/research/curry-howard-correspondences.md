@@ -5,6 +5,51 @@ Research date: 2026-10-28. Local evidence: checkout
 proposal for bounded experiments, not an adopted architecture or a claim that
 all the constructions below are implemented.
 
+The dated assessment below is retained as the research baseline. Subsequent
+bounded results are indexed here; their implementation notes state the exact
+fragments and remaining obligations.
+
+## Results of the bounded experiments
+
+| Issue and report | Delivered comparison and boundary |
+|---|---|
+| [#203: proof/program correspondence](curry-howard-implementation.md) | A singleton-atom product/arrow natural-deduction interface shares proof-relevant compiler syntax; substitution, round trips, selected detour simulation and two models are checked. No general completeness, normalization or operational reflection claim. |
+| [#206: temporal certificates](../temporal-frp.md) | Finite next/until evidence, an explicit FRP frame adapter and fuel-bounded arrival search retain the response horizon. Existence in `Prop` does not itself extract a program; certificate maps do not imply synchronous causality. |
+| [#207: bounded monitors](../temporal-monitor.md) | A separate formula grammar has independent infinite-trace semantics and a finite observation horizon. Conclusive verdicts are sound; shorter prefixes can remain pending. This is neither arbitrary LTL decision nor controller synthesis. |
+| [#210: shared FIFO client](abstract-fifo-client.md) | One operation-only client theorem applies to ordinary and symmetric lists, with explicit simulations and an optional internal-syntax route. Unrestricted representation inspection is outside the guarantee. |
+| [#211: modular resource bounds](modular-fifo-costs.md) | Public profiles and initialization credits support one client bound across two actual instrumentations. Potential formulas stay out of client proofs; this is conventional interface abstraction, not a full Calf/AFAT modality. |
+| [#212: finite linear sessions](linear-session-experiment.md) | A finite additive/unit CP fragment translates proof data to typed processes and principal communications; focused dual endpoints compose through an independent trace contract. General CP progress, sharing and recursion are excluded. |
+| [#213: path comparison coverage](path-correspondence-coverage.md) | Existing groupoid and separate second-identity examples already supply the selected routes, substitution and information-loss cases. The reviewed outcome adds a coverage report, without duplicating formal code or claiming native HoTT. |
+| [#214: staged arithmetic](arithmetic-staging.md) | Static configuration is evaluated and quoted into existing typed residual syntax, then composed with stack execution. Stages mean compilation availability; this is neither a scheduler nor normalization by evaluation. |
+| [#215: compiled temporal payloads](compiled-temporal-payload.md) | Compiler-preserved payload relations lift through batches and finite temporal certificates to honest FRP observations, preserving order, duplicates and horizon. This supplies the cross-fragment test proposed in #202 without a universal route datatype. |
+
+These results separate proof objects, executable transitions, observations and
+resource bounds instead of treating their correspondences as interchangeable.
+The [integration assessment](correspondence-contracts-and-integration.md)
+records the shared contract and links its implementation evidence. Recursion
+remains with [#109](https://github.com/VladimirMarko/conaled/issues/109), graph
+emission with [#128](https://github.com/VladimirMarko/conaled/issues/128), general
+resource and persistent-use scope with [#177](https://github.com/VladimirMarko/conaled/issues/177),
+FRP/numerical instrumentation with [#193](https://github.com/VladimirMarko/conaled/issues/193),
+and interaction/fault contracts with [#196](https://github.com/VladimirMarko/conaled/issues/196).
+The path report retains the independent higher/coherence and smooth-model gates.
+
+The initial experiments do not exhaust the atlas.
+[#200](https://github.com/VladimirMarko/conaled/issues/200) remains the continuing
+workstream for comparison questions that lack a selected consumer. In particular,
+finite-kernel support versus probability-sensitive observations and ordered
+Lambek derivations versus recognition remain exploratory candidates, not promised
+implementations. Closed [#198](https://github.com/VladimirMarko/conaled/issues/198)
+and [#199](https://github.com/VladimirMarko/conaled/issues/199) already address
+probabilistic progress and model comparison. The existing
+[parser bridge](../../Applications/Languages/ParserBridge.lean) already connects
+proof-relevant regex parses to recognition; it does not formalize Lambek rules.
+A new route should identify the missing consumer and comparison before receiving
+an implementation scope. [#36](https://github.com/VladimirMarko/conaled/issues/36)
+retains the broader shared-language and model-integration direction.
+
+## Original research assessment
+
 Curry–Howard supplies a family of precise connections between proof systems
 and typed calculi. Category theory extends this through internal languages and
 models; homotopy theory gives dependent identity types geometric meaning.
@@ -278,9 +323,9 @@ they reveal the exact additional requirement that a transport route needs.
 
 ## Prioritized experiments and decision criteria
 
-These experiments are proposals. Their deliverables should become scoped
-GitHub Issues only after their boundaries are selected; this research does not
-create tracker commitments.
+The following text recorded selection criteria before issue creation. The
+result index above records the subsequent bounded implementations and coverage
+outcomes.
 
 | Priority | Bounded experiment | Evidence that would justify further work |
 |---|---|---|
