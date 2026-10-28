@@ -70,8 +70,9 @@ The stochastic examples distinguish shared and independent randomness and
 stationarity from convergence.
 
 Stationarity alone supplies no convergence, mixing rate, estimator confidence,
-termination or elapsed-time guarantee. Probabilistic progress belongs to #198;
-fault and environmental contracts remain with #196. Random-bit realization,
+termination or elapsed-time guarantee. The bounded [probabilistic progress
+contracts](probabilistic-progress.md) supply separate execution and deadline
+semantics for #198; fault and environmental contracts remain with #196. Random-bit realization,
 floating-point error and general-state ergodicity require additional contracts.
 Higher-order and internal probability models remain optional follow-up work
 identified in the [model comparison](research/probability-model-comparison.md).

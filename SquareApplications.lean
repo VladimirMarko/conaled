@@ -1,3 +1,4 @@
+import Examples.ProbabilisticProgress
 import Examples.MetropolisHastings
 import Examples.ProbabilityCorrelation
 import Examples.StatefulIncremental
