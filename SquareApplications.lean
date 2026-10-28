@@ -1,3 +1,4 @@
+import Examples.InitializedFeedback
 import Examples.FIFOContracts
 import Examples.AbstractFIFO
 import Examples.CompiledTemporalPayload
