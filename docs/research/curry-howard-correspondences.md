@@ -17,6 +17,10 @@ Each connection needs its own fragment, equations, and preservation contract.
 [HoTT book](https://homotopytypetheory.org/book/),
 [Baez and Stay](https://math.ucr.edu/home/baez/rosetta.pdf).
 
+The [logic correspondence atlas](logic-correspondence-atlas.md) extends this
+assessment with fragment-by-fragment routes, local and Mathlib reuse, and
+contrasting experiments across further logic families.
+
 For conaled, the main opportunity is to make these contracts reusable:
 translate an argument or program together with the structure and principles
 it needs, then interpret it in another setting. Robert Harper's work fits
