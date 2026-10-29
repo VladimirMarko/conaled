@@ -176,3 +176,13 @@ The preservation experiment feeds the continuing architecture programme
 [#235](https://github.com/VladimirMarko/conaled/issues/235). New causal, timing
 or identifier-free consumers should report missing laws and specialization
 usability there; completing the first experiment does not close that work.
+
+## Implemented finite-circuit service class
+
+The [indefinite-service implementation](indefinite-reactive-service.md) supplies
+initialized Boolean circuits, checked resource/progress contracts, compositional
+wiring and a synchronous byte-stream runner. It covers a finite-value delay and
+composed clients without IDs or growing histories. Its uniform space theorem is
+for an explicit circuit arena model; host allocation, reclamation and IO remain
+trusted. The frontier driver and unrestricted lifecycle do not inherit this
+bound. #234's implementation record states those distinct contracts and limits.

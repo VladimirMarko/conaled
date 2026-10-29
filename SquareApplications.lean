@@ -223,3 +223,5 @@ import Squares
 import Verification
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
+
+import Examples.IndefiniteService
