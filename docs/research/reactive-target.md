@@ -93,6 +93,6 @@ Processing positions, completed-batch ticks, and source timestamps remain
 separate, as required by the [multimodal assessment](multimodal-reactive-assessment.md).
 Compilation and wiring add no fairness or liveness guarantee. The implementation
 contains no network syntax, universal modal interface, graph scheduler,
-cancellation, external IO, reclamation, or cost bound. The next pipeline adapter
-can pair the accepted engine and consumer states one command at a time; it need
-not alter either component's semantics.
+cancellation, external IO, reclamation, or cost bound. The [executable pipeline](reactive-pipeline.md) pairs the accepted engine and
+consumer states one command at a time, preserving both original responses and
+derived observations without altering either component's semantics.
