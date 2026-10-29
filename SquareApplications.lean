@@ -219,6 +219,7 @@ import Examples.RecursiveCompilation
 import Examples.TemporalFRP
 import Examples.TemporalMonitor
 import Examples.MeasurementAttempt
+import Examples.FRPDriver
 import Squares
 import Verification
 

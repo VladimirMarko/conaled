@@ -176,3 +176,12 @@ The preservation experiment feeds the continuing architecture programme
 [#235](https://github.com/VladimirMarko/conaled/issues/235). New causal, timing
 or identifier-free consumers should report missing laws and specialization
 usability there; completing the first experiment does not close that work.
+
+## Bounded external driver
+
+The [bounded stdin/stdout driver](frp-driver.md) implements #233's sequential
+external slice using the actual lifecycle and compiled aggregate consumer.
+It preserves original batches, bounds input and session size, and stops after
+ambiguous output failure. Its wire protocol, source-honesty assumptions,
+identity exhaustion policy and trusted IO boundary are documented there.
+This finite driver does not establish #234's indefinite-service guarantee.
