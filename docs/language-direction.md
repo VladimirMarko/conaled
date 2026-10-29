@@ -187,6 +187,13 @@ Keep both interfaces available. These checked examples and agent trials inform
 specialization design without establishing general human usability or a single
 interface for all preservation families.
 
+The [toolkit author trials](research/toolkit-author-effectiveness.md) extend
+that evidence to an established DList client and a new reverse-list realization.
+Two independent authors retained full sequence and ordered-summary contracts
+through direct and shared routes. The record separates successful specialization,
+local normalization and audit-harness repairs, and defines #235's repeatable
+reassessment protocol without inferring a capability trend from one configuration.
+
 The existing [compiler](../Compiler.lean) and
 [first-order compiler](../FirstOrder.lean) provide target-dependent compilation
 interfaces. The [internal graph proof](../SquareKit/Internal/Graph.lean) and

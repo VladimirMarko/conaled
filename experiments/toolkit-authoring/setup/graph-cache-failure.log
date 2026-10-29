@@ -1,0 +1,42 @@
+direnv: loading /tmp/conaled-sequential/issue-249/.envrc
+direnv: using flake
+direnv: nix-direnv: Using cached dev shell
+✖ [17/17] Building Examples.GraphEmission (695ms)
+trace: .> LEAN_PATH=/tmp/conaled-sequential/issue-249/.lake/packages/Cli/.lake/build/lib/lean:/tmp/conaled-sequential/issue-249/.lake/packages/batteries/.lake/build/lib/lean:/tmp/conaled-sequential/issue-249/.lake/packages/Qq/.lake/build/lib/lean:/tmp/conaled-sequential/issue-249/.lake/packages/aesop/.lake/build/lib/lean:/tmp/conaled-sequential/issue-249/.lake/packages/proofwidgets/.lake/build/lib/lean:/tmp/conaled-sequential/issue-249/.lake/packages/importGraph/.lake/build/lib/lean:/tmp/conaled-sequential/issue-249/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/tmp/conaled-sequential/issue-249/.lake/packages/plausible/.lake/build/lib/lean:/tmp/conaled-sequential/issue-249/.lake/packages/mathlib/.lake/build/lib/lean:/tmp/conaled-sequential/issue-249/.lake/build/lib/lean /home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /tmp/conaled-sequential/issue-249/Examples/GraphEmission.lean -o /tmp/conaled-sequential/issue-249/.lake/build/lib/lean/Examples/GraphEmission.olean -i /tmp/conaled-sequential/issue-249/.lake/build/lib/lean/Examples/GraphEmission.ilean -c /tmp/conaled-sequential/issue-249/.lake/build/ir/Examples/GraphEmission.c --setup /tmp/conaled-sequential/issue-249/.lake/build/ir/Examples/GraphEmission.setup.json --json
+info: Examples/GraphEmission.lean:5:0: graph dependencies: [Exists, Exists.intro, And, And.intro, Eq, Eq.refl, Exists.rec, Eq.rec]
+info: Examples/GraphEmission.lean:5:0: graph GraphEmitted.forward: axioms []
+info: Examples/GraphEmission.lean:5:0: graph dependencies: [Eq, Eq.refl, Exists, Exists.intro, And, And.intro]
+info: Examples/GraphEmission.lean:5:0: graph GraphEmitted.backward: axioms []
+error: Examples/GraphEmission.lean:128:10: Unknown identifier `GraphEmissionPure.ArtifactTyped`
+error: Examples/GraphEmission.lean:128:86: Unknown identifier `GraphEmissionPure.emit_typed`
+error: Examples/GraphEmission.lean:129:10: Unknown identifier `GraphEmissionPure.ArtifactDenotes`
+error: Examples/GraphEmission.lean:130:42: Unknown identifier `GraphEmissionPure.emit_denotes`
+error: Examples/GraphEmission.lean:131:10: Unknown identifier `GraphEmissionPure.ArtifactTyped`
+error: Examples/GraphEmission.lean:131:93: Unknown identifier `GraphEmissionPure.emit_typed`
+error: Examples/GraphEmission.lean:133:20: Unknown identifier `GraphEmissionPure.SourceProgram`
+error: Examples/GraphEmission.lean:136:10: Unknown identifier `GraphEmissionPure.ArtifactTyped`
+error: Examples/GraphEmission.lean:137:4: Unknown identifier `GraphEmissionPure.ArtifactDenotes`
+error: Examples/GraphEmission.lean:138:2: Unknown identifier `GraphEmissionPure.source_emission`
+error: Examples/GraphEmission.lean:142:24: Unknown identifier `CoreSyntax.Expr`
+error: Examples/GraphEmission.lean:149:16: Unknown identifier `GraphEmissionPure.Assignment`
+error: Examples/GraphEmission.lean:153:10: Unknown identifier `GraphEmissionPure.formula`
+error: Examples/GraphEmission.lean:154:4: Unknown identifier `CoreSyntax.Expr.app2`
+error: Examples/GraphEmission.lean:158:10: Unknown identifier `CoreSyntax.InLean`
+error: Examples/GraphEmission.lean:164:2: Unknown identifier `GraphEmissionPure.formula_toLean_denotes`
+error: Examples/GraphEmission.lean:167:11: Unknown identifier `CoreSyntax.Expr.const`
+error: Examples/GraphEmission.lean:168:5: Unknown identifier `CoreSyntax.Expr.const`
+error: Examples/GraphEmission.lean:170:13: Unknown identifier `CoreSyntax.Expr.toLean_injective`
+error: Examples/GraphEmission.lean:168:63: unsolved goals
+h : sorry = sorry
+⊢ False
+error: Examples/GraphEmission.lean:181:2: Unknown identifier `checkExactEnvironment`
+error: Examples/GraphEmission.lean:185:4: Unknown identifier `installProduced`
+error: Examples/GraphEmission.lean:188:4: Unknown identifier `checkExactEnvironment`
+error: Examples/GraphEmission.lean:193:4: Unknown identifier `checkExactEnvironment`
+error: Examples/GraphEmission.lean:186:15: Unknown identifier `GraphEmissionPure.emit`
+error: Examples/GraphEmission.lean:199:2: Unknown identifier `GraphEmitted.withOuter`
+error: Examples/GraphEmission.lean:202:2: Unknown identifier `GraphEmitted.substituted`
+error: Examples/GraphEmission.lean:205:2: Unknown identifier `GraphEmitted.underBinder`
+Some required targets logged failures:
+- Examples.GraphEmission
+error: build failed

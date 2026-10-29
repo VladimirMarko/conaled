@@ -1,0 +1,100 @@
+import SquareApplications
+import Lean.Util.CollectAxioms
+import Lean.DeclarationRange
+
+/-!
+# Exhaustive project axiom audit
+
+`#audit_project_axioms` enumerates every kernel-safe declaration whose defining module is
+one of the foundation modules, or lies under `SquareKit`, `Applications`, or
+`Examples`. Ownership comes from Lean's module-origin table, so private names,
+generated auxiliaries, instances, constructors, and recursors are included.
+Candidates come from project modules' constant and generated-name metadata plus
+current-module kernel declarations, with duplicate names removed. This preserves
+the module-origin boundary without scanning all dependency declarations.
+Definitions are audited as well as theorem declarations. The only root exclusion
+is Lean's `ConstantInfo.isUnsafe` flag: the compiler creates unsafe runtime
+declarations containing erased proofs (`lcProof`) and unreachable-code markers.
+These are not logical declarations and cannot occur in a kernel-safe proof.
+Their count is reported separately. An unsafe declaration with a registered
+source range is rejected, so a user-written `unsafe` declaration is not silently
+classified as a compiler artifact. No declaration-name convention is used.
+
+Every declaration is submitted to the public `Lean.collectAxioms` API. Lean
+records transitive axiom dependencies when exporting checked modules and uses
+those summaries for imported declarations; local declarations are traversed
+in the checked kernel environment. Every project declaration remains an audit
+root, including private and generated declarations. On failure, the same API
+attributes forbidden axioms to declarations.
+Any transitive axiom other than `propext`, `Classical.choice`, or `Quot.sound` is an error. This
+includes `sorryAx`, `Lean.ofReduceBool`, and arbitrary user-declared axioms.
+
+The import above is the project's complete public entrypoint. Audit coverage
+is over its transitive imports; adding a new source module requires importing
+it from that entrypoint. The command reports the imported project modules,
+all logical declaration and theorem counts, and the union of encountered axioms.
+Enable `trace.ProofAudit.roots` to inspect the exact logical root set.
+-/
+
+namespace ProofAudit
+
+open Lean Elab Command
+
+initialize registerTraceClass `ProofAudit.roots
+
+private def foundationModules : Array Name :=
+  #[`Squares, `Compiler, `SquareCompiler, `FirstOrder, `Dependent, `Verification]
+
+/-- Filter module origins, never the spelling of declaration names. -/
+private def isProjectModule (moduleName : Name) : Bool :=
+  foundationModules.contains moduleName ||
+    (`SquareKit).isPrefixOf moduleName ||
+    (`Applications).isPrefixOf moduleName ||
+    (`Examples).isPrefixOf moduleName
+
+private def permittedAxiom (axiomName : Name) : Bool :=
+  axiomName == `propext || axiomName == `Classical.choice || axiomName == `Quot.sound
+
+private def declarationModule (env : Environment) (declName : Name) : Name :=
+  match env.getModuleIdxFor? declName with
+  | some index => env.header.moduleNames[index.toNat]!
+  | none => env.mainModule
+
+private structure ModuleCount where
+  moduleName : Name
+  declarations : Nat := 0
+  theorems : Nat := 0
+  runtimeDeclarations : Nat := 0
+
+/-- An executable verification command; it adds no mathematical assumptions. -/
+def auditProject : CommandElabM Unit := do
+  let env ← getEnv
+  let mut owned : Array (Name × ConstantInfo × Name) := #[]
+  let mut counts := (env.header.moduleNames.filter isProjectModule).map
+    (fun n => { moduleName := n : ModuleCount })
+  if isProjectModule env.mainModule then
+    counts := counts.push { moduleName := env.mainModule }
+  let mut runtimeCount : Nat := 0
+  let mut unsafeSource : Array Name := #[]
+  -- Restrict candidates by defining module before examining declarations.
+  -- Include generated-name metadata and current-module kernel declarations.
+  let imported := env.header.moduleNames.mapIdx fun i n =>
+    if isProjectModule n then
+      let data := env.header.moduleData[i]!
+      let regular := data.constants.map fun ci => (ci.name, ci)
+      regular ++ data.extraConstNames.filterMap (fun name =>
+        (env.constants.find? name).map fun ci => (name, ci))
+    else #[]
+  let candidates := env.constants.foldStage2 (fun acc n ci => acc.push (n, ci)) imported.flatten
+  let mut visited : NameSet := {}
+  for (declName, info) in candidates do
+    if visited.contains declName then continue
+    visited := visited.insert declName
+    let moduleName := declarationModule env declName
+    if isProjectModule moduleName then
+      -- Lean's code generator adds unsafe proof-erased runtime declarations
+      -- (including axioms) to the same constant table. The kernel prevents
+      -- safe proofs from using them. This is a safety-metadata boundary, not
+      -- a namespace or spelling-based exemption; dependencies are unfiltered.
+      -- `scripts/check.py` also rejects user-written unsafe source constructs.
+      if info.isUnsafe then

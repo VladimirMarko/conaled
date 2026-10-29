@@ -1,0 +1,11 @@
+Mathematical assistance: none. No other author files read, no subagents, no external model/API calls, no private hints. Public source and examples were read; exposure.json lists files and hashes. Public API content was exposed before the direct route; direct proofs nevertheless only use permitted primitive summary laws and native list reasoning.
+
+Coordinator environment message received after Attempt04:
+Environment update only: dependency preparation is complete, including ProofAudit. Copied cache had an unrelated stale SquareKit/Internal/GraphEmission.olean; coordinator preserved diagnostics and rebuilt it. No library source changes. You may run final audit when ready. Record this environment message as assistance metadata, not a mathematical hint.
+
+Model: inherited, without override. Exact serving model revision, reasoning configuration, token usage, and pricing unknown; no actual tool exposed these values. Author-start clock: 2026-10-29 23:12:13 UTC. Limit: 2026-10-29 23:27:13 UTC. Completion stops the trial early.
+
+Coordinator audit-environment reply:
+Thank you, retain that audit coverage limitation explicitly. Prefer supported Lean invocation with virtual filename: check `lean --help` for --stdin and use `lake env lean --stdin Examples/ToolkitAuthorTrialA.lean < Final.lean` if it assigns accepted module identity, preserving exact command/source/log. Otherwise stage identical final source temporarily under Examples/ToolkitAuthorTrialA.lean, run Lean (no -o), remove staging file immediately. Avoid changing audit internals/environment in retained mathematical source. Confirm current module audit count includes trial declarations.
+
+This was environment assistance only. The final supported-root invocation was the author's follow-up after --stdin omitted the current module. A setMainModule probe had already been launched before this reply and is retained, but is not the accepted validation path.

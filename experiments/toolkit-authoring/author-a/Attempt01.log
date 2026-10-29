@@ -1,0 +1,17 @@
+[0mdirenv: loading /tmp/conaled-sequential/issue-249/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+experiments/toolkit-authoring/author-a/Attempt01.lean:14:2: error: Type mismatch: After simplification, term
+  decode_acc xs Batteries.DList.empty
+ has type
+  @Eq (List A) (List.foldl Batteries.DList.push Batteries.DList.empty xs).toList (Batteries.DList.empty.toList ++ xs)
+but is expected to have type
+  @Eq (List A) (List.foldl Batteries.DList.push Batteries.DList.empty xs).toList xs
+experiments/toolkit-authoring/author-a/Attempt01.lean:25:2: error: Type mismatch: After simplification, term
+  summary_acc measure xs Batteries.DList.empty
+ has type
+  @Eq M (summary measure (List.foldl Batteries.DList.push Batteries.DList.empty xs).toList)
+    (List.foldl (fun m a => m * measure a) (summary measure Batteries.DList.empty.toList) xs)
+but is expected to have type
+  @Eq M (summary measure (List.foldl Batteries.DList.push Batteries.DList.empty xs).toList)
+    (List.foldl (fun m a => m * measure a) 1 xs)

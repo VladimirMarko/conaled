@@ -1,0 +1,12 @@
+[0mdirenv: loading /tmp/conaled-sequential/issue-249/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+experiments/toolkit-authoring/author-b/Attempt01.lean:39:23: warning: Possibly looping simp theorem: `FreeMonoid.of.eq_1`
+
+Note: Possibly caused by: `FreeMonoid.ofList_cons` and `FreeMonoid.of`
+
+Hint: You can disable a simp theorem from the default simp set by passing `- theoremName` to `simp`.
+experiments/toolkit-authoring/author-b/Attempt01.lean:39:2: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information

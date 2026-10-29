@@ -1,0 +1,4 @@
+2026-10-29 UTC, after start 23:12:30, before first compilation:
+Command: python3 experiments/toolkit-authoring/author-b/run.py experiments/toolkit-authoring/author-b/Attempt01.lean
+Exit 127. Raw output: /run/current-system/sw/bin/bash: line 70: python3: command not found
+Repair: invoke runner through direnv exec . python3. No Lean compilation occurred in failed invocation.
