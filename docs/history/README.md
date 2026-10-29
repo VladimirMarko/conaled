@@ -3,7 +3,8 @@
 These files preserve ChatGPT discussions and supplied artifacts from the
 repository's origins and later application explorations. They explain where
 implementations came from and record ideas for further work. The original
-documents are preserved unchanged.
+documents are preserved unchanged unless an archive note identifies an editorial
+change requested by the author.
 
 ## Origins
 
@@ -67,6 +68,15 @@ for the broader experiment's obligations.
 This file is retained as design evidence, outside the public library and normal
 source-coverage check, like the other historical Lean artifacts. Replacing its
 code in a future implementation is not a reason to discard the comparison.
+
+## Scan and FFT optimality
+
+[Scan and FFT discussion](scan-fft-optimality-chat.md) preserves a supplied
+ChatGPT Pro session on correctness laws, work/depth tradeoffs, and restricted
+optimality results. Its first prompt was reformulated at the author's request;
+the remaining conversation is unchanged. The
+[current assessment](../research/scan-fft-optimality.md) records source checks,
+existing library support, and the recommended formalization sequence.
 
 ## How to use these records
 
