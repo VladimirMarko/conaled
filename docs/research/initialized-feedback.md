@@ -148,3 +148,7 @@ feedback causality; no theorem here guarantees that another completed batch
 will arrive. #27 retains general runtime/feedback scope, #31 the incremental
 command engine, #193 resource consumers, #196 environmental contracts and #109
 recursive compilation.
+
+[Compiled reactive machines](reactive-target.md) now reuse this initialized
+feedback interface for first-order seed/body lowering, feed-forward composition,
+and finite completed-batch consumers.
