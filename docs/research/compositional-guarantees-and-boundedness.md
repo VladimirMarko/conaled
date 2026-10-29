@@ -8,6 +8,13 @@ Lean theorem, runtime measurement, storage model or public abstraction.
 Mathematical constructions and experiments below are proposals unless named
 as existing declarations.
 
+The [repository-wide inventory](preservation-contract-inventory.md) broadens
+this runtime/resource comparison to other implemented contracts, including
+analytic, probabilistic, dependent and geometric preservation. Those examples
+constrain the family too. Relations between executions are one setting for
+shared laws; typed substitution, algebraic law transport and descent need
+other judgments and composition shapes.
+
 **Boundedness belongs in the same preservation programme as optimization,
 productivity and durability.** The common structure already has a useful local
 core: relational interpretation, forward possible observations, backward

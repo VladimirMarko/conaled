@@ -15,6 +15,13 @@ from quantitative composition, uniform resource bounds, progress witnesses and
 crash observations. These are consumers for #231's experiment; the assessment
 adds no public abstraction or new Lean theorem.
 
+The [implemented-contract inventory](preservation-contract-inventory.md) is the
+broader compatibility checklist for that experiment. It includes probability
+laws, derivatives, enclosures, causality, ordering and witness identity,
+dependent substitution, symmetry and descent. The first runtime clients must
+not define the boundary of the family. Existing STLC naturality and structure-law
+transport are reusable foundations alongside predicate transport.
+
 
 Research for [#202](https://github.com/VladimirMarko/conaled/issues/202),
 2026-10-28. Source inspection baseline:
