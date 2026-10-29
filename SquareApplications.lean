@@ -226,6 +226,7 @@ import Verification
 import Examples.PreservationAuthorA
 import Examples.PreservationAuthorB
 import Examples.OrderedSummary
+import Examples.Durability
 import Examples.OrderedSummaryPresheaf
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
