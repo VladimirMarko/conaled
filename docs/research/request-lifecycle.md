@@ -97,7 +97,12 @@ direnv exec . lake build Examples.RequestLifecycle
 direnv exec . lake env lean Examples/RequestLifecycle.lean
 ```
 
-This is local at-most-once emission with unbounded natural IDs. A bounded wire
-format needs an exhaustion policy. Concurrency, cancellation, queued requests,
+This is local at-most-once emission with unbounded natural IDs. Storing only
+one last accepted ID avoids a completed-ID history, but does not bound the
+number of bits in that ID. A bounded wire format needs an exhaustion policy;
+reuse needs a stale-command/session contract and a revised identity scope.
+The [long-running-state assessment](frp-runtime-follow-up.md#increasing-identifiers-and-retained-state)
+tracks these obligations separately from retained source history and consumer
+state in [#232](https://github.com/VladimirMarko/conaled/issues/232). Concurrency, cancellation, queued requests,
 ID reordering, external acknowledgments, crash recovery, IO, reclamation and
 performance bounds remain outside these contracts.

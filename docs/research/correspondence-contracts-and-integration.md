@@ -1,5 +1,14 @@
 # Correspondence contracts and integration with existing transport
 
+The first follow-up priority is [#231](https://github.com/VladimirMarko/conaled/issues/231):
+generalize preservation laws demonstrated by the compiled FRP lifecycle and
+an existing interaction consumer. The [FRP follow-up record](frp-runtime-follow-up.md#preservation-laws-to-reuse)
+links the checked results, clock and information-loss counterexamples, and
+coordination with resource and durability work. Reuse existing relational
+squares and requirement transport before introducing another interface. This
+priority leaves the broader correspondence programme open.
+
+
 Research for [#202](https://github.com/VladimirMarko/conaled/issues/202),
 2026-10-28. Source inspection baseline:
 `441f618a044c040adaeb85acace27e76cdc68f57`, Lean 4.35.0 and Mathlib
