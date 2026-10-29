@@ -122,7 +122,7 @@ applications of the public results and actual transition constructors.
 | Recovery cursor correctness and conditional completion | Checkpoint record reads, suffix ordering and completion are separate steps. The retained case crashes after a prefix read and successfully reruns recovery. The generic completion statement requires an existing finite representation and a fault-free scheduled path, not perpetual progress. |
 | Both layouts and both boundaries | One two-record client is instantiated for the log and for a recovered checkpoint with a newly appended disjoint suffix. Both executions lift to encoded transitions through the same word codec. The ordered-fold expectation distinguishes reversal. |
 | Encoding | Exact round trips are proved for each cell constructor. Tagged node/flat layouts and descriptor length distinguish framing; malformed length rejects. Primitive write/persist/read simulation is separate from physical storage trust. |
-| Composition failures and positive root | Independently persisting debit leaves balances `(9,0)`. The positive example constructs retained old/new joint balance objects and derives sum preservation from root choice plus representation uniqueness. Exclusive atomic publication and complete prior persistence remain explicit assumptions. Two individually acyclic single-edge relations form a cycle under union. |
+| Composition failures and positive root | Two separate heaps initialize balances ten and zero through actual append executions. The left account publishes and acknowledges debit nine; the right invokes credit one but crashes before publication. Both recover through actual node reads. `partial_transfer` applies `history_refinement` to each execution and derives recovered balances `(9,0)` despite both local contracts; `partial_transfer_acknowledged` applies the shared acknowledgment client to both histories. The positive example constructs retained old/new joint balance objects and derives sum preservation from root choice plus representation uniqueness. Exclusive atomic publication and complete prior persistence remain explicit assumptions. Two individually acyclic single-edge relations form a cycle under union. |
 | Missing target capability | With no retained or external evidence, one reboot observation cannot return both empty history and an acknowledged singleton correctly. Publishing a root before its cell persists has no representation witness. |
 | Resource events | Storage annotations connect buffered writes, persistence, root installation, record/link/descriptor reads, single-cell reclamation and crashes to actual protocol steps. Weights remain separate and compose by list concatenation. |
 
@@ -134,6 +134,17 @@ addresses actually read by the array corrected that proof interface. No
 mathematical expectation was weakened. The representation certificates and
 source fresh-key invariant are separate; the former do not alone establish
 at-most-once admission.
+
+The first composition case checked only the numerical expectation `9 + 0 ≠ 10`.
+Independent review identified that this did not exercise local durability. The
+retained correction constructs both component traces from empty storage, their
+separate roots, the committed debit and uncommitted credit, and crash/recovery
+transitions. Their projections can be scheduled as both initializations, left
+debit, right credit invocation, both crashes, then both recoveries. The two
+heaps have separate ownership, so their equal local addresses do not alias.
+Both local source simulations and acknowledgment-survival results hold, while
+the latest-payload joint observation violates the initial sum of ten. No joint
+atomicity premise is added to either local contract.
 
 ## Resource accounting, validation and remaining trust
 

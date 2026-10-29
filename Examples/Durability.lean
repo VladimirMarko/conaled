@@ -263,8 +263,106 @@ theorem no_retained_evidence : ¬ ∃ query : Unit → List (Record Nat),
   rw [empty] at one
   cases one
 
-/-- Local durable updates do not supply the joint transfer invariant. -/
-theorem partial_transfer : (9 + 0 : Nat) ≠ 10 ∧ (9 + 1 : Nat) = 10 := by decide
+/-- Each account owns a separate heap and atomic root. Identical local addresses
+are therefore independent locations, not aliases in one shared heap. -/
+def balanceTen : Record Nat := ⟨1, 0, 10⟩
+def balanceZero : Record Nat := ⟨2, 0, 0⟩
+def debitNine : Record Nat := ⟨1, 1, 9⟩
+def creditOne : Record Nat := ⟨2, 1, 1⟩
+
+def accountPlan (e : Record Nat) :=
+  appendPlan (fun _ => none) emptyRoot [] (empty_rep _) 0 e rfl
+abbrev account (e : Record Nat) : Machine Nat :=
+  acknowledgeState (publishState
+    (persistState (writeState (prepareState (invokeState initial e) (accountPlan e))
+      0 (.node none e)) 0 (.node none e)) (accountPlan e))
+
+theorem account_execution (e : Record Nat) :
+    interpret Step (appendEvents e) initial (account e) :=
+  append_execution initial [] rfl rfl rfl (empty_rep _) 0 e rfl
+    (by simp [initial]) (by simp [Fresh])
+
+theorem account_rep (e : Record Nat) : Represents (account e).disk (account e).root [e] :=
+  append_rep (empty_rep _) 0 e rfl
+
+def debitPlan := appendPlan (account balanceTen).disk (account balanceTen).root
+  [balanceTen] (account_rep balanceTen) 1 debitNine rfl
+abbrev debited : Machine Nat := acknowledgeState (publishState
+  (persistState (writeState (prepareState (invokeState (account balanceTen) debitNine)
+    debitPlan) 1 (.node (some 0) debitNine)) 1 (.node (some 0) debitNine)) debitPlan)
+
+theorem debit_execution : interpret Step (appendEvents debitNine) (account balanceTen) debited :=
+  append_execution (account balanceTen) [balanceTen] rfl rfl rfl
+    (account_rep balanceTen) 1 debitNine rfl
+    (by simp [initial, accountPlan, appendPlan, put])
+    (by intro e mem; simp only [List.mem_singleton] at mem; subst e; decide)
+
+abbrev leftCrash := crashState debited
+abbrev leftStart := { leftCrash with cursor := some (.tailCells (some 1) [] []) }
+abbrev leftReadOne := { leftStart with cursor := some (.tailCells (some 0) [] [debitNine]) }
+abbrev leftReadTwo := { leftReadOne with cursor := some (.tailCells none [] [balanceTen,debitNine]) }
+abbrev leftDone := { leftReadTwo with cursor := some (.done [balanceTen,debitNine]) }
+abbrev leftRecovered := { leftDone with cache := some [balanceTen,debitNine], cursor := none }
+def leftRecoveryEvents : List (Event Nat) :=
+  [.crash,.internal,.internal,.internal,.internal,.recover [balanceTen,debitNine]]
+
+theorem left_recovery : interpret Step leftRecoveryEvents debited leftRecovered := by
+  exact ⟨leftCrash, .crash, leftStart, .startRead rfl rfl (.log rfl),
+    leftReadOne, .read rfl rfl (.node rfl), leftReadTwo, .read rfl rfl (.node rfl),
+    leftDone, .read rfl rfl .finish, leftRecovered, .recover rfl rfl, rfl⟩
+
+/-- Credit is invoked but has not published when the crash occurs. -/
+abbrev creditInvoked := invokeState (account balanceZero) creditOne
+abbrev rightCrash := crashState creditInvoked
+abbrev rightStart := { rightCrash with cursor := some (.tailCells (some 0) [] []) }
+abbrev rightRead := { rightStart with cursor := some (.tailCells none [] [balanceZero]) }
+abbrev rightDone := { rightRead with cursor := some (.done [balanceZero]) }
+abbrev rightRecovered := { rightDone with cache := some [balanceZero], cursor := none }
+def rightRecoveryEvents : List (Event Nat) :=
+  [.invoke creditOne,.crash,.internal,.internal,.internal,.recover [balanceZero]]
+
+theorem right_recovery :
+    interpret Step rightRecoveryEvents (account balanceZero) rightRecovered := by
+  exact ⟨creditInvoked, .invoke rfl rfl rfl, rightCrash, .crash,
+    rightStart, .startRead rfl rfl (.log rfl), rightRead, .read rfl rfl (.node rfl),
+    rightDone, .read rfl rfl .finish, rightRecovered, .recover rfl rfl, rfl⟩
+
+def leftEvents := appendEvents balanceTen ++ appendEvents debitNine ++ leftRecoveryEvents
+def rightEvents := appendEvents balanceZero ++ rightRecoveryEvents
+
+theorem left_transfer_execution : interpret Step leftEvents initial leftRecovered := by
+  rw [leftEvents, interpret_append, interpret_append]
+  exact ⟨debited, ⟨account balanceTen, account_execution _, debit_execution⟩, left_recovery⟩
+
+theorem right_transfer_execution : interpret Step rightEvents initial rightRecovered := by
+  rw [rightEvents, interpret_append]
+  exact ⟨account balanceZero, account_execution _, right_recovery⟩
+
+/-- A possible product execution runs both initializations, then the debit,
+then invokes the credit, then crashes both components and recovers each. Its
+projections satisfy the unchanged local accepted-history contracts. -/
+theorem partial_transfer :
+    (∃ a ∈ sourceBehaviors leftEvents, Related leftRecovered a) ∧
+    (∃ a ∈ sourceBehaviors rightEvents, Related rightRecovered a) ∧
+    leftRecovered.cache = some [balanceTen,debitNine] ∧
+    rightRecovered.cache = some [balanceZero] ∧
+    balanceTen.payload + balanceZero.payload = 10 ∧
+    ([balanceTen,debitNine].foldl (fun _ e => e.payload) 0 +
+      [balanceZero].foldl (fun _ e => e.payload) 0 : Nat) ≠ 10 := by
+  exact ⟨history_refinement leftEvents left_transfer_execution,
+    history_refinement rightEvents right_transfer_execution, rfl, rfl, rfl, by decide⟩
+
+/-- Both acknowledged local values survive this same execution. The right
+account correctly retains zero, despite the application's desired credit. -/
+theorem partial_transfer_acknowledged : debitNine ∈ [balanceTen,debitNine] ∧
+    balanceZero ∈ [balanceZero] := by
+  constructor
+  · exact acknowledged_client
+      (appendEvents balanceTen ++ [.invoke debitNine,.internal,.internal,.internal,.commit debitNine])
+      leftRecoveryEvents debitNine leftRecovered
+      (by simpa [targetBehaviors, leftEvents, appendEvents, List.append_assoc] using left_transfer_execution) _ rfl
+  · exact acknowledged_client [.invoke balanceZero,.internal,.internal,.internal,.commit balanceZero]
+      rightRecoveryEvents balanceZero rightRecovered right_transfer_execution _ rfl
 
 /-- The two balances are payload fields of one immutable retained object. -/
 def oldBalances : Record (Nat × Nat) := ⟨1, 0, (10, 0)⟩
