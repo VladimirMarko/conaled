@@ -159,3 +159,7 @@ preservation now reuses Mathlib's relation and monotonicity results; executable
 behavior and public theorem statements remain unchanged. The assessment also
 explains why this evidence does not yet justify a new execution or scheduling
 framework or a missing-capability dependency under #8.
+
+The [incremental engine](frp-engine.md) retains concrete source states and the
+request cell, consumes packet-bearing commands, and proves event-by-event
+agreement with this reference model.
