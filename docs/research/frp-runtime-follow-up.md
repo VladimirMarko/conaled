@@ -185,3 +185,13 @@ It preserves original batches, bounds input and session size, and stops after
 ambiguous output failure. Its wire protocol, source-honesty assumptions,
 identity exhaustion policy and trusted IO boundary are documented there.
 This finite driver does not establish #234's indefinite-service guarantee.
+
+## Implemented finite-circuit service class
+
+The [indefinite-service implementation](indefinite-reactive-service.md) supplies
+initialized Boolean circuits, checked resource/progress contracts, compositional
+wiring and a synchronous byte-stream runner. It covers a finite-value delay and
+composed clients without IDs or growing histories. Its uniform space theorem is
+for an explicit circuit arena model; host allocation, reclamation and IO remain
+trusted. The frontier driver and unrestricted lifecycle do not inherit this
+bound. #234's implementation record states those distinct contracts and limits.

@@ -1,3 +1,4 @@
+import Examples.IndefiniteService
 import Examples.InitializedFeedback
 import Examples.PreservationBounds
 import Examples.FIFOContracts
