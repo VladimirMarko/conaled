@@ -222,6 +222,75 @@ pruning client must prove its contextual preservation property for its declared
 composition language. No theorem here identifies this structural representation
 with every possible externally named DAG or asserts global circuit optimality.
 
+## Bounded scan search (#243)
+
+[ScanSearch](../../Applications/Parallel/ScanSearch.lean) implements an
+executable search over a declared finite production grammar. A caller supplies
+finite seed recipes, finite one-hole frames and a frame-count budget. Frames
+cover left and right product placement and outer and inner composition
+placement, each with a fixed sibling. `Production` and `Grammar` describe the
+allowed derivations independently of the enumerator; `enumeration_iff` proves
+soundness and completeness. The budget bounds syntax generation even when
+identity wrappers preserve the input size. This is not enumeration of all
+scan plans of a given size or all plans below a syntax-height bound.
+
+Each candidate carries its remaining budget. `contexts` enumerates every
+supported continuation up to that budget, including the empty continuation.
+For each continuation, the profile compares the actual shared-node work and
+the ordered output dependency paths. A path records an input port (or the
+identity constant) and its delay. The decidable signature comparison implies
+arrival comparison for every natural-valued input-arrival assignment; it does
+not sample only simultaneous arrivals. Matching output ports also proves equal
+input arity. `dominates_context` exposes these guarantees for ordinary circuit
+work and arrival observations.
+
+`extend_context` and `extend_covers` prove that applying any catalog frame
+consumes one unit of budget and preserves every required future comparison.
+Thus the profile accounts for sharing by measuring the completed circuits,
+without assuming that child gate counts add. `search_represents` instantiates
+`pruneFold_refinement`, retaining both origin and coverage through generation
+and pruning. It prunes seeds, intermediate stages and final candidates.
+`selected_work`, `selected_deadline` and `selected_weighted` use
+`minimizer_of_represents`; `pareto_of_search` separately transports Pareto
+membership. Adjacent thinning does not promise a complete antichain. The
+selector chooses the first occurrence in the retained list on scalar ties,
+which need not be the first original occurrence after pruning.
+
+The [checked applications](../../Examples/ScanSearch.lean) use the six
+sixteen-input recipes as an explicit catalog. They select work 24 without a
+deadline, work 31 under depth 4, and different plans under weights `(1,1)` and
+`(1,10)`. These are optima relative to that six-plan catalog. The universal
+per-output arrival comparison conservatively retains all six distinct timing
+profiles; scalar selection then chooses the requested optimum. The search
+makes no efficiency claim: profiling enumerates future contexts and expands
+input dependency paths, and its computational cost is distinct from the
+circuit work being minimized.
+
+The `Workload` specialization compares actual work and maximum arrival for a
+fixed caller-supplied input-arrival map in every supported continuation. The
+map may be nonuniform and also assigns arrivals to inputs introduced by frames.
+It shares the proved context-reindexing and generation machinery with the
+universal profile. Since all permitted continuations are measured explicitly,
+this specialization can safely discard alternatives even when their individual
+output timings cross. It prunes the sixteen-input catalog, certifies the same
+three objective selections, and replaces the 32-gate right tree by the 31-gate
+mixed plan before appending another leaf. Its guarantee applies to the declared
+arrival map and context budget; the stronger universal profile specializes to
+it through `Workload.of_universal`.
+
+Two counterexamples are checked against the measured circuits. Eight-input
+plans with equal `(11,4)` summaries have different total arrival times; coarse
+tie pruning loses a depth-4 nine-input completion. The universal profile retains
+both and selects the feasible completion through the public minimum theorem.
+The declared simultaneous-arrival workload profile instead removes the inferior
+completion before extension, with a checked preservation proof.
+A three-input example shows that comparison at simultaneous input arrivals
+fails when the first input arrives at time 2. Positive replacement cases remove
+syntax-distinct identity wrappers before generation, prove safety for arbitrary
+input arrivals, and cover all four frame placements with two nested extensions.
+These tests establish useful conservative pruning, not completeness of the
+signature comparison or global circuit optimality.
+
 [elliott]: https://conal.net/papers/generic-parallel-functional/generic-parallel-functional.pdf
 [snir]: https://snir.cs.illinois.edu/listed/J16.pdf
 [ailon]: https://arxiv.org/abs/1305.4745
