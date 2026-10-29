@@ -2,6 +2,7 @@
 """Exercise incremental and fresh verification with real Lean fixture projects."""
 
 from pathlib import Path
+import json
 import os
 import shutil
 import subprocess
@@ -38,6 +39,116 @@ class FreshVerification(unittest.TestCase):
         env.pop("LEAN_PATH", None)
         return subprocess.run(["./check.sh", *(["--fresh"] if fresh else []), *args], cwd=self.root, env=env,
                               capture_output=True, text=True, timeout=45)
+
+    def commit_candidate(self):
+        (self.root / ".gitignore").write_text(".lake/\naudit-ran\n")
+        subprocess.run(["lake", "update"], cwd=self.root, check=True,
+                       capture_output=True)
+        for command in (["git", "init"], ["git", "config", "user.name", "Fixture"],
+                        ["git", "config", "user.email", "fixture@example.invalid"],
+                        ["git", "add", "."], ["git", "commit", "-m", "fixture"]):
+            subprocess.run(command, cwd=self.root, check=True, capture_output=True)
+        return subprocess.check_output(["git", "rev-parse", "HEAD"],
+                                       cwd=self.root, text=True).strip()
+
+    def test_candidate_record_is_bound_to_clean_commit(self):
+        candidate = self.commit_candidate()
+        result = self.check("--candidate", candidate, fresh=False)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        record = json.loads((self.root / ".lake/verification.json").read_text())
+        self.assertEqual(record["candidate"], candidate)
+        self.assertEqual(record["mode"], "incremental")
+        result = self.check("--verify-candidate", candidate, fresh=False)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertNotIn("Building", result.stdout)
+        self.write("Applications.A", "def a : Nat := 3\n")
+        result = self.check("--verify-candidate", candidate, fresh=False)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("clean", result.stderr)
+        subprocess.run(["git", "restore", "Applications/A.lean"], cwd=self.root, check=True)
+        subprocess.run(["git", "-c", "commit.gpgsign=false", "commit", "--allow-empty", "-m", "next"],
+                       cwd=self.root, check=True, capture_output=True)
+        result = self.check("--verify-candidate", "HEAD", fresh=False)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("record", result.stderr)
+
+    def test_candidate_rejects_edits_during_audit_and_clears_old_record(self):
+        candidate = self.commit_candidate()
+        result = self.check("--candidate", candidate)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertTrue((self.root / ".lake/verification.json").exists())
+        self.write("ProofAudit", '''import SquareApplications
+import Lean
+run_cmd IO.FS.writeFile "Applications/A.lean" "def a : Nat := 999\\n"
+''')
+        subprocess.run(["git", "add", "ProofAudit.lean"], cwd=self.root, check=True)
+        subprocess.run(["git", "commit", "-m", "mutating fixture"], cwd=self.root,
+                       check=True, capture_output=True)
+        result = self.check("--candidate", "HEAD")
+        self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("clean checkout", result.stderr)
+        self.assertNotIn("PASS: all", result.stdout)
+        self.assertFalse((self.root / ".lake/verification.json").exists())
+
+    def test_candidate_rejects_untracked_inputs_and_ignored_lean_sources(self):
+        candidate = self.commit_candidate()
+        (self.root / "notes.txt").write_text("uncommitted")
+        result = self.check("--candidate", candidate, fresh=False)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("clean checkout", result.stderr)
+        (self.root / "notes.txt").unlink()
+        (self.root / ".git/info/exclude").write_text("Applications/Ignored.lean\n")
+        self.write("Applications.Ignored", "def hidden : Nat := 0\n")
+        result = self.check("--candidate", candidate, fresh=False)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("tracked", result.stderr)
+
+    def test_missing_malformed_records_and_failed_development_check(self):
+        candidate = self.commit_candidate()
+        record = self.root / ".lake/verification.json"
+        for contents in (None, "{", "null", '{}'):
+            if contents is not None:
+                record.write_text(contents)
+            result = self.check("--verify-candidate", candidate, fresh=False)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("No usable verification record", result.stderr)
+        result = self.check("--candidate", candidate, fresh=False)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.write("Applications.A", "theorem admitted : False := by sorry\n")
+        result = self.check(fresh=False)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertFalse(record.exists())
+
+    def test_candidate_rejects_dirty_or_wrong_revision_dependency(self):
+        self.commit_candidate()
+        packages = self.root / ".lake/packages"
+        packages.unlink()
+        dependency = packages / "fixturedep"
+        dependency.mkdir(parents=True)
+        (dependency / "source.txt").write_text("original")
+        for command in (["git", "init"], ["git", "config", "user.name", "Fixture"],
+                        ["git", "config", "user.email", "fixture@example.invalid"],
+                        ["git", "add", "."], ["git", "commit", "-m", "dependency"]):
+            subprocess.run(command, cwd=dependency, check=True, capture_output=True)
+        revision = subprocess.check_output(["git", "rev-parse", "HEAD"],
+                                           cwd=dependency, text=True).strip()
+        manifest_path = self.root / "lake-manifest.json"
+        manifest = json.loads(manifest_path.read_text())
+        manifest["packages"] = [{"type": "git", "name": "fixturedep", "rev": revision}]
+        manifest_path.write_text(json.dumps(manifest))
+        subprocess.run(["git", "add", "lake-manifest.json"], cwd=self.root, check=True)
+        subprocess.run(["git", "commit", "-m", "pin fixture dependency"], cwd=self.root,
+                       check=True, capture_output=True)
+        (dependency / "source.txt").write_text("modified")
+        result = self.check("--candidate", "HEAD")
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("clean checkout", result.stderr)
+        subprocess.run(["git", "add", "."], cwd=dependency, check=True)
+        subprocess.run(["git", "commit", "-m", "different revision"], cwd=dependency,
+                       check=True, capture_output=True)
+        result = self.check("--candidate", "HEAD")
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("Dependency revision differs", result.stderr)
 
     def test_incremental_reuses_sources_but_reruns_audit_and_invalidates_imports(self):
         self.write("Applications.A", "def a : Nat := 7\n")

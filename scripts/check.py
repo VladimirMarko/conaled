@@ -4,6 +4,8 @@
 from __future__ import annotations
 
 import argparse
+from datetime import datetime, timezone
+import json
 from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 import os
 from pathlib import Path
@@ -115,20 +117,120 @@ def positive_jobs(value):
     return jobs
 
 
+def git_output(root, *args):
+    return subprocess.check_output(["git", "-C", str(root), *args], text=True).strip()
+
+
+def clean_commit(root):
+    if Path(git_output(root, "rev-parse", "--show-toplevel")).resolve() != root.resolve():
+        raise RuntimeError(f"Expected a Git checkout at {root}")
+    commit = git_output(root, "rev-parse", "HEAD")
+    if git_output(root, "status", "--porcelain", "--untracked-files=all"):
+        raise RuntimeError(f"Candidate validation requires a clean checkout: {root}")
+    return commit
+
+
+def candidate_identity(revision):
+    candidate = git_output(ROOT, "rev-parse", "--verify", "--end-of-options", revision + "^{commit}")
+    if clean_commit(ROOT) != candidate:
+        raise RuntimeError("Candidate must be the checked-out HEAD commit")
+    # An ignored Lean file could otherwise enter the public inventory while
+    # remaining absent from the commit named by the record.
+    sources = list(ROOT.glob("*.lean"))
+    for directory in ("SquareKit", "Applications", "Examples"):
+        sources.extend((ROOT / directory).rglob("*.lean"))
+    tracked = set(subprocess.check_output(
+        ["git", "ls-files", "-z"], cwd=ROOT).decode().rstrip("\0").split("\0"))
+    if any(str(p.relative_to(ROOT)) not in tracked for p in sources):
+        raise RuntimeError("Candidate validation requires every integrated Lean source to be tracked")
+    manifest = json.loads((ROOT / "lake-manifest.json").read_text())
+    dependencies = {}
+    for package in manifest["packages"]:
+        if package["type"] != "git":
+            raise RuntimeError("Candidate records currently require Git-pinned dependencies")
+        checkout = ROOT / manifest["packagesDir"] / package["name"]
+        revision = clean_commit(checkout)
+        if revision != package["rev"]:
+            raise RuntimeError(f"Dependency revision differs from manifest: {package['name']}")
+        dependencies[package["name"]] = revision
+    return {"candidate": candidate, "dependencies": dependencies}
+
+
+def compiler_version(fresh, env):
+    command = [env.get("LEAN", "lean"), "--version"] if fresh else ["lake", "env", "lean", "--version"]
+    version = subprocess.check_output(command, cwd=ROOT, env=env, text=True).strip()
+    toolchain = (ROOT / "lean-toolchain").read_text(encoding="utf-8").strip()
+    actual = re.search(r"\bversion ([^,\s]+)", version)
+    if actual is None or actual.group(1) != toolchain.rsplit(":v", 1)[-1]:
+        raise RuntimeError(f"Expected {toolchain}, got {version}.")
+    return version
+
+
+def read_record(path):
+    try:
+        record = json.loads(path.read_text())
+        if (record["format"] != 1 or record["result"] != "passed"
+                or record["mode"] not in ("fresh", "incremental")
+                or not isinstance(record["candidate"], str)
+                or not isinstance(record["dependencies"], dict)
+                or not isinstance(record["compiler"], str)
+                or not isinstance(record["completed_at"], str)):
+            raise ValueError("invalid fields")
+        return record
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        raise RuntimeError(f"No usable verification record at {path}: {error}") from error
+
+
+def save_record(path, record):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(mode="w", dir=path.parent, delete=False) as output:
+        temporary = Path(output.name)
+        try:
+            json.dump(record, output, indent=2)
+            output.write("\n")
+            output.close()
+            temporary.replace(path)
+        finally:
+            temporary.unlink(missing_ok=True)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    candidates = parser.add_mutually_exclusive_group()
+    candidates.add_argument("--candidate", metavar="REV",
+                            help="validate a clean HEAD candidate and save its success record")
+    candidates.add_argument("--verify-candidate", metavar="REV",
+                            help="check an existing candidate record without compiling")
     parser.add_argument("--fresh", action="store_true",
                         help="recompile every project module in private temporary outputs")
     parser.add_argument("--jobs", "-j", type=positive_jobs,
                         default=None,
                         help="fresh mode only: maximum concurrent compilers (default: up to 4)")
     args = parser.parse_args()
+    if args.verify_candidate and (args.fresh or args.jobs is not None):
+        parser.error("--verify-candidate uses the recorded mode; omit --fresh and --jobs")
     if not args.fresh and args.jobs is not None:
         parser.error("--jobs requires --fresh; incremental compilation uses Lake's scheduler")
-    if not args.fresh and "LEAN" in os.environ:
+    if not args.fresh and not args.verify_candidate and "LEAN" in os.environ:
         parser.error("LEAN override requires --fresh; incremental compilation uses Lake's pinned compiler")
     args.jobs = args.jobs or min(4, os.cpu_count() or 1)
     started = time.monotonic()
+    record_path = ROOT / ".lake/verification.json"
+    env = os.environ.copy()
+    env.pop("LEAN_PATH", None)
+    if args.verify_candidate:
+        record = read_record(record_path)
+        if record["mode"] == "incremental" and "LEAN" in env:
+            raise RuntimeError("LEAN override is incompatible with an incremental record")
+        identity = candidate_identity(args.verify_candidate)
+        identity["compiler"] = compiler_version(record["mode"] == "fresh", env)
+        if any(record[key] != value for key, value in identity.items()):
+            raise RuntimeError("Verification record does not match current candidate inputs")
+        print(f"Verification record matches {identity['candidate']} ({record['mode']}).")
+        return 0
+    # A failed new attempt must not leave an older success looking current.
+    record_path.unlink(missing_ok=True)
+    identity = candidate_identity(args.candidate) if args.candidate else None
     sources = list(ROOT.glob("*.lean"))
     for directory in ("SquareKit", "Applications", "Examples"):
         sources.extend((ROOT / directory).rglob("*.lean"))
@@ -178,18 +280,11 @@ def main() -> int:
     mathlib = ROOT / ".lake/packages/mathlib/.lake/build/lib/lean/Mathlib"
     if not mathlib.is_dir():
         raise RuntimeError("Mathlib build cache is missing. Run `lake exe cache get` first.")
-    env = os.environ.copy()
-    # Build tools own the import path; caller artifacts must not shadow it.
-    env.pop("LEAN_PATH", None)
     lean = env.get("LEAN", "lean")
-    version_command = [lean, "--version"] if args.fresh else ["lake", "env", "lean", "--version"]
-    version = subprocess.check_output(version_command, cwd=ROOT, env=env, text=True).strip()
+    version = compiler_version(args.fresh, env)
     print(version, flush=True)
-    toolchain = (ROOT / "lean-toolchain").read_text(encoding="utf-8").strip()
-    expected = toolchain.rsplit(":v", 1)[-1]
-    actual = re.search(r"\bversion ([^,\s]+)", version)
-    if actual is None or actual.group(1) != expected:
-        raise RuntimeError(f"Expected {toolchain}, got {version}.")
+    if identity is not None:
+        identity["compiler"] = version
     print("Source guard passed: no admissions, source axioms, unsafe/partial definitions, native_decide, or skipped kernel checking.", flush=True)
     print(f"Source/coverage/version checks: {time.monotonic() - started:.2f}s", flush=True)
     if not args.fresh:
@@ -221,6 +316,17 @@ def main() -> int:
             subprocess.run([lean, "-o", str(output / "ProofAudit.olean"), str(source)],
                            cwd=ROOT, env=env, check=True)
             print(f"Proof audit: {time.monotonic() - audit_started:.2f}s", flush=True)
+    if identity is not None:
+        after = candidate_identity(identity["candidate"])
+        after["compiler"] = compiler_version(args.fresh, env)
+        if after != identity:
+            raise RuntimeError("Candidate inputs changed during verification")
+        save_record(record_path, {
+            "format": 1, "result": "passed", **identity,
+            "mode": "fresh" if args.fresh else "incremental",
+            "completed_at": datetime.now(timezone.utc).isoformat(),
+        })
+        print(f"Candidate {identity['candidate']} recorded in {record_path.relative_to(ROOT)}.")
     print(f"PASS: all {len(order)} modules checked; exhaustive axiom audit passed. "
           f"Total: {time.monotonic() - started:.2f}s", flush=True)
     return 0

@@ -26,8 +26,10 @@ jobs:
       - name: Fetch pinned dependency cache
         run: nix develop --command lake exe cache get
       - name: Fresh project compilation and exhaustive audit
-        run: nix develop --command ./check.sh --fresh --jobs 2
+        run: nix develop --command ./check.sh --fresh --jobs 2 --candidate HEAD
       - name: Verification command and audit-root regressions
         run: |
           nix develop --command python3 scripts/test-check.py
           nix develop --command python3 scripts/test-proof-audit-roots.py
+      - name: Confirm checked candidate
+        run: nix develop --command ./check.sh --verify-candidate HEAD

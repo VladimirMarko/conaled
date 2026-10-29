@@ -159,6 +159,36 @@ audit runs on every invocation, including when compilation is entirely cached.
 Successful builds remain in Lake's normal output directories for later reuse.
 Lake owns incremental scheduling; this wrapper adds no persistent cache.
 
+For acceptance of a committed candidate in its isolated checkout:
+
+```sh
+./check.sh --candidate HEAD
+./check.sh --verify-candidate HEAD
+```
+
+The first command requires a clean Git checkout, including the index and
+nonignored untracked files, and requires all integrated Lean sources to be
+tracked. Dependency checkouts must be clean and match the Git revisions in
+`lake-manifest.json`. It checks these conditions before compilation and again
+after the audit, then atomically writes `.lake/verification.json` with the
+resolved commit, dependency revisions, compiler version, mode, and completion
+time. Combine `--candidate HEAD` with `--fresh` when fresh validation is needed.
+
+`--verify-candidate` checks that the success record still matches the current
+candidate, dependencies, and compiler without compiling or rerunning the audit.
+Use it immediately before accepting the recorded candidate. It uses the mode
+in the record; omit `--fresh` and `--jobs`. Starting any new validation removes
+the previous record, and only successful candidate validation writes a new one.
+Ordinary `./check.sh` remains available for uncommitted development work and
+does not produce a candidate success record. Other required tests and reviews
+need their own evidence; this record covers only this verification command.
+
+This is bookkeeping for trusted local checkouts, not a certificate of artifact
+integrity or an immutable input snapshot. Before/after checks cannot detect
+changes made and restored during the run, ignored external inputs, or hostile
+Git metadata. Keep the isolated checkout stable throughout validation and
+acceptance. Candidate records currently support Git-pinned Lake dependencies.
+
 For focused development, use `lake build Applications.Interaction.Measurement`
 (or another module target). A bare `lake build` builds the configured library
 and audit, but does not replace `./check.sh`'s source-policy and coverage checks.
