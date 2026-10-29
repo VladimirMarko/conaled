@@ -106,7 +106,8 @@ the same pin around its bounded response construction.
   only while the ID is retained. Returning `Expired` after eviction is an
   explicit weakening of the old `acknowledged_survives` *observable membership*
   guarantee, not a proof of that theorem for smaller storage.
-- `pin` captures `(E,q,n,L,b)` and blocks mutation until `release`. It admits
+- `pin` captures `(E,q,n,L,b)` and blocks mutation until `release`. An attempt
+  to acquire a second pin returns `Busy` without changing the first. It admits
   one streaming read or one diagnostic rebuild. No public raw address escapes.
   Rebuild scans this bounded snapshot and publishes `(E,n,parity)` as one tuple,
   then releases the pin. A completed delayed tuple may remain after later
@@ -114,11 +115,21 @@ the same pin around its bounded response construction.
   current-retention or admission queries. Asking for a minimum position above
   its position returns `NotReady`; asking for a historical range below current
   `q` still returns `Expired`.
+- Within a connection, a pin is an affine, scoped capability supplied by the
+  driver, not a replayable numeric token. Only its current owner may use it;
+  `release` consumes it. The driver must prevent aliases, delayed uses and
+  duplicated releases after consumption, including after reacquisition at the
+  same position. Such calls are outside the admitted client contract, not
+  requests for which this service promises an `InvalidHandle` response. Repeated
+  release/reacquire cycles are allowed under that ownership premise and need
+  no growing generation counter. A raw network-handle API requires a separate
+  freshness/exhaustion protocol; a single recycled slot ID cannot implement it.
 - Pins and unfinished rebuilds are volatile. Crash cancels them and clears
   published delayed tuples. External handles are scoped to a connection that
   restart closes; old handles return `InvalidHandle`, never regain access by
   reusing a slot number. This requires a driver that actually fences old
-  connections. If handles survive process restart, durable incarnation/token
+  connections. This restart rule is separate from the within-connection affine
+  ownership premise. If handles survive process restart, durable incarnation/token
   freshness is an additional requirement outside this candidate.
 
 The boundary advances only as the published append policy already disclosed to
@@ -160,6 +171,7 @@ The following hypothetical cases specify distinguishing tests:
 | Publish view at position 1, then commit position 2 | The old tuple remains a valid delayed result, but cannot be labeled position 2 or combined with a new count to claim one snapshot. Crash discards a partial rebuild. |
 | Accept graph edge `0→1`, forget its record, then propose `1→0` | A current-window graph might accept; the cumulative acyclicity contract must reject. A preserved cumulative closure can supply the missing evidence. |
 | Pin a boundary record while an append would evict it | Append returns `Busy`. After release the append may publish the new boundary; the old query then expires. |
+| Acquire, release, then reacquire at the same `n` | The new scoped owner can read and release. A second acquisition while pinned returns `Busy`. A delayed release of the first capability is excluded by the driver ownership predicate; a negative trace must show why recycling a raw token without this premise could release the new pin. |
 | Crash immediately before/after publication, then retry; exhaust `K` | Recovery selects old/new coherent state respectively; retry never creates a second commit. Exhaustion never wraps counters or IDs. |
 
 ## Publication, reclamation and resource bounds
@@ -175,7 +187,8 @@ copy from scratch. No write after a crash may use a stale pre-crash plan.
 
 This is a proposed capability contract: stable cells, ordered completion of
 persistence, atomic durable selector replacement, single writer, fenced readers,
-and no corruption or rollback. RCU documents the separate live-reader problem:
+affine within-connection pin ownership, and no corruption or rollback. RCU
+documents the separate live-reader problem:
 removing references precedes waiting for old readers, which precedes freeing
 storage. Its grace-period rule supplies a useful analogy, not a crash-durability
 proof ([Linux RCU overview](https://www.kernel.org/doc/html/latest/RCU/whatisRCU.html#rcu-overview)).
@@ -183,7 +196,9 @@ proof ([Linux RCU overview](https://www.kernel.org/doc/html/latest/RCU/whatisRCU
 Reusing the two bank addresses is incompatible with current `Machine.used`.
 The new allocator invariant must prove that no root, cursor, plan or admitted
 reader can refer to a bank while it is overwritten. Descriptor position `n`
-serves as a nonwrapping generation within the fixed lifetime. A selector that
+serves as a nonwrapping generation within the fixed lifetime. It does not
+distinguish repeated pin acquisitions at the same `n`; those rely
+on the affine driver premise, not a generation comparison. A selector that
 only stores the bank bit is sufficient only with the stated persistence ordering
 and fencing; it is not a general ABA defense. The existing `KeepsRoot` reasoning
 must be extended to reader ownership before any concurrency is permitted.
@@ -195,7 +210,7 @@ A proposed accounting target is:
 | Durable records | `2W` fixed slots including interrupted copies; no append-only garbage. |
 | Durable metadata | Two fixed descriptors and one selector. Descriptors contain bounded counters, parity, validity/shape data; no variable list of historic IDs. |
 | Volatile records | At most `W` cached records, `W` staging records, `W` output records and one pending payload: `3W+1` slots. The pinned reader shares the frozen cache; a scan uses an index and Boolean accumulator. No additional copied snapshot or full-history recovery list. |
-| Volatile metadata | A fixed number of counters/flags, one delayed tuple and one handle slot. Counters encode `0..K`; addresses encode the finite banks. |
+| Volatile metadata | A fixed number of counters/flags, one delayed tuple and one scoped-owner slot, with no per-acquisition counter. Counters encode `0..K`; addresses encode the finite banks. |
 | Output and inputs | One bounded outstanding response and one pending request. The driver backpressures further work. Caller-retained copies and transport queues are outside this service bound and must have their own contracts. |
 | Work | Each replacement copies at most `W` records. Retries can scan at most `W`; recovery scans at most `W`. Repeated crashes can cause unbounded total work even though reserved space stays bounded. |
 
@@ -238,7 +253,7 @@ Sources were accessed on 2026-10-29.
 | Observation sufficiency | New relation from ghost `H` to `(q,n,L,b)`; prove admitted ordered ranges and cumulative parity agree. Bounded durability implementation under #225. |
 | Retry and acknowledgment semantics | Per-step simulation including expiry, conflicts, lost replies and restart. Prove no duplicate commit and retained-interval acknowledgment retrieval, not perpetual retrieval. Same implementation owner. |
 | Coherent publication and recovery | Relate every primitive write/persist/switch/crash/recover step to the independent spec; exhibit every cut in a replacement. Same owner. |
-| Reader ownership and recycling | Prove pin exclusion, handle invalidation, safe bank reuse and constant slot bounds under explicit driver capabilities. Same owner; external fencing is an assumption until realized. |
+| Reader ownership and recycling | Prove pin exclusion, affine ownership preservation, restart handle invalidation, safe bank reuse and constant slot bounds under explicit driver capabilities. Same owner; external fencing is an assumption until realized. |
 | Projection consistency | Preserve position-tagged delayed parity and atomic tuple publication; separate stale valid results from current queries. Coordinate #241's established distinctions. |
 | FRP query admission | #237 owns timestamp-boundary specialization, pending-request preservation and density assumptions; reuse the observation restriction principle without duplicating its adapter. |
 | Shared preservation architecture | #235 owns assessment of whether observation restriction plus state simulation fits existing `Interaction.Refines` composition, where admission/ownership assumptions belong, and recovery of established specializations. Do not require a new universal interface before this experiment. |
@@ -255,10 +270,13 @@ The next implementation issue should require all of the following:
    serialization requirement.
 3. Prove per-step and finite-execution refinement, admitted query order and
    multiplicity, parity preservation, retry safety, crash recovery, pin
-   ownership, safe address reuse, and the stated storage bounds. Relate costs
+   ownership under the explicit affine driver premise, safe address reuse, and
+   the stated storage bounds. Relate costs
    to actual modeled transitions. State progress and driver premises separately.
-4. Check all distinguishing cases above, including a recovery crash, stale
-   handle, rejected mutation while pinned, delayed-view minimum position,
+4. Check all distinguishing cases above, including a recovery crash, restart-
+   stale handle, release/reacquire at the same position, exclusion of a replayed
+   release by the affine ownership predicate, second-pin rejection, rejected
+   mutation while pinned, delayed-view minimum position,
    `W=1`, and lifetime exhaustion. Review every new formal statement and run the
    applicable build/proof audit and independent Standards/Spec review.
 5. Record the #235 applicability findings and the #237 boundary. Report any
