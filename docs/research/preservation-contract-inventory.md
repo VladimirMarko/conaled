@@ -172,6 +172,12 @@ requirement to refactor or formalize every listed family at once.
 
 ## Continued discovery and author usability
 
+The [first architectural milestone](preservation-architecture.md) compares
+extensions, native layers and adapters, and records independent author trials
+on an operational bound and indexed term transport. It retains this inventory's
+unimplemented adapter obligations; successful concrete specializations do not
+establish coverage of every family.
+
 [#235](https://github.com/VladimirMarko/conaled/issues/235) owns evolution beyond
 the first experiment. Apply the [language-direction criteria](../language-direction.md#evolving-preservation-laws-and-usable-specializations)
 when a new native contract exposes a gap, a shared law changes, or a concrete

@@ -135,6 +135,14 @@ must retain explicit ownership of unresolved work.
 
 ## Current evidence and ownership
 
+The [preservation architecture assessment](research/preservation-architecture.md)
+records a first bounded comparison of direct and shared author routes. Existing
+indexed certificates hide dependent equality bookkeeping while preserving the
+result type; a simple effect bound remains shorter through its native invariant.
+Keep both interfaces available. These checked examples and agent trials inform
+specialization design without establishing general human usability or a single
+interface for all preservation families.
+
 The existing [compiler](../Compiler.lean) and
 [first-order compiler](../FirstOrder.lean) provide target-dependent compilation
 interfaces. The [internal graph proof](../SquareKit/Internal/Graph.lean) and

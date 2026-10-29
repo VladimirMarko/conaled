@@ -221,5 +221,7 @@ import Examples.TemporalMonitor
 import Examples.MeasurementAttempt
 import Squares
 import Verification
+import Examples.PreservationAuthorA
+import Examples.PreservationAuthorB
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

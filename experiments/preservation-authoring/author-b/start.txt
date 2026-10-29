@@ -1,0 +1,8 @@
+Start UTC: 2026-10-29T18:50:54Z (clock command before task reading/setup).
+Frozen commit: dc3aad963f49759623728b28dbdb15490ee1567a; git status --short empty.
+Assignment/protocol: /tmp/conaled-231-235/235-author-tasks.md, parent dispatch in conversation.
+Order: B shared, B direct, A shared, A direct.
+Setup: read README, implement/EDD and worked example, architecture/domain/glossary/ADR 1+2/review-loop/no-ai-slop. Copied .lake with cp -a --reflink=auto from /tmp/conaled-231; direnv allow.
+Discovery diagnostic: guessed SquareKit/DependentSquares.lean path did not exist. rg --files located Dependent.lean, namespace DependentSquares.
+Public reading: preservation-experiment.md; Dependent.lean; EvidenceBounds.lean; PreservationBounds.lean. No private proof hints or other author records.
+Exact serving model revision/tokens unavailable. Tool-call transcript contains all read commands and outputs; initial reads not separately duplicated as files.
