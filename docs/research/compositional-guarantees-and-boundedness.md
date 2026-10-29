@@ -8,6 +8,10 @@ Lean theorem, runtime measurement, storage model or public abstraction.
 Mathematical constructions and experiments below are proposals unless named
 as existing declarations.
 
+The subsequent [two-client experiment](preservation-experiment.md) implements
+covered bound transport, compiled finite delay and scoped recovery evidence.
+It records the differences from these proposals and the remaining obligations.
+
 The [repository-wide inventory](preservation-contract-inventory.md) broadens
 this runtime/resource comparison to other implemented contracts, including
 analytic, probabilistic, dependent and geometric preservation. Those examples

@@ -1,4 +1,5 @@
 import Examples.InitializedFeedback
+import Examples.PreservationBounds
 import Examples.FIFOContracts
 import Examples.AbstractFIFO
 import Examples.CompiledTemporalPayload

@@ -4,6 +4,8 @@ Repository evidence for [#231](https://github.com/VladimirMarko/conaled/issues/2
 and [#200](https://github.com/VladimirMarko/conaled/issues/200), 2026-10-29.
 Inspection baseline: `c4260c72fb6bd5c1dbbd63e1973f988930aafed9`.
 This inventory extends [the boundedness comparison](compositional-guarantees-and-boundedness.md).
+The [implemented two-client assessment](preservation-experiment.md) classifies
+these families against the selected laws and records the outstanding adapters.
 It records existing declarations and design constraints. It adds no Lean
 abstraction or preservation theorem.
 
