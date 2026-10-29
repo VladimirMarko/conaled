@@ -133,6 +133,50 @@ when new families or author difficulties appear and at experiment completion.
 Closing one experiment does not close the architectural programme; any successor
 must retain explicit ownership of unresolved work.
 
+## Elegance, author capability and language constraints
+
+Evaluate mathematical structure, its encoding in Lean, and the experience of
+using that encoding separately. An elegant construction can have an awkward
+host-language realization; concise Lean code can also conceal restrictive
+assumptions. Record the layer responsible for a difficulty and the evidence for
+that diagnosis. Distinguish missing mathematical structure, interface design,
+documentation, language expressiveness, elaboration behavior and author
+capability. A failed attempt alone establishes neither a language limitation
+nor the impossibility of a practical encoding.
+
+Author trials measure effectiveness for recorded authors, tasks and tools.
+Retain model/version, configuration and resource budget, available documentation,
+Lean/toolchain revision, assistance, attempts and outcomes. Record unavailable
+metadata explicitly. Agent capability can change with newer models or the
+choice of cheaper workers. Separate present adoption cost from mathematical
+quality and long-term generality; difficulty for a current agent is evidence
+to investigate, not by itself grounds to reject an elegant design. Near-term
+usability still matters when selecting a practical implementation.
+
+Prefer useful specializations of shared constructions over disconnected levels
+of interface sophistication. A specialization should discharge recurring
+requirements, infer routine structure or supply a common interpretation; its
+guarantees should follow from the general laws. Preserve the concrete client's
+capabilities and assumptions, shared vocabulary, and a path to the general
+interface. Compare wrapper and conversion costs as well as convenience: several
+interfaces can fragment use and undermine the value of a common abstraction.
+Elegance and ease of use need not conflict, but record the trade-off when they do.
+
+Revisit abstractions when new consumers expose missing laws, stronger assumptions,
+repeated adapter work or author difficulties, and when language/tooling or author
+capabilities change. At workstream planning checkpoints, also reconsider promising
+alternatives that individual tasks may not surface. #235 owns this reassessment;
+these checkpoints do not create a scheduled automation. Preserve prior evidence
+and compare unchanged tasks where possible so improvements in a model, toolchain
+and design are not conflated.
+
+A proposed replacement should identify the benefit, migration and refactoring
+cost, affected consumers, and checked recovery of established specializations.
+Small fixes to documentation or inference may suffice; a deeper redesign may be
+worth its cost. Neither current usability nor mathematical elegance alone settles
+that choice. Record decisions and remaining constraints without treating a
+current Lean encoding as the limit of the mathematical direction.
+
 ## Current evidence and ownership
 
 The [preservation architecture assessment](research/preservation-architecture.md)

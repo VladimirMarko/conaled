@@ -37,6 +37,11 @@ documentation focused on the local APIs it uses; link the implementation
 record for provenance. Historical discussions in `docs/history/` supply
 motivation; verify their claims against current code and primary sources.
 
+When comparing designs or interpreting author-trial failures, use the
+[elegance, capability and language-constraint criteria](../language-direction.md#elegance-author-capability-and-language-constraints).
+Keep mathematical quality, host-language encoding and observed author effort
+separate, and retain useful specializations through revisions.
+
 ## Preservation-family changes
 
 When adding a preservation family or changing a shared interpretation interface,
