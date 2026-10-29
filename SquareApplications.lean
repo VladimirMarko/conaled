@@ -227,6 +227,7 @@ import Examples.PreservationAuthorA
 import Examples.PreservationAuthorB
 import Examples.OrderedSummary
 import Examples.Durability
+import Examples.DiagnosticStorage
 import Examples.BoundedSummary
 import Examples.OrderedSummaryPresheaf
 
