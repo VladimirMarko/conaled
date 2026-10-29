@@ -143,7 +143,7 @@ Compare under the same full-history, retry, acyclicity and diagnostic contract:
 | Representation | Publication/recovery | Additional information |
 | --- | --- | --- |
 | Immutable linked log | Persist new record, install committed tip, then acknowledge. Recovery follows the committed chain and restores order/identity data. | Reconstruct graph and diagnostic view from the complete accepted history. Unreachable partial appends are not accepted history. |
-| Full checkpoint plus linked tail | Copy an ordered prefix to fresh sequential cells, persist it and the descriptor, then install its root. Recovery concatenates prefix and tail. | Keep full prefix records and identities. A summary-only checkpoint would violate ordered-history and retry observations. Any optional graph index must carry the same split/version. |
+| Full checkpoint plus linked tail | Copy an ordered prefix to fresh sequential cells and copy/relink the suffix into a disjoint chain; persist all new cells and the descriptor, then install its root. Recovery concatenates prefix and tail. | Keep full prefix records and identities. A summary-only checkpoint would violate ordered-history and retry observations. Any optional graph index must carry the same split/version. |
 
 Both have a direct **typed retained-state** interpretation. For an **encoded
 block** interpretation add record/tag/length framing, position/offset validity,
@@ -162,8 +162,9 @@ reachable valid data, not a Boolean persisted flag.
 ## Explicit workloads and cost comparison
 
 Use #177's `Resources` composition and reweighting, retaining each primitive
-count separately. Consider `n` successful fresh appends, one checkpoint of the
-first `k ≤ n` records, `q` diagnostic queries after recovery, and `r` completed
+count separately. Consider `n` successful fresh appends followed by one checkpoint with a
+sequential prefix of `k ≤ n` records and a copied linked suffix, `q` diagnostic
+queries after recovery, and `r` completed
 reconstructions at final length `n`. No retries or interrupted reconstructions
 are charged in this initial comparison; adding them requires their actual trace.
 Graph admission, deduplication, query traversal and view computation are shared
@@ -171,23 +172,38 @@ costs only when both candidates really use the same algorithms. Let `A(n)`
 record that admission work and `G(n)` the work to rebuild the chosen graph view.
 Do not call `G(n)` linear merely because history replay is linear.
 
+The checkpoint is constructed after the complete original log of length `n`.
+Traverse that log once, reading each record and following each link, and retain
+its order in volatile construction state. Copy the first `k` records into the
+sequential prefix and the remaining `n-k` into a fresh linked tail whose boundary
+is the new descriptor's split, not an old-prefix cell. Write the descriptor,
+persist all `n+1` new cells in one batch, then install the descriptor root.
+Only after root installation completes, reclaim all `n` old log cells. There
+are no later appends in this workload. This trace permits the old log to remain
+recoverable throughout construction and leaves no new tail link into it.
+Copying only the prefix of an immutable log would not justify its reclamation:
+the retained tail would still reference that prefix.
+
 The following counts define a proposed structural model. Root installation
 includes its own durable completion and is counted separately from cell-batch
 persistence. A record read excludes link-follow work. Sequential checkpoint
 addressing is included in its read primitive. Metadata and payload sizes are
-explicit parameters in a later encoded interpretation.
+explicit parameters in a later encoded interpretation. Volatile staging and
+record-field computation are outside this structural count, not assumed free
+in a runtime cost model; encoded framing has its own additional costs.
 
 | Count | Linked log | Checkpoint of `k` plus tail |
 | --- | ---: | ---: |
 | Append record writes | `n` | `n` |
 | Append persistence completions / root installations | `n / n` | `n / n` |
-| Checkpoint copy reads / writes | `0 / 0` | `k / (k+1)` including descriptor |
+| Checkpoint record reads / link follows / cell writes | `0 / 0 / 0` | `n / n / (n+1)` including copied suffix and descriptor |
+| Old-cell reclamation operations after publication | `0` | `n` |
 | Extra checkpoint persistence / root installation | `0 / 0` | `1 / 1` |
 | Per-reconstruction record reads | `n` | `n` |
 | Per-reconstruction link follows / descriptor reads | `n / 0` | `(n-k) / 1` |
 | Graph-view reconstruction | `G(n)` | `G(n)` unless an additional index theorem changes it |
 | Steady reachable record cells | `n` | `n+1` including descriptor |
-| Peak cells during the one copy, excluding common root | `n` | `n+k+1` before old prefix reclamation |
+| Peak retained cells during the one copy, excluding common root and volatile staging | `n` | `2*n+1` before old log reclamation |
 
 After both recover into the same in-memory graph representation, their `q`
 queries have equal chosen query work; that cancels in this comparison. If queries
@@ -199,12 +215,12 @@ one exclusive writer admission/commit region per append and one replacement
 region for the checkpoint; there are no distributed messages in this model.
 
 A worked arithmetic example uses `n=10`, `k=8` and unit weights for the displayed
-read/write/link/descriptor/persistence/root counts. Common `A(n)`, `G(n)` and
+read/write/link/descriptor/reclamation/persistence/root counts. Common `A(n)`, `G(n)` and
 postrecovery query costs are excluded from both totals. Base append work is 30.
-The checkpoint costs 19 extra: eight reads, nine writes, one persistence and one
-root installation. Each reconstruction costs 20 for the log and 13 for the
-checkpoint/tail. One reconstruction gives totals 50 versus 62; three give 90
-versus 88. These are hypothetical model calculations, not timings. If link
+The checkpoint costs 43 extra: ten record reads, ten link follows, eleven cell
+writes, ten reclamations, one persistence and one root installation. Each reconstruction costs 20 for the log and 13 for the
+checkpoint/tail. One reconstruction gives totals 50 versus 86; seven give 170
+versus 164. These are hypothetical model calculations, not timings. If link
 following has zero weight while sequential reads remain unchanged, checkpoint
 copying cannot pay for itself in this workload. No target-independent winner
 follows. The checkpoint also retains an extra descriptor and has higher peak
@@ -214,7 +230,8 @@ Repeated incomplete recovery adds the reads/view work of every attempted prefix;
 `r` successful recoveries alone does not bound that cost. With unbounded crashes
 there is no finite completion-cost guarantee. Repeated checkpointing adds every
 copy, synchronization and reclamation charge; the one-copy peak formula cannot
-be silently reused. Physical reclamation work, allocator behavior, cache locality,
+be silently reused. The reclamation count is a primitive model charge, not measured physical
+reclamation work. Allocator behavior, cache locality,
 codec throughput and device timing remain unmeasured.
 
 ## Optimizations blocked by observations and composition
