@@ -34,11 +34,11 @@ def publicationFailure (atFlush : Bool) : IO Unit := do
   ensure ((← writes.get) == 4) "publication was retried"
   ensure ((← flushes.get) == (if atFlush then 4 else 3)) "unexpected flush count"
   let bytes := (← sink.get).data
-  let prefix := "ok packet accepted status - response - aggregate -\n" ++
+  let previousFrames := "ok packet accepted status - response - aggregate -\n" ++
     "ok packet accepted status - response - aggregate -\n" ++
     "ok packet - status accepted response - aggregate -\n"
   let response := if atFlush then "ok packet - status - response 0 0 0 aggregate 1 0\n" else "ok pack"
-  ensure (String.fromUTF8! bytes == prefix ++ response)
+  ensure (String.fromUTF8! bytes == previousFrames ++ response)
     "fixture did not retain the ambiguous response publication"
 
 def readFailure : IO Unit := do
