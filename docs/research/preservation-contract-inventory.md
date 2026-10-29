@@ -167,3 +167,13 @@ the bounded first formal experiment. This inventory broadens its applicability
 review: before choosing the interface, compare it with the native contracts
 above and record any exclusion. It does not expand that experiment into a
 requirement to refactor or formalize every listed family at once.
+
+## Continued discovery and author usability
+
+[#235](https://github.com/VladimirMarko/conaled/issues/235) owns evolution beyond
+the first experiment. Apply the [language-direction criteria](../language-direction.md#evolving-preservation-laws-and-usable-specializations)
+when a new native contract exposes a gap, a shared law changes, or a concrete
+specialization becomes difficult to author. Expand this inventory with evidence,
+record needed infrastructure changes and retain scoped owners for unresolved
+work. Existing clients and their usable specializations are regression cases
+for a retrofit. The first two-client experiment cannot close that programme.

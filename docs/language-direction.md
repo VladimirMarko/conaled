@@ -96,6 +96,43 @@ each development teaches us about the language and revise proposed interfaces
 accordingly. A small working fragment can be valuable while its author interface
 remains below the long-term goal.
 
+## Evolving preservation laws and usable specializations
+
+The [preservation inventory](research/preservation-contract-inventory.md) is a
+revisable set of architectural tests. New clients may expose missing judgments,
+comparison data or composition laws. When a client does not fit, retain its
+native contract and identify the mismatch: an additional assumption, a missing
+adapter, a new compatible layer or an existing interface that needs revision.
+Track unresolved work with a scoped owner. The initial examples do not define
+the limit of the family, and recording a gap does not resolve it.
+
+A justified expansion may require retrofitting foundations and existing
+consumers. Evaluate that change against both the new client and prior concrete
+specializations. Recover the prior guarantees under the same assumptions,
+including witnesses and observations. Use checked migrations or specialized
+facades when interfaces change. Keep executable and resource claims explicit;
+semantic preservation alone does not establish implementation performance.
+
+Generality must remain usable by authors and agents. Compare direct/native
+and shared/specialized solutions to the same representative tasks. Record the
+concepts and obligations the author must supply, internal wrappers or casts,
+diagnostics, assistance and successful completion. Preserve familiar concrete
+operations where they suffice; authors should not need unrelated structures
+or the entire framework to use a specialization. Checked examples establish
+meaning, while independent author trials test whether the public interface and
+documentation expose that meaning effectively. Agent trials are evidence about
+those trials, not a claim of usability for every human author.
+
+[#235](https://github.com/VladimirMarko/conaled/issues/235) owns continued
+compatibility, retrofits and specialization usability within
+[#200](https://github.com/VladimirMarko/conaled/issues/200), coordinated with
+#36's models and #8's categorical foundations. The bounded
+[#231](https://github.com/VladimirMarko/conaled/issues/231) experiment must hand
+off its applicability findings and remaining work there. Revisit the record
+when new families or author difficulties appear and at experiment completion.
+Closing one experiment does not close the architectural programme; any successor
+must retain explicit ownership of unresolved work.
+
 ## Current evidence and ownership
 
 The existing [compiler](../Compiler.lean) and

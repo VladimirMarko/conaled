@@ -59,6 +59,23 @@ This assessment coordinates with resource consumer
 state which future queries remain supported before discarding history. Neither
 an indefinite-service policy nor a storage representation has been selected.
 
+## Can request identifiers disappear?
+
+The [request-identity assessment](frp-request-identity.md) makes elimination a
+first comparison under #232. Existing synchronous initialized machines require
+no request IDs. A repeated-request interface can use one exclusive current
+request if its admission and communication contract excludes old commands and
+responses. A timing-based alternative needs lifetime or quiescence evidence;
+current prefix causality and signal-stability intervals do not supply it.
+
+Reusing source frontiers as control-message retirement evidence would require
+a separate proof. Likewise, accepting repeated queries at the same timestamp
+prevents timestamps alone from identifying logical requests. Compare occurrence
+safety with the current named-request contract, including busy/stale behavior,
+replay, delayed processing and restart. Any growing runtime timestamp, epoch or
+counter still belongs in the space accounting. The proposed identifier-free
+wrapper and its refinement are not yet implemented.
+
 ## A nonempty class supporting indefinite service
 
 The stronger objective is a class of programs or program/backend pairs that
@@ -154,3 +171,8 @@ session/isolation contract; it must not silently reset IDs and claim replay
 safety. Persistence, automatic retries and indefinite operation require further
 accepted scope. Issues own acceptance criteria; this note records the evidence
 and coordination behind them.
+
+The preservation experiment feeds the continuing architecture programme
+[#235](https://github.com/VladimirMarko/conaled/issues/235). New causal, timing
+or identifier-free consumers should report missing laws and specialization
+usability there; completing the first experiment does not close that work.

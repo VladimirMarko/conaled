@@ -37,6 +37,17 @@ documentation focused on the local APIs it uses; link the implementation
 record for provenance. Historical discussions in `docs/history/` supply
 motivation; verify their claims against current code and primary sources.
 
+## Preservation-family changes
+
+When adding a preservation family or changing a shared interpretation interface,
+use the [evolution and specialization criteria](../language-direction.md#evolving-preservation-laws-and-usable-specializations)
+and [implemented-contract inventory](../research/preservation-contract-inventory.md).
+Record new mismatches, affected consumers and scoped follow-up owners. Evaluate
+new clients alongside existing concrete specializations, retaining their
+contracts and author usability through any retrofit. At a bounded experiment's
+completion, hand unresolved architectural work to
+[#235](https://github.com/VladimirMarko/conaled/issues/235) or its named successor.
+
 ## Scope of parity
 
 Architectural parity is the first milestone. The longer-term goal includes
