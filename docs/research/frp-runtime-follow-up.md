@@ -93,6 +93,15 @@ counterexamples, including unbounded counters and queues.
 
 ## Preservation laws to reuse
 
+The [cross-property assessment](compositional-guarantees-and-boundedness.md)
+compares boundedness with optimization, resource accounting, productivity and
+durability. Existing relational transport supplies the qualitative core;
+quantitative observations and progress require additional laws. The next #231
+experiment will test those laws across compiled delay and an interaction consumer
+before selecting another shared interface. #234 needs one resource bound uniform over every
+admissible execution and prefix for its configured workload, together with
+separate progress evidence. Finite memory at each individual prefix is weaker.
+
 | Checked evidence | Follow-up obligation |
 |---|---|
 | [Feedback.transport](../../Applications/Progress/Feedback.lean) and [Reactive.run_related](../../Applications/Progress/Reactive.lean) lift local transition relations to streams and finite runs. | Compare actual repeated caller obligations before extracting another interface. |

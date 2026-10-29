@@ -8,6 +8,13 @@ coordination with resource and durability work. Reuse existing relational
 squares and requirement transport before introducing another interface. This
 priority leaves the broader correspondence programme open.
 
+The [boundedness and compositional-guarantee assessment](compositional-guarantees-and-boundedness.md)
+compares the same preservation structure across resources, optimization,
+productivity and durability. It distinguishes relational predicate transport
+from quantitative composition, uniform resource bounds, progress witnesses and
+crash observations. These are consumers for #231's experiment; the assessment
+adds no public abstraction or new Lean theorem.
+
 
 Research for [#202](https://github.com/VladimirMarko/conaled/issues/202),
 2026-10-28. Source inspection baseline:
