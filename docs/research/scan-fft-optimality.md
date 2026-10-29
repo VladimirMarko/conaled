@@ -184,6 +184,44 @@ hypotheses, and adds resource contracts in separate modules. Future Lean work
 needs example-driven statement review, integrated build/proof audit, and
 independent review. This assessment makes no change to the library's current guarantees.
 
+## Measured scan implementation (#242)
+
+The assessment above describes the initial checkout. The subsequent
+[measured scan module](../../Applications/Parallel/MeasuredScan.lean) now
+implements the first step. `ScanPlan.runWith` interprets the existing recipes
+using only an identity and a binary operation. Its naturality theorem connects
+circuit evaluation to the existing scanner and sequential specification for
+monoids in every universe, without assuming commutativity.
+
+`Wire` names nodes by their complete expression structure. Equal names denote
+one shared node. `SharedCircuit` retains the union of binary nodes reachable
+from its output ports and charges each once. Input and identity nodes and
+wiring/copying are free; dead gates are absent. Identity operands are bypassed
+before constructing a binary node, with proved semantic preservation and
+nonincreasing work and arrival time. The strict rank decrease along dependency
+edges proves acyclicity. This representation allows structural common-expression
+sharing across outputs and is not a model of Lean evaluation costs.
+
+Timing records identity separately from an ordinary value arriving at zero.
+`circuit_timing` derives every output arrival, including the total, through
+the same plan fold for arbitrary input arrival times. The product and composition
+equations reuse child results and combine binary inputs by maximum plus one.
+They do not add the durations of independent children.
+
+The [checked examples](../../Examples/MeasuredScan.lean) establish all six
+sixteen-input counts above, the mixed product's early total and eight additional
+gates, ordered-word semantics, and empty, singleton and nonuniform-arrival cases.
+`canonical_correct` ties the circuits to the independent sequential specification;
+`outputs_normal` establishes identity elimination for all compiled plans.
+
+Optimality and certified pruning remain separate obligations. Because this
+model shares structurally identical nodes, the work of a surrounding circuit
+is a union cardinality. Comparing scalar work and output arrival maps alone
+does not establish monotonicity of work in arbitrary sharing contexts. A
+pruning client must prove its contextual preservation property for its declared
+composition language. No theorem here identifies this structural representation
+with every possible externally named DAG or asserts global circuit optimality.
+
 [elliott]: https://conal.net/papers/generic-parallel-functional/generic-parallel-functional.pdf
 [snir]: https://snir.cs.illinois.edu/listed/J16.pdf
 [ailon]: https://arxiv.org/abs/1305.4745

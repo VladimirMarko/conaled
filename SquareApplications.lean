@@ -229,5 +229,6 @@ import Examples.OrderedSummary
 import Examples.Durability
 import Examples.BoundedSummary
 import Examples.OrderedSummaryPresheaf
+import Examples.MeasuredScan
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
