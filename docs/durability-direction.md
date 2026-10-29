@@ -13,6 +13,14 @@ We want to investigate how much of that choice can instead follow from the
 program's requirements. An embedded database remains a possible realization;
 avoiding a separate process alone does not answer the semantic question.
 
+Data structures and storage mechanisms are optional realizations enabled by a
+target's capabilities. Managed memory, allocation, a filesystem and byte streams
+are not universal premises. Distinguish ordinary retained state, persistent
+versions and survival across specified failures; one does not establish another.
+Serialization is one possible technique at a representation boundary. A direct
+typed retained-state model may need no codec, but still needs explicit retention,
+ordering, publication and recovery laws.
+
 ## Requirements and realizations
 
 Keep the following distinctions available to authors:
@@ -99,3 +107,17 @@ evidence that the proposed durability realizations have been implemented.
 
 GitHub Issues hold acceptance criteria and dependencies. Completion of the
 preliminary survey does not complete this direction or gate all related work.
+
+## Bounded assessments and next experiments
+
+The [recovery assessment](research/durability-contract-experiment.md) specifies
+an accepted-history experiment with log and checkpoint/tail realizations,
+conditional encoding, and explicit retained-cell/atomic-root assumptions.
+[#240](https://github.com/VladimirMarko/conaled/issues/240) owns its implementation.
+The [storage and diagnostic comparison](research/persistence-diagnostic-specialization.md)
+adds freshness, snapshot and workload distinctions;
+[#241](https://github.com/VladimirMarko/conaled/issues/241) owns the proposed
+projection extension. These assessments specify future proofs; they do not
+establish a production storage system. Their target and resource questions
+reuse the [capability assessment](research/data-structure-target-capabilities.md)
+and [resource assessment](research/data-structure-resource-contracts.md).
