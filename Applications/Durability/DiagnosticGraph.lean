@@ -54,8 +54,8 @@ theorem acyclic_correct (h : History N) : acyclic h = true ↔ Acyclic h := by
 
 /-- Admission inspects the whole proposed authoritative snapshot. It never
 authorizes a new request from a delayed diagnostic. -/
-def admit (h : History N) (e : Record (Edge N)) : Bool := acyclic (h ++ [e])
-theorem admit_safe (h : History N) (e : Record (Edge N)) (ok : admit h e = true) :
+def allows (h : History N) (e : Record (Edge N)) : Bool := acyclic (h ++ [e])
+theorem admit_safe (h : History N) (e : Record (Edge N)) (ok : allows h e = true) :
     Acyclic (h ++ [e]) := (acyclic_correct _).mp ok
 
 theorem edge_append (h : History N) (e : Record (Edge N)) :
@@ -67,7 +67,7 @@ theorem reach_append {h : History N} (e : Record (Edge N)) {u v}
   | single edge => exact .single (by simpa [Edges] using Or.inl edge)
   | tail path edge ih => exact ih.tail (by simpa [Edges] using Or.inl edge)
 
-theorem admit_no_cycle {h : History N} {e : Record (Edge N)} (ok : admit h e = true) :
+theorem admit_no_cycle {h : History N} {e : Record (Edge N)} (ok : allows h e = true) :
     e.payload.1 ≠ e.payload.2 ∧ ¬ Reach h e.payload.2 e.payload.1 := by
   have safe := admit_safe h e ok
   constructor
@@ -82,7 +82,7 @@ theorem admit_no_cycle {h : History N} {e : Record (Edge N)} (ok : admit h e = t
 recovery and acknowledgment transitions remain the underlying protocol's. -/
 def AdmittedStep (ev : Event (Edge N)) (s t : Machine (Edge N)) : Prop :=
   Step ev s t ∧ match ev with
-    | .commit e => ∃ h, s.cache = some h ∧ admit h e = true
+    | .commit e => ∃ h, s.cache = some h ∧ allows h e = true
     | _ => True
 
 inductive AdmissionReply (N : Nat) where
@@ -95,7 +95,7 @@ or conflicting-reuse rules rather than being misreported as graph failures. -/
 inductive AdmissionStep : AdmissionReply N → Machine (Edge N) → Machine (Edge N) → Prop
   | protocol {ev s t} : AdmittedStep ev s t → AdmissionStep (.protocol ev) s t
   | cycle {s h e} : s.cache = some h → s.active = none → s.pending = none →
-      Fresh h e → admit h e = false → AdmissionStep (.cycleRejected e) s s
+      Fresh h e → allows h e = false → AdmissionStep (.cycleRejected e) s s
 
 theorem cycle_rejection_preserves {e} {s t : Machine (Edge N)}
     (reject : AdmissionStep (.cycleRejected e) s t) : t = s := by

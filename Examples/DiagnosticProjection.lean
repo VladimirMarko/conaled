@@ -9,10 +9,10 @@ def abAgain : Record (Edge 2) := ⟨1,1,(0,1)⟩
 def ba : Record (Edge 2) := ⟨1,2,(1,0)⟩
 def conflict : Record (Edge 2) := ⟨1,0,(1,0)⟩
 
-example : admit [] ab = true := by decide
-example : admit [ab] abAgain = true := by decide
-example : admit [ab] ba = false := by decide
-example : admit [] ba = true := by decide
+example : allows [] ab = true := by decide
+example : allows [ab] abAgain = true := by decide
+example : allows [ab] ba = false := by decide
+example : allows [] ba = true := by decide
 example : (recompute [ab]).count = (recompute [ba]).count ∧
     (0,1) ∈ (recompute [ab]).paths ∧ (0,1) ∉ (recompute [ba]).paths := by decide
 example : (recompute [ab,abAgain]).paths = (recompute [ab]).paths ∧
@@ -225,7 +225,7 @@ theorem stale_admission_blocked {s t : Machine (Edge 2)}
   rintro ⟨step,h,cache,ok⟩
   have eq : h = [ab] := Option.some.inj (cache.symm.trans ready)
   subst h
-  have bad : admit [ab] ba = false := by decide
+  have bad : allows [ab] ba = false := by decide
   rw [bad] at ok
   cases ok
 

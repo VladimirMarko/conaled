@@ -18,7 +18,7 @@ membership in every such superset. This finite exhaustive algorithm terminates
 without a path-enumeration bound. It is deliberately expensive; no efficient
 closure or incremental-maintenance claim follows.
 
-`admit` recomputes acyclicity of the proposed appended history. This is stronger
+`allows` recomputes acyclicity of the proposed appended history. This is stronger
 work than an optimized back-edge lookup, but `admit_no_cycle` proves that an
 accepted edge is neither a self-edge nor the reverse of an existing path.
 `AdmittedStep` wraps the existing protocol and checks this guard at commit
