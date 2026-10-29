@@ -208,6 +208,7 @@ import SquareKit.FirstOrder
 import SquareKit.Relations
 import SquareKit.SheafTorsorDescent
 import SquareKit.STLCRelations
+import Examples.ReactiveContracts
 import Examples.RecursiveCompilation
 import Examples.TemporalFRP
 import Examples.TemporalMonitor
