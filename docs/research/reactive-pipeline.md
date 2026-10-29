@@ -96,3 +96,6 @@ those environmental premises. Request lifecycles, cancellation, external IO,
 concurrency, crash recovery, reclamation, and cost bounds remain outside this
 experiment. The [clock-boundary assessment](multimodal-reactive-assessment.md)
 still applies; this pipeline requires no modal or cursor-transport framework.
+
+The [identified request lifecycle](request-lifecycle.md) extends this one-shot
+protocol with sequential sessions while retaining source and consumer state.
