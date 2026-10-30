@@ -232,6 +232,7 @@ import Examples.OrderedSummary
 import Examples.Durability
 import Examples.DiagnosticStorage
 import Examples.BoundedSummary
+import Examples.ByteBuffer
 import Examples.OrderedSummaryPresheaf
 import Examples.RecursiveFusion
 import Examples.RetainedHistory
