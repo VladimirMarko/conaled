@@ -368,6 +368,11 @@ subtyping solver can then become one realization of a stated contract. There
 is insufficient evidence to make global implicit subtyping, a universal type
 lattice, or a single modal calculus mandatory for the language.
 
+The [extension-metatheory assessment](language-extension-metatheory.md) now
+compares the generic structural results at theorem level and gives primitive
+and dependent-product extension contracts, including failed interpretations.
+It recommends #259 as the first bounded formal experiment.
+
 ## Evidence and remaining limits
 
 The focused derivative and Dolan assessments use paper text and local source
