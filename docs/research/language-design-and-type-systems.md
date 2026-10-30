@@ -237,6 +237,10 @@ These choices are consistent with the repository's requirement to expose the str
 
 A subtle warning: the induced map on function spaces above need not be injective, even when `i` and `j` are injective. Restricting functions to a smaller domain can identify functions that differed outside it. Therefore “all subtype coercions are monomorphisms” and “all function domains are contravariant under those coercions” need not be simultaneously valid in a chosen semantics. This is a mathematical design check, not a claimed defect of Dolan's system.
 
+The [subtyping-contract comparison](subtyping-contracts-and-inference.md) follows
+these leads at theorem level, compares common examples across interpretations,
+and specifies the conditions for an optional inference experiment.
+
 ### The McBride lead
 
 The remembered Agda talk remains unidentified. A verified nearby primary source is McBride's [*universe hierarchies*](https://pigworker.wordpress.com/2015/01/09/universe-hierarchies/) (2015), linking [slides from a 2011 talk](https://personal.cis.strath.ac.uk/conor.mcbride/Crude.pdf). It explains why treating subtyping as literal inclusion of set-theoretic function graphs motivates invariant domains: restricting a function's domain changes the graph. It then discusses contravariance and reusing constructions across universe-level settings that preserve their constraints. This is unusually close to conaled's direction. The post is a proposal, not a completed metatheory or documentation of current Agda behavior.
