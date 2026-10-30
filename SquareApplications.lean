@@ -1,3 +1,4 @@
+import Examples.EquationTranspose
 import Examples.LanguageCoalgebra
 import Examples.SubtypeEvidence
 import Examples.LanguageExtension
@@ -242,4 +243,3 @@ import Examples.ScanOptimality
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
-import Examples.EquationTranspose
