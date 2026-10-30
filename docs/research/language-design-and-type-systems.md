@@ -393,3 +393,5 @@ This change adds research documentation only; it adds no Lean declarations,
 changes no axioms and runs no external research artifact. Formal follow-ups
 must use checked specializations, statement review and the applicable build/audit.
 No GitHub issue was created or changed by this review.
+
+The checked derivative follow-up is [Language derivatives as finite-word behavior](language-derivative-coalgebras.md), covering final behavior, weighted operations and indexed witness tries (#255).
