@@ -1,0 +1,6 @@
+2026-10-30: local editing command invoked python3 without direnv; shell returned
+python3: command not found. No edit occurred. The next success run consequently
+used the initial source (retained repeated-initial-evidence.jsonl). Invocation
+with --inject-allocation-failure then exited 2: unrecognized arguments. Retried
+the edit through direnv and ran final source successfully. This was a tooling
+invocation error, not an experiment result or target limitation.
