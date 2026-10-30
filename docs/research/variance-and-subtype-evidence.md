@@ -87,6 +87,18 @@ example proves no such certificate can be supplied for those routes under
 function equality. Choosing a priority would produce a function but would not
 prove coherence.
 
+Trial conditions: the author was this implementation's Codex agent, described
+by the session as GPT-6-based; the exact model build and reasoning configuration
+were not exposed. It used Lean 4.35.0 in the pinned Nix/direnv environment and
+read the public category, interpretation, TypeFamily and #258 research APIs.
+The new helper was designed by the same author, so prior design knowledge is
+part of the assistance. One deliberate omitted-certificate client failed;
+the completed direct and assisted clients passed. Development also required
+ordinary elaboration fixes; this was not a timed fresh-author trial. No separate
+trial token/time cap or per-trial usage measurement was recorded. The enclosing
+workstream had 18% weekly allowance remaining at this issue's start, with a
+10% threshold for starting new issues. No human assistance was requested.
+
 The implementations, equality theorem, observation and failure witnesses are
 retained in the example module. This was the implementer's own trial, not an
 independent usability study. For this small task the assisted interface adds
