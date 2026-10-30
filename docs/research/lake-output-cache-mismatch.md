@@ -2,7 +2,9 @@
 
 Investigation of the cache failure during #268, 2026-10-30. This is evidence
 for [#222](https://github.com/VladimirMarko/conaled/issues/222), not completion
-of its verified-reuse programme or a decision to replace Lake.
+of its verified-reuse programme or an implementation of replacement tooling.
+The owner subsequently clarified that #222 is the first step towards replacing
+Lake infrastructure, with an upstream bug report to precede replacement work.
 
 ## What survived
 
@@ -95,5 +97,6 @@ avoids importing this particular inconsistent project artifact set. Moving a
 complete, verified artifact set could also be evaluated, with explicit atomicity
 and provenance assumptions. These are candidates to compare, not implemented
 changes to repository build policy. Stock Lake plus periodic fresh verification
-remains the current policy. The present evidence does not justify replacing
-the build system, nor does one fresh success establish future cache integrity.
+remains the current policy. The owner’s replacement direction is a project decision; this incident alone
+does not establish that replacement is necessary. One fresh success does not
+establish future cache integrity.

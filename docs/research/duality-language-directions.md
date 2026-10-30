@@ -1,9 +1,15 @@
-# What constructor–destructor duality suggests for the language
+# Construction and observation
 
 Discussion and follow-up agenda, 2026-10-30. The owner requested preservation of
 both findings and speculations after #256. #268 now supplies the bounded
 composition result described below. The remaining proposals are research tasks,
 not a selected universal language architecture.
+
+The project owner adopted **Construction and observation** as the workstream
+name on 2026-10-30. Duality remains a central research direction within it.
+The scope includes verified presentations, compatibility under composition
+and substitution, and the obligations imposed by extension. The historical
+filename remains stable so existing links continue to resolve.
 
 ## Evidence and conjecture
 

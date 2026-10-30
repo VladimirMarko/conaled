@@ -11,6 +11,11 @@ such as FRP, orbifold simulation, or hardware architecture derivation. A
 workstream can contribute to several shared components and executable systems.
 _Avoid_: Application as a name for an entire development effort.
 
+**Construction and observation**:
+The workstream studying how program construction, observation, interpretation,
+and extension fit together through explicit compatibility laws.
+_Avoid_: Duality as the name for the whole workstream; duality is one research direction within it.
+
 **Capability parity**:
 Coverage of a named reference's constructions and proved behavior under
 comparable assumptions. A parity claim is relative to an explicit scope and
