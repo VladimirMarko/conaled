@@ -247,6 +247,14 @@ metatheory until a second syntax extension repeats enough formation and
 substitution work to justify it. This is an adoption decision for the present
 library, not a rejection of the more general mathematics.
 
+A later source sharpens the extension criterion: the
+[Dolan follow-up assessment](subtyping-contracts-and-inference.md#dolans-later-work-beyond-algebraic-subtyping)
+records DRFCaml's reuse of compatibility proofs over admissible semantic types.
+[#262](https://github.com/VladimirMarko/conaled/issues/262) owns a bounded local
+experiment beyond #259's fixed type grammar, including explicit admissibility
+conditions, new-rule compatibility and a rejected interpretation. This remains
+a criterion for continued extension work under #235.
+
 For a future dependent extension, use the dependent-product contract above as
 the comparison test before building new infrastructure. Uemura's model/internal
 language discipline and Jacobs's comprehension structure are useful design

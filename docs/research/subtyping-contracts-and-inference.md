@@ -346,7 +346,7 @@ Georges and coauthors, including Dolan, [*Data Race Freedom à la Mode*
 (2025)](https://plv.mpi-sws.org/drfcaml/paper.pdf), is especially relevant to extension
 stability. Theorems 5.1–5.3 connect rule compatibility, semantic typing and data-race
 freedom through an Iris model formalized in Rocq. Section 6 says existing compatibility
-proofs depend on the semantic-type conditions of Definition 5.1, rather than a fixed
+proofs depend on the semantic-type conditions excerpted in Definition 5.1, rather than a fixed
 type syntax. New types require interpretations satisfying those conditions and
 compatibility proofs for new rules. This supports the Capsule API despite its unsafe
 casts; the core theorem alone does not justify those casts. Lemma 5.4 separately
@@ -358,6 +358,14 @@ is currently an abstract-level lead here: the workshop abstract proposes reformu
 ML with references and value restriction after identifying failed standard assumptions.
 No detailed theorem assessment is claimed. It belongs in follow-up work on mutation,
 generalization and preservation under language extension.
+
+The follow-up [#262](https://github.com/VladimirMarko/conaled/issues/262) owns
+a checked semantic-type extension beyond #259's fixed type grammar. It must
+inspect all core conditions in the Rocq artifact, identify the conditions
+used by the retained proof, and demonstrate both an admissible extension and
+a rejected candidate. Definition 5.1 only displays three of the artifact's ten
+conditions. The objective is reuse of existing compatibility proofs under
+explicit hypotheses, with operational adequacy kept separate.
 
 ## Adoption and author effort
 
@@ -438,7 +446,6 @@ having positive and negative type variables.
 This sequencing preserves the option to stop at explicit evidence if assistance
 adds no useful author benefit. #258 resolves the adoption comparison; #257 owns
 checked variance/evidence, #260 the conditional elaborator, #116 surface design,
-and #235 the compatibility of interpretations. No additional broad implementation
-issue is needed. This research adds no Lean declarations and reproduces no
+and #235 the compatibility of interpretations. The scoped semantic-type extension experiment is owned by #262 under #235. This research adds no Lean declarations and reproduces no
 external compiler or proof artifact; source results, paper examples and local
 proposals are distinguished above.
