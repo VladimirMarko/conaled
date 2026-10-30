@@ -159,7 +159,13 @@ public-entrypoint coverage, builds every integrated module with stock Lake's
 incremental dependency tracking, then executes `ProofAudit.lean`. The exhaustive
 audit runs on every invocation, including when compilation is entirely cached.
 Successful builds remain in Lake's normal output directories for later reuse.
-Lake owns incremental scheduling; this wrapper adds no persistent cache.
+Lake owns incremental scheduling; this wrapper adds no persistent cache. Before
+and after the incremental build, an output-integrity guard compares project
+artifacts with the output hashes in their saved Lake traces. Missing or
+inconsistent evidence causes invalidation before the build; a mismatch after
+the build fails verification before the audit. Guarded builds disable Lake
+artifact-cache restoration/writes and rehash inputs, while reusing existing
+dependency build outputs. The guard uses the pinned Lake hash implementation.
 
 For acceptance of a committed candidate in its isolated checkout:
 
@@ -219,16 +225,21 @@ artifact tampering or undeclared external inputs. Periodic fresh builds provide
 an independent check of project cache state. Future verified reuse is tracked
 in [#222](https://github.com/VladimirMarko/conaled/issues/222).
 
-A proposed local output-integrity guard is a temporary mitigation for mixed
-project artifacts, not the verified-reuse contract in #222. It is not yet
-implemented: `check.sh` currently delegates reuse decisions to stock Lake.
-Comparing artifact bytes with recorded output identities could detect some
-mismatches, but agreement would not prove that those artifacts were compiled
-from the claimed inputs. It would not prevent changes between checking and
-consumption or establish external dependency-cache integrity. A guard in
-`check.sh` would also be bypassed by direct `lake build` invocations. Keep the
-stable-checkout discipline, exhaustive audit, and periodic fresh verification;
-see the [mitigation scope and limitations](docs/research/lake-output-cache-mismatch.md#proposed-local-mitigation).
+The local output-integrity guard is a temporary mitigation for mixed project
+artifacts, not the verified-reuse contract in #222. Agreement with a trace does
+not prove that artifacts were compiled from the claimed inputs. Lake's hashes
+are noncryptographic; this is not authentication against hostile substitution.
+The guard does not prevent changes between checking and consumption or establish
+external dependency-cache integrity. Direct `lake build` invocations and editor
+consumers bypass it. Keep the stable-checkout discipline, exhaustive audit, and
+periodic fresh verification; see the
+[mitigation scope and limitations](docs/research/lake-output-cache-mismatch.md#local-mitigation).
+
+The guard supports the repository's standard TOML build layout and pinned trace
+schema. Custom project build/source directories, a `lakefile.lean`, or explicitly
+enabling the project's artifact cache are rejected. Unknown trace evidence
+triggers rebuilding; if a new build still produces unsupported evidence,
+verification fails. Toolchain or layout changes must update and test the adapter.
 
 Both modes cover root Lean modules and `SquareKit/`, `Applications/`, and
 `Examples/`; archived sources and isolated `experiments/` require their own

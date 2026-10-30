@@ -23,7 +23,7 @@ class FreshVerification(unittest.TestCase):
         (self.root / ".lake").mkdir()
         (self.root / ".lake/packages").symlink_to(ROOT / ".lake/packages")
         (self.root / "lakefile.toml").write_text('name = "fixture"\n[[lean_lib]]\nname = "SquareApplications"\nglobs = ["SquareApplications", "Applications.+", "ProofAudit"]\n')
-        for name in ("check.sh", "lean-toolchain", "scripts/check.py"):
+        for name in ("check.sh", "lean-toolchain", "scripts/check.py", "scripts/lake_integrity.py", "scripts/lake-output-hashes.lean"):
             shutil.copy2(ROOT / name, self.root / name)
         self.write("SquareApplications", "import Applications.A\nimport Applications.B\n")
         self.write("Applications.A", "def a : Nat := 1\n")
@@ -41,7 +41,7 @@ class FreshVerification(unittest.TestCase):
                               capture_output=True, text=True, timeout=45)
 
     def commit_candidate(self):
-        (self.root / ".gitignore").write_text(".lake/\naudit-ran\n")
+        (self.root / ".gitignore").write_text(".lake/\naudit-ran\n__pycache__/\n")
         subprocess.run(["lake", "update"], cwd=self.root, check=True,
                        capture_output=True)
         for command in (["git", "init"], ["git", "config", "user.name", "Fixture"],
@@ -171,6 +171,101 @@ run_cmd IO.FS.writeFile "Applications/A.lean" "def a : Nat := 999\\n"
         result = self.check(fresh=False)
         self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertEqual((self.root / "audit-count").read_text(), "2")
+        self.assertNotIn("PASS: all", result.stdout)
+
+    def test_incremental_repairs_old_output_with_current_trace(self):
+        result = self.check(fresh=False)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        output = self.root / ".lake/build/lib/lean/Applications/A.olean"
+        sidecar = output.with_name(output.name + ".hash")
+        old_output, old_hash = output.read_bytes(), sidecar.read_bytes()
+        self.write("Applications.A", "def a : Nat := 1\ndef newValue : Nat := 42\n")
+        result = self.check(fresh=False)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        output.write_bytes(old_output)
+        sidecar.write_bytes(old_hash)
+        self.write("Applications.B", "import Applications.A\n#check newValue\nexample : newValue = 42 := rfl\n")
+        result = self.check(fresh=False)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("Integrity guard: rebuilding Applications.A", result.stdout)
+        repaired = output.stat().st_mtime_ns
+        result = self.check(fresh=False)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(output.stat().st_mtime_ns, repaired)
+        self.assertNotIn("Integrity guard: rebuilding", result.stdout)
+
+    def test_integrity_rebuilds_missing_and_unrecognized_evidence(self):
+        result = self.check(fresh=False)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        trace = self.root / ".lake/build/lib/lean/Applications/A.trace"
+        output = trace.with_suffix(".olean")
+        for corruption in ("missing-trace", "malformed", "future-schema", "missing-output"):
+            with self.subTest(corruption=corruption):
+                if corruption == "missing-trace":
+                    trace.unlink()
+                elif corruption == "malformed":
+                    trace.write_text("{")
+                elif corruption == "future-schema":
+                    data = json.loads(trace.read_text())
+                    data["schemaVersion"] = "unknown"
+                    trace.write_text(json.dumps(data))
+                else:
+                    output.unlink()
+                result = self.check(fresh=False)
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                self.assertIn("Integrity guard: rebuilding Applications.A", result.stdout)
+
+    def test_integrity_hashes_module_parts_and_recovers_missing_sidecars(self):
+        self.write("Applications.A", "module\npublic def a : Nat := 1\n")
+        result = self.check(fresh=False)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        base = self.root / ".lake/build/lib/lean/Applications/A"
+        for extension in ("olean.private", "ir", "ilean"):
+            with self.subTest(extension=extension):
+                Path(str(base) + "." + extension).write_bytes(b"corrupt")
+                result = self.check(fresh=False)
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                self.assertIn("Integrity guard: rebuilding Applications.A", result.stdout)
+        output = Path(str(base) + ".olean")
+        unchanged = output.stat().st_mtime_ns
+        Path(str(output) + ".hash").unlink()
+        result = self.check(fresh=False)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(output.stat().st_mtime_ns, unchanged)
+
+    def test_integrity_recovery_does_not_restore_artifact_cache(self):
+        self.write("Applications.A", '''import Lean
+run_cmd do
+  let path : System.FilePath := "compile-count"
+  let previous ← if ← path.pathExists then IO.FS.readFile path else pure "0"
+  IO.FS.writeFile path (toString (previous.toNat! + 1))
+def a : Nat := 1
+''')
+        env = os.environ.copy()
+        env.pop("LEAN_PATH", None)
+        env["LAKE_ARTIFACT_CACHE"] = "true"
+        env["LAKE_RESTORE_ARTIFACTS"] = "true"
+        env["LAKE_CACHE_DIR"] = str(self.root / "artifact-cache")
+        result = subprocess.run(["lake", "build", "+Applications.A"], cwd=self.root,
+                                env=env, capture_output=True, text=True, timeout=45)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual((self.root / "compile-count").read_text(), "1")
+        (self.root / ".lake/build/lib/lean/Applications/A.trace").unlink()
+        result = subprocess.run(["./check.sh"], cwd=self.root, env=env,
+                                capture_output=True, text=True, timeout=45)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual((self.root / "compile-count").read_text(), "2")
+
+    def test_integrity_rejects_outputs_changed_during_build_before_audit(self):
+        self.write("SquareApplications", '''import Applications.A
+import Applications.B
+import Lean
+run_cmd IO.FS.writeFile ".lake/build/lib/lean/Applications/A.olean" "corrupt"
+''')
+        result = self.check(fresh=False)
+        self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("Integrity guard rejected build outputs", result.stderr)
+        self.assertFalse((self.root / "audit-ran").exists())
         self.assertNotIn("PASS: all", result.stdout)
 
     def test_independent_compilation_overlaps_and_audit_waits(self):

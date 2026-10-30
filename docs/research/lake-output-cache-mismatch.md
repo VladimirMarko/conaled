@@ -96,46 +96,84 @@ For agent worktrees, copying dependency caches while rebuilding project outputs
 avoids importing this particular inconsistent project artifact set. Moving a
 complete, verified artifact set could also be evaluated, with explicit atomicity
 and provenance assumptions. These are candidates to compare, not implemented
-changes to repository build policy. Stock Lake plus periodic fresh verification
-remains the current policy. The owner’s replacement direction is a project decision; this incident alone
+changes to cache-transfer policy. Lake scheduling with the local guard described
+below and periodic fresh verification is the current build policy. The owner’s
+replacement direction is a project decision; this incident alone
 does not establish that replacement is necessary. One fresh success does not
 establish future cache integrity.
 
-## Proposed local mitigation
+## Local mitigation
 
 The [upstream report](https://github.com/leanprover/lean4/issues/16123) includes
 a standalone reproduction and results on Lean 4.35.0 and
-4.37.0-nightly-2026-10-30. A local guard is proposed as an immediate mitigation
-without waiting for an upstream change. It has not been implemented; the
-current build policy remains stock Lake plus periodic fresh verification.
+4.37.0-nightly-2026-10-30. The local guard in
+[`scripts/lake_integrity.py`](../../scripts/lake_integrity.py) runs before and
+after incremental compilation through `check.sh`. Its
+[hashing helper](../../scripts/lake-output-hashes.lean) calls the pinned Lake
+binary-file hash implementation directly; it does not trust `.hash` sidecars.
+The helper is executable tooling, outside the integrated mathematical library
+and its axiom audit, and is exercised by the command-level regression tests.
 
-The proposed guard would compare actual project artifact bytes with the output
-identities in their saved traces before invoking Lake. On a mismatch or missing
-usable evidence, it would invalidate the affected outputs and traces so Lake
-rebuilds them. Recovery would need to avoid restoring the same inconsistent
-artifacts from cache. Comparing an output only with its adjacent `.hash` file
-would miss the reproduced case, which replaces both together.
+The guard checks each inventoried build target's `.olean`, `.ilean`, and C
+output against its saved trace, including module-system parts and additional
+outputs when described. Missing, malformed, or unrecognized trace evidence, a
+missing artifact, or a hash mismatch invalidates that module's outputs,
+sidecars, trace, and local archive. Lake then rebuilds the module. The guarded
+invocation disables artifact-cache restoration/writes through its environment,
+rejects an explicitly enabled project cache, passes `--no-cache`, and uses
+`--rehash` so stale sidecars cannot supply dependency identities. Existing
+dependency build directories remain reusable. A second integrity pass rejects
+inconsistent outputs before the exhaustive audit; it does not retry indefinitely.
+
+Paths for checking and removal come from inventoried source module names and
+the supported build layout, not arbitrary paths from trace data. The adapter
+rejects custom project build/source directories and `lakefile.lean`. Its trace
+schema is pinned to `2025-09-10`; upgrades require reassessment. Lake's current
+hash is noncryptographic, so this check is not protection against deliberate
+hash collisions or coordinated replacement of traces and outputs.
 
 This is a temporary consistency check with a narrower scope than #222:
 
 - A trace and output can agree while both describe the wrong build. The guard
-  would trust the recorded association between inputs and outputs; it would
+  trusts the recorded association between inputs and outputs; it does
   not establish source provenance or successful compilation of those inputs.
-- Checking before reuse would not prevent an artifact or source from changing
-  before or during consumption. Stable isolated checkouts remain required;
-  the guard would not make concurrent writers safe.
-- The proposed project-output scope would leave external dependency caches
-  trusted. Fresh mode also reuses those caches, so neither check would certify
+- Checking before and after a build does not prevent an artifact or source
+  from changing before or during consumption. Stable isolated checkouts remain required;
+  the guard does not make concurrent writers safe.
+- The project-output scope leaves external dependency caches trusted. Fresh mode also reuses those caches, so neither check certifies
   their integrity.
-- A guard in `check.sh` would cover that command only. Direct Lake commands and
-  editor consumers would not acquire its checks automatically.
-- The guard would depend on the pinned Lake trace format and hash semantics.
+- The guard in `check.sh` covers that command only. Direct Lake commands and
+  editor consumers do not acquire its checks automatically. Native object and
+  shared-library facets are outside this Lean-module-output check.
+- The guard depends on the pinned Lake trace format and hash semantics.
   Missing or unrecognized evidence must trigger rebuilding or an explicit
   failure, never an assertion that reuse was verified.
 
-Before enabling it, test automatic recovery with the portable fixture, retained
-reuse on an unchanged second build, and the cost of hashing project outputs.
+The integration tests in `scripts/test-check.py` exercise automatic recovery
+from an old output and sidecar paired with a current trace, unchanged-build
+reuse, missing and unrecognized evidence, module-system artifact parts, and
+cache-disabled recovery even when the caller enables the artifact cache.
+They also check that an output changed during compilation is rejected before
+the audit. This last case tests one detectable mutation, not general race freedom.
+
 Keep the exhaustive axiom audit and cache-independent project rebuild as
-separate checks. Neither successful recovery nor passing those checks would
-complete #222's conditional reuse contract, connected implementation, and
-remaining trust analysis.
+separate checks. Neither successful recovery nor passing those checks completes
+#222's conditional reuse contract, connected implementation, and remaining
+trust analysis. The [session-log investigation](lake-session-failure-review.md)
+records other observed failures and the limits of their provenance evidence.
+
+### Measured guard cost
+
+A local warm run on the 947-module checkout hashed 2,838 artifacts in each
+pass: 0.31 seconds before Lake and 0.30 seconds afterward. Lake compilation
+checking took 3.75 seconds, the audit 14.24 seconds, and the complete command
+19.63 seconds. These are one-run wall-clock observations with warm filesystem
+caches, not a portable performance guarantee or an isolated measurement of the
+extra input hashing from `--rehash`.
+
+The preceding run over a copied project cache invalidated 436 modules, mostly
+because their traces were absent, and found output mismatches in GraphEmission
+and the public entrypoint. It completed the full build and audit in 81.48
+seconds. An unchanged second run invalidated no modules. The command-level
+fixture also checks that an unchanged repaired output retains its modification
+time; passing a full build alone would not demonstrate incremental reuse.

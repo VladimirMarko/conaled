@@ -15,6 +15,8 @@ import sys
 import tempfile
 import time
 
+from lake_integrity import guard_outputs
+
 
 ROOT = Path(__file__).resolve().parents[1]
 IMPORT = re.compile(r"^import\s+([^\n]+)", re.MULTILINE)
@@ -288,13 +290,19 @@ def main() -> int:
     print("Source guard passed: no admissions, source axioms, unsafe/partial definitions, native_decide, or skipped kernel checking.", flush=True)
     print(f"Source/coverage/version checks: {time.monotonic() - started:.2f}s", flush=True)
     if not args.fresh:
+        # Disable artifact-cache restore/write even if inherited from the caller.
+        # Existing dependency build outputs remain trusted and reusable.
+        env["LAKE_ARTIFACT_CACHE"] = "false"
+        targets = [n for n in order if n != "ProofAudit"]
+        guard_outputs(ROOT, targets, env, repair=True)
         print(f"Building {len(order) - 1} project modules with Lake (incremental).", flush=True)
         build_started = time.monotonic()
         # Explicit module targets avoid library/default-target ambiguity and build
         # every inventoried module, including imports used only by the audit.
-        subprocess.run(["lake", "build", *["+" + n for n in order if n != "ProofAudit"]],
+        subprocess.run(["lake", "--no-cache", "--rehash", "build", *["+" + n for n in targets]],
                        cwd=ROOT, env=env, check=True)
         print(f"Incremental compilation: {time.monotonic() - build_started:.2f}s", flush=True)
+        guard_outputs(ROOT, targets, env, repair=False)
         audit_started = time.monotonic()
         # Run the audit even when Lake reuses all project artifacts. Do not write
         # an olean behind Lake's back or use a cached audit's old success message.
