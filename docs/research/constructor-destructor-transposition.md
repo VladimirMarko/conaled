@@ -167,3 +167,9 @@ away the very result indices being tested; that retrofit is deferred rather
 than weakening the examples. This is a single Codex author experiment on the
 pinned Lean toolchain, not an independent usability study. Exact model build and
 per-task token cost were unavailable; weekly allowance was 11% at task start.
+
+The subsequent [duality findings and language agenda](duality-language-directions.md)
+separates the stronger semantic hypotheses and speculative connections from this
+bounded result. #266 now owns the omitted parser rows and verified-view author
+experiments; #267–#270 own observation extensions, composition laws, pairings and
+symmetric proof-syntax assessment.

@@ -399,3 +399,7 @@ The checked derivative follow-up is [Language derivatives as finite-word behavio
 The bounded [constructor–destructor transposition](constructor-destructor-transposition.md)
 now transforms indexed equation syntax with exact inverse and observation laws,
 including explicit concatenation and nullable-star clauses (#256).
+
+The [duality follow-up agenda](duality-language-directions.md) preserves the
+constructor/observer implications, their epistemic status and scoped ownership
+in #266–#270. These proposals do not select a universal language architecture.

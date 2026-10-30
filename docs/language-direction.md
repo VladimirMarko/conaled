@@ -96,6 +96,41 @@ each development teaches us about the language and revise proposed interfaces
 accordingly. A small working fragment can be valuable while its author interface
 remains below the long-term goal.
 
+## Construction, observation and verified presentations
+
+The constructor–destructor investigation adds a design test: where the laws
+permit it, can authors change between constructor-oriented and observer-oriented
+presentations without rewriting the underlying equations or losing their meaning?
+Treat source organization as a candidate verified view, not an obligatory choice
+of one universal intermediate language. Preserve ordinary clients and the
+semantic distinctions of fragments that do not fit the same presentation.
+
+Make the observation contract explicit when extending a language. Adding a
+representation under an unchanged contract differs from adding an observer that
+can distinguish previously equivalent representations. Old theorems remain
+scoped to their stated assumptions and observations; stronger observations need
+compatibility proofs, and may require a richer representation. New type
+interpretations must meet their stated admissibility laws, and new operations
+must supply the compatibility proofs needed to reuse existing client theorems.
+Neither retaining old equations nor adding axioms alone establishes arbitrary
+metatheorem preservation.
+
+Investigate whether local construction/observation laws compose into reusable
+semantic interpretations, and whether forward representation transport and
+backward observation transport fit the existing preservation architecture.
+Explore symmetric producer/consumer proof syntax while keeping logic, polarity,
+evaluation order and their equality laws explicit. These are questions to test
+against existing indexed and witness-sensitive examples, not commitments to a
+Chu model, a distributive-law framework, a sequent calculus, or a fixed execution
+strategy for every setting.
+
+The [duality findings and agenda](research/duality-language-directions.md)
+distinguish checked results, source theorems, design inferences and conjectures.
+#256 supplies a bounded syntax transformation; it does not establish an
+isomorphism between arbitrary data and codata, a generic semantic lifting, or
+infinite productivity. Scoped follow-ups are #266–#270, coordinated with #262
+and the existing #235/#36/#200/#8 owners.
+
 ## Evolving preservation laws and usable specializations
 
 The [preservation inventory](research/preservation-contract-inventory.md) is a
