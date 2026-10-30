@@ -1,8 +1,9 @@
 # What constructor–destructor duality suggests for the language
 
 Discussion and follow-up agenda, 2026-10-30. The owner requested preservation of
-both findings and speculations after #256. The proposals below are queued work,
-not newly established Lean results or a selected universal language architecture.
+both findings and speculations after #256. #268 now supplies the bounded
+composition result described below. The remaining proposals are research tasks,
+not a selected universal language architecture.
 
 ## Evidence and conjecture
 
@@ -10,6 +11,7 @@ not newly established Lean results or a selected universal language architecture
 |---|---|---|
 | Checked locally | #256 transposes intrinsically indexed equation bodies, swaps their parameter scopes, and proves both syntax round trips and exact denotational preservation. | Binding-free cells with total primitive interpretations; no arbitrary recursive source transformation. |
 | Checked locally | #255 gives finite-word final behavior and exact finite parser/trie observations; #256 recovers its selected union/concat/star observations. | No equivalence between all finite syntax and all codata behaviors, or infinite-productivity/runtime-sharing theorem. |
+| Checked locally | #268 derives composite interpretations and compatible substitution from local constructor laws in a finite-arity derivative-template format. | Ordinary type carriers and fixed outputs; fixed-fiber vector specialization, with index-changing/dependent observations owned by #271. |
 | Existing literature | Decomposition diversity, bialgebraic semantics, Chu pairings and symmetric proof calculi supply related structures. | Their assumptions differ; no single source identifies all of them with our implementation. |
 | Design inference | Constructor/observer interaction equations may support several verified program organizations and more explicit extension obligations. | Requires usable author routes and checked composition beyond the existing cell transformation. |
 | Conjectural connection | A compatible account of construction, observation and proof transport may explain several current interfaces together. | Dependent results, witnesses, binders, recursion and changes of setting remain substantive tests, not details to erase. |
@@ -91,16 +93,22 @@ denotational results need their additional hypotheses. This is a route connectin
 operational and denotational semantics, not a reason to impose a fixed execution
 model on our language.
 
-The proposed next step is to determine whether our derivative equations satisfy
-a suitable rule format, prove the actual naturality/composition obligations, and
-recover current composite semantics through the resulting theorem. A table of
-typed handlers or #256's permutation alone does not supply these laws.
+[#268](https://github.com/VladimirMarko/conaled/issues/268) now supplies a
+[bounded composition theorem](compositional-constructor-observer-laws.md).
+Derivative templates explicitly distinguish original arguments from successors.
+Their naturality is proved; local semantic compatibility yields a morphism for
+arbitrary finite terms. Compatible substitution, leaf insertion and flattening
+have separate checked laws. Exact embeddings recover the existing weighted
+semantics, and pointwise multiplication adds one local compatibility case.
+A deliberately incorrect concatenation rule remains natural but fails semantic
+compatibility, so naturality alone does not establish the intended meaning.
 
-[#268](https://github.com/VladimirMarko/conaled/issues/268) owns that investigation
-and a gated bounded experiment. The weighted terms and substitution laws from
-#255 are the starting case. An independent indexed family tests generality; any
-inability to retain its indices must remain visible. Operation extensions should
-reuse an old composite theorem after discharging local compatibility conditions.
+The independent vector family retains its size index within each fixed fiber.
+Index-changing constructors and dependent parser observations need a stronger
+setting, owned by [#271](https://github.com/VladimirMarko/conaled/issues/271).
+A table of typed handlers or #256's permutation alone does not supply these laws.
+The experiment does not implement a general distributive-law framework or infer
+compatibility automatically from transposed source cells.
 
 ## Pairings, variance and the limits of dual equivalence
 
@@ -163,11 +171,11 @@ The first mathematical priority is explicit extension and composition laws:
 #267 and #268, coordinated with #262. #266 can develop independently from the
 existing checked syntax. #269 and #270 are bounded assessments whose negative
 findings would be useful; they need not block local source-view improvements.
-There is no artificial hard dependency among these open issues. #268 retains a
-design gate before broad implementation because its exact law is not selected.
+There is no artificial hard dependency among these investigations. #268 selected
+a restricted template law; its indexed continuation #271 retains a design gate.
 
 #235 owns cross-cutting applicability and recovery of existing specializations;
 #36 owns internal-language and surface integration; #200 owns correspondence
 research; #8 owns the categorical compilation side. Acceptance criteria live in
-the linked issues. These are queued tasks: this documentation increment starts
-none of their implementations and makes no additional Lean claims.
+the linked issues. The checked #268 result is bounded as above; the remaining
+agenda does not follow from it without further evidence.

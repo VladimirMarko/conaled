@@ -1,3 +1,4 @@
+import Examples.CompositionalCoalgebra
 import Examples.EquationTranspose
 import Examples.LanguageCoalgebra
 import Examples.SubtypeEvidence

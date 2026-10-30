@@ -169,6 +169,14 @@ isomorphism between arbitrary data and codata, a generic semantic lifting, or
 infinite productivity. Scoped follow-ups are #266–#270, coordinated with #262
 and the existing #235/#36/#200/#8 owners.
 
+The [#268 composition experiment](research/compositional-constructor-observer-laws.md)
+now demonstrates this discipline for finitary derivative templates: local
+constructor compatibility yields interpretations of arbitrary finite composites,
+with separate renaming and substitution laws. Weighted concatenation and a
+pointwise extension recover their prior meanings. This supplies one usable
+instance, not a universal rule format. Index-changing constructors and dependent
+observations remain a design question under #271.
+
 ## Evolving preservation laws and usable specializations
 
 The [preservation inventory](research/preservation-contract-inventory.md) is a
