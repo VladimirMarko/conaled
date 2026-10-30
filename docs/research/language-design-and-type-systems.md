@@ -282,6 +282,19 @@ was published on 2026-10-29. Its most relevant parts are:
   record layouts and ABI design. These implementation proposals need separate
   representation and performance evidence.
 
+At [05:47](https://www.youtube.com/watch?v=OenHweMNVeY&t=347s), the
+machine transcript reports Faure's claim that type classes are often used to
+impose subtyping relations. This is a claim about encodings and uses of type
+classes, not an identification of all type classes with subtyping. In Haskell,
+superclass entailment such as `Ord a` implying `Eq a` supplies class evidence
+for the same type `a`; it does not by itself establish a value-subtyping judgment
+`a <: b`. The [Haskell 2010 Report, §4.3](https://www.haskell.org/onlinereport/haskell2010/haskellch4.html#sect4.3)
+specifies the class and superclass mechanism. Keep evidence entailment, explicit
+coercions and implicit value subsumption separate when assessing #260. The
+[research-selection criteria](../language-direction.md#selecting-research-by-semantic-requirements)
+record the decision to retain useful variance and evidence mathematics without
+committing to that elaborator.
+
 The observational-equality lead connects to
 [Altenkirch–McBride–Swierstra, Observational Equality, Now!](https://people.cs.nott.ac.uk/psztxa/publ/obseqnow.pdf),
 which studies computational transport and extensional propositional equality.

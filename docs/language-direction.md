@@ -96,6 +96,44 @@ each development teaches us about the language and revise proposed interfaces
 accordingly. A small working fragment can be valuable while its author interface
 remains below the long-term goal.
 
+## Selecting research by semantic requirements
+
+Agreed with the project owner on 2026-10-30: evaluate literature against the
+language ambition above. Familiarity within this repository, citation counts,
+and the number of published variants do not establish suitability. Compare a
+tradition's semantic commitments and explanatory power before spending effort
+comparing its algorithms. Existing integrations are evidence about particular
+constructions, not a representative survey of the available mathematics.
+
+Prefer compositional denotational accounts whose meaning is specified
+independently of a chosen execution mechanism. Operational semantics can help
+establish implementation correctness, adequacy and resource properties. Read
+work presented operationally for useful mathematics, while asking which
+independent semantic contract it supports. Neither popularity nor presentation
+style alone settles that question.
+
+Separate discovery, comparison and integration. Begin external discovery from
+the ambition and required author capabilities before using the local inventory
+to assess fit. Include approaches that might replace or subsume our architecture;
+do not filter them out because they need a difficult Lean encoding or cannot
+produce a small example immediately. Compare explicit assumptions, composition,
+extension obligations, preserved equality and witnesses, and author effort.
+Record omitted traditions and uncertainty. Propose discriminating experiments
+that our current approach could fail, rather than only examples it already fits.
+#235 owns this external comparison, coordinated with #36, #200 and #8.
+
+The duality agenda in #266–#270 is promising but remains a set of hypotheses,
+not a ranking established by an external comparison. Investigating variance,
+inclusion, implication and explicit coercion evidence likewise does not commit
+the language to global implicit subtyping. #257's evidence contracts remain
+useful if the optional #260 elaborator is declined. Before activating #260,
+compare explicit evidence and constraint-based alternatives on the same author
+tasks, select the semantic algebra and preservation obligations, and record why
+inference earns its additional assumptions. Experience with Java or Haskell
+alone cannot decide the suitability of Dolan's algebra. Type-class encodings of
+subtype relations do not establish a need for global value subsumption; see the
+[video clarification](research/language-design-and-type-systems.md#the-supplied-video).
+
 ## Construction, observation and verified presentations
 
 The constructor–destructor investigation adds a design test: where the laws
