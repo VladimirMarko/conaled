@@ -219,6 +219,17 @@ artifact tampering or undeclared external inputs. Periodic fresh builds provide
 an independent check of project cache state. Future verified reuse is tracked
 in [#222](https://github.com/VladimirMarko/conaled/issues/222).
 
+A proposed local output-integrity guard is a temporary mitigation for mixed
+project artifacts, not the verified-reuse contract in #222. It is not yet
+implemented: `check.sh` currently delegates reuse decisions to stock Lake.
+Comparing artifact bytes with recorded output identities could detect some
+mismatches, but agreement would not prove that those artifacts were compiled
+from the claimed inputs. It would not prevent changes between checking and
+consumption or establish external dependency-cache integrity. A guard in
+`check.sh` would also be bypassed by direct `lake build` invocations. Keep the
+stable-checkout discipline, exhaustive audit, and periodic fresh verification;
+see the [mitigation scope and limitations](docs/research/lake-output-cache-mismatch.md#proposed-local-mitigation).
+
 Both modes cover root Lean modules and `SquareKit/`, `Applications/`, and
 `Examples/`; archived sources and isolated `experiments/` require their own
 validation. Generated `.olean`, `.ilean`, `.lake`, and cache files are not source

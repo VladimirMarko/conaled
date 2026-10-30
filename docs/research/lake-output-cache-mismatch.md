@@ -100,3 +100,42 @@ changes to repository build policy. Stock Lake plus periodic fresh verification
 remains the current policy. The owner’s replacement direction is a project decision; this incident alone
 does not establish that replacement is necessary. One fresh success does not
 establish future cache integrity.
+
+## Proposed local mitigation
+
+The [upstream report](https://github.com/leanprover/lean4/issues/16123) includes
+a standalone reproduction and results on Lean 4.35.0 and
+4.37.0-nightly-2026-10-30. A local guard is proposed as an immediate mitigation
+without waiting for an upstream change. It has not been implemented; the
+current build policy remains stock Lake plus periodic fresh verification.
+
+The proposed guard would compare actual project artifact bytes with the output
+identities in their saved traces before invoking Lake. On a mismatch or missing
+usable evidence, it would invalidate the affected outputs and traces so Lake
+rebuilds them. Recovery would need to avoid restoring the same inconsistent
+artifacts from cache. Comparing an output only with its adjacent `.hash` file
+would miss the reproduced case, which replaces both together.
+
+This is a temporary consistency check with a narrower scope than #222:
+
+- A trace and output can agree while both describe the wrong build. The guard
+  would trust the recorded association between inputs and outputs; it would
+  not establish source provenance or successful compilation of those inputs.
+- Checking before reuse would not prevent an artifact or source from changing
+  before or during consumption. Stable isolated checkouts remain required;
+  the guard would not make concurrent writers safe.
+- The proposed project-output scope would leave external dependency caches
+  trusted. Fresh mode also reuses those caches, so neither check would certify
+  their integrity.
+- A guard in `check.sh` would cover that command only. Direct Lake commands and
+  editor consumers would not acquire its checks automatically.
+- The guard would depend on the pinned Lake trace format and hash semantics.
+  Missing or unrecognized evidence must trigger rebuilding or an explicit
+  failure, never an assertion that reuse was verified.
+
+Before enabling it, test automatic recovery with the portable fixture, retained
+reuse on an unchanged second build, and the cost of hashing project outputs.
+Keep the exhaustive axiom audit and cache-independent project rebuild as
+separate checks. Neither successful recovery nor passing those checks would
+complete #222's conditional reuse contract, connected implementation, and
+remaining trust analysis.
