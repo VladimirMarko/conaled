@@ -30,6 +30,11 @@ motivated the last two questions. It is a local discussion artifact, not an
 authoritative source for mathematical claims. The research below follows its
 references to primary sources.
 
+The [language-design and type-system literature review](language-design-and-type-systems.md)
+compares extension guarantees, the language-derivative data/codata duality,
+Harper's methods, and subtyping/variance against this direction. It proposes
+bounded investigations without selecting a language foundation or inference engine.
+
 ## Research records
 
 | Question | Evidence and assessment |
