@@ -232,6 +232,7 @@ import Examples.DiagnosticStorage
 import Examples.BoundedSummary
 import Examples.OrderedSummaryPresheaf
 import Examples.RecursiveFusion
+import Examples.RetainedHistory
 import Examples.MeasuredScan
 import Examples.ScanSearch
 import Examples.ScanOptimality

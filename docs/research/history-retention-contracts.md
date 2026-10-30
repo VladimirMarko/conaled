@@ -2,6 +2,9 @@
 
 Research for [#247](https://github.com/VladimirMarko/conaled/issues/247),
 2026-10-29. Code audit baseline: `826a76272e414af16d98797403655aef1ddae45f`.
+The [implementation record](retained-history-implementation.md) describes the
+checked #251 realization and its target/driver premises.
+
 This note specifies a bounded experiment; it adds no Lean theorem or production
 storage guarantee. The proposed laws and resource bounds below remain proof
 obligations. Existing unrestricted history clients keep their contracts.
