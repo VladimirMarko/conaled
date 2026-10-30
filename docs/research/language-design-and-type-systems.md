@@ -395,3 +395,7 @@ must use checked specializations, statement review and the applicable build/audi
 No GitHub issue was created or changed by this review.
 
 The checked derivative follow-up is [Language derivatives as finite-word behavior](language-derivative-coalgebras.md), covering final behavior, weighted operations and indexed witness tries (#255).
+
+The bounded [constructor–destructor transposition](constructor-destructor-transposition.md)
+now transforms indexed equation syntax with exact inverse and observation laws,
+including explicit concatenation and nullable-star clauses (#256).
