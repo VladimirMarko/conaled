@@ -1,6 +1,10 @@
 # Transporting reachable left-fold fusion
 
 Research for [#248](https://github.com/VladimirMarko/conaled/issues/248),
+Implementation follow-up: [#252 is implemented](recursive-fusion-implementation.md)
+with checked types and nonconstant-presheaf applications. The assessment below
+records the original design and its scope.
+
 2026-10-30. Audited repository revision
 `b564720cac0033a7beea65828c7a616f2f0f4407`; Mathlib revision
 `56a005855ea17e0b0958f73ec801ae140b0a1679`, Lean 4.35.0.
