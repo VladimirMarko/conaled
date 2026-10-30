@@ -241,6 +241,12 @@ enabling the project's artifact cache are rejected. Unknown trace evidence
 triggers rebuilding; if a new build still produces unsupported evidence,
 verification fails. Toolchain or layout changes must update and test the adapter.
 
+For guard diagnostics, automatic recovery, and failures requiring investigation,
+follow the [Lake integrity incident runbook](docs/agents/lake-integrity-incidents.md).
+While the temporary tracker is open, record unexpected incidents in [#272](https://github.com/VladimirMarko/conaled/issues/272);
+normal cold-build invalidations need no report. The tracker defines how to alert
+the owner when an already investigated failure recurs, including sub-agent relay.
+
 Both modes cover root Lean modules and `SquareKit/`, `Applications/`, and
 `Examples/`; archived sources and isolated `experiments/` require their own
 validation. Generated `.olean`, `.ilean`, `.lake`, and cache files are not source

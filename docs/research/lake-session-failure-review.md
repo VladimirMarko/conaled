@@ -9,8 +9,12 @@ those earlier contexts retain binaries that are byte-for-byte identical to the
 binary preserved in #256. #259 has the same diagnostic and metadata pattern,
 but this review did not find a separately preserved binary for it. These are
 repeated encounters with inconsistent cached outputs, not evidence of eight
-independent corruption events. No second cache-consistency failure mechanism
-was established by this search.
+independent corruption events or additional established Lake bugs. The search
+found more encounters with the already investigated problem; it did not
+establish a second cache-consistency failure mechanism. Record future
+investigations and recurrences in
+[#272](https://github.com/VladimirMarko/conaled/issues/272), following the
+[incident runbook](../agents/lake-integrity-incidents.md).
 
 ## Cutoff and coverage
 
@@ -116,7 +120,9 @@ outputs as the common explanation. They do not reconstruct the original
 mixing operation. In particular, an old modification timestamp does not prove
 the inconsistent state existed on that date. The failures occurred after the
 policy change, but this evidence does not show that the policy change created
-the inconsistent state. Mandatory fresh checks would have bypassed these
+the inconsistent state. The origin and propagation investigation therefore
+remains open; a prior matching occurrence is evidence to compare, not a reason
+to stop collecting new occurrence evidence. Mandatory fresh checks would have bypassed these
 project artifacts; they would not necessarily have repaired the donor cache.
 
 ## Other errors do not establish another cache defect

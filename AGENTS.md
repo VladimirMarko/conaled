@@ -33,6 +33,11 @@ the applicable build and proof audit using the acceptance modes defined there.
 The implementation workflow owns review coordination, including reuse when
 originator review is requested.
 
+While the temporary Lake incident tracker is open, for unexpected integrity-guard
+invalidation, failed integrity checks, or suspected stale Lake artifacts, follow `docs/agents/lake-integrity-incidents.md`. It routes
+investigations and repeat-incident alerts through the dedicated tracker and the
+coordinating agent.
+
 ## Commit messages
 
 Use Conventional Commits: `type(scope): description (#123)`.
