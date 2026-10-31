@@ -158,6 +158,8 @@ import Applications.Languages.Regex
 import Applications.Languages.Witnesses
 import Applications.Linear.Compiler
 import Applications.Linear.Matrix
+import Examples.StructuredLinear
+import Examples.StructuredLinearCosts
 import Applications.Parallel.ComplexFFT
 import Applications.Parallel.Examples
 import Applications.Parallel.FFT

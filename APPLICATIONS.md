@@ -318,6 +318,15 @@ real analytic derivative, stack recomputation versus exact update, and
 enclosure of the updated result. The enclosure premise refers to the updated
 input, not an old box that may no longer contain it.
 
+`Applications/Linear/Structured.lean` realizes exact finite matrix-vector
+application with dense arrays, coordinate entries and diagonal coefficients.
+The common application law supports batches, iteration and mixed-format
+composition. `Examples/StructuredLinear.lean` checks these clients, while
+`Examples/StructuredLinearCosts.lean` compares instrumented execution and
+conversion under explicit tariffs. See the
+[implementation record](docs/research/structured-linear-implementation.md)
+for storage invariants, target assumptions and optimization scope.
+
 `Examples/MatrixStack.lean` synchronizes the independently compiled matrix and
 bytecode squares for every linear source term. The joint runtime returns both
 results and a proof that they decode identically. Its stronger equality also
