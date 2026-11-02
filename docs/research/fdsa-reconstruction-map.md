@@ -39,8 +39,8 @@ Chapter organization is a coverage index; modules follow reusable domain concept
 | Chapter | Topic | Current implementation scope |
 | --- | --- | --- |
 | 1 | Basics | Detailed witnesses below; acceptance is tracked separately |
-| 2 | Sorting | Queued |
-| 3 | Selection | Queued |
+| 2 | Sorting | Queued; shared insertion costs below |
+| 3 | Selection | Queued; shared insertion costs below |
 | 4 | Binary Trees | Queued |
 | 5 | Binary Search Trees | Queued |
 | 6 | Abstract Data Types | Queued |
@@ -203,6 +203,70 @@ The chapter prefers explicit inequalities over asymptotic machinery. Its
 concrete bounds and exact exercise are checked above; the remaining discussion
 does not assert an additional algorithm theorem. Higher-order time conventions
 refer forward to Appendix B.1 and remain on that appendix's coverage list.
+
+## Shared insertion costs for Chapters 2 and 3
+
+The local cross-cutting ticket FDSA-X002 develops the insertion-sort cost model
+used by §2.2, Exercise 2.1 and the small-input sorting case in Chapter 3. Its
+development does not accept either chapter or omit their remaining obligations.
+
+`Resources.InsertionSort.insertRun` instruments `List.orderedInsert`, and
+`sortRun` instruments the recurrence of the existing `insertionOn`. The value
+projection is proved equal to the existing algorithm. A comparison, constructor
+or projection adds no charge in this model; every insertion invocation and
+every sort invocation, including their empty cases, adds one. Consequently the
+observed cost follows the displayed T-insort equations exactly. These are source
+call counts, with no claim about the cost of an arbitrary comparison function or
+Lean execution time.
+
+| Intended result | Checked witness under `Resources.InsertionSort` |
+| --- | --- |
+| Insertion returns the existing left-biased ordered insertion | `insertRun_value` |
+| Insertion count lies between 1 and input length plus 1 | `insertRun_cost_bounds` |
+| An accepted head comparison terminates insertion immediately | `insertRun_cost_of_head` |
+| Preceding every input element gives the immediate count | `insertRun_cost_of_all` |
+| Rejecting every comparison traverses the entire input | `insertRun_cost_of_all_not` |
+| Sort returns the existing insertion sort and preserves length | `sortRun_value`, `sortRun_length` |
+| Sort counts recursion, insertion into its actual result, and entry | `sortRun_cons_cost` |
+| Uniform lower count `2n+1` | `sortRun_cost_lower` |
+| Uniform triangular upper count `(n+1)(n+2)/2` | `sortRun_double_cost_le`, `sortRun_cost_le` |
+| Source Lemma 2.1's weaker bound `(n+1)^2` | `sortRun_quadratic` |
+| Pairwise-ordered input attains the lower count | `sortRun_cost_of_pairwise` |
+| Pairwise rejection makes every insertion traverse its tail | `sortRun_double_cost_of_opposite` |
+| Descending distinct natural values attain the upper count | `reverse_range_opposite`, `sortRun_cost_reverse_range` |
+| Existing keyed stability, sortedness and permutation contract | `sortRun_stable` |
+
+The lower count is one final empty sort invocation, one sort entry per element,
+and at least one insertion invocation per element. The upper count replaces each
+insertion cost by its sorted tail's length plus one. A descending range attains
+every such upper bound. Here `reverse(range n)` has length `n`; the source's list
+`[n,n-1,...,0]` is the specialization at `n+1`. The exact formula includes empty
+and singleton inputs, whose counts are 1 and 3. Nonincreasing lists with repeated
+values are not asserted to attain the worst case: accepting an equal key stops
+that insertion.
+
+Statement review checked that the operations, erasure, permutation-derived
+length and uniform count bounds require only a decidable relation. Pairwise
+order suffices for the best-case result, without global order assumptions.
+Pairwise rejection is the hypothesis for the generic worst-case result, and
+the descending natural range proves it satisfiable at every length. The doubled
+inequality and equality justify natural-number division in the triangular
+formula. Sorting correctness is a separate use of the existing stable-sorting
+contract and retains its linear-preorder and decidable-key assumptions; it
+requires no order on payloads.
+
+`Examples.InsertionCosts` connects the public results to independently computed
+counts: `[1,1,2]` uses 7 calls, while `[2,1,0]` uses 10. It also checks insertion
+at a tied head even when the later tail comparison would fail, traversal to the
+end, empty and singleton input, the universal bounds, and keyed correctness
+for arbitrary payloads without payload instances. A String instance checks
+preservation of two distinguishable records sharing a key. Its selection client
+uses the existing `Selection.pairwise_ranked` contract to obtain an occurrence
+rank from the measured sort's output, including a repeated value. That client
+observes a sorted result; it does not charge indexing or claim a complete
+selection runtime bound. The connected small-input client pairs that rank with
+the sorting-only bound of 21 calls for an input of length at most five, derived
+from the general triangular inequality and the explicit length hypothesis.
 
 ## Architecture and statement review
 

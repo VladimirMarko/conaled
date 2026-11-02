@@ -245,6 +245,7 @@ import Examples.ScanSearch
 import Examples.ScanOptimality
 import Examples.FunctionalBasics
 import Examples.ListReversal
+import Examples.InsertionCosts
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
