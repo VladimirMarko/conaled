@@ -32,7 +32,8 @@ private theorem initial_rep : Represents initial.1.heap initial.2 model :=
   allocate_represents (lower_rep.mono (allocate_extends lower.1 (3, none) none none))
     upper_rep (2, some 4)
 
-private theorem model_ordered : Search.OrderedTree.OrderedBy Prod.fst model := by decide
+private theorem model_ordered : Search.OrderedTree.OrderedBy Prod.fst model := by
+  simp [model, Search.OrderedTree.OrderedBy, Search.OrderedTree.All]
 
 theorem lookup_present_none : (Map.lookupRun initial.1 initial.2 3).1 = some none := by
   have h := Map.lookupRun_observes initial_rep model_ordered 3
