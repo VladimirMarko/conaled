@@ -80,7 +80,7 @@ theorem repeat_after_arbitrary_requests (requests : List Bool) :
   dsimp only
   apply request_hit
   apply run_preserves_cached
-  simpa only [request_miss catalogue false empty rfl, catalogue] using
+  simpa [request_miss catalogue false empty rfl, catalogue] using
     request_stores catalogue false empty
 
 theorem empty_requests : run (step catalogue) [] empty = (empty, 0) := run_nil _ _
