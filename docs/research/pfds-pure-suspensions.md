@@ -119,12 +119,44 @@ It consumes the general source theorem to rule out all finite outcomes and
 derive failed bounded search for every fuel. It does not posit an active pure
 history or infer divergence from testing finitely many budgets.
 
-## Remaining acceptance and cache work
+## Successful cache consequences and their limits
+
+Value-cell persistence now passes its general raw-machine laws and clients.
+Given bounded input memory, an actual step preserves the fact that an address
+contains some value. The existing configuration-bounded invariant lifts this
+through arbitrary finite runs and unfinished or completed observations. A later
+suspended match at that address therefore takes the actual cache-hit transition;
+there is no new body-entry event for that address. This conclusion does not
+require purity or termination of the surrounding computation.
+
+The payload is allowed to change. The checked assignment example changes7 to8;
+the existing effectful reentrant program retains its two cache writes. A body
+that raises leaves its thunk uncached and supports another identical execution.
+No general at-most-one cache-write trace theorem is claimed. Equal pure meanings
+at distinct newly allocated addresses likewise do not identify their storage.
+
+The checked connected literal source program creates and evaluates a suspension,
+then returns its address. Its actual raw and pure executions each take15 steps.
+Finite correspondence supplies the final represented memory, and result inversion
+recovers the exact original empty capture and meaning. A later force uses that
+recovered stored certificate, with raw3 versus pure5 steps and unchanged cached
+memory.
+
+The connected cached recursive-closure client also passes. It reuses the existing
+returningClosure source: a suspended function captures its own suspension, then
+uses that back reference after the function is cached. Actual recursive creation
+recovers the address meaning; finite correspondence of the residual source run
+derives the final cache representation. The actual raw53/pure51 executions return7.
+A later application to false reaches the back-reference force after18 transitions,
+then consumes the recovered cache certificate under its four caller frames.
+Raw hit1 versus pure replay3 followed by the same17-step suffix gives raw36/pure38.
+The raw memory is retained exactly. The source's one-body/one-write/one-hit counts
+are concrete facts about this client, not a general trace bound.
+
+## Remaining acceptance
 
 These are focused-checked development results. Full isolated-candidate build,
 exhaustive audit, independent Standards/Spec review and immediate final
 verification remain required. Source and auxiliary event traces and costs are
-different. Successful cache persistence/reuse consequences and a connected
-source-program-to-later-cache-hit client remain to complete. Repeated exceptions,
-fresh allocation identities and unrestricted effectful reentry must retain
-their distinct behavior; no unconditional single-write claim is justified.
+different. The existing exception, allocation and effectful reentry distinctions
+remain part of the contract.
