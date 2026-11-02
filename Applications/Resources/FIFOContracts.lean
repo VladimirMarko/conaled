@@ -13,7 +13,7 @@ structure Instrumentation (ops : Ops α Q) where
   erases : ∀ c q, (measured c q).1 = step ops c q
 
 def abstractBudget (profile : Command α → List α → Nat) :=
-  budget (fun c xs => (step (lists α) c xs, 0)) profile
+  budget (fun c xs => (step (lists α) c xs, (0 : Nat))) profile
 
 structure Accounting (ops : Ops α Q) (m : Instrumentation ops)
     (decode : Q → List α) (profile : Command α → List α → Nat)
