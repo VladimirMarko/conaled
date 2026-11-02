@@ -338,3 +338,31 @@ Direct-inorder quadratic worst cases and all remaining chapter/appendix
 obligations remain open. No compiler/runtime, constant-stack, allocation or
 physical-sharing result is claimed. Preflights and source drafts supply no
 build, audit or final-review acceptance credit.
+
+## Shared shape-sensitive traversal work (FDSA-XT05)
+
+This **uncompiled draft** connects one ordinary tree statistic to the existing
+actual append/cache folds and suffix programs. Accepted repaired Chapter 1,
+XT01, XT03 and XT04 are prerequisites to integration/acceptance; XT02 and XD01
+are not dependencies. The original Chapter 2-first plan remains unchanged.
+Full source and statement assessment:
+[fdsa-tree-traversal-work.md](fdsa-tree-traversal-work.md).
+
+| Source obligation or shared connection | Draft declarations / intended connection |
+| --- | --- |
+| Direct-inorder part of C04-018, Exercise 4.1 | Actual literal-right work, universal positive-size quadratic bound, supplied-label size-n left-chain witness, and actual-family standard Theta results. |
+| Worst-case qualification | Right chains return the same replicated inorder with linear work; same size, height and inorder do not identify exact append work. Nil retains its entry charge. |
+| Shared ordinary tree mathematics | `Trees.leftSizeSum`, existing pair-fold/size bridge, arbitrary-map invariance, sharp binomial bound and attained chain families; no new carrier or measured analysis pass. |
+| Existing actual measured fold | `run_cost_leftSizeSum` consumes a fixed local cost law on actual reached child summaries; numerical collection remains Nat-specific. |
+| Three append programs | Actual value/length bridges give `e*(2*n+1)+A+n`, `+A+3*n`, and `+2*A+3*n`, preserving both literal appends and the comparison's association. |
+| Generic augmentation application | Actual full list-cache construction has `e*(2*n+1)+A+4*n`, connected to the returned child's read/validity/erasure contracts; this differs from annotation-ignoring `Tree2.inorder`. |
+| Actual complete suffix-program comparison | `materializeAppend` and `buildOnce 1 1` return the same arbitrary-suffix value and have exact cost difference A, with construction included; sample 20 versus 18. |
+| Boundary and occurrence evidence | Empty/nil/singleton, repeated children and noninjective labels, zero entry with remaining callback work, pure zero-work callback, and retained old Unit-chain specialization. |
+
+The statistic is a selected shared proof device, not a book-mandated mechanism.
+No generated source timing declaration, physical allocation/sharing, stack
+bound, all-shapes quadratic lower bound or blanket arbitrary-coefficient Theta
+claim is made. The original chapter algorithms and their actual cost obligations
+remain in their inventories; excluding additional generic frameworks does not
+create new future framework requirements. No compilation, full audit, final
+review or chapter acceptance is claimed by this source draft.

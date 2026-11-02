@@ -250,6 +250,7 @@ import Examples.SharedDemand
 import Examples.TreeCache
 import Examples.TreeFoldObservations
 import Examples.TreeAccumulatorObservations
+import Examples.TreeTraversalWork
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
