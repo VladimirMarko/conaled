@@ -248,6 +248,7 @@ import Examples.ListReversal
 import Examples.CallModels
 import Examples.SharedDemand
 import Examples.TreeCache
+import Examples.TreeFoldObservations
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 

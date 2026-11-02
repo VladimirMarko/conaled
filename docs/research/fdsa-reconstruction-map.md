@@ -285,3 +285,30 @@ arbitrary fold operation. Full traversal costs, balance/search algorithms,
 maximum representation issues and the existing-leftist adapter remain in
 their chapter inventories. All shared-unit and chapter acceptance gates remain
 pending; no previously recorded review or validation result covers this draft.
+
+## Shared measured whole-tree folds (FDSA-XT03)
+
+This bounded cross-cutting **uncompiled draft** specializes the XT01 ordinary
+fold to actual measured callbacks. It depends on accepted repaired Chapter 1
+and accepted XT01 before integration or acceptance; XT02 shape/logarithm work
+is a separate branch. It changes no chapter order or source obligation.
+The source tariffs, examples, statement review and remaining scope are in
+[fdsa-tree-fold-resource.md](fdsa-tree-fold-resource.md).
+
+| Common source obligation | Draft declarations / intended connection |
+| --- | --- |
+| Actual bottom-up traversal | `Resources.TreeFold.run` is one ordinary fold using existing measured binds; raw `Add`, independent universes, exact constructor grouping and entry-one tick connection. |
+| Erasure and transport | `run_value`, fixed-callback `run_value_entry`, sufficient `run_value_of`, `run_map`, and additive-hom `reweight_run` through existing fold fusion. |
+| Structural versus callback work | Actual zero-entry comparison `run_cost_entry`, structural lower bound, and constant/uniform bounds on summaries returned from arbitrary finite child trees under fixed parameters. |
+| Primitive structural clients | Canonical size/height values and `e*(2*n+1)` work, retaining empty payloads. |
+| Literal and comparison inorder executions | Actual single, right-associated and left-associated append callbacks, returned-inorder and length bridges, node recurrences, and sample work 15/23/25. Printed p. 5 settles literal append association as right. |
+| Full annotation | Actual `TreeCache.nodeRun` inside the measured fold; returned annotation, recursive validity, erasure and reader connection; size/height work `e*(2*n+1)+3*n`; actual append annotation sample work 27. |
+| Ordered/product observations and callback scope | Noncommutative postorder trace and entry-collection counterexample; first/second/sum homs for the same product run; sample pairs `(9,6)`/`(9,12)`; zero reached work despite positive unreachable callback work. |
+
+The callback cost is retained even when a helper is nonrecursive. A value-level
+map or annotation equality does not include the cost of computing another
+pass. All original chapter obligations remain in their inventories. The
+exclusions recorded in the shared-unit note do not create additional generic
+framework requirements beyond that source scope. Neither these connected
+source drafts nor their preflights provide build, audit or final-review
+acceptance credit.
