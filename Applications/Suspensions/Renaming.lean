@@ -47,22 +47,51 @@ mutual
     all_goals omega
 end
 
+@[simp] theorem value_atom (rename : Nat → Nat) (atom : Atom) :
+    value (Primitive := Primitive) rename (.atom atom) = .atom atom := by simp only [value]
+
+@[simp] theorem value_constructor (rename : Nat → Nat) (tag : Nat)
+    (argument : Option (Value Primitive)) :
+    value rename (.constructor tag argument) = .constructor tag (optional rename argument) := by
+  simp only [value]
+
+@[simp] theorem value_record (rename : Nat → Nat) (fields : Env Primitive) :
+    value rename (.record fields) = .record (environment rename fields) := by simp only [value]
+
+@[simp] theorem value_address (rename : Nat → Nat) (address : Nat) :
+    value (Primitive := Primitive) rename (.address address) = .address (rename address) := by
+  simp only [value]
+
+@[simp] theorem value_closure (rename : Nat → Nat) (clauses : List (Pattern × Expr Primitive))
+    (captured recursive : Env Primitive) :
+    value rename (.closure clauses captured recursive) =
+      .closure clauses (environment rename captured) (environment rename recursive) := by
+  simp only [value]
+
+@[simp] theorem value_primitive (rename : Nat → Nat) (operation : Primitive) :
+    value rename (.primitive operation) = .primitive operation := by simp only [value]
+
+@[simp] theorem value_exception (rename : Nat → Nat) (name : Nat)
+    (argument : Option (Value Primitive)) :
+    value rename (.exception name argument) = .exception name (optional rename argument) := by
+  simp only [value]
+
 @[simp] theorem optional_eq_map (rename : Nat → Nat) (argument : Option (Value Primitive)) :
     optional rename argument = argument.map (value rename) := by
-  cases argument <;> rfl
+  cases argument <;> simp [optional]
 
 @[simp] theorem environment_nil (rename : Nat → Nat) :
-    environment rename ([] : Env Primitive) = [] := rfl
+    environment rename ([] : Env Primitive) = [] := by simp only [environment]
 
 @[simp] theorem environment_cons (rename : Nat → Nat) (name : Nat)
     (v : Value Primitive) (rest : Env Primitive) :
     environment rename ((name, v) :: rest) =
-      (name, value rename v) :: environment rename rest := rfl
+      (name, value rename v) :: environment rename rest := by simp only [environment]
 
 theorem environment_eq_map (rename : Nat → Nat) (bindings : Env Primitive) :
     environment rename bindings = bindings.map (fun (name, v) => (name, value rename v)) := by
   induction bindings with
-  | nil => rfl
+  | nil => simp
   | cons pair rest ih => rcases pair with ⟨name, v⟩; simp [ih]
 
 @[simp] theorem environment_append (rename : Nat → Nat) (first second : Env Primitive) :
@@ -80,7 +109,7 @@ theorem environment_eq_map (rename : Nat → Nat) (bindings : Env Primitive) :
     Env.lookup (environment rename bindings) name =
       (Env.lookup bindings name).map (value rename) := by
   induction bindings with
-  | nil => rfl
+  | nil => simp
   | cons pair rest ih =>
       rcases pair with ⟨key, v⟩
       by_cases same : name = key <;> simp [Env.lookup, same, ih]
@@ -89,7 +118,7 @@ theorem environment_eq_map (rename : Nat → Nat) (bindings : Env Primitive) :
     (v : Value Primitive) :
     value rename (Env.unrollValue bindings v) =
       Env.unrollValue (environment rename bindings) (value rename v) := by
-  cases v <;> rfl
+  cases v <;> simp [Env.unrollValue]
 
 @[simp] theorem environment_rec (rename : Nat → Nat) (bindings : Env Primitive) :
     environment rename (Env.rec bindings) = Env.rec (environment rename bindings) := by
@@ -99,7 +128,7 @@ theorem environment_eq_map (rename : Nat → Nat) (bindings : Env Primitive) :
           (name, Env.unrollValue (environment rename bindings) v) := by
     intro entries
     induction entries with
-    | nil => rfl
+    | nil => simp
     | cons pair rest ih => rcases pair with ⟨name, v⟩; simp [ih]
   simpa only [Env.rec, Env.unrollValue] using general bindings
 
@@ -107,6 +136,12 @@ def cell (rename : Nat → Nat) : Cell (Expr Primitive) (Env Primitive) (Value P
     Cell (Expr Primitive) (Env Primitive) (Value Primitive)
   | .value v => .value (value rename v)
   | .thunk body captured => .thunk body (environment rename captured)
+
+@[simp] theorem cell_value (rename : Nat → Nat) (v : Value Primitive) :
+    cell rename (.value v) = .value (value rename v) := rfl
+
+@[simp] theorem cell_thunk (rename : Nat → Nat) (body : Expr Primitive) (captured : Env Primitive) :
+    cell rename (.thunk body captured) = .thunk body (environment rename captured) := rfl
 
 /-- No condition is imposed on private cells outside the address map's image. -/
 structure MemoryRel (rename : Nat → Nat) (before after : Memory Primitive) : Prop where
@@ -167,7 +202,7 @@ theorem MemoryRel.delay {rename : Nat → Nat} (injective : Function.Injective r
     cell rename (Cell.extendEnv (fun captured => Env.extend captured additions) entry) =
       Cell.extendEnv (fun captured => Env.extend captured (environment rename additions))
         (cell rename entry) := by
-  cases entry <;> simp [cell, Cell.extendEnv]
+  cases entry <;> simp [Cell.extendEnv]
 
 theorem MemoryRel.srec {rename : Nat → Nat} (injective : Function.Injective rename)
     {before after : Memory Primitive} (related : MemoryRel rename before after)
@@ -206,12 +241,12 @@ theorem MemoryRel.srec {rename : Nat → Nat} (injective : Function.Injective re
         rw [original, Option.map_some] at found
         cases v with
         | address old =>
-            have same : rename old = address := by simpa [value] using found
+            have same : rename old = address := by simpa using found
             exact ⟨old, (mem_addressRange bindings old).mpr ⟨name, original⟩, same⟩
-        | _ => simp [value] at found
+        | _ => simp at found
   · rintro ⟨old, present, same⟩
     obtain ⟨name, found⟩ := (mem_addressRange bindings old).mp present
-    exact ⟨name, by simp [found, value, same]⟩
+    exact ⟨name, by simp [found, same]⟩
 
 theorem MemoryRel.exception {rename : Nat → Nat} {before after : Memory Primitive}
     (related : MemoryRel rename before after) (name : Nat) :
@@ -230,10 +265,10 @@ theorem shift_injective (frontier : Nat) : Function.Injective (shift frontier) :
   split at same <;> split at same <;> omega
 
 @[simp] theorem shift_old {frontier address : Nat} (old : address < frontier) :
-    shift frontier address = address := if_pos old
+    shift frontier address = address := ite_eq_left old
 
 @[simp] theorem shift_new {frontier address : Nat} (newer : frontier ≤ address) :
-    shift frontier address = address + 1 := if_neg (by omega)
+    shift frontier address = address + 1 := ite_eq_right (by omega)
 
 theorem shift_avoids (frontier address : Nat) : shift frontier address ≠ frontier := by
   unfold shift

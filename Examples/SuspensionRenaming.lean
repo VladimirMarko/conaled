@@ -22,7 +22,8 @@ def capturedClosure : Value Unit :=
 
 theorem closure_contents_are_renamed :
     value (shift 1) capturedClosure =
-      .closure [(.wildcard, .variable 7)] [(7, .address 0)] [(8, .address 2)] := rfl
+      .closure [(.wildcard, .variable 7)] [(7, .address 0)] [(8, .address 2)] := by
+  simp [capturedClosure, shift]
 
 def shadowed : Env Unit := [(4, .atom (.integer 9)), (4, .address 0), (5, .address 1)]
 

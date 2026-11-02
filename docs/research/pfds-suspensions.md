@@ -11,8 +11,9 @@ retains its Chapter3 owner. Source identities and chapter accounting are in
 **This development is incomplete and unaccepted.** Syntax, memory operations,
 the independent forcing rules, the explicit machine, continuation and return-
 class laws, bounded-prefix observation and measured observation have focused
-compilation evidence, with their recorded connected clients. Static/grammar,
-correspondence, derived forms, finite-memory invariants and address-relocation
+compilation evidence, with their recorded connected clients. The address-range
+helper and expanded recursive runtime case also compile. Static/grammar clients,
+correspondence, derived forms, finite-memory and recursive-creation laws, and address-relocation
 transport still require successful compilation. Full candidate build, exhaustive proof
 audit, final verification and both independent review axes remain required.
 The authoritative local tickets, statements, compiler reports and recovery
@@ -96,6 +97,15 @@ outside the target set. `RecursiveTargets` separately records the source
 premise that relevant targets are thunks. Recursive right-hand sides are
 restricted to functions and suspensions; creation uses the same outer
 environment before the simultaneous Rec/SRec extension is installed.
+
+The new [recursive-creation draft](../../Applications/Suspensions/Recursive.lean)
+connects the actual creation fold with an exact machine prefix. It aims to
+derive the thunk-target premise from permitted function/delay right-hand sides,
+then justify the simultaneous environment update and its footprint. Its body
+composition accounts for three creation transitions per binding and two entry/
+closing transitions. This draft and its connected client await compilation;
+the source's thunk-target premise is not being treated as a proved invariant
+merely because it has been named.
 
 Reentrant forcing is permitted. The operational cases distinguish an inner
 successful cache write followed by an outer successful overwrite from an
@@ -185,8 +195,11 @@ cache write and derived-force return; a raised body retains its reached state.
 The exact transition-count drafts are body-count+12 and body-count+10,
 respectively. Lazy-function formation evaluates its strict argument but delays
 ordered matching in the newly stored body; its normal formation draft is
-argument-count+9. These are conditional finite-execution laws, not termination
-or host-runtime bounds, and still require successful compilation.
+argument-count+9, with raised arguments costing argument-count+4. The new
+converse drafts recover the corresponding actual body or argument execution
+from each finite normal/raised completion and retain the exact counts. These
+are conditional finite-execution laws, not termination or host-runtime bounds,
+and still require successful compilation with their complete clients.
 
 Fresh term names prevent capture, but literal closure environments can still
 contain the generated binding. Allocation likewise leaves a cell in memory.

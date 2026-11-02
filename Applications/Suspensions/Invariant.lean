@@ -35,6 +35,33 @@ def OutcomeBounded : Answer Primitive ⊕ Config Primitive → Prop
   | .inl answer => Suspensions.Bounded answer.memory
   | .inr config => ConfigBounded config
 
+@[simp] private theorem frameBounded_constructor (frontier tag : Nat) :
+    FrameBounded (Primitive := Primitive) frontier (.constructor tag) := by
+  intro address environment inner impossible
+  cases impossible
+
+@[simp] private theorem frameBounded_record (frontier : Nat) (environment : Env Primitive)
+    (label : Nat) (remaining : List (Nat × Expr Primitive)) (prior : List (Nat × Value Primitive)) :
+    FrameBounded frontier (.record environment label remaining prior) := by
+  intro address captured inner impossible
+  cases impossible
+
+@[simp] private theorem frameBounded_applicationResult (frontier : Nat) :
+    FrameBounded (Primitive := Primitive) frontier .applicationResult := by
+  intro address environment inner impossible
+  cases impossible
+
+@[simp] private theorem frameBounded_row (frontier : Nat) (environment : Env Primitive)
+    (remaining : List (Nat × Pattern)) (fields : List (Nat × Value Primitive))
+    (earlier : Env Primitive) : FrameBounded frontier (.row environment remaining fields earlier) := by
+  intro address captured inner impossible
+  cases impossible
+
+@[simp] private theorem frameBounded_memoize (frontier address : Nat) (environment : Env Primitive)
+    (inner : Pattern) :
+    FrameBounded frontier (.memoize address environment inner) ↔ address < frontier := by
+  simp [FrameBounded]
+
 theorem frameBounded_mono {first second : Nat} {frame : Frame Primitive}
     (growth : first ≤ second) (valid : FrameBounded first frame) :
     FrameBounded second frame :=
@@ -97,7 +124,7 @@ private theorem value_bounded (parameters : Parameters Primitive) (memory : Memo
           | exact bounded
           | exact Suspensions.allocate_bounded bounded _
           | exact Suspensions.memoize_bounded bounded (by assumption) _
-          | exact memoize_bounded_of_lt bounded (by assumption) _
+          | exact memoize_bounded_of_lt bounded (by first | assumption | exact frames.1) _
           | apply And.intro
           | split at *
 
@@ -171,8 +198,7 @@ private theorem rows_bounded (parameters : Parameters Primitive) (memory : Memor
   | nil => exact ⟨bounded, frames⟩
   | cons row rest =>
       rcases row with ⟨label, pattern⟩
-      simp only [step, transition, proceed, finish, OutcomeBounded, ConfigBounded,
-        FrameBounded, List.forall_cons] at *
+      simp only [step, transition, proceed, finish, OutcomeBounded, ConfigBounded] at *
       repeat' first
         | (fail_if_no_progress subst_vars)
         | (fail_if_no_progress simp_all)

@@ -143,26 +143,7 @@ theorem StatesRelated.exception {frontier : Nat} {before after : Memory Primitiv
       { after with exceptionNames := insert name after.exceptionNames } :=
   ⟨related.1.exception name, related.2⟩
 
-private theorem value_atom (rename : Nat → Nat) (atom : Atom) :
-    value (Primitive := Primitive) rename (.atom atom) = .atom atom := rfl
-private theorem value_constructor (rename : Nat → Nat) (tag : Nat) (argument : Option (Value Primitive)) :
-    value rename (.constructor tag argument) = .constructor tag (optional rename argument) := rfl
-private theorem value_record (rename : Nat → Nat) (fields : Env Primitive) :
-    value rename (.record fields) = .record (environment rename fields) := rfl
-private theorem value_address (rename : Nat → Nat) (address : Nat) :
-    value (Primitive := Primitive) rename (.address address) = .address (rename address) := rfl
-private theorem value_closure (rename : Nat → Nat) (clauses : List (Pattern × Expr Primitive))
-    (captured recursive : Env Primitive) :
-    value rename (.closure clauses captured recursive) =
-      .closure clauses (environment rename captured) (environment rename recursive) := rfl
-private theorem value_primitive (rename : Nat → Nat) (operation : Primitive) :
-    value rename (.primitive operation) = .primitive operation := rfl
-private theorem value_exception (rename : Nat → Nat) (name : Nat) (argument : Option (Value Primitive)) :
-    value rename (.exception name argument) = .exception name (optional rename argument) := rfl
-
-attribute [local simp] value_atom value_constructor value_record value_address value_closure
-  value_primitive value_exception
-  TransitionsRelated OutcomesRelated AnswersRelated ConfigsRelated
+attribute [local simp] TransitionsRelated OutcomesRelated AnswersRelated ConfigsRelated
   fault primitiveResult result control frame event cell proceed finish
   StatesRelated.memoize StatesRelated.allocate StatesRelated.delay StatesRelated.srec
   StatesRelated.exception

@@ -270,6 +270,7 @@ import Examples.SuspensionRenaming
 import Examples.SuspensionRelocation
 import Examples.SuspensionForceObservation
 import Examples.SuspensionInvariant
+import Examples.SuspensionRecursive
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 

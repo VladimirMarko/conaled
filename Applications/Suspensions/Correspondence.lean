@@ -144,8 +144,7 @@ theorem suspension_match_sound {parameters : Parameters Primitive}
     matching parameters s caller (.suspended inner) (.address address) answer t := by
   cases run with
   | cached found matched => exact (matching_cached_iff found).mpr matched
-  | @evaluated s caller address inner code captured value afterBody answer afterMatch
-      found body matched =>
+  | @evaluated code captured value afterBody answer afterMatch found body matched =>
     rcases body with ⟨bodySteps, bodyRun⟩
     rcases matched with ⟨matchSteps, matchRun⟩
     have continuation : Progress.Evaluates (step parameters)
@@ -161,7 +160,7 @@ theorem suspension_match_sound {parameters : Parameters Primitive}
     · exact ⟨_, by simpa [appendFrames, start] using resumed⟩
     · simpa [step, startPattern, proceed] using congrArg Prod.fst
         (body_transition parameters s caller captured inner address code [] found)
-  | @raised s caller address inner code captured packet afterBody found body =>
+  | @raised code captured packet afterBody found body =>
     rcases body with ⟨bodySteps, bodyRun⟩
     have continuation : Progress.Evaluates (step parameters)
         ⟨afterBody, .raised packet, [.memoize address caller inner]⟩
@@ -225,7 +224,7 @@ theorem suspension_match_complete {parameters : Parameters Primitive}
                   ⟨afterBody, .raised packet, [.memoize address caller inner]⟩
                   ⟨afterBody, .raised packet⟩ 2 := .next rfl (.done rfl)
               have same := (unwind.unique residual).1
-              have stateEq := congrArg Answer.memory same
+              have stateEq : afterBody = t := congrArg Answer.memory same
               have answerEq := matching_raised (congrArg Answer.result same).symm
               subst t
               subst answer
@@ -267,7 +266,7 @@ theorem reference_match_iff {parameters : Parameters Primitive}
   constructor
   · intro source
     cases source with
-    | @read s caller address inner value answer t found matched =>
+    | @read value answer t found matched =>
         apply (after_step_iff (before := startPattern s caller (.reference inner) (.address address))
           (after := startPattern s caller inner value) ?_).mpr matched
         simp [step, transition, startPattern, proceed, found]
@@ -353,7 +352,7 @@ theorem clause_resumes {parameters : Parameters Primitive}
     ∃ steps, Progress.Evaluates (step parameters)
       ⟨s, .clauses env (head :: remaining) value, []⟩ final steps := by
   cases source with
-  | @success s env value pattern code bindings afterPattern result t matched evaluated =>
+  | @success pattern code bindings afterPattern result t matched evaluated =>
       obtain ⟨patternSteps, patternRun⟩ := matched
       obtain ⟨bodySteps, bodyRun⟩ := evaluated
       have bodyResidual : Progress.Evaluates (step parameters)
@@ -368,7 +367,7 @@ theorem clause_resumes {parameters : Parameters Primitive}
       have resumed := evaluates_append patternRun rfl [.clause env code remaining value]
         patternResidual
       exact ⟨_, .next rfl (by simpa [appendFrames, startPattern] using resumed)⟩
-  | @failure s env value pattern code t matched =>
+  | @failure pattern code t matched =>
       obtain ⟨patternSteps, patternRun⟩ := matched
       have patternResidual : Progress.Evaluates (step parameters)
           ⟨t, .mismatch, [.clause env code remaining value]⟩ final (residualSteps + 1) :=
@@ -376,7 +375,7 @@ theorem clause_resumes {parameters : Parameters Primitive}
       have resumed := evaluates_append patternRun rfl [.clause env code remaining value]
         patternResidual
       exact ⟨_, .next rfl (by simpa [appendFrames, startPattern] using resumed)⟩
-  | @raised s env value pattern code packet t matched =>
+  | @raised pattern code packet t matched =>
       obtain ⟨patternSteps, patternRun⟩ := matched
       have patternResidual : Progress.Evaluates (step parameters)
           ⟨t, .raised packet, [.clause env code remaining value]⟩ final (residualSteps + 1) :=
@@ -421,8 +420,10 @@ theorem alternatives_complete {parameters : Parameters Primitive}
           ⟨s, .clauses env [] value, []⟩ ⟨s, clauseResult (.ok none)⟩ 2 :=
         .next rfl (.done rfl)
       have same := (empty.unique run).1
-      have stateEq := congrArg Answer.memory same
-      have answerEq := clauseResult_injective (congrArg Answer.result same)
+      have stateEq : s = t := congrArg Answer.memory same
+      have resultEq : clauseResult (.ok none) = clauseResult answer :=
+        congrArg Answer.result same
+      have answerEq := clauseResult_injective (Primitive := Primitive) resultEq
       subst t
       subst answer
       exact .empty
@@ -452,9 +453,17 @@ theorem alternatives_complete {parameters : Parameters Primitive}
               cases result with
               | none => exact False.elim (Return.expression_result bodyRun)
               | some result =>
-                  exact .success (.success ⟨n, patternRun⟩ ⟨bodySteps, bodyRun⟩)
+                  have selectedClause : Source.ClauseMatch (evaluation parameters)
+                      (matching parameters) Env.extend s env value (pattern, code)
+                      (.ok (some result)) t :=
+                    .success (result := .ok result) ⟨n, patternRun⟩ ⟨bodySteps, bodyRun⟩
+                  exact .success selectedClause
           | error packet =>
-              exact .raised (.success ⟨n, patternRun⟩ ⟨bodySteps, bodyRun⟩)
+              have selectedClause : Source.ClauseMatch (evaluation parameters)
+                  (matching parameters) Env.extend s env value (pattern, code)
+                  (.error packet) t :=
+                .success (result := .error packet) ⟨n, patternRun⟩ ⟨bodySteps, bodyRun⟩
+              exact .raised selectedClause
       | mismatch =>
           simp only [boundaryControl, Option.some.injEq] at boundary
           subst control
@@ -470,8 +479,10 @@ theorem alternatives_complete {parameters : Parameters Primitive}
               ⟨afterPattern, .raised packet, [.clause env code rest value]⟩
               ⟨afterPattern, clauseResult (.error packet)⟩ 2 := .next rfl (.done rfl)
           have same := (unwind.unique residual).1
-          have stateEq := congrArg Answer.memory same
-          have answerEq := clauseResult_injective (congrArg Answer.result same)
+          have stateEq : afterPattern = t := congrArg Answer.memory same
+          have resultEq : clauseResult (.error packet) = clauseResult answer :=
+            congrArg Answer.result same
+          have answerEq := clauseResult_injective (Primitive := Primitive) resultEq
           subst t
           subst answer
           exact .raised (.raised ⟨n, patternRun⟩)

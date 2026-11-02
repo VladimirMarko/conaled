@@ -13,7 +13,8 @@ set_option warningAsError true
 namespace Examples.SuspensionDerived
 open Suspensions Suspensions.Core Suspensions.Core.Machine Suspensions.Core.Derived
 
-def parameters : Parameters Empty := ⟨fun operation _ => nomatch operation, 0, 1⟩
+def parameters : Parameters Empty :=
+  ⟨(fun operation _ => nomatch operation), 0, 1⟩
 
 def initial : Memory Empty := { Suspensions.empty with exceptionNames := {0, 1} }
 
@@ -116,5 +117,115 @@ theorem lazy_argument_remains_strict :
       ⟨exceptionMemory, .raised (.exception 2 none)⟩ 4 :=
     .next rfl (.next rfl (.next rfl (.done rfl)))
   exact ⟨_, lazy_function_raised (clauses := clauses) argument, rfl, rfl, rfl⟩
+
+/-- The converse recovers the actual body run from any normal completed force.
+The original-memory reference would still use address0 instead. -/
+theorem force_reference_outcome_iff (after : Memory Empty) (value : Value Empty) (steps : Nat) :
+    let created := Suspensions.delay initial referenceBody []
+    let reached := (Suspensions.allocate created.1 (.value (.atom (.integer 7)))).1
+    Progress.Evaluates (step parameters)
+      (start initial [] (force (.delay referenceBody))) ⟨after, .value value⟩ steps ↔
+      after = Suspensions.memoize reached created.2 (.address 1) ∧
+      value = .address 1 ∧ steps = 16 := by
+  let created := Suspensions.delay initial referenceBody []
+  let reached := (Suspensions.allocate created.1 (.value (.atom (.integer 7)))).1
+  have body : Progress.Evaluates (step parameters) (start created.1 [] referenceBody)
+      ⟨reached, .value (.address 1)⟩ 4 :=
+    .next rfl (.next rfl (.next rfl (.done rfl)))
+  constructor
+  · intro run
+    obtain ⟨bodyState, bodySteps, bodyRun, state, count⟩ := force_delay_value_iff.mp run
+    have same := body.unique bodyRun
+    have states : reached = bodyState := congrArg Answer.memory same.1
+    have values := Result.value.inj (congrArg Answer.result same.1)
+    have times := same.2
+    subst bodyState
+    subst value
+    subst bodySteps
+    exact ⟨state, rfl, count⟩
+  · rintro ⟨rfl, rfl, rfl⟩
+    exact force_delay_value (memory := initial) (environment := []) (body := referenceBody) body
+
+/-- An arbitrary finite raised result is traced back to the same four-step body
+run. No cache update can be inserted by the derived-force continuation. -/
+theorem force_raise_outcome_iff (after : Memory Empty) (packet : Value Empty) (steps : Nat) :
+    Progress.Evaluates (step parameters)
+      (start exceptionMemory exceptionEnvironment (force (.delay raisingBody)))
+      ⟨after, .raised packet⟩ steps ↔
+      after = (Suspensions.delay exceptionMemory raisingBody exceptionEnvironment).1 ∧
+      packet = .exception 2 none ∧ steps = 14 := by
+  let created := Suspensions.delay exceptionMemory raisingBody exceptionEnvironment
+  have body : Progress.Evaluates (step parameters)
+      (start created.1 exceptionEnvironment raisingBody) ⟨created.1, .raised (.exception 2 none)⟩ 4 :=
+    .next rfl (.next rfl (.next rfl (.done rfl)))
+  constructor
+  · intro run
+    obtain ⟨bodySteps, bodyRun, count⟩ := force_delay_raised_iff.mp run
+    have same := body.unique bodyRun
+    have states : created.1 = after := congrArg Answer.memory same.1
+    have packets := Result.raised.inj (congrArg Answer.result same.1)
+    have times := same.2
+    subst after
+    subst packet
+    subst bodySteps
+    exact ⟨rfl, rfl, count⟩
+  · rintro ⟨rfl, rfl, rfl⟩
+    exact force_delay_raised (memory := exceptionMemory) (environment := exceptionEnvironment)
+      (body := raisingBody) body
+
+/-- Recovering the strict argument run fixes both allocations and the count;
+the selected right side's suspension is still only stored code. -/
+theorem lazy_reference_outcome_iff (after : Memory Empty) (value : Value Empty) (steps : Nat) :
+    let binder := lazyBinder ([] : Env Empty) clauses
+    let afterArgument := (Suspensions.allocate initial (.value (.atom (.integer 7)))).1
+    let created := Suspensions.delay afterArgument (lazyBody binder clauses) [(binder, .address 0)]
+    Progress.Evaluates (step parameters)
+      (start initial [] (.apply (lazyFunction binder clauses) referenceBody))
+      ⟨after, .value value⟩ steps ↔
+      after = created.1 ∧ value = .address 1 ∧ steps = 13 := by
+  let afterArgument := (Suspensions.allocate initial (.value (.atom (.integer 7)))).1
+  have argument : Progress.Evaluates (step parameters) (start initial [] referenceBody)
+      ⟨afterArgument, .value (.address 0)⟩ 4 :=
+    .next rfl (.next rfl (.next rfl (.done rfl)))
+  constructor
+  · intro run
+    obtain ⟨argumentState, argumentValue, argumentSteps, argumentRun, state, result, count⟩ :=
+      lazy_function_value_iff.mp run
+    have same := argument.unique argumentRun
+    have states : afterArgument = argumentState := congrArg Answer.memory same.1
+    have values := Result.value.inj (congrArg Answer.result same.1)
+    have times := same.2
+    subst argumentState
+    subst argumentValue
+    subst argumentSteps
+    exact ⟨state, result, count⟩
+  · rintro ⟨rfl, rfl, rfl⟩
+    exact lazy_function_value (clauses := clauses) argument
+
+/-- The exceptional converse confirms that lazy syntax still evaluates its
+argument before any suspended clause matching is created. -/
+theorem lazy_raise_outcome_iff (after : Memory Empty) (packet : Value Empty) (steps : Nat) :
+    Progress.Evaluates (step parameters)
+      (start exceptionMemory exceptionEnvironment
+        (.apply (lazyFunction (lazyBinder exceptionEnvironment clauses) clauses) raisingBody))
+      ⟨after, .raised packet⟩ steps ↔
+      after = exceptionMemory ∧ packet = .exception 2 none ∧ steps = 8 := by
+  have argument : Progress.Evaluates (step parameters)
+      (start exceptionMemory exceptionEnvironment raisingBody)
+      ⟨exceptionMemory, .raised (.exception 2 none)⟩ 4 :=
+    .next rfl (.next rfl (.next rfl (.done rfl)))
+  constructor
+  · intro run
+    obtain ⟨argumentSteps, argumentRun, count⟩ := lazy_function_raised_iff.mp run
+    have same := argument.unique argumentRun
+    have states : exceptionMemory = after := congrArg Answer.memory same.1
+    have packets := Result.raised.inj (congrArg Answer.result same.1)
+    have times := same.2
+    subst after
+    subst packet
+    subst argumentSteps
+    exact ⟨rfl, rfl, count⟩
+  · rintro ⟨rfl, rfl, rfl⟩
+    exact lazy_function_raised (clauses := clauses) argument
 
 end Examples.SuspensionDerived

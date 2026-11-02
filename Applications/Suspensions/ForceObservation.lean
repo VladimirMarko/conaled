@@ -100,6 +100,59 @@ theorem raised_observed {parameters : Parameters Primitive} {memory afterBody : 
   subst outcome
   exact ⟨reached, Derived.force_delay_raised bodyRun, related.1⟩
 
+/-- A normal delayed result also reflects an actual direct body execution.
+The relation deliberately omits the additional private cache cell. -/
+theorem value_reflected {parameters : Parameters Primitive} {memory afterForce : Memory Primitive}
+    {env : Env Primitive} {body : Expr Primitive} {v : Value Primitive} {steps : Nat}
+    (equivariant : Equivariant parameters (shift memory.next))
+    (bounded : Suspensions.Bounded memory) (fixed : FixedCells (shift memory.next) memory)
+    (captured : environment (shift memory.next) env = env)
+    (execution : Progress.Evaluates (step parameters) (start memory env (force (.delay body)))
+      ⟨afterForce, .value v⟩ steps) :
+    ∃ directMemory directValue bodySteps,
+      Progress.Evaluates (step parameters) (start memory env body)
+        ⟨directMemory, .value directValue⟩ bodySteps ∧
+      v = value (shift memory.next) directValue ∧ steps = bodySteps + 12 ∧
+      StatesRelated memory.next directMemory afterForce := by
+  obtain ⟨allocatedBody, bodySteps, bodyRun, finalMemory, count⟩ :=
+    Derived.force_delay_value_iff.mp execution
+  obtain ⟨answer, directRun, related⟩ := evaluates_backward equivariant bodyRun
+    (delay_configs_related bounded fixed body env captured)
+  rcases answer with ⟨directMemory, outcome⟩
+  have resultEq := related.2
+  cases outcome with
+  | value directValue =>
+      have values : v = value (shift memory.next) directValue := Result.value.inj resultEq
+      refine ⟨directMemory, directValue, bodySteps, directRun, values, count, ?_⟩
+      rw [finalMemory]
+      exact ⟨related.1.1.private_replace (.value v), related.1.2⟩
+  | _ => simp [result] at resultEq
+
+/-- Raised completion reflects the same kind of direct completion, with its
+packet and reached effects related rather than replaced by a normal value. -/
+theorem raised_reflected {parameters : Parameters Primitive} {memory afterForce : Memory Primitive}
+    {env : Env Primitive} {body : Expr Primitive} {packet : Value Primitive} {steps : Nat}
+    (equivariant : Equivariant parameters (shift memory.next))
+    (bounded : Suspensions.Bounded memory) (fixed : FixedCells (shift memory.next) memory)
+    (captured : environment (shift memory.next) env = env)
+    (execution : Progress.Evaluates (step parameters) (start memory env (force (.delay body)))
+      ⟨afterForce, .raised packet⟩ steps) :
+    ∃ directMemory directPacket bodySteps,
+      Progress.Evaluates (step parameters) (start memory env body)
+        ⟨directMemory, .raised directPacket⟩ bodySteps ∧
+      packet = value (shift memory.next) directPacket ∧ steps = bodySteps + 10 ∧
+      StatesRelated memory.next directMemory afterForce := by
+  obtain ⟨bodySteps, bodyRun, count⟩ := Derived.force_delay_raised_iff.mp execution
+  obtain ⟨answer, directRun, related⟩ := evaluates_backward equivariant bodyRun
+    (delay_configs_related bounded fixed body env captured)
+  rcases answer with ⟨directMemory, outcome⟩
+  have resultEq := related.2
+  cases outcome with
+  | raised directPacket =>
+      exact ⟨directMemory, directPacket, bodySteps, directRun,
+        Result.raised.inj resultEq, count, related.1⟩
+  | _ => simp [result] at resultEq
+
 /-- Empty captured memory is a uniform client for arbitrary closed bodies,
 not just literals or allocation-free data expressions. -/
 theorem closed_value_observed {parameters : Parameters Primitive}
@@ -111,6 +164,6 @@ theorem closed_value_observed {parameters : Parameters Primitive}
       (start Suspensions.empty [] (force (.delay body)))
       ⟨finalMemory, .value (value (shift 0) v)⟩ (steps + 12) ∧
       StatesRelated 0 afterBody finalMemory :=
-  value_observed equivariant Suspensions.bounded_empty (fixed_empty _) rfl execution
+  value_observed equivariant Suspensions.bounded_empty (fixed_empty _) (environment_nil _) execution
 
 end Suspensions.Core.ForceObservation
