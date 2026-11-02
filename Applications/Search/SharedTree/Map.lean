@@ -101,6 +101,7 @@ private theorem profile_right {query : κ} {binding : κ × ν}
       ((profile query r).1 + 2, (profile query r).2.1 + 1, (profile query r).2.2 + 1) := by
   simp [profile, searchPathBy, BinaryTree.map, OrderedTree.memberRun, hl, hr]
 
+omit [LinearOrder κ] in
 private theorem map_height (t : BinaryTree (κ × ν)) :
     (t.map Prod.fst).height = t.height := by
   induction t with
@@ -137,7 +138,7 @@ theorem lookupRunFuel_correct {s : Store (κ × ν)} {root : Root}
     lookupRunFuel fuel s root query =
       (OrderedMap.lookup query t, ((profile query t).1, (profile query t).2.1)) := by
   induction h generalizing fuel with
-  | nil => rfl
+  | nil => cases fuel <;> rfl
   | @node a binding l r lt rt lookup leftBelow rightBelow hl hr ihl ihr =>
       cases fuel with
       | zero => simp [BinaryTree.height] at enough
@@ -206,7 +207,7 @@ theorem bindRunFuel_correct {s : Store (κ × ν)} {root : Root}
       WrittenAt s.heap out.1.heap root out.2 (searchPathBy Prod.fst key t) (key, value) := by
   induction h generalizing fuel with
   | nil =>
-      refine ⟨allocate s (key, value) none none, rfl, allocate_extends _ _ _ _,
+      refine ⟨allocate s (key, value) none none, (by cases fuel <;> rfl), allocate_extends _ _ _ _,
         allocate_represents .nil .nil (key, value), rfl, .here _ _, ?_⟩
       exact ⟨none, some s.next, none, none, rfl, rfl, Or.inl ⟨rfl, rfl, rfl⟩,
         allocate_lookup _ _ _ _⟩
@@ -231,11 +232,10 @@ theorem bindRunFuel_correct {s : Store (κ × ν)} {root : Root}
             · simpa only [OrderedMap.bind, ite_eq_left kl] using
                 allocate_represents rep (hr.mono extension) binding
             · rw [allocate_next, count, profile_left lt rt kl]
-              simp only [Prod.snd, Prod.fst]
-              omega
-            · simpa only [searchPathBy, ite_eq_left kl] using
+              exact Nat.add_assoc s.next (profile key lt).2.2 1
+            · simpa only [searchPathBy, allocate_root, ite_eq_left kl] using
                 Rebuilds.left lookup (allocate_lookup out.1 binding out.2 r) (rebuilt.mono grown)
-            · simpa only [searchPathBy, ite_eq_left kl] using
+            · simpa only [searchPathBy, allocate_root, ite_eq_left kl] using
                 WrittenAt.prefix .left lookup (allocate_lookup out.1 binding out.2 r)
                   (written.mono grown)
           · by_cases kr : binding.1 < key
@@ -247,11 +247,10 @@ theorem bindRunFuel_correct {s : Store (κ × ν)} {root : Root}
               · simpa only [OrderedMap.bind, ite_eq_right kl, ite_eq_left kr] using
                   allocate_represents (hl.mono extension) rep binding
               · rw [allocate_next, count, profile_right lt rt kl kr]
-                simp only [Prod.snd, Prod.fst]
-                omega
-              · simpa only [searchPathBy, ite_eq_right kl, ite_eq_left kr] using
+                exact Nat.add_assoc s.next (profile key rt).2.2 1
+              · simpa only [searchPathBy, allocate_root, ite_eq_right kl, ite_eq_left kr] using
                   Rebuilds.right lookup (allocate_lookup out.1 binding l out.2) (rebuilt.mono grown)
-              · simpa only [searchPathBy, ite_eq_right kl, ite_eq_left kr] using
+              · simpa only [searchPathBy, allocate_root, ite_eq_right kl, ite_eq_left kr] using
                   WrittenAt.prefix .right lookup (allocate_lookup out.1 binding l out.2)
                     (written.mono grown)
             · refine ⟨allocate s (key, value) l r, ?_, allocate_extends _ _ _ _, ?_, ?_, ?_, ?_⟩
@@ -260,7 +259,7 @@ theorem bindRunFuel_correct {s : Store (κ × ν)} {root : Root}
               · simpa only [OrderedMap.bind, ite_eq_right kl, ite_eq_right kr] using
                   allocate_represents hl hr (key, value)
               · simp [profile, searchPathBy, kl, kr]
-              · simpa only [searchPathBy, ite_eq_right kl, ite_eq_right kr] using
+              · simpa only [searchPathBy, allocate_root, ite_eq_right kl, ite_eq_right kr] using
                   (Rebuilds.here (before := s.heap) (after := (allocate s (key, value) l r).1.heap)
                     (some a) (some s.next))
               · refine ⟨some a, some s.next, l, r, ?_, ?_, Or.inr ⟨binding, lookup⟩,
@@ -314,7 +313,6 @@ def bindSquare (key : κ) (value : ν) :
   preserves := by
     intro state tree h
     obtain ⟨out, run, _, rep, _⟩ := bindRun_correct h key value
-    change (optionalRepresentation (κ × ν)).Rel _ _
     rw [run]
     exact rep
 
@@ -325,5 +323,37 @@ def lookupSquare (query : κ) :
   preserves := by
     intro state tree h
     exact congrArg Prod.fst (lookupRun_correct h query)
+
+/-- Lift lookup over the optional result of an earlier graph operation. Outer
+`none` is that operation's failure; `some none` is a successful missing lookup. -/
+def optionalLookupSquare (query : κ) :
+    Relational.RelSquare (optionalRepresentation (κ × ν))
+      ⟨Option (Option ν), Option (Option ν), Eq⟩ where
+  impl result := result.map fun state => (lookupRun state.1 state.2 query).1
+  spec result := result.map (OrderedMap.lookup query)
+  preserves := by
+    intro result tree h
+    cases result with
+    | none => cases tree with
+      | none => rfl
+      | some tree => cases h
+    | some state => cases tree with
+      | none => cases h
+      | some tree => exact congrArg some ((lookupSquare query).preserves h)
+
+/-- A physical bind followed by lookup, pasted through the shared relational
+interface. This preserves the optional result of each stage. -/
+def bindThenLookupSquare (key : κ) (value : ν) (query : κ) :
+    Relational.RelSquare (representation (κ × ν))
+      ⟨Option (Option ν), Option (Option ν), Eq⟩ :=
+  Relational.compose (optionalLookupSquare query) (bindSquare key value)
+
+theorem bindThenLookup_correct {s : Store (κ × ν)} {root : Root}
+    {t : BinaryTree (κ × ν)} (h : Represents s.heap root t)
+    (key : κ) (value : ν) (query : κ) :
+    (bindThenLookupSquare key value query).impl (s, root) =
+      some (if query = key then some value else OrderedMap.lookup query t) := by
+  have result := (bindThenLookupSquare key value query).preserves (r := (s, root)) (s := t) h
+  exact result.trans (congrArg some (OrderedMap.lookup_bind key value query t))
 
 end Search.SharedTree.Map
