@@ -1,4 +1,4 @@
-import Applications.Checking.OrderCertificate
+import Mathlib.Data.List.Pairwise
 import Mathlib.Data.List.Perm.Basic
 
 /-!
@@ -106,15 +106,5 @@ theorem firstPair_iff_chain_take_two (R : α → α → Prop) (xs : List α) :
     cases xs with
     | nil => simp [FirstPair]
     | cons b rest => simp [FirstPair, List.isChain_cons_cons]
-
-/-- Reuse the existing ordering checker on the prefix certified by the swap.
-No transitivity or ordering of the remaining suffix is assumed. -/
-theorem compareSwap_checkedPrefix {α : Type} (swap check : α → α → Bool)
-    (R : α → α → Prop)
-    (swapLaw : ∀ a b, (swap a b = true → R b a) ∧ (swap a b = false → R a b))
-    (checkLaw : ∀ a b, check a b = true ↔ R a b) (xs : List α) :
-    OrderCertificate.adjacent check ((compareSwap swap xs).take 2) = true :=
-  (OrderCertificate.adjacent_correct checkLaw _).mpr
-    ((firstPair_iff_chain_take_two R _).mp (compareSwap_firstPair swap R swapLaw xs))
 
 end Applications.Sorting

@@ -1,4 +1,5 @@
 import Applications.Sorting.FirstPair
+import Applications.Checking.OrderCertificate
 import Mathlib.Data.Nat.Basic
 import Mathlib.Data.List.Basic
 
@@ -15,6 +16,16 @@ set_option warningAsError true
 
 namespace Examples.ComparisonPermutations
 open Applications.Sorting
+
+/-- Compose the sorting contract with the independently implemented ordering
+checker. No transitivity or ordering of the remaining suffix is assumed. -/
+theorem compareSwap_checkedPrefix {α : Type} (swap check : α → α → Bool)
+    (R : α → α → Prop)
+    (swapLaw : ∀ a b, (swap a b = true → R b a) ∧ (swap a b = false → R a b))
+    (checkLaw : ∀ a b, check a b = true ↔ R a b) (xs : List α) :
+    OrderCertificate.adjacent check ((compareSwap swap xs).take 2) = true :=
+  (OrderCertificate.adjacent_correct checkLaw _).mpr
+    ((firstPair_iff_chain_take_two R _).mp (compareSwap_firstPair swap R swapLaw xs))
 
 def geb (n m : Nat) : Bool := decide (m ≤ n)
 def gtb (n m : Nat) : Bool := decide (m < n)

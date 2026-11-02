@@ -53,7 +53,8 @@ transitivity, heap model, or runtime performance assumption is introduced.
 
 `compareSwap_map` transports the operation along a comparison-preserving map;
 the checked record specialization maps strings to their lengths and needs no
-injectivity or order on payloads. `compareSwap_checkedPrefix` reuses the
+injectivity or order on payloads. The composition theorem
+`Examples.ComparisonPermutations.compareSwap_checkedPrefix` reuses the
 existing `OrderCertificate.adjacent_correct` consumer on the first two entries.
 This is representation transport within Lean types and a bounded library
 composition, not a claim of transport across arbitrary mathematical settings.
