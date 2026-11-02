@@ -271,6 +271,9 @@ import Examples.SuspensionRelocation
 import Examples.SuspensionForceObservation
 import Examples.SuspensionInvariant
 import Examples.SuspensionRecursive
+import Examples.SuspensionDecomposition
+import Examples.SuspensionPureValues
+import Examples.SuspensionPureMachine
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
