@@ -20,6 +20,8 @@ import Examples.PermutationOrder
 import Examples.PermutationTail
 import Examples.PermutationExpectation
 import Examples.PermutationJoint
+import Examples.PermutationPlacement
+import Examples.PermutationPlacementBoundary
 import Examples.StatefulIncremental
 import Examples.ExternalInteraction
 import Examples.InteractionTransport

@@ -354,3 +354,26 @@ adaptive-set laws and correlated treap charging remain separate obligations.
 The source is uncompiled and unaccepted. Local FDSA-XU05 retains its frozen
 requirements, starting state, exact expectations and later candidate/review
 evidence.
+
+## Shared fixed placement and internal order (draft)
+
+The [placement unit](fdsa-permutation-placement.md) relates the existing
+aggregate preceding count and the actual internal order of one fixed subset.
+It adds an invariant-event fiber formula using the existing private order
+relabeling argument, deterministic cardinality transport, and ordinary IndepFun
+under a full global-permutation HasLaw on an arbitrary current environment.
+Exact real and ENNReal weighted means consume the existing count mean.
+Real count/weight/product integrability is established on the finite target
+and transported; signed and infinite weights retain their separate semantics.
+
+Connected actual observations retain both conditioning directions, null and
+empty boundaries, minimal comparison assumptions, the true ordinal bridge,
+and explicit failures of replacing the full global law by an order marginal
+or replacing an order-only weight by a placement-dependent charge.
+
+This is a fixed-law tool for a justified later weighted argument. It does not
+complete an algorithm/history bridge, recursive conditional depth, frontier
+charging, layer sum or C10-117. The smaller Chapter 2 mean route does not depend
+on it. All chapter and appendix obligations remain unchanged. The source is
+uncompiled and unaccepted; local FDSA-XU06 retains its exact frozen scope,
+starting identity, full preparation and eventual candidate/review evidence.

@@ -24,6 +24,10 @@ minimum's zero-based position. Adding one gives the one-based ordinal
 expectation on a proved nonempty subset. This is not a raw numeric-priority
 expectation. Neither a relative-order law alone nor a subset chosen after
 sampling supplies the global-uniform, fixed-subset premise used here.
+
+Setwise relabeling of the selected keys preserves the aggregate count. That
+deterministic law needs only the comparison relation and retains the ordinary
+infinite-set convention; it does not assert invariance of named outside keys.
 -/
 
 set_option autoImplicit false
@@ -269,5 +273,31 @@ theorem integral_firstPosition_uniformOn {U : ℕ}
           (add_div _ _ _).symm
         _ = ((U : ℝ) + 1) / (S.card + 1) := by
           rw [← add_assoc, sub_add_cancel]
+
+/-- Relabeling keys within the selected set and its complement preserves the
+aggregate count. No order law or finiteness premise is needed for this
+cardinality equality, and a named outside key need not stay fixed. -/
+theorem beforeCount_relabel [LT P] (priority : I → P) (S : Finset I)
+    (π σ : Equiv.Perm I) (hS : ∀ a, σ a ∈ S ↔ a ∈ S) :
+    beforeCount priority S (π * σ.symm) = beforeCount priority S π := by
+  classical
+  have hset :
+      {b | ∀ a ∈ S, priority ((π * σ.symm) b) < priority ((π * σ.symm) a)} =
+        σ.symm ⁻¹' {b | ∀ a ∈ S, priority (π b) < priority (π a)} := by
+    apply Set.ext
+    intro b
+    change (∀ a ∈ S, priority (π (σ.symm b)) < priority (π (σ.symm a))) ↔
+      ∀ a ∈ S, priority (π (σ.symm b)) < priority (π a)
+    constructor
+    · intro hb a ha
+      simpa only [Equiv.symm_apply_apply] using hb (σ a) ((hS a).2 ha)
+    · intro hb a ha
+      apply hb (σ.symm a)
+      apply (hS (σ.symm a)).1
+      simpa only [Equiv.apply_symm_apply] using ha
+  unfold beforeCount
+  rw [hset]
+  exact Set.ncard_preimage_of_injective_subset_range σ.symm.injective
+    (fun a _ha => σ.symm.surjective a)
 
 end Applications.Probability.PermutationExpectation

@@ -1,3 +1,4 @@
+import Mathlib.Basic.ENNReal.Inv
 import Mathlib.Data.Finset.Card
 import Mathlib.Data.Finset.Lattice.Lemmas
 import Mathlib.Data.Finset.Prod
@@ -37,6 +38,11 @@ environment measure. The subsets need not cover the population and may be
 empty. These results do not assert a law after an arbitrary history.
 Matching this label order to numeric priorities and algorithmic work remains
 a separate source correspondence.
+
+An event invariant under key relabelings preserving one fixed subset has
+equal mass in every supported order fiber. Its mass is divided by the
+factorial number of orders, including for events of mass zero. This law
+observes the original uniform global sample.
 -/
 
 set_option autoImplicit false
@@ -586,5 +592,118 @@ theorem hasLaw_filter_pair {Ω : Type*}
       ((uniformOn (orders positions A : Set (List I))).prod
         (uniformOn (orders positions B : Set (List I)))) μ :=
   (filter_pair_hasLaw_orders positions hnd hcomplete S A B hAS hBS hAB).fun_comp hY
+
+
+/-! ## Slicing an invariant event by the observed order -/
+
+private theorem inter_fiber_mass_eq
+    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
+    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)
+    (A : Finset I) (E : Set (Equiv.Perm I))
+    (hInvariant : ∀ (σ : Equiv.Perm I),
+      (∀ a, σ a ∈ A ↔ a ∈ A) →
+      ∀ π, (π * σ.symm ∈ E ↔ π ∈ E))
+    (xs ys : List I) (hxs : xs ∈ orders positions A) (hys : ys ∈ orders positions A) :
+    uniformOn Set.univ (E ∩ {π | restrictedOrder positions A π = xs}) =
+      uniformOn Set.univ (E ∩ {π | restrictedOrder positions A π = ys}) := by
+  classical
+  letI := Fintype.ofList positions hcomplete
+  obtain ⟨σ, hmap, hA⟩ := exists_relabel_orders positions hnd hcomplete A xs ys hxs hys
+  have hpre : (fun π : Equiv.Perm I => π * σ.symm) ⁻¹'
+      (E ∩ {π | restrictedOrder positions A π = ys}) =
+      E ∩ {π | restrictedOrder positions A π = xs} := by
+    apply Set.ext
+    intro π
+    change (π * σ.symm ∈ E ∧ restrictedOrder positions A (π * σ.symm) = ys) ↔
+      (π ∈ E ∧ restrictedOrder positions A π = xs)
+    refine and_congr (hInvariant σ hA π) ?_
+    rw [restrictedOrder_relabel positions A π σ hA, ← hmap]
+    exact (List.map_injective_iff.mpr σ.injective).eq_iff
+  have hcard : (E ∩ {π | restrictedOrder positions A π = xs}).encard =
+      (E ∩ {π | restrictedOrder positions A π = ys}).encard := by
+    rw [← hpre]
+    exact Set.encard_preimage_of_bijective (Group.mulRight_bijective σ.symm) _
+  have hmeasx : MeasurableSet (E ∩ {π | restrictedOrder positions A π = xs}) :=
+    (Set.toFinite _).measurableSet
+  have hmeasy : MeasurableSet (E ∩ {π | restrictedOrder positions A π = ys}) :=
+    (Set.toFinite _).measurableSet
+  rw [uniformOn_univ, uniformOn_univ, Measure.count_apply hmeasx,
+    Measure.count_apply hmeasy, hcard]
+
+/-- An event invariant under relabelings preserving the fixed subset has
+its mass split equally over all supported whole orders. The normalization
+uses the positive finite factorial, so the event may have mass zero. -/
+theorem uniformOn_inter_restrictedOrder_eq
+    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
+    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)
+    (A : Finset I) (E : Set (Equiv.Perm I))
+    (hInvariant : ∀ (σ : Equiv.Perm I),
+      (∀ a, σ a ∈ A ↔ a ∈ A) →
+      ∀ π, (π * σ.symm ∈ E ↔ π ∈ E))
+    (xs : List I) :
+    uniformOn (Set.univ : Set (Equiv.Perm I))
+        (E ∩ {π | restrictedOrder positions A π = xs}) =
+      if xs ∈ orders positions A
+      then uniformOn (Set.univ : Set (Equiv.Perm I)) E /
+        (Nat.factorial A.card : ℝ≥0∞)
+      else 0 := by
+  classical
+  letI := Fintype.ofList positions hcomplete
+  by_cases hxs : xs ∈ orders positions A
+  · rw [if_pos hxs]
+    have hpre : (restrictedOrder positions A) ⁻¹'
+        (orders positions A : Set (List I)) = Set.univ := by
+      apply Set.eq_univ_of_forall
+      intro π
+      exact restrictedOrder_mem_orders positions hnd hcomplete A π
+    have hpartition :
+        (∑ ys ∈ orders positions A,
+          uniformOn Set.univ (E ∩ {π | restrictedOrder positions A π = ys})) =
+          uniformOn Set.univ E := by
+      have hsum := sum_measure_preimage_singleton
+        (μ := (uniformOn (Set.univ : Set (Equiv.Perm I))).restrict E)
+        (f := restrictedOrder positions A) (orders positions A)
+        (fun ys _ => (Set.toFinite _).measurableSet)
+      rw [hpre, Measure.restrict_apply_univ E] at hsum
+      calc
+        _ = ∑ ys ∈ orders positions A,
+            (uniformOn (Set.univ : Set (Equiv.Perm I))).restrict E
+              ((restrictedOrder positions A) ⁻¹' {ys}) := by
+          apply Finset.sum_congr rfl
+          intro ys _hys
+          have hmeas : MeasurableSet ((restrictedOrder positions A) ⁻¹' {ys}) :=
+            (Set.toFinite _).measurableSet
+          rw [Measure.restrict_apply hmeas]
+          change uniformOn Set.univ (E ∩ {π | restrictedOrder positions A π = ys}) =
+            uniformOn Set.univ ({π | restrictedOrder positions A π = ys} ∩ E)
+          rw [Set.inter_comm]
+        _ = _ := hsum
+    have hsum :
+        (∑ ys ∈ orders positions A,
+          uniformOn Set.univ (E ∩ {π | restrictedOrder positions A π = ys})) =
+        ((orders positions A).card : ℝ≥0∞) *
+          uniformOn Set.univ (E ∩ {π | restrictedOrder positions A π = xs}) := by
+      calc
+        _ = ∑ _ys ∈ orders positions A,
+            uniformOn Set.univ (E ∩ {π | restrictedOrder positions A π = xs}) := by
+          apply Finset.sum_congr rfl
+          intro ys hys
+          exact inter_fiber_mass_eq positions hnd hcomplete A E hInvariant ys xs hys hxs
+        _ = _ := by rw [Finset.sum_const, nsmul_eq_mul]
+    apply (ENNReal.eq_div_iff (a := (Nat.factorial A.card : ℝ≥0∞))
+      (Nat.cast_ne_zero.mpr (Nat.factorial_ne_zero A.card))
+      (ENNReal.natCast_ne_top (Nat.factorial A.card))).2
+    simpa only [orders_card positions hnd hcomplete A] using hsum.symm.trans hpartition
+  · rw [if_neg hxs]
+    have hempty : (E ∩ {π | restrictedOrder positions A π = xs}) = ∅ := by
+      apply Set.ext
+      intro π
+      change (π ∈ E ∧ restrictedOrder positions A π = xs) ↔ False
+      constructor
+      · rintro ⟨_, hπ⟩
+        exact hxs (hπ ▸ restrictedOrder_mem_orders positions hnd hcomplete A π)
+      · exact False.elim
+    rw [hempty]
+    exact measure_empty
 
 end Applications.Probability.PermutationOrder
