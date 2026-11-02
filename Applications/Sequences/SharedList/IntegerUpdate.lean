@@ -113,23 +113,25 @@ theorem updateIntegerRun_success {s : Store α} {r : Root} {xs : List α}
   rw [updateIntegerRun_ofNat]
   exact updateRun_success h inside y
 
+theorem updateIntegerRun_correct {s : Store α} {r : Root} {xs : List α}
+    (h : Represents s.heap r xs) (i : Int) (y : α) :
+    (optionalRepresentation α).Rel (updateIntegerRun s r i y).1
+      (updateIntegerValue xs i y) := by
+  dsimp only [optionalRepresentation]
+  cases i with
+  | ofNat n =>
+      rw [Int.ofNat_eq_natCast]
+      rw [updateIntegerRun_ofNat s r n y, updateIntegerValue_ofNat xs n y]
+      exact (updateSquare n y).preserves (r := (s, r)) (s := xs) h
+  | negSucc n =>
+      have negative : Int.negSucc n < 0 := by omega
+      rw [updateIntegerRun_negative h negative y, updateIntegerValue_negative xs negative y]
+      trivial
+
 def updateIntegerSquare (i : Int) (y : α) :
     Relational.RelSquare (representation α) (optionalRepresentation α) where
   impl state := (updateIntegerRun state.1 state.2 i y).1
   spec xs := updateIntegerValue xs i y
-  preserves := by
-    intro state xs h
-    rcases state with ⟨s, r⟩
-    change (optionalRepresentation α).Rel (updateIntegerRun s r i y).1
-      (updateIntegerValue xs i y)
-    dsimp only [optionalRepresentation]
-    cases i with
-    | ofNat n =>
-        rw [updateIntegerRun_ofNat, updateIntegerValue_ofNat]
-        exact (updateSquare n y).preserves h
-    | negSucc n =>
-        have negative : Int.negSucc n < 0 := by omega
-        rw [updateIntegerRun_negative h negative y, updateIntegerValue_negative xs negative y]
-        trivial
+  preserves := fun h => updateIntegerRun_correct h i y
 
 end Sequences.SharedList
