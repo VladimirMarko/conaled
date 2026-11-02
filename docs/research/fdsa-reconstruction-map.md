@@ -139,7 +139,7 @@ verified source-to-cost compiler.
 | Let binding | `let_rule` | Evaluate the body at the bound expression's actual value |
 | Conditional | `if_rule` | Count the Boolean computation and only its selected branch |
 | Pattern match | `case_rule` | Count the scrutinee and selected sum arm; ordinary constructor matches use the same binding principle |
-| Nonrecursive inlining | Use `bind`/`pure` without `tick` | Omitting an entry charge is an explicit model convention |
+| Nonrecursive entry omission | `CallCount.tick`, `tick_cost_comparison`, `add_entry_isBigO` | Qualified comparison through the cost-model repair below; positivity is explicit |
 
 Checked cases `primitive_has_no_extra_charge`, `call_entry_charged_once`,
 `let_uses_bound_value`, `arguments_add_costs`, `inactive_branch_uncharged` and
@@ -191,18 +191,30 @@ interface; both prove that two reversals recover every input list.
 
 ### Resource and interpretation boundary (§§1.5.2–1.5.3)
 
-The checked observations are nonprimitive call counts under the specified
-equations. They do not establish allocation, stack depth, garbage-collection
-cost, Lean execution time or a physical RAM bound. The source's implementation
-discussion is conditional on a suitable compiler, runtime, representation and
-target. No such end-to-end stack is postulated here. Its discussion of inlining
-also identifies the zero-cost corner case; no unsupported asymptotic
-equivalence is asserted for a function whose model cost is identically zero.
+The observations are nonprimitive call counts under the specified equations.
+They do not establish allocation, stack depth, garbage-collection cost, Lean
+execution time or a physical RAM bound. The source's implementation discussion
+is conditional on a suitable compiler, runtime, representation and target.
+No such end-to-end stack is postulated here.
 
-The chapter prefers explicit inequalities over asymptotic machinery. Its
-concrete bounds and exact exercise are checked above; the remaining discussion
-does not assert an additional algorithm theorem. Higher-order time conventions
-refer forward to Appendix B.1 and remain on that appendix's coverage list.
+The cost-comparison mathematics on pp7–9 is a separate required part of the
+chapter. Its earlier blanket classification as explanatory scope was incorrect.
+The [cost-model repair](fdsa-call-models.md) supplies the precise statement
+review and intended connections for three currently unvalidated additions:
+
+- Uniform fine/coarse tariff bounds from a fixed finite local-case catalogue,
+  with an exact append-branch client and both asymptotic directions.
+- Omission of one nonrecursive entry under pointwise/eventual positivity,
+  with zero and intermittently-zero counterexamples. Merely being
+  non-identically-zero is insufficient.
+- Actual shared-demand cache transitions, demanded-value agreement and a work
+  bound against a finite eager catalogue, with external-program correspondence
+  explicit and unshared duplication treated separately.
+
+These source repairs remain subject to compilation, full candidate gates and
+independent final review; their presence does not close the chapter. Section
+1.5.3's preference for explicit bounds remains explanatory. Higher-order time
+conventions refer forward to Appendix B.1 and stay on that appendix's list.
 
 ## Architecture and statement review
 
