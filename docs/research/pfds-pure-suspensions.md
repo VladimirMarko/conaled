@@ -87,8 +87,10 @@ Delay allocates without evaluating even a known nonterminating body. Uncached
 entry starts a new history and advances older ones. A cache hit replays the
 stored certificate through the caller's still-unmatched inner pattern. Normal
 memoization derives its certificate from the past prefix and writes before
-matching resumes; exceptional exit leaves the thunk uncached. These local
-results preserve the unrestricted raw transition and its body/cache events.
+matching resumes. Exceptional exit skips that pending frame's successful
+cache write and retains the memory reached so far, including any successful
+write by an inner evaluation. These local results preserve the unrestricted
+raw transition and its body/cache events.
 
 ## Actual execution and self-reentry
 
@@ -130,10 +132,16 @@ there is no new body-entry event for that address. This conclusion does not
 require purity or termination of the surrounding computation.
 
 The payload is allowed to change. The checked assignment example changes7 to8;
-the existing effectful reentrant program retains its two cache writes. A body
-that raises leaves its thunk uncached and supports another identical execution.
-No general at-most-one cache-write trace theorem is claimed. Equal pure meanings
-at distinct newly allocated addresses likewise do not identify their storage.
+the existing effectful reentrant program retains its two cache writes. The
+checked `Exceptions.raised_body_can_repeat` case in
+[SuspensionValuePersistence](../../Examples/SuspensionValuePersistence.lean)
+raises without changing its initial thunk, so that particular body can be
+attempted again with the same result. In unrestricted execution, the checked
+`outer_exception_preserves_inner` and `outer_exception_then_hit` cases in
+[SuspensionMachine](../../Examples/SuspensionMachine.lean) retain an inner
+successful cache when the outer body raises. No general at-most-one cache-write
+trace theorem is claimed. Equal pure meanings at distinct newly allocated
+addresses likewise do not identify their storage.
 
 The checked connected literal source program creates and evaluates a suspension,
 then returns its address. Its actual raw and pure executions each take15 steps.

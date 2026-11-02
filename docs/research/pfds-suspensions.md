@@ -120,9 +120,13 @@ machine. Stronger pure or nonreentrant client claims need their own proved
 restrictions. No blackhole marker or exception cache is inserted.
 
 The appendix's additional statement that pure self-forcing cannot terminate is
-tracked separately as local10019/TU.A.4.PURE. It remains unproved. Complete
-AppendixA and Chapter4 coverage require it as well as this general extension;
-an assumed nonreentrancy condition does not discharge that source claim.
+tracked separately as local10019/TU.A.4.PURE. Its precise pure-domain theorem
+and recursive source client have successful focused checks, described in the
+[pure suspension record](pfds-pure-suspensions.md). They derive nonreentry for
+finite admitted executions from the proved self-forcing nontermination result.
+Local10019 remains unaccepted pending its exact full build, exhaustive audit,
+independent reviews and final candidate verification. Complete AppendixA and
+Chapter4 coverage require that accepted scope as well as this general extension.
 
 ## Syntax and static obligations
 
