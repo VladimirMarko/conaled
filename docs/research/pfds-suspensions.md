@@ -10,11 +10,13 @@ retains its Chapter3 owner. Source identities and chapter accounting are in
 
 **This development is incomplete and unaccepted.** Syntax, memory operations,
 the independent forcing rules, the explicit machine, continuation and return-
-class laws, bounded-prefix observation and measured observation have focused
-compilation evidence, with their recorded connected clients. The address-range
-helper and expanded recursive runtime case also compile. Static/grammar clients,
-correspondence, derived forms, finite-memory and recursive-creation laws, and address-relocation
-transport still require successful compilation. Full candidate build, exhaustive proof
+class laws, source-rule correspondence, static and grammar rules, bounded-prefix
+observation, measured observation, finite-memory invariants, recursive-creation laws,
+and address algebra have focused compilation evidence with their recorded connected
+clients. The four derived-form equivalences and all ten clients, including the
+composed lazy-call/reference case, also compile. Address-relocation execution
+transport and its force observations still require successful compilation.
+Full candidate build, exhaustive proof
 audit, final verification and both independent review axes remain required.
 The authoritative local tickets, statements, compiler reports and recovery
 records accompany the repository in durability checkpoints.
@@ -98,14 +100,16 @@ premise that relevant targets are thunks. Recursive right-hand sides are
 restricted to functions and suspensions; creation uses the same outer
 environment before the simultaneous Rec/SRec extension is installed.
 
-The new [recursive-creation draft](../../Applications/Suspensions/Recursive.lean)
-connects the actual creation fold with an exact machine prefix. It aims to
-derive the thunk-target premise from permitted function/delay right-hand sides,
-then justify the simultaneous environment update and its footprint. Its body
-composition accounts for three creation transitions per binding and two entry/
-closing transitions. This draft and its connected client await compilation;
-the source's thunk-target premise is not being treated as a proved invariant
-merely because it has been named.
+The [recursive-creation laws](../../Applications/Suspensions/Recursive.lean)
+connect the actual creation fold with an exact machine prefix. They derive
+the thunk-target premise from permitted function/delay right-hand sides and
+bounded initial memory, then justify the simultaneous environment update and
+its footprint. Both directions of the body equivalence account for three
+creation transitions per binding and two entry/closing transitions, retaining
+the complete reached answer. The core and typed connected client passed
+focused round3. Subsequent documentation clarifies that permitted RHS shapes
+do not supply inherited distinct-binder, nonempty-match or name-classification
+conditions; those remain separate source well-formedness obligations.
 
 Reentrant forcing is permitted. The operational cases distinguish an inner
 successful cache write followed by an outer successful overwrite from an
@@ -124,7 +128,7 @@ an assumed nonreentrancy condition does not discharge that source claim.
 The [surface grammar](../../Applications/Suspensions/Grammar.lean) separates
 atomic, application and full expression/pattern categories. The dollar
 production belongs to the full category and consumes its following expression
-or pattern. Draft derivation cases distinguish `$f x` from `f ($x)` and the
+or pattern. Checked derivation cases distinguish `$f x` from `f ($x)` and the
 corresponding constructor-pattern forms. Identifiers exclude the reserved
 spelling `$`; this does not exclude every longer symbolic identifier containing
 that character. Token classification and omitted inherited syntax remain
@@ -143,7 +147,7 @@ bindings may quantify both. The dollar rule is non-expansive independently
 of its body's effects. The context records ambient scoped type variables and
 value/exception bindings. Open supplied signatures require their free type
 variables accounted for in ambient scope; the explicit signature-scoping
-contract and its clients remain part of the pending static tranche.
+contract and its clients passed the focused static checks.
 
 `force` is the derived suspended-variable function. The concrete macro uses
 binder0, requiring that identifier to be variable-classified in a raw context.
@@ -159,13 +163,13 @@ accounts for ambient type-variable scope: adding an otherwise unused parameter
 can change `Clos` if its free type variables were not already in the context.
 Fresh term spelling alone does not discharge that obligation.
 
-The source audit identifies SUSP-STAT-001, a suspected polymorphic cached-reference
-counterexample. The same public core expression has drafted Boolean typing and
-an integer0 execution witness. The runtime witness now compiles; the complete
-static target remains pending. Both must compile before this is reported as a
-checked counterexample. No source rule has been weakened to manufacture a
-global preservation theorem, and no unverified counterexample is used as a
-dependency of the formal development.
+The source audit identifies SUSP-STAT-001, a polymorphic cached-reference
+counterexample in this delimited effectful core. The same public core expression
+has checked Boolean typing and a checked finite execution returning integer0,
+together with the inequality of their atom types. The combined static client
+passed focused round8. No source rule has been changed to manufacture a global
+preservation theorem. The result concerns the stated 1990 plus Appendix A
+fragment; a complete Standard ML parser/elaborator is outside this development.
 
 ## Finite correspondence and derived forms
 
@@ -187,19 +191,24 @@ forcing and reference-pattern equivalences and ordered-alternative
 correspondence retain intermediate states and outcome distinctions. The
 concrete source-rule clients include a captured-value thunk that changes a
 counter, fails a pattern, remains cached and changes which later clause can
-match. These declarations are still awaiting their successful focused check.
+match. The complete module and clients passed focused round3 with unchanged
+tracked inputs; full candidate acceptance remains separate.
 
 [Derived forms](../../Applications/Suspensions/Derived.lean) state force-after-
 delay from the state after allocation. A normal body return is followed by the
 cache write and derived-force return; a raised body retains its reached state.
-The exact transition-count drafts are body-count+12 and body-count+10,
+The exact transition counts are body-count+12 and body-count+10,
 respectively. Lazy-function formation evaluates its strict argument but delays
-ordered matching in the newly stored body; its normal formation draft is
+ordered matching in the newly stored body; its normal formation count is
 argument-count+9, with raised arguments costing argument-count+4. The new
-converse drafts recover the corresponding actual body or argument execution
+converse laws recover the corresponding actual body or argument execution
 from each finite normal/raised completion and retain the exact counts. These
 are conditional finite-execution laws, not termination or host-runtime bounds,
-and still require successful compilation with their complete clients.
+and passed focused round8 with their original nine clients. The composed
+lazy-formation/later-force reference client passed round10: formation takes13
+transitions, an intervening reference assignment takes6, and later forcing
+takes39. The later match reads the updated reference and selects the fallback
+clause, retaining both nested cache writes and the changed reference.
 
 Fresh term names prevent capture, but literal closure environments can still
 contain the generated binding. Allocation likewise leaves a cell in memory.
@@ -209,8 +218,10 @@ renaming belong to explicitly justified client observations.
 
 The new [address algebra](../../Applications/Suspensions/Renaming.lean),
 [execution transport](../../Applications/Suspensions/Relocation.lean) and
-[force observations](../../Applications/Suspensions/ForceObservation.lean) are
-uncompiled drafts addressing that private-allocation obligation. The injection
+[force observations](../../Applications/Suspensions/ForceObservation.lean)
+address that private-allocation obligation. The algebra and its clients passed
+focused checks; the execution and observation layers remain uncompiled drafts.
+The injection
 fixes addresses below the original frontier and shifts later addresses by one.
 It renames values inside records, constructors, captured closure environments
 and finite recursive bindings. Related heaps agree at every represented address;
@@ -223,13 +234,13 @@ A connected reference case expects old address0 to contain7 and the newly
 returned reference to contain9, at direct address1 versus delayed address2.
 The general simulation and these applications have not yet been compiler-checked.
 
-[Finite memory](../../Applications/Suspensions/Invariant.lean) also remains a
-draft. It tracks the allocation frontier together with bounds on pending
+[Finite memory](../../Applications/Suspensions/Invariant.lean) passed its focused
+round3 check with all connected clients. It tracks the allocation frontier with bounds on pending
 memoization-frame addresses. Memory boundedness alone is insufficient for a
 forged raw frame. The intended cyclic-thunk example retains two reentrant
 memoization frames for the same valid address; this is a finite-prefix invariant,
-not a divergence proof. The proof that actual permitted recursive creation
-establishes SRec's target-thunk premise remains to be implemented.
+not a divergence proof. The separate Recursive laws derive SRec's target-thunk
+premise from actual permitted creation and have passing focused evidence.
 
 ## Budget, resources and compositional observations
 

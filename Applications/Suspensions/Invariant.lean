@@ -121,10 +121,9 @@ private theorem value_bounded (parameters : Parameters Primitive) (memory : Memo
         repeat' first
           | (fail_if_no_progress subst_vars)
           | (fail_if_no_progress simp_all)
-          | exact bounded
           | exact Suspensions.allocate_bounded bounded _
           | exact Suspensions.memoize_bounded bounded (by assumption) _
-          | exact memoize_bounded_of_lt bounded (by first | assumption | exact frames.1) _
+          | exact memoize_bounded_of_lt bounded frames.1 _
           | apply And.intro
           | split at *
 

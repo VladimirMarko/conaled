@@ -35,6 +35,7 @@ theorem expansive_applicative_generalizes :
         {applicative} := by
   ext a
   simp [generalize, nonExpansive, Ty.vars, applicative]
+  exact fun same => congrArg TyVar.imperative same
 
 /-- The same expansive reference allocation with an imperative variable does
 not generalize that variable. -/
@@ -43,6 +44,7 @@ theorem expansive_imperative_is_monomorphic :
       (.reference (.arrow (.variable imperative) (.variable imperative)))).quantified = ∅ := by
   ext a
   simp [generalize, nonExpansive, Ty.vars, imperative]
+  exact fun same => congrArg TyVar.imperative same
 
 /-- Appendix A's suspension rule changes exactly that decision. -/
 theorem delay_generalizes_imperative :

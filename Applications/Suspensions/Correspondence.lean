@@ -144,12 +144,12 @@ theorem suspension_match_sound {parameters : Parameters Primitive}
     matching parameters s caller (.suspended inner) (.address address) answer t := by
   cases run with
   | cached found matched => exact (matching_cached_iff found).mpr matched
-  | @evaluated code captured value afterBody answer afterMatch found body matched =>
+  | @evaluated code captured value afterBody answer _ found body matched =>
     rcases body with ⟨bodySteps, bodyRun⟩
     rcases matched with ⟨matchSteps, matchRun⟩
     have continuation : Progress.Evaluates (step parameters)
         ⟨afterBody, .value value, [.memoize address caller inner]⟩
-        ⟨afterMatch, matchingResult answer⟩ (matchSteps + 1) := by
+        ⟨t, matchingResult answer⟩ (matchSteps + 1) := by
       apply Progress.Evaluates.next
       · simpa [step, proceed] using congrArg Prod.fst
           (memoize_before_match parameters afterBody caller inner address value [])
@@ -160,11 +160,11 @@ theorem suspension_match_sound {parameters : Parameters Primitive}
     · exact ⟨_, by simpa [appendFrames, start] using resumed⟩
     · simpa [step, startPattern, proceed] using congrArg Prod.fst
         (body_transition parameters s caller captured inner address code [] found)
-  | @raised code captured packet afterBody found body =>
+  | @raised code captured packet _ found body =>
     rcases body with ⟨bodySteps, bodyRun⟩
     have continuation : Progress.Evaluates (step parameters)
-        ⟨afterBody, .raised packet, [.memoize address caller inner]⟩
-        ⟨afterBody, .raised packet⟩ 2 :=
+        ⟨t, .raised packet, [.memoize address caller inner]⟩
+        ⟨t, .raised packet⟩ 2 :=
       .next (by rfl) (.done (by rfl))
     have resumed := evaluates_append bodyRun (by rfl) [.memoize address caller inner] continuation
     apply (after_step_iff (before := startPattern s caller (.suspended inner) (.address address))
@@ -363,7 +363,7 @@ theorem clause_resumes {parameters : Parameters Primitive}
           ⟨afterPattern, .matched bindings, [.clause env code remaining value]⟩
           final (((bodySteps - 1) + residualSteps) + 1) := by
         apply Progress.Evaluates.next (by rfl)
-        simpa only [appendFrames_nil] using bodyResumed
+        simpa only [appendFrames_nil, start] using bodyResumed
       have resumed := evaluates_append patternRun rfl [.clause env code remaining value]
         patternResidual
       exact ⟨_, .next rfl (by simpa [appendFrames, startPattern] using resumed)⟩

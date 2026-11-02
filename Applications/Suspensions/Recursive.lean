@@ -4,6 +4,8 @@ import Applications.Suspensions.Prefix
 /-!
 # Actual creation and closing of recursive function/suspension bindings
 
+This realizes the permitted core binding fragment of the modified Rule 137 in
+Okasaki's thesis Appendix A, printed pp. 134–135, over the inherited 1990 core.
 Only the existing `RecursiveRhs` forms are permitted: function closures and
 delayed expressions. This creation phase never evaluates a function body or a
 delayed body. Its fold follows the machine's actual three transitions per
@@ -23,6 +25,10 @@ namespace Suspensions.Core.Recursive
 open Machine
 variable {Primitive : Type}
 
+/-- Only the recursive right-side shape restriction. Inherited source
+requirements such as distinct binders, nonempty function matches and
+identifier classification are separate well-formedness obligations. The
+raw-machine laws below also hold without those additional restrictions. -/
 def Permitted (bindings : List (Nat × Expr Primitive)) : Prop :=
   List.Forall (fun binding => RecursiveRhs binding.2) bindings
 
@@ -297,25 +303,48 @@ theorem enter_body_prefix {parameters : Parameters Primitive} {memory : Memory P
 
 private theorem evaluates_after_prefix {parameters : Parameters Primitive}
     {config next : Config Primitive} {budget : Nat} {answer : Answer Primitive} {steps : Nat}
-    (prefix : Prefix.observe parameters budget config = .inr next)
+    (reached : Prefix.observe parameters budget config = .inr next)
     (tail : Progress.Evaluates (step parameters) next answer steps) :
     Progress.Evaluates (step parameters) config answer (budget + steps) := by
   induction budget generalizing config with
   | zero =>
-      have equal : config = next := Sum.inr.inj prefix
+      have equal : config = next := Sum.inr.inj reached
       subst config
       simpa only [Nat.zero_add] using tail
   | succ budget ih =>
       cases moved : step parameters config with
       | inl stopped =>
-          rw [Prefix.observe_succ, moved, Prefix.iterate_answer] at prefix
-          cases prefix
+          rw [Prefix.observe_succ, moved, Prefix.iterate_answer] at reached
+          cases reached
       | inr following =>
           have rest : Prefix.observe parameters budget following = .inr next := by
-            simpa only [Prefix.observe_succ, moved] using prefix
+            change (Prefix.advance parameters)^[budget] (.inr following) = .inr next
+            simpa only [Prefix.observe_succ, moved] using reached
           have continued := Progress.Evaluates.next moved (ih rest)
           have count : (budget + steps) + 1 = (budget + 1) + steps := by omega
           simpa only [count] using continued
+
+private theorem evaluates_strip_prefix {parameters : Parameters Primitive}
+    {config next : Config Primitive} {budget : Nat} {answer : Answer Primitive} {total : Nat}
+    (reached : Prefix.observe parameters budget config = .inr next)
+    (evaluation : Progress.Evaluates (step parameters) config answer total) :
+    ∃ steps, Progress.Evaluates (step parameters) next answer steps ∧ total = budget + steps := by
+  induction budget generalizing config total with
+  | zero =>
+      have equal : config = next := Sum.inr.inj reached
+      subst config
+      exact ⟨total, evaluation, (Nat.zero_add total).symm⟩
+  | succ budget ih =>
+      cases evaluation with
+      | done finished =>
+          rw [Prefix.observe_succ, finished, Prefix.iterate_answer] at reached
+          cases reached
+      | @next _ following _ remaining moved tail =>
+          have rest : Prefix.observe parameters budget following = .inr next := by
+            change (Prefix.advance parameters)^[budget] (.inr following) = .inr next
+            simpa only [Prefix.observe_succ, moved] using reached
+          obtain ⟨steps, body, count⟩ := ih rest tail
+          exact ⟨steps, body, by omega⟩
 
 /-- If the recursive body has a finite evaluation, the actual expression has
 that same reached answer after its explicit creation/closing prefix. -/
@@ -330,8 +359,29 @@ theorem evaluates_from_body {parameters : Parameters Primitive} {memory : Memory
       answer (3 * bindings.length + 2 + steps) :=
   evaluates_after_prefix (enter_body_prefix permitted made body) evaluation
 
-/-- The source applicability premise follows from actual allowed creation.
-Both the SRec relation and the reached machine state are conclusions. -/
+/-- The explicit creation/closing prefix also strips from any finite whole
+run. The statement is uniform in the reached answer and adds no return-mode
+or termination premise. Separate control-flow invariants can further restrict
+reachable expression answers. The transition count is exact. -/
+theorem evaluates_iff {parameters : Parameters Primitive} {memory : Memory Primitive}
+    {environment : Env Primitive} {bindings : List (Nat × Expr Primitive)}
+    {result : Memory Primitive × Env Primitive} {body : Expr Primitive}
+    {answer : Answer Primitive} {total : Nat} (permitted : Permitted bindings)
+    (made : create memory environment bindings [] = .ok result) :
+    Progress.Evaluates (step parameters) (start memory environment (.recursive bindings body))
+        answer total ↔
+      ∃ steps, Progress.Evaluates (step parameters)
+        (start (closeMemory result.1 result.2) (closeEnvironment environment result.2) body) answer steps ∧
+        total = 3 * bindings.length + 2 + steps := by
+  constructor
+  · exact evaluates_strip_prefix (enter_body_prefix permitted made body)
+  · rintro ⟨steps, evaluation, rfl⟩
+    exact evaluates_from_body permitted made evaluation
+
+/-- Actual creation of the allowed right-side shapes establishes the
+unforced-target premise required by SRec. Both the SRec relation and the
+reached machine state are conclusions; inherited declaration well-formedness
+remains separate as described by `Permitted`. -/
 theorem realizes_recursive_binding (parameters : Parameters Primitive) (memory : Memory Primitive)
     (environment : Env Primitive) (bindings : List (Nat × Expr Primitive)) (body : Expr Primitive)
     (permitted : Permitted bindings) (bounded : Suspensions.Bounded memory) :

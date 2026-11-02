@@ -153,8 +153,8 @@ theorem raised_reflected {parameters : Parameters Primitive} {memory afterForce 
         Result.raised.inj resultEq, count, related.1⟩
   | _ => simp [result] at resultEq
 
-/-- Empty captured memory is a uniform client for arbitrary closed bodies,
-not just literals or allocation-free data expressions. -/
+/-- Empty memory and environment provide a uniform client for arbitrary bodies,
+including those that allocate. The finite-run premise is retained. -/
 theorem closed_value_observed {parameters : Parameters Primitive}
     {afterBody : Memory Primitive} {body : Expr Primitive} {v : Value Primitive} {steps : Nat}
     (equivariant : Equivariant parameters (shift 0))

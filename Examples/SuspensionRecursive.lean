@@ -1,5 +1,6 @@
 import Applications.Suspensions.Recursive
 import Applications.Suspensions.Invariant
+import Applications.Suspensions.Static
 
 /-!
 # Recursive creation supplies its own source applicability premise
@@ -35,9 +36,11 @@ private theorem initial_bounded : Bounded initial :=
     (.atom (.integer 99)) []
 
 private def clauses : List (Pattern × Expr Unit) := [(.wildcard, .atom (.integer 7))]
+private def recursiveBody : Expr Unit :=
+  .bind (.suspended .wildcard) (.variable 2) (.atom (.integer 0))
 private def bindings : List (Nat × Expr Unit) :=
-  [(1, .function clauses), (2, .delay (.variable 2))]
-private def allocated := Suspensions.delay initial (.variable 2) environment
+  [(1, .function clauses), (2, .delay recursiveBody)]
+private def allocated := Suspensions.delay initial recursiveBody environment
 private def accumulated : Env Unit :=
   Env.extend (Env.extend [] [(1, .closure clauses environment [])]) [(2, .address allocated.2)]
 private def prepared : Memory Unit × Env Unit := (allocated.1, accumulated)
@@ -45,10 +48,10 @@ private def closed := closeMemory prepared.1 prepared.2
 private def closedEnv := closeEnvironment environment prepared.2
 
 private theorem bindings_permitted : Permitted bindings := by
-  apply (permitted_cons 1 (.function clauses) [(2, .delay (.variable 2))]).mpr
+  apply (permitted_cons 1 (.function clauses) [(2, .delay recursiveBody)]).mpr
   refine ⟨.function clauses, ?_⟩
-  apply (permitted_cons 2 (.delay (.variable 2)) []).mpr
-  exact ⟨.delay (.variable 2), trivial⟩
+  apply (permitted_cons 2 (.delay recursiveBody) []).mpr
+  exact ⟨.delay recursiveBody, trivial⟩
 
 private theorem creation_receipt :
     create initial environment bindings [] = .ok prepared := rfl
@@ -60,6 +63,17 @@ private theorem target_ready :
   exact held.targets
 
 private theorem closing : Closes prepared.1 prepared.2 closed := close_correct target_ready
+
+/-- The delayed self-forcing right side has an ordinary integer-suspension
+type under the recursive assumption for its own variable. The dynamic laws
+below do not need to assume this typing derivation. -/
+theorem delayed_recursive_rhs_typed
+    (signature : Suspensions.Static.Signature Unit) (context : Suspensions.Static.Context)
+    (found : context.values.lookup 2 =
+      some (.variable (Suspensions.Static.Scheme.mono (.suspension .integer)))) :
+    Suspensions.Static.HasType signature context (.delay recursiveBody) (.suspension .integer) :=
+  .delay (.bind (.variable found (Suspensions.Static.Scheme.mono_instantiates _ _))
+    (.suspended .wildcard) (.atom (.integer 0)))
 
 /-- The unforced-target premise and the source SRec footprint both follow
 from the actual permitted creation fold and its reached machine prefix. -/
@@ -80,15 +94,15 @@ theorem closing_footprint :
     closed.next = 3 ∧ closed.exceptionNames = {20, 21} ∧
       closed.memory 0 = some (.value (.atom (.integer 41))) ∧
       closed.memory 1 = some (.thunk (.atom (.integer 99)) []) ∧
-      closed.memory 2 = some (.thunk (.variable 2) closedEnv) ∧
+      closed.memory 2 = some (.thunk recursiveBody closedEnv) ∧
       Env.lookup closedEnv 2 = some (.address 2) ∧
       Env.lookup closedEnv 1 = some (.closure clauses environment accumulated) := by
   have referenceKept := (closing.outside 0 (by decide)).trans
     (show prepared.1.memory 0 = some (.value (.atom (.integer 41))) from rfl)
   have oldThunkKept := (closing.outside 1 (by decide)).trans
     (show prepared.1.memory 1 = some (.thunk (.atom (.integer 99)) []) from rfl)
-  have rebound := closing.thunks 2 (.variable 2) environment (by decide)
-    (show prepared.1.memory 2 = some (.thunk (.variable 2) environment) from rfl)
+  have rebound := closing.thunks 2 recursiveBody environment (by decide)
+    (show prepared.1.memory 2 = some (.thunk recursiveBody environment) from rfl)
   exact ⟨close_next prepared.1 prepared.2, closing.exceptionNames,
     referenceKept, oldThunkKept, rebound, rfl, rfl⟩
 
@@ -106,6 +120,18 @@ theorem recursive_expression_returns_its_fresh_suspension :
       ⟨closed, .value (.address 2)⟩ 10 :=
     evaluates_from_body bindings_permitted creation_receipt body_run
   exact ⟨run, start_evaluates_bounded initial_bounded run⟩
+
+/-- Stripping the concrete whole run recovers precisely the two-transition
+body run after the eight-transition creation and closing phase. -/
+theorem body_run_recovered_from_whole :
+    ∃ steps, Progress.Evaluates (step parameters) (start closed closedEnv (.variable 2))
+      ⟨closed, .value (.address 2)⟩ steps ∧ steps = 2 := by
+  obtain ⟨steps, evaluation, count⟩ :=
+    (evaluates_iff bindings_permitted creation_receipt).mp
+      recursive_expression_returns_its_fresh_suspension.1
+  refine ⟨steps, evaluation, ?_⟩
+  change 10 = 8 + steps at count
+  omega
 
 private def rejectedCode : Expr Unit := .atom (.integer 8)
 private def rejectedBindings : List (Nat × Expr Unit) :=
