@@ -51,8 +51,12 @@ theorem reweight_bound [Preorder C] [Preorder D] (h : C → D) (hm : Monotone h)
     (r : Measured α C) (bound : C) (hb : r.2 ≤ bound) :
     (reweight h r).2 ≤ h bound := hm hb
 
-/-- Package an existing measured function and its erasure proof directly. -/
-def erasureSquare {α β C : Type u} (f : α → Measured β C) (g : α → β)
+/-- Package an existing measured function and its erasure proof directly.
+Observations may live in a smaller universe than the value types, as with
+natural-number costs for universe-polymorphic list clients.
+-/
+def erasureSquare {α β : Type (max u v)} {C : Type v}
+    (f : α → Measured β C) (g : α → β)
     (correct : ∀ x, (f x).1 = g x) :
     Squares.Square ⟨α, α, id⟩ ⟨Measured β C, β, Prod.fst⟩ where
   impl := f

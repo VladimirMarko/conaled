@@ -243,6 +243,8 @@ import Examples.RetainedHistory
 import Examples.MeasuredScan
 import Examples.ScanSearch
 import Examples.ScanOptimality
+import Examples.FunctionalBasics
+import Examples.ListReversal
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 

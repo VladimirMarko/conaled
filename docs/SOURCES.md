@@ -100,6 +100,14 @@ inputs; no network read of a manuscript is needed to check the Lean project.
 
 ## Proof dependencies
 
+The local FDSA reconstruction pins the author-maintained **July 27, 2026**
+edition of *Functional Data Structures and Algorithms: A Proof Assistant
+Approach*. Its PDF digest, source revision, chapter coverage, model boundaries
+and checked declarations are recorded in the
+[FDSA reconstruction map](research/fdsa-reconstruction-map.md). This adds a
+separate owner-requested whole-book scope; it does not imply that every chapter
+has been formalized or accepted.
+
 * Lean: `leanprover/lean4:v4.35.0`, recorded in `lean-toolchain`.
 * Mathlib: [v4.35.0](https://github.com/leanprover-community/mathlib4/tree/56a005855ea17e0b0958f73ec801ae140b0a1679), exact revision `56a005855ea17e0b0958f73ec801ae140b0a1679`.
 * Transitive package revisions: `lake-manifest.json`.
