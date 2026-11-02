@@ -175,6 +175,13 @@ theorem infinite_index_values :
   ⟨finiteIndexSum_of_infinite _ _ Set.infinite_univ,
    finiteIndexProduct_of_infinite _ _ Set.infinite_univ⟩
 
+theorem empty_index_type :
+    finiteIndexSum (∅ : Set Empty) (Empty.elim : Empty → Nat) = 0 ∧
+    finiteIndexProduct (∅ : Set Empty) (Empty.elim : Empty → Nat) = 1 := by
+  constructor
+  · simpa using finiteIndexSum_of_finset (∅ : Finset Empty) (Empty.elim : Empty → Nat)
+  · simpa using finiteIndexProduct_of_finset (∅ : Finset Empty) (Empty.elim : Empty → Nat)
+
 /-- List-fold association preserves occurrence order and requires no
 commutativity. Set/multiset folds require their separate commutative laws.
 -/

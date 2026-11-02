@@ -298,7 +298,8 @@ exposes the ordinary `Finset.prod`/`Finset.sum` result; the infinite equation
 retains the source's convention regardless of the function's support.
 `finite_index_values` gives value 7 on the singleton index set `{0}`;
 `infinite_index_values` gives sum 0 and product 1 on all naturals even though
-the function differs from the neutral value only at 0. These results require
+the function differs from the neutral value only at 0. `empty_index_type`
+checks both neutral values with the uninhabited index type `Empty`. These results require
 only the appropriate commutative monoid on values. Index types have no public
 `Fintype`, equality, membership-decision or inhabitant requirements. The local
 classical finiteness decision is explicitly noncomputable and supplies no
