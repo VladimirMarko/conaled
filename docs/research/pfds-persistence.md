@@ -158,10 +158,35 @@ root-value observer in `SharedTree.Observation` preserves the outer execution
 failure distinction. Its composition is checked in
 [`Examples.SharedTreeOrdered`](../../Examples/SharedTreeOrdered.lean).
 
-The explicit matched-endpoint identity theorem, the actual abort/combined
-execution layer, and the physical finite-map layer remain tracked integration
+The explicit matched-endpoint identity theorem remains tracked integration
 work at this document's current revision. Pure value equality or the generic
-`Rebuilds.here` case is not recorded as a substitute for those contracts.
+`Rebuilds.here` case is not recorded as a substitute for that contract.
+
+### Aborting and combined insertion
+
+[`Optimized`](../../Applications/Search/SharedTree/Optimized.lean) executes both
+exercise variants on actual heap roots. The raw result distinguishes malformed
+input or fuel exhaustion, a duplicate abort, and successful insertion. Valid
+represented inputs with sufficient fuel exclude the first outcome. Recursive
+ancestors allocate only after success; a single public `handleAbort` maps the
+duplicate outcome to the exact original store/root pair.
+
+`insertAbortRun_duplicate` and `insertCandidateRun_duplicate` therefore state
+zero allocated cells and equality with the original state, not just equality
+of unfolded values or final frontier numbers. The absent-input theorems prove
+the independent insertion result, ordering, exact frontier increase and
+retained off-path addresses. The retention theorem for the combined algorithm
+also gives its `height+1` comparison bound on that same execution. The combined
+candidate path continues to empty even when an equal key was visited, so its
+structural-visit count can differ from baseline early-match insertion.
+
+[`OptimizedObservation`](../../Applications/Search/SharedTree/OptimizedObservation.lean)
+relates both physical wrappers to their independent pure algorithms and
+composes them with the shared optional root-value observer. The
+[`SharedTreeOptimized` cases](../../Examples/SharedTreeOptimized.lean) establish
+exact duplicate counts, invalid-root failure, absent insertion with a retained
+opposite child address, and the composed observations. A comparison bound does
+not assert a strict improvement on every individual call.
 
 ## General shared constructors: Exercise 2.5
 
@@ -199,7 +224,7 @@ the `n+1` small-size convention and the eventual logarithmic relation.
 to concrete size/depth cases, retained roots, actual stored child addresses and
 composed allocation observations.
 
-## Finite maps and contextual material
+## Finite maps
 
 [`OrderedMap.Basic`](../../Applications/Search/OrderedMap/Basic.lean) uses
 key/value node payloads ordered only by the key projection. Its independent
@@ -210,10 +235,33 @@ successful keys by a finite tree traversal. The examples include function
 payloads, stored optional-none versus a missing key, successive bindings and
 composed lookup. No payload equality is needed to state or prove these laws.
 
+[`SharedTree.Map`](../../Applications/Search/SharedTree/Map.lean) performs actual
+key-directed lookup and binding. Its valid-input execution theorem derives
+sufficient fuel from the same backward-reference invariant. Binding uses
+`path.length+1` structural visits and fresh cells, including the changed
+endpoint. Its element-comparison count agrees with the independent key-only
+search profile. Heap extension preserves every old version.
+
+`Rebuilds` preserves opposite children at copied ancestors; `WrittenAt`
+additionally records the new endpoint's binding and its two unchanged child
+addresses. The latter matters for replacement at the root, where there are no
+strict ancestors and the divergence condition would be empty. The concrete
+root-replacement case has two nonempty children and proves that both exact
+addresses survive, while old-root lookup still returns the earlier payload.
+
+`bind_lookup` establishes the all-query update law for the actual execution.
+`optionalLookupSquare` and `bindThenLookupSquare` compose the physical bind
+with lookup while retaining each optional boundary. The connected cases in
+[`Examples.SharedTreeMap`](../../Examples/SharedTreeMap.lean) distinguish a
+stored optional-none result from a missing key and retain an unaffected
+subtree during a deeper replacement.
+
 The source's empty/missing exceptions are represented by optional failure.
 Nested optional payloads retain the distinction between a successful stored
 `none` and an absent key. This is a specified translation of the data-structure
 interface, not a semantics for the whole Standard ML exception runtime.
+
+## Contextual material
 
 The destructive-append illustration motivates aliasing and ownership. Garbage
 collection, imperative persistence techniques and historical attributions are
