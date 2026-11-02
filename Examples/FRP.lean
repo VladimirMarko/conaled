@@ -1,6 +1,7 @@
 import Applications.FRP.Finite
 import Applications.FRP.Equivalence
 import Squares
+import Mathlib.Algebra.Order.Archimedean.Real.Basic
 
 /-! Checked uses of the historical FRP specifications and the square interface. -/
 noncomputable section
