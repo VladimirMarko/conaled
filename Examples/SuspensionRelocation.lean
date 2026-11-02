@@ -52,17 +52,17 @@ theorem related_initial :
     ConfigsRelated 1 (start initial bindings body) (start withPrivate bindings body) := by
   refine ⟨⟨⟨rfl, rfl, ?_⟩, by decide⟩, ?_, rfl⟩
   · intro address
+    change withPrivate.memory (shift 1 address) =
+      (initial.memory address).map (cell (shift 1))
     by_cases old : address = 0
     · subst address
       change some (.value (integer 5)) = some (cell (shift 1) (.value (integer 5)))
       simp [integer]
     · have newer : 1 ≤ address := by omega
       rw [shift_new newer]
-      have nonzero : address + 1 ≠ 0 := by omega
-      have notPrivate : address + 1 ≠ 1 := by omega
       simp [withPrivate, initial, Suspensions.delay, Suspensions.allocate,
-        Suspensions.empty, Durability.put, old, nonzero, notPrivate]
-  · simp only [start, control, bindings_fixed]
+        Suspensions.empty, Durability.put, old]
+  · simp only [start, Relocation.control, bindings_fixed]
 
 /-- The new execution is obtained from the public transport theorem. Its
 result and both reference effects are then read from the resulting relation. -/
@@ -78,9 +78,9 @@ theorem relocated_execution :
   subst outcome
   refine ⟨memory, execution, ?_, ?_, ?_⟩
   · have lookup := related.1.1.lookup 0
-    simpa [direct_observations.1] using lookup
+    simpa [direct_observations.1, integer] using lookup
   · have lookup := related.1.1.lookup 1
-    simpa [direct_observations.2.1] using lookup
+    simpa [direct_observations.2.1, integer] using lookup
   · simpa [direct_observations.2.2] using related.1.1.frontier
 
 theorem reflected_execution {answer : Answer Unit} {count : Nat}

@@ -323,12 +323,21 @@ private theorem exception_pattern_related (parameters : Parameters Primitive) (f
       (transition parameters ⟨after,
         .pattern (environment (shift frontier) env) (.exception name argument)
         (value (shift frontier) v), stack.map (frame (shift frontier))⟩) := by
-  cases v <;> simp only [transition]
-  all_goals
-    repeat' first
-      | (fail_if_no_progress subst_vars)
-      | (fail_if_no_progress simp_all)
-      | split at *
+  cases found : env.lookup name with
+  | none => simp [transition, found, related]
+  | some binding =>
+      cases binding with
+      | exception tag payload =>
+          cases payload with
+          | some payload => simp [transition, found, related]
+          | none =>
+              cases v <;> simp only [transition]
+              all_goals
+                repeat' first
+                  | (fail_if_no_progress subst_vars)
+                  | (fail_if_no_progress simp_all)
+                  | split at *
+      | _ => simp [transition, found, related]
 
 private theorem record_pattern_related (parameters : Parameters Primitive) (frontier : Nat)
     (before after : Memory Primitive) (related : StatesRelated frontier before after)
@@ -338,12 +347,23 @@ private theorem record_pattern_related (parameters : Parameters Primitive) (fron
       (transition parameters ⟨before, .pattern env (.record patterns) v, stack⟩)
       (transition parameters ⟨after, .pattern (environment (shift frontier) env) (.record patterns)
         (value (shift frontier) v), stack.map (frame (shift frontier))⟩) := by
-  cases v <;> simp only [transition]
-  all_goals
-    repeat' first
-      | (fail_if_no_progress subst_vars)
-      | (fail_if_no_progress simp_all)
-      | split at *
+  cases v with
+  | record fields =>
+      cases fields with
+      | nil =>
+          cases patterns with
+          | nil => simp [transition, related]
+          | cons first remaining =>
+              rcases first with ⟨label, inner⟩
+              simp [transition, related]
+      | cons first remaining =>
+          rcases first with ⟨label, entry⟩
+          cases patterns with
+          | nil => simp [transition, related]
+          | cons first remaining =>
+              rcases first with ⟨label, inner⟩
+              simp [transition, related]
+  | _ => simp [transition, related]
 
 private theorem reference_pattern_related (parameters : Parameters Primitive) (frontier : Nat)
     (before after : Memory Primitive) (related : StatesRelated frontier before after)

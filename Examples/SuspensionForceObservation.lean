@@ -18,6 +18,8 @@ open Examples.SuspensionRelocation
 
 theorem initial_bounded : Bounded initial := allocate_bounded bounded_empty _
 
+private theorem initial_next : initial.next = 1 := rfl
+
 theorem initial_fixed : FixedCells (shift initial.next) initial := by
   intro address entry found
   by_cases atZero : address = 0
@@ -35,10 +37,10 @@ theorem reference_effects_after_force :
   obtain ⟨memory, execution, related⟩ := value_observed
     (primitives_equivariant 1) initial_bounded initial_fixed bindings_fixed direct_execution
   refine ⟨memory, ?_, ?_, ?_, ?_⟩
-  · simpa using execution
-  · simpa [direct_observations.1] using related.1.lookup 0
-  · simpa [direct_observations.2.1] using related.1.lookup 1
-  · simpa [direct_observations.2.2] using related.1.frontier
+  · simpa [initial_next] using execution
+  · simpa [initial_next, direct_observations.1, integer] using related.1.lookup 0
+  · simpa [initial_next, direct_observations.2.1, integer] using related.1.lookup 1
+  · simpa [initial_next, direct_observations.2.2] using related.1.frontier
 
 theorem every_normal_force_return {memory : Memory Unit} {returned : Value Unit} {count : Nat}
     (execution : Progress.Evaluates (step parameters) (start initial bindings (force (.delay body)))
@@ -56,11 +58,13 @@ theorem every_normal_force_return {memory : Memory Unit} {returned : Value Unit}
   subst directValue
   subst bodySteps
   refine ⟨?_, steps, ?_, ?_⟩
-  · simpa using values
-  · simpa [direct_observations.1] using related.1.lookup 0
-  · simpa [direct_observations.2.1] using related.1.lookup 1
+  · simpa [initial_next] using values
+  · simpa [initial_next, direct_observations.1, integer] using related.1.lookup 0
+  · simpa [initial_next, direct_observations.2.1, integer] using related.1.lookup 1
 
 def exceptionMemory : Memory Unit := { initial with exceptionNames := {0, 1, 2} }
+
+private theorem exceptionMemory_next : exceptionMemory.next = 1 := rfl
 
 def exceptionBindings : Env Unit := [(0, .address 0), (3, .exception 2 none)]
 
@@ -91,8 +95,8 @@ theorem reference_effect_before_exception :
       exception_bindings_fixed direct_exception
   refine ⟨memory, ?_, ?_, ?_, related.1.exceptionNames⟩
   · simpa using execution
-  · simpa using related.1.lookup 0
-  · simpa using related.1.frontier
+  · simpa [exceptionMemory_next, integer] using related.1.lookup 0
+  · simpa [exceptionMemory_next] using related.1.frontier
 
 theorem every_raised_force_return {memory : Memory Unit} {packet : Value Unit} {count : Nat}
     (execution : Progress.Evaluates (step parameters)
