@@ -353,3 +353,64 @@ algorithms, Set/Map refinement, balance, costs, positioned rotation schedules,
 interval-cache/search and every later chapter obligation remain queued.
 This is an uncompiled shared source draft, with every integrated validation
 and independent final acceptance gate still pending.
+
+## Shared ordered-tree search paths (FDSA-XS01)
+
+This bounded **uncompiled source draft** uses the existing Mathlib BinaryTree
+and `Trees.Ordered` to follow one selected query path, returning the actual
+stored entry. It does not activate or accept Chapters 5–10. Exact primary
+source identities, the complete applicable Isabelle notice, public statement
+boundaries and connected examples are in
+[fdsa-tree-search.md](fdsa-tree-search.md).
+
+`Resources.TreeSearch.run` is the single recursion; `find?` and `entries`
+project its Option/Nat result. Derived `visits` has direct branch equations
+from that same execution. No new comparator wrapper, tree carrier, search
+machine, pure duplicate recursion, default payload or generic translator is
+introduced. The source specialization uses existing `compareOfLessAndEq`,
+`cmp_eq_compareOfLessAndEq` and `cmp_compares`.
+
+| Original source obligation or shared observation | Actual public draft connection and retained limits |
+| --- | --- |
+| C05-003 comparison meaning; query recurrence in C05-004 and C06-045 | `run` and its nil/LT/EQ/GT equations; `TreeSearchExamples.source_run_eq_cmp`, `observe_presence` and `observe_payload`. The literal comparator is reused; map lookup returns the actual semantic payload. |
+| Query clauses of C05-014/028; C06-064/065 | `find?_eq_some_iff`, `find?_eq_none_iff`, `find?_isSome_iff`, `find?_eq_find`, `map_find?_eq_lookup`; source clients `source_find_spec`, `source_none_spec`, `source_find_inorder`, `source_payload_lookup`. Strict keyed order and input-local `Ordering.Compares` remain distinct premises; List.lookup alone adds lawful key BEq. Mutation and full ADT laws remain open. |
+| C05-066; query portions of C08-020/021/075/076 and C09-008/009 | `run_map`, `run_map_pullback`, `find?_map`, `entries_map`, `visits_map`; `outer_tag_run`, `outer_tag_counts`, `outer_tag_payload`, `outer_tag_observer`. Outer tags are erased while semantic values are retained, without color/cache/balance validity. Later concrete representation and complete empty-implementation obligations remain. |
+| Search-height portions of C08-071/072 and C09-039/040; p.59 worst-case height claim | `entries_pos`, `entries_eq_visits_add_terminal`, hit/miss consequences, `entries_le_height_add_one`, `entries_le_height_of_some`, `visits_le_height`, `visits_pos_of_some`. `exists_run_eq_height`, `exists_run_visits_eq_height` and `exists_source_run_eq_height` give an actual stored-key witness on every nonempty strict tree under stored-key-pair calibration. No logarithmic or later mutation-work bound follows. |
+| C05-094 finite present-key comparison | `balanced_present_runs` / `chain_present_runs`, their entry/visit lists, `present_query_sums` and `present_query_means` use actual queries [3,6,9], sums 5/6 and rational means 5/3 and 2. The interpretation is uniform over those three present keys under the declared node-visit tariff. |
+| Inherited query clause of C10-003 | The same augmented query semantics and outer-tag transport support the inherited Set query. The other inherited Set laws and complete Set2 interpretation are unchanged obligations. |
+| Raw observations and connected premise boundaries | `find?_some_spec`, `key_eq_of_find?_eq_some`, `run_map`; printed-tree correctness/tightness, valid-rotation value preservation with changed E/V, false payload versus absence, Empty payload, malformed off-path key, duplicate-key rotation and dishonest-route examples. `find_eq_indexOf_get` supplies only the homogeneous value connection to the existing two-pass interface. |
+
+Names without a prefix in the shared-law rows are in `Resources.TreeSearch`;
+the named connected examples are in `TreeSearchExamples`. The note contains
+the fuller declaration map. These are statement and source correspondences,
+not checked elaborated types, final review outcomes or closed inventory rows.
+
+E reconstructs a declared source-style count of search invocations, including
+a reached empty call; the inspected theories provide no generated T_isin or
+T_lookup equation. V counts nonempty visits/three-way route evaluations, with
+`E = V + (if result.isNone then 1 else 0)`. Hits have E=V; misses have E=V+1.
+V is not an additive reweighting of E alone. Neither observation includes the
+literal comparator's separate less-than/equality tests, and comparator result
+agreement does not transfer those primitive costs. Whole-tree mapping,
+inorder construction and indexOf followed by get retain their own work. No
+compiler, sharing, stack, allocation or target-runtime claim is made.
+
+All original chapter obligations remain mandatory and partial rows remain
+partial. Concrete insert/delete and both deletion clients, split_min domains,
+other direct-proof exercise clauses, complete Set/Map implementations, joins,
+unions, positioned rotations and rebuilding costs, interval/sweep algorithms,
+color/black-height or height/cache invariants and logarithmic guarantees remain
+queued. Chapter 7's Node3 has a conditional second comparison and requires its
+own carrier and recurrence. Chapter 10's split returns and reconstructs two
+trees as well as a Boolean; query correctness does not prove those outputs or
+join/split total work. C10-117's retained conditional treap-work gap is unchanged.
+These limits introduce no additional mandatory general framework.
+
+The original base is `66eae34815a177c6b4bf5120e05202ebb8876c91`, with the
+preserved unaccepted XT01/XT06/XT07 ancestry. Repaired accepted Chapter 1 and
+applicable tree prerequisites must precede integration/acceptance. The original
+Chapter 2 prefix `c80eec92f5458eccfd1c34c8314d666c2a1e3847` is unchanged.
+All matching focused/full guarded candidate checks, both integrity passes,
+exhaustive audit, independent Standards/Spec reviews and immediate candidate
+verification remain pending. This draft and its checkpoint do not certify any
+chapter or any inherited tree component.
