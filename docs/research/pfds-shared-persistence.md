@@ -4,8 +4,9 @@ This is a bounded cross-cutting development for the
 [PFDS reconstruction](pfds-reconstruction.md), grounded in the inspected
 publisher excerpt, printed pages 7–11. It supplies a cell model needed to state
 persistence and sharing precisely. It does not establish complete coverage of
-Chapter 1 or 2, the uninspected search-tree material, lazy evaluation, or
-persistent amortization.
+Chapter 1 or 2, the search-tree material, lazy evaluation, or persistent
+amortization. The subsequently available complete chapter and its additional
+developments are tracked in [the Chapter 2 record](pfds-persistence.md).
 
 ## Representation and assumptions
 

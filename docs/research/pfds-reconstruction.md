@@ -118,6 +118,11 @@ and `extends_put` primitives can support immutable cells without assuming
 durable writes, reclamation, constant-time machine memory, or a connection to
 Lean's allocator. Those additional claims require separate evidence.
 
+The [Chapter 2 implementation record](pfds-persistence.md) maps these source
+obligations to the stack, ordered-set/map and shared-root developments, with
+their distinct value, comparison and allocation contracts. Its status remains
+separate from the chapter's exact-candidate acceptance record.
+
 ## Continuing the book
 
 Chapter 3 covers familiar heap and balanced-search realizations; chapters 4–8
