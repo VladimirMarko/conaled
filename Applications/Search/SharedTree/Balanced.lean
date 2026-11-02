@@ -46,6 +46,22 @@ theorem Fits.node {x : α} {m n k : Nat} {l r : BinaryTree α}
   · exact ⟨by simpa only [hl.nodes, hr.nodes] using leftClose,
       by simpa only [hl.nodes, hr.nodes] using rightClose, hl.balanced, hr.balanced⟩
 
+theorem completeValue_uniform (x : α) (d : Nat) : Uniform x (completeValue x d) := by
+  induction d with
+  | zero => trivial
+  | succ d ih => exact ⟨rfl, ih, ih⟩
+
+theorem completeValue_balanced (x : α) (d : Nat) : SizeBalanced (completeValue x d) := by
+  induction d with
+  | zero => trivial
+  | succ d ih => exact ⟨Nat.le_succ _, Nat.le_succ _, ih, ih⟩
+
+theorem completeValue_fits (x : α) (d : Nat) :
+    Fits x (2 ^ d - 1) (completeValue x d) := by
+  refine ⟨?_, completeValue_uniform x d, completeValue_balanced x d⟩
+  have h := completeValue_nodes x d
+  omega
+
 def create2Value (x : α) : Nat → BinaryTree α × BinaryTree α
   | 0 => (.nil, .node x .nil .nil)
   | n + 1 =>
@@ -61,6 +77,7 @@ theorem create2Value_fits (x : α) (n : Nat) :
   | h n ih =>
       cases n with
       | zero =>
+          rw [create2Value]
           exact ⟨Fits.nil x, Fits.node (Fits.nil x) (Fits.nil x) rfl (by omega) (by omega)⟩
       | succ n =>
           obtain ⟨ha, hb⟩ := ih (n / 2) (by omega)
@@ -84,7 +101,6 @@ theorem allocatePair_extends (s : Store α) (x : α) (l r u v : Root) :
 @[simp] theorem allocatePair_next (s : Store α) (x : α) (l r u v : Root) :
     (allocatePair s x l r u v).1.next = s.next + 2 := by
   simp only [allocatePair, allocate_next]
-  omega
 
 theorem allocatePair_represents {s : Store α} {l r u v : Root}
     {lt rt ut vt : BinaryTree α}
@@ -122,7 +138,7 @@ def create2Run (x : α) : Nat → Store α →
         (allocatePair q.1.1 x q.1.2.1 q.1.2.1 q.1.2.1 q.1.2.2, q.2 + 1)
       else
         (allocatePair q.1.1 x q.1.2.1 q.1.2.2 q.1.2.2 q.1.2.2, q.2 + 1)
-termination_by n => n
+termination_by n _ => n
 decreasing_by omega
 
 private theorem log2_step (n : Nat) :
@@ -130,7 +146,7 @@ private theorem log2_step (n : Nat) :
   rw [Nat.log2_def]
   have h : 2 ≤ n + 1 + 1 := by omega
   have div : (n + 1 + 1) / 2 = n / 2 + 1 := by omega
-  simp only [if_pos h, div]
+  simp only [ite_eq_left h, div]
 
 theorem create2Run_correct (x : α) (n : Nat) (s : Store α) :
     Represents (create2Run x n s).1.1.heap (create2Run x n s).1.2.1
@@ -144,6 +160,7 @@ theorem create2Run_correct (x : α) (n : Nat) (s : Store α) :
   | h n ih =>
       cases n with
       | zero =>
+          rw [create2Run, create2Value]
           exact ⟨.nil, allocate_represents .nil .nil x,
             allocate_extends s x none none, rfl, rfl⟩
       | succ n =>
@@ -168,6 +185,28 @@ theorem create2Run_retains (x : α) (n : Nat) {s : Store α} {old : Root}
     {t : BinaryTree α} (h : Represents s.heap old t) :
     Represents (create2Run x n s).1.1.heap old t :=
   h.mono (create2Run_correct x n s).2.2.1
+
+/-- The parent roots reuse the same recursive child pair, with parity choosing
+which sibling is repeated. This records the actual graph references. -/
+theorem create2Run_children (x : α) (n : Nat) (s : Store α) :
+    let q := create2Run x (n / 2) s
+    let out := create2Run x (n + 1) s
+    if n % 2 = 0 then
+      read out.1.1 out.1.2.1 = some ((x, q.1.2.1), q.1.2.1) ∧
+        read out.1.1 out.1.2.2 = some ((x, q.1.2.1), q.1.2.2)
+    else
+      read out.1.1 out.1.2.1 = some ((x, q.1.2.1), q.1.2.2) ∧
+        read out.1.1 out.1.2.2 = some ((x, q.1.2.2), q.1.2.2) := by
+  dsimp only
+  by_cases h : n % 2 = 0
+  · simpa only [create2Run, ite_eq_left h] using
+      read_allocatePair (create2Run x (n / 2) s).1.1 x
+        (create2Run x (n / 2) s).1.2.1 (create2Run x (n / 2) s).1.2.1
+        (create2Run x (n / 2) s).1.2.1 (create2Run x (n / 2) s).1.2.2
+  · simpa only [create2Run, ite_eq_right h] using
+      read_allocatePair (create2Run x (n / 2) s).1.1 x
+        (create2Run x (n / 2) s).1.2.1 (create2Run x (n / 2) s).1.2.2
+        (create2Run x (n / 2) s).1.2.2 (create2Run x (n / 2) s).1.2.2
 
 /-- Return the first root of the pair for an arbitrary requested size. -/
 def balancedRun (x : α) (n : Nat) (s : Store α) :
