@@ -1,6 +1,7 @@
 import SquareKit.InteractionContracts
 import Mathlib.Data.List.TakeDrop
-import Mathlib.Tactic
+import Mathlib.Tactic.SplitIfs
+import Lean.Elab.Tactic.Omega
 
 /-! Finite-lifetime retained Boolean histories. Histories in `Represents` are
 specification witnesses; `Snapshot` contains only the retained suffix. -/
