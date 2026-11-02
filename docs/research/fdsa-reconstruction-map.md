@@ -312,3 +312,29 @@ exclusions recorded in the shared-unit note do not create additional generic
 framework requirements beyond that source scope. Neither these connected
 source drafts nor their preflights provide build, audit or final-review
 acceptance credit.
+
+## Shared tree suffix invocation and measured construction (FDSA-XT04)
+
+This **uncompiled draft** supplies an actual cons-only suffix invocation,
+all-suffix value/work laws and separate construction/application compositions.
+It depends on accepted repaired Chapter 1, XT01 and XT03 before integration or
+acceptance, and neither activates nor accepts Chapter 4. XD01 and XT02 are not
+dependencies. Full source, tariff and statement assessment:
+[fdsa-tree-accumulator-invocation.md](fdsa-tree-accumulator-invocation.md).
+
+| Source obligation or shared connection | Draft declarations / intended connection |
+| --- | --- |
+| Exercise 4.1, C04-017 | `TreeAccumulator.nodeRun` and `invoke`, using one existing ordinary fold of measured functions; actual right-result dependency and arbitrary-suffix `invoke_value`. |
+| Accumulator part of C04-018 | `invoke_exact`, `invoke_cost`, suffix-independent `e*(2*n+1)` work, output length and positive-size linear bound with nil preserved. |
+| Existing observation transport | Actual node/invocation reweight laws through additive homs and fold fusion; product tariffs on one invocation. |
+| Higher-order phase distinction | Actual XT03 construction returns the measured invocation function; `buildOnce` and `buildTwice` bind that result to one/two applications with distinct construction/invocation entry parameters. |
+| Connected boundary/comparison evidence | Nil/singleton/arbitrary suffix, actual sample dependency, Empty/repeated payloads/children, actual materialize-plus-append sample cost 20 versus 9, and empty-only agreement without uniform work. |
+| Ordered invocation | Actual node-algebra word `[2,3,0,1]` compared with XT03's left-first word, keeping each execution's own returned-value law. |
+
+The retained companion theory has no generated `T_inorder2`; the declared count
+is derived here for the actual measured recurrence. Function construction is a
+separate program, and value equality alone does not establish invocation cost.
+Direct-inorder quadratic worst cases and all remaining chapter/appendix
+obligations remain open. No compiler/runtime, constant-stack, allocation or
+physical-sharing result is claimed. Preflights and source drafts supply no
+build, audit or final-review acceptance credit.

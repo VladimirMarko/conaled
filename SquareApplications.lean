@@ -249,6 +249,7 @@ import Examples.CallModels
 import Examples.SharedDemand
 import Examples.TreeCache
 import Examples.TreeFoldObservations
+import Examples.TreeAccumulatorObservations
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
