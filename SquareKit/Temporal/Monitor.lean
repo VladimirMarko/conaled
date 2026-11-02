@@ -1,4 +1,5 @@
-import Mathlib.Tactic
+import Mathlib.Data.Nat.Basic
+import Lean.Elab.Tactic.Omega
 
 /-!
 Conservative monitors for a bounded next/until fragment (#207). Satisfaction

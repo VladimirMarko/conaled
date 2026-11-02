@@ -1,7 +1,6 @@
 import Applications.Linear.Matrix
 import Mathlib.Algebra.BigOperators.Fin
 import Mathlib.Data.List.OfFn
-import Mathlib.Tactic
 
 /-! Exact finite coordinates with concrete array-backed dense and diagonal storage,
 and coordinate entries with additive duplicate semantics. All execution uses

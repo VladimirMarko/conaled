@@ -1,7 +1,8 @@
 import Applications.Probability.FiniteKernel
 import Mathlib.Probability.Kernel.Composition.Prod
 import Mathlib.Probability.Kernel.Invariance
-import Mathlib.Tactic
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.FunProp
 
 open MeasureTheory ProbabilityTheory
 open scoped ENNReal

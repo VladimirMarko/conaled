@@ -1,7 +1,8 @@
 import Applications.Durability.ResourceEvents
 import Mathlib.Data.Finset.Powerset
 import Mathlib.Data.Fintype.Powerset
-import Mathlib.Tactic
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
 
 namespace Durability.Diagnostic
 

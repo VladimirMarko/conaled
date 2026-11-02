@@ -1,7 +1,8 @@
 import Applications.Probability.SearchObservation
 import Mathlib.Probability.ProductMeasure
 import Mathlib.Analysis.SpecificLimits.Basic
-import Mathlib.Tactic
+import Mathlib.Tactic.NormNum
+import Lean.Elab.Tactic.Omega
 
 /-!
 # Independent coin paths and finite delivery

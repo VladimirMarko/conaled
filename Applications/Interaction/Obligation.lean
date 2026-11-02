@@ -1,5 +1,5 @@
 import SquareKit.InteractionEvents
-import Mathlib.Tactic
+import Mathlib.Tactic.Tauto
 
 /-!
 # One accepted obligation and its external attempts

@@ -2,7 +2,8 @@ import Applications.Sequences.OrderedSummary
 import Applications.Dijkstra.Store
 import Applications.Resources.Workload
 import Mathlib.Data.List.OfFn
-import Mathlib.Tactic
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Ring
 
 /-! Fixed-capacity ordered Boolean buffers (#239). Indexed reads/writes and a
 bounded counter describe the target model; no allocator or machine-code claim. -/

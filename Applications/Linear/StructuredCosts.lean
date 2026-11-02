@@ -1,6 +1,6 @@
 import Applications.Resources.Measured
 import Applications.Optimization.Transport
-import Mathlib.Tactic
+import Lean.Elab.Tactic.Omega
 
 /-! Resource observations for the bounded structured-matrix machine. Events are
 abstract operations; tariffs state target assumptions rather than Lean timings.

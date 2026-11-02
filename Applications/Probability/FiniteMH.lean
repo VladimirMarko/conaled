@@ -1,6 +1,8 @@
 import Mathlib.Data.Rat.Lemmas
 import Mathlib.Algebra.BigOperators.Field
-import Mathlib.Tactic
+import Mathlib.Algebra.BigOperators.Fin
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.FinCases
 
 /-! Exact finite Metropolis–Hastings tables. No random-bit source is assumed. -/
 namespace Applications.Probability

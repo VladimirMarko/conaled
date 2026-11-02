@@ -1,7 +1,8 @@
 import Mathlib.LinearAlgebra.Projectivization.Action
 import Mathlib.LinearAlgebra.SesquilinearForm.Star
 import Mathlib.Analysis.Complex.Basic
-import Mathlib.Tactic
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.FieldSimp
 
 /-! Experimental projective motions of a complex sesquilinear space.
 The algebra needs neither a dimension nor a signature assumption. Disk geometry
