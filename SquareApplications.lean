@@ -27,6 +27,8 @@ import Examples.RandomAccessCosts
 import Examples.PotentialAccounting
 import Examples.OrderedSearch
 import Examples.SymmetricLists
+import Examples.SharedList
+import Applications.Resources.SharedList
 import Examples.RandomAccessLists
 import Examples.EditAlignment
 import Examples.ParagraphLayout
