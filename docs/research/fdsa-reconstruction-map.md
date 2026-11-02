@@ -310,3 +310,23 @@ Chapter 3 preparation; complete history, algorithm correspondence, sampling
 coupling and cost proofs remain queued. The source is uncompiled and
 unaccepted. Local FDSA-XU03 retains the frozen scope, exact expectations,
 candidate identity and later validation/review evidence.
+
+## Shared preceding-count and ordinal-position means (draft)
+
+The [expectation unit](fdsa-permutation-expectation.md) connects the actual
+number of labels before a fixed subset to its ENNReal and real means under
+the original uniform global permutation. An ordinary rank equivalence then
+identifies the count with the actual finite-image minimum, giving the
+one-based positional mean on nonempty subsets. The semantic count bound
+requires neither injectivity nor a probability law; the mean proofs retain
+injectivity, fixed-subset quantification and genuine finite integrability.
+
+Connected examples exercise nonidentity ranks, an infinite numeric priority
+target, the actual raw numeric minimum, empty and full subsets, ties and a
+sample-dependent singleton. A same-sample conditional example retains the
+singleton's relative-order law while changing its expected global placement.
+This supports one fixed-set estimate for Chapter 10 after its canonical
+treap root/minimum bridge. Conditional depth, Jensen, adaptive histories,
+algorithm work and correlated weighted charging remain open. The source is
+uncompiled and unaccepted; local FDSA-XU04 retains its frozen requirements,
+candidate identity and later validation/review evidence.
