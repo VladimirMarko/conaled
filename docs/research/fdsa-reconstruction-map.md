@@ -422,6 +422,11 @@ recursive model, not execution time of standard-library list operations.
 
 ## Architecture and statement review
 
+Appendix C's complete notation correspondence, source corrections and checked
+semantic boundaries are recorded in [the notation map](fdsa-notation-map.md).
+It reuses these list and foundation interfaces rather than introducing source
+editor syntax as a second notation layer.
+
 Operations, returned values and observations remain separate. Exact agreement
 uses ordered lists, so duplicates and order are preserved. Costs require their
 own recurrence proofs and are not transported from semantic equality. The
