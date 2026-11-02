@@ -8,8 +8,8 @@ have no corresponding exercise chapter in the thesis. Thesis Chapter 2 concerns
 lazy streams and belongs with book Chapter 4; the thesis's trace/debit analysis
 belongs with book Chapters 5–6. These later obligations remain open.
 
-**Integration is in progress.** Focused compilation establishes the checked
-developments identified below. Whole-chapter acceptance additionally requires
+**The complete implementation is integrated; acceptance is pending.** Focused
+compilation establishes the developments identified below. Whole-chapter acceptance requires
 the final combined candidate, complete build and exhaustive audit, matching
 verification record, final verification, and both independent review axes.
 The local ticket and review records travel with recovery checkpoints; this
@@ -158,9 +158,17 @@ root-value observer in `SharedTree.Observation` preserves the outer execution
 failure distinction. Its composition is checked in
 [`Examples.SharedTreeOrdered`](../../Examples/SharedTreeOrdered.lean).
 
-The explicit matched-endpoint identity theorem remains tracked integration
-work at this document's current revision. Pure value equality or the generic
-`Rebuilds.here` case is not recorded as a substitute for that contract.
+[`OrderedTerminal`](../../Applications/Search/SharedTree/OrderedTerminal.lean)
+supplies the stronger duplicate contract. Following the search path from the
+new root reaches the exact old matched nonempty root. The old version remains
+valid, and only strict ancestors are allocated. The generic path-append law in
+[`PathEndpoint`](../../Applications/Search/SharedTree/PathEndpoint.lean) extends
+endpoint identity to every further descendant observation in the final heap,
+including failure beyond an empty child. The connected
+[`SharedTreeTerminal` cases](../../Examples/SharedTreeTerminal.lean) use a
+duplicate below a copied ancestor whose matched subtree has a nonempty child;
+the endpoint and that child's address both survive. This does not infer
+endpoint preservation from the unconstrained `Rebuilds.here` case.
 
 ### Aborting and combined insertion
 

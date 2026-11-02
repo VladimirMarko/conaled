@@ -37,6 +37,7 @@ import Examples.SharedTree
 import Examples.SharedTreeOrdered
 import Examples.SharedTreeOptimized
 import Examples.SharedTreeMap
+import Examples.SharedTreeTerminal
 import Examples.RandomAccessLists
 import Examples.EditAlignment
 import Examples.ParagraphLayout
