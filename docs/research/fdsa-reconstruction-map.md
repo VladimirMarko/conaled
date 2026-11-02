@@ -330,3 +330,27 @@ treap root/minimum bridge. Conditional depth, Jensen, adaptive histories,
 algorithm work and correlated weighted charging remain open. The source is
 uncompiled and unaccepted; local FDSA-XU04 retains its frozen requirements,
 candidate identity and later validation/review evidence.
+
+## Shared joint orders on disjoint subsets (draft)
+
+The [joint relative-order unit](fdsa-permutation-joint.md) extends the existing
+relative-order module with a universal pair-fiber formula and the product
+law of two actual projections of the same global permutation. A third result
+transports the pair of fixed disjoint filters through an existing whole-order
+HasLaw under an arbitrary current environment. It reuses private relabeling
+helpers, ordinary product measures and existing HasLaw composition.
+
+The connected cases use Mathlib's existing independence predicate, unsupported
+outputs in either coordinate, unequal subsets whose union omits a key, empty
+endpoints and an actual conditional tail. On that conditioning event, the
+paired filters are connected to the original same-sample projections. An
+overlap case has joint mass 1/3 versus marginal product 1/4, retaining the
+disjointness boundary.
+
+This supports the fixed-partition joint-law step in the selected quicksort
+cost-distribution method. Expected sums alone require only marginal laws.
+Program/partition/pivot/occurrence/tariff correspondences, complete histories,
+adaptive-set laws and correlated treap charging remain separate obligations.
+The source is uncompiled and unaccepted. Local FDSA-XU05 retains its frozen
+requirements, starting state, exact expectations and later candidate/review
+evidence.

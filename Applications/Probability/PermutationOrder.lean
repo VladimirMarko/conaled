@@ -1,5 +1,6 @@
 import Mathlib.Data.Finset.Card
 import Mathlib.Data.Finset.Lattice.Lemmas
+import Mathlib.Data.Finset.Prod
 import Mathlib.Data.Fintype.OfMap
 import Mathlib.Data.Fintype.Perm
 import Mathlib.Data.List.Basic
@@ -8,10 +9,11 @@ import Mathlib.Data.List.Permutation
 import Mathlib.Data.Set.Card
 import Mathlib.Logic.Equiv.Fintype
 import Mathlib.Logic.Equiv.List
+import Mathlib.Probability.HasLaw
 import Mathlib.Probability.UniformOn
 
 /-!
-# Relative order induced on a fixed subset
+# Relative orders induced on fixed subsets
 
 The list `positions` gives a chosen order of priority labels. A permutation
 maps keys to their assigned labels, so its inverse maps this label list to
@@ -28,9 +30,13 @@ For a complete label list with no duplicates, every whole output order has
 reciprocal-factorial mass under the uniform global permutation. The source
 fiber formula needs measurable structure only on that permutation space.
 Its pushforward corollary uses the caller's measurable structure on lists.
-Neither law asserts independence or a conditional law after observing a
-history. Matching this label order to numeric priorities and algorithmic
-work remains a separate source correspondence.
+For two fixed disjoint subsets, the actual pair of restrictions has the
+product of those uniform laws. Pair filtering transports this conclusion
+from any observation with the specified whole-order law, under its current
+environment measure. The subsets need not cover the population and may be
+empty. These results do not assert a law after an arbitrary history.
+Matching this label order to numeric priorities and algorithmic work remains
+a separate source correspondence.
 -/
 
 set_option autoImplicit false
@@ -315,5 +321,270 @@ theorem map_restrictedOrder_uniformOn
   by_cases hxs : xs ∈ orders positions S
   · simp [hxs, orders_card positions hnd hcomplete S, one_div]
   · simp [hxs]
+
+private theorem exists_relabel_order_pair (positions : List I)
+    (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)
+    (A B : Finset I) (hAB : Disjoint A B)
+    (xs ys xs' ys' : List I)
+    (hxs : xs ∈ orders positions A) (hys : ys ∈ orders positions B)
+    (hxs' : xs' ∈ orders positions A) (hys' : ys' ∈ orders positions B) :
+    ∃ σ : Equiv.Perm I,
+      xs.map σ = xs' ∧ ys.map σ = ys' ∧
+        (∀ a, σ a ∈ A ↔ a ∈ A) ∧ (∀ a, σ a ∈ B ↔ a ∈ B) := by
+  have hmem (T : Finset I) (zs : List I) (hzs : zs ∈ orders positions T) (a : I) :
+      a ∈ zs ↔ a ∈ T :=
+    ((mem_orders positions T zs).1 hzs).mem_iff.trans (by simp [hcomplete a])
+  have hxsPerm := (mem_orders positions A xs).1 hxs
+  have hysPerm := (mem_orders positions B ys).1 hys
+  have hxs'Perm := (mem_orders positions A xs').1 hxs'
+  have hys'Perm := (mem_orders positions B ys').1 hys'
+  have hlengthA : xs.length = xs'.length :=
+    hxsPerm.length_eq.trans hxs'Perm.length_eq.symm
+  have hlengthB : ys.length = ys'.length :=
+    hysPerm.length_eq.trans hys'Perm.length_eq.symm
+  have hdisjoint : List.Disjoint xs ys := by
+    apply List.disjoint_left.mpr
+    intro a hax hay
+    exact Finset.disjoint_left.mp hAB
+      ((hmem A xs hxs a).mp hax) ((hmem B ys hys a).mp hay)
+  have hdisjoint' : List.Disjoint xs' ys' := by
+    apply List.disjoint_left.mpr
+    intro a hax hay
+    exact Finset.disjoint_left.mp hAB
+      ((hmem A xs' hxs' a).mp hax) ((hmem B ys' hys' a).mp hay)
+  obtain ⟨σ, hmap⟩ := exists_map_eq_of_nodup (xs ++ ys) (xs' ++ ys')
+    ((hxsPerm.nodup_iff.mpr (hnd.filter _)).append
+      (hysPerm.nodup_iff.mpr (hnd.filter _)) hdisjoint)
+    ((hxs'Perm.nodup_iff.mpr (hnd.filter _)).append
+      (hys'Perm.nodup_iff.mpr (hnd.filter _)) hdisjoint')
+    (by simp only [List.length_append, hlengthA, hlengthB])
+  rw [List.map_append] at hmap
+  obtain ⟨hmapA, hmapB⟩ := List.append_inj hmap
+    (by simpa only [List.length_map] using hlengthA)
+  refine ⟨σ, hmapA, hmapB, ?_, ?_⟩
+  · intro a
+    have hmemMap : σ a ∈ xs' ↔ a ∈ xs := by
+      rw [← hmapA, List.mem_map_of_injective σ.injective]
+    exact (hmem A xs' hxs' (σ a)).symm.trans (hmemMap.trans (hmem A xs hxs a))
+  · intro a
+    have hmemMap : σ a ∈ ys' ↔ a ∈ ys := by
+      rw [← hmapB, List.mem_map_of_injective σ.injective]
+    exact (hmem B ys' hys' (σ a)).symm.trans (hmemMap.trans (hmem B ys hys a))
+
+private theorem pair_fiber_mass_eq
+    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
+    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)
+    (A B : Finset I) (hAB : Disjoint A B) (p q : List I × List I)
+    (hp : p ∈ (orders positions A).product (orders positions B))
+    (hq : q ∈ (orders positions A).product (orders positions B)) :
+    uniformOn Set.univ
+        {π | (restrictedOrder positions A π, restrictedOrder positions B π) = p} =
+      uniformOn Set.univ
+        {π | (restrictedOrder positions A π, restrictedOrder positions B π) = q} := by
+  classical
+  letI := Fintype.ofList positions hcomplete
+  obtain ⟨σ, hmapA, hmapB, hA, hB⟩ :=
+    exists_relabel_order_pair positions hnd hcomplete A B hAB p.1 p.2 q.1 q.2
+      (Finset.mem_product.mp hp).1 (Finset.mem_product.mp hp).2
+      (Finset.mem_product.mp hq).1 (Finset.mem_product.mp hq).2
+  have hpre : (fun π : Equiv.Perm I => π * σ.symm) ⁻¹'
+      {π | (restrictedOrder positions A π, restrictedOrder positions B π) = q} =
+      {π | (restrictedOrder positions A π, restrictedOrder positions B π) = p} := by
+    apply Set.ext
+    intro π
+    change (restrictedOrder positions A (π * σ.symm),
+      restrictedOrder positions B (π * σ.symm)) = q ↔
+        (restrictedOrder positions A π, restrictedOrder positions B π) = p
+    rw [Prod.ext_iff, Prod.ext_iff]
+    change (restrictedOrder positions A (π * σ.symm) = q.1 ∧
+      restrictedOrder positions B (π * σ.symm) = q.2) ↔
+        (restrictedOrder positions A π = p.1 ∧ restrictedOrder positions B π = p.2)
+    rw [restrictedOrder_relabel positions A π σ hA,
+      restrictedOrder_relabel positions B π σ hB, ← hmapA, ← hmapB]
+    exact and_congr (List.map_injective_iff.mpr σ.injective).eq_iff
+      (List.map_injective_iff.mpr σ.injective).eq_iff
+  have hcard :
+      ({π : Equiv.Perm I |
+        (restrictedOrder positions A π, restrictedOrder positions B π) = p}).encard =
+      ({π : Equiv.Perm I |
+        (restrictedOrder positions A π, restrictedOrder positions B π) = q}).encard := by
+    rw [← hpre]
+    exact Set.encard_preimage_of_bijective (Group.mulRight_bijective σ.symm) _
+  have hmeasp : MeasurableSet
+      {π : Equiv.Perm I |
+        (restrictedOrder positions A π, restrictedOrder positions B π) = p} :=
+    (Set.toFinite _).measurableSet
+  have hmeasq : MeasurableSet
+      {π : Equiv.Perm I |
+        (restrictedOrder positions A π, restrictedOrder positions B π) = q} :=
+    (Set.toFinite _).measurableSet
+  rw [uniformOn_univ, uniformOn_univ, Measure.count_apply hmeasp,
+    Measure.count_apply hmeasq, hcard]
+
+/-- Two fixed disjoint restrictions of the same global permutation have
+reciprocal-factorial-product mass at every supported pair, and zero otherwise. -/
+theorem uniformOn_restrictedOrder_pair_eq
+    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
+    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)
+    (A B : Finset I) (hAB : Disjoint A B) (xs ys : List I) :
+    uniformOn (Set.univ : Set (Equiv.Perm I))
+        {π | (restrictedOrder positions A π, restrictedOrder positions B π) = (xs, ys)} =
+      if xs ∈ orders positions A ∧ ys ∈ orders positions B then
+        ((Nat.factorial A.card * Nat.factorial B.card : ℕ) : ℝ≥0∞)⁻¹
+      else 0 := by
+  classical
+  letI := Fintype.ofList positions hcomplete
+  let C := (orders positions A).product (orders positions B)
+  let observation : Equiv.Perm I → List I × List I :=
+    fun π => (restrictedOrder positions A π, restrictedOrder positions B π)
+  by_cases hxy : xs ∈ orders positions A ∧ ys ∈ orders positions B
+  · rw [if_pos hxy]
+    have hxyC : (xs, ys) ∈ C := Finset.mem_product.mpr hxy
+    have hpre : observation ⁻¹' (C : Set (List I × List I)) = Set.univ := by
+      apply Set.eq_univ_of_forall
+      intro π
+      exact Finset.mem_product.mpr
+        ⟨restrictedOrder_mem_orders positions hnd hcomplete A π,
+          restrictedOrder_mem_orders positions hnd hcomplete B π⟩
+    have hpartition := sum_measure_preimage_singleton
+      (μ := uniformOn (Set.univ : Set (Equiv.Perm I)))
+      (f := observation) C (fun p _ => (Set.toFinite _).measurableSet)
+    rw [hpre, measure_univ] at hpartition
+    change (∑ p ∈ C, uniformOn Set.univ {π | observation π = p}) = 1 at hpartition
+    have hsum : (∑ p ∈ C, uniformOn Set.univ {π | observation π = p}) =
+        (C.card : ℝ≥0∞) * uniformOn Set.univ {π | observation π = (xs, ys)} := by
+      calc
+        _ = ∑ _p ∈ C, uniformOn Set.univ {π | observation π = (xs, ys)} := by
+          apply Finset.sum_congr rfl
+          intro p hp
+          exact pair_fiber_mass_eq positions hnd hcomplete A B hAB p (xs, ys) hp hxyC
+        _ = _ := by rw [Finset.sum_const, nsmul_eq_mul]
+    have hmass : uniformOn Set.univ {π | observation π = (xs, ys)} =
+        (C.card : ℝ≥0∞)⁻¹ := by
+      apply ENNReal.eq_inv_of_mul_eq_one_left
+      calc
+        uniformOn Set.univ {π | observation π = (xs, ys)} * (C.card : ℝ≥0∞) =
+            (C.card : ℝ≥0∞) * uniformOn Set.univ {π | observation π = (xs, ys)} :=
+          mul_comm _ _
+        _ = ∑ p ∈ C, uniformOn Set.univ {π | observation π = p} := hsum.symm
+        _ = 1 := hpartition
+    have hC : C.card = Nat.factorial A.card * Nat.factorial B.card := by
+      dsimp only [C]
+      rw [Finset.card_product, orders_card positions hnd hcomplete A,
+        orders_card positions hnd hcomplete B]
+    change uniformOn Set.univ {π | observation π = (xs, ys)} =
+      ((Nat.factorial A.card * Nat.factorial B.card : ℕ) : ℝ≥0∞)⁻¹
+    simpa only [hC] using hmass
+  · rw [if_neg hxy]
+    have hempty :
+        ({π : Equiv.Perm I |
+          (restrictedOrder positions A π, restrictedOrder positions B π) = (xs, ys)}) =
+          ∅ := by
+      apply Set.ext
+      intro π
+      change ((restrictedOrder positions A π, restrictedOrder positions B π) =
+        (xs, ys)) ↔ False
+      constructor
+      · intro hπ
+        have hA : restrictedOrder positions A π = xs := congrArg Prod.fst hπ
+        have hB : restrictedOrder positions B π = ys := congrArg Prod.snd hπ
+        exact hxy ⟨hA ▸ restrictedOrder_mem_orders positions hnd hcomplete A π,
+          hB ▸ restrictedOrder_mem_orders positions hnd hcomplete B π⟩
+      · exact False.elim
+    rw [hempty]
+    exact measure_empty
+
+/-- The actual joint observation of fixed disjoint subsets has the product
+of their existing uniform whole-order laws, including empty subsets. -/
+theorem map_restrictedOrder_pair_uniformOn
+    [MeasurableSpace (Equiv.Perm I)] [MeasurableSingletonClass (Equiv.Perm I)]
+    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]
+    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)
+    (A B : Finset I) (hAB : Disjoint A B) :
+    (uniformOn (Set.univ : Set (Equiv.Perm I))).map
+        (fun π => (restrictedOrder positions A π, restrictedOrder positions B π)) =
+      (uniformOn (orders positions A : Set (List I))).prod
+        (uniformOn (orders positions B : Set (List I))) := by
+  classical
+  letI := Fintype.ofList positions hcomplete
+  letI : IsProbabilityMeasure (uniformOn (orders positions A : Set (List I))) :=
+    isProbabilityMeasure_uniformOn (orders positions A).finite_toSet
+      (orders_nonempty positions A)
+  letI : IsProbabilityMeasure (uniformOn (orders positions B : Set (List I))) :=
+    isProbabilityMeasure_uniformOn (orders positions B).finite_toSet
+      (orders_nonempty positions B)
+  letI : SFinite (uniformOn (orders positions A : Set (List I))) := inferInstance
+  letI : SFinite (uniformOn (orders positions B : Set (List I))) := inferInstance
+  have htarget (T : Finset I) (zs : List I) :
+      uniformOn (orders positions T : Set (List I)) {zs} =
+        if zs ∈ orders positions T then (Nat.factorial T.card : ℝ≥0∞)⁻¹ else 0 := by
+    rw [← map_restrictedOrder_uniformOn positions hnd hcomplete T,
+      Measure.map_apply (measurable_of_finite _) (measurableSet_singleton zs)]
+    exact uniformOn_restrictedOrder_eq positions hnd hcomplete T zs
+  have hfactor :
+      ((Nat.factorial A.card * Nat.factorial B.card : ℕ) : ℝ≥0∞)⁻¹ =
+        (Nat.factorial A.card : ℝ≥0∞)⁻¹ * (Nat.factorial B.card : ℝ≥0∞)⁻¹ := by
+    rw [Nat.cast_mul]
+    exact ENNReal.mul_inv
+      (Or.inl (Nat.cast_ne_zero.mpr (Nat.factorial_ne_zero A.card)))
+      (Or.inl (ENNReal.natCast_ne_top (Nat.factorial A.card)))
+  apply Measure.ext_of_singleton
+  rintro ⟨xs, ys⟩
+  rw [Measure.map_apply (measurable_of_finite _) (measurableSet_singleton (xs, ys))]
+  change uniformOn Set.univ
+      {π | (restrictedOrder positions A π, restrictedOrder positions B π) = (xs, ys)} =
+    ((uniformOn (orders positions A : Set (List I))).prod
+      (uniformOn (orders positions B : Set (List I)))) {(xs, ys)}
+  rw [uniformOn_restrictedOrder_pair_eq positions hnd hcomplete A B hAB xs ys,
+    ← Set.singleton_prod_singleton, Measure.prod_prod, htarget A xs, htarget B ys]
+  rw [hfactor]
+  by_cases hxs : xs ∈ orders positions A <;>
+    by_cases hys : ys ∈ orders positions B <;> simp [hxs, hys]
+
+private theorem filter_pair_hasLaw_orders
+    [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]
+    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)
+    (S A B : Finset I) (hAS : A ⊆ S) (hBS : B ⊆ S) (hAB : Disjoint A B) :
+    HasLaw
+      (fun xs : List I => (xs.filter (fun a => decide (a ∈ A)),
+        xs.filter (fun b => decide (b ∈ B))))
+      ((uniformOn (orders positions A : Set (List I))).prod
+        (uniformOn (orders positions B : Set (List I))))
+      (uniformOn (orders positions S : Set (List I))) := by
+  classical
+  letI := Fintype.ofList positions hcomplete
+  letI : MeasurableSpace (Equiv.Perm I) := ⊤
+  letI : MeasurableSingletonClass (Equiv.Perm I) := ⟨fun _ => trivial⟩
+  refine {
+    aemeasurable := (measurable_of_countable _).aemeasurable
+    map_eq := ?_
+  }
+  rw [← map_restrictedOrder_uniformOn positions hnd hcomplete S,
+    Measure.map_map (measurable_of_countable _) (measurable_of_finite _)]
+  have hfun :
+      (fun xs : List I => (xs.filter (fun a => decide (a ∈ A)),
+        xs.filter (fun b => decide (b ∈ B)))) ∘ restrictedOrder positions S =
+      (fun π => (restrictedOrder positions A π, restrictedOrder positions B π)) := by
+    funext π
+    exact Prod.ext (filter_restrictedOrder_of_subset positions S A π hAS)
+      (filter_restrictedOrder_of_subset positions S B π hBS)
+  rw [hfun]
+  exact map_restrictedOrder_pair_uniformOn positions hnd hcomplete A B hAB
+
+/-- Fixed disjoint filters of a uniformly distributed observed whole order
+have the product law under that same current environment. The observation
+need only have the almost-everywhere measurability recorded by `HasLaw`. -/
+theorem hasLaw_filter_pair {Ω : Type*}
+    [MeasurableSpace Ω] [MeasurableSpace (List I)] [MeasurableSingletonClass (List I)]
+    (positions : List I) (hnd : positions.Nodup) (hcomplete : ∀ a, a ∈ positions)
+    (S : Finset I) {μ : Measure Ω} {Y : Ω → List I}
+    (hY : HasLaw Y (uniformOn (orders positions S : Set (List I))) μ)
+    (A B : Finset I) (hAS : A ⊆ S) (hBS : B ⊆ S) (hAB : Disjoint A B) :
+    HasLaw
+      (fun ω => ((Y ω).filter (fun a => decide (a ∈ A)),
+        (Y ω).filter (fun b => decide (b ∈ B))))
+      ((uniformOn (orders positions A : Set (List I))).prod
+        (uniformOn (orders positions B : Set (List I)))) μ :=
+  (filter_pair_hasLaw_orders positions hnd hcomplete S A B hAS hBS hAB).fun_comp hY
 
 end Applications.Probability.PermutationOrder

@@ -19,6 +19,7 @@ import Examples.PermutationMinimum
 import Examples.PermutationOrder
 import Examples.PermutationTail
 import Examples.PermutationExpectation
+import Examples.PermutationJoint
 import Examples.StatefulIncremental
 import Examples.ExternalInteraction
 import Examples.InteractionTransport
