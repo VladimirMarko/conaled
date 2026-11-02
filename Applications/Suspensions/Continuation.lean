@@ -39,27 +39,134 @@ theorem appendFrames_append (config : Config Primitive) (first second : List (Fr
   cases config
   simp [appendFrames, List.append_assoc]
 
-/-- A single structural classification supplies all three public frame laws.
+/-- Private statement for a proof split before expanding the transition.
 Only the existing stack prefix is inspected by a nonterminal transition. -/
-private theorem step_classifies (parameters : Parameters Primitive) (config : Config Primitive)
-    (tail : List (Frame Primitive)) :
+private def ClassifiesStep (parameters : Parameters Primitive) (config : Config Primitive)
+    (tail : List (Frame Primitive)) : Prop :=
     match step parameters config with
     | .inr next => step parameters (appendFrames config tail) = .inr (appendFrames next tail)
     | .inl answer => match boundaryControl answer.result with
         | some control => config = ⟨answer.memory, control, []⟩
-        | none => step parameters (appendFrames config tail) = .inl answer := by
-  rcases config with ⟨memory, control, stack⟩
-  cases control <;>
-    simp only [step, transition, appendFrames, proceed, finish, boundaryControl]
+        | none => step parameters (appendFrames config tail) = .inl answer
+
+private theorem eval_classifies (parameters : Parameters Primitive) (memory : Memory Primitive)
+    (environment : Env Primitive) (expression : Expr Primitive)
+    (stack tail : List (Frame Primitive)) :
+    ClassifiesStep parameters ⟨memory, .eval environment expression, stack⟩ tail := by
+  cases expression <;>
+    simp only [ClassifiesStep, step, transition, appendFrames, proceed, finish, boundaryControl]
   all_goals
     repeat' first
-      | (fail_if_no_progress simp_all [appendFrames, proceed, finish, boundaryControl])
+      | (fail_if_no_progress subst_vars)
+      | (fail_if_no_progress simp_all)
       | split at *
+
+private theorem value_classifies (parameters : Parameters Primitive) (memory : Memory Primitive)
+    (value : Value Primitive) (stack tail : List (Frame Primitive)) :
+    ClassifiesStep parameters ⟨memory, .value value, stack⟩ tail := by
+  cases stack with
+  | nil => rfl
+  | cons frame rest =>
+      cases frame <;>
+        simp only [ClassifiesStep, step, transition, appendFrames, proceed, finish, boundaryControl]
+      all_goals
+        repeat' first
+          | (fail_if_no_progress subst_vars)
+          | (fail_if_no_progress simp_all)
+          | split at *
+
+private theorem raised_classifies (parameters : Parameters Primitive) (memory : Memory Primitive)
+    (packet : Value Primitive) (stack tail : List (Frame Primitive)) :
+    ClassifiesStep parameters ⟨memory, .raised packet, stack⟩ tail := by
+  cases stack with
+  | nil => rfl
+  | cons frame rest => cases frame <;> rfl
+
+private theorem pattern_classifies (parameters : Parameters Primitive) (memory : Memory Primitive)
+    (environment : Env Primitive) (pattern : Pattern) (value : Value Primitive)
+    (stack tail : List (Frame Primitive)) :
+    ClassifiesStep parameters ⟨memory, .pattern environment pattern value, stack⟩ tail := by
+  cases pattern <;>
+    simp only [ClassifiesStep, step, transition, appendFrames, proceed, finish, boundaryControl]
+  all_goals
+    repeat' first
+      | (fail_if_no_progress subst_vars)
+      | (fail_if_no_progress simp_all)
+      | split at *
+
+private theorem matched_classifies (parameters : Parameters Primitive) (memory : Memory Primitive)
+    (bindings : Env Primitive) (stack tail : List (Frame Primitive)) :
+    ClassifiesStep parameters ⟨memory, .matched bindings, stack⟩ tail := by
+  cases stack with
+  | nil => rfl
+  | cons frame rest => cases frame <;> rfl
+
+private theorem mismatch_classifies (parameters : Parameters Primitive) (memory : Memory Primitive)
+    (stack tail : List (Frame Primitive)) :
+    ClassifiesStep parameters ⟨memory, .mismatch, stack⟩ tail := by
+  cases stack with
+  | nil => rfl
+  | cons frame rest => cases frame <;> rfl
+
+private theorem clauses_classifies (parameters : Parameters Primitive) (memory : Memory Primitive)
+    (environment : Env Primitive) (clauses : List (Pattern × Expr Primitive))
+    (value : Value Primitive) (stack tail : List (Frame Primitive)) :
+    ClassifiesStep parameters ⟨memory, .clauses environment clauses value, stack⟩ tail := by
+  cases clauses with
+  | nil => rfl
+  | cons clause rest => cases clause; rfl
+
+private theorem rows_classifies (parameters : Parameters Primitive) (memory : Memory Primitive)
+    (environment : Env Primitive) (patterns : List (Nat × Pattern))
+    (fields : List (Nat × Value Primitive)) (bindings : Env Primitive)
+    (stack tail : List (Frame Primitive)) :
+    ClassifiesStep parameters ⟨memory, .rows environment patterns fields bindings, stack⟩ tail := by
+  cases patterns with
+  | nil => rfl
+  | cons row rest =>
+      rcases row with ⟨label, pattern⟩
+      simp only [ClassifiesStep, step, transition, appendFrames, proceed, finish, boundaryControl]
+      repeat' first
+        | (fail_if_no_progress subst_vars)
+        | (fail_if_no_progress simp_all)
+        | split at *
+
+private theorem recursive_classifies (parameters : Parameters Primitive) (memory : Memory Primitive)
+    (environment : Env Primitive) (bindings : List (Nat × Expr Primitive))
+    (created : Env Primitive) (body : Expr Primitive) (stack tail : List (Frame Primitive)) :
+    ClassifiesStep parameters ⟨memory, .recursive environment bindings created body, stack⟩ tail := by
+  cases bindings with
+  | nil => rfl
+  | cons binding rest =>
+      rcases binding with ⟨name, expression⟩
+      simp only [ClassifiesStep, step, transition, appendFrames, proceed, finish, boundaryControl]
+      repeat' first
+        | (fail_if_no_progress subst_vars)
+        | (fail_if_no_progress simp_all)
+        | split at *
+
+private theorem step_classifies (parameters : Parameters Primitive) (config : Config Primitive)
+    (tail : List (Frame Primitive)) : ClassifiesStep parameters config tail := by
+  rcases config with ⟨memory, control, stack⟩
+  cases control with
+  | eval environment expression => exact eval_classifies parameters memory environment expression stack tail
+  | value value => exact value_classifies parameters memory value stack tail
+  | raised packet => exact raised_classifies parameters memory packet stack tail
+  | pattern environment pattern value =>
+      exact pattern_classifies parameters memory environment pattern value stack tail
+  | matched bindings => exact matched_classifies parameters memory bindings stack tail
+  | mismatch => exact mismatch_classifies parameters memory stack tail
+  | clauses environment clauses value =>
+      exact clauses_classifies parameters memory environment clauses value stack tail
+  | rows environment patterns fields bindings =>
+      exact rows_classifies parameters memory environment patterns fields bindings stack tail
+  | recursive environment bindings created body =>
+      exact recursive_classifies parameters memory environment bindings created body stack tail
 
 theorem step_append {parameters : Parameters Primitive} {config next : Config Primitive}
     (moved : step parameters config = .inr next) (tail : List (Frame Primitive)) :
     step parameters (appendFrames config tail) = .inr (appendFrames next tail) := by
-  simpa only [moved] using step_classifies parameters config tail
+  simpa only [ClassifiesStep, moved] using step_classifies parameters config tail
 
 /-- A delivered non-stuck result is exactly its corresponding terminal
 control at an empty stack, with the same current memory. -/
@@ -68,7 +175,7 @@ theorem step_boundary {parameters : Parameters Primitive} {config : Config Primi
     (finished : step parameters config = .inl answer)
     (boundary : boundaryControl answer.result = some control) :
     config = ⟨answer.memory, control, []⟩ := by
-  simpa only [finished, boundary] using step_classifies parameters config []
+  simpa only [ClassifiesStep, finished, boundary] using step_classifies parameters config []
 
 /-- Stuck is a machine fault, not a raised source exception that a newly
 appended handler might catch. Its entire answer is unchanged. -/
@@ -76,7 +183,7 @@ theorem step_stuck_append {parameters : Parameters Primitive} {config : Config P
     {answer : Answer Primitive} (finished : step parameters config = .inl answer)
     (stuck : boundaryControl answer.result = none) (tail : List (Frame Primitive)) :
     step parameters (appendFrames config tail) = .inl answer := by
-  simpa only [finished, stuck] using step_classifies parameters config tail
+  simpa only [ClassifiesStep, finished, stuck] using step_classifies parameters config tail
 
 private theorem evaluates_positive {parameters : Parameters Primitive} {config : Config Primitive}
     {answer : Answer Primitive} {steps : Nat}

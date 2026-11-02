@@ -54,6 +54,12 @@ theorem cached_source_rule :
       finalMemory caller 1 (.atom (.integer 1)) (.ok (some [])) finalMemory :=
   suspension_match_complete cached_execution
 
+theorem cached_trace_has_no_body_or_write :
+    Progress.Evaluates (tracedStep parameters)
+      (startPattern finalMemory caller (.suspended (.atom (.integer 1))) (.address 1), [])
+      (⟨finalMemory, .matched []⟩, [.hit 1, .core, .core]) 3 :=
+  .next rfl (.next rfl (.done rfl))
+
 theorem retained_counter_and_cache :
     finalMemory.memory 0 = some (.value (intValue 1)) ∧
       finalMemory.memory 1 = some (.value (intValue 1)) ∧ finalMemory.next = 2 := by
@@ -67,5 +73,39 @@ theorem failed_source_unique {answer : Except (Value Unit) (Option (Env Unit))}
       initial caller 1 (.atom (.integer 0)) answer memory) :
     answer = .ok none ∧ memory = finalMemory :=
   matching_deterministic (suspension_match_sound source) failed_execution
+
+def pair : Value Unit := .record [(0, .address 0), (1, .address 1)]
+
+def pairPattern (counter : Int) (inner : Pattern) : Pattern :=
+  .record [(0, .reference (.atom (.integer counter))), (1, inner)]
+
+def ordered : List (Pattern × Expr Unit) :=
+  [(pairPattern 1 .wildcard, .atom (.integer 10)),
+   (pairPattern 0 (.suspended (.atom (.integer 0))), .atom (.integer 20)),
+   (pairPattern 0 .wildcard, .atom (.integer 30)),
+   (pairPattern 1 .wildcard, .atom (.integer 40))]
+
+/-- The second pattern changes the counter before failing, so the third
+pattern now fails too. Standalone ordered matching returns bare mismatch. -/
+theorem first_three_execution :
+    clauses parameters initial caller pair (ordered.take 3) (.ok none) finalMemory :=
+  ⟨_, Progress.search_sound (fuel := 100) (by rfl)⟩
+
+theorem first_three_source_rules :
+    Source.Alternatives
+      (Source.ClauseMatch (evaluation parameters) (matching parameters) Env.extend)
+      initial caller pair (ordered.take 3) (.ok none) finalMemory :=
+  alternatives_complete first_three_execution
+
+/-- The fourth pattern observes the changed counter and becomes selectable. -/
+theorem fourth_execution :
+    clauses parameters initial caller pair ordered (.ok (some (intValue 40))) finalMemory :=
+  ⟨_, Progress.search_sound (fuel := 120) (by rfl)⟩
+
+theorem fourth_source_rules :
+    Source.Alternatives
+      (Source.ClauseMatch (evaluation parameters) (matching parameters) Env.extend)
+      initial caller pair ordered (.ok (some (intValue 40))) finalMemory :=
+  alternatives_complete fourth_execution
 
 end Examples.SuspensionCorrespondence
