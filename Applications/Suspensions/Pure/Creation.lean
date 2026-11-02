@@ -1,4 +1,4 @@
-import Applications.Suspensions.Pure.Representation
+import Applications.Suspensions.Pure.Memory
 import Applications.Suspensions.Recursive
 
 /-!
@@ -13,6 +13,10 @@ Distinct source names ensure every allocated delay is selected by the
 effective SRec target range. Closing then installs the represented expanded
 body environments and retains every old occupied cell. No purity, body
 termination, acyclicity or nonreentrancy premise is used here.
+
+When the original memory has a `StateRep`, the closing laws compose to give
+a represented final memory. Earlier successful cache witnesses survive the
+world extension; the newly created thunks require no body-evaluation witness.
 -/
 set_option autoImplicit false
 set_option warningAsError true
@@ -21,8 +25,9 @@ namespace Suspensions.Pure.Creation
 open Representation
 variable {Primitive : Type}
 
-/-- A world extension justified by actual creation, before SRec expands the
-new captures. Existing world meanings are retained literally. -/
+/-- A pending world extension and template before SRec expands the new
+captures. `create_pending` establishes this postcondition from an actual
+receipt. Existing world meanings are retained literally. -/
 structure PendingGroup (beforeWorld afterWorld : World Primitive)
     (before preclose : Core.Machine.Memory Primitive) (rawOuter : Core.Env Primitive)
     (group : Suspensions.Pure.Group Primitive) (created : Core.Env Primitive) : Prop where
@@ -302,5 +307,57 @@ theorem PendingGroup.closed_environment
     EnvRep afterWorld (Core.Recursive.closeEnvironment rawOuter created)
       (bodyEnvironment group.outer (some group)) :=
   pending.members.bodyEnvironment (captured.mono pending.extension)
+
+/-- The pending world becomes a represented memory only after closing.
+Existing cache evidence is transported through the immutable world extension;
+new thunks need represented captures, not terminating body evaluations. -/
+theorem PendingGroup.closed_state {parameters : Machine.Parameters Primitive}
+    (pending : PendingGroup beforeWorld afterWorld before preclose rawOuter group created)
+    (valid : Memory.StateRep parameters beforeWorld before)
+    (captured : EnvRep beforeWorld rawOuter group.outer)
+    (made : Core.Recursive.create before rawOuter (Rhs.toBindings group.bindings) [] =
+      .ok (preclose, created)) :
+    Memory.StateRep parameters afterWorld (Core.Recursive.closeMemory preclose created) := by
+  have precloseBounded := (Core.Recursive.create_preserves
+    (Rhs.toBindings_permitted group.bindings) valid.bounded
+    (Core.Recursive.CreatedThunks.nil before) made).1
+  refine ⟨Core.Recursive.close_bounded precloseBounded created, ?_⟩
+  intro address meaning found
+  rcases pending.entries address meaning found with old | ⟨_, _, _, inside⟩
+  · obtain ⟨cell, occupied, represented⟩ := valid.meanings address meaning old
+    exact ⟨cell, pending.closed_old valid.bounded made occupied,
+      represented.mono pending.extension⟩
+  · have fresh : beforeWorld address = none := by
+      cases previous : beforeWorld address with
+      | none => rfl
+      | some earlier =>
+          have below := valid.world_below address earlier previous
+          have above := pending.targets_fresh address inside
+          exact False.elim (Nat.not_le_of_lt below above)
+    obtain ⟨rawCapture, occupied, environment⟩ := pending.closed_new captured found fresh
+    exact ⟨_, occupied, .thunk environment⟩
+
+/-- Actual creation exists and closes to a represented state and environment.
+The receipt remains available to the existing machine-prefix/finite-run
+bridges. This theorem performs no evaluation of any recursive body. -/
+theorem create_closed {parameters : Machine.Parameters Primitive}
+    {pureOuter : Env Primitive} {definitions : List (Nat × Rhs Primitive)}
+    (valid : Memory.StateRep parameters beforeWorld before)
+    (captured : EnvRep beforeWorld rawOuter pureOuter)
+    (distinct : (definitions.map Prod.fst).Nodup) :
+    ∃ (reached : Core.Machine.Memory Primitive) (collected : Core.Env Primitive)
+        (world : World Primitive),
+      Core.Recursive.create before rawOuter (Rhs.toBindings definitions) [] =
+        .ok (reached, collected) ∧
+      Durability.Extends beforeWorld world ∧
+      Memory.StateRep parameters world (Core.Recursive.closeMemory reached collected) ∧
+      EnvRep world (Core.Recursive.closeEnvironment rawOuter collected)
+        (bodyEnvironment pureOuter (some (.mk definitions pureOuter))) := by
+  obtain ⟨⟨reached, collected⟩, made⟩ := Core.Recursive.create_exists before rawOuter
+    (Rhs.toBindings definitions) [] (Rhs.toBindings_permitted definitions)
+  obtain ⟨world, pending⟩ := create_pending valid.bounded valid.world_below
+    captured distinct made
+  exact ⟨reached, collected, world, made, pending.extension,
+    pending.closed_state valid captured made, pending.closed_environment captured⟩
 
 end Suspensions.Pure.Creation

@@ -20,6 +20,11 @@ private def parameters : Core.Machine.Parameters Empty where
   matchException := 20
   bindException := 21
 
+private def pureParameters : Machine.Parameters Empty where
+  primitive := fun impossible _ => nomatch impossible
+  matchException := 20
+  bindException := 21
+
 private def oldBody : Core.Expr Empty := .atom (.integer 41)
 private def oldMeaning : Meaning Empty := ⟨oldBody, [], none⟩
 private def initial : Core.Machine.Memory Empty :=
@@ -42,6 +47,23 @@ private theorem initial_world_below :
 
 private theorem outer_represented : EnvRep initialWorld rawOuter pureOuter :=
   .cons (.address rfl) .nil
+
+private theorem old_body_run :
+    Progress.Evaluates (Machine.step pureParameters)
+      (Machine.start oldMeaning.environment oldMeaning.body)
+      (.value (.atom (.integer 41))) 2 := .next rfl (.done rfl)
+
+private theorem initial_state : Memory.StateRep pureParameters initialWorld initial := by
+  refine ⟨initial_bounded, ?_⟩
+  intro address meaning found
+  by_cases same : address = 0
+  · subst address
+    have equal : oldMeaning = meaning := by
+      simpa [initialWorld, Durability.put] using found
+    subst meaning
+    exact ⟨.value (.atom (.integer 41)), rfl,
+      .cached (.atom (.integer 41)) old_body_run⟩
+  · simp [initialWorld, Durability.put, same] at found
 
 private def clauses : List (Core.Pattern × Core.Expr Empty) :=
   [(.wildcard, Core.force (.variable 2))]
@@ -97,6 +119,70 @@ theorem mutual_raw_footprint :
       Core.Env.lookup closedEnv 1 = some (.closure clauses rawOuter template) ∧
       Core.Env.lookup closedEnv 99 = some (.address 0) :=
   ⟨rfl, rfl, rfl, rfl, rfl⟩
+
+/-- The actual creation receipt now also carries full represented-memory
+validity. The old cache has its two-transition witness; the cyclic new body
+remains unforced and needs no such witness. -/
+theorem mutual_creation_has_valid_closed_state :
+    ∃ world,
+      Durability.Extends initialWorld world ∧
+      Memory.StateRep pureParameters world closed ∧
+      EnvRep world closedEnv (bodyEnvironment pureOuter (some group)) ∧
+      Core.Prefix.observe parameters 8
+        (Core.Machine.start initial rawOuter
+          (.recursive (Rhs.toBindings definitions) (.variable 2))) =
+        .inr (Core.Machine.start closed closedEnv (.variable 2)) := by
+  obtain ⟨reached, collected, world, made, extension, valid, environment⟩ :=
+    create_closed initial_state outer_represented distinct_names
+  have equal : (preclose, template) = (reached, collected) :=
+    Except.ok.inj (creation_receipt.symm.trans made)
+  have memoryEqual : reached = preclose := (congrArg Prod.fst equal).symm
+  have environmentEqual : collected = template := (congrArg Prod.snd equal).symm
+  subst reached
+  subst collected
+  exact ⟨world, extension, valid, environment,
+    Core.Recursive.enter_body_prefix (Rhs.toBindings_permitted definitions)
+      creation_receipt (.variable 2)⟩
+
+private def callerStack : List (Core.Machine.Frame Empty) := [.constructor 77]
+private def callerStart : Core.Machine.Config Empty :=
+  ⟨initial, .eval rawOuter (.recursive (Rhs.toBindings definitions) (.variable 2)), callerStack⟩
+private def callerBody : Core.Machine.Config Empty :=
+  ⟨closed, .eval closedEnv (.variable 2), callerStack⟩
+private def callerAnswer : Core.Machine.Answer Empty :=
+  ⟨closed, .value (.constructor 77 (some (.address 1)))⟩
+
+private theorem caller_body_run :
+    Progress.Evaluates (Core.Machine.step parameters) callerBody callerAnswer 3 :=
+  .next rfl (.next rfl (.done rfl))
+
+/-- Creation retains a nonempty constructor continuation. Its eight steps
+compose with three body-and-caller steps, and the inverse recovers those three. -/
+theorem mutual_creation_inside_constructor :
+    Core.Prefix.observe parameters 8 callerStart = .inr callerBody ∧
+      Progress.Evaluates (Core.Machine.step parameters) callerStart callerAnswer 11 ∧
+      ∃ steps, Progress.Evaluates (Core.Machine.step parameters) callerBody callerAnswer steps ∧
+        steps = 3 := by
+  have whole : Progress.Evaluates (Core.Machine.step parameters) callerStart callerAnswer 11 :=
+    Core.Recursive.evaluates_from_body_with_stack (Rhs.toBindings_permitted definitions)
+      creation_receipt callerStack caller_body_run
+  refine ⟨Core.Recursive.enter_body_prefix_with_stack (Rhs.toBindings_permitted definitions)
+    creation_receipt (.variable 2) callerStack, whole, ?_⟩
+  obtain ⟨steps, evaluation, count⟩ :=
+    (Core.Recursive.evaluates_iff_with_stack (Rhs.toBindings_permitted definitions)
+      creation_receipt callerStack).mp whole
+  refine ⟨steps, evaluation, ?_⟩
+  change 11 = 8 + steps at count
+  omega
+
+/-- The body-entry event cannot occur in any of the eight creation/closing
+transitions, even while an unrelated caller frame is already present. -/
+theorem mutual_creation_prefix_has_no_body {index : Nat} {config : Core.Machine.Config Empty}
+    (inside : index < 8)
+    (reached : Core.Prefix.observe parameters index callerStart = .inr config) (address : Nat) :
+    (Core.Machine.transition parameters config).2 ≠ .body address :=
+  Core.Recursive.enter_body_prefix_no_body (Rhs.toBindings_permitted definitions)
+    creation_receipt (.variable 2) callerStack inside reached address
 
 private def duplicateBody : Core.Expr Empty := .atom (.integer 7)
 private def duplicateClauses : List (Core.Pattern × Core.Expr Empty) :=

@@ -79,6 +79,41 @@ theorem zero_prefix_is_not_obstruction :
     Progress.Terminates (step parameters) (start [] (integer 7)) := by
   exact ⟨rfl, .value (.atom (.integer 7)), 2, .next rfl (.done rfl)⟩
 
+/-- Raised results are also delivery boundaries. The three actual transitions
+evaluate the variable and execute raise; final delivery is the fourth. -/
+theorem raised_boundary_prefix :
+    Reaches parameters 3 (start [(10, .exception 99 none)] (.raise (.variable 10)))
+      ⟨.raised (.exception 99 none), []⟩ := by
+  have body : Progress.Evaluates (step parameters)
+      (start [(10, .exception 99 none)] (.raise (.variable 10))) (.raised (.exception 99 none)) 4 :=
+    Progress.search_sound (fuel := 4) (by rfl)
+  exact evaluates_boundary_reaches body rfl
+
+/-- The literal body's two-step certificate expands to three unfinished
+transitions, preserving every caller tail. The inner zero-pattern has not
+tested the returned seven yet, so no successful-match premise is needed. -/
+theorem certified_literal_prefix (tail : List (Frame Empty)) :
+    Reaches parameters 3
+      (appendFrames (startPattern [] (.suspended (.atom (.integer 0)))
+        (.suspension (integer 7) [] none)) tail)
+      (appendFrames (startPattern [] (.atom (.integer 0)) (.atom (.integer 7))) tail) := by
+  have body : Progress.Evaluates (step parameters) (start [] (integer 7))
+      (.value (.atom (.integer 7))) 2 := .next rfl (.done rfl)
+  exact force_prefix_of_certificate body [] (.atom (.integer 0)) tail
+
+/-- Once matching resumes, zero fails against seven and the value-binding
+continuation raises Bind. Certificate replay3 plus this residual3 gives6. -/
+theorem certified_literal_then_bind_failure :
+    Progress.Evaluates (step parameters)
+      (appendFrames (startPattern [] (.suspended (.atom (.integer 0)))
+        (.suspension (integer 7) [] none)) [.bindMatch [] (integer 99)])
+      (.raised (.exception 1 none)) 6 := by
+  have residual : Progress.Evaluates (step parameters)
+      (appendFrames (startPattern [] (.atom (.integer 0)) (.atom (.integer 7)))
+        [.bindMatch [] (integer 99)]) (.raised (.exception 1 none)) 3 :=
+    Progress.search_sound (fuel := 3) (by rfl)
+  exact (certified_literal_prefix [.bindMatch [] (integer 99)]).evaluates residual
+
 def cycleEnvironment : Env Empty := bodyEnvironment [] (some cycleGroup)
 
 def cycleSuspension : Value Empty := .suspension cycleBody [] (some cycleGroup)

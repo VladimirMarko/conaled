@@ -283,6 +283,30 @@ theorem create_prefix {parameters : Parameters Primitive} {memory : Memory Primi
           rw [count, observe_after_prefix first (3 * rest.length)]
           exact ih remaining made
 
+/-- Creation and closing leave the existing caller stack untouched. Only the
+recursive rule's own temporary frames are used before entering the body. -/
+theorem enter_body_prefix_with_stack {parameters : Parameters Primitive} {memory : Memory Primitive}
+    {environment : Env Primitive} {bindings : List (Nat × Expr Primitive)}
+    {result : Memory Primitive × Env Primitive} (permitted : Permitted bindings)
+    (made : create memory environment bindings [] = .ok result) (body : Expr Primitive)
+    (stack : List (Frame Primitive)) :
+    Prefix.observe parameters (3 * bindings.length + 2)
+        ⟨memory, .eval environment (.recursive bindings body), stack⟩ =
+      .inr ⟨closeMemory result.1 result.2, .eval (closeEnvironment environment result.2) body,
+        stack⟩ := by
+  have first : Prefix.observe parameters 1
+        ⟨memory, .eval environment (.recursive bindings body), stack⟩ =
+      .inr ⟨memory, .recursive environment bindings [] body, stack⟩ := rfl
+  have middle := create_prefix (parameters := parameters) permitted made body stack
+  have selected := (observe_after_prefix first (3 * bindings.length)).trans middle
+  have last : Prefix.observe parameters 1
+        ⟨result.1, .recursive environment [] result.2 body, stack⟩ =
+      .inr ⟨closeMemory result.1 result.2, .eval (closeEnvironment environment result.2) body,
+        stack⟩ := rfl
+  have entered := (observe_after_prefix selected 1).trans last
+  have count : (1 + 3 * bindings.length) + 1 = 3 * bindings.length + 2 := by omega
+  simpa only [count] using entered
+
 /-- Closing is the final creation transition of the concrete recursive rule. -/
 theorem enter_body_prefix {parameters : Parameters Primitive} {memory : Memory Primitive}
     {environment : Env Primitive} {bindings : List (Nat × Expr Primitive)}
@@ -290,16 +314,92 @@ theorem enter_body_prefix {parameters : Parameters Primitive} {memory : Memory P
     (made : create memory environment bindings [] = .ok result) (body : Expr Primitive) :
     Prefix.observe parameters (3 * bindings.length + 2)
         (start memory environment (.recursive bindings body)) =
-      .inr (start (closeMemory result.1 result.2) (closeEnvironment environment result.2) body) := by
-  have first : Prefix.observe parameters 1 (start memory environment (.recursive bindings body)) =
-      .inr ⟨memory, .recursive environment bindings [] body, []⟩ := rfl
-  have middle := create_prefix (parameters := parameters) permitted made body []
-  have selected := (observe_after_prefix first (3 * bindings.length)).trans middle
-  have last : Prefix.observe parameters 1 ⟨result.1, .recursive environment [] result.2 body, []⟩ =
-      .inr (start (closeMemory result.1 result.2) (closeEnvironment environment result.2) body) := rfl
-  have entered := (observe_after_prefix selected 1).trans last
-  have count : (1 + 3 * bindings.length) + 1 = 3 * bindings.length + 2 := by omega
-  simpa only [count] using entered
+      .inr (start (closeMemory result.1 result.2) (closeEnvironment environment result.2) body) :=
+  enter_body_prefix_with_stack permitted made body []
+
+private theorem creation_chunk_no_body {parameters : Parameters Primitive}
+    {memory : Memory Primitive} {environment : Env Primitive} {name : Nat}
+    {rhs : Expr Primitive} {rest : List (Nat × Expr Primitive)} {created : Env Primitive}
+    {body : Expr Primitive} {stack : List (Frame Primitive)} (allowed : RecursiveRhs rhs)
+    {index : Nat} {config : Config Primitive} (inside : index < 3)
+    (reached : Prefix.observe parameters index
+      ⟨memory, .recursive environment ((name, rhs) :: rest) created body, stack⟩ = .inr config)
+    (address : Nat) : (transition parameters config).2 ≠ .body address := by
+  have indices : index = 0 ∨ index = 1 ∨ index = 2 := by omega
+  rcases indices with rfl | rfl | rfl <;> cases allowed
+  all_goals
+    have same := Sum.inr.inj reached
+    subst config
+    intro impossible
+    cases impossible
+
+private theorem create_prefix_no_body {parameters : Parameters Primitive}
+    {memory : Memory Primitive} {environment : Env Primitive}
+    {bindings : List (Nat × Expr Primitive)} {created : Env Primitive}
+    {body : Expr Primitive} {stack : List (Frame Primitive)} (permitted : Permitted bindings)
+    {index : Nat} {config : Config Primitive} (inside : index < 3 * bindings.length)
+    (reached : Prefix.observe parameters index
+      ⟨memory, .recursive environment bindings created body, stack⟩ = .inr config)
+    (address : Nat) : (transition parameters config).2 ≠ .body address := by
+  induction bindings generalizing memory created index with
+  | nil => simp at inside
+  | cons binding rest ih =>
+      rcases binding with ⟨name, rhs⟩
+      obtain ⟨allowed, remaining⟩ := (permitted_cons name rhs rest).mp permitted
+      by_cases early : index < 3
+      · exact creation_chunk_no_body allowed early reached address
+      · have count : index = 3 + (index - 3) := by omega
+        have later : index - 3 < 3 * rest.length := by
+          simp only [List.length_cons] at inside
+          omega
+        cases allowed with
+        | function clauses =>
+            have first := function_creation_prefix parameters memory environment name clauses
+              rest created body stack
+            rw [count, observe_after_prefix first (index - 3)] at reached
+            exact ih remaining later reached
+        | delay code =>
+            have first := delay_creation_prefix parameters memory environment name code
+              rest created body stack
+            rw [count, observe_after_prefix first (index - 3)] at reached
+            exact ih remaining later reached
+
+/-- Every actual transition strictly inside successful creation/closing has
+no suspension-body entry event. The strict bound stops before the body state;
+its subsequent transitions are not covered by this claim. -/
+theorem enter_body_prefix_no_body {parameters : Parameters Primitive} {memory : Memory Primitive}
+    {environment : Env Primitive} {bindings : List (Nat × Expr Primitive)}
+    {result : Memory Primitive × Env Primitive} (permitted : Permitted bindings)
+    (made : create memory environment bindings [] = .ok result) (body : Expr Primitive)
+    (stack : List (Frame Primitive)) {index : Nat} {config : Config Primitive}
+    (inside : index < 3 * bindings.length + 2)
+    (reached : Prefix.observe parameters index
+      ⟨memory, .eval environment (.recursive bindings body), stack⟩ = .inr config)
+    (address : Nat) : (transition parameters config).2 ≠ .body address := by
+  cases index with
+  | zero =>
+      have same := Sum.inr.inj reached
+      subst config
+      intro impossible
+      cases impossible
+  | succ index =>
+      have first : Prefix.observe parameters 1
+          ⟨memory, .eval environment (.recursive bindings body), stack⟩ =
+        .inr ⟨memory, .recursive environment bindings [] body, stack⟩ := rfl
+      have rest : Prefix.observe parameters index
+          ⟨memory, .recursive environment bindings [] body, stack⟩ = .inr config := by
+        have decomposition := observe_after_prefix first index
+        rw [Nat.add_comm 1 index] at decomposition
+        exact decomposition.symm.trans reached
+      by_cases middle : index < 3 * bindings.length
+      · exact create_prefix_no_body permitted middle rest address
+      · have last : index = 3 * bindings.length := by omega
+        subst index
+        have completed := create_prefix (parameters := parameters) permitted made body stack
+        have same := Sum.inr.inj (completed.symm.trans rest)
+        subst config
+        intro impossible
+        cases impossible
 
 private theorem evaluates_after_prefix {parameters : Parameters Primitive}
     {config next : Config Primitive} {budget : Nat} {answer : Answer Primitive} {steps : Nat}
@@ -324,7 +424,9 @@ private theorem evaluates_after_prefix {parameters : Parameters Primitive}
           have count : (budget + steps) + 1 = (budget + 1) + steps := by omega
           simpa only [count] using continued
 
-private theorem evaluates_strip_prefix {parameters : Parameters Primitive}
+/-- Strip any observed live prefix from a finite evaluation, retaining the
+same reached answer and the exact remaining transition count. -/
+theorem evaluates_strip_prefix {parameters : Parameters Primitive}
     {config next : Config Primitive} {budget : Nat} {answer : Answer Primitive} {total : Nat}
     (reached : Prefix.observe parameters budget config = .inr next)
     (evaluation : Progress.Evaluates (step parameters) config answer total) :
@@ -345,6 +447,38 @@ private theorem evaluates_strip_prefix {parameters : Parameters Primitive}
             simpa only [Prefix.observe_succ, moved] using reached
           obtain ⟨steps, body, count⟩ := ih rest tail
           exact ⟨steps, body, by omega⟩
+
+/-- A finite body-and-caller evaluation extends through the concrete creation
+prefix without executing or changing the existing frames during that prefix. -/
+theorem evaluates_from_body_with_stack {parameters : Parameters Primitive} {memory : Memory Primitive}
+    {environment : Env Primitive} {bindings : List (Nat × Expr Primitive)}
+    {result : Memory Primitive × Env Primitive} {body : Expr Primitive}
+    {answer : Answer Primitive} {steps : Nat} (permitted : Permitted bindings)
+    (made : create memory environment bindings [] = .ok result) (stack : List (Frame Primitive))
+    (evaluation : Progress.Evaluates (step parameters)
+      ⟨closeMemory result.1 result.2, .eval (closeEnvironment environment result.2) body, stack⟩
+      answer steps) :
+    Progress.Evaluates (step parameters)
+      ⟨memory, .eval environment (.recursive bindings body), stack⟩
+      answer (3 * bindings.length + 2 + steps) :=
+  evaluates_after_prefix (enter_body_prefix_with_stack permitted made body stack) evaluation
+
+/-- The exact finite-evaluation decomposition remains valid under any caller
+stack and for every reached answer, including raised or stuck outcomes. -/
+theorem evaluates_iff_with_stack {parameters : Parameters Primitive} {memory : Memory Primitive}
+    {environment : Env Primitive} {bindings : List (Nat × Expr Primitive)}
+    {result : Memory Primitive × Env Primitive} {body : Expr Primitive}
+    {answer : Answer Primitive} {total : Nat} (permitted : Permitted bindings)
+    (made : create memory environment bindings [] = .ok result) (stack : List (Frame Primitive)) :
+    Progress.Evaluates (step parameters)
+        ⟨memory, .eval environment (.recursive bindings body), stack⟩ answer total ↔
+      ∃ steps, Progress.Evaluates (step parameters)
+        ⟨closeMemory result.1 result.2, .eval (closeEnvironment environment result.2) body, stack⟩
+        answer steps ∧ total = 3 * bindings.length + 2 + steps := by
+  constructor
+  · exact evaluates_strip_prefix (enter_body_prefix_with_stack permitted made body stack)
+  · rintro ⟨steps, evaluation, rfl⟩
+    exact evaluates_from_body_with_stack permitted made stack evaluation
 
 /-- If the recursive body has a finite evaluation, the actual expression has
 that same reached answer after its explicit creation/closing prefix. -/

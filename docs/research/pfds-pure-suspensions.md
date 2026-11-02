@@ -55,8 +55,11 @@ Primitive compatibility quantifies over every represented input and immutable
 world. Fault and result classes remain explicit. Identity, integer and Boolean
 adapters satisfy the law; memory validity and hereditary source-code restrictions
 are separate. In particular, representation alone does not prevent a primitive
-from returning a closure containing an excluded effect. A primitive-preservation
-law for the eventual code domain remains necessary.
+from returning a closure containing an excluded effect. The separate hereditary
+domain now checks stored code, captures, selected primitive tokens and finite
+group descriptors, including nested permitted recursive RHS shapes and distinct
+recursive names. Its usable basis preservation and connected fault/recursive
+clients pass focused checks. It does not require full source typing.
 
 The pure continuation and recurrence modules also pass their focused clients.
 A positive actual prefix returning to the identical isolated input with caller
@@ -66,16 +69,37 @@ and an eight-transition source entry. The universal nontermination result uses
 those exact prefixes and evaluation-count uniqueness, rather than inferring
 divergence from a failed bounded search.
 
+Cache-cell validity and its clients also pass focused checks. Unforced thunks
+need represented effective captures; cached values need an actual finite pure
+body evaluation. Fresh delay, world extension and justified memoization retain
+that invariant. A cyclic thunk is valid without a termination witness and cannot
+justify any cached value for its known nonterminating pure body.
+
+The history invariant records an actual executed pure prefix for each pending
+raw memoize-frame occurrence. It permits duplicate active addresses. Completing
+a body prefix constructs its finite certificate; reentering the same meaning
+creates a strictly positive recurrence. Control and frame representation keep
+the raw and pure continuations aligned without asserting a simulation by
+definition. Their connected before/after reentry states pass focused checks.
+
+The local actual delay/force/cache correspondence now passes its full clients.
+Delay allocates without evaluating even a known nonterminating body. Uncached
+entry starts a new history and advances older ones. A cache hit replays the
+stored certificate through the caller's still-unmatched inner pattern. Normal
+memoization derives its certificate from the past prefix and writes before
+matching resumes; exceptional exit leaves the thunk uncached. These local
+results preserve the unrestricted raw transition and its body/cache events.
+
 ## Remaining proof obligation
 
 All these development results remain unaccepted until the complete candidate
 passes its integrated build, exhaustive audit and independent reviews. They
-do not yet prove pure nonreentrancy for the raw machine. Cache-cell validity is
-under focused development: unforced thunks need represented captures, whereas
-cached values need an actual finite pure-body evaluation. The execution bridge
-must construct those certificates from earlier raw body execution. It must not
-assume all unforced thunks terminate, or use nonreentrancy to justify the
-certificates.
+do not yet prove pure nonreentrancy for the raw machine. The runtime code-domain
+preservation, world-domain composition and ordinary-step correspondence are
+currently uncompiled development drafts. The complete execution bridge must
+compose all local laws across actual finite raw executions, including the
+creation/closing prefix, without assuming future thunk termination or using
+nonreentrancy to justify cache certificates.
 
 Every actual nested body entry must map to a proper nested pure body execution.
 Exact pure input/count uniqueness can then contradict active self-reentry.
@@ -86,5 +110,6 @@ cache/write-count consequences need separate proofs.
 The representative checked clients include mutual function/suspension recursion,
 repeated forcing without a cache, a finite cyclic prefix and a suspension that
 returns a closure referring back to itself. The separate recurrence argument
-supplies the negative result for the cyclic example. Full isolated-candidate validation, exhaustive proof audit,
+supplies the negative result for the cyclic example. Full isolated-candidate
+validation, exhaustive proof audit,
 final verification and independent Standards/Spec review remain required.

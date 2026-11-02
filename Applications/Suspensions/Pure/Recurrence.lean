@@ -57,6 +57,15 @@ theorem reaches_succ_iff (parameters : Parameters Primitive) (steps : Nat)
       (advance parameters)^[steps] (.inr next) = .inr last
   cases first : step parameters config <;> simp
 
+theorem Reaches.one {parameters : Parameters Primitive} {config next : Config Primitive}
+    (moved : step parameters config = .inr next) : Reaches parameters 1 config next := moved
+
+theorem Reaches.trans {parameters : Parameters Primitive} {n m : Nat}
+    {config middle last : Config Primitive} (first : Reaches parameters n config middle)
+    (second : Reaches parameters m middle last) : Reaches parameters (n + m) config last := by
+  unfold Reaches at first second ⊢
+  rw [Nat.add_comm n m, Function.iterate_add_apply, first, second]
+
 theorem Reaches.evaluates {parameters : Parameters Primitive} {steps : Nat}
     {config next : Config Primitive} (reached : Reaches parameters steps config next)
     {answer : Result Primitive} {n : Nat}
@@ -107,6 +116,53 @@ theorem Reaches.append {parameters : Parameters Primitive} {steps : Nat}
       obtain ⟨first, moved, remaining⟩ := (reaches_succ_iff parameters steps config next).mp reached
       apply (reaches_succ_iff parameters steps _ _).mpr
       exact ⟨appendFrames first tail, step_append moved tail, ih remaining⟩
+
+/-- A finite nonfault evaluation reaches its delivery control after exactly
+one fewer transition. This is an actual unfinished prefix, not padded fuel. -/
+theorem evaluates_boundary_reaches {parameters : Parameters Primitive}
+    {config : Config Primitive} {answer : Result Primitive} {control : Control Primitive} {n : Nat}
+    (evaluation : Progress.Evaluates (step parameters) config answer n)
+    (boundary : boundaryControl answer = some control) :
+    Reaches parameters (n - 1) config ⟨control, []⟩ := by
+  induction evaluation with
+  | done finished =>
+      rw [step_boundary finished boundary]
+      rfl
+  | @next input next output steps moved evaluation ih =>
+      have reached := (Reaches.one moved).trans (ih boundary)
+      have positive := evaluates_positive evaluation
+      have count : 1 + (steps - 1) = (steps + 1) - 1 := by omega
+      simpa only [count] using reached
+
+/-- Replaying a normal body certificate reaches the caller's inner pattern in
+n+1 transitions: entry, all but isolated delivery, then return-to-pattern.
+The inner pattern has not run. Caller frames are arbitrary and unchanged.
+This is the pure replay used for a justified raw cache hit; it asserts no heap
+relation or constant-cost force operation on its own. -/
+theorem force_prefix_of_certificate {parameters : Parameters Primitive}
+    {body : Core.Expr Primitive} {captured : Env Primitive}
+    {recursive : Option (Suspensions.Pure.Group Primitive)} {value : Value Primitive} {n : Nat}
+    (evaluation : Progress.Evaluates (step parameters)
+      (start (bodyEnvironment captured recursive) body) (.value value) n)
+    (environment : Env Primitive) (inner : Core.Pattern) (tail : List (Frame Primitive)) :
+    Reaches parameters (n + 1)
+      (appendFrames (startPattern environment (.suspended inner)
+        (.suspension body captured recursive)) tail)
+      (appendFrames (startPattern environment inner value) tail) := by
+  have entered : Reaches parameters 1
+      (startPattern environment (.suspended inner) (.suspension body captured recursive))
+      (appendFrames (start (bodyEnvironment captured recursive) body) [.force environment inner]) :=
+    Reaches.one (congrArg Prod.fst
+      (body_transition parameters environment captured recursive inner body []))
+  have evaluated := (evaluates_boundary_reaches evaluation rfl).append [.force environment inner]
+  have returned : Reaches parameters 1
+      (appendFrames ⟨.value value, []⟩ [.force environment inner])
+      (startPattern environment inner value) :=
+    Reaches.one (congrArg Prod.fst (body_return parameters environment inner value []))
+  have replayed := (entered.trans (evaluated.trans returned)).append tail
+  have positive := evaluates_positive evaluation
+  have count : 1 + ((n - 1) + 1) = n + 1 := by omega
+  simpa only [count] using replayed
 
 theorem Reaches.not_terminates {parameters : Parameters Primitive} {steps : Nat}
     {config next : Config Primitive} (reached : Reaches parameters steps config next)
