@@ -822,6 +822,7 @@ mutual
       (typed : PatternHasType signature context p t bindings)
       (fresh : Nat) (addedType : Ty) (avoids : fresh ∉ Names.patternNames p) :
       PatternHasType signature (context.bindVariable fresh addedType) p t bindings := by
+    generalize syntaxEq : p = whole at typed avoids ⊢
     cases typed with
     | wildcard => exact .wildcard
     | @«variable» name t allowed =>
@@ -853,20 +854,29 @@ mutual
         (Finset.notMem_union.mp avoids).2
       exact .layered (context.variableAllowed_bindVariable fresh name addedType allowed)
         distinct (inner.weaken fresh addedType innerAvoids)
-  termination_by structural typed
+  termination_by sizeOf p
+  decreasing_by
+    all_goals subst_vars
+    all_goals simp_wf
+    all_goals omega
 
   theorem PatternFieldsHaveType.weaken {Primitive : Type} {signature : Signature Primitive}
       {context : Context} {fields : List (Nat × Pattern)} {types : List (Nat × Ty)}
       {bindings : Bindings} (typed : PatternFieldsHaveType signature context fields types bindings)
       (fresh : Nat) (addedType : Ty) (avoids : fresh ∉ Names.patternFieldNames fields) :
       PatternFieldsHaveType signature (context.bindVariable fresh addedType) fields types bindings := by
+    generalize syntaxEq : fields = whole at typed avoids ⊢
     cases typed with
     | nil => exact .nil
     | cons head tail disjoint =>
       rw [Names.patternFieldNames] at avoids
       have parts := Finset.notMem_union.mp avoids
       exact .cons (head.weaken fresh addedType parts.1) (tail.weaken fresh addedType parts.2) disjoint
-  termination_by structural typed
+  termination_by sizeOf fields
+  decreasing_by
+    all_goals subst_vars
+    all_goals simp_wf
+    all_goals omega
 end
 
 theorem RecursiveBindingsHaveType.domain {Primitive : Type} {signature : Signature Primitive}
@@ -896,6 +906,7 @@ mutual
       (support : addedType.vars ⊆ context.ambient)
       (avoids : fresh ∉ Names.expressionNames e) :
       HasType signature (context.bindVariable fresh addedType) e t := by
+    generalize syntaxEq : e = whole at typed avoids ⊢
     cases typed with
     | atom value => exact .atom value
     | @«variable» context name scheme t found instanceType =>
@@ -1003,7 +1014,11 @@ mutual
       rw [← context.bindVariable_extend _ fresh addedType freshBinding]
       exact body.weaken fresh addedType
         (context.extend_fresh _ fresh freshContext freshBinding) support parts.2
-  termination_by structural typed
+  termination_by sizeOf e
+  decreasing_by
+    all_goals subst_vars
+    all_goals simp_wf
+    all_goals omega
 
   theorem ClausesHaveType.weaken {Primitive : Type} {signature : Signature Primitive}
       {context : Context} {clauses : List (Pattern × Expr Primitive)} {input output : Ty}
@@ -1012,6 +1027,7 @@ mutual
       (support : addedType.vars ⊆ context.ambient)
       (avoids : fresh ∉ Names.clauseNames clauses) :
       ClausesHaveType signature (context.bindVariable fresh addedType) clauses input output := by
+    generalize syntaxEq : clauses = whole at typed avoids ⊢
     cases typed with
     | nil => exact .nil
     | @cons context p e rest input output bindings pattern body tail =>
@@ -1025,7 +1041,11 @@ mutual
       rw [← context.bindVariable_extend bindings fresh addedType freshBindings]
       exact body.weaken fresh addedType
         (context.extend_fresh bindings fresh freshContext freshBindings) support firstParts.2
-  termination_by structural typed
+  termination_by sizeOf clauses
+  decreasing_by
+    all_goals subst_vars
+    all_goals simp_wf
+    all_goals omega
 
   theorem FieldsHaveType.weaken {Primitive : Type} {signature : Signature Primitive}
       {context : Context} {fields : List (Nat × Expr Primitive)} {types : List (Nat × Ty)}
@@ -1034,6 +1054,7 @@ mutual
       (support : addedType.vars ⊆ context.ambient)
       (avoids : fresh ∉ Names.expressionFieldNames fields) :
       FieldsHaveType signature (context.bindVariable fresh addedType) fields types := by
+    generalize syntaxEq : fields = whole at typed avoids ⊢
     cases typed with
     | nil => exact .nil
     | cons head tail =>
@@ -1041,7 +1062,11 @@ mutual
       have parts := Finset.notMem_union.mp avoids
       exact .cons (head.weaken fresh addedType freshContext support parts.1)
         (tail.weaken fresh addedType freshContext support parts.2)
-  termination_by structural typed
+  termination_by sizeOf fields
+  decreasing_by
+    all_goals subst_vars
+    all_goals simp_wf
+    all_goals omega
 
   theorem RecursiveBindingsHaveType.weaken {Primitive : Type} {signature : Signature Primitive}
       {context : Context} {monotypes : Bindings} {bindings : List (Nat × Expr Primitive)}
@@ -1053,6 +1078,7 @@ mutual
       (avoids : fresh ∉ Names.recursiveNames bindings) :
       RecursiveBindingsHaveType signature (context.bindVariable fresh addedType)
         monotypes bindings closed := by
+    generalize syntaxEq : bindings = whole at typed avoids ⊢
     cases typed with
     | nil => exact .nil
     | @cons context monotypes name e rest t closed allowed found permitted right tail =>
@@ -1069,7 +1095,11 @@ mutual
       rw [← context.bindVariable_extend monotypes fresh addedType freshMonotypes]
       exact right.weaken fresh addedType
         (context.extend_fresh monotypes fresh freshContext freshMonotypes) support firstParts.2
-  termination_by structural typed
+  termination_by sizeOf bindings
+  decreasing_by
+    all_goals subst_vars
+    all_goals simp_wf
+    all_goals omega
 end
 
 /-- Book lazy-function sugar preserves the clause type and places its ordered

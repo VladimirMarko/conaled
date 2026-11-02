@@ -158,12 +158,90 @@ private theorem eval_related (parameters : Parameters Primitive) (frontier : Nat
   have frontierEq := related.1.frontier
   have namesEq := related.1.exceptionNames
   have lookups := related.1.lookup
+  have exceptionUpdate := related.exception (freshExceptionName before)
   cases expression <;> simp only [transition]
   all_goals
     repeat' first
       | (fail_if_no_progress subst_vars)
       | (fail_if_no_progress simp_all [freshExceptionName])
       | split at *
+
+private theorem argument_related (parameters : Parameters Primitive) (frontier : Nat)
+    (equivariant : Equivariant parameters (shift frontier))
+    (before after : Memory Primitive) (related : StatesRelated frontier before after)
+    (functionValue v : Value Primitive) (stack : List (Frame Primitive)) :
+    TransitionsRelated frontier
+      (transition parameters ⟨before, .value v, .argument functionValue :: stack⟩)
+      (transition parameters
+        ⟨after, .value (value (shift frontier) v),
+          .argument (value (shift frontier) functionValue) :: stack.map (frame (shift frontier))⟩) := by
+  cases functionValue with
+  | primitive operation =>
+      simp only [transition, value_primitive]
+      rw [equivariant operation v]
+      cases parameters.primitive operation v <;> simp [related]
+  | _ =>
+      simp only [transition]
+      repeat' first
+        | (fail_if_no_progress subst_vars)
+        | (fail_if_no_progress simp_all)
+        | split at *
+
+private theorem branch_related (parameters : Parameters Primitive) (frontier : Nat)
+    (before after : Memory Primitive) (related : StatesRelated frontier before after)
+    (v : Value Primitive) (env : Env Primitive) (yes no : Expr Primitive)
+    (stack : List (Frame Primitive)) :
+    TransitionsRelated frontier
+      (transition parameters ⟨before, .value v, .branch env yes no :: stack⟩)
+      (transition parameters
+        ⟨after, .value (value (shift frontier) v),
+          .branch (environment (shift frontier) env) yes no :: stack.map (frame (shift frontier))⟩) := by
+  cases v <;> simp only [transition]
+  all_goals
+    repeat' first
+      | (fail_if_no_progress subst_vars)
+      | (fail_if_no_progress simp_all)
+      | split at *
+
+private theorem read_related (parameters : Parameters Primitive) (frontier : Nat)
+    (before after : Memory Primitive) (related : StatesRelated frontier before after)
+    (v : Value Primitive) (stack : List (Frame Primitive)) :
+    TransitionsRelated frontier
+      (transition parameters ⟨before, .value v, .read :: stack⟩)
+      (transition parameters
+        ⟨after, .value (value (shift frontier) v), .read :: stack.map (frame (shift frontier))⟩) := by
+  have lookups := related.1.lookup
+  cases v <;> simp only [transition]
+  all_goals
+    repeat' first
+      | (fail_if_no_progress subst_vars)
+      | (fail_if_no_progress simp_all)
+      | split at *
+
+private theorem assignment_related (parameters : Parameters Primitive) (frontier : Nat)
+    (before after : Memory Primitive) (related : StatesRelated frontier before after)
+    (target v : Value Primitive) (stack : List (Frame Primitive)) :
+    TransitionsRelated frontier
+      (transition parameters ⟨before, .value v, .assignValue target :: stack⟩)
+      (transition parameters
+        ⟨after, .value (value (shift frontier) v),
+          .assignValue (value (shift frontier) target) :: stack.map (frame (shift frontier))⟩) := by
+  have lookups := related.1.lookup
+  cases target <;> simp only [transition]
+  all_goals
+    repeat' first
+      | (fail_if_no_progress subst_vars)
+      | (fail_if_no_progress simp_all)
+      | split at *
+
+private theorem raising_related (parameters : Parameters Primitive) (frontier : Nat)
+    (before after : Memory Primitive) (related : StatesRelated frontier before after)
+    (v : Value Primitive) (stack : List (Frame Primitive)) :
+    TransitionsRelated frontier
+      (transition parameters ⟨before, .value v, .raise :: stack⟩)
+      (transition parameters
+        ⟨after, .value (value (shift frontier) v), .raise :: stack.map (frame (shift frontier))⟩) := by
+  cases v <;> simp [transition, related]
 
 private theorem value_related (parameters : Parameters Primitive) (frontier : Nat)
     (equivariant : Equivariant parameters (shift frontier))
@@ -174,19 +252,26 @@ private theorem value_related (parameters : Parameters Primitive) (frontier : Na
       (transition parameters
         ⟨after, .value (value (shift frontier) v), stack.map (frame (shift frontier))⟩) := by
   have frontierEq := related.1.frontier
-  have namesEq := related.1.exceptionNames
-  have lookups := related.1.lookup
-  have primitiveLaw := equivariant
-  unfold Equivariant at primitiveLaw
   cases stack with
   | nil => simp [transition, related]
   | cons head rest =>
-      cases head <;> simp only [transition, List.map_cons, frame]
-      all_goals
-        repeat' first
-          | (fail_if_no_progress subst_vars)
-          | (fail_if_no_progress simp_all)
-          | split at *
+      cases head with
+      | argument functionValue =>
+          exact argument_related parameters frontier equivariant before after related functionValue v rest
+      | branch env yes no => exact branch_related parameters frontier before after related v env yes no rest
+      | read => exact read_related parameters frontier before after related v rest
+      | assignValue target => exact assignment_related parameters frontier before after related target v rest
+      | raise => exact raising_related parameters frontier before after related v rest
+      | reference =>
+          have allocated := related.allocate (.value v)
+          simp only [cell_value] at allocated
+          simp [transition, allocated, frontierEq]
+      | _ =>
+          simp only [transition, List.map_cons, frame]
+          repeat' first
+            | (fail_if_no_progress subst_vars)
+            | (fail_if_no_progress simp_all)
+            | split at *
 
 private theorem raised_related (parameters : Parameters Primitive) (frontier : Nat)
     (before after : Memory Primitive) (related : StatesRelated frontier before after)
@@ -199,6 +284,97 @@ private theorem raised_related (parameters : Parameters Primitive) (frontier : N
   | nil => simp [transition, related]
   | cons head rest => cases head <;> simp [transition, related]
 
+private theorem atom_pattern_related (parameters : Parameters Primitive) (frontier : Nat)
+    (before after : Memory Primitive) (related : StatesRelated frontier before after)
+    (env : Env Primitive) (atom : Atom) (v : Value Primitive) (stack : List (Frame Primitive)) :
+    TransitionsRelated frontier
+      (transition parameters ⟨before, .pattern env (.atom atom) v, stack⟩)
+      (transition parameters ⟨after, .pattern (environment (shift frontier) env) (.atom atom)
+        (value (shift frontier) v), stack.map (frame (shift frontier))⟩) := by
+  cases v <;> simp only [transition]
+  all_goals
+    repeat' first
+      | (fail_if_no_progress subst_vars)
+      | (fail_if_no_progress simp_all)
+      | split at *
+
+private theorem constructor_pattern_related (parameters : Parameters Primitive) (frontier : Nat)
+    (before after : Memory Primitive) (related : StatesRelated frontier before after)
+    (env : Env Primitive) (tag : Nat) (argument : Option Pattern)
+    (v : Value Primitive) (stack : List (Frame Primitive)) :
+    TransitionsRelated frontier
+      (transition parameters ⟨before, .pattern env (.constructor tag argument) v, stack⟩)
+      (transition parameters ⟨after,
+        .pattern (environment (shift frontier) env) (.constructor tag argument)
+        (value (shift frontier) v), stack.map (frame (shift frontier))⟩) := by
+  cases v <;> simp only [transition]
+  all_goals
+    repeat' first
+      | (fail_if_no_progress subst_vars)
+      | (fail_if_no_progress simp_all)
+      | split at *
+
+private theorem exception_pattern_related (parameters : Parameters Primitive) (frontier : Nat)
+    (before after : Memory Primitive) (related : StatesRelated frontier before after)
+    (env : Env Primitive) (name : Nat) (argument : Option Pattern)
+    (v : Value Primitive) (stack : List (Frame Primitive)) :
+    TransitionsRelated frontier
+      (transition parameters ⟨before, .pattern env (.exception name argument) v, stack⟩)
+      (transition parameters ⟨after,
+        .pattern (environment (shift frontier) env) (.exception name argument)
+        (value (shift frontier) v), stack.map (frame (shift frontier))⟩) := by
+  cases v <;> simp only [transition]
+  all_goals
+    repeat' first
+      | (fail_if_no_progress subst_vars)
+      | (fail_if_no_progress simp_all)
+      | split at *
+
+private theorem record_pattern_related (parameters : Parameters Primitive) (frontier : Nat)
+    (before after : Memory Primitive) (related : StatesRelated frontier before after)
+    (env : Env Primitive) (patterns : List (Nat × Pattern))
+    (v : Value Primitive) (stack : List (Frame Primitive)) :
+    TransitionsRelated frontier
+      (transition parameters ⟨before, .pattern env (.record patterns) v, stack⟩)
+      (transition parameters ⟨after, .pattern (environment (shift frontier) env) (.record patterns)
+        (value (shift frontier) v), stack.map (frame (shift frontier))⟩) := by
+  cases v <;> simp only [transition]
+  all_goals
+    repeat' first
+      | (fail_if_no_progress subst_vars)
+      | (fail_if_no_progress simp_all)
+      | split at *
+
+private theorem reference_pattern_related (parameters : Parameters Primitive) (frontier : Nat)
+    (before after : Memory Primitive) (related : StatesRelated frontier before after)
+    (env : Env Primitive) (inner : Pattern) (v : Value Primitive) (stack : List (Frame Primitive)) :
+    TransitionsRelated frontier
+      (transition parameters ⟨before, .pattern env (.reference inner) v, stack⟩)
+      (transition parameters ⟨after, .pattern (environment (shift frontier) env) (.reference inner)
+        (value (shift frontier) v), stack.map (frame (shift frontier))⟩) := by
+  have lookups := related.1.lookup
+  cases v <;> simp only [transition]
+  all_goals
+    repeat' first
+      | (fail_if_no_progress subst_vars)
+      | (fail_if_no_progress simp_all)
+      | split at *
+
+private theorem suspended_pattern_related (parameters : Parameters Primitive) (frontier : Nat)
+    (before after : Memory Primitive) (related : StatesRelated frontier before after)
+    (env : Env Primitive) (inner : Pattern) (v : Value Primitive) (stack : List (Frame Primitive)) :
+    TransitionsRelated frontier
+      (transition parameters ⟨before, .pattern env (.suspended inner) v, stack⟩)
+      (transition parameters ⟨after, .pattern (environment (shift frontier) env) (.suspended inner)
+        (value (shift frontier) v), stack.map (frame (shift frontier))⟩) := by
+  have lookups := related.1.lookup
+  cases v <;> simp only [transition]
+  all_goals
+    repeat' first
+      | (fail_if_no_progress subst_vars)
+      | (fail_if_no_progress simp_all)
+      | split at *
+
 private theorem pattern_related (parameters : Parameters Primitive) (frontier : Nat)
     (before after : Memory Primitive) (related : StatesRelated frontier before after)
     (env : Env Primitive) (pattern : Pattern) (v : Value Primitive) (stack : List (Frame Primitive)) :
@@ -206,13 +382,19 @@ private theorem pattern_related (parameters : Parameters Primitive) (frontier : 
       (transition parameters ⟨before, .pattern env pattern v, stack⟩)
       (transition parameters ⟨after, .pattern (environment (shift frontier) env) pattern
         (value (shift frontier) v), stack.map (frame (shift frontier))⟩) := by
-  have lookups := related.1.lookup
-  cases pattern <;> simp only [transition]
-  all_goals
-    repeat' first
-      | (fail_if_no_progress subst_vars)
-      | (fail_if_no_progress simp_all)
-      | split at *
+  cases pattern with
+  | atom atom => exact atom_pattern_related parameters frontier before after related env atom v stack
+  | constructor tag argument =>
+      exact constructor_pattern_related parameters frontier before after related env tag argument v stack
+  | exception name argument =>
+      exact exception_pattern_related parameters frontier before after related env name argument v stack
+  | record patterns =>
+      exact record_pattern_related parameters frontier before after related env patterns v stack
+  | reference inner =>
+      exact reference_pattern_related parameters frontier before after related env inner v stack
+  | suspended inner =>
+      exact suspended_pattern_related parameters frontier before after related env inner v stack
+  | _ => simp [transition, related]
 
 private theorem matched_related (parameters : Parameters Primitive) (frontier : Nat)
     (before after : Memory Primitive) (related : StatesRelated frontier before after)
@@ -269,12 +451,17 @@ private theorem recursive_related (parameters : Parameters Primitive) (frontier 
       (transition parameters ⟨before, .recursive env bindings created body, stack⟩)
       (transition parameters ⟨after, .recursive (environment (shift frontier) env) bindings
         (environment (shift frontier) created) body, stack.map (frame (shift frontier))⟩) := by
-  cases bindings <;> simp only [transition]
-  all_goals
-    repeat' first
-      | (fail_if_no_progress subst_vars)
-      | (fail_if_no_progress simp_all)
-      | split at *
+  cases bindings with
+  | nil =>
+      have closing := related.srec (addressRange (Env.rec created)) (Env.rec created)
+      simp only [addressRange_rec, environment_rec] at closing
+      simp [transition, closing]
+  | cons head rest =>
+      simp only [transition]
+      repeat' first
+        | (fail_if_no_progress subst_vars)
+        | (fail_if_no_progress simp_all)
+        | split at *
 
 theorem transition_related {parameters : Parameters Primitive} {frontier : Nat}
     (equivariant : Equivariant parameters (shift frontier))
@@ -282,8 +469,8 @@ theorem transition_related {parameters : Parameters Primitive} {frontier : Nat}
     TransitionsRelated frontier (transition parameters before) (transition parameters after) := by
   rcases before with ⟨before, input, stack⟩
   rcases after with ⟨after, output, otherStack⟩
-  rcases related with ⟨memories, controls, stacks⟩
-  dsimp only at controls stacks
+  rcases related with ⟨memories, controls, stackEq⟩
+  dsimp only at controls stackEq
   subst output
   subst otherStack
   cases input with

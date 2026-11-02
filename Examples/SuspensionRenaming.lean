@@ -34,7 +34,7 @@ theorem effective_recursive_addresses : addressRange shadowed = {1} := by
   · rintro ⟨name, found⟩
     by_cases first : name = 4
     · subst name
-      simp [shadowed, Env.lookup] at found
+      simp [shadowed] at found
     · by_cases second : name = 5
       · subst name
         simp [shadowed, Env.lookup] at found

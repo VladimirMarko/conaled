@@ -25,10 +25,10 @@ def base : Base Empty where
   embedAtomicPattern := fun impossible => nomatch impossible
   embedPattern := fun impossible => nomatch impossible
 
-def f : Identifier base.identifier := ⟨"f", by decide, by decide, .valueVariable 0⟩
-def x : Identifier base.identifier := ⟨"x", by decide, by decide, .valueVariable 1⟩
-def c : Identifier base.identifier := ⟨"C", by decide, by decide, .valueConstructor 2⟩
-def dollarPlus : Identifier base.identifier := ⟨"$+", by decide, by decide, .valueVariable 3⟩
+def f : Identifier base.identifier := ⟨"f", by simp [base], by decide, .valueVariable 0⟩
+def x : Identifier base.identifier := ⟨"x", by simp [base], by decide, .valueVariable 1⟩
+def c : Identifier base.identifier := ⟨"C", by simp [base], by decide, .valueConstructor 2⟩
+def dollarPlus : Identifier base.identifier := ⟨"$+", by simp [base], by decide, .valueVariable 3⟩
 
 /-- Reservation removes the exact dollar word even though the inherited
 identifier class admitted it. It does not remove all longer symbolic names. -/
@@ -36,7 +36,7 @@ theorem exact_reserved_word :
     base.identifier "$" ∧
       (¬ ∃ name : Identifier base.identifier, name.spelling = "$") ∧
       dollarPlus.spelling = "$+" := by
-  exact ⟨by decide, dollar_not_identifier _, rfl⟩
+  exact ⟨by simp [base], dollar_not_identifier _, rfl⟩
 
 /-- The source phrase dollar-f-space-x delays the full application. -/
 theorem dollar_application :

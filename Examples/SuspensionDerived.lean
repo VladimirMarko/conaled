@@ -228,4 +228,73 @@ theorem lazy_raise_outcome_iff (after : Memory Empty) (packet : Value Empty) (st
   · rintro ⟨rfl, rfl, rfl⟩
     exact lazy_function_raised (clauses := clauses) argument
 
+/-- The second clause is selected only after the reference changes. Both
+right sides return suspensions, as the book's lazy-function sugar requires. -/
+def deferredClauses : List (Pattern × Expr Empty) :=
+  [(.reference (.atom (.integer 7)), .delay (integer 9)),
+   (.wildcard, .delay (integer 11))]
+
+private theorem deferred_binder_eq : lazyBinder ([] : Env Empty) deferredClauses = 1 := by
+  simp [lazyBinder, Names.fresh, deferredClauses, Names.clauseNames,
+    Names.patternNames, Names.expressionNames, integer]
+
+/-- Public lazy formation feeds an actual assignment and later force through
+their exact reached states. The stored fresh binding remains literal; matching
+sees the changed reference and reaches the second ordered clause. -/
+theorem lazy_formation_then_force :
+    let binder := lazyBinder ([] : Env Empty) deferredClauses
+    let afterArgument := (Suspensions.allocate initial (.value (.atom (.integer 7)))).1
+    let captured : Env Empty := [(binder, .address 0)]
+    let created := Suspensions.delay afterArgument (lazyBody binder deferredClauses) captured
+    let caller : Env Empty := [(2, .address 0), (3, .address 1)]
+    let changed := Suspensions.memoize created.1 0 (.atom (.integer 8))
+    ∃ creationEvents answer events,
+      Progress.Evaluates (step parameters)
+        (start initial [] (.apply (lazyFunction binder deferredClauses) referenceBody))
+        ⟨created.1, .value (.address 1)⟩ 13 ∧
+      Progress.Evaluates (tracedStep parameters)
+        (start initial [] (.apply (lazyFunction binder deferredClauses) referenceBody), [])
+        (⟨created.1, .value (.address 1)⟩, creationEvents) 13 ∧
+      creationEvents.count (.referenceRead 0) = 0 ∧
+      creationEvents.count (.body 1) = 0 ∧
+      created.1.memory 1 = some (.thunk (lazyBody binder deferredClauses) captured) ∧
+      Progress.Evaluates (step parameters)
+        (start created.1 caller (.assign (.variable 2) (integer 8)))
+        ⟨changed, .value (.record [])⟩ 6 ∧
+      changed.memory 1 = some (.thunk (lazyBody binder deferredClauses) captured) ∧
+      Progress.Evaluates (tracedStep parameters)
+        (start changed caller (force (.variable 3)), []) (answer, events) 39 ∧
+      answer.result = .value (.atom (.integer 11)) ∧ answer.memory.next = 3 ∧
+      answer.memory.memory 0 = some (.value (.atom (.integer 8))) ∧
+      answer.memory.memory 1 = some (.value (.atom (.integer 11))) ∧
+      answer.memory.memory 2 = some (.value (.atom (.integer 11))) ∧
+      events.count (.allocate 2) = 1 ∧
+      events.count (.referenceRead 0) = 1 ∧
+      events.count (.body 1) = 1 ∧ events.count (.body 2) = 1 ∧
+      events.count (.cacheWrite 1) = 1 ∧ events.count (.cacheWrite 2) = 1 ∧
+      events.count (.hit 1) = 0 ∧ events.count (.hit 2) = 0 := by
+  let binder := lazyBinder ([] : Env Empty) deferredClauses
+  let afterArgument := (Suspensions.allocate initial (.value (.atom (.integer 7)))).1
+  let captured : Env Empty := [(binder, .address 0)]
+  let created := Suspensions.delay afterArgument (lazyBody binder deferredClauses) captured
+  let caller : Env Empty := [(2, .address 0), (3, .address 1)]
+  let changed := Suspensions.memoize created.1 0 (.atom (.integer 8))
+  have argument : Progress.Evaluates (step parameters) (start initial [] referenceBody)
+      ⟨afterArgument, .value (.address 0)⟩ 4 :=
+    .next rfl (.next rfl (.next rfl (.done rfl)))
+  have formation := lazy_function_value (clauses := deferredClauses) argument
+  have assigned : Progress.Evaluates (step parameters)
+      (start created.1 caller (.assign (.variable 2) (integer 8)))
+      ⟨changed, .value (.record [])⟩ 6 :=
+    .next rfl (.next rfl (.next rfl (.next rfl (.next rfl (.done rfl)))))
+  refine ⟨_, _, _, formation,
+    Progress.search_sound (step := tracedStep parameters) (fuel := 20) (by rfl),
+    rfl, rfl, ?_, assigned, ?_,
+    Progress.search_sound (step := tracedStep parameters) (fuel := 60)
+      (by rw [deferred_binder_eq]; rfl), ?_⟩
+  · exact delay_captures afterArgument (lazyBody binder deferredClauses) captured
+  · exact (memoize_other created.1 0 (.atom (.integer 8)) (by decide : 1 ≠ 0)).trans
+      (delay_captures afterArgument (lazyBody binder deferredClauses) captured)
+  · exact ⟨rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl⟩
+
 end Examples.SuspensionDerived
