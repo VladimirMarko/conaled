@@ -123,4 +123,50 @@ theorem mergeBy_spec [LE κ] [DecidableLE κ] [Std.IsLinearPreorder κ] [Decidab
     StableSort key (xs ++ ys) (mergeBy key xs ys) :=
   ⟨mergeBy_sorted key xs ys hx hy, mergeBy_perm key xs ys, mergeBy_stable key xs ys hx hy⟩
 
+/-- Ordinary merge retains the left input's ordered occurrences for every comparator. -/
+theorem sublist_merge_left (cmp : α → α → Bool) (xs ys : List α) :
+    List.Sublist xs (List.merge xs ys cmp) := by
+  match xs, ys with
+  | [], ys => simpa only [List.nil_merge] using (List.nil_sublist ys)
+  | xs, [] => simpa only [List.merge_right] using (List.Sublist.refl xs)
+  | x :: xs, y :: ys =>
+    rw [List.cons_merge_cons]
+    split
+    · exact List.Sublist.cons_cons x (sublist_merge_left cmp xs (y :: ys))
+    · exact List.Sublist.cons y (sublist_merge_left cmp (x :: xs) ys)
+termination_by xs.length + ys.length
+
+/-- Ordinary merge retains the right input's ordered occurrences for every comparator. -/
+theorem sublist_merge_right (cmp : α → α → Bool) (xs ys : List α) :
+    List.Sublist ys (List.merge xs ys cmp) := by
+  match xs, ys with
+  | [], ys => simpa only [List.nil_merge] using (List.Sublist.refl ys)
+  | xs, [] => simpa only [List.merge_right] using (List.nil_sublist xs)
+  | x :: xs, y :: ys =>
+    rw [List.cons_merge_cons]
+    split
+    · exact List.Sublist.cons x (sublist_merge_right cmp xs (y :: ys))
+    · exact List.Sublist.cons_cons y (sublist_merge_right cmp (x :: xs) ys)
+termination_by xs.length + ys.length
+
+/-- Any pairwise relation on the merged output holds on each input separately. -/
+theorem pairwise_of_merge {R : α → α → Prop}
+    (cmp : α → α → Bool) (xs ys : List α)
+    (h : (List.merge xs ys cmp).Pairwise R) :
+    xs.Pairwise R ∧ ys.Pairwise R :=
+  ⟨List.Pairwise.sublist (sublist_merge_left cmp xs ys) h,
+    List.Pairwise.sublist (sublist_merge_right cmp xs ys) h⟩
+
+/-- The merge sortedness equivalence retains the existing input-local comparison laws. -/
+theorem merge_sorted_compatible_on_iff [LE κ] [Std.IsPreorder κ]
+    (key : α → κ) (cmp : α → α → Bool) (xs ys : List α)
+    (hc : ∀ a ∈ xs, ∀ b ∈ ys, (cmp a b = true → key a ≤ key b) ∧
+      (cmp a b = false → key b ≤ key a)) :
+    KeySorted key (List.merge xs ys cmp) ↔ KeySorted key xs ∧ KeySorted key ys := by
+  constructor
+  · intro h
+    exact pairwise_of_merge cmp xs ys h
+  · rintro ⟨hx, hy⟩
+    exact merge_sorted_compatible_on key cmp xs ys hc hx hy
+
 end Applications.Sorting
