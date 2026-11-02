@@ -1,3 +1,4 @@
+import Mathlib.Data.Nat.Size
 import Applications.FRP.IndefiniteIO
 
 /-! Checked clients of the finite circuit service criterion. -/
