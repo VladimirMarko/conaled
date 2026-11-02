@@ -260,3 +260,37 @@ requires the project's immutable-candidate verification and exhaustive proof
 audit, both independent review axes, and final candidate-identity verification.
 Their exact outcomes are kept in the local checkpoint's review record rather
 than inferred from this narrative.
+
+## Shared exact priority-queue observations and merge — source draft
+
+FDSA-XH01 adds `PriorityMultiset`, `PriorityMerge` and
+`Examples.PriorityModels` beside the existing exact-occurrence interface.
+It is uncompiled and unaccepted; Chapter 1 remains the active prerequisite.
+The original base, frozen full requirements and complete findings/validation
+history remain in `fdsa-control`. Initial Chapter 2 integration is unchanged.
+
+The bounded common source scope C14-001–013 comprises occurrence and priority
+multiset observations; the seven printed queue laws and separate companion
+empty reflection; nonempty finite-support minimum and one-occurrence deletion;
+atomic selected-priority/residual agreement under explicit antisymmetry; finite
+entry realization and explicit-payload priority realization; and two optional
+merge laws for the actual existing leftist merge and list append. Ordinary
+operation-only views and a real merge/insert/remove client retain their actual
+computed results and intermediate validity. Direct root access is connected
+to raw deletion without assigning it a runtime bound.
+
+The accompanying cases retain duplicates, overlap, self-merge, Empty types,
+independent payload universes, tied payload selection, absent antisymmetry,
+fixed keyed replacement and separate malformed rank/order/residual boundaries.
+The existing implementations and consumers remain byte-identical.
+[`fdsa-priority-queues.md`](fdsa-priority-queues.md) records source identities,
+the seven/eight-law distinction, adapted-source notice, one-way source-law
+connection, statement boundaries, actual realization/client use and status.
+
+All C14-014–040 and concrete chapter instantiations remain mandatory, including
+the constant-time sorted-list exercise, actual plain-node naive merge, heap
+enumeration cost and inorder-preserving construction/uniqueness exercises.
+Existing exactList's sorting removal and rank-aware combineQ do not discharge
+those algorithms. Later heap invariants, source correspondences, recurrences,
+cost/amortized-history assumptions and Huffman's independent cache agreement
+remain under their original obligations. This shared draft closes no chapter.
