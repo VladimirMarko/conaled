@@ -294,6 +294,10 @@ import Examples.SuspensionPureReentry
 import Examples.SuspensionPureNoReentry
 import Examples.SuspensionBodyEvent
 import Examples.SuspensionValuePersistence
+import Examples.SuspensionPending
+import Examples.SuspensionCacheWrite
+import Examples.SuspensionCacheAccounting
+import Examples.SuspensionPureCacheCounts
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 

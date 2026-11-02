@@ -74,10 +74,10 @@ private theorem execution : Progress.Evaluates (Core.Machine.step rawParameters)
 /-- All prefixes and all absorbing suffix budgets inherit the proved source
 bound; the exact completed trace below independently exhibits its one write. -/
 theorem all_budgets (address budget : Nat) :
-    Core.Observation.cacheWrites address
-      (Core.Observation.observe rawParameters budget
-        (Core.Machine.start Suspensions.empty [] program)).2 ≤ 1 :=
-  empty_source_bound allowed execution address budget
+    (FreeAddMonoid.toList (Core.Observation.observe rawParameters budget
+      (Core.Machine.start Suspensions.empty [] program)).2).count (.cacheWrite address) ≤ 1 :=
+  source_cacheWrite_count_le_one compatible preserve WorldAllowed.empty
+    (Memory.StateRep.empty pureParameters) EnvRep.nil EnvAllowed.nil allowed execution address budget
 
 theorem one_write_then_hit :
     let events := FreeAddMonoid.toList (Core.Observation.observe rawParameters 21
@@ -122,16 +122,16 @@ private theorem allowed : CodeAllowed operations program := by
     exact ⟨.suspended .wildcard, CodeAllowed.variable 2, CodeAllowed.atom (.integer 9)⟩
 
 private theorem execution :
-    ∃ answer steps, Progress.Evaluates (Core.Machine.step rawParameters)
-      (Core.Machine.start Suspensions.empty [] program) answer steps ∧
+    ∃ answer, Progress.Evaluates (Core.Machine.step rawParameters)
+      (Core.Machine.start Suspensions.empty [] program) answer 34 ∧
       answer.result = .value (.atom (.integer 9)) ∧ answer.memory.next = 2 := by
-  refine ⟨_, _, Progress.search_sound (fuel := 80) (by rfl), ?_, ?_⟩ <;> rfl
+  refine ⟨_, Progress.search_sound (fuel := 34) (by rfl), ?_, ?_⟩ <;> rfl
 
 theorem all_budgets (address budget : Nat) :
     Core.Observation.cacheWrites address
       (Core.Observation.observe rawParameters budget
         (Core.Machine.start Suspensions.empty [] program)).2 ≤ 1 := by
-  obtain ⟨answer, steps, run, _, _⟩ := execution
+  obtain ⟨answer, run, _, _⟩ := execution
   exact empty_source_bound allowed run address budget
 
 /-- Both delays are evaluated as record fields under the same empty capture.
@@ -144,7 +144,7 @@ theorem identical_thunks_at_distinct_addresses :
   exact ⟨_, rfl, rfl, rfl, rfl⟩
 
 theorem two_separate_writes :
-    let events := FreeAddMonoid.toList (Core.Observation.observe rawParameters 80
+    let events := FreeAddMonoid.toList (Core.Observation.observe rawParameters 34
       (Core.Machine.start Suspensions.empty [] program)).2
     events.count (.allocate 0) = 1 ∧ events.count (.allocate 1) = 1 ∧
       events.count (.cacheWrite 0) = 1 ∧ events.count (.cacheWrite 1) = 1 := by
@@ -179,10 +179,10 @@ private theorem allowed : CodeAllowed operations program := by
     handler_allowed (CodeAllowed.atom (.integer 5))⟩
 
 private theorem execution :
-    ∃ answer steps, Progress.Evaluates (Core.Machine.step rawParameters)
-      (Core.Machine.start Suspensions.empty rawCapture program) answer steps ∧
+    ∃ answer, Progress.Evaluates (Core.Machine.step rawParameters)
+      (Core.Machine.start Suspensions.empty rawCapture program) answer 50 ∧
       answer.result = .value (.atom (.integer 5)) := by
-  refine ⟨_, _, Progress.search_sound (fuel := 100) (by rfl), ?_⟩
+  refine ⟨_, Progress.search_sound (fuel := 50) (by rfl), ?_⟩
   rfl
 
 /-- The fixed exception value is admitted and represented explicitly; the
@@ -191,7 +191,7 @@ theorem all_budgets (address budget : Nat) :
     Core.Observation.cacheWrites address
       (Core.Observation.observe rawParameters budget
         (Core.Machine.start Suspensions.empty rawCapture program)).2 ≤ 1 := by
-  obtain ⟨answer, steps, run, _⟩ := execution
+  obtain ⟨answer, run, _⟩ := execution
   have captured : EnvRep (fun _ => none) rawCapture capture := .cons (.exception .none) .nil
   have captureAllowed : EnvAllowed operations capture := .cons (.exception .none) .nil
   exact source_cacheWrites_le_one compatible preserve WorldAllowed.empty
@@ -200,10 +200,20 @@ theorem all_budgets (address budget : Nat) :
 /-- Both handled attempts enter the same thunk. Neither successful-write
 event occurs, so at-most-one write does not mean at-most-one body attempt. -/
 theorem two_attempts_without_write :
-    let events := FreeAddMonoid.toList (Core.Observation.observe rawParameters 100
+    let events := FreeAddMonoid.toList (Core.Observation.observe rawParameters 50
       (Core.Machine.start Suspensions.empty rawCapture program)).2
     events.count (.body 0) = 2 ∧ events.count (.cacheWrite 0) = 0 ∧ events.count (.hit 0) = 0 := by
   exact ⟨rfl, rfl, rfl⟩
+
+/-- Actual zero-write completion and the structural observer laws retain
+zero writes at every earlier or later budget, for every address. -/
+theorem no_writes_all_budgets (address budget : Nat) :
+    Core.Observation.cacheWrites address
+      (Core.Observation.observe rawParameters budget
+        (Core.Machine.start Suspensions.empty rawCapture program)).2 = 0 := by
+  obtain ⟨answer, finished⟩ : ∃ answer, Core.Prefix.observe rawParameters 50
+      (Core.Machine.start Suspensions.empty rawCapture program) = .inl answer := ⟨_, rfl⟩
+  exact Core.Observation.cacheWrites_observe_zero_of_finished finished (by rfl) budget
 
 end Exceptions
 
@@ -211,14 +221,18 @@ theorem unforced_delay :
     (∀ address budget, Core.Observation.cacheWrites address
       (Core.Observation.observe rawParameters budget
         (Core.Machine.start Suspensions.empty [] (.delay literal))).2 ≤ 1) ∧
-    Core.Observation.cacheWrites 0
-      (Core.Observation.observe rawParameters 10
-        (Core.Machine.start Suspensions.empty [] (.delay literal))).2 = 0 := by
+    (∀ address budget, Core.Observation.cacheWrites address
+      (Core.Observation.observe rawParameters budget
+        (Core.Machine.start Suspensions.empty [] (.delay literal))).2 = 0) := by
   constructor
   · intro address budget
     apply empty_source_bound ((CodeAllowed.delay_iff _).mpr (CodeAllowed.atom (.integer 7)))
     exact Progress.search_sound (fuel := 2) rfl
-  · rfl
+  · intro address budget
+    have finished : Core.Prefix.observe rawParameters 2
+        (Core.Machine.start Suspensions.empty [] (.delay literal)) =
+        .inl ⟨(Suspensions.delay Suspensions.empty literal []).1, .value (.address 0)⟩ := rfl
+    exact Core.Observation.cacheWrites_observe_zero_of_finished finished (by rfl) budget
 
 /-- The unchanged unrestricted machine still permits two cache writes to
 address1 in the existing effectful source program. -/

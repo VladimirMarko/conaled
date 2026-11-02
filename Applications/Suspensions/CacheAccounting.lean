@@ -1,5 +1,6 @@
 import Applications.Suspensions.CacheWrite
 import Applications.Suspensions.Observation
+import Batteries.Data.List.Count
 
 /-!
 # Conditional raw accounting of successful cache writes
@@ -83,7 +84,8 @@ theorem cacheWrites_eq_count (address : Nat) (events : FreeAddMonoid Event) :
 @[simp] theorem cacheWrites_of (address : Nat) (event : Event) :
     cacheWrites address (FreeAddMonoid.of event) =
       if event = .cacheWrite address then 1 else 0 := by
-  simp [cacheWrites, eq_comm]
+  change ([event] : List Event).count (.cacheWrite address) = _
+  exact List.count_singleton' (.cacheWrite address) event
 
 /-- This ordinary trace count is also the resource framework's additive
 reweighting by the indicator of the selected event. -/
@@ -130,7 +132,39 @@ theorem cacheWrites_observe_after_finished {parameters : Parameters Primitive}
       ((workload parameters budget (.inr config)).2 +
         (workload parameters extra (workload parameters budget (.inr config)).1).2) = _
   rw [erased, workload_finished]
-  simpa only [add_zero]
+  simp only [observe, add_zero]
+
+/-- Increasing the observation budget appends actual events or an empty
+finished suffix. Counting the selected event can therefore only increase. -/
+theorem cacheWrites_observe_mono (parameters : Parameters Primitive) (config : Config Primitive)
+    {first second : Nat} (bound : first ≤ second) (address : Nat) :
+    cacheWrites address (observe parameters first config).2 ≤
+      cacheWrites address (observe parameters second config).2 := by
+  obtain ⟨extra, rfl⟩ := Nat.exists_eq_add_of_le bound
+  change cacheWrites address (workload parameters first (.inr config)).2 ≤
+    cacheWrites address (workload parameters (first + extra) (.inr config)).2
+  rw [workload_append]
+  change cacheWrites address (workload parameters first (.inr config)).2 ≤
+    cacheWrites address
+      ((workload parameters first (.inr config)).2 +
+        (workload parameters extra (workload parameters first (.inr config)).1).2)
+  rw [map_add]
+  exact Nat.le_add_right _ _
+
+/-- An actual completed zero-write observation supplies zero at every budget:
+earlier prefixes have no more events, and later suffixes are absorbing. -/
+theorem cacheWrites_observe_zero_of_finished {parameters : Parameters Primitive}
+    {config : Config Primitive} {answer : Answer Primitive} {completed address : Nat}
+    (finished : Prefix.observe parameters completed config = .inl answer)
+    (zero : cacheWrites address (observe parameters completed config).2 = 0) (budget : Nat) :
+    cacheWrites address (observe parameters budget config).2 = 0 := by
+  by_cases before : budget ≤ completed
+  · apply Nat.eq_zero_of_le_zero
+    exact (cacheWrites_observe_mono parameters config before address).trans (Nat.le_of_eq zero)
+  · have after : completed ≤ budget := by omega
+    obtain ⟨extra, rfl⟩ := Nat.exists_eq_add_of_le after
+    rw [cacheWrites_observe_after_finished finished extra address]
+    exact zero
 
 /-- Once a value cell has no pending frame at its address, every future
 budget has zero successful writes there. Payload constancy is not asserted. -/
@@ -166,7 +200,7 @@ theorem cacheWrites_observe_le_one {parameters : Parameters Primitive} {config :
         rw [moved] at bounded
         rw [cacheWrites_of, ite_eq_left event, moved]
         change 1 + cacheWrites address (observe parameters budget next).2 ≤ 1
-        simpa only [cacheWrites_observe_settled bounded settled budget, add_zero]
+        rw [cacheWrites_observe_settled bounded settled budget, add_zero]
       · rw [cacheWrites_of, ite_eq_right event, zero_add]
         cases moved : step parameters config with
         | inl answer =>

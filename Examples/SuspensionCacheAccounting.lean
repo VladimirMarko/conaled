@@ -82,6 +82,14 @@ theorem completed_count_and_other_address :
   rw [first_force_trace]
   exact ⟨rfl, rfl⟩
 
+/-- A completed zero count at the other address gives zero at all earlier
+prefixes and every absorbing later budget through the public count laws. -/
+theorem other_address_always_zero (budget : Nat) :
+    cacheWrites 1 (observe parameters budget firstForce).2 = 0 := by
+  have finished : Prefix.observe parameters 5 firstForce = .inl answer :=
+    (observe_erases parameters 5 firstForce).symm.trans (congrArg Prod.fst first_force_trace)
+  exact cacheWrites_observe_zero_of_finished finished completed_count_and_other_address.2 budget
+
 /-- The actual completion, rather than a presumed transition at every budget,
 justifies retaining exactly one write after an arbitrary finished suffix. -/
 theorem extra_budget_keeps_one (extra : Nat) :
@@ -94,7 +102,7 @@ theorem extra_budget_keeps_one (extra : Nat) :
 /-- The count is a standard resource reweighting of the same ordered trace. -/
 theorem first_force_reweighted :
     Resources.reweight (cacheWrites 0) (observe parameters 5 firstForce) = (.inl answer, 1) := by
-  rw [first_force_trace]
+  rw [cacheWrites_eq_lift, first_force_trace]
   rfl
 
 private def laterForce : Config Unit :=

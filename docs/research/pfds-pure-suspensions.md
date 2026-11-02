@@ -139,9 +139,11 @@ raises without changing its initial thunk, so that particular body can be
 attempted again with the same result. In unrestricted execution, the checked
 `outer_exception_preserves_inner` and `outer_exception_then_hit` cases in
 [SuspensionMachine](../../Examples/SuspensionMachine.lean) retain an inner
-successful cache when the outer body raises. No general at-most-one cache-write
-trace theorem is claimed. Equal pure meanings at distinct newly allocated
-addresses likewise do not identify their storage.
+successful cache when the outer body raises. This raw persistence result does
+not itself give a general at-most-one cache-write trace theorem.
+[Finite pure cache-write accounting](pfds-cache-counts.md) records the separate
+argument and its validation status. Equal pure meanings at distinct newly
+allocated addresses likewise do not identify their storage.
 
 The checked connected literal source program creates and evaluates a suspension,
 then returns its address. Its actual raw and pure executions each take15 steps.

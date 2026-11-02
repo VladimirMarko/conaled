@@ -189,7 +189,7 @@ theorem step_settled {parameters : Parameters Primitive} {config : Config Primit
       rcases pending with smaller | ⟨fresh, event, added⟩
       · exact fun present => settled.2 (smaller.subset present)
       · rw [added]
-        apply List.not_mem_cons.mpr
+        simp only [List.mem_cons, not_or]
         refine ⟨?_, settled.2⟩
         intro same
         subst fresh
