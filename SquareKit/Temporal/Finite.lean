@@ -1,4 +1,6 @@
-import Mathlib.Tactic
+import Mathlib.Data.Fin.Basic
+import Mathlib.Data.Sigma.Basic
+import Mathlib.Tactic.Convert
 
 /-!
 Finite, proof-relevant temporal certificates. Processing starts at `n`; a witness
