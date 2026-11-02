@@ -7,6 +7,7 @@ import Mathlib.Data.Int.DivMod
 import Mathlib.Data.Set.Lattice
 import Mathlib.Data.Set.Prod
 import Mathlib.Data.Set.Finite.Basic
+import Mathlib.Order.Interval.Finset.Nat
 import Mathlib.Order.Interval.Set.Defs
 
 /-! Typed notation correspondences and semantic boundaries for FDSA Appendix C.
@@ -126,7 +127,8 @@ theorem repeated_sum_and_product :
   decide
 
 theorem closed_interval_fold :
-    (Finset.Icc 2 4).sum id = 9 ∧ (Finset.Icc 2 4).prod id = 24 := by
+    (Finset.Icc (2 : Nat) 4).sum id = 9 ∧
+    (Finset.Icc (2 : Nat) 4).prod id = 24 := by
   decide
 
 /-- The ordinary source set fold tests finiteness of the whole index set,
@@ -153,8 +155,7 @@ theorem finiteIndexProduct_of_infinite [CommMonoid β] (s : Set α) (f : α → 
 @[to_additive finiteIndexSum_of_finset]
 theorem finiteIndexProduct_of_finset [CommMonoid β] (s : Finset α) (f : α → β) :
     finiteIndexProduct (s : Set α) f = s.prod f := by
-  rw [finiteIndexProduct_of_finite _ _ s.finite_toSet]
-  simp
+  rw [finiteIndexProduct_of_finite _ _ s.finite_toSet, Finset.finite_toSet_toFinset]
 
 theorem finite_index_values :
     finiteIndexSum ({0} : Set Nat) (fun n => if n = 0 then 7 else 0) = 7 ∧
