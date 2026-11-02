@@ -78,15 +78,15 @@ theorem ordered_bind {t : BinaryTree (κ × ν)} (ordered : OrderedBy Prod.fst t
   | nil => exact ⟨trivial, trivial, trivial, trivial⟩
   | node binding left right ihl ihr =>
       by_cases kl : key < binding.1
-      · rw [bind, if_pos kl]
+      · rw [bind, ite_eq_left kl]
         exact ⟨ihl ordered.1, ordered.2.1,
           all_bind ordered.2.2.1 key value kl, ordered.2.2.2⟩
       · by_cases kr : binding.1 < key
-        · rw [bind, if_neg kl, if_pos kr]
+        · rw [bind, ite_eq_right kl, ite_eq_left kr]
           exact ⟨ordered.1, ihr ordered.2.1, ordered.2.2.1,
             all_bind ordered.2.2.2 key value kr⟩
         · have eq : key = binding.1 := le_antisymm (le_of_not_gt kr) (le_of_not_gt kl)
-          rw [bind, if_neg kl, if_neg kr]
+          rw [bind, ite_eq_right kl, ite_eq_right kr]
           exact ⟨ordered.1, ordered.2.1, by simpa only [eq] using ordered.2.2.1,
             by simpa only [eq] using ordered.2.2.2⟩
 
@@ -104,7 +104,7 @@ theorem lookup_correct {t : BinaryTree (κ × ν)} (ordered : OrderedBy Prod.fst
             (ordered.2.2.1.mono fun _ hb => ne_of_gt (lt_trans hb qr))
           simp [lookup, ql, qr, observe, ne_of_gt qr, absent, ihr ordered.2.1]
         · have eq : query = binding.1 := le_antisymm (le_of_not_gt qr) (le_of_not_gt ql)
-          simp [lookup, ql, qr, observe, eq]
+          simp [lookup, observe, eq]
 
 /-- The directed lookup/update law holds even before imposing the independent
 ordering invariant. Orderedness is needed to identify that lookup with the
@@ -137,15 +137,15 @@ theorem lookup_bind (key : κ) (value : ν) (query : κ) (t : BinaryTree (κ × 
               simp [bind, lookup, kl, kr, ql, qr, qk]
         · have eq : key = binding.1 := le_antisymm (le_of_not_gt kr) (le_of_not_gt kl)
           rcases lt_trichotomy query binding.1 with h | h | h
-          · simp [bind, lookup, kl, kr, eq, h, ne_of_lt h]
-          · simp [bind, lookup, kl, kr, eq, h]
-          · simp [bind, lookup, kl, kr, eq, h, not_lt_of_gt h, ne_of_gt h]
+          · simp [bind, lookup, eq, h, ne_of_lt h]
+          · simp [bind, lookup, eq, h]
+          · simp [bind, lookup, eq, h, not_lt_of_gt h, ne_of_gt h]
 
 theorem observe_bind {t : BinaryTree (κ × ν)} (ordered : OrderedBy Prod.fst t)
     (key : κ) (value : ν) : observe (bind key value t) = write key value (observe t) := by
   funext query
-  rw [← lookup_correct (ordered_bind ordered key value), lookup_bind, lookup_correct ordered]
-  rfl
+  simpa only [lookup_correct (ordered_bind ordered key value), lookup_correct ordered, write]
+    using lookup_bind key value query t
 
 theorem lookup_some_contains {query : κ} {value : ν} {t : BinaryTree (κ × ν)}
     (found : lookup query t = some value) : Contains (query, value) t := by
