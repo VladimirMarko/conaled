@@ -10,8 +10,8 @@ and its two exact body-entry meanings. The new theorem supplies domain facts
 at the final result and at the actual unfinished 50-transition prefix. A
 separate formation case returns a closure with the cyclic group in its capture.
 
-The admitted bad application still faults after five transitions. Scalar
-primitive applications retain their expected values and counts under the
+The admitted bad application still faults after five transitions. Successful
+scalar applications take six transitions, including final value delivery, under the
 independent primitive-output preservation law. No example assumes type safety.
 -/
 set_option autoImplicit false
@@ -84,7 +84,9 @@ theorem returned_capture_preserves (parameters : Parameters Unit) :
   have capture : EnvAllowed (fun _ : Unit => False) cachedBodyEnvironment :=
     bodyEnvironment_allowed cached_group_allowed.outer (.some cached_group_allowed)
   have delayed : CodeAllowed (fun _ : Unit => False) (.delay cachedCode) :=
-    cached_group_allowed.definitions.member (by simp [cachedGroup, Rhs.toBindings, Rhs.toExpr])
+    cached_group_allowed.definitions.member (name := 1) (by
+      change (1, Suspensions.Core.Expr.delay cachedCode) ∈ [(1, .delay cachedCode)]
+      exact List.mem_cons_self)
   have initial := start_allowed capture ((CodeAllowed.delay_iff cachedCode).mp delayed)
   exact ⟨run, evaluates_preserves (no_operations_preserve parameters) initial run, lookup⟩
 
@@ -118,24 +120,24 @@ private theorem scalar_start (operation : BasicOperation) (input : Suspensions.C
 theorem successor_preserved :
     Progress.Evaluates (step parameters)
       (start [] (.apply (.primitive .successor) (.atom (.integer 41))))
-      (.value (.atom (.integer 42))) 5 ∧
+      (.value (.atom (.integer 42))) 6 ∧
     ResultAllowed selected (.value (.atom (.integer 42))) := by
   have run : Progress.Evaluates (step parameters)
       (start [] (.apply (.primitive .successor) (.atom (.integer 41))))
-      (.value (.atom (.integer 42))) 5 :=
-    .next rfl (.next rfl (.next rfl (.next rfl (.done rfl))))
+      (.value (.atom (.integer 42))) 6 :=
+    .next rfl (.next rfl (.next rfl (.next rfl (.next rfl (.done rfl)))))
   exact ⟨run, evaluates_preserves (basic_parameters_preserve selected 10 11)
     (scalar_start .successor (.integer 41)) run⟩
 
 theorem boolean_preserved :
     Progress.Evaluates (step parameters)
       (start [] (.apply (.primitive .isZero) (.atom (.integer 0))))
-      (.value (.atom (.boolean true))) 5 ∧
+      (.value (.atom (.boolean true))) 6 ∧
     ResultAllowed selected (.value (.atom (.boolean true))) := by
   have run : Progress.Evaluates (step parameters)
       (start [] (.apply (.primitive .isZero) (.atom (.integer 0))))
-      (.value (.atom (.boolean true))) 5 :=
-    .next rfl (.next rfl (.next rfl (.next rfl (.done rfl))))
+      (.value (.atom (.boolean true))) 6 :=
+    .next rfl (.next rfl (.next rfl (.next rfl (.next rfl (.done rfl)))))
   exact ⟨run, evaluates_preserves (basic_parameters_preserve selected 10 11)
     (scalar_start .isZero (.integer 0)) run⟩
 

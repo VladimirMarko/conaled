@@ -88,6 +88,32 @@ theorem pending_allowed {beforeWorld afterWorld : World Primitive}
             rw [address_meaning_eq valueRep found] at allowed
             exact allowed
 
+/-- Keep the actual creation receipt and pending certificate available while
+composing closed-state, closed-environment and code-domain preservation.
+Distinct names come from the allowed descriptor, not an extra premise. -/
+theorem create_closed_allowed {parameters : Machine.Parameters Primitive}
+    {beforeWorld : World Primitive} {before : Core.Machine.Memory Primitive}
+    {rawOuter : Core.Env Primitive} {pureOuter : Env Primitive}
+    {definitions : List (Nat × Rhs Primitive)}
+    (valid : Memory.StateRep parameters beforeWorld before)
+    (allowed : WorldAllowed operations beforeWorld) (captured : EnvRep beforeWorld rawOuter pureOuter)
+    (groupAllowed : GroupAllowed operations (.mk definitions pureOuter)) :
+    ∃ (reached : Core.Machine.Memory Primitive) (collected : Core.Env Primitive) (world : World Primitive),
+      Core.Recursive.create before rawOuter (Rhs.toBindings definitions) [] =
+        .ok (reached, collected) ∧
+      Creation.PendingGroup beforeWorld world before reached rawOuter
+        (.mk definitions pureOuter) collected ∧
+      Memory.StateRep parameters world (Core.Recursive.closeMemory reached collected) ∧
+      WorldAllowed operations world ∧
+      EnvRep world (Core.Recursive.closeEnvironment rawOuter collected)
+        (bodyEnvironment pureOuter (some (.mk definitions pureOuter))) := by
+  obtain ⟨⟨reached, collected⟩, made⟩ := Core.Recursive.create_exists before rawOuter
+    (Rhs.toBindings definitions) [] (Rhs.toBindings_permitted definitions)
+  obtain ⟨world, pending⟩ := Creation.create_pending valid.bounded valid.world_below
+    captured groupAllowed.distinct made
+  exact ⟨reached, collected, world, made, pending, pending.closed_state valid captured made,
+    pending_allowed pending allowed groupAllowed, pending.closed_environment captured⟩
+
 /-- Compose actual fresh delay allocation with the independent code-domain
 property. Freshness and raw-cell validity come from the existing StateRep law. -/
 theorem WorldAllowed.delay {parameters : Machine.Parameters Primitive} {world : World Primitive}

@@ -90,26 +90,41 @@ memoization derives its certificate from the past prefix and writes before
 matching resumes; exceptional exit leaves the thunk uncached. These local
 results preserve the unrestricted raw transition and its body/cache events.
 
-## Remaining proof obligation
+## Actual execution and self-reentry
 
-All these development results remain unaccepted until the complete candidate
-passes its integrated build, exhaustive audit and independent reviews. They
-do not yet prove pure nonreentrancy for the raw machine. The runtime code-domain
-preservation, world-domain composition and ordinary-step correspondence are
-currently uncompiled development drafts. The complete execution bridge must
-compose all local laws across actual finite raw executions, including the
-creation/closing prefix, without assuming future thunk termination or using
-nonreentrancy to justify cache certificates.
+Runtime code-domain preservation, world-domain composition and ordinary-step
+correspondence now pass their modules and connected clients. Actual recursive
+creation consumes its checked raw prefix and one auxiliary step; no body-result
+premise is needed. The complete finite correspondence composes these laws with
+delay, uncached entry, cached replay, memoization and exceptional return. It
+returns an actual pure evaluation and represented final raw state. Its induction
+decreases the remaining raw transition count; cached replay uses the already
+constructed body certificate. An admitted malformed application still yields
+the same expected-function fault. No type-safety assumption is added.
 
-Every actual nested body entry must map to a proper nested pure body execution.
-Exact pure input/count uniqueness can then contradict active self-reentry.
-Equality of final values alone does not supply that occurrence argument.
-Source and auxiliary event traces and costs remain different; successful
-cache/write-count consequences need separate proofs.
+The separate body-entry correspondence handles every actually observed raw
+body event without assuming that the enclosing run terminates. Intermediate
+recursive-creation states are covered by their proved absence of body events.
+At an observed entry, it constructs the related pure configuration and its
+per-occurrence active histories. The positive pure recurrence for an already
+active address excludes pure completion. Finite correspondence then excludes
+every finite raw outcome, including runtime faults and exceptions. Thus the
+finite-run absence of an active same-address entry is a conclusion, never an
+invariant premise or a replacement transition rule.
 
-The representative checked clients include mutual function/suspension recursion,
-repeated forcing without a cache, a finite cyclic prefix and a suspension that
-returns a closure referring back to itself. The separate recurrence argument
-supplies the negative result for the cyclic example. Full isolated-candidate
-validation, exhaustive proof audit,
-final verification and independent Standards/Spec review remain required.
+The source-facing client starts the mutual function/suspension cycle in an
+empty raw heap. Its independent actual prefix reaches the second body entry
+after29 transitions, with the original memoize frame still pending at index3.
+It consumes the general source theorem to rule out all finite outcomes and
+derive failed bounded search for every fuel. It does not posit an active pure
+history or infer divergence from testing finitely many budgets.
+
+## Remaining acceptance and cache work
+
+These are focused-checked development results. Full isolated-candidate build,
+exhaustive audit, independent Standards/Spec review and immediate final
+verification remain required. Source and auxiliary event traces and costs are
+different. Successful cache persistence/reuse consequences and a connected
+source-program-to-later-cache-hit client remain to complete. Repeated exceptions,
+fresh allocation identities and unrestricted effectful reentry must retain
+their distinct behavior; no unconditional single-write claim is justified.

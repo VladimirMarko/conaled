@@ -101,7 +101,7 @@ private theorem eval_preserves (parameters : Parameters Primitive) {environment 
     OutcomeAllowed operations (step parameters ⟨.eval environment expression, stack⟩) := by
   cases expression with
   | atom atom => exact ⟨.atom atom, frames⟩
-  | variable name =>
+  | «variable» name =>
       cases found : Env.lookup environment name with
       | none => simp only [step, transition, found, finish, OutcomeAllowed, ResultAllowed]
       | some value =>
@@ -246,14 +246,14 @@ private theorem pattern_preserves (parameters : Parameters Primitive) {environme
     OutcomeAllowed operations (step parameters ⟨.pattern environment pattern value, stack⟩) := by
   cases matching with
   | wildcard => exact ⟨.nil, frames⟩
-  | variable name => exact ⟨.cons allowed .nil, frames⟩
+  | «variable» name => exact ⟨.cons allowed .nil, frames⟩
   | atom atom =>
       cases value <;> try exact ⟨trivial, frames⟩
       case atom actual =>
         by_cases same : atom = actual
-        · simpa only [step, transition, same, if_true, proceed, OutcomeAllowed,
+        · simpa only [step, transition, same, ite_true, proceed, OutcomeAllowed,
             ConfigAllowed, ControlAllowed] using And.intro (EnvAllowed.nil (operations := operations)) frames
-        · simpa only [step, transition, same, if_false, proceed, OutcomeAllowed,
+        · simpa only [step, transition, same, ite_false, proceed, OutcomeAllowed,
             ConfigAllowed, ControlAllowed] using And.intro True.intro frames
   | constructor tag =>
       cases value <;> try exact ⟨trivial, frames⟩
@@ -262,9 +262,9 @@ private theorem pattern_preserves (parameters : Parameters Primitive) {environme
         | some _ => exact ⟨trivial, frames⟩
         | none =>
             by_cases same : tag = actual
-            · simpa only [step, transition, same, if_true, proceed, OutcomeAllowed,
+            · simpa only [step, transition, same, ite_true, proceed, OutcomeAllowed,
                 ConfigAllowed, ControlAllowed] using And.intro (EnvAllowed.nil (operations := operations)) frames
-            · simpa only [step, transition, same, if_false, proceed, OutcomeAllowed,
+            · simpa only [step, transition, same, ite_false, proceed, OutcomeAllowed,
                 ConfigAllowed, ControlAllowed] using And.intro True.intro frames
   | @constructorArgument tag innerPattern inner =>
       cases value <;> try exact ⟨trivial, frames⟩
@@ -274,16 +274,16 @@ private theorem pattern_preserves (parameters : Parameters Primitive) {environme
         | some argument =>
             have argumentAllowed := optional_some ((ValueAllowed.constructor_iff actual _).mp allowed)
             by_cases same : tag = actual
-            · simpa only [step, transition, same, if_true, proceed, OutcomeAllowed,
+            · simpa only [step, transition, same, ite_true, proceed, OutcomeAllowed,
                 ConfigAllowed, ControlAllowed] using And.intro (And.intro capture (And.intro inner argumentAllowed)) frames
-            · simpa only [step, transition, same, if_false, proceed, OutcomeAllowed,
+            · simpa only [step, transition, same, ite_false, proceed, OutcomeAllowed,
                 ConfigAllowed, ControlAllowed] using And.intro True.intro frames
   | exception name =>
       cases found : Env.lookup environment name with
       | none => simp only [step, transition, found, finish, OutcomeAllowed, ResultAllowed]
       | some binding =>
           cases binding <;>
-            try simp only [step, transition, found, finish, OutcomeAllowed, ResultAllowed]
+            try (solve | simp only [step, transition, found, finish, OutcomeAllowed, ResultAllowed])
           case exception tag argument =>
             cases argument with
             | some _ => simp only [step, transition, found, finish, OutcomeAllowed, ResultAllowed]
@@ -298,17 +298,17 @@ private theorem pattern_preserves (parameters : Parameters Primitive) {environme
                         ControlAllowed] using And.intro True.intro frames
                   | none =>
                       by_cases same : tag = actual
-                      · simpa only [step, transition, found, same, if_true, proceed, OutcomeAllowed,
+                      · simpa only [step, transition, found, same, ite_true, proceed, OutcomeAllowed,
                           ConfigAllowed, ControlAllowed] using
                             And.intro (EnvAllowed.nil (operations := operations)) frames
-                      · simpa only [step, transition, found, same, if_false, proceed, OutcomeAllowed,
+                      · simpa only [step, transition, found, same, ite_false, proceed, OutcomeAllowed,
                           ConfigAllowed, ControlAllowed] using And.intro True.intro frames
   | @exceptionArgument name innerPattern inner =>
       cases found : Env.lookup environment name with
       | none => simp only [step, transition, found, finish, OutcomeAllowed, ResultAllowed]
       | some binding =>
           cases binding <;>
-            try simp only [step, transition, found, finish, OutcomeAllowed, ResultAllowed]
+            try (solve | simp only [step, transition, found, finish, OutcomeAllowed, ResultAllowed])
           case exception tag argument =>
             cases argument with
             | some _ => simp only [step, transition, found, finish, OutcomeAllowed, ResultAllowed]
@@ -324,10 +324,10 @@ private theorem pattern_preserves (parameters : Parameters Primitive) {environme
                   | some argument =>
                       have argumentAllowed := optional_some ((ValueAllowed.exception_iff actual _).mp allowed)
                       by_cases same : tag = actual
-                      · simpa only [step, transition, found, same, if_true, proceed, OutcomeAllowed,
+                      · simpa only [step, transition, found, same, ite_true, proceed, OutcomeAllowed,
                           ConfigAllowed, ControlAllowed] using
                             And.intro (And.intro capture (And.intro inner argumentAllowed)) frames
-                      · simpa only [step, transition, found, same, if_false, proceed, OutcomeAllowed,
+                      · simpa only [step, transition, found, same, ite_false, proceed, OutcomeAllowed,
                           ConfigAllowed, ControlAllowed] using And.intro True.intro frames
   | record patternsAllowed =>
       cases value <;> try trivial
@@ -339,7 +339,8 @@ private theorem pattern_preserves (parameters : Parameters Primitive) {environme
             | nil => exact ⟨.nil, frames⟩
             | cons _ _ => trivial
         | cons pattern remaining =>
-            exact ⟨⟨capture, .cons pattern remaining, fieldsAllowed, .nil⟩, frames⟩
+            cases fields <;>
+              exact ⟨⟨capture, .cons pattern remaining, fieldsAllowed, .nil⟩, frames⟩
   | suspended inner =>
       cases value <;> try trivial
       case suspension body captured recursive =>
@@ -371,13 +372,14 @@ private theorem mismatch_preserves (parameters : Parameters Primitive) {stack : 
   | nil => trivial
   | cons frame rest =>
       obtain ⟨head, tail⟩ := (List.forall_cons _ _ _).mp frames
-      cases frame <;> try trivial
-      case clause environment body remaining value => exact ⟨⟨head.1, head.2.2.1, head.2.2.2⟩, tail⟩
-      case bindMatch environment body => exact ⟨.exception .none, tail⟩
-      case applicationResult => exact ⟨.exception .none, tail⟩
-      case handlerResult original => exact ⟨head, tail⟩
-      case row environment remaining fields earlier => exact ⟨trivial, tail⟩
-      case layered name value => exact ⟨trivial, tail⟩
+      cases frame with
+      | clause environment body remaining value => exact ⟨⟨head.1, head.2.2.1, head.2.2.2⟩, tail⟩
+      | bindMatch environment body => exact ⟨.exception .none, tail⟩
+      | applicationResult => exact ⟨.exception .none, tail⟩
+      | handlerResult original => exact ⟨head, tail⟩
+      | row _ _ _ _ | layered _ _ => exact ⟨trivial, tail⟩
+      | constructor _ | record _ _ _ _ | function _ _ | argument _ | bindValue _ _ _
+      | branch _ _ _ | raise | handler _ _ | force _ _ => trivial
 
 private theorem clauses_preserves (parameters : Parameters Primitive) {environment : Env Primitive}
     {clauses : List (Core.Pattern × Core.Expr Primitive)} {value : Value Primitive}

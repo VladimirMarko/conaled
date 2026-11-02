@@ -112,6 +112,7 @@ theorem actual_recursive_world_allowed (parameters : Machine.Parameters Unit)
     ∃ world,
       Creation.PendingGroup emptyWorld world Suspensions.empty preclose rawOuter mutualGroup created ∧
       WorldAllowed noOperations world ∧ Memory.StateRep parameters world closed ∧
+      EnvRep world closedEnvironment mutualEnvironment ∧
       world 0 = some meaning ∧ CodeAllowed noOperations meaning.body ∧
       EnvAllowed noOperations meaning.environment ∧
       Core.Prefix.observe raw 8
@@ -119,16 +120,22 @@ theorem actual_recursive_world_allowed (parameters : Machine.Parameters Unit)
           (.recursive (Rhs.toBindings mutualBindings) (Core.force (.variable 2)))) =
         .inr (Core.Machine.start closed closedEnvironment (Core.force (.variable 2))) := by
   have initial := Memory.StateRep.empty parameters
-  obtain ⟨world, pending⟩ := Creation.create_pending initial.bounded initial.world_below
-    outer_represented group_allowed.distinct receipt
-  have allowed := pending_allowed pending (WorldAllowed.empty (operations := noOperations)) group_allowed
+  obtain ⟨reached, collected, world, made, pending, valid, allowed, environment⟩ :=
+    create_closed_allowed initial (WorldAllowed.empty (operations := noOperations))
+      outer_represented group_allowed
+  have equal : (preclose, created) = (reached, collected) :=
+    Except.ok.inj (receipt.symm.trans made)
+  have memoryEqual : reached = preclose := (congrArg Prod.fst equal).symm
+  have environmentEqual : collected = created := (congrArg Prod.snd equal).symm
+  subst reached
+  subst collected
   have found : world 0 = some meaning := by
     have members := pending.members
     cases members with
     | delay address rest => exact address
   have meaningAllowed := allowed 0 meaning found
-  exact ⟨world, pending, allowed, pending.closed_state initial outer_represented receipt,
-    found, meaning_code meaningAllowed, meaning_environment meaningAllowed,
+  exact ⟨world, pending, allowed, valid, environment, found,
+    meaning_code meaningAllowed, meaning_environment meaningAllowed,
     Core.Recursive.enter_body_prefix (Rhs.toBindings_permitted mutualBindings)
       receipt (Core.force (.variable 2))⟩
 

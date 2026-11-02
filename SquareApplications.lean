@@ -285,7 +285,12 @@ import Examples.SuspensionPureSimulation
 import Examples.SuspensionPureForcing
 import Examples.SuspensionPureDomainState
 import Examples.SuspensionPureWorldDomain
-import Applications.Suspensions.Pure.Ordinary
+import Examples.SuspensionPureOrdinary
+import Examples.SuspensionPureRecursiveStep
+import Examples.SuspensionPureExecution
+import Examples.SuspensionPureReentry
+import Examples.SuspensionPureNoReentry
+import Examples.SuspensionBodyEvent
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
