@@ -84,6 +84,25 @@ The PDF is the complete paper source used here; Felix alone is not presented
 as a complete artifact bundle for the paper. The port preserves independent
 value/timing maps, setup/hold bounds, and the adder hazard calculation.
 
+## S9. Purely Functional Data Structures
+
+* Chris Okasaki, *Purely Functional Data Structures*, Cambridge University
+  Press, 1998. [Publisher record](https://www.cambridge.org/core/books/purely-functional-data-structures/0409255DA1B48FA731859AC72E34D494),
+  DOI `10.1017/CBO9780511530104`.
+* [Publisher contents](https://assets.cambridge.org/97805216/63502/frontmatter/9780521663502_frontmatter.pdf),
+  SHA-256 `6fdfe24ac29b98252139a1aa483c1a56fba8f5807545d9ce788dc059c57148cb`.
+* [Publisher excerpt](https://assets.cambridge.org/97805216/63502/excerpt/9780521663502_excerpt.pdf),
+  SHA-256 `a39a8a3adb7e2d718a1395ad040e84403bf9c2bf669ebe4722aa850bea92f87b`.
+  Its ten scanned pages contain printed pages 1–5 and 7–11.
+* [Author's 1996 dissertation](https://www.cs.cmu.edu/~rwh/students/okasaki.pdf),
+  SHA-256 `f4b92ed7ea425f6f1019f20a4ef40df505327fbc5f1346ed6b7a2e28ab56d072`.
+  This is a distinct source, not a substitute for the book's expanded scope.
+
+These public sources were inspected on 2026-11-02. The
+[reconstruction record](research/pfds-reconstruction.md) distinguishes source
+coverage, mathematical obligations and the chapter acceptance process. The
+downloaded manuscripts are research inputs, not redistributed source artifacts.
+
 ## Content fingerprints of downloaded manuscripts
 
 These SHA-256 hashes identify the exact text snapshots inspected, including
