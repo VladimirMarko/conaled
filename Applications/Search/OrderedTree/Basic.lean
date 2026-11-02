@@ -152,10 +152,10 @@ theorem member_correct {t : BinaryTree α} (ordered : Ordered t) (x : α) :
   | nil => simp [member, memberRun, Contains]
   | node y l r hl hr =>
       by_cases xy : x < y
-      · simpa only [member, memberRun, if_pos xy] using
+      · simpa only [member, memberRun, ite_eq_left xy] using
           (hl ordered.1).trans (contains_left_iff ordered xy).symm
       · by_cases yx : y < x
-        · simpa only [member, memberRun, if_neg xy, if_pos yx] using
+        · simpa only [member, memberRun, ite_eq_right xy, ite_eq_left yx] using
             (hr ordered.2.1).trans (contains_right_iff ordered yx).symm
         · have eq : x = y := le_antisymm (le_of_not_gt yx) (le_of_not_gt xy)
           simp [member, memberRun, xy, yx, Contains, eq]
@@ -192,13 +192,13 @@ theorem contains_insert (x z : α) (t : BinaryTree α) :
   | nil => simp [insert, Contains]
   | node y l r hl hr =>
       by_cases xy : x < y
-      · simp only [insert, if_pos xy, Contains, hl]
+      · simp only [insert, ite_eq_left xy, Contains, hl]
         tauto
       · by_cases yx : y < x
-        · simp only [insert, if_neg xy, if_pos yx, Contains, hr]
+        · simp only [insert, ite_eq_right xy, ite_eq_left yx, Contains, hr]
           tauto
         · have eq : x = y := le_antisymm (le_of_not_gt yx) (le_of_not_gt xy)
-          simp only [insert, if_neg xy, if_neg yx, Contains, eq]
+          simp only [insert, ite_eq_right xy, ite_eq_right yx, Contains, eq]
           tauto
 
 theorem all_insert {P : α → Prop} {t : BinaryTree α} (h : All P t)
@@ -215,14 +215,14 @@ theorem ordered_insert {t : BinaryTree α} (ordered : Ordered t) (x : α) :
   | nil => simp [insert, Ordered, OrderedBy, All]
   | node y l r hl hr =>
       by_cases xy : x < y
-      · rw [insert, if_pos xy]
+      · rw [insert, ite_eq_left xy]
         exact ⟨hl ordered.1, ordered.2.1, all_insert ordered.2.2.1 x xy,
           ordered.2.2.2⟩
       · by_cases yx : y < x
-        · rw [insert, if_neg xy, if_pos yx]
+        · rw [insert, ite_eq_right xy, ite_eq_left yx]
           exact ⟨ordered.1, hr ordered.2.1, ordered.2.2.1,
             all_insert ordered.2.2.2 x yx⟩
-        · simpa only [insert, if_neg xy, if_neg yx] using ordered
+        · simpa only [insert, ite_eq_right xy, ite_eq_right yx] using ordered
 
 end LinearOrder
 end Search.OrderedTree
