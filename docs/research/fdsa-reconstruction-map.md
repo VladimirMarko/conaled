@@ -260,3 +260,19 @@ requires the project's immutable-candidate verification and exhaustive proof
 audit, both independent review axes, and final candidate-identity verification.
 Their exact outcomes are kept in the local checkpoint's review record rather
 than inferred from this narrative.
+
+## Shared accumulated random work
+
+The [accumulated-work draft](fdsa-accumulated-work.md) supplies ordinary
+geometric mean, remaining-sum and prefix-qualified tail theorems over a
+supplied measure, using existing Mathlib lower integrals and Markov inequality.
+Its finite dependent-stage program is connected through `Resources.run`, with
+separate returned-value and cost laws, exact finite expectations, and
+reweighting/sequencing composition. Boundary clients retain zero drift, zero
+work, the required prefix cap and strict contraction for finite work.
+
+This is cross-cutting FDSA-XW01 groundwork, currently uncompiled and unaccepted.
+It does not activate a later chapter. Actual conditional pivot laws,
+source-algorithm cost correspondences, quicksort's two recursive branches and
+treap shared-priority analysis remain in their respective chapter inventories.
+No additional probability carrier or execution framework is introduced.

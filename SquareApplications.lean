@@ -15,6 +15,7 @@ import Examples.CurryHoward
 import Examples.ProbabilisticProgress
 import Examples.MetropolisHastings
 import Examples.ProbabilityCorrelation
+import Examples.AccumulatedWork
 import Examples.StatefulIncremental
 import Examples.ExternalInteraction
 import Examples.InteractionTransport
