@@ -250,6 +250,7 @@ import Examples.SharedDemand
 import Examples.TreeCache
 import Examples.TreeRotations
 import Examples.TreeRotationCosts
+import Examples.OrderedTrees
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 

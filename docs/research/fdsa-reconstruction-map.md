@@ -317,3 +317,39 @@ original chapter inventories. Accepted repaired Chapter 1 and accepted XT01
 are prerequisites to integration or acceptance. All focused and full candidate
 checks, both independent review axes and immediate candidate verification remain
 pending for this draft.
+
+## Shared ordered-tree observations (FDSA-XT07)
+
+`Applications.Trees.Ordered` adds one recursive relation invariant on the
+existing Mathlib BinaryTree and existing inorder observation. Pairwise
+inorder order implies the invariant without relation laws; the reverse and
+resulting inorder-congruence iff retain explicit transitivity. Relation
+weakening and exact label-map pullback remain independent of that premise.
+Strict-key specializations use only a key preorder, derive distinct mapped
+keys without global key injectivity, and connect to standard SortedLT and
+adjacent IsChain order. The weak-order-plus-Nodup converse retains a key
+partial order and distinctness of keys rather than only full payloads.
+
+`Applications.Trees.OrderedRotations` consumes actual successful XT06 root
+rotation and erased cached-rebuilding observations. Its recursive-invariant
+iff laws retain transitivity and actual successful-result premises where
+needed; erased-payload order does not acquire a cache-validity or summary
+reassociation requirement. The existing operations, cache laws and resource
+executors are unchanged.
+
+`Examples.OrderedTrees` supplies connected source and generic cases, including
+the printed inorder [2,3,5,6,8,9], legal rotation/inverse, empty/singleton
+domains, the successor-relation counterexample, repeated keys, missing
+antisymmetry, noninjective key-preserving payload maps and actual cached
+rebuilds retaining an invalid fringe. Existing duplicate/cache fixtures keep
+their original meanings. Exact source provenance, hypotheses, case reasoning
+and the applicable notice are in [fdsa-tree-order.md](fdsa-tree-order.md).
+
+This supports only the invariant portions of C05-001/025, the ordered-state
+consequence of C05-043, key-order portions of C06-044/049, and the qualification
+for later C04-058. Partial rows remain partial. The actual balancer, all-node
+exercise, direct recursive set/BST proof exercise, search/update/split/join
+algorithms, Set/Map refinement, balance, costs, positioned rotation schedules,
+interval-cache/search and every later chapter obligation remain queued.
+This is an uncompiled shared source draft, with every integrated validation
+and independent final acceptance gate still pending.
