@@ -260,3 +260,33 @@ requires the project's immutable-candidate verification and exhaustive proof
 audit, both independent review axes, and final candidate-identity verification.
 Their exact outcomes are kept in the local checkpoint's review record rather
 than inferred from this narrative.
+
+## Shared Set/Map contracts and refinement
+
+`Applications.Collections.Set`, `Map`, `Modify` and `AList`, together with
+the thin `SquareKit.ValidGraphs` bridge, supply shared model-oriented methods.
+The exact scope, provenance, source assessment and remaining obligations are
+in [fdsa-adt-refinement.md](fdsa-adt-refinement.md). This is source-draft support;
+the external local tracker retains every validation and acceptance gate.
+
+| Source portion | Shared declarations and connected uses | Remaining qualification |
+| --- | --- | --- |
+| C06-001–008/011–019, interface and schema portions | Operation-only Set/Map records, exact seven/six laws, initialization and mutation/observation bridges through `validGraph` and `liftFun_iff` | Concrete source realizations and any row's additional algorithm content remain required. |
+| C06-009–010 and common composition in C05/C06-066–067 | `comp_iff`, actual `existentialSquare`/`transportRelations`, ordinary clients and independent-representation observations in `Examples.SetMapContracts` and `Examples.ADTRefinement` | Retain middle validity and actual middle-operation agreement; literal ordered-list/tree refinements and their extra invariants remain queued. |
+| C06-034/036–043, partial-map model and laws | Ordinary `α → Option β`, grouped changed/all-other-key clauses, `Function.eq_update_iff`, law-free reflexive lookup schema, real standard AList adapter | No finite abstract model, value order/default, decoder injectivity or surjectivity is added. AList insertion is not the source ordered-list recurrence. |
+| C06-035 boundary only | Absence versus stored false, with an explicit some-true observation distinction | The full generic set/partial-Boolean-map embedding, round trips and normalization remain queued. |
+| C06-068–074, Exercise 6.2 | Four-law modified interface, both law-preserving translations, raw original-operation round trip and valid-state whole-lookup reverse round trip, consumed in `Examples.MapModify` | No arbitrary concrete-state isomorphism, callback-sharing or execution-cost conclusion. |
+
+The concrete cases retain two-key nonempty updates, the actual intermediate
+validity chain, an even hidden counter, a tagged two-stage route, distinct Bool
+counterexamples for the two omitted premises, and explicit Nat argument roles.
+The real Nat/AList client starts with a third binding, which remains present
+through every operation; Fin 2 alone cannot test that full-client clause
+nonvacuously. The lawful modify counter-one/counter-two witness uses validity
+True, separately from the even-counter realization.
+
+No Chapter 6 or later chapter is activated by this shared draft. The complete
+ordered-list/tree algorithms, BST/interval clients, interval-list early exits
+and linear work, all Set2 operations, balancing/cache and heap obligations,
+direct Chapter 5 exercise, C06-035 embedding and all original source rows
+remain mandatory. The initial post-Chapter-1 integration prefix is unchanged.
