@@ -65,7 +65,7 @@ Chapter organization is a coverage index; modules follow reusable domain concept
 | 25 | Knuth–Morris–Pratt String Search | Queued |
 | 26 | Huffman's Algorithm | Queued |
 | 27 | Alpha–Beta Pruning | Queued |
-| A | List Library | Matched as used; final complete inventory pending |
+| A | List Library | Shared standard interfaces and checked adapters below; acceptance tracked separately |
 | B | Time Functions | Matched as used; final complete inventory pending |
 | C | Notation | Matched as used; final complete inventory pending |
 
@@ -267,6 +267,86 @@ observes a sorted result; it does not charge indexing or claim a complete
 selection runtime bound. The connected small-input client pairs that rank with
 the sorting-only bound of 21 calls for an input of length at most five, derived
 from the general triangular inequality and the explicit length hypothesis.
+
+## Appendix A: shared list interfaces, printed pages 343–345
+
+This cross-cutting foundation reuses the existing Lean list carrier and
+operations. The twenty source entries and all their displayed cases have the
+following correspondence. Standard equation theorems are retained directly;
+`Examples.ListLibrary` supplies the boundary and composition witnesses named
+below. This source map does not itself assert completion of the independent
+review and candidate-verification gates.
+
+| Source entry | Existing value and equation witnesses | Checked use |
+| --- | --- | --- |
+| Length | `List.length_nil`, `length_cons` | `duplicate_pipeline`, `update_observations` |
+| Append | `List.nil_append`, `cons_append` | Existing `Examples.FunctionalBasics.append_equations`; `split_reassembles` |
+| Underlying set | `{x \| x ∈ xs}`, using `List.not_mem_nil`, `mem_cons` | `empty_membership_set`, `cons_membership_set` |
+| Map | `List.map_nil`, `map_cons` | `duplicate_pipeline` |
+| Boolean filter | `List.filter_nil`, `filter_cons` | `duplicate_pipeline`, `minimum_filter_spec` |
+| Concatenation of a list of lists | `List.flatten_nil`, `flatten_cons` | `duplicate_pipeline`, including an empty inner list |
+| Take | `List.take_nil`, `take_zero`, `take_succ_cons` | `split_reassembles`, `overlarge_split` |
+| Drop | `List.drop_nil`, `drop_zero`, `drop_succ_cons` | `split_reassembles`, `overlarge_split` |
+| Head of a nonempty list | `List.head?`, `head?_cons`; proof-domain `List.head` | `head_valid`, `empty_payload_queries` |
+| Tail | `List.tail_nil`, `tail_cons` | `last_and_tail_boundaries`, `empty_payload_queries` |
+| Remove last element | `List.dropLast_nil`, `dropLast_singleton`, `dropLast_cons_cons` | `dropLast_cons_equation`, `last_and_tail_boundaries` |
+| Reverse | `List.reverse_nil`, `reverse_cons` | `duplicate_pipeline`; Chapter 1's separate measured realizations |
+| Zero-based indexing | `List.getElem?_cons_zero`, `getElem?_cons_succ`; proof-domain `getElem` | `index_valid`, `invalid_index_and_update`, `empty_payload_queries` |
+| List update | `List.set_nil`, `set_cons_zero`, `set_cons_succ` | `update_observations`, `update_repeated_value`, `invalid_boundary` |
+| Half-open natural interval `[i..<j]` | `List.Ico`, `Ico.succ_top`, `Ico.eq_nil_of_le` | `range_zero_equation`, `range_succ_equation`, `range_boundaries`, `range_membership` |
+| Replicate | `List.replicate_zero`, `replicate_succ` | `replication_boundaries` |
+| Distinctness | `List.Nodup`, `nodup_nil`, `nodup_cons` | `duplicates_are_not_distinct` |
+| Sum | `List.sum_nil`, `sum_cons` | `sum_source_equations`, `duplicate_pipeline` |
+| Nonempty minimum | `List.min?`, `min?_singleton`, `min?_cons`; proof-domain `List.min` | `minimum_source_equation`, `minimum_valid`, `minimum_repeated_values`, `minimum_empty`, `empty_payload_minimum` |
+| Sortedness for an arbitrary relation | `List.Pairwise.nil`, `List.pairwise_cons` | `sorted_wrt_cons`, `adjacent_relation_is_insufficient` |
+
+The source's `concat` combines a list of lists and therefore corresponds to
+`List.flatten`. Ranges include the lower endpoint and exclude the upper one;
+`List.Ico i j` uses the truncated natural length `j-i`. Its checked successor
+equation covers both `i ≤ j` and the empty alternative. Shape inspection for
+drop-last uses `xs.isEmpty`, which distinguishes exactly the empty list without
+requiring equality decisions on payloads.
+
+The source supplies no invalid-input value equation for head, indexing or
+minimum. Optional queries return `none` there. Their valid-input bridges return
+`some` of the existing proof-domain result. Tail and list update retain their
+specified total behavior: an invalid lookup returns `none`, while an invalid
+update preserves the input, including its length and every position. The
+source's zero-based index does not alter conaled's existing one-based public
+selection interface.
+
+Minimum's operation alone needs `Min α`; its source-style right-recursive law
+also needs associativity because the standard realization folds from the left.
+The book's linear-order specialization supplies that law. Leastness in
+`minimum_filter_spec` separately requires a linear order and a successful
+optional result; `filtered_minimum_example` discharges that premise on actual
+data. Neither a top element nor a default payload is introduced. The checked
+`Empty` cases demonstrate head/index failure and optional minimum with an
+empty-domain `Min` operation. Sum has the different explicit capability
+`Zero α`, so it cannot be instantiated at `Empty`; its literal equations need
+only `Add α` and `Zero α`, without associativity or commutativity.
+
+Distinctness and arbitrary-relation sortedness are propositional observations.
+An executable Boolean view uses the corresponding decidability capability when
+needed. `Pairwise` checks every later element. The checked relation `y = x+1`
+on `[0,1,2]` satisfies adjacent comparisons but fails `Pairwise`, so transitivity
+cannot be assumed merely from the word "sorted". The source's Boolean filter
+already matches Lean's `α → Bool` interface.
+
+Statement review retained arbitrary payload universes and the exact validity
+conditions. The duplicate pipeline independently computes four flattened
+elements, filtered-and-incremented values `[3,3,2]`, reverse `[3,1,2,2]` and sum
+8. Update cases distinguish two equal occurrences by their positions. Minimum
+with repeated values returns 2; the filtered-minimum client retains membership,
+predicate satisfaction and leastness for the original input. Empty, singleton,
+overlarge and reversed-boundary cases are covered without adding global
+inhabitation or equality assumptions.
+
+These are value correspondences. The standard reverse's accumulator
+implementation does not inherit the naive source reversal's costs. The same
+distinction applies to minimum's fold association and to other optimized
+standard operations. Appendix B's separate cost recurrences remain separate
+obligations.
 
 ## Architecture and statement review
 
