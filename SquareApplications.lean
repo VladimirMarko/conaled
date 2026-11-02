@@ -254,6 +254,23 @@ import Examples.RetainedHistory
 import Examples.MeasuredScan
 import Examples.ScanSearch
 import Examples.ScanOptimality
+import Applications.Suspensions.Correspondence
+import Examples.SuspensionMachine
+import Examples.SuspensionStore
+import Examples.SuspensionRules
+import Examples.SuspensionNamespaces
+import Examples.SuspensionStatic
+import Examples.SuspensionCorrespondence
+import Applications.Suspensions.Prefix
+import Examples.SuspensionObservation
+import Examples.SuspensionReturn
+import Examples.SuspensionGrammar
+import Examples.SuspensionDerived
+import Examples.SuspensionRenaming
+import Examples.SuspensionRelocation
+import Examples.SuspensionForceObservation
+import Examples.SuspensionInvariant
+import Examples.SuspensionRecursive
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
