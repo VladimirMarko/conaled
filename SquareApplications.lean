@@ -8,6 +8,7 @@ import Examples.InitializedFeedback
 import Examples.PreservationBounds
 import Examples.FIFOContracts
 import Examples.AbstractFIFO
+import Examples.AbstractStack
 import Examples.CompiledTemporalPayload
 import Examples.ArithmeticStaging
 import Examples.SessionProtocol
@@ -28,6 +29,7 @@ import Examples.PotentialAccounting
 import Examples.OrderedSearch
 import Examples.SymmetricLists
 import Examples.SharedList
+import Examples.SharedListIntegers
 import Applications.Resources.SharedList
 import Examples.RandomAccessLists
 import Examples.EditAlignment
