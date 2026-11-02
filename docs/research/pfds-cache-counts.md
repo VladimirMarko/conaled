@@ -11,12 +11,11 @@ arguments, not acceptance of a book chapter or an algorithmic complexity bound.
 
 ## Development status
 
-The pending-frame, successful-write and trace-count modules and their
-connected examples passed their focused checks. The pure-source specialization
-and its clients are being checked. No10020 full candidate check, exhaustive
-audit, independent review or final verification has passed. The mathematics
-below describes the statements and their explicit premises; the local review
-record retains all validation evidence.
+The new modules and all connected examples passed their focused development
+checks. Full integrated-candidate acceptance is tracked separately in the local
+review record; focused checks do not replace the complete build, exhaustive
+audit, independent review or final candidate verification. The mathematics
+below describes the statements and their explicit premises.
 
 ## Pending frames and the first successful write
 
@@ -57,6 +56,14 @@ the actual ordered events; `cacheWrites address` is an additive map equal to
 counting `.cacheWrite address` in that trace's list. It is also the existing
 resource framework's reweighting by the indicator of that event. There is no
 second evaluator or synthetic event list.
+
+[TraceObservation](../../Applications/Suspensions/TraceObservation.lean)
+connects this resource observer with the existing `tracedStep` instrumentation.
+For an actual finite traced execution, it identifies the returned answer and
+the exact ordered events appended to the supplied prior log. An empty-prior
+specialization identifies the run's event list directly. This lets the source
+counterexample consume its already checked traced execution while preserving
+the resource observer's exact event count and absorbing suffix behavior.
 
 The raw `FreshEntries` premise quantifies over actual unfinished observations:
 if the next event enters a body, that address is absent from the current

@@ -298,6 +298,7 @@ import Examples.SuspensionPending
 import Examples.SuspensionCacheWrite
 import Examples.SuspensionCacheAccounting
 import Examples.SuspensionPureCacheCounts
+import Examples.SuspensionTraceObservation
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 

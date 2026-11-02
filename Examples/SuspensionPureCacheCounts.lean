@@ -1,4 +1,5 @@
 import Applications.Suspensions.Pure.CacheCounts
+import Applications.Suspensions.TraceObservation
 import Examples.SuspensionPureCachedClosure
 import Examples.SuspensionMachine
 
@@ -240,6 +241,30 @@ theorem unrestricted_two_writes :
     Core.Observation.cacheWrites 1
       (Core.Observation.observe Examples.SuspensionMachine.parameters 300
         (Core.Machine.start Examples.SuspensionMachine.initial []
-          Examples.SuspensionMachine.reentrantOverwrite)).2 = 2 := rfl
+          Examples.SuspensionMachine.reentrantOverwrite)).2 = 2 := by
+  let initialConfig := Core.Machine.start Examples.SuspensionMachine.initial []
+    Examples.SuspensionMachine.reentrantOverwrite
+  obtain ⟨answer, events, steps, run, _, _, _, _, writes, _⟩ :=
+    Examples.SuspensionMachine.reentrant_overwrite
+  obtain ⟨finished, recorded⟩ := Core.Observation.traced_evaluates_observe_nil run
+  have completed : Core.Prefix.observe Examples.SuspensionMachine.parameters steps initialConfig =
+      .inl answer :=
+    (Core.Observation.observe_erases Examples.SuspensionMachine.parameters steps initialConfig).symm.trans
+      finished
+  obtain ⟨boundedAnswer, boundedCompletion⟩ : ∃ answer,
+      Core.Prefix.observe Examples.SuspensionMachine.parameters 76 initialConfig =
+        .inl answer := ⟨_, rfl⟩
+  obtain ⟨boundedSteps, bound, evaluated⟩ :=
+    (Core.Prefix.finished_iff Examples.SuspensionMachine.parameters 76 initialConfig boundedAnswer).mp
+      boundedCompletion
+  have sameSteps : steps = boundedSteps :=
+    ((Core.Machine.traced_evaluates_erases run).unique evaluated).2
+  have within : steps ≤ 300 := by omega
+  obtain ⟨extra, fullBudget⟩ := Nat.exists_eq_add_of_le within
+  change Core.Observation.cacheWrites 1
+    (Core.Observation.observe Examples.SuspensionMachine.parameters 300 initialConfig).2 = 2
+  rw [fullBudget, Core.Observation.cacheWrites_observe_after_finished completed extra 1,
+    Core.Observation.cacheWrites_eq_count, recorded]
+  exact writes
 
 end Examples.SuspensionPureCacheCounts
