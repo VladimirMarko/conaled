@@ -285,3 +285,27 @@ arbitrary fold operation. Full traversal costs, balance/search algorithms,
 maximum representation issues and the existing-leftist adapter remain in
 their chapter inventories. All shared-unit and chapter acceptance gates remain
 pending; no previously recorded review or validation result covers this draft.
+
+## Shared binary-tree shape bounds (FDSA-XT02)
+
+This bounded cross-cutting **uncompiled draft** adds common structural
+mathematics used by Chapters 4, 11 and 15, on the saved XT01 tree carrier and
+fold. It accepts or activates none of those chapters. Source distinctions,
+connected uses and statement assessment are in
+[fdsa-tree-shape.md](fdsa-tree-shape.md).
+
+| Common source obligation | Draft declarations / intended connection |
+| --- | --- |
+| Minimum external-leaf height and source predicates | `Trees.minHeight`, map/constructor laws, recursive `Complete`, `AlmostComplete`, source subtraction equivalence and immediate-child closure. |
+| Sharp capacity and completeness | Universal `2^minHeight <= numLeaves <= 2^height`, both strict incomplete bounds, and completeness iff equality at either bound. |
+| Natural logarithms and height optimum | Existing `Nat.log`/`Nat.clog` interfaces, exact almost-complete formulas, and `height_optimal` for unrelated payload types under a node-count inequality. |
+| Real source formulas | Separate `Applications.Trees.ShapeLog`: real sandwich/strict bounds, complete height equality and exact natural floor/ceiling bridges. |
+| Connected uses and boundaries | Empty labels, right-heavy almost-complete trees, noninjective maps, actual cached annotations, malformed caches, a minimum-height reader, a genuine optimal-height nonconverse and recursive local-height-balance counterexample. |
+
+The recursive mathematical predicate does not by itself complete the source's
+executable checker obligation. Immediate-child closure does not claim the
+general subtree theorem. Braun/weight-balance bridges, constructor exercises,
+array algorithms and the existing leftist representation and merge-cost bridges
+remain with their chapter tickets. The existing leftist rank proofs are
+unchanged. All integration, candidate validation and final review gates remain
+pending for this draft and its unaccepted prerequisites.
