@@ -1,4 +1,12 @@
-import Mathlib
+import Mathlib.Basic.Real.Basic
+import Mathlib.Data.Finset.Max
+import Mathlib.Data.Finset.Card
+import Mathlib.Data.Set.Finite.Range
+import Mathlib.Order.Prod.Lex.Basic
+import Mathlib.Order.Interval.Finset.Nat
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Positivity
 
 /-!
 # The two event denotations in Elliott's 2015 talks
