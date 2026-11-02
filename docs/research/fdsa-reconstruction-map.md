@@ -426,6 +426,29 @@ These definitions and examples remain subject to complete candidate validation
 and independent review before acceptance. Cost observations concern the stated
 recursive model, not execution time of standard-library list operations.
 
+## Shared affine recurrence groundwork
+
+`Resources.AffineRecurrence.exists_affine_bound_of_two_branch` supplies a
+uniform all-input affine upper bound for an already total scalar function.
+Its two natural child maps have a strictly contracting eventual sum bound;
+its recurrence and toll are upper bounds. The scalar carrier is an
+Archimedean linearly ordered commutative ring, with signed function values
+and signed tolls allowed. Ordinary finite maxima, natural multiples and strong
+induction provide the witnesses; no recurrence structure or executor is added.
+
+`Examples.AffineRecurrence` connects the theorem to the actual terminating
+quarter-size recurrence over rational casts, a signed integer recurrence, and
+parameter-uniformity boundaries. The finite prefix, including zero, is covered
+by the same constants as every later input. A one-sided order bound is kept
+distinct from an absolute-value or asymptotic norm bound.
+
+This is an uncompiled shared draft. Its
+[source and statement notes](fdsa-affine-recurrence.md) preserve Chapter 3's
+remaining exact ceiling and negative-offset laws, sharper source constant
+choices, selector-to-cost correspondence and noncontracting counterexample.
+This groundwork does not activate or accept Chapter 3, and it does not prove
+termination of an algorithm by merely enlarging a later proof cutoff.
+
 ## Architecture and statement review
 
 Appendix C's complete notation correspondence, source corrections and checked
