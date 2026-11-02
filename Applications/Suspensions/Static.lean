@@ -379,12 +379,12 @@ def ScopedIn {Primitive : Type} (signature : Signature Primitive) (context : Con
   (∀ tag scheme, signature.constructors tag = some scheme → scheme.freeVars ⊆ context.ambient)
 
 theorem ScopedIn.extend {Primitive : Type} {signature : Signature Primitive}
-    {context : Context} (scoped : signature.ScopedIn context) (bindings : Bindings) :
-    signature.ScopedIn (context.extend bindings) := scoped
+    {context : Context} (support : signature.ScopedIn context) (bindings : Bindings) :
+    signature.ScopedIn (context.extend bindings) := support
 
 theorem ScopedIn.bindVariable {Primitive : Type} {signature : Signature Primitive}
-    {context : Context} (scoped : signature.ScopedIn context) (name : Nat) (t : Ty) :
-    signature.ScopedIn (context.bindVariable name t) := scoped
+    {context : Context} (support : signature.ScopedIn context) (name : Nat) (t : Ty) :
+    signature.ScopedIn (context.bindVariable name t) := support
 
 end Signature
 
@@ -707,7 +707,8 @@ theorem variableAllowed_bindVariable (context : Context) (bound key : Nat) (t : 
   intro argument found
   by_cases same : key = bound
   · subst key
-    simpa only [variable_lookup, reduceCtorEq] using found
+    rw [variable_lookup] at found
+    cases found
   · rw [lookup_bindVariable_ne context bound key t same] at found
     exact allowed argument found
 
@@ -716,7 +717,7 @@ theorem extend_fresh (context : Context) (bindings : Bindings) (name : Nat)
     name ∉ (context.extend bindings).values.keys := by
   change name ∉ (bindings ∪ context.values).keys
   rw [Finmap.keys_union]
-  exact Finset.not_mem_union.mpr ⟨added, old⟩
+  exact Finset.notMem_union.mpr ⟨added, old⟩
 
 theorem bindVariable_extend (context : Context) (bindings : Bindings) (name : Nat) (t : Ty)
     (fresh : name ∉ bindings.keys) :
@@ -792,7 +793,7 @@ mutual
     | record _ fields => simpa only [Names.patternNames] using fields.bound_names
     | reference _ inner => simpa only [Names.patternNames] using inner.bound_names
     | suspended inner => simpa only [Names.patternNames] using inner.bound_names
-    | @layered context name p t bindings _ _ inner =>
+    | @layered name p t bindings _ _ inner =>
       rw [Names.patternNames, Finmap.keys_union, Finmap.keys_singleton]
       exact Finset.union_subset_union (Finset.Subset.refl _) inner.bound_names
   termination_by sizeOf p
@@ -823,18 +824,18 @@ mutual
       PatternHasType signature (context.bindVariable fresh addedType) p t bindings := by
     cases typed with
     | wildcard => exact .wildcard
-    | @«variable» context name t allowed =>
+    | @«variable» name t allowed =>
       exact .variable (context.variableAllowed_bindVariable fresh name addedType allowed)
     | atom value => exact .atom value
     | constructor found instanceType => exact .constructor found instanceType
     | constructorArgument found instanceType inner =>
       exact .constructorArgument found instanceType (inner.weaken fresh addedType
         (by simpa only [Names.patternNames, Names.optionalPatternNames] using avoids))
-    | @exception context name found =>
+    | @exception name found =>
       have different : name ≠ fresh := by
         simpa [Names.patternNames, Names.optionalPatternNames, eq_comm] using avoids
       exact .exception ((context.lookup_bindVariable_ne fresh name addedType different).trans found)
-    | @exceptionArgument context name p t bindings found imperative inner =>
+    | @exceptionArgument name p t bindings found imperative inner =>
       have parts : fresh ≠ name ∧ fresh ∉ Names.patternNames p := by
         simpa [Names.patternNames, Names.optionalPatternNames] using avoids
       exact .exceptionArgument
@@ -846,10 +847,10 @@ mutual
         (by simpa only [Names.patternNames] using avoids))
     | suspended inner => exact .suspended (inner.weaken fresh addedType
         (by simpa only [Names.patternNames] using avoids))
-    | @layered context name p t bindings allowed distinct inner =>
+    | @layered name p t bindings allowed distinct inner =>
       rw [Names.patternNames] at avoids
       have innerAvoids : fresh ∉ Names.patternNames p :=
-        (Finset.not_mem_union.mp avoids).2
+        (Finset.notMem_union.mp avoids).2
       exact .layered (context.variableAllowed_bindVariable fresh name addedType allowed)
         distinct (inner.weaken fresh addedType innerAvoids)
   termination_by sizeOf p
@@ -866,7 +867,7 @@ mutual
     | nil => exact .nil
     | cons head tail disjoint =>
       rw [Names.patternFieldNames] at avoids
-      have parts := Finset.not_mem_union.mp avoids
+      have parts := Finset.notMem_union.mp avoids
       exact .cons (head.weaken fresh addedType parts.1) (tail.weaken fresh addedType parts.2) disjoint
   termination_by sizeOf fields
   decreasing_by
@@ -879,15 +880,17 @@ theorem RecursiveBindingsHaveType.domain {Primitive : Type} {signature : Signatu
     {closed : Bindings}
     (typed : RecursiveBindingsHaveType signature context monotypes bindings closed) :
     closed.keys = (bindings.map Prod.fst).toFinset := by
-  cases typed with
-  | nil => simp
-  | cons _ _ _ _ tail =>
-    ext name
-    simp only [Finmap.mem_keys, Finmap.mem_insert, List.map_cons, List.toFinset_cons,
-      Finset.mem_insert]
-    rw [← Finmap.mem_keys, tail.domain]
-termination_by bindings.length
-decreasing_by simp_wf
+  induction bindings generalizing closed with
+  | nil =>
+    cases typed
+    rfl
+  | cons pair rest ih =>
+    cases typed with
+    | cons _ _ _ _ tail =>
+      ext name
+      simp only [Finmap.mem_keys, Finmap.mem_insert, List.map_cons, List.toFinset_cons,
+        Finset.mem_insert]
+      rw [← Finmap.mem_keys, ih tail]
 
 mutual
   /-- Source-sensitive weakening. A fresh term binder alone is insufficient:
@@ -896,7 +899,7 @@ mutual
       {context : Context} {e : Expr Primitive} {t : Ty}
       (typed : HasType signature context e t) (fresh : Nat) (addedType : Ty)
       (freshContext : fresh ∉ context.values.keys)
-      (scoped : addedType.vars ⊆ context.ambient)
+      (support : addedType.vars ⊆ context.ambient)
       (avoids : fresh ∉ Names.expressionNames e) :
       HasType signature (context.bindVariable fresh addedType) e t := by
     cases typed with
@@ -919,23 +922,23 @@ mutual
     | constructor found instanceType => exact .constructor found instanceType
     | constructorArgument found instanceType argument =>
       exact .constructorArgument found instanceType
-        (argument.weaken fresh addedType freshContext scoped
+        (argument.weaken fresh addedType freshContext support
           (by simpa only [Names.expressionNames, Names.optionalExpressionNames] using avoids))
     | record labels fields =>
-      exact .record labels (fields.weaken fresh addedType freshContext scoped
+      exact .record labels (fields.weaken fresh addedType freshContext support
         (by simpa only [Names.expressionNames] using avoids))
     | function nonempty clauses =>
-      exact .function nonempty (clauses.weaken fresh addedType freshContext scoped
+      exact .function nonempty (clauses.weaken fresh addedType freshContext support
         (by simpa only [Names.expressionNames] using avoids))
     | apply operator operand =>
       rw [Names.expressionNames] at avoids
-      have parts := Finset.not_mem_union.mp avoids
-      exact .apply (operator.weaken fresh addedType freshContext scoped parts.1)
-        (operand.weaken fresh addedType freshContext scoped parts.2)
+      have parts := Finset.notMem_union.mp avoids
+      exact .apply (operator.weaken fresh addedType freshContext support parts.1)
+        (operand.weaken fresh addedType freshContext support parts.2)
     | @bind context p value body input output bindings right pattern continuation =>
       rw [Names.expressionNames] at avoids
-      have parts := Finset.not_mem_union.mp avoids
-      have firstParts := Finset.not_mem_union.mp parts.1
+      have parts := Finset.notMem_union.mp avoids
+      have firstParts := Finset.notMem_union.mp parts.1
       have freshBindings : fresh ∉ bindings.keys := fun member =>
         firstParts.1 (pattern.bound_names member)
       have freshClosed : fresh ∉ (closeBindings context value bindings).keys := by
@@ -943,16 +946,16 @@ mutual
       have closeSame : closeBindings (context.bindVariable fresh addedType) value bindings =
           closeBindings context value bindings := by
         unfold closeBindings
-        rw [context.freeVars_bindVariable fresh addedType freshContext scoped]
-      refine .bind (right.weaken fresh addedType freshContext scoped firstParts.2)
+        rw [context.freeVars_bindVariable fresh addedType freshContext support]
+      refine .bind (right.weaken fresh addedType freshContext support firstParts.2)
         (pattern.weaken fresh addedType firstParts.1) ?_
       rw [closeSame, ← context.bindVariable_extend (closeBindings context value bindings)
         fresh addedType freshClosed]
       exact continuation.weaken fresh addedType
-        (context.extend_fresh _ fresh freshContext freshClosed) scoped parts.2
+        (context.extend_fresh _ fresh freshContext freshClosed) support parts.2
     | @recursive context bindings body monotypes closed output distinct domain definitions continuation =>
       rw [Names.expressionNames] at avoids
-      have parts := Finset.not_mem_union.mp avoids
+      have parts := Finset.notMem_union.mp avoids
       have freshMonotypes : fresh ∉ monotypes.keys := by
         intro member
         apply parts.1
@@ -964,39 +967,39 @@ mutual
         apply Names.recursive_binders_subset bindings
         rwa [← definitions.domain]
       refine .recursive distinct domain
-        (definitions.weaken fresh addedType freshContext freshMonotypes scoped parts.1) ?_
+        (definitions.weaken fresh addedType freshContext freshMonotypes support parts.1) ?_
       rw [← context.bindVariable_extend closed fresh addedType freshClosed]
       exact continuation.weaken fresh addedType
-        (context.extend_fresh closed fresh freshContext freshClosed) scoped parts.2
+        (context.extend_fresh closed fresh freshContext freshClosed) support parts.2
     | branch test positive negative =>
       rw [Names.expressionNames] at avoids
-      have parts := Finset.not_mem_union.mp avoids
-      have firstParts := Finset.not_mem_union.mp parts.1
-      exact .branch (test.weaken fresh addedType freshContext scoped firstParts.1)
-        (positive.weaken fresh addedType freshContext scoped firstParts.2)
-        (negative.weaken fresh addedType freshContext scoped parts.2)
+      have parts := Finset.notMem_union.mp avoids
+      have firstParts := Finset.notMem_union.mp parts.1
+      exact .branch (test.weaken fresh addedType freshContext support firstParts.1)
+        (positive.weaken fresh addedType freshContext support firstParts.2)
+        (negative.weaken fresh addedType freshContext support parts.2)
     | reference imperative value =>
-      exact .reference imperative (value.weaken fresh addedType freshContext scoped
+      exact .reference imperative (value.weaken fresh addedType freshContext support
         (by simpa only [Names.expressionNames] using avoids))
-    | read reference => exact .read (reference.weaken fresh addedType freshContext scoped
+    | read reference => exact .read (reference.weaken fresh addedType freshContext support
         (by simpa only [Names.expressionNames] using avoids))
     | assign target replacement =>
       rw [Names.expressionNames] at avoids
-      have parts := Finset.not_mem_union.mp avoids
-      exact .assign (target.weaken fresh addedType freshContext scoped parts.1)
-        (replacement.weaken fresh addedType freshContext scoped parts.2)
-    | delay body => exact .delay (body.weaken fresh addedType freshContext scoped
+      have parts := Finset.notMem_union.mp avoids
+      exact .assign (target.weaken fresh addedType freshContext support parts.1)
+        (replacement.weaken fresh addedType freshContext support parts.2)
+    | delay body => exact .delay (body.weaken fresh addedType freshContext support
         (by simpa only [Names.expressionNames] using avoids))
-    | raise packet => exact .raise (packet.weaken fresh addedType freshContext scoped
+    | raise packet => exact .raise (packet.weaken fresh addedType freshContext support
         (by simpa only [Names.expressionNames] using avoids))
     | handle body nonempty handlers =>
       rw [Names.expressionNames] at avoids
-      have parts := Finset.not_mem_union.mp avoids
-      exact .handle (body.weaken fresh addedType freshContext scoped parts.1) nonempty
-        (handlers.weaken fresh addedType freshContext scoped parts.2)
+      have parts := Finset.notMem_union.mp avoids
+      exact .handle (body.weaken fresh addedType freshContext support parts.1) nonempty
+        (handlers.weaken fresh addedType freshContext support parts.2)
     | @newException context name e t body =>
       have parts : fresh ≠ name ∧ fresh ∉ Names.expressionNames e := by
-        simpa only [Names.expressionNames, Finset.not_mem_union, Finset.mem_singleton] using avoids
+        simpa only [Names.expressionNames, Finset.notMem_union, Finset.mem_singleton] using avoids
       have freshBinding : fresh ∉
           (Finmap.singleton name (.exception none) : Bindings).keys := by
         simpa only [Finmap.keys_singleton, Finset.mem_singleton] using parts.1
@@ -1005,7 +1008,7 @@ mutual
         (Finmap.singleton name (.exception none))) e t
       rw [← context.bindVariable_extend _ fresh addedType freshBinding]
       exact body.weaken fresh addedType
-        (context.extend_fresh _ fresh freshContext freshBinding) scoped parts.2
+        (context.extend_fresh _ fresh freshContext freshBinding) support parts.2
   termination_by sizeOf e
   decreasing_by
     all_goals simp_wf
@@ -1015,22 +1018,22 @@ mutual
       {context : Context} {clauses : List (Pattern × Expr Primitive)} {input output : Ty}
       (typed : ClausesHaveType signature context clauses input output)
       (fresh : Nat) (addedType : Ty) (freshContext : fresh ∉ context.values.keys)
-      (scoped : addedType.vars ⊆ context.ambient)
+      (support : addedType.vars ⊆ context.ambient)
       (avoids : fresh ∉ Names.clauseNames clauses) :
       ClausesHaveType signature (context.bindVariable fresh addedType) clauses input output := by
     cases typed with
     | nil => exact .nil
     | @cons context p e rest input output bindings pattern body tail =>
       rw [Names.clauseNames] at avoids
-      have parts := Finset.not_mem_union.mp avoids
-      have firstParts := Finset.not_mem_union.mp parts.1
+      have parts := Finset.notMem_union.mp avoids
+      have firstParts := Finset.notMem_union.mp parts.1
       have freshBindings : fresh ∉ bindings.keys := fun member =>
         firstParts.1 (pattern.bound_names member)
       refine .cons (pattern.weaken fresh addedType firstParts.1) ?_
-        (tail.weaken fresh addedType freshContext scoped parts.2)
+        (tail.weaken fresh addedType freshContext support parts.2)
       rw [← context.bindVariable_extend bindings fresh addedType freshBindings]
       exact body.weaken fresh addedType
-        (context.extend_fresh bindings fresh freshContext freshBindings) scoped firstParts.2
+        (context.extend_fresh bindings fresh freshContext freshBindings) support firstParts.2
   termination_by sizeOf clauses
   decreasing_by
     all_goals simp_wf
@@ -1040,16 +1043,16 @@ mutual
       {context : Context} {fields : List (Nat × Expr Primitive)} {types : List (Nat × Ty)}
       (typed : FieldsHaveType signature context fields types)
       (fresh : Nat) (addedType : Ty) (freshContext : fresh ∉ context.values.keys)
-      (scoped : addedType.vars ⊆ context.ambient)
+      (support : addedType.vars ⊆ context.ambient)
       (avoids : fresh ∉ Names.expressionFieldNames fields) :
       FieldsHaveType signature (context.bindVariable fresh addedType) fields types := by
     cases typed with
     | nil => exact .nil
     | cons head tail =>
       rw [Names.expressionFieldNames] at avoids
-      have parts := Finset.not_mem_union.mp avoids
-      exact .cons (head.weaken fresh addedType freshContext scoped parts.1)
-        (tail.weaken fresh addedType freshContext scoped parts.2)
+      have parts := Finset.notMem_union.mp avoids
+      exact .cons (head.weaken fresh addedType freshContext support parts.1)
+        (tail.weaken fresh addedType freshContext support parts.2)
   termination_by sizeOf fields
   decreasing_by
     all_goals simp_wf
@@ -1061,7 +1064,7 @@ mutual
       (typed : RecursiveBindingsHaveType signature context monotypes bindings closed)
       (fresh : Nat) (addedType : Ty) (freshContext : fresh ∉ context.values.keys)
       (freshMonotypes : fresh ∉ monotypes.keys)
-      (scoped : addedType.vars ⊆ context.ambient)
+      (support : addedType.vars ⊆ context.ambient)
       (avoids : fresh ∉ Names.recursiveNames bindings) :
       RecursiveBindingsHaveType signature (context.bindVariable fresh addedType)
         monotypes bindings closed := by
@@ -1069,18 +1072,18 @@ mutual
     | nil => exact .nil
     | @cons context monotypes name e rest t closed allowed found permitted right tail =>
       rw [Names.recursiveNames] at avoids
-      have parts := Finset.not_mem_union.mp avoids
-      have firstParts := Finset.not_mem_union.mp parts.1
+      have parts := Finset.notMem_union.mp avoids
+      have firstParts := Finset.notMem_union.mp parts.1
       have generalizeSame : generalize (context.bindVariable fresh addedType).freeVars e t =
           generalize context.freeVars e t := by
-        rw [context.freeVars_bindVariable fresh addedType freshContext scoped]
+        rw [context.freeVars_bindVariable fresh addedType freshContext support]
       rw [← generalizeSame]
       refine .cons (context.variableAllowed_bindVariable fresh name addedType allowed)
         found permitted ?_
-        (tail.weaken fresh addedType freshContext freshMonotypes scoped parts.2)
+        (tail.weaken fresh addedType freshContext freshMonotypes support parts.2)
       rw [← context.bindVariable_extend monotypes fresh addedType freshMonotypes]
       exact right.weaken fresh addedType
-        (context.extend_fresh monotypes fresh freshContext freshMonotypes) scoped firstParts.2
+        (context.extend_fresh monotypes fresh freshContext freshMonotypes) support firstParts.2
   termination_by sizeOf bindings
   decreasing_by
     all_goals simp_wf
@@ -1096,7 +1099,7 @@ theorem lazyFunction_type {Primitive : Type} (signature : Signature Primitive)
     (nonempty : clauses ≠ []) (fresh : Nat)
     (freshContext : fresh ∉ context.values.keys)
     (freshClauses : fresh ∉ Names.clauseNames clauses)
-    (scoped : input.vars ⊆ context.ambient)
+    (support : input.vars ⊆ context.ambient)
     (forceName : context.VariableAllowed 0) :
     HasType signature context (lazyFunction fresh clauses) (.arrow input (.suspension result)) := by
   apply HasType.function (by simp)
@@ -1106,19 +1109,19 @@ theorem lazyFunction_type {Primitive : Type} (signature : Signature Primitive)
     apply force_type signature
       (context.variableAllowed_bindVariable fresh 0 input forceName)
     apply HasType.apply
-    · exact .function nonempty (typed.weaken fresh input freshContext scoped freshClauses)
+    · exact .function nonempty (typed.weaken fresh input freshContext support freshClauses)
     · exact .variable (context.variable_lookup fresh input) (Scheme.mono_instantiates _ _)
   · exact .nil
 
 theorem lazyFunction_fresh_type {Primitive : Type} (signature : Signature Primitive)
     {context : Context} {clauses : List (Pattern × Expr Primitive)} {input result : Ty}
     (typed : ClausesHaveType signature context clauses input (.suspension result))
-    (nonempty : clauses ≠ []) (scoped : input.vars ⊆ context.ambient)
+    (nonempty : clauses ≠ []) (support : input.vars ⊆ context.ambient)
     (forceName : context.VariableAllowed 0) :
     HasType signature context
       (lazyFunction (Names.fresh context.values.keys clauses) clauses)
       (.arrow input (.suspension result)) :=
   lazyFunction_type signature typed nonempty _
-    (Names.fresh_context _ _) (Names.fresh_clauses _ _) scoped forceName
+    (Names.fresh_context _ _) (Names.fresh_clauses _ _) support forceName
 
 end Suspensions.Static

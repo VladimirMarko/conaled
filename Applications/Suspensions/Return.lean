@@ -109,6 +109,7 @@ private theorem eval_allowed (parameters : Parameters Primitive) (memory : Memor
     simp only [step, transition]
   all_goals
     repeat' first
+      | (fail_if_no_progress subst_vars)
       | (fail_if_no_progress simp_all)
       | split at *
 
@@ -123,6 +124,7 @@ private theorem value_allowed (parameters : Parameters Primitive) (memory : Memo
         simp only [step, transition]
       all_goals
         repeat' first
+          | (fail_if_no_progress subst_vars)
           | (fail_if_no_progress simp_all)
           | split at *
 
@@ -145,6 +147,7 @@ private theorem pattern_allowed (parameters : Parameters Primitive) (memory : Me
     simp only [step, transition]
   all_goals
     repeat' first
+      | (fail_if_no_progress subst_vars)
       | (fail_if_no_progress simp_all)
       | split at *
 
@@ -186,6 +189,7 @@ private theorem rows_allowed (parameters : Parameters Primitive) (memory : Memor
     simp only [step, transition]
   all_goals
     repeat' first
+      | (fail_if_no_progress subst_vars)
       | (fail_if_no_progress simp_all)
       | split at *
 
@@ -198,6 +202,7 @@ private theorem recursive_allowed (parameters : Parameters Primitive) (memory : 
     simp only [step, transition]
   all_goals
     repeat' first
+      | (fail_if_no_progress subst_vars)
       | (fail_if_no_progress simp_all)
       | split at *
 

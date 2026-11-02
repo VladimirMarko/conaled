@@ -9,10 +9,11 @@ retains its Chapter3 owner. Source identities and chapter accounting are in
 [the union ledger](pfds-union-coverage.md).
 
 **This development is incomplete and unaccepted.** Syntax, memory operations,
-the independent forcing rules, the explicit machine and bounded-prefix
-observation have focused compilation evidence. Several connected examples and
-the static, continuation, correspondence and measured-observation developments
-still require successful compilation. Full candidate build, exhaustive proof
+the independent forcing rules, the explicit machine, continuation and return-
+class laws, bounded-prefix observation and measured observation have focused
+compilation evidence, with their recorded connected clients. Static/grammar,
+correspondence, derived forms, finite-memory invariants and address-relocation
+transport still require successful compilation. Full candidate build, exhaustive proof
 audit, final verification and both independent review axes remain required.
 The authoritative local tickets, statements, compiler reports and recovery
 records accompany the repository in durability checkpoints.
@@ -150,7 +151,8 @@ Fresh term spelling alone does not discharge that obligation.
 
 The source audit identifies SUSP-STAT-001, a suspected polymorphic cached-reference
 counterexample. The same public core expression has drafted Boolean typing and
-an integer0 execution witness. Both must compile before this is reported as a
+an integer0 execution witness. The runtime witness now compiles; the complete
+static target remains pending. Both must compile before this is reported as a
 checked counterexample. No source rule has been weakened to manufacture a
 global preservation theorem, and no unverified counterexample is used as a
 dependency of the formal development.
@@ -192,6 +194,30 @@ Neither issue is erased silently. The first simple-value clients expose the
 allocated/cache state; stronger comparisons under private garbage or address
 renaming belong to explicitly justified client observations.
 
+The new [address algebra](../../Applications/Suspensions/Renaming.lean),
+[execution transport](../../Applications/Suspensions/Relocation.lean) and
+[force observations](../../Applications/Suspensions/ForceObservation.lean) are
+uncompiled drafts addressing that private-allocation obligation. The injection
+fixes addresses below the original frontier and shifts later addresses by one.
+It renames values inside records, constructors, captured closure environments
+and finite recursive bindings. Related heaps agree at every represented address;
+the extra private cell is omitted. Primitive equivariance is a separate law.
+Initial memory is bounded and its existing cells/captured environment are fixed
+by the relocation. Those premises constrain initial data, not the desired body
+execution. The normal/raised observation drafts transport arbitrary finite
+body executions, with twelve/ten additional explicit transitions, respectively.
+A connected reference case expects old address0 to contain7 and the newly
+returned reference to contain9, at direct address1 versus delayed address2.
+The general simulation and these applications have not yet been compiler-checked.
+
+[Finite memory](../../Applications/Suspensions/Invariant.lean) also remains a
+draft. It tracks the allocation frontier together with bounds on pending
+memoization-frame addresses. Memory boundedness alone is insufficient for a
+forged raw frame. The intended cyclic-thunk example retains two reentrant
+memoization frames for the same valid address; this is a finite-prefix invariant,
+not a divergence proof. The proof that actual permitted recursive creation
+establishes SRec's target-thunk premise remains to be implemented.
+
 ## Budget, resources and compositional observations
 
 [Prefix observation](../../Applications/Suspensions/Prefix.lean) returns either
@@ -202,12 +228,13 @@ within its budget, and `finished_iff_search` connects the existing evaluator.
 
 [Measured observation](../../Applications/Suspensions/Observation.lean) sequences
 the actual transitions through `Resources.run` and a `FreeAddMonoid` of events.
-Finished answers absorb further budget without adding events. The intended
+Finished answers absorb further budget without adding events. The proved
 completion projection agrees with `Progress.search`, including the actual
 transition count, while its state projection agrees with `Prefix.observe`.
 The delay-literal client distinguishes zero budget, an allocated unknown prefix,
 two-transition completion and an unchanged two-event result under budget9.
-This layer and its clients still require successful compilation.
+This layer and its connected clients passed the focused round2 check; full
+candidate validation remains separate.
 
 `completionSquare` and `observedSquare` reuse existing indexed membership and
 observation composition. A view may select returned values or effects, but the

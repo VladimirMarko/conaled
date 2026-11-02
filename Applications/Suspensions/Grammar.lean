@@ -163,9 +163,13 @@ theorem ParsesApplication.head {Primitive : Type} {base : Base Primitive}
   cases parsed with
   | atomic atom => exact atom.head
   | @apply functionTokens argumentTokens function argument operator operand =>
+    obtain ⟨argumentHead, argumentRest, argumentShape, _⟩ := operand.head
     obtain ⟨first, rest, shape, notDollar⟩ := operator.head
     exact ⟨first, rest ++ argumentTokens, by simp only [shape, List.cons_append], notDollar⟩
-termination_by structural parsed
+termination_by tokens.length
+decreasing_by
+  simp_wf
+  simpa [argumentShape] using Nat.succ_pos argumentRest.length
 
 theorem ParsesApplication.not_dollar {Primitive : Type} {base : Base Primitive}
     {tokens : List (Token base)} {e : Expr Primitive}
