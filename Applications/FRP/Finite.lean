@@ -1,5 +1,6 @@
 import Applications.FRP.Spec
 import Applications.FRP.Equivalence
+import Mathlib.Data.Set.Finite.Lattice
 
 /-! Finite batches connect the raw carrier theorem to the native event model. -/
 noncomputable section
