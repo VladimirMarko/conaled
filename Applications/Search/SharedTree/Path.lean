@@ -20,6 +20,33 @@ inductive Branch where
   | right
   deriving DecidableEq, Repr
 
+/-- The structural search route needs comparisons, independently of their order
+laws. A map can supply a key projection without ordering its stored payloads. -/
+def searchPathBy {κ : Type} [LT κ] [DecidableLT κ] (key : α → κ) (x : κ) :
+    BinaryTree α → List Branch
+  | .nil => []
+  | .node y l r =>
+      if x < key y then .left :: searchPathBy key x l
+      else if key y < x then .right :: searchPathBy key x r
+      else []
+
+theorem searchPathBy_length_le {κ : Type} [LT κ] [DecidableLT κ]
+    (key : α → κ) (x : κ) (t : BinaryTree α) :
+    (searchPathBy key x t).length ≤ t.height := by
+  induction t with
+  | nil => simp [searchPathBy]
+  | node y l r hl hr =>
+      have leLeft := Nat.le_max_left l.height r.height
+      have leRight := Nat.le_max_right l.height r.height
+      simp only [searchPathBy]
+      split
+      · simp only [List.length_cons, BinaryTree.height]
+        omega
+      · split
+        · simp only [List.length_cons, BinaryTree.height]
+          omega
+        · simp
+
 def child (direction : Branch) (cell : Cell α) : Root :=
   match direction with
   | .left => cell.1.2
