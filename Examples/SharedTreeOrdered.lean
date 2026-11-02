@@ -34,7 +34,8 @@ theorem insert_two : ∃ out,
     follow out.1.heap [.right] out.2 = some rightCell.2 := by
   obtain ⟨out, run, extension, rep, count, rebuilt⟩ := insertRun_correct original_rep 2
   refine ⟨out, run, rep, original_rep.mono extension, count, ?_⟩
-  have shared := rebuilt.off_path extension [.right] (by decide)
+  have shared := rebuilt.off_path extension [.right]
+    (by simp [Diverges, searchPath, searchPathBy, value])
   exact shared.trans (follow_mono extension
     (by rfl : follow original.1.heap [.right] original.2 = some rightCell.2))
 

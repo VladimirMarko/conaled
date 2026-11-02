@@ -22,27 +22,8 @@ def insertSquare (x : α) :
   preserves := by
     intro state tree h
     obtain ⟨out, run, _, rep, _, _⟩ := insertRun_correct h x
-    change (optionalRepresentation α).Rel (insertRun state.1 state.2 x).1 _
     rw [run]
     exact rep
-
-def optionalRootValueSquare (α : Type) :
-    Relational.RelSquare (optionalRepresentation α)
-      ⟨Option (Option α), Option (Option α), Eq⟩ where
-  impl state := state.map rootValue
-  spec tree := tree.map treeValue
-  preserves := by
-    intro state tree h
-    cases state with
-    | none =>
-        cases tree with
-        | none => rfl
-        | some tree => exact False.elim h
-    | some state =>
-        cases tree with
-        | none => exact False.elim h
-        | some tree =>
-            exact congrArg some ((rootValueSquare α).preserves h)
 
 def insertRootValueSquare (x : α) :
     Relational.RelSquare (representation α)
