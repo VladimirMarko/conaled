@@ -1,4 +1,16 @@
-import Mathlib
+import Lean.Elab.Tactic.NormCast
+import Lean.Elab.Tactic.Omega
+import Mathlib.Algebra.Order.Archimedean.Real.Basic
+import Mathlib.Data.Finset.Card
+import Mathlib.Data.Finset.Max
+import Mathlib.Data.Nat.Find
+import Mathlib.Data.Set.Finite.Basic
+import Mathlib.Order.Hom.Basic
+import Mathlib.Order.Interval.Finset.Nat
+import Mathlib.Order.Prod.Lex.Basic
+import Mathlib.Tactic.Ext
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Positivity
 
 /-!
 # The two event denotations in Elliott's 2015 talks

@@ -17,7 +17,11 @@
   Origin: the accompanying research answer on Elliott's push-pull FRP.
 -/
 
-import Mathlib
+import Mathlib.Basic.Real.Basic
+import Mathlib.Data.Finset.Dedup
+import Mathlib.Data.Finset.Sort
+import Mathlib.Data.Set.Finite.Lattice
+import Mathlib.Tactic.Ext
 import SquareKit.FunctionCategory
 import SquareKit.CartesianMap
 
