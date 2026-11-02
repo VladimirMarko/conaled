@@ -260,6 +260,9 @@ import Examples.SuspensionStore
 import Examples.SuspensionRules
 import Examples.SuspensionNamespaces
 import Examples.SuspensionStatic
+import Examples.SuspensionCorrespondence
+import Applications.Suspensions.Prefix
+import Examples.SuspensionObservation
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 

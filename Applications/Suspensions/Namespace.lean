@@ -27,7 +27,7 @@ theorem exceptionId_injective : Function.Injective exceptionId := by
   simp only [exceptionId] at equal
   omega
 
-theorem distinct (variable exception : Nat) : variableId variable ≠ exceptionId exception := by
+theorem distinct (varName exception : Nat) : variableId varName ≠ exceptionId exception := by
   simp only [variableId, exceptionId]
   omega
 
@@ -56,39 +56,39 @@ theorem lookup_mapKeys_absent (rename : Nat → Nat) (bindings : Env Primitive) 
     rcases pair with ⟨key, value⟩
     simpa [mapKeys, Env.lookup, outside key] using ih
 
-def encode (variables exceptions : Env Primitive) : Env Primitive :=
-  Env.extend (mapKeys exceptionId exceptions) (mapKeys variableId variables)
+def encode (varBindings exceptions : Env Primitive) : Env Primitive :=
+  Env.extend (mapKeys exceptionId exceptions) (mapKeys variableId varBindings)
 
-theorem lookup_variable (variables exceptions : Env Primitive) (name : Nat) :
-    Env.lookup (encode variables exceptions) (variableId name) = Env.lookup variables name := by
+theorem lookup_variable (varBindings exceptions : Env Primitive) (name : Nat) :
+    Env.lookup (encode varBindings exceptions) (variableId name) = Env.lookup varBindings name := by
   rw [encode, Env.lookup_extend, lookup_mapKeys variableId variableId_injective,
     lookup_mapKeys_absent exceptionId exceptions (variableId name) (distinct name)]
-  cases Env.lookup variables name <;> rfl
+  cases Env.lookup varBindings name <;> rfl
 
-theorem lookup_exception (variables exceptions : Env Primitive) (name : Nat) :
-    Env.lookup (encode variables exceptions) (exceptionId name) = Env.lookup exceptions name := by
+theorem lookup_exception (varBindings exceptions : Env Primitive) (name : Nat) :
+    Env.lookup (encode varBindings exceptions) (exceptionId name) = Env.lookup exceptions name := by
   rw [encode, Env.lookup_extend,
-    lookup_mapKeys_absent variableId variables (exceptionId name)
+    lookup_mapKeys_absent variableId varBindings (exceptionId name)
       (fun key => Ne.symm (distinct key name))]
   exact lookup_mapKeys exceptionId exceptionId_injective exceptions name
 
-theorem extend_variables (variables exceptions additions : Env Primitive) :
-    Env.extend (encode variables exceptions) (mapKeys variableId additions) =
-      encode (Env.extend variables additions) exceptions := by
+theorem extend_variables (varBindings exceptions additions : Env Primitive) :
+    Env.extend (encode varBindings exceptions) (mapKeys variableId additions) =
+      encode (Env.extend varBindings additions) exceptions := by
   simp [encode, Env.extend, mapKeys, List.map_append, List.append_assoc]
 
-theorem exceptions_after_variable_extension (variables exceptions additions : Env Primitive)
+theorem exceptions_after_variable_extension (varBindings exceptions additions : Env Primitive)
     (name : Nat) :
-    Env.lookup (Env.extend (encode variables exceptions) (mapKeys variableId additions))
+    Env.lookup (Env.extend (encode varBindings exceptions) (mapKeys variableId additions))
       (exceptionId name) = Env.lookup exceptions name := by
   rw [extend_variables, lookup_exception]
 
-theorem variables_after_exception_extension (variables exceptions additions : Env Primitive)
+theorem variables_after_exception_extension (varBindings exceptions additions : Env Primitive)
     (name : Nat) :
-    Env.lookup (Env.extend (encode variables exceptions) (mapKeys exceptionId additions))
-      (variableId name) = Env.lookup variables name := by
+    Env.lookup (Env.extend (encode varBindings exceptions) (mapKeys exceptionId additions))
+      (variableId name) = Env.lookup varBindings name := by
   rw [Env.lookup_extend,
     lookup_mapKeys_absent exceptionId additions (variableId name) (distinct name)]
-  exact lookup_variable variables exceptions name
+  exact lookup_variable varBindings exceptions name
 
 end Suspensions.Core.Namespaces

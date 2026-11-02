@@ -9,6 +9,7 @@ judgment for the explicit core machine. Outcomes, environments and reached
 states remain visible. Continuation composition supplies the important bridge:
 a body is not evaluated by an opaque, assumed-terminating host operation.
 -/
+set_option autoImplicit false
 set_option warningAsError true
 
 namespace Suspensions.Core.Correspondence
@@ -20,10 +21,59 @@ def evaluationResult : Except (Value Primitive) (Value Primitive) → Result Pri
   | .ok value => .value value
   | .error packet => .raised packet
 
+def evaluationControl : Except (Value Primitive) (Value Primitive) → Control Primitive
+  | .ok value => .value value
+  | .error packet => .raised packet
+
+theorem evaluation_boundary (answer : Except (Value Primitive) (Value Primitive)) :
+    boundaryControl (evaluationResult answer) = some (evaluationControl answer) := by
+  cases answer <;> rfl
+
 def matchingResult : Except (Value Primitive) (Option (Env Primitive)) → Result Primitive
   | .ok (some bindings) => .matched bindings
   | .ok none => .mismatch
   | .error packet => .raised packet
+
+theorem evaluationResult_injective : Function.Injective (@evaluationResult Primitive) := by
+  intro first second same
+  cases first <;> cases second <;> cases same <;> rfl
+
+theorem matchingResult_injective : Function.Injective (@matchingResult Primitive) := by
+  intro first second same
+  cases first with
+  | error packet =>
+      cases second with
+      | error other => cases same; rfl
+      | ok result => cases result <;> cases same
+  | ok result =>
+      cases second with
+      | error packet => cases result <;> cases same
+      | ok other => cases result <;> cases other <;> cases same <;> rfl
+
+def matchingControl : Except (Value Primitive) (Option (Env Primitive)) → Control Primitive
+  | .ok (some bindings) => .matched bindings
+  | .ok none => .mismatch
+  | .error packet => .raised packet
+
+theorem matching_boundary (answer : Except (Value Primitive) (Option (Env Primitive))) :
+    boundaryControl (matchingResult answer) = some (matchingControl answer) := by
+  cases answer with
+  | ok result => cases result <;> rfl
+  | error packet => rfl
+
+theorem matching_not_stuck (answer : Except (Value Primitive) (Option (Env Primitive)))
+    (fault : Fault) : matchingResult answer ≠ .stuck fault := by
+  intro same
+  have boundary := matching_boundary answer
+  rw [same] at boundary
+  cases boundary
+
+theorem matching_raised {answer : Except (Value Primitive) (Option (Env Primitive))}
+    {packet : Value Primitive} (same : matchingResult answer = .raised packet) :
+    answer = .error packet := by
+  cases answer with
+  | ok result => cases result <;> cases same
+  | error exception => cases same; rfl
 
 def evaluation (parameters : Parameters Primitive) :
     Source.Evaluation (Expr Primitive) (Env Primitive) (Value Primitive) (Value Primitive) :=
@@ -37,6 +87,26 @@ def matching (parameters : Parameters Primitive) :
   fun s env pattern value answer t =>
     ∃ steps, Progress.Evaluates (step parameters) (startPattern s env pattern value)
       ⟨t, matchingResult answer⟩ steps
+
+theorem evaluation_deterministic {parameters : Parameters Primitive}
+    {s : Memory Primitive} {env : Env Primitive} {expression : Expr Primitive}
+    {first second : Except (Value Primitive) (Value Primitive)} {t u : Memory Primitive}
+    (left : evaluation parameters s env expression first t)
+    (right : evaluation parameters s env expression second u) : first = second ∧ t = u := by
+  obtain ⟨_, left⟩ := left
+  obtain ⟨_, right⟩ := right
+  have same := (left.unique right).1
+  exact ⟨evaluationResult_injective (congrArg Answer.result same), congrArg Answer.memory same⟩
+
+theorem matching_deterministic {parameters : Parameters Primitive}
+    {s : Memory Primitive} {env : Env Primitive} {pattern : Pattern} {value : Value Primitive}
+    {first second : Except (Value Primitive) (Option (Env Primitive))} {t u : Memory Primitive}
+    (left : matching parameters s env pattern value first t)
+    (right : matching parameters s env pattern value second u) : first = second ∧ t = u := by
+  obtain ⟨_, left⟩ := left
+  obtain ⟨_, right⟩ := right
+  have same := (left.unique right).1
+  exact ⟨matchingResult_injective (congrArg Answer.result same), congrArg Answer.memory same⟩
 
 theorem after_step_iff {parameters : Parameters Primitive} {before after : Config Primitive}
     {answer : Answer Primitive} (edge : step parameters before = .inr after) :
@@ -60,7 +130,7 @@ theorem matching_cached_iff {parameters : Parameters Primitive} {s : Memory Prim
     matching parameters s env (.suspended inner) (.address address) answer t ↔
       matching parameters s env inner value answer t := by
   apply after_step_iff
-  simpa [step, startPattern, continue] using
+  simpa [step, startPattern, proceed] using
     congrArg Prod.fst (hit_transition parameters s env inner address value [] found)
 
 /-- Every derivation of the independent forcing rules is realized by finite
@@ -81,14 +151,14 @@ theorem suspension_match_sound {parameters : Parameters Primitive}
         ⟨afterBody, .value value, [.memoize address caller inner]⟩
         ⟨afterMatch, matchingResult answer⟩ (matchSteps + 1) := by
       apply Progress.Evaluates.next
-      · simpa [step, continue] using congrArg Prod.fst
+      · simpa [step, proceed] using congrArg Prod.fst
           (memoize_before_match parameters afterBody caller inner address value [])
       · exact matchRun
     have resumed := evaluates_append bodyRun (by rfl) [.memoize address caller inner] continuation
     apply (after_step_iff (before := startPattern s caller (.suspended inner) (.address address))
       (after := ⟨s, .eval captured code, [.memoize address caller inner]⟩) ?_).mpr
     · exact ⟨_, by simpa [appendFrames, start] using resumed⟩
-    · simpa [step, startPattern, continue] using congrArg Prod.fst
+    · simpa [step, startPattern, proceed] using congrArg Prod.fst
         (body_transition parameters s caller captured inner address code [] found)
   | @raised s caller address inner code captured packet afterBody found body =>
     rcases body with ⟨bodySteps, bodyRun⟩
@@ -100,7 +170,213 @@ theorem suspension_match_sound {parameters : Parameters Primitive}
     apply (after_step_iff (before := startPattern s caller (.suspended inner) (.address address))
       (after := ⟨s, .eval captured code, [.memoize address caller inner]⟩) ?_).mpr
     · exact ⟨_, by simpa [appendFrames, start, matchingResult] using resumed⟩
-    · simpa [step, startPattern, continue] using congrArg Prod.fst
+    · simpa [step, startPattern, proceed] using congrArg Prod.fst
         (body_transition parameters s caller captured inner address code [] found)
+
+/-- Finite non-stuck execution has one of the independent source derivations.
+The body is split from its actual continuation. A matched environment or an
+ordinary mismatch cannot masquerade as an expression result: such a boundary
+would immediately fault at the memoization frame. -/
+theorem suspension_match_complete {parameters : Parameters Primitive}
+    {s : Memory Primitive} {caller : Env Primitive} {address : Nat} {inner : Pattern}
+    {answer : Except (Value Primitive) (Option (Env Primitive))} {t : Memory Primitive}
+    (run : matching parameters s caller (.suspended inner) (.address address) answer t) :
+    Source.SuspensionMatch (evaluation parameters) (matching parameters)
+      s caller address inner answer t := by
+  cases found : s.memory address with
+  | none =>
+      rcases run with ⟨steps, run⟩
+      have fault : step parameters (startPattern s caller (.suspended inner) (.address address)) =
+          .inl ⟨s, .stuck (.missingAddress address)⟩ := by
+        simp [step, transition, startPattern, found, finish]
+      have same := (Progress.Evaluates.done fault).unique run
+      exact False.elim (matching_not_stuck answer _ (congrArg Answer.result same.1).symm)
+  | some cell =>
+      cases cell with
+      | value value => exact .cached found ((matching_cached_iff found).mp run)
+      | thunk code captured =>
+          have moved : step parameters
+              (startPattern s caller (.suspended inner) (.address address)) =
+              .inr ⟨s, .eval captured code, [.memoize address caller inner]⟩ := by
+            simpa [step, startPattern, proceed] using congrArg Prod.fst
+              (body_transition parameters s caller captured inner address code [] found)
+          obtain ⟨steps, plugged⟩ := (after_step_iff moved).mp run
+          have full : Progress.Evaluates (step parameters)
+              (appendFrames (start s captured code) [.memoize address caller inner])
+              ⟨t, matchingResult answer⟩ steps := by
+            simpa [appendFrames, start] using plugged
+          obtain ⟨bodyAnswer, control, n, m, body, boundary, residual, _⟩ :=
+            evaluates_split full (matching_boundary answer)
+          rcases bodyAnswer with ⟨afterBody, result⟩
+          cases result with
+          | value value =>
+              simp only [boundaryControl, Option.some.injEq] at boundary
+              subst control
+              have write : step parameters
+                  ⟨afterBody, .value value, [.memoize address caller inner]⟩ =
+                  .inr (startPattern (Suspensions.memoize afterBody address value)
+                    caller inner value) := rfl
+              exact .evaluated found ⟨n, body⟩ ((after_step_iff write).mp ⟨m, residual⟩)
+          | raised packet =>
+              simp only [boundaryControl, Option.some.injEq] at boundary
+              subst control
+              have unwind : Progress.Evaluates (step parameters)
+                  ⟨afterBody, .raised packet, [.memoize address caller inner]⟩
+                  ⟨afterBody, .raised packet⟩ 2 := .next rfl (.done rfl)
+              have same := (unwind.unique residual).1
+              have stateEq := congrArg Answer.memory same
+              have answerEq := matching_raised (congrArg Answer.result same).symm
+              subst t
+              subst answer
+              exact .raised found ⟨n, body⟩
+          | matched bindings =>
+              simp only [boundaryControl, Option.some.injEq] at boundary
+              subst control
+              have fault : step parameters
+                  ⟨afterBody, .matched bindings, [.memoize address caller inner]⟩ =
+                  .inl ⟨afterBody, .stuck .invalidContinuation⟩ := rfl
+              have same := (Progress.Evaluates.done fault).unique residual
+              exact False.elim (matching_not_stuck answer _ (congrArg Answer.result same.1).symm)
+          | mismatch =>
+              simp only [boundaryControl, Option.some.injEq] at boundary
+              subst control
+              have fault : step parameters
+                  ⟨afterBody, .mismatch, [.memoize address caller inner]⟩ =
+                  .inl ⟨afterBody, .stuck .invalidContinuation⟩ := rfl
+              have same := (Progress.Evaluates.done fault).unique residual
+              exact False.elim (matching_not_stuck answer _ (congrArg Answer.result same.1).symm)
+          | stuck fault => cases boundary
+
+theorem suspension_match_iff {parameters : Parameters Primitive}
+    {s : Memory Primitive} {caller : Env Primitive} {address : Nat} {inner : Pattern}
+    {answer : Except (Value Primitive) (Option (Env Primitive))} {t : Memory Primitive} :
+    Source.SuspensionMatch (evaluation parameters) (matching parameters)
+        s caller address inner answer t ↔
+      matching parameters s caller (.suspended inner) (.address address) answer t :=
+  ⟨suspension_match_sound, suspension_match_complete⟩
+
+/-- Reference-pattern Rule158 reads the current value cell and then runs the
+inner pattern from that same state. In particular, the reached state is not
+reset when the inner pattern fails or raises. -/
+theorem reference_match_iff {parameters : Parameters Primitive}
+    {s : Memory Primitive} {caller : Env Primitive} {address : Nat} {inner : Pattern}
+    {answer : Except (Value Primitive) (Option (Env Primitive))} {t : Memory Primitive} :
+    Source.ReferenceMatch (matching parameters) s caller address inner answer t ↔
+      matching parameters s caller (.reference inner) (.address address) answer t := by
+  constructor
+  · intro source
+    cases source with
+    | @read s caller address inner value answer t found matched =>
+        apply (after_step_iff (before := startPattern s caller (.reference inner) (.address address))
+          (after := startPattern s caller inner value) ?_).mpr matched
+        simp [step, transition, startPattern, proceed, found]
+  · intro run
+    cases found : s.memory address with
+    | none =>
+        rcases run with ⟨steps, run⟩
+        have fault : step parameters (startPattern s caller (.reference inner) (.address address)) =
+            .inl ⟨s, .stuck (.missingAddress address)⟩ := by
+          simp [step, transition, startPattern, found, finish]
+        have same := (Progress.Evaluates.done fault).unique run
+        exact False.elim (matching_not_stuck answer _ (congrArg Answer.result same.1).symm)
+    | some cell =>
+        cases cell with
+        | value value =>
+            apply Source.ReferenceMatch.read found
+            apply (after_step_iff (before := startPattern s caller (.reference inner) (.address address))
+              (after := startPattern s caller inner value) ?_).mp run
+            simp [step, transition, startPattern, proceed, found]
+        | thunk code captured =>
+            rcases run with ⟨steps, run⟩
+            have fault : step parameters (startPattern s caller (.reference inner) (.address address)) =
+                .inl ⟨s, .stuck .expectedReferenceValue⟩ := by
+              simp [step, transition, startPattern, found, finish]
+            have same := (Progress.Evaluates.done fault).unique run
+            exact False.elim (matching_not_stuck answer _ (congrArg Answer.result same.1).symm)
+
+def clauseResult : Except (Value Primitive) (Option (Value Primitive)) → Result Primitive
+  | .ok (some value) => .value value
+  | .ok none => .mismatch
+  | .error packet => .raised packet
+
+def clauses (parameters : Parameters Primitive) (s : Memory Primitive) (env : Env Primitive)
+    (value : Value Primitive) (alternatives : List (Pattern × Expr Primitive))
+    (answer : Except (Value Primitive) (Option (Value Primitive))) (t : Memory Primitive) : Prop :=
+  ∃ steps, Progress.Evaluates (step parameters) ⟨s, .clauses env alternatives value, []⟩
+    ⟨t, clauseResult answer⟩ steps
+
+/-- A successful or exceptional head returns directly. Only ordinary failure
+enters the remaining clauses, using the memory reached by the failed pattern. -/
+def clauseBoundary (s : Memory Primitive) (env : Env Primitive) (value : Value Primitive)
+    (remaining : List (Pattern × Expr Primitive)) :
+    Except (Value Primitive) (Option (Value Primitive)) → Config Primitive
+  | .ok (some result) => ⟨s, .value result, []⟩
+  | .ok none => ⟨s, .clauses env remaining value, []⟩
+  | .error packet => ⟨s, .raised packet, []⟩
+
+/-- Realize one independent source clause before its actual residual run.
+The expression and pattern premises are finite machine runs, composed through
+their explicit frames; no body is hidden inside an atomic transition. -/
+theorem clause_resumes {parameters : Parameters Primitive}
+    {s : Memory Primitive} {env : Env Primitive} {value : Value Primitive}
+    {head : Pattern × Expr Primitive} {remaining : List (Pattern × Expr Primitive)}
+    {answer : Except (Value Primitive) (Option (Value Primitive))} {t : Memory Primitive}
+    (source : Source.ClauseMatch (evaluation parameters) (matching parameters) Env.extend
+      s env value head answer t)
+    {final : Answer Primitive} {residualSteps : Nat}
+    (residual : Progress.Evaluates (step parameters)
+      (clauseBoundary t env value remaining answer) final residualSteps) :
+    ∃ steps, Progress.Evaluates (step parameters)
+      ⟨s, .clauses env (head :: remaining) value, []⟩ final steps := by
+  cases source with
+  | @success s env value pattern code bindings afterPattern result t matched evaluated =>
+      obtain ⟨patternSteps, patternRun⟩ := matched
+      obtain ⟨bodySteps, bodyRun⟩ := evaluated
+      have bodyResidual : Progress.Evaluates (step parameters)
+          ⟨t, evaluationControl result, []⟩ final residualSteps := by
+        cases result <;> exact residual
+      have bodyResumed := evaluates_append bodyRun (evaluation_boundary result) [] bodyResidual
+      have patternResidual : Progress.Evaluates (step parameters)
+          ⟨afterPattern, .matched bindings, [.clause env code remaining value]⟩
+          final (((bodySteps - 1) + residualSteps) + 1) := by
+        apply Progress.Evaluates.next (by rfl)
+        simpa only [appendFrames_nil] using bodyResumed
+      have resumed := evaluates_append patternRun rfl [.clause env code remaining value]
+        patternResidual
+      exact ⟨_, .next rfl (by simpa [appendFrames, startPattern] using resumed)⟩
+  | @failure s env value pattern code t matched =>
+      obtain ⟨patternSteps, patternRun⟩ := matched
+      have patternResidual : Progress.Evaluates (step parameters)
+          ⟨t, .mismatch, [.clause env code remaining value]⟩ final (residualSteps + 1) :=
+        .next rfl residual
+      have resumed := evaluates_append patternRun rfl [.clause env code remaining value]
+        patternResidual
+      exact ⟨_, .next rfl (by simpa [appendFrames, startPattern] using resumed)⟩
+  | @raised s env value pattern code packet t matched =>
+      obtain ⟨patternSteps, patternRun⟩ := matched
+      have patternResidual : Progress.Evaluates (step parameters)
+          ⟨t, .raised packet, [.clause env code remaining value]⟩ final (residualSteps + 1) :=
+        .next rfl residual
+      have resumed := evaluates_append patternRun rfl [.clause env code remaining value]
+        patternResidual
+      exact ⟨_, .next rfl (by simpa [appendFrames, startPattern] using resumed)⟩
+
+/-- Source Rules124–128 are realized by the ordered-clause machine. Every
+failed-pattern state is passed to the next source clause and its execution. -/
+theorem alternatives_sound {parameters : Parameters Primitive}
+    {s : Memory Primitive} {env : Env Primitive} {value : Value Primitive}
+    {alternatives : List (Pattern × Expr Primitive)}
+    {answer : Except (Value Primitive) (Option (Value Primitive))} {t : Memory Primitive}
+    (source : Source.Alternatives
+      (Source.ClauseMatch (evaluation parameters) (matching parameters) Env.extend)
+      s env value alternatives answer t) :
+    clauses parameters s env value alternatives answer t := by
+  induction source with
+  | empty => exact ⟨2, .next rfl (.done rfl)⟩
+  | success clause => exact clause_resumes clause (.done rfl)
+  | failure clause _ rest =>
+      obtain ⟨steps, run⟩ := rest
+      exact clause_resumes clause run
+  | raised clause => exact clause_resumes clause (.done rfl)
 
 end Suspensions.Core.Correspondence
