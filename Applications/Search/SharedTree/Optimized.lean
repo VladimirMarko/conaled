@@ -72,9 +72,10 @@ theorem insertAbortRunFuel_refines {s : Store α} {root : Root} {t : BinaryTree 
         out (OrderedTree.insertAbortRun x t).1 := by
   induction h generalizing fuel with
   | nil =>
-      refine ⟨some (allocate s x none none), rfl, .some ?_⟩
-      exact ⟨allocate_extends _ _ _ _, allocate_represents .nil .nil x,
-        rfl, .here _ _⟩
+      refine ⟨some (allocate s x none none), ?_, .some ?_⟩
+      · simp [insertAbortRunFuel, abortProfile, searchPathBy, OrderedTree.insertAbortRun]
+      · exact ⟨allocate_extends _ _ _ _, allocate_represents .nil .nil x,
+          rfl, .here _ _⟩
   | @node a y l r lt rt lookup leftBelow rightBelow hl hr ihl ihr =>
       cases fuel with
       | zero => simp [BinaryTree.height] at enough
@@ -112,7 +113,7 @@ theorem insertAbortRunFuel_refines {s : Store α} {root : Root} {t : BinaryTree 
                   · rw [allocate_next, count]
                     simp [abortProfile, searchPathBy, id_eq, OrderedTree.insertAbortRun, xy, source,
                       Nat.add_assoc]
-                  · simpa only [searchPathBy, id_eq, ite_eq_left xy] using
+                  · simpa only [searchPathBy, id_eq, ite_eq_left xy, allocate_root] using
                       Rebuilds.left lookup (allocate_lookup out.1 y out.2 r) (rebuilt.mono grown)
           · by_cases yx : y < x
             · obtain ⟨out, run, rel⟩ := ihr rightEnough
@@ -139,7 +140,8 @@ theorem insertAbortRunFuel_refines {s : Store α} {root : Root} {t : BinaryTree 
                     · rw [allocate_next, count]
                       simp [abortProfile, searchPathBy, id_eq, OrderedTree.insertAbortRun, xy, yx,
                         source, Nat.add_assoc]
-                    · simpa only [searchPathBy, id_eq, ite_eq_right xy, ite_eq_left yx] using
+                    · simpa only [searchPathBy, id_eq, ite_eq_right xy, ite_eq_left yx,
+                        allocate_root] using
                         Rebuilds.right lookup (allocate_lookup out.1 y l out.2) (rebuilt.mono grown)
             · refine ⟨none, ?_, ?_⟩
               · simp [insertAbortRunFuel, lookup, xy, yx, abortProfile, searchPathBy, id_eq,
@@ -210,9 +212,11 @@ theorem insertCandidateRunFuel_refines {s : Store α} {root : Root} {t : BinaryT
   | nil =>
       cases candidate with
       | none =>
-          refine ⟨some (allocate s x none none), rfl, .some ?_⟩
-          exact ⟨allocate_extends _ _ _ _, allocate_represents .nil .nil x,
-            rfl, .here _ _⟩
+          refine ⟨some (allocate s x none none), ?_, .some ?_⟩
+          · simp [insertCandidateRunFuel, candidateProfile, candidatePath,
+              OrderedTree.insertCandidateRun]
+          · exact ⟨allocate_extends _ _ _ _, allocate_represents .nil .nil x,
+              rfl, .here _ _⟩
       | some c =>
           by_cases eq : x = c
           · refine ⟨none, ?_, ?_⟩
@@ -264,7 +268,7 @@ theorem insertCandidateRunFuel_refines {s : Store α} {root : Root} {t : BinaryT
                   · rw [allocate_next, count]
                     simp [candidateProfile, candidatePath, OrderedTree.insertCandidateRun, xy,
                       source, Nat.add_assoc]
-                  · simpa only [candidatePath, ite_eq_left xy] using
+                  · simpa only [candidatePath, ite_eq_left xy, allocate_root] using
                       Rebuilds.left lookup (allocate_lookup out.1 y out.2 r) (rebuilt.mono grown)
           · obtain ⟨out, run, rel⟩ := ihr rightEnough (some y)
             generalize source : (OrderedTree.insertCandidateRun x (some y) rt).1 = value at rel
@@ -290,7 +294,7 @@ theorem insertCandidateRunFuel_refines {s : Store α} {root : Root} {t : BinaryT
                   · rw [allocate_next, count]
                     simp [candidateProfile, candidatePath, OrderedTree.insertCandidateRun, xy,
                       source, Nat.add_assoc]
-                  · simpa only [candidatePath, ite_eq_right xy] using
+                  · simpa only [candidatePath, ite_eq_right xy, allocate_root] using
                       Rebuilds.right lookup (allocate_lookup out.1 y l out.2) (rebuilt.mono grown)
 
 theorem abortProfile_bounds (x : α) (t : BinaryTree α) :
@@ -302,7 +306,8 @@ theorem abortProfile_bounds (x : α) (t : BinaryTree α) :
     rw [OrderedTree.insertAbortRun_comparisons]
     exact OrderedTree.memberRun_bound x t
   · have bound := searchPathBy_length_le id x t
-    unfold abortProfile
+    change (if (OrderedTree.insertAbortRun x t).1.isSome then
+      (searchPathBy id x t).length + 1 else 0) ≤ t.height + 1
     split <;> omega
 
 theorem candidateProfile_bounds (x : α) (candidate : Option α) (t : BinaryTree α) :
@@ -312,8 +317,37 @@ theorem candidateProfile_bounds (x : α) (candidate : Option α) (t : BinaryTree
   refine ⟨OrderedTree.insertCandidateRun_bound x candidate t,
     Nat.add_le_add_right (candidatePath_length_le x t) 1, ?_⟩
   have bound := candidatePath_length_le x t
-  unfold candidateProfile
+  change (if (OrderedTree.insertCandidateRun x candidate t).1.isSome then
+    (candidatePath x t).length + 1 else 0) ≤ t.height + 1
   split <;> omega
+
+omit [LinearOrder α] in
+private theorem handled_represents {s : Store α} {root : Root} {t : BinaryTree α}
+    {path : List Branch} {cells : Nat} {out : Option (Store α × Root)}
+    {value : Option (BinaryTree α)} (h : Represents s.heap root t)
+    (rel : Option.Rel (Inserted s root path cells) out value) :
+    Represents (out.getD (s, root)).1.heap (out.getD (s, root)).2 (value.getD t) := by
+  cases rel with
+  | none => exact h
+  | some info => exact info.2.1
+
+/-- The operational value refinement needs no search-order invariant. Order
+is required separately when interpreting this value as the intended set. -/
+theorem insertAbortRun_value {s : Store α} {root : Root} {t : BinaryTree α}
+    (h : Represents s.heap root t) (x : α) :
+    ∃ out, insertAbortRun s root x = (some out, abortProfile x t) ∧
+      Represents out.1.heap out.2 (OrderedTree.insertAbort x t) := by
+  obtain ⟨out, run, rel⟩ := insertAbortRunFuel_refines h h.height_le_next x
+  refine ⟨out.getD (s, root), ?_, handled_represents h rel⟩
+  simp only [insertAbortRun, handleAbort, run, Option.map_some]
+
+theorem insertCandidateRun_value {s : Store α} {root : Root} {t : BinaryTree α}
+    (h : Represents s.heap root t) (x : α) :
+    ∃ out, insertCandidateRun s root x = (some out, candidateProfile x none t) ∧
+      Represents out.1.heap out.2 (OrderedTree.insertCandidate x t) := by
+  obtain ⟨out, run, rel⟩ := insertCandidateRunFuel_refines h h.height_le_next x none
+  refine ⟨out.getD (s, root), ?_, handled_represents h rel⟩
+  simp only [insertCandidateRun, handleAbort, run, Option.map_some]
 
 theorem insertAbortRun_profile {s : Store α} {root : Root} {t : BinaryTree α}
     (h : Represents s.heap root t) (x : α) :
@@ -394,6 +428,36 @@ theorem insertCandidateRun_absent {s : Store α} {root : Root} {t : BinaryTree �
           refine ⟨out, ?_, ?_⟩
           · simp only [insertCandidateRun, handleAbort, run, Option.map_some, Option.getD_some]
           · simpa [candidateProfile, source, valueEq] using info
+
+theorem insertAbortRun_retention {s : Store α} {root old : Root}
+    {t previous : BinaryTree α} (h : Represents s.heap root t)
+    (kept : Represents s.heap old previous) (ordered : OrderedTree.Ordered t) (x : α) :
+    ∃ out, insertAbortRun s root x = (some out, abortProfile x t) ∧
+      Durability.Extends s.heap out.1.heap ∧
+      Represents out.1.heap out.2 (OrderedTree.insert x t) ∧
+      Represents out.1.heap old previous ∧
+      out.1.next = s.next + (abortProfile x t).2.2 ∧
+      (∀ probe, Diverges (searchPathBy id x t) probe →
+        follow out.1.heap probe out.2 = follow out.1.heap probe root) ∧
+      (abortProfile x t).1 ≤ 2 * t.height := by
+  by_cases present : OrderedTree.Contains x t
+  · have source := (OrderedTree.insertAbortRun_none_iff x t).mpr
+      ((OrderedTree.member_correct ordered x).mpr present)
+    have unchanged := OrderedTree.insert_of_member
+      ((OrderedTree.member_correct ordered x).mpr present)
+    refine ⟨(s, root), ?_, Durability.Extends.refl _, ?_, kept, ?_,
+      fun _ _ => rfl, (abortProfile_bounds x t).1⟩
+    · simpa [abortProfile, source] using insertAbortRun_duplicate h ordered present
+    · simpa only [unchanged] using h
+    · simp [abortProfile, source]
+  · obtain ⟨out, run, extension, rep, count, rebuilt⟩ := insertAbortRun_absent h ordered present
+    refine ⟨out, run, extension, rep, kept.mono extension, ?_,
+      rebuilt.off_path extension, (abortProfile_bounds x t).1⟩
+    have source : (OrderedTree.insertAbortRun x t).1 ≠ none := by
+      intro aborted
+      exact present ((OrderedTree.member_correct ordered x).mp
+        ((OrderedTree.insertAbortRun_none_iff x t).mp aborted))
+    simpa [abortProfile, Option.isSome_iff_ne_none.mpr source] using count
 
 /-- The same combined execution simultaneously preserves the inserted value,
 every retained old tree, actual off-path addresses, and its comparison bound. -/
