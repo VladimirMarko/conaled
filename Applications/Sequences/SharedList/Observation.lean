@@ -44,7 +44,6 @@ def updateSquare (i : Nat) (x : α) :
     intro state xs h
     by_cases inside : i < xs.length
     · obtain ⟨out, run, _, rep, _, _⟩ := updateRun_success h inside x
-      change (optionalRepresentation α).Rel _ _
       rw [run]
       simp only [optionalRepresentation, updateValue, ite_eq_left inside]
       exact rep
