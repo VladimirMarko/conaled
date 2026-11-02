@@ -348,6 +348,78 @@ distinction applies to minimum's fold association and to other optimized
 standard operations. Appendix B's separate cost recurrences remain separate
 obligations.
 
+## Shared list call counts — Appendix B.1
+
+The seven primitive operations and seven exact properties on printed
+pp.347–348 are mapped below. This is cross-cutting work used by subsequent
+chapters; it does not complete Appendix B's algorithm-specific subsections.
+The callback-bearing operations live in `Resources.ListCalls` and use the
+existing `Resources.Measured`, `bind`, `pure` and `CallCount.tick` vocabulary.
+
+| Source operation/property | Checked realization and result |
+| --- | --- |
+| Append equations and `n+1` | Existing `ListReversal.appendRun_nil`, `appendRun_cons`, `appendRun_exact` |
+| Length equations and `n+1` | Existing `SymmetricCosts.lengthRun` and `lengthRun_exact` |
+| Map equations and sum of callback costs plus `n+1` | `ListCalls.mapRun_nil`, `mapRun_cons`, `mapRun_value`, `mapRun_cost`, `mapRun_exact` |
+| Filter equations and sum of predicate costs plus `n+1` | `filterRun_nil`, `filterRun_cons`, `filterRun_value`, `filterRun_cost`, `filterRun_exact` |
+| Take equations and `min k n+1` | `takeRun_nil`, `takeRun_zero`, `takeRun_succ_cons`, `takeRun_exact` |
+| Drop equations and `min k n+1` | `dropRun_nil`, `dropRun_zero`, `dropRun_succ_cons`, `dropRun_exact` |
+| Valid zero-based lookup equations and `k+1` | `lookupRun_zero_cons`, `lookupRun_succ_cons`, `lookupRun_value`, `lookupRun_cost_of_lt`, `lookupRun_valid` |
+
+Map retains independent input and output universes. Its callback supplies both
+the actual mapped value and its natural-number observation; filter similarly
+uses the returned Boolean to choose whether to retain the head. Each list
+occurrence, including repetitions, contributes its callback observation once.
+Both filter branches process the complete tail. The exact summed formula needs
+no constancy, equality, ordering or inhabitation capability on the payload.
+`filterRun_cost_eq_mapRun` relates only their cost projections. The constant-cost
+specializations require constancy only on elements of the supplied input, and
+give `(c+1)*n+1`. Knapsack's existing source map pays two units per cons; that
+different model is unchanged and is not used for this correspondence.
+
+Take and drop are value projections of the already verified `splitRun`, with
+its observation preserved. Their individual source equations are checked,
+including zero, empty and successor cases. `take_drop_separate` sequences two
+operations on the original input through `bind` and proves twice the fused
+split's observation. It does not apply drop to the returned prefix. Equality
+of the pair of output lists is therefore kept separate from equality of costs.
+
+Lookup recursively follows the list, with no random-access substitution or
+default element. The source gives no empty-input cost equation. This optional
+extension explicitly chooses `(none,1)` there; `lookupRun_cost` proves the
+extension's total count `min k n+1`. Only `lookupRun_cost_of_lt`, under `k<n`,
+is the printed exact-cost property. `lookupRun_valid` connects the optional
+result to `some` of the standard proof-domain indexed element and the valid
+count. The first invalid index reaches the empty list and costs `n+1`; larger
+invalid indices have the same extension count. Those failure counts are not
+attributed to the book.
+
+Statement review compared the definitions, branch behavior, explicit validity
+domain, quantifier universes, and observations with the source recurrences.
+The initial missing connection was that standard list values and the existing
+Knapsack tariff did not supply these measured-callback equations; a plain
+evaluation example could not fill that proof obligation. The retained checked
+clients in `Examples.ListCalls` use the new public exact results:
+
+- Mapping `[2,2,3]` with `(x+10,x)` gives `([12,12,13],11)`. Filtering either
+  `[2,2,3]` or `[3,2,2]` with `(x≤2,x)` gives `([2,2],11)`. The second filter
+  case checks that discarding the head preserves the later retained elements.
+- Zero- and unit-cost callbacks on three elements cost 4 and 7. Filtering out
+  every element with a unit-cost callback still costs 7.
+- `map_then_length` composes the actual mapped result with the existing measured
+  length, with independent payload universes. The concrete callback case costs
+  `11+4=15`. `append_then_length` similarly combines existing append and length
+  without duplicating either realization.
+- Lookup of position 2 in `[4,4,9]` returns `(some 9,3)`. Positions 3 and 20
+  return `(none,4)` under the declared extension. Empty lookup works at `Empty`.
+- Taking and dropping two elements of `[1,2,3]` each costs 3; the sequential
+  pair costs 6 and the fused split costs 3. Zero, empty-payload and overlarge
+  counts are checked separately.
+
+These definitions and examples remain subject to complete candidate validation
+and independent review before acceptance. Cost observations concern the stated
+recursive model, not execution time of standard-library list operations.
+
 ## Architecture and statement review
 
 Operations, returned values and observations remain separate. Exact agreement

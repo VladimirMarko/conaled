@@ -247,6 +247,7 @@ import Examples.FunctionalBasics
 import Examples.ListReversal
 import Examples.InsertionCosts
 import Examples.ListLibrary
+import Examples.ListCalls
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
