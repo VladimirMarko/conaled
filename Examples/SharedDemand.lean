@@ -54,7 +54,7 @@ theorem unused_expensive :
       remaining catalogue (run (step catalogue) (List.replicate 5 false) empty).1 =
         1000 := by
   constructor
-  · simpa using congrArg
+  · simpa [Resources.SharedDemand.empty] using congrArg
       (fun r : Measured (Cache Bool Nat) Nat => r.1 true)
       (run_replicate_empty catalogue false 4)
   · have accounting := run_work_remaining catalogue (List.replicate 5 false) empty
@@ -80,7 +80,7 @@ theorem repeat_after_arbitrary_requests (requests : List Bool) :
   dsimp only
   apply request_hit
   apply run_preserves_cached
-  simpa only [request_miss catalogue false empty rfl] using
+  simpa only [request_miss catalogue false empty rfl, catalogue] using
     request_stores catalogue false empty
 
 theorem empty_requests : run (step catalogue) [] empty = (empty, 0) := run_nil _ _
@@ -113,10 +113,11 @@ theorem sharedLayer_eq (child : Unit → Measured Nat Nat) :
   have hit : (Function.update (empty : Cache Unit Nat) () (some (child ()).1)) () =
       some (child ()).1 := by simp
   simp only [sharedLayer,
-    request_miss (fun (_ : Unit) => child) () empty rfl, bind,
-    request_hit (fun (_ : Unit) => child) () _ _ hit, pure, CallCount.tick,
+    request_miss (fun (_ : Unit) => child) () empty rfl, Resources.bind,
+    request_hit (fun (_ : Unit) => child) () _ _ hit, Resources.pure, CallCount.tick,
     Nat.add_zero]
-  congr 1 <;> omega
+  congr 1
+  omega
 
 /-- The shared layer has exactly the value and work of an eager let binding:
 evaluate the child once, then use its returned value twice. -/
@@ -125,7 +126,8 @@ theorem sharedLayer_eager (child : Unit → Measured Nat Nat) :
       CallCount.tick (bind (child ()) (fun a => pure (a + a))) := by
   rw [sharedLayer_eq, CallCount.primitive_rule]
   simp only [CallCount.tick]
-  congr 1 <;> omega
+  congr 1
+  omega
 
 /-- The unshared interpretation evaluates the child afresh at each occurrence.
 The two measured binds therefore both contribute the child's work. -/
@@ -136,7 +138,7 @@ def unsharedLayer (child : Unit → Measured Nat Nat) : Measured Nat Nat :=
 
 theorem unsharedLayer_eq (child : Unit → Measured Nat Nat) :
     unsharedLayer child = (2 * (child ()).1, 2 * (child ()).2 + 1) := by
-  simp only [unsharedLayer, bind, pure, CallCount.tick, Nat.add_zero]
+  simp only [unsharedLayer, Resources.bind, Resources.pure, CallCount.tick, Nat.add_zero]
   congr 1 <;> omega
 
 /-- Iterating the actual shared-cache layer, with one terminal entry at zero. -/

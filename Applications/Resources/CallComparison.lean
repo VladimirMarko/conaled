@@ -107,14 +107,16 @@ theorem add_entry_isBigO (l : Filter α) (T : α → Nat)
       (fun x => (T x : ℝ)) := by
   apply Asymptotics.isBigO_iff.mpr
   refine ⟨2, positive.mono (fun x hx => ?_)⟩
-  simpa using (Nat.cast_le (α := ℝ)).mpr (add_entry_le (T x) hx)
+  simpa only [Real.norm_natCast, Nat.cast_mul, Nat.cast_ofNat] using
+    (Nat.cast_le (α := ℝ)).mpr (add_entry_le (T x) hx)
 
 theorem cost_isBigO_add_entry (l : Filter α) (T : α → Nat) :
     Asymptotics.IsBigO l (fun x => (T x : ℝ))
       (fun x => ((T x + 1 : Nat) : ℝ)) := by
   apply Asymptotics.isBigO_iff.mpr
   refine ⟨1, Filter.Eventually.of_forall (fun x => ?_)⟩
-  simpa using (Nat.cast_le (α := ℝ)).mpr (cost_le_add_entry (T x))
+  simpa only [Real.norm_natCast, one_mul] using
+    (Nat.cast_le (α := ℝ)).mpr (cost_le_add_entry (T x))
 
 theorem zero_cost_entry_matters (K : Nat) : ¬ 0 + 1 ≤ K * 0 := by simp
 
