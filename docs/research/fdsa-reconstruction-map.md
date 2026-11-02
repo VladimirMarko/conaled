@@ -285,3 +285,35 @@ arbitrary fold operation. Full traversal costs, balance/search algorithms,
 maximum representation issues and the existing-leftist adapter remain in
 their chapter inventories. All shared-unit and chapter acceptance gates remain
 pending; no previously recorded review or validation result covers this draft.
+
+## Shared root rotations and cached rebuilding (FDSA-XT06)
+
+This bounded cross-cutting **uncompiled draft** builds on XT01 and supports
+ordinary single root rearrangements used by Chapters 5, 9 and 21. It does not
+activate or accept those chapters, and it does not change the initial Chapter 2
+foundation prefix. The exact partial-source correspondence, independent
+expected cases and statement assessment are in
+[fdsa-tree-rotations.md](fdsa-tree-rotations.md).
+
+| Common source obligation | Draft declarations / intended connection |
+| --- | --- |
+| Partial ordinary root equations, C05-042/043 | `Trees.rotateLeft?`, `rotateRight?`, matching-shape equations and exhaustive failure characterizations on the existing `BinaryTree`. |
+| Ordered semantics and transport | Success preserves full inorder, node and external-leaf counts; the opposite rotation recovers the input. Arbitrary label maps commute with success and failure, without injectivity. |
+| Qualified fold preservation | `fold_rotateLeft`, `fold_rotateRight` use only the actual fringe-fold reassociation equation. Optional-success laws accept a uniform sufficient equation. Existing ordered monoid summaries and a word client retain noncommutative order. |
+| Local cache rebuilding for later AVL and other consumers | `Trees.Cached.rebuildLeft`, `rebuildRight`, erasure/inorder laws and exact fringe-validity equivalences; each recomputes two annotations with existing smart nodes. Correctness for the new shape and equality of old/new summaries remain separate claims. |
+| Actual two-node measured composition | `Resources.TreeRotations.rebuildLeftRun`, `rebuildRightRun` pass each first returned tree to the second `nodeRun`. Exact work is the two actual callback costs plus six, with reached-value refinement, separate fringe validity and reached-cost bounds. |
+| Connected boundaries and resource clients | Generic repeated-label, Empty and missing-pivot cases; noninjective mapping; height change; stale raw annotations and malformed retained fringes; existing scalar callbacks and actual recursive append callbacks. |
+
+The separately declared local-access tariff counts four root reads and two
+constructor entries. It neither replaces Chapter 5's unit-per-rotation count
+nor identifies source zero-helper tariffs with positive work. Actual append
+callbacks give different left/right work and unbounded valid-tree families;
+equal ordered values alone do not imply equal or constant resource use.
+
+Positioned rotations and schedules, their legal execution and exact counts,
+listification and rotation distance, complete search/balance/tag algorithms,
+double-rotation selection and splay correctness/amortization remain in the
+original chapter inventories. Accepted repaired Chapter 1 and accepted XT01
+are prerequisites to integration or acceptance. All focused and full candidate
+checks, both independent review axes and immediate candidate verification remain
+pending for this draft.
