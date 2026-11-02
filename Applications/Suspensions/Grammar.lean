@@ -6,9 +6,11 @@ import Applications.Suspensions.Syntax
 Okasaki's thesis Appendix A, p131, reserves the word dollar and adds expression
 and pattern productions at lower precedence than every inherited alternative.
 This module is a source-specific grammar adapter over preclassified tokens. It
-handles identifiers, application, constructor/exception patterns and grouping
-explicitly. Already delimited inherited atomic/full phrases are opaque
-parameters with Core embeddings. Their internal lexical and syntactic analysis
+handles identifiers, application, ordinary datatype-constructor/exception
+patterns and grouping explicitly. The special source `ref` constructor and
+reference forms belong to the inherited opaque categories; ordinary constructor
+tags here do not stand for allocation. Already delimited inherited atomic/full
+phrases are opaque parameters with Core embeddings. Their internal lexical and syntactic analysis
 is outside this fragment; no complete Standard ML lexer/parser is claimed.
 
 The inherited identifier predicate is a parameter. The new restriction excludes
@@ -129,11 +131,11 @@ mutual
         {tokens : List (Token base)} {argument : Pattern}
         (parsed : ParsesAtomicPattern base tokens argument) :
         ParsesHigherPattern base (.identifier name :: tokens) (.constructor tag (some argument))
-    | exception (name : Identifier base.identifier) {identity : Nat}
-        (classified : name.role = .exceptionConstructor identity)
+    | exception (name : Identifier base.identifier) {exceptionName : Nat}
+        (classified : name.role = .exceptionConstructor exceptionName)
         {tokens : List (Token base)} {argument : Pattern}
         (parsed : ParsesAtomicPattern base tokens argument) :
-        ParsesHigherPattern base (.identifier name :: tokens) (.exception identity (some argument))
+        ParsesHigherPattern base (.identifier name :: tokens) (.exception exceptionName (some argument))
 
   inductive ParsesAtomicPattern {Primitive : Type} (base : Base Primitive) :
       List (Token base) → Pattern → Prop
@@ -169,7 +171,7 @@ theorem ParsesApplication.head {Primitive : Type} {base : Base Primitive}
 termination_by tokens.length
 decreasing_by
   simp_wf
-  simpa [argumentShape] using Nat.succ_pos argumentRest.length
+  simp [argumentShape]
 
 theorem ParsesApplication.not_dollar {Primitive : Type} {base : Base Primitive}
     {tokens : List (Token base)} {e : Expr Primitive}

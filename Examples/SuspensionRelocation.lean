@@ -26,6 +26,9 @@ def initial : Memory Unit := (Suspensions.allocate Suspensions.empty (.value (in
 
 def bindings : Env Unit := [(0, .address 0)]
 
+theorem bindings_fixed : environment (shift 1) bindings = bindings := by
+  simp [bindings]
+
 def body : Expr Unit :=
   .bind .wildcard (.assign (.variable 0) (.atom (.integer 7)))
     (.reference (.atom (.integer 9)))
@@ -35,6 +38,11 @@ def withPrivate : Memory Unit := (Suspensions.delay initial body bindings).1
 def directFinal : Memory Unit :=
   (Suspensions.allocate (Suspensions.memoize initial 0 (integer 7)) (.value (integer 9))).1
 
+theorem direct_observations :
+    directFinal.memory 0 = some (.value (integer 7)) ∧
+      directFinal.memory 1 = some (.value (integer 9)) ∧ directFinal.next = 2 :=
+  ⟨rfl, rfl, rfl⟩
+
 theorem direct_execution :
     Progress.Evaluates (step parameters) (start initial bindings body)
       ⟨directFinal, .value (.address 1)⟩ 13 :=
@@ -42,17 +50,19 @@ theorem direct_execution :
 
 theorem related_initial :
     ConfigsRelated 1 (start initial bindings body) (start withPrivate bindings body) := by
-  refine ⟨⟨⟨rfl, rfl, ?_⟩, by decide⟩, rfl, rfl⟩
-  intro address
-  by_cases old : address = 0
-  · subst address
-    rfl
-  · have newer : 1 ≤ address := by omega
-    rw [shift_new newer]
-    have nonzero : address + 1 ≠ 0 := by omega
-    have notPrivate : address + 1 ≠ 1 := by omega
-    simp [withPrivate, initial, Suspensions.delay, Suspensions.allocate,
-      Suspensions.empty, Durability.put, old, nonzero, notPrivate]
+  refine ⟨⟨⟨rfl, rfl, ?_⟩, by decide⟩, ?_, rfl⟩
+  · intro address
+    by_cases old : address = 0
+    · subst address
+      change some (.value (integer 5)) = some (cell (shift 1) (.value (integer 5)))
+      simp [integer]
+    · have newer : 1 ≤ address := by omega
+      rw [shift_new newer]
+      have nonzero : address + 1 ≠ 0 := by omega
+      have notPrivate : address + 1 ≠ 1 := by omega
+      simp [withPrivate, initial, Suspensions.delay, Suspensions.allocate,
+        Suspensions.empty, Durability.put, old, nonzero, notPrivate]
+  · simp only [start, control, bindings_fixed]
 
 /-- The new execution is obtained from the public transport theorem. Its
 result and both reference effects are then read from the resulting relation. -/
@@ -64,14 +74,14 @@ theorem relocated_execution :
   obtain ⟨answer, execution, related⟩ :=
     evaluates_forward (primitives_equivariant 1) direct_execution related_initial
   rcases answer with ⟨memory, outcome⟩
-  have returned : outcome = .value (.address 2) := related.2
+  have returned : outcome = .value (.address 2) := by simpa [result] using related.2
   subst outcome
   refine ⟨memory, execution, ?_, ?_, ?_⟩
   · have lookup := related.1.1.lookup 0
-    exact lookup
+    simpa [direct_observations.1] using lookup
   · have lookup := related.1.1.lookup 1
-    exact lookup
-  · exact related.1.1.frontier
+    simpa [direct_observations.2.1] using lookup
+  · simpa [direct_observations.2.2] using related.1.1.frontier
 
 theorem reflected_execution {answer : Answer Unit} {count : Nat}
     (execution : Progress.Evaluates (step parameters) (start withPrivate bindings body)
