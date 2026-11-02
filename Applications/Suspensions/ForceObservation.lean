@@ -9,6 +9,8 @@ stores. Existing addresses are fixed; later allocations are consistently
 shifted past the additional private cell. Its successful cache write is omitted
 from the represented store. Primitive equivariance and fixed initial captures
 are explicit hypotheses, not assumptions about the body's evaluation result.
+The contracts concern finite normal and raised completions, with explicit
+body-relative transition counts.
 -/
 set_option autoImplicit false
 set_option warningAsError true
@@ -56,7 +58,7 @@ theorem delay_configs_related {memory : Memory Primitive} (bounded : Suspensions
     ConfigsRelated memory.next (start memory env body)
       (start (Suspensions.delay memory body env).1 env body) := by
   refine ⟨delay_states_related bounded fixed body env, ?_, rfl⟩
-  simp only [start, control, captured]
+  simp only [start, Relocation.control, captured]
 
 /-- The body may allocate, mutate references, raise and handle exceptions or
 use recursive closures. Its actual finite normal execution is transported. -/

@@ -8,14 +8,15 @@ algorithms and exercises retain their Chapter4 owner; the lazy-heap application
 retains its Chapter3 owner. Source identities and chapter accounting are in
 [the union ledger](pfds-union-coverage.md).
 
-**This development is incomplete and unaccepted.** Syntax, memory operations,
+**This development remains unaccepted.** Syntax, memory operations,
 the independent forcing rules, the explicit machine, continuation and return-
 class laws, source-rule correspondence, static and grammar rules, bounded-prefix
 observation, measured observation, finite-memory invariants, recursive-creation laws,
 and address algebra have focused compilation evidence with their recorded connected
 clients. The four derived-form equivalences and all ten clients, including the
 composed lazy-call/reference case, also compile. Address-relocation execution
-transport and its force observations still require successful compilation.
+transport, both directions of the force observations and all their connected
+clients now have passing focused checks.
 Full candidate build, exhaustive proof
 audit, final verification and both independent review axes remain required.
 The authoritative local tickets, statements, compiler reports and recovery
@@ -219,8 +220,8 @@ renaming belong to explicitly justified client observations.
 The new [address algebra](../../Applications/Suspensions/Renaming.lean),
 [execution transport](../../Applications/Suspensions/Relocation.lean) and
 [force observations](../../Applications/Suspensions/ForceObservation.lean)
-address that private-allocation obligation. The algebra and its clients passed
-focused checks; the execution and observation layers remain uncompiled drafts.
+address that private-allocation obligation. The algebra, execution transport,
+observation laws and their connected clients passed focused checks.
 The injection
 fixes addresses below the original frontier and shifts later addresses by one.
 It renames values inside records, constructors, captured closure environments
@@ -228,11 +229,19 @@ and finite recursive bindings. Related heaps agree at every represented address;
 the extra private cell is omitted. Primitive equivariance is a separate law.
 Initial memory is bounded and its existing cells/captured environment are fixed
 by the relocation. Those premises constrain initial data, not the desired body
-execution. The normal/raised observation drafts transport arbitrary finite
+execution. The normal/raised observation laws transport arbitrary finite
 body executions, with twelve/ten additional explicit transitions, respectively.
-A connected reference case expects old address0 to contain7 and the newly
+A connected reference case proves that old address0 contains7 and the newly
 returned reference to contain9, at direct address1 versus delayed address2.
-The general simulation and these applications have not yet been compiler-checked.
+The general simulation also preserves individual transition events and both
+finite-run directions. The force/direct comparison is stated for finite normal
+and raised runs, with the given extra transition counts; it does not claim equal
+ordered event traces, or an equivalence of faults, unknown budgets or divergence.
+The dangling-capture case checks why a fixed explicit capture is required even
+with bounded empty memory. Existing cell contents have their own separate
+fixedness premise. All these clients passed ForceObservation round2 with unchanged
+recorded inputs. Source typing and identifier classification remain separate
+from these raw runtime laws.
 
 [Finite memory](../../Applications/Suspensions/Invariant.lean) passed its focused
 round3 check with all connected clients. It tracks the allocation frontier with bounds on pending
