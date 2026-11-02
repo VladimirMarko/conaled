@@ -216,6 +216,28 @@ independent final review; their presence does not close the chapter. Section
 1.5.3's preference for explicit bounds remains explanatory. Higher-order time
 conventions refer forward to Appendix B.1 and stay on that appendix's list.
 
+## Shared difference-list closure groundwork
+
+`Resources.DifferenceListCosts` adds ordinary measured suffix callbacks with
+separate ordered-prefix and application-cost predicates. Identity, singleton
+and composition callbacks have a declared invocation tariff; their creation
+operations carry a separate fixed-size capture tariff. Existing `run` executes
+compositional pushes. The seed-general construction laws imply `2*n+1` for
+creation and one application of the identity-seeded builder.
+
+The value representation remains Batteries.DList. Its fused push and the
+explicit compositional model have value correspondence, with no transfer of
+exact costs. Connected cases retain nonempty suffixes, duplicate/order
+preservation, empty payloads, repeated materialization, charged identity and
+empty-prefix histories with unbounded application work. Shared self-composition
+distinguishes distinct creation events from unfolded invocation occurrences.
+
+This is an uncompiled cross-cutting draft. The
+[source and statement notes](fdsa-difference-list-costs.md) retain the actual
+singleton-seeded asc/scanner and repeated ordinary append/reverse obligations
+for Chapter 2. It makes no compiler or machine-runtime claim and does not
+activate or accept that chapter.
+
 ## Architecture and statement review
 
 Operations, returned values and observations remain separate. Exact agreement
