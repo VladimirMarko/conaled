@@ -16,6 +16,7 @@ import Examples.ProbabilisticProgress
 import Examples.MetropolisHastings
 import Examples.ProbabilityCorrelation
 import Examples.PermutationMinimum
+import Examples.PermutationOrder
 import Examples.StatefulIncremental
 import Examples.ExternalInteraction
 import Examples.InteractionTransport
