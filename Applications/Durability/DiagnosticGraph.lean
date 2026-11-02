@@ -1,6 +1,7 @@
 import Applications.Durability.ResourceEvents
 import Mathlib.Data.Finset.Powerset
 import Mathlib.Data.Fintype.Powerset
+import Mathlib.Data.Fintype.Prod
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.Ring
 
