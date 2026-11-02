@@ -63,6 +63,7 @@ theorem duplicate_retains_deep_observation : ∃ out,
     insertRun_duplicate_subtree original_rep model_ordered contains_two
   have same := descendants [.left, .right, .left]
   rw [duplicate_path] at same
+  simp only [List.cons_append, List.nil_append] at same
   have oldLeaf : follow original.1.heap [.left, .left] original.2 = some leaf.2 := rfl
   have keptLeaf := follow_mono extension oldLeaf
   refine ⟨out, run, ?_⟩
