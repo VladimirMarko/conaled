@@ -61,6 +61,26 @@ def rootValueSquare (α : Type) :
     | nil => rfl
     | node lookup _ _ _ _ => simp [rootValue, read, treeValue, lookup]
 
+/-- Lift root observation while distinguishing traversal failure from an empty tree. -/
+def optionalRootValueSquare (α : Type) :
+    Relational.RelSquare (optionalRepresentation α)
+      ⟨Option (Option α), Option (Option α), Eq⟩ where
+  impl state := state.map rootValue
+  spec tree := tree.map treeValue
+  preserves := by
+    intro state tree h
+    cases state with
+    | none =>
+        cases tree with
+        | none => rfl
+        | some tree => exact False.elim h
+    | some state =>
+        cases tree with
+        | none => exact False.elim h
+        | some tree =>
+            exact congrArg some ((rootValueSquare α).preserves h)
+
+
 /-- Compose allocation with the independently specified root-value observation. -/
 def allocatedValueSquare (x : α) :
     Relational.RelSquare (pairInput α) ⟨Option α, Option α, Eq⟩ :=
