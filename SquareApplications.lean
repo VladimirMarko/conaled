@@ -27,10 +27,14 @@ import Examples.RandomAccessEndCosts
 import Examples.RandomAccessCosts
 import Examples.PotentialAccounting
 import Examples.OrderedSearch
+import Examples.OrderedTree
+import Examples.OrderedMap
 import Examples.SymmetricLists
 import Examples.SharedList
 import Examples.SharedListIntegers
 import Applications.Resources.SharedList
+import Examples.SharedTree
+import Examples.SharedTreeOrdered
 import Examples.RandomAccessLists
 import Examples.EditAlignment
 import Examples.ParagraphLayout
