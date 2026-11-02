@@ -32,8 +32,10 @@ private theorem initial_rep : Represents initial.1.heap initial.2 model :=
   allocate_represents (lower_rep.mono (allocate_extends lower.1 (3, none) none none))
     upper_rep (2, some 4)
 
+private theorem model_ordered : Search.OrderedTree.OrderedBy Prod.fst model := by decide
+
 theorem lookup_present_none : (Map.lookupRun initial.1 initial.2 3).1 = some none := by
-  have h := congrArg Prod.fst (Map.lookupRun_correct initial_rep 3)
+  have h := Map.lookupRun_observes initial_rep model_ordered 3
   exact h.trans (by rfl)
 
 theorem lookup_missing : Map.lookupRun initial.1 initial.2 4 = (none, (4, 3)) :=
@@ -91,6 +93,18 @@ theorem lookup_square_instance :
     (Map.lookupSquare (ν := Option Nat) 3).impl initial = some none := by
   have h := (Map.lookupSquare (ν := Option Nat) 3).preserves
     (r := initial) (s := model) initial_rep
+  exact h.trans (by rfl)
+
+/-- The physically composed client observes a stored optional-none value. -/
+theorem composed_present_none :
+    (Map.bindThenLookupSquare 1 (some 8) 3).impl initial = some (some none) := by
+  have h := Map.bindThenLookup_correct initial_rep 1 (some 8) 3
+  exact h.trans (by rfl)
+
+/-- A successful physical bind followed by a missing lookup is distinct. -/
+theorem composed_missing :
+    (Map.bindThenLookupSquare 1 (some 8) 4).impl initial = some none := by
+  have h := Map.bindThenLookup_correct initial_rep 1 (some 8) 4
   exact h.trans (by rfl)
 
 end Examples.SharedTreeMap
