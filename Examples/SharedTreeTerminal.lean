@@ -31,6 +31,8 @@ private theorem model_ordered : Search.OrderedTree.Ordered model := by
 private theorem contains_two : Search.OrderedTree.Contains 2 model := by
   simp [model, Search.OrderedTree.Contains]
 
+private theorem duplicate_path : searchPath 2 model = [.left] := rfl
+
 /-- Searching for 2 copies the root 4, returns the old root of the subtree at
 2, and keeps the old address of its nonempty child 1. The retained subtree is
 not an ancestor's unselected branch: the search terminates at its root. -/
@@ -47,8 +49,9 @@ theorem duplicate_retains_terminal_and_child : ∃ out,
   have focus : some address = matched.2 := Option.some.inj (oldEndpoint.symm.trans oldFocus)
   have oldChild : follow original.1.heap [.left, .left] original.2 = some leaf.2 := rfl
   have sameChild := descendants [.left]
+  rw [duplicate_path] at sameChild
   refine ⟨out, run, count, ?_, ?_, kept⟩
-  · simpa only [focus] using newEndpoint
+  · simpa only [duplicate_path, focus] using newEndpoint
   · exact sameChild.trans (follow_mono extension oldChild)
 
 /-- The common matched endpoint also makes every deeper path agree, including
@@ -59,6 +62,7 @@ theorem duplicate_retains_deep_observation : ∃ out,
   obtain ⟨out, _, run, extension, _, oldEndpoint, newEndpoint, _, descendants⟩ :=
     insertRun_duplicate_subtree original_rep model_ordered contains_two
   have same := descendants [.left, .right, .left]
+  rw [duplicate_path] at same
   have oldLeaf : follow original.1.heap [.left, .left] original.2 = some leaf.2 := rfl
   have keptLeaf := follow_mono extension oldLeaf
   refine ⟨out, run, ?_⟩
