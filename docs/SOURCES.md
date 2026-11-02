@@ -96,12 +96,29 @@ value/timing maps, setup/hold bounds, and the adder hazard calculation.
   Its ten scanned pages contain printed pages 1–5 and 7–11.
 * [Author's 1996 dissertation](https://www.cs.cmu.edu/~rwh/students/okasaki.pdf),
   SHA-256 `f4b92ed7ea425f6f1019f20a4ef40df505327fbc5f1346ed6b7a2e28ab56d072`.
-  This is a distinct source, not a substitute for the book's expanded scope.
+  The [Tufts-hosted copy supplied for this task](https://www.cs.tufts.edu/~nr/cs257/archive/chris-okasaki/dissertation.pdf)
+  is byte-identical: 162 PDF pages, report `CMU-CS-96-177`, September 1996.
+* Complete book PDF supplied by the user on 2026-11-02: 232 PDF pages,
+  2003 digital-print imprint, with first-publication and paperback dates 1998
+  and 1999. The copyright page identifies ISBNs `0-521-63124-6` and
+  `0-521-66350-4`. SHA-256
+  `b9dbf4f6ade4c24da438fd5415fc3abdd3af0aa8459d7e41e4a27de844c7ad41`.
+  Printed main-text page `n` is PDF page `n + 12` (one-based). Printed page 6
+  is present and was visually inspected as blank; it is no longer an inferred
+  omission. The complete source is available for chapter-specific inspection.
 
-These public sources were inspected on 2026-11-02. The
+The requested scope is now the **union of book and dissertation**, retaining
+different constructions, assumptions and resource contracts. Neither source is
+treated as a strict superset. In particular the thesis Appendix A specifies
+lazy evaluation in Standard ML, whereas the book Appendix A gives Haskell
+implementations. The
 [reconstruction record](research/pfds-reconstruction.md) distinguishes source
-coverage, mathematical obligations and the chapter acceptance process. The
-downloaded manuscripts are research inputs, not redistributed source artifacts.
+coverage, mathematical obligations and the chapter acceptance process; the
+[union inventory](research/pfds-union-coverage.md) records forward obligations
+and known differences. Availability of a complete PDF is not a claim that every
+chapter has been inspected or formalized. Research manuscript copies remain
+outside deliverables under ADR 0001; exact attachment identity and recovery
+instructions accompany the local checkpoint records.
 
 ## Content fingerprints of downloaded manuscripts
 

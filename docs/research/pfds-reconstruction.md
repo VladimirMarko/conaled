@@ -1,7 +1,8 @@
 # Purely Functional Data Structures: reconstruction scope
 
 This work follows the Cambridge book by Chris Okasaki (1998), chapter by
-chapter, under an explicit request to cover the book. It extends the source
+chapter, under an explicit request to cover the union of the book and his
+1996 dissertation. It extends the source
 survey in [functional-data-structures.md](functional-data-structures.md).
 The broader [toolkit objective](https://github.com/VladimirMarko/conaled/issues/174)
 continues to govern architectural fit; its original exclusion of whole-book
@@ -15,26 +16,32 @@ implementation, kernel validation and independent review are separate gates.
 
 ## Source identity and coverage
 
-The reference is the book, DOI `10.1017/CBO9780511530104`, including exercises
-and the correspondence with Appendix A's Haskell implementations. The author's
-1996 dissertation has a different chapter structure and omits some book
-material. It can support individual arguments, but cannot certify book coverage.
+The book reference is DOI `10.1017/CBO9780511530104`, including exercises
+and the correspondence with Appendix A's Haskell implementations. The supplied
+PDF has the 2003 digital-print imprint. The second reference is the complete
+1996 dissertation, report `CMU-CS-96-177`, including its distinct Appendix A on
+Standard ML lazy-evaluation semantics. The user's expanded scope includes both.
+Shared mathematics may use one proof, but a different implementation, numeral
+encoding, forcing order or cost guarantee must be covered explicitly. Neither
+source's table of contents certifies coverage of the other.
 
 The [publisher contents][contents] establish eleven chapters. The
-[public excerpt][excerpt] supplies the introduction and the first part of the
-persistence chapter. The [source register](../SOURCES.md#s9-purely-functional-data-structures)
-records exact fingerprints. A chapter's ledger must distinguish inspected
+[public excerpt][excerpt] supplied the initial introduction and list material.
+The subsequently attached complete book resolves its missing-page limitations.
+The [source register](../SOURCES.md#s9-purely-functional-data-structures) records
+exact fingerprints. The [union inventory](pfds-union-coverage.md) distinguishes
+shared and supplemental obligations. A chapter's ledger must distinguish inspected
 source from an anticipated topic; remembered algorithms and secondary exercise
 solutions do not establish exhaustive coverage.
 
 ## Chapter 1: source accounting
 
-Printed pages 1–5 of the introduction were inspected in the publisher excerpt;
-the publisher assigns pages 1–6 to the chapter. The sample skips printed page 6,
-which has not been independently inspected. The completed roadmap on page 5
-suggests that page 6 is blank, but that remains an inference. Whole-chapter
-source acceptance stays pending until that omission is resolved. The inspected
-pages contain no numbered theorem, exercise, algorithm or code listing. Their
+All six printed pages of the book's introduction have now been inspected in
+the complete source (PDF pages 13–18). Printed page 6 is visibly blank. The
+earlier review correctly withheld source completeness while only the excerpt
+was available; the attachment supplies the missing evidence. The book's
+introduction contains no numbered theorem, exercise, algorithm or code listing.
+Its
 explanatory distinctions impose requirements on the later formalizations:
 
 | Source section | Classification and conaled interpretation | Technical obligations owned elsewhere |
@@ -55,18 +62,48 @@ separate returned values from modeled observations. These are examples of
 compatible interfaces, not claims that FIFO behavior formalizes a stack or that
 sequential accounting proves arbitrary persistent amortization.
 
-No new Lean declarations are needed solely to restate the inspected vocabulary.
+No new Lean declarations are needed solely to restate this vocabulary.
 Historical comparisons, citations to external lower bounds and qualitative
 motivation are source context. Any imported mathematical lower-bound result
 would need its own precise model and proof; none is assumed by this work.
 
+### Thesis introduction and its forward contracts
+
+The thesis introduction, printed pages 1–6 (also PDF pages 13–18), was inspected
+separately. Its page 6 contains roadmap prose and must not inherit the book's
+blank-page classification. Its six sections cover functional/imperative and
+strict/lazy distinctions, contributions, the source language, terminology and
+the remaining chapters. The source-language discussion additionally identifies
+polymorphic recursion and recursive modules as implementation requirements;
+their relevant constructions remain obligations of bootstrapping and recursive
+slowdown.
+
+Thesis Table 1.1 on printed page 3 is a mathematical summary with sixteen rows
+of operation bounds. These are forward contracts, not new proofs supplied by
+the introduction and not merely historical prose. The
+[table ledger](pfds-union-coverage.md#thesis-table-11-forward-contracts) preserves
+each row, worst-case versus amortized qualification and its later proof owner.
+An introductory source-accounting milestone does not discharge those contracts.
+For example, the bootstrapped-queue row has a worst-case constant-time head but
+amortized iterated-log bounds for insertion/removal; it must not be silently
+replaced by an ordinary constant-time queue claim.
+
+Introductory accounting is complete only when both source introductions and
+their forward owners are reviewed. Whole-union completion additionally requires
+the later mathematical contracts to be proved. No summary-table cost bound is
+assumed as an axiom or represented by an unverified Markdown proof.
+
 ## Chapter 2 acceptance boundary and shared prerequisites
 
-The inspected list material requires empty-operation failures, two stack
-realizations, append, partial indexed update, retained old versions, sharing
-and the suffixes exercise. Later search-tree material must be inventoried from
-the book before the chapter can be accepted. A semantic implementation alone
-does not discharge the chapter's space claims.
+The complete persistence chapter is now available and has been inventoried,
+including all six exercises and their subparts. It requires empty-operation
+failures, two stack realizations, interface-level append, partial indexed
+update, retained old versions, sharing and suffixes. Its tree material adds
+ordered membership/insertion, candidate-based comparison bounds, duplicate
+insertion without new allocation, shared complete and nearly balanced tree
+construction, and ordered finite maps. A semantic implementation alone does
+not discharge its comparison, allocation or graph-space claims. Repeated-value
+trees in Exercise 2.5 are general binary trees, not ordered-set BSTs.
 
 Reuse the project's existing list semantics and measured execution wherever
 they fit. In particular, `TreeFlattening.appendWithCost_exact` counts copied
@@ -86,7 +123,9 @@ Lean's allocator. Those additional claims require separate evidence.
 Chapter 3 covers familiar heap and balanced-search realizations; chapters 4–8
 develop lazy evaluation, amortization, scheduling and rebuilding; chapters
 9–11 develop numerical representations, bootstrapping and recursive slowdown.
-The local ticket graph keeps their original chapter order. Necessary shared
+The local ticket graph keeps their original chapter order and assigns thesis
+counterparts and supplements to the relevant chapter. The two appendices have
+different meanings and separate obligations. Necessary shared
 foundations may cross chapter boundaries, but a later chapter's implementation
 frontier does not advance on an unreviewed predecessor.
 
