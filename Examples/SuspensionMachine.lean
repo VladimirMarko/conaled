@@ -52,9 +52,9 @@ theorem lexical_capture :
       answer.result = .value (.atom (.integer 1)) ∧
       answer.memory.memory 0 = some (.value (.atom (.integer 1))) ∧
       events.count (.body 0) = 1 ∧ events.count (.cacheWrite 0) = 1 := by
-  refine ⟨_, _, _, ?_, ?_⟩
-  · exact Progress.search_sound (fuel := 80) (by rfl)
-  · exact ⟨rfl, rfl, rfl, rfl⟩
+  refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
+    (fuel := 80) (by rfl), ?_⟩
+  exact ⟨rfl, rfl, rfl, rfl⟩
 
 /-- The same suspension is forced twice; the second occurrence uses its cache. -/
 def aliased : Expr Primitive :=
@@ -68,9 +68,9 @@ theorem alias_cache_reuse :
       answer.result = .value (.atom (.integer 7)) ∧ answer.memory.next = 1 ∧
       events.count (.body 0) = 1 ∧ events.count (.cacheWrite 0) = 1 ∧
       events.count (.hit 0) = 1 := by
-  refine ⟨_, _, _, ?_, ?_⟩
-  · exact Progress.search_sound (fuel := 100) (by rfl)
-  · exact ⟨rfl, rfl, rfl, rfl, rfl⟩
+  refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
+    (fuel := 100) (by rfl), ?_⟩
+  exact ⟨rfl, rfl, rfl, rfl, rfl⟩
 
 /-- The trace instrumentation is connected to the public uninstrumented machine. -/
 theorem lexical_capture_uninstrumented :
@@ -106,9 +106,9 @@ theorem three_clauses_exhaust :
       answer.memory.memory 0 = some (.value (.atom (.boolean true))) ∧
       answer.memory.memory 1 = some (.value (.atom (.integer 1))) ∧
       events.count (.body 1) = 1 ∧ events.count (.cacheWrite 1) = 1 := by
-  refine ⟨_, _, _, ?_, ?_⟩
-  · exact Progress.search_sound (fuel := 200) (by rfl)
-  · exact ⟨rfl, rfl, rfl, rfl, rfl⟩
+  refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
+    (fuel := 200) (by rfl), ?_⟩
+  exact ⟨rfl, rfl, rfl, rfl, rfl⟩
 
 /-- The appended source clause sees the new reference value and returns3. -/
 theorem fourth_clause_reachable :
@@ -119,9 +119,9 @@ theorem fourth_clause_reachable :
       answer.memory.memory 0 = some (.value (.atom (.boolean true))) ∧
       answer.memory.memory 1 = some (.value (.atom (.integer 1))) ∧
       events.count (.body 1) = 1 ∧ events.count (.cacheWrite 1) = 1 := by
-  refine ⟨_, _, _, ?_, ?_⟩
-  · exact Progress.search_sound (fuel := 220) (by rfl)
-  · exact ⟨rfl, rfl, rfl, rfl, rfl⟩
+  refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
+    (fuel := 220) (by rfl), ?_⟩
+  exact ⟨rfl, rfl, rfl, rfl, rfl⟩
 
 def assignmentUnit : Expr Primitive :=
   .bind (.variable 1) (.reference (boolean false))
@@ -135,9 +135,9 @@ theorem assignment_unit_matches :
       answer.result = .value (.atom (.boolean true)) ∧
       answer.memory.memory 0 = some (.value (.atom (.boolean true))) ∧
       events.count (.referenceWrite 0) = 1 := by
-  refine ⟨_, _, _, ?_, ?_⟩
-  · exact Progress.search_sound (fuel := 100) (by rfl)
-  · exact ⟨rfl, rfl, rfl⟩
+  refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
+    (fuel := 100) (by rfl), ?_⟩
+  exact ⟨rfl, rfl, rfl⟩
 
 /-- The cached reference contains the integer-valued replacement when reread. -/
 theorem cached_reference_integer :
@@ -148,9 +148,9 @@ theorem cached_reference_integer :
       answer.memory.memory 0 = some (.value (.address 1)) ∧
       events.count (.body 0) = 1 ∧ events.count (.cacheWrite 0) = 1 ∧
       events.count (.hit 0) = 1 ∧ events.count (.referenceWrite 1) = 1 := by
-  refine ⟨_, _, _, ?_, ?_⟩
-  · exact Progress.search_sound (fuel := 200) (by rfl)
-  · exact ⟨rfl, rfl, rfl, rfl, rfl, rfl, rfl⟩
+  refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
+    (fuel := 200) (by rfl), ?_⟩
+  exact ⟨rfl, rfl, rfl, rfl, rfl, rfl, rfl⟩
 
 def guarded (body continuation : Expr Primitive) : Expr Primitive :=
   .bind (.variable 1) (.reference (boolean false))
@@ -173,9 +173,9 @@ theorem reentrant_overwrite :
       answer.memory.memory 0 = some (.value (.atom (.boolean true))) ∧
       events.count (.body 1) = 2 ∧ events.count (.cacheWrite 1) = 2 ∧
       events.count (.hit 1) = 1 := by
-  refine ⟨_, _, _, ?_, ?_⟩
-  · exact Progress.search_sound (fuel := 300) (by rfl)
-  · exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
+  refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
+    (fuel := 300) (by rfl), ?_⟩
+  exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
 
 def reentrantRaises (continuation : Expr Primitive) : Expr Primitive :=
   .newException 3
@@ -193,9 +193,9 @@ theorem outer_exception_preserves_inner :
       answer.result = .raised (.exception 2 none) ∧
       answer.memory.memory 1 = some (.value (.atom (.integer 7))) ∧
       events.count (.body 1) = 2 ∧ events.count (.cacheWrite 1) = 1 := by
-  refine ⟨_, _, _, ?_, ?_⟩
-  · exact Progress.search_sound (fuel := 300) (by rfl)
-  · exact ⟨rfl, rfl, rfl, rfl⟩
+  refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
+    (fuel := 300) (by rfl), ?_⟩
+  exact ⟨rfl, rfl, rfl, rfl⟩
 
 /-- After handling that outer exception, another force uses the inner cache. -/
 theorem outer_exception_then_hit :
@@ -208,9 +208,9 @@ theorem outer_exception_then_hit :
       answer.memory.memory 1 = some (.value (.atom (.integer 7))) ∧
       events.count (.body 1) = 2 ∧ events.count (.cacheWrite 1) = 1 ∧
       events.count (.hit 1) = 1 := by
-  refine ⟨_, _, _, ?_, ?_⟩
-  · exact Progress.search_sound (fuel := 350) (by rfl)
-  · exact ⟨rfl, rfl, rfl, rfl, rfl⟩
+  refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
+    (fuel := 350) (by rfl), ?_⟩
+  exact ⟨rfl, rfl, rfl, rfl, rfl⟩
 
 def repeatedCreation : Expr Primitive :=
   .bind .wildcard (force (.delay (integer 7))) (force (.delay (integer 7)))
@@ -223,9 +223,9 @@ theorem repeated_creation_runs_twice :
       answer.result = .value (.atom (.integer 7)) ∧ answer.memory.next = 2 ∧
       events.count (.body 0) = 1 ∧ events.count (.body 1) = 1 ∧
       events.count (.hit 0) = 0 ∧ events.count (.hit 1) = 0 := by
-  refine ⟨_, _, _, ?_, ?_⟩
-  · exact Progress.search_sound (fuel := 150) (by rfl)
-  · exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
+  refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
+    (fuel := 150) (by rfl), ?_⟩
+  exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
 
 def exceptionalInner : Expr Primitive :=
   .newException 3
@@ -244,9 +244,9 @@ theorem exceptional_inner_retains_outer_cache :
       events.count (.body 0) = 1 ∧ events.count (.body 1) = 1 ∧
       events.count (.cacheWrite 0) = 1 ∧ events.count (.cacheWrite 1) = 0 ∧
       events.count (.hit 0) = 1 := by
-  refine ⟨_, _, _, ?_, ?_⟩
-  · exact Progress.search_sound (fuel := 250) (by rfl)
-  · exact ⟨rfl, rfl, rfl, rfl, rfl, rfl, rfl⟩
+  refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
+    (fuel := 250) (by rfl), ?_⟩
+  exact ⟨rfl, rfl, rfl, rfl, rfl, rfl, rfl⟩
 
 def repeatedExceptions : Expr Primitive :=
   .newException 3
@@ -263,9 +263,9 @@ theorem repeated_body_exceptions :
       answer.result = .value (.atom (.integer 5)) ∧ answer.memory.next = 1 ∧
       events.count (.body 0) = 2 ∧ events.count (.cacheWrite 0) = 0 ∧
       events.count (.hit 0) = 0 := by
-  refine ⟨_, _, _, ?_, ?_⟩
-  · exact Progress.search_sound (fuel := 250) (by rfl)
-  · exact ⟨rfl, rfl, rfl, rfl, rfl⟩
+  refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
+    (fuel := 250) (by rfl), ?_⟩
+  exact ⟨rfl, rfl, rfl, rfl, rfl⟩
 
 def shallowConstructor : Expr Primitive :=
   .newException 3
@@ -279,9 +279,9 @@ theorem shallow_constructor_observation :
       answer.result = .value (.constructor 10 (some (.address 1))) ∧ answer.memory.next = 2 ∧
       events.count (.body 0) = 1 ∧ events.count (.body 1) = 0 ∧
       events.count (.cacheWrite 0) = 1 ∧ events.count (.cacheWrite 1) = 0 := by
-  refine ⟨_, _, _, ?_, ?_⟩
-  · exact Progress.search_sound (fuel := 150) (by rfl)
-  · exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
+  refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
+    (fuel := 150) (by rfl), ?_⟩
+  exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
 
 def lazyClauses : List (Pattern × Expr Primitive) :=
   [(.reference (.atom (.boolean false)), .delay (integer 1)),
@@ -301,9 +301,9 @@ theorem lazy_function_delays_matching :
       answer.memory.memory 0 = some (.value (.atom (.boolean true))) ∧
       events.count (.body 1) = 1 ∧ events.count (.body 2) = 1 ∧
       events.count (.referenceWrite 0) = 1 := by
-  refine ⟨_, _, _, ?_, ?_⟩
-  · exact Progress.search_sound (fuel := 300) (by rfl)
-  · exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
+  refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
+    (fuel := 300) (by rfl), ?_⟩
+  exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
 
 def currentExceptionPattern : Expr Primitive :=
   .newException 3
@@ -319,9 +319,9 @@ theorem exception_pattern_uses_current_environment :
       answer.memory.memory 0 = some (.value (.exception 2 none)) ∧
       events.count (.freshException 2) = 1 ∧ events.count (.freshException 3) = 1 ∧
       events.count (.body 0) = 1 ∧ events.count (.cacheWrite 0) = 1 := by
-  refine ⟨_, _, _, ?_, ?_⟩
-  · exact Progress.search_sound (fuel := 150) (by rfl)
-  · exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
+  refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
+    (fuel := 150) (by rfl), ?_⟩
+  exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
 
 def referenceInner : Expr Primitive :=
   .bind (.variable 1) (.reference (boolean false))
@@ -342,9 +342,9 @@ theorem reference_inner_effects_retained :
       answer.memory.memory 1 = some (.value (.atom (.integer 1))) ∧
       events.count (.referenceRead 2) = 1 ∧ events.count (.body 1) = 1 ∧
       events.count (.cacheWrite 1) = 1 := by
-  refine ⟨_, _, _, ?_, ?_⟩
-  · exact Progress.search_sound (fuel := 220) (by rfl)
-  · exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
+  refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
+    (fuel := 220) (by rfl), ?_⟩
+  exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
 
 def rawStuck : Expr Primitive :=
   .bind .wildcard (.reference (integer 7)) (.read (integer 0))
@@ -357,8 +357,8 @@ theorem raw_stuck_retains_state :
       answer.result = .stuck .expectedAddress ∧ answer.memory.next = 1 ∧
       answer.memory.memory 0 = some (.value (.atom (.integer 7))) ∧
       events.count (.allocate 0) = 1 := by
-  refine ⟨_, _, _, ?_, ?_⟩
-  · exact Progress.search_sound (fuel := 80) (by rfl)
-  · exact ⟨rfl, rfl, rfl, rfl⟩
+  refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
+    (fuel := 80) (by rfl), ?_⟩
+  exact ⟨rfl, rfl, rfl, rfl⟩
 
 end Examples.SuspensionMachine

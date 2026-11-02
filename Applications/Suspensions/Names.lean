@@ -27,19 +27,23 @@ mutual
     | .reference inner | .suspended inner => patternNames inner
     | .layered name inner => {name} ∪ patternNames inner
   termination_by p => sizeOf p
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 
   def optionalPatternNames : Option Pattern → Finset Nat
     | none => ∅
     | some p => patternNames p
   termination_by argument => sizeOf argument
-  decreasing_by all_goals simp_wf
+  decreasing_by simp_wf
 
   def patternFieldNames : List (Nat × Pattern) → Finset Nat
     | [] => ∅
     | (_, p) :: rest => patternNames p ∪ patternFieldNames rest
   termination_by fields => sizeOf fields
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 end
 
 mutual
@@ -58,31 +62,39 @@ mutual
     | .handle body clauses => expressionNames body ∪ clauseNames clauses
     | .newException name body => {name} ∪ expressionNames body
   termination_by e => sizeOf e
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 
   def optionalExpressionNames {Primitive : Type} : Option (Expr Primitive) → Finset Nat
     | none => ∅
     | some e => expressionNames e
   termination_by argument => sizeOf argument
-  decreasing_by all_goals simp_wf
+  decreasing_by simp_wf
 
   def expressionFieldNames {Primitive : Type} : List (Nat × Expr Primitive) → Finset Nat
     | [] => ∅
     | (_, e) :: rest => expressionNames e ∪ expressionFieldNames rest
   termination_by fields => sizeOf fields
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 
   def clauseNames {Primitive : Type} : List (Pattern × Expr Primitive) → Finset Nat
     | [] => ∅
     | (p, e) :: rest => patternNames p ∪ expressionNames e ∪ clauseNames rest
   termination_by clauses => sizeOf clauses
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 
   def recursiveNames {Primitive : Type} : List (Nat × Expr Primitive) → Finset Nat
     | [] => ∅
     | (name, e) :: rest => {name} ∪ expressionNames e ∪ recursiveNames rest
   termination_by bindings => sizeOf bindings
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 end
 
 /-- One choice fresh for every conservative clause name and any supplied

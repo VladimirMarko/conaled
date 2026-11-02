@@ -1,5 +1,6 @@
 import Applications.Suspensions.Rules
 import Applications.Suspensions.Continuation
+import Applications.Suspensions.Return
 
 /-!
 # Realizing the suspension rules through finite execution
@@ -299,6 +300,29 @@ def clauseResult : Except (Value Primitive) (Option (Value Primitive)) → Resul
   | .ok none => .mismatch
   | .error packet => .raised packet
 
+def clauseControl : Except (Value Primitive) (Option (Value Primitive)) → Control Primitive
+  | .ok (some value) => .value value
+  | .ok none => .mismatch
+  | .error packet => .raised packet
+
+theorem clause_boundary (answer : Except (Value Primitive) (Option (Value Primitive))) :
+    boundaryControl (clauseResult answer) = some (clauseControl answer) := by
+  cases answer with
+  | ok result => cases result <;> rfl
+  | error packet => rfl
+
+theorem clauseResult_injective : Function.Injective (@clauseResult Primitive) := by
+  intro first second same
+  cases first with
+  | error packet =>
+      cases second with
+      | error other => cases same; rfl
+      | ok result => cases result <;> cases same
+  | ok result =>
+      cases second with
+      | error packet => cases result <;> cases same
+      | ok other => cases result <;> cases other <;> cases same <;> rfl
+
 def clauses (parameters : Parameters Primitive) (s : Memory Primitive) (env : Env Primitive)
     (value : Value Primitive) (alternatives : List (Pattern × Expr Primitive))
     (answer : Except (Value Primitive) (Option (Value Primitive))) (t : Memory Primitive) : Prop :=
@@ -378,5 +402,89 @@ theorem alternatives_sound {parameters : Parameters Primitive}
       obtain ⟨steps, run⟩ := rest
       exact clause_resumes clause run
   | raised clause => exact clause_resumes clause (.done rfl)
+
+/-- Ordered-clause execution also yields an independent source derivation.
+The return-class invariant rules out raw expression mismatch and raw pattern
+values; this is weaker than, and independent of, value-type preservation. -/
+theorem alternatives_complete {parameters : Parameters Primitive}
+    {s : Memory Primitive} {env : Env Primitive} {value : Value Primitive}
+    {alternatives : List (Pattern × Expr Primitive)}
+    {answer : Except (Value Primitive) (Option (Value Primitive))} {t : Memory Primitive}
+    (run : clauses parameters s env value alternatives answer t) :
+    Source.Alternatives
+      (Source.ClauseMatch (evaluation parameters) (matching parameters) Env.extend)
+      s env value alternatives answer t := by
+  induction alternatives generalizing s t answer with
+  | nil =>
+      obtain ⟨steps, run⟩ := run
+      have empty : Progress.Evaluates (step parameters)
+          ⟨s, .clauses env [] value, []⟩ ⟨s, clauseResult (.ok none)⟩ 2 :=
+        .next rfl (.done rfl)
+      have same := (empty.unique run).1
+      have stateEq := congrArg Answer.memory same
+      have answerEq := clauseResult_injective (congrArg Answer.result same)
+      subst t
+      subst answer
+      exact .empty
+  | cons head rest ih =>
+      rcases head with ⟨pattern, code⟩
+      have moved : step parameters ⟨s, .clauses env ((pattern, code) :: rest) value, []⟩ =
+          .inr ⟨s, .pattern env pattern value, [.clause env code rest value]⟩ := rfl
+      obtain ⟨steps, plugged⟩ := (after_step_iff moved).mp run
+      have full : Progress.Evaluates (step parameters)
+          (appendFrames (startPattern s env pattern value) [.clause env code rest value])
+          ⟨t, clauseResult answer⟩ steps := by
+        simpa [appendFrames, startPattern] using plugged
+      obtain ⟨patternAnswer, control, n, m, patternRun, boundary, residual, _⟩ :=
+        evaluates_split full (clause_boundary answer)
+      rcases patternAnswer with ⟨afterPattern, result⟩
+      cases result with
+      | value result => exact False.elim (Return.pattern_result patternRun)
+      | matched bindings =>
+          simp only [boundaryControl, Option.some.injEq] at boundary
+          subst control
+          have selected : step parameters
+              ⟨afterPattern, .matched bindings, [.clause env code rest value]⟩ =
+              .inr (start afterPattern (Env.extend env bindings) code) := rfl
+          obtain ⟨bodySteps, bodyRun⟩ := (after_step_iff selected).mp ⟨m, residual⟩
+          cases answer with
+          | ok result =>
+              cases result with
+              | none => exact False.elim (Return.expression_result bodyRun)
+              | some result =>
+                  exact .success (.success ⟨n, patternRun⟩ ⟨bodySteps, bodyRun⟩)
+          | error packet =>
+              exact .raised (.success ⟨n, patternRun⟩ ⟨bodySteps, bodyRun⟩)
+      | mismatch =>
+          simp only [boundaryControl, Option.some.injEq] at boundary
+          subst control
+          have failed : step parameters
+              ⟨afterPattern, .mismatch, [.clause env code rest value]⟩ =
+              .inr ⟨afterPattern, .clauses env rest value, []⟩ := rfl
+          have tail := (after_step_iff failed).mp ⟨m, residual⟩
+          exact .failure (.failure ⟨n, patternRun⟩) (ih tail)
+      | raised packet =>
+          simp only [boundaryControl, Option.some.injEq] at boundary
+          subst control
+          have unwind : Progress.Evaluates (step parameters)
+              ⟨afterPattern, .raised packet, [.clause env code rest value]⟩
+              ⟨afterPattern, clauseResult (.error packet)⟩ 2 := .next rfl (.done rfl)
+          have same := (unwind.unique residual).1
+          have stateEq := congrArg Answer.memory same
+          have answerEq := clauseResult_injective (congrArg Answer.result same)
+          subst t
+          subst answer
+          exact .raised (.raised ⟨n, patternRun⟩)
+      | stuck fault => cases boundary
+
+theorem alternatives_iff {parameters : Parameters Primitive}
+    {s : Memory Primitive} {env : Env Primitive} {value : Value Primitive}
+    {alternatives : List (Pattern × Expr Primitive)}
+    {answer : Except (Value Primitive) (Option (Value Primitive))} {t : Memory Primitive} :
+    Source.Alternatives
+        (Source.ClauseMatch (evaluation parameters) (matching parameters) Env.extend)
+        s env value alternatives answer t ↔
+      clauses parameters s env value alternatives answer t :=
+  ⟨alternatives_sound, alternatives_complete⟩
 
 end Suspensions.Core.Correspondence

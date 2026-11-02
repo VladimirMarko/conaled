@@ -54,19 +54,25 @@ mutual
     | .record fields => fieldVars fields
     | .named _ arguments => argumentVars arguments
   termination_by t => sizeOf t
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 
   def fieldVars : List (Nat × Ty) → Finset TyVar
     | [] => ∅
     | (_, t) :: rest => vars t ∪ fieldVars rest
   termination_by fields => sizeOf fields
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 
   def argumentVars : List Ty → Finset TyVar
     | [] => ∅
     | t :: rest => vars t ∪ argumentVars rest
   termination_by arguments => sizeOf arguments
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 end
 
 /-- Source imperative types may contain only imperative free variables. -/
@@ -133,20 +139,26 @@ mutual
     | .record fields => .record (substituteFields replacement fields)
     | .named name arguments => .named name (substituteArguments replacement arguments)
   termination_by t => sizeOf t
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 
   def substituteFields (replacement : TyVar → Ty) : List (Nat × Ty) → List (Nat × Ty)
     | [] => []
     | (label, t) :: rest =>
         (label, substitute replacement t) :: substituteFields replacement rest
   termination_by fields => sizeOf fields
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 
   def substituteArguments (replacement : TyVar → Ty) : List Ty → List Ty
     | [] => []
     | t :: rest => substitute replacement t :: substituteArguments replacement rest
   termination_by arguments => sizeOf arguments
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 end
 
 mutual
@@ -162,7 +174,9 @@ mutual
     | record fields => simp only [substitute, substituteFields_identity fields]
     | named name arguments => simp only [substitute, substituteArguments_identity arguments]
   termination_by sizeOf t
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 
   theorem substituteFields_identity (fields : List (Nat × Ty)) :
       substituteFields .variable fields = fields := by
@@ -172,7 +186,9 @@ mutual
       rcases pair with ⟨label, t⟩
       simp only [substituteFields, substitute_identity t, substituteFields_identity rest]
   termination_by sizeOf fields
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 
   theorem substituteArguments_identity (arguments : List Ty) :
       substituteArguments .variable arguments = arguments := by
@@ -181,7 +197,9 @@ mutual
     | cons t rest =>
       simp only [substituteArguments, substitute_identity t, substituteArguments_identity rest]
   termination_by sizeOf arguments
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 end
 
 end Ty
@@ -350,6 +368,25 @@ structure Signature (Primitive : Type) where
   equalityNames : Nat → Bool
   primitives : Primitive → Scheme
   constructors : Nat → Option Scheme
+
+namespace Signature
+
+/-- Supplied basis/datatype schemes contribute their free variables to the
+persistent ambient scope. This is required when relating the bounded fragment's
+Clos calculation to the source context, whose basis includes those schemes. -/
+def ScopedIn {Primitive : Type} (signature : Signature Primitive) (context : Context) : Prop :=
+  (∀ operation, (signature.primitives operation).freeVars ⊆ context.ambient) ∧
+  (∀ tag scheme, signature.constructors tag = some scheme → scheme.freeVars ⊆ context.ambient)
+
+theorem ScopedIn.extend {Primitive : Type} {signature : Signature Primitive}
+    {context : Context} (scoped : signature.ScopedIn context) (bindings : Bindings) :
+    signature.ScopedIn (context.extend bindings) := scoped
+
+theorem ScopedIn.bindVariable {Primitive : Type} {signature : Signature Primitive}
+    {context : Context} (scoped : signature.ScopedIn context) (name : Nat) (t : Ty) :
+    signature.ScopedIn (context.bindVariable name t) := scoped
+
+end Signature
 
 namespace Scheme
 
@@ -759,7 +796,9 @@ mutual
       rw [Names.patternNames, Finmap.keys_union, Finmap.keys_singleton]
       exact Finset.union_subset_union (Finset.Subset.refl _) inner.bound_names
   termination_by sizeOf p
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 
   theorem PatternFieldsHaveType.bound_names {Primitive : Type} {signature : Signature Primitive}
       {context : Context} {fields : List (Nat × Pattern)} {types : List (Nat × Ty)}
@@ -771,7 +810,9 @@ mutual
       rw [Names.patternFieldNames, Finmap.keys_union]
       exact Finset.union_subset_union head.bound_names tail.bound_names
   termination_by sizeOf fields
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 end
 
 mutual
@@ -812,7 +853,9 @@ mutual
       exact .layered (context.variableAllowed_bindVariable fresh name addedType allowed)
         distinct (inner.weaken fresh addedType innerAvoids)
   termination_by sizeOf p
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 
   theorem PatternFieldsHaveType.weaken {Primitive : Type} {signature : Signature Primitive}
       {context : Context} {fields : List (Nat × Pattern)} {types : List (Nat × Ty)}
@@ -826,7 +869,9 @@ mutual
       have parts := Finset.not_mem_union.mp avoids
       exact .cons (head.weaken fresh addedType parts.1) (tail.weaken fresh addedType parts.2) disjoint
   termination_by sizeOf fields
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 end
 
 theorem RecursiveBindingsHaveType.domain {Primitive : Type} {signature : Signature Primitive}
@@ -962,7 +1007,9 @@ mutual
       exact body.weaken fresh addedType
         (context.extend_fresh _ fresh freshContext freshBinding) scoped parts.2
   termination_by sizeOf e
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 
   theorem ClausesHaveType.weaken {Primitive : Type} {signature : Signature Primitive}
       {context : Context} {clauses : List (Pattern × Expr Primitive)} {input output : Ty}
@@ -985,7 +1032,9 @@ mutual
       exact body.weaken fresh addedType
         (context.extend_fresh bindings fresh freshContext freshBindings) scoped firstParts.2
   termination_by sizeOf clauses
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 
   theorem FieldsHaveType.weaken {Primitive : Type} {signature : Signature Primitive}
       {context : Context} {fields : List (Nat × Expr Primitive)} {types : List (Nat × Ty)}
@@ -1002,7 +1051,9 @@ mutual
       exact .cons (head.weaken fresh addedType freshContext scoped parts.1)
         (tail.weaken fresh addedType freshContext scoped parts.2)
   termination_by sizeOf fields
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 
   theorem RecursiveBindingsHaveType.weaken {Primitive : Type} {signature : Signature Primitive}
       {context : Context} {monotypes : Bindings} {bindings : List (Nat × Expr Primitive)}
@@ -1031,7 +1082,9 @@ mutual
       exact right.weaken fresh addedType
         (context.extend_fresh monotypes fresh freshContext freshMonotypes) scoped firstParts.2
   termination_by sizeOf bindings
-  decreasing_by all_goals simp_wf
+  decreasing_by
+    all_goals simp_wf
+    all_goals omega
 end
 
 /-- Book lazy-function sugar preserves the clause type and places its ordered
@@ -1046,7 +1099,7 @@ theorem lazyFunction_type {Primitive : Type} (signature : Signature Primitive)
     (scoped : input.vars ⊆ context.ambient)
     (forceName : context.VariableAllowed 0) :
     HasType signature context (lazyFunction fresh clauses) (.arrow input (.suspension result)) := by
-  apply HasType.function (by simp [lazyFunction])
+  apply HasType.function (by simp)
   apply ClausesHaveType.cons (bindings := Finmap.singleton fresh (.variable (.mono input)))
   · exact .variable (context.variableAllowed_of_fresh fresh freshContext)
   · apply HasType.delay

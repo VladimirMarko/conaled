@@ -52,6 +52,7 @@ theorem workload_succ (parameters : Parameters Primitive) (budget : Nat)
     workload parameters (budget + 1) state =
       Resources.bind (measuredAdvance parameters () state) (workload parameters budget) := by
   simp only [workload, List.replicate_succ, Resources.run]
+  rfl
 
 /-- Already finished states consume no further events. -/
 theorem workload_finished (parameters : Parameters Primitive) (budget : Nat)
@@ -68,6 +69,7 @@ theorem workload_append (parameters : Parameters Primitive) (first second : Nat)
     workload parameters (first + second) state =
       Resources.bind (workload parameters first state) (workload parameters second) := by
   simp only [workload, List.replicate_add, Resources.run_append]
+  rfl
 
 theorem workload_erases (parameters : Parameters Primitive) (budget : Nat)
     (state : Answer Primitive ⊕ Config Primitive) :

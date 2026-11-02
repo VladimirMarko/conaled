@@ -263,6 +263,9 @@ import Examples.SuspensionStatic
 import Examples.SuspensionCorrespondence
 import Applications.Suspensions.Prefix
 import Examples.SuspensionObservation
+import Examples.SuspensionReturn
+import Examples.SuspensionGrammar
+import Examples.SuspensionDerived
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 

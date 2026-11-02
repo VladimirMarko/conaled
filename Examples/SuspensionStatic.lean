@@ -92,7 +92,7 @@ theorem cachedScheme_boolean (names : Nat → Bool) :
 theorem identity_type {Primitive : Type} (signature : Signature Primitive)
     (context : Context) (t : Ty) (allowed : context.VariableAllowed 2) :
     HasType signature context identity (.arrow t t) := by
-  apply HasType.function (by simp [identity])
+  apply HasType.function (by simp)
   apply ClausesHaveType.cons (bindings := Finmap.singleton 2 (.variable (.mono t)))
   · exact .variable allowed
   · exact .variable (context.variable_lookup 2 t) (Scheme.mono_instantiates _ _)
@@ -173,6 +173,15 @@ def machineSignature : Signature Examples.SuspensionMachine.Primitive where
   primitives := fun _ => .mono (.arrow .integer .integer)
   constructors := fun _ => none
 
+/-- The actual primitive signature is closed, so it introduces no omitted
+context variables into the source closure calculation. -/
+theorem machineSignature_scoped (context : Context) : machineSignature.ScopedIn context := by
+  constructor
+  · intro operation
+    simp [machineSignature, Ty.vars]
+  · intro tag scheme found
+    cases found
+
 /-- A concrete, scoped preservation counterexample for the published extension:
 the checked Boolean-typed expression actually returns the integer atom0.
 This does not assert a complete Standard ML type system or assume its safety. -/
@@ -211,6 +220,13 @@ def emptySignature : Signature Empty where
   equalityNames := fun _ => false
   primitives := fun operation => nomatch operation
   constructors := fun _ => none
+
+theorem emptySignature_scoped (context : Context) : emptySignature.ScopedIn context := by
+  constructor
+  · intro operation
+    nomatch operation
+  · intro tag scheme found
+    cases found
 
 def lazyContext (a : TyVar) : Context := ⟨{a}, ∅⟩
 
