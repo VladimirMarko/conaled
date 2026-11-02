@@ -125,7 +125,7 @@ theorem lookup_bind (key : κ) (value : ν) (query : κ) (t : BinaryTree (κ × 
         · by_cases qr : binding.1 < query
           · have qk : query ≠ key := ne_of_gt (lt_trans kl qr)
             simp [bind, lookup, kl, ql, qr, qk]
-          · have qk : query ≠ key := fun eq => ql (eq ▸ kl)
+          · have qk : query ≠ key := fun eq => ql (by simpa only [eq] using kl)
             simp [bind, lookup, kl, ql, qr, qk]
       · by_cases kr : binding.1 < key
         · by_cases ql : query < binding.1
@@ -133,13 +133,19 @@ theorem lookup_bind (key : κ) (value : ν) (query : κ) (t : BinaryTree (κ × 
             simp [bind, lookup, kl, kr, ql, qk]
           · by_cases qr : binding.1 < query
             · simpa [bind, lookup, kl, kr, ql, qr] using ihr
-            · have qk : query ≠ key := fun eq => qr (eq ▸ kr)
+            · have qk : query ≠ key := fun eq => qr (by simpa only [eq] using kr)
               simp [bind, lookup, kl, kr, ql, qr, qk]
         · have eq : key = binding.1 := le_antisymm (le_of_not_gt kr) (le_of_not_gt kl)
           rcases lt_trichotomy query binding.1 with h | h | h
           · simp [bind, lookup, kl, kr, eq, h, ne_of_lt h]
           · simp [bind, lookup, kl, kr, eq, h]
           · simp [bind, lookup, kl, kr, eq, h, not_lt_of_gt h, ne_of_gt h]
+
+theorem observe_bind {t : BinaryTree (κ × ν)} (ordered : OrderedBy Prod.fst t)
+    (key : κ) (value : ν) : observe (bind key value t) = write key value (observe t) := by
+  funext query
+  rw [← lookup_correct (ordered_bind ordered key value), lookup_bind, lookup_correct ordered]
+  rfl
 
 theorem lookup_some_contains {query : κ} {value : ν} {t : BinaryTree (κ × ν)}
     (found : lookup query t = some value) : Contains (query, value) t := by
@@ -176,11 +182,7 @@ def decode (t : Tree κ ν) : Meaning κ ν := observe t.1
 
 theorem trees_laws : Laws (trees κ ν) decode where
   empty := rfl
-  bind key value t := by
-    funext query
-    change observe (bind key value t.1) query = write key value (observe t.1) query
-    rw [← lookup_correct (ordered_bind t.2 key value), lookup_bind, lookup_correct t.2]
-    rfl
+  bind key value t := observe_bind t.2 key value
   lookup key t := lookup_correct t.2 key
 
 theorem trees_finite_domain (t : Tree κ ν) :
