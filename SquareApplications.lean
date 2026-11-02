@@ -274,6 +274,11 @@ import Examples.SuspensionRecursive
 import Examples.SuspensionDecomposition
 import Examples.SuspensionPureValues
 import Examples.SuspensionPureMachine
+import Examples.SuspensionPureRepresentation
+import Examples.SuspensionPureCompatibility
+import Examples.SuspensionPureCreation
+import Examples.SuspensionPureRecurrence
+import Examples.SuspensionPureMemory
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 

@@ -41,8 +41,8 @@ def ofExpr : Core.Expr Primitive → Option (Rhs Primitive)
 
 theorem toExpr_ofExpr {expression : Core.Expr Primitive} {rhs : Rhs Primitive}
     (decoded : ofExpr expression = some rhs) : rhs.toExpr = expression := by
-  cases expression <;> simp only [ofExpr] at decoded
-  all_goals cases decoded <;> rfl
+  cases expression <;> simp_all [ofExpr, toExpr]
+  all_goals exact congrArg toExpr decoded.symm
 
 theorem toExpr_permitted (rhs : Rhs Primitive) : Core.RecursiveRhs rhs.toExpr := by
   cases rhs with
@@ -76,7 +76,9 @@ def ofBindings : List (Nat × Core.Expr Primitive) → Except Nat (List (Nat × 
   | nil => rfl
   | cons binding rest ih =>
       rcases binding with ⟨name, rhs⟩
-      simp [toBindings, ofBindings, ih]
+      change ofBindings ((name, rhs.toExpr) :: toBindings rest) = .ok ((name, rhs) :: rest)
+      rw [ofBindings, ofExpr_toExpr, ih]
+      rfl
 
 theorem toBindings_ofBindings {bindings : List (Nat × Core.Expr Primitive)}
     {decoded : List (Nat × Rhs Primitive)}
@@ -91,10 +93,10 @@ theorem toBindings_ofBindings {bindings : List (Nat × Core.Expr Primitive)}
       | none => simp [ofBindings, first] at success
       | some rhs =>
           cases following : ofBindings rest with
-          | error invalid => simp [ofBindings, first, following] at success
+          | error invalid => simp [ofBindings, first, following, Except.map] at success
           | ok tail =>
               have decodedEq : (name, rhs) :: tail = decoded := by
-                simpa [ofBindings, first, following] using success
+                simpa [ofBindings, first, following, Except.map] using success
               subst decoded
               change (name, rhs.toExpr) :: toBindings tail = (name, expression) :: rest
               rw [toExpr_ofExpr first, ih following]
@@ -102,8 +104,12 @@ theorem toBindings_ofBindings {bindings : List (Nat × Core.Expr Primitive)}
 theorem toBindings_permitted (bindings : List (Nat × Rhs Primitive)) :
     List.Forall (fun binding => Core.RecursiveRhs binding.2) (toBindings bindings) := by
   induction bindings with
-  | nil => exact .nil
-  | cons binding rest ih => exact .cons (toExpr_permitted binding.2) ih
+  | nil => trivial
+  | cons binding rest ih =>
+      rcases binding with ⟨name, rhs⟩
+      change List.Forall (fun entry => Core.RecursiveRhs entry.2)
+        ((name, rhs.toExpr) :: toBindings rest)
+      exact (List.forall_cons _ _ _).mpr ⟨toExpr_permitted rhs, ih⟩
 
 @[simp] theorem toBindings_names (bindings : List (Nat × Rhs Primitive)) :
     (toBindings bindings).map Prod.fst = bindings.map Prod.fst := by

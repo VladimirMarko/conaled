@@ -78,7 +78,7 @@ def mutualClauses : List (Pattern × Expr Empty) :=
 def mutualDefinitions : List (Nat × Rhs Empty) :=
   [(1, .function mutualClauses), (2, .delay (.apply (.variable 1) (boolean true)))]
 
-def mutualGroup : Group Empty := .mk mutualDefinitions []
+def mutualGroup : Suspensions.Pure.Group Empty := .mk mutualDefinitions []
 
 def mutualTerm : Expr Empty :=
   .recursive (Rhs.toBindings mutualDefinitions) (.apply (.variable 1) (boolean false))
@@ -106,7 +106,7 @@ def returningClauses : List (Pattern × Expr Empty) :=
 
 def returningDefinitions : List (Nat × Rhs Empty) := [(1, .delay (.function returningClauses))]
 
-def returningGroup : Group Empty := .mk returningDefinitions []
+def returningGroup : Suspensions.Pure.Group Empty := .mk returningDefinitions []
 
 def returningClosure : Expr Empty :=
   .recursive (Rhs.toBindings returningDefinitions)
@@ -141,7 +141,7 @@ def cycleBody : Expr Empty := .apply (.variable 1) (.record [])
 def cycleDefinitions : List (Nat × Rhs Empty) :=
   [(1, .function cycleClauses), (2, .delay cycleBody)]
 
-def cycleGroup : Group Empty := .mk cycleDefinitions []
+def cycleGroup : Suspensions.Pure.Group Empty := .mk cycleDefinitions []
 
 def cycleTerm : Expr Empty :=
   .recursive (Rhs.toBindings cycleDefinitions) (force (.variable 2))
