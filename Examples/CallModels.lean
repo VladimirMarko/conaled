@@ -39,7 +39,8 @@ theorem append_refined_exact (xs : List α) :
   | nil => rfl
   | cons x xs ih =>
       rw [appendEvents_cons, refinedCost_cons, ih]
-      simp [appendExtra, Nat.mul_add] <;> omega
+      simp [appendExtra, Nat.mul_add]
+      omega
 
 theorem append_refined_bounds (xs ys : List α) :
     (ListReversal.appendRun xs ys).2 ≤ refinedCost appendExtra (appendEvents xs) ∧
@@ -98,7 +99,7 @@ theorem intermittent_entry_not_isBigO :
   obtain ⟨C, bound⟩ := Asymptotics.isBigO_iff.mp h
   obtain ⟨N, fromN⟩ := Filter.eventually_atTop.mp bound
   have even := fromN (2 * N) (by omega)
-  have zero : intermittentCost (2 * N) = 0 := by simp [intermittentCost, Nat.mul_mod]
+  have zero : intermittentCost (2 * N) = 0 := by simp [intermittentCost]
   norm_num [zero] at even
 
 end Examples.CallModels
