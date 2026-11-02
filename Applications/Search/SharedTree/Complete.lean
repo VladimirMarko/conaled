@@ -32,7 +32,7 @@ theorem completeValue_nodes (x : α) (d : Nat) :
   induction d with
   | zero => rfl
   | succ d ih =>
-      simp only [completeValue, BinaryTree.numNodes, pow_succ]
+      simp only [completeValue, BinaryTree.numNodes]
       omega
 
 def completeRun (x : α) : Nat → Store α → Resources.Measured (Store α × Root) Nat
