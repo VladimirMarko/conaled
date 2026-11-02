@@ -68,8 +68,10 @@ theorem failed_match_state :
 failed outcome and reached state, not just the selected derivation above. -/
 theorem failed_match_unique {answer final}
     (run : SuspensionMatch evaluateBody matchLiteral initial 99 1 0 answer final) :
-    answer = .ok none ∧ final = afterFailure :=
-  suspension_deterministic body_deterministic literal_deterministic run failed_match
+    answer = .ok none ∧ final = afterFailure := by
+  exact suspension_deterministic (evaluate := evaluateBody) (matchPattern := matchLiteral)
+    (fun first second => body_deterministic first second)
+    (fun first second => literal_deterministic first second) run failed_match
 
 theorem next_match_cached :
     SuspensionMatch evaluateBody matchLiteral afterFailure 99 1 1

@@ -27,19 +27,19 @@ mutual
     | .reference inner | .suspended inner => patternNames inner
     | .layered name inner => {name} ∪ patternNames inner
   termination_by p => sizeOf p
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf
 
   def optionalPatternNames : Option Pattern → Finset Nat
     | none => ∅
     | some p => patternNames p
   termination_by argument => sizeOf argument
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf
 
   def patternFieldNames : List (Nat × Pattern) → Finset Nat
     | [] => ∅
     | (_, p) :: rest => patternNames p ∪ patternFieldNames rest
   termination_by fields => sizeOf fields
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf
 end
 
 mutual
@@ -58,31 +58,31 @@ mutual
     | .handle body clauses => expressionNames body ∪ clauseNames clauses
     | .newException name body => {name} ∪ expressionNames body
   termination_by e => sizeOf e
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf
 
   def optionalExpressionNames {Primitive : Type} : Option (Expr Primitive) → Finset Nat
     | none => ∅
     | some e => expressionNames e
   termination_by argument => sizeOf argument
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf
 
   def expressionFieldNames {Primitive : Type} : List (Nat × Expr Primitive) → Finset Nat
     | [] => ∅
     | (_, e) :: rest => expressionNames e ∪ expressionFieldNames rest
   termination_by fields => sizeOf fields
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf
 
   def clauseNames {Primitive : Type} : List (Pattern × Expr Primitive) → Finset Nat
     | [] => ∅
     | (p, e) :: rest => patternNames p ∪ expressionNames e ∪ clauseNames rest
   termination_by clauses => sizeOf clauses
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf
 
   def recursiveNames {Primitive : Type} : List (Nat × Expr Primitive) → Finset Nat
     | [] => ∅
     | (name, e) :: rest => {name} ∪ expressionNames e ∪ recursiveNames rest
   termination_by bindings => sizeOf bindings
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf
 end
 
 /-- One choice fresh for every conservative clause name and any supplied
@@ -111,5 +111,22 @@ theorem fresh_clauses {Primitive : Type} (contextNames : Finset Nat)
     fresh contextNames clauses ∉ clauseNames clauses := by
   intro member
   exact fresh_not_mem contextNames clauses (Finset.mem_union_right _ member)
+
+
+/-- Every recursive binder is included, even if its right side never uses it. -/
+theorem recursive_binders_subset {Primitive : Type}
+    (bindings : List (Nat × Expr Primitive)) :
+    (bindings.map Prod.fst).toFinset ⊆ recursiveNames bindings := by
+  induction bindings with
+  | nil => simp
+  | cons pair rest ih =>
+    rcases pair with ⟨name, e⟩
+    intro key member
+    simp only [List.map_cons, List.toFinset_cons, Finset.mem_insert] at member
+    rcases member with same | tail
+    · subst key
+      simp [recursiveNames]
+    · rw [recursiveNames]
+      exact Finset.mem_union_right _ (ih tail)
 
 end Suspensions.Names

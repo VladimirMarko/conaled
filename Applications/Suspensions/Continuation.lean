@@ -50,10 +50,10 @@ private theorem step_classifies (parameters : Parameters Primitive) (config : Co
         | none => step parameters (appendFrames config tail) = .inl answer := by
   rcases config with ⟨memory, control, stack⟩
   cases control <;>
-    simp only [step, transition, appendFrames, continue, finish, boundaryControl]
+    simp only [step, transition, appendFrames, proceed, finish, boundaryControl]
   all_goals
     repeat' first
-      | (fail_if_no_progress simp_all [appendFrames, continue, finish, boundaryControl])
+      | (fail_if_no_progress simp_all [appendFrames, proceed, finish, boundaryControl])
       | split at *
 
 theorem step_append {parameters : Parameters Primitive} {config next : Config Primitive}

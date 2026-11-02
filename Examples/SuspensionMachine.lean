@@ -52,7 +52,7 @@ theorem lexical_capture :
       answer.result = .value (.atom (.integer 1)) ∧
       answer.memory.memory 0 = some (.value (.atom (.integer 1))) ∧
       events.count (.body 0) = 1 ∧ events.count (.cacheWrite 0) = 1 := by
-  refine ⟨?_, ?_, ?_, ?_, ?_⟩
+  refine ⟨_, _, _, ?_, ?_⟩
   · exact Progress.search_sound (fuel := 80) (by rfl)
   · exact ⟨rfl, rfl, rfl, rfl⟩
 
@@ -68,7 +68,7 @@ theorem alias_cache_reuse :
       answer.result = .value (.atom (.integer 7)) ∧ answer.memory.next = 1 ∧
       events.count (.body 0) = 1 ∧ events.count (.cacheWrite 0) = 1 ∧
       events.count (.hit 0) = 1 := by
-  refine ⟨?_, ?_, ?_, ?_, ?_⟩
+  refine ⟨_, _, _, ?_, ?_⟩
   · exact Progress.search_sound (fuel := 100) (by rfl)
   · exact ⟨rfl, rfl, rfl, rfl, rfl⟩
 
@@ -106,7 +106,7 @@ theorem three_clauses_exhaust :
       answer.memory.memory 0 = some (.value (.atom (.boolean true))) ∧
       answer.memory.memory 1 = some (.value (.atom (.integer 1))) ∧
       events.count (.body 1) = 1 ∧ events.count (.cacheWrite 1) = 1 := by
-  refine ⟨?_, ?_, ?_, ?_, ?_⟩
+  refine ⟨_, _, _, ?_, ?_⟩
   · exact Progress.search_sound (fuel := 200) (by rfl)
   · exact ⟨rfl, rfl, rfl, rfl, rfl⟩
 
@@ -119,7 +119,7 @@ theorem fourth_clause_reachable :
       answer.memory.memory 0 = some (.value (.atom (.boolean true))) ∧
       answer.memory.memory 1 = some (.value (.atom (.integer 1))) ∧
       events.count (.body 1) = 1 ∧ events.count (.cacheWrite 1) = 1 := by
-  refine ⟨?_, ?_, ?_, ?_, ?_⟩
+  refine ⟨_, _, _, ?_, ?_⟩
   · exact Progress.search_sound (fuel := 220) (by rfl)
   · exact ⟨rfl, rfl, rfl, rfl, rfl⟩
 
@@ -135,7 +135,7 @@ theorem assignment_unit_matches :
       answer.result = .value (.atom (.boolean true)) ∧
       answer.memory.memory 0 = some (.value (.atom (.boolean true))) ∧
       events.count (.referenceWrite 0) = 1 := by
-  refine ⟨?_, ?_, ?_, ?_, ?_⟩
+  refine ⟨_, _, _, ?_, ?_⟩
   · exact Progress.search_sound (fuel := 100) (by rfl)
   · exact ⟨rfl, rfl, rfl⟩
 
@@ -148,8 +148,217 @@ theorem cached_reference_integer :
       answer.memory.memory 0 = some (.value (.address 1)) ∧
       events.count (.body 0) = 1 ∧ events.count (.cacheWrite 0) = 1 ∧
       events.count (.hit 0) = 1 ∧ events.count (.referenceWrite 1) = 1 := by
-  refine ⟨?_, ?_, ?_, ?_, ?_⟩
+  refine ⟨_, _, _, ?_, ?_⟩
   · exact Progress.search_sound (fuel := 200) (by rfl)
   · exact ⟨rfl, rfl, rfl, rfl, rfl, rfl, rfl⟩
+
+def guarded (body continuation : Expr Primitive) : Expr Primitive :=
+  .bind (.variable 1) (.reference (boolean false))
+    (.recursive [(2, .delay body)] continuation)
+
+def reentrantOverwrite : Expr Primitive :=
+  guarded
+    (.branch (.read (.variable 1)) (integer 7)
+      (.bind .wildcard (.assign (.variable 1) (boolean true))
+        (.apply (.primitive .increment) (force (.variable 2)))))
+    (.bind .wildcard (force (.variable 2)) (force (.variable 2)))
+
+/-- An inner successful force is followed by the outer successful overwrite. -/
+theorem reentrant_overwrite :
+    ∃ answer events steps,
+      Progress.Evaluates (tracedStep parameters) (start initial [] reentrantOverwrite, [])
+        (answer, events) steps ∧
+      answer.result = .value (.atom (.integer 8)) ∧
+      answer.memory.memory 1 = some (.value (.atom (.integer 8))) ∧
+      answer.memory.memory 0 = some (.value (.atom (.boolean true))) ∧
+      events.count (.body 1) = 2 ∧ events.count (.cacheWrite 1) = 2 ∧
+      events.count (.hit 1) = 1 := by
+  refine ⟨_, _, _, ?_, ?_⟩
+  · exact Progress.search_sound (fuel := 300) (by rfl)
+  · exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
+
+def reentrantRaises (continuation : Expr Primitive) : Expr Primitive :=
+  .newException 3
+    (guarded
+      (.branch (.read (.variable 1)) (integer 7)
+        (.bind .wildcard (.assign (.variable 1) (boolean true))
+          (.bind .wildcard (force (.variable 2)) (.raise (.variable 3)))))
+      continuation)
+
+/-- The outer exceptional return leaves the inner successful cache in memory. -/
+theorem outer_exception_preserves_inner :
+    ∃ answer events steps,
+      Progress.Evaluates (tracedStep parameters)
+        (start initial [] (reentrantRaises (force (.variable 2))), []) (answer, events) steps ∧
+      answer.result = .raised (.exception 2 none) ∧
+      answer.memory.memory 1 = some (.value (.atom (.integer 7))) ∧
+      events.count (.body 1) = 2 ∧ events.count (.cacheWrite 1) = 1 := by
+  refine ⟨_, _, _, ?_, ?_⟩
+  · exact Progress.search_sound (fuel := 300) (by rfl)
+  · exact ⟨rfl, rfl, rfl, rfl⟩
+
+/-- After handling that outer exception, another force uses the inner cache. -/
+theorem outer_exception_then_hit :
+    ∃ answer events steps,
+      Progress.Evaluates (tracedStep parameters)
+        (start initial [] (reentrantRaises
+          (.handle (force (.variable 2)) [(.exception 3 none, force (.variable 2))])), [])
+        (answer, events) steps ∧
+      answer.result = .value (.atom (.integer 7)) ∧
+      answer.memory.memory 1 = some (.value (.atom (.integer 7))) ∧
+      events.count (.body 1) = 2 ∧ events.count (.cacheWrite 1) = 1 ∧
+      events.count (.hit 1) = 1 := by
+  refine ⟨_, _, _, ?_, ?_⟩
+  · exact Progress.search_sound (fuel := 350) (by rfl)
+  · exact ⟨rfl, rfl, rfl, rfl, rfl⟩
+
+def repeatedCreation : Expr Primitive :=
+  .bind .wildcard (force (.delay (integer 7))) (force (.delay (integer 7)))
+
+/-- Repeating delay creation differs from aliasing one existing address. -/
+theorem repeated_creation_runs_twice :
+    ∃ answer events steps,
+      Progress.Evaluates (tracedStep parameters) (start initial [] repeatedCreation, [])
+        (answer, events) steps ∧
+      answer.result = .value (.atom (.integer 7)) ∧ answer.memory.next = 2 ∧
+      events.count (.body 0) = 1 ∧ events.count (.body 1) = 1 ∧
+      events.count (.hit 0) = 0 ∧ events.count (.hit 1) = 0 := by
+  refine ⟨_, _, _, ?_, ?_⟩
+  · exact Progress.search_sound (fuel := 150) (by rfl)
+  · exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
+
+def exceptionalInner : Expr Primitive :=
+  .newException 3
+    (.bind (.variable 1) (.delay (.delay (.raise (.variable 3))))
+      (.handle
+        (.bind (.suspended (.suspended .wildcard)) (.variable 1) (integer 99))
+        [(.exception 3 none, force (.variable 1))]))
+
+/-- The inner pattern raises after the successful outer result is cached. -/
+theorem exceptional_inner_retains_outer_cache :
+    ∃ answer events steps,
+      Progress.Evaluates (tracedStep parameters) (start initial [] exceptionalInner, [])
+        (answer, events) steps ∧
+      answer.result = .value (.address 1) ∧
+      answer.memory.memory 0 = some (.value (.address 1)) ∧
+      events.count (.body 0) = 1 ∧ events.count (.body 1) = 1 ∧
+      events.count (.cacheWrite 0) = 1 ∧ events.count (.cacheWrite 1) = 0 ∧
+      events.count (.hit 0) = 1 := by
+  refine ⟨_, _, _, ?_, ?_⟩
+  · exact Progress.search_sound (fuel := 250) (by rfl)
+  · exact ⟨rfl, rfl, rfl, rfl, rfl, rfl, rfl⟩
+
+def repeatedExceptions : Expr Primitive :=
+  .newException 3
+    (.bind (.variable 1) (.delay (.raise (.variable 3)))
+      (.bind .wildcard
+        (.handle (force (.variable 1)) [(.exception 3 none, .record [])])
+        (.handle (force (.variable 1)) [(.exception 3 none, integer 5)])))
+
+/-- A body exception is not cached: handling and retrying enters the body again. -/
+theorem repeated_body_exceptions :
+    ∃ answer events steps,
+      Progress.Evaluates (tracedStep parameters) (start initial [] repeatedExceptions, [])
+        (answer, events) steps ∧
+      answer.result = .value (.atom (.integer 5)) ∧ answer.memory.next = 1 ∧
+      events.count (.body 0) = 2 ∧ events.count (.cacheWrite 0) = 0 ∧
+      events.count (.hit 0) = 0 := by
+  refine ⟨_, _, _, ?_, ?_⟩
+  · exact Progress.search_sound (fuel := 250) (by rfl)
+  · exact ⟨rfl, rfl, rfl, rfl, rfl⟩
+
+def shallowConstructor : Expr Primitive :=
+  .newException 3
+    (force (.delay (.constructor 10 (some (.delay (.raise (.variable 3)))))))
+
+/-- Returning a constructor containing a suspension does not force that field. -/
+theorem shallow_constructor_observation :
+    ∃ answer events steps,
+      Progress.Evaluates (tracedStep parameters) (start initial [] shallowConstructor, [])
+        (answer, events) steps ∧
+      answer.result = .value (.constructor 10 (some (.address 1))) ∧ answer.memory.next = 2 ∧
+      events.count (.body 0) = 1 ∧ events.count (.body 1) = 0 ∧
+      events.count (.cacheWrite 0) = 1 ∧ events.count (.cacheWrite 1) = 0 := by
+  refine ⟨_, _, _, ?_, ?_⟩
+  · exact Progress.search_sound (fuel := 150) (by rfl)
+  · exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
+
+def lazyClauses : List (Pattern × Expr Primitive) :=
+  [(.reference (.atom (.boolean false)), .delay (integer 1)),
+   (.reference (.atom (.boolean true)), .delay (integer 2))]
+
+def lazySelection : Expr Primitive :=
+  .bind (.variable 1) (.reference (boolean false))
+    (.bind (.variable 2) (.apply (lazyFunction 9 lazyClauses) (.variable 1))
+      (.bind .wildcard (.assign (.variable 1) (boolean true)) (force (.variable 2))))
+
+/-- Identifier9 is fresh here; the clauses run only after the reference changes. -/
+theorem lazy_function_delays_matching :
+    ∃ answer events steps,
+      Progress.Evaluates (tracedStep parameters) (start initial [] lazySelection, [])
+        (answer, events) steps ∧
+      answer.result = .value (.atom (.integer 2)) ∧ answer.memory.next = 3 ∧
+      answer.memory.memory 0 = some (.value (.atom (.boolean true))) ∧
+      events.count (.body 1) = 1 ∧ events.count (.body 2) = 1 ∧
+      events.count (.referenceWrite 0) = 1 := by
+  refine ⟨_, _, _, ?_, ?_⟩
+  · exact Progress.search_sound (fuel := 300) (by rfl)
+  · exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
+
+def currentExceptionPattern : Expr Primitive :=
+  .newException 3
+    (.bind (.variable 1) (.delay (.variable 3))
+      (.newException 3 (.bind (.suspended (.exception 3 none)) (.variable 1) (integer 9))))
+
+/-- Body and inner pattern use different environments when a name is shadowed. -/
+theorem exception_pattern_uses_current_environment :
+    ∃ answer events steps,
+      Progress.Evaluates (tracedStep parameters) (start initial [] currentExceptionPattern, [])
+        (answer, events) steps ∧
+      answer.result = .raised (.exception 1 none) ∧
+      answer.memory.memory 0 = some (.value (.exception 2 none)) ∧
+      events.count (.freshException 2) = 1 ∧ events.count (.freshException 3) = 1 ∧
+      events.count (.body 0) = 1 ∧ events.count (.cacheWrite 0) = 1 := by
+  refine ⟨_, _, _, ?_, ?_⟩
+  · exact Progress.search_sound (fuel := 150) (by rfl)
+  · exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
+
+def referenceInner : Expr Primitive :=
+  .bind (.variable 1) (.reference (boolean false))
+    (.bind (.variable 2)
+      (.delay (.bind .wildcard (.assign (.variable 1) (boolean true)) (integer 1)))
+      (.bind (.variable 3) (.reference (.variable 2))
+        (.apply (.function
+          [(.reference (.suspended (.atom (.integer 0))), integer 9),
+           (.wildcard, .read (.variable 1))]) (.variable 3))))
+
+/-- Reference matching preserves the effects of its failed suspended subpattern. -/
+theorem reference_inner_effects_retained :
+    ∃ answer events steps,
+      Progress.Evaluates (tracedStep parameters) (start initial [] referenceInner, [])
+        (answer, events) steps ∧
+      answer.result = .value (.atom (.boolean true)) ∧
+      answer.memory.memory 0 = some (.value (.atom (.boolean true))) ∧
+      answer.memory.memory 1 = some (.value (.atom (.integer 1))) ∧
+      events.count (.referenceRead 2) = 1 ∧ events.count (.body 1) = 1 ∧
+      events.count (.cacheWrite 1) = 1 := by
+  refine ⟨_, _, _, ?_, ?_⟩
+  · exact Progress.search_sound (fuel := 220) (by rfl)
+  · exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
+
+def rawStuck : Expr Primitive :=
+  .bind .wildcard (.reference (integer 7)) (.read (integer 0))
+
+/-- A raw type error remains distinct from a source exception and retains effects. -/
+theorem raw_stuck_retains_state :
+    ∃ answer events steps,
+      Progress.Evaluates (tracedStep parameters) (start initial [] rawStuck, [])
+        (answer, events) steps ∧
+      answer.result = .stuck .expectedAddress ∧ answer.memory.next = 1 ∧
+      answer.memory.memory 0 = some (.value (.atom (.integer 7))) ∧
+      events.count (.allocate 0) = 1 := by
+  refine ⟨_, _, _, ?_, ?_⟩
+  · exact Progress.search_sound (fuel := 80) (by rfl)
+  · exact ⟨rfl, rfl, rfl, rfl⟩
 
 end Examples.SuspensionMachine

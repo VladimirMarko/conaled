@@ -135,11 +135,11 @@ def freshExceptionName (memory : Memory Primitive) : Nat := memory.exceptionName
 theorem freshExceptionName_fresh (memory : Memory Primitive) :
     freshExceptionName memory ∉ memory.exceptionNames := by
   intro present
-  have bound : freshExceptionName memory ≤ memory.exceptionNames.sup id := Finset.le_sup present
+  have bound : freshExceptionName memory ≤ memory.exceptionNames.sup id := Finset.le_sup (f := id) present
   unfold freshExceptionName at bound
   omega
 
-def continue (memory : Memory Primitive) (control : Control Primitive)
+def proceed (memory : Memory Primitive) (control : Control Primitive)
     (stack : List (Frame Primitive)) (event : Event := .core) :
     (Answer Primitive ⊕ Config Primitive) × Event :=
   (.inr ⟨memory, control, stack⟩, event)
@@ -154,164 +154,164 @@ def transition (parameters : Parameters Primitive) (config : Config Primitive) :
   let k := config.stack
   match config.control with
   | .eval env expression => match expression with
-    | .atom a => continue s (.value (.atom a)) k
+    | .atom a => proceed s (.value (.atom a)) k
     | .variable name => match env.lookup name with
-      | some v => continue s (.value v) k
+      | some v => proceed s (.value v) k
       | none => finish s (.stuck (.unboundVariable name))
-    | .primitive op => continue s (.value (.primitive op)) k
-    | .constructor tag none => continue s (.value (.constructor tag none)) k
-    | .constructor tag (some e) => continue s (.eval env e) (.constructor tag :: k)
-    | .record [] => continue s (.value (.record [])) k
+    | .primitive op => proceed s (.value (.primitive op)) k
+    | .constructor tag none => proceed s (.value (.constructor tag none)) k
+    | .constructor tag (some e) => proceed s (.eval env e) (.constructor tag :: k)
+    | .record [] => proceed s (.value (.record [])) k
     | .record ((label, e) :: rest) =>
-        continue s (.eval env e) (.record env label rest [] :: k)
-    | .function clauses => continue s (.value (.closure clauses env [])) k
-    | .apply f a => continue s (.eval env f) (.function env a :: k)
-    | .bind p e body => continue s (.eval env e) (.bindValue env p body :: k)
-    | .recursive bindings body => continue s (.recursive env bindings [] body) k
-    | .branch condition yes no => continue s (.eval env condition) (.branch env yes no :: k)
-    | .reference e => continue s (.eval env e) (.reference :: k)
-    | .read e => continue s (.eval env e) (.read :: k)
-    | .assign r e => continue s (.eval env r) (.assignReference env e :: k)
+        proceed s (.eval env e) (.record env label rest [] :: k)
+    | .function clauses => proceed s (.value (.closure clauses env [])) k
+    | .apply f a => proceed s (.eval env f) (.function env a :: k)
+    | .bind p e body => proceed s (.eval env e) (.bindValue env p body :: k)
+    | .recursive bindings body => proceed s (.recursive env bindings [] body) k
+    | .branch condition yes no => proceed s (.eval env condition) (.branch env yes no :: k)
+    | .reference e => proceed s (.eval env e) (.reference :: k)
+    | .read e => proceed s (.eval env e) (.read :: k)
+    | .assign r e => proceed s (.eval env r) (.assignReference env e :: k)
     | .delay body =>
         let allocated := Suspensions.delay s body env
-        continue allocated.1 (.value (.address allocated.2)) k (.allocate allocated.2)
-    | .raise e => continue s (.eval env e) (.raise :: k)
-    | .handle e clauses => continue s (.eval env e) (.handler env clauses :: k)
+        proceed allocated.1 (.value (.address allocated.2)) k (.allocate allocated.2)
+    | .raise e => proceed s (.eval env e) (.raise :: k)
+    | .handle e clauses => proceed s (.eval env e) (.handler env clauses :: k)
     | .newException name body =>
         let tag := freshExceptionName s
         let next := {s with exceptionNames := insert tag s.exceptionNames}
-        continue next (.eval (Env.extend env [(name, .exception tag none)]) body) k
+        proceed next (.eval (Env.extend env [(name, .exception tag none)]) body) k
           (.freshException tag)
   | .value v => match k with
     | [] => finish s (.value v)
     | frame :: rest => match frame with
-      | .constructor tag => continue s (.value (.constructor tag (some v))) rest
+      | .constructor tag => proceed s (.value (.constructor tag (some v))) rest
       | .record env label remaining done =>
           let fields := done ++ [(label, v)]
           match remaining with
-          | [] => continue s (.value (.record fields)) rest
+          | [] => proceed s (.value (.record fields)) rest
           | (nextLabel, e) :: remaining =>
-              continue s (.eval env e) (.record env nextLabel remaining fields :: rest)
-      | .function env argument => continue s (.eval env argument) (.argument v :: rest)
+              proceed s (.eval env e) (.record env nextLabel remaining fields :: rest)
+      | .function env argument => proceed s (.eval env argument) (.argument v :: rest)
       | .argument f => match f with
         | .closure clauses env recursive =>
-            continue s (.clauses (Env.extend env (Env.rec recursive)) clauses v)
+            proceed s (.clauses (Env.extend env (Env.rec recursive)) clauses v)
               (.applicationResult :: rest)
         | .primitive op => match parameters.primitive op v with
-          | .value value => continue s (.value value) rest
-          | .raised packet => continue s (.raised packet) rest
+          | .value value => proceed s (.value value) rest
+          | .raised packet => proceed s (.raised packet) rest
           | .stuck fault => finish s (.stuck fault)
-        | .constructor tag none => continue s (.value (.constructor tag (some v))) rest
-        | .exception tag none => continue s (.value (.exception tag (some v))) rest
+        | .constructor tag none => proceed s (.value (.constructor tag (some v))) rest
+        | .exception tag none => proceed s (.value (.exception tag (some v))) rest
         | _ => finish s (.stuck .expectedFunction)
-      | .bindValue env p body => continue s (.pattern env p v) (.bindMatch env body :: rest)
+      | .bindValue env p body => proceed s (.pattern env p v) (.bindMatch env body :: rest)
       | .branch env yes no => match v with
-        | .atom (.boolean b) => continue s (.eval env (if b then yes else no)) rest
+        | .atom (.boolean b) => proceed s (.eval env (if b then yes else no)) rest
         | _ => finish s (.stuck .expectedBoolean)
       | .reference =>
           let allocated := Suspensions.allocate s (.value v)
-          continue allocated.1 (.value (.address allocated.2)) rest (.allocate allocated.2)
+          proceed allocated.1 (.value (.address allocated.2)) rest (.allocate allocated.2)
       | .read => match v with
         | .address a => match s.memory a with
-          | some (.value value) => continue s (.value value) rest (.referenceRead a)
+          | some (.value value) => proceed s (.value value) rest (.referenceRead a)
           | some (.thunk _ _) => finish s (.stuck .expectedReferenceValue)
           | none => finish s (.stuck (.missingAddress a))
         | _ => finish s (.stuck .expectedAddress)
-      | .assignReference env e => continue s (.eval env e) (.assignValue v :: rest)
+      | .assignReference env e => proceed s (.eval env e) (.assignValue v :: rest)
       | .assignValue reference => match reference with
         | .address a => match s.memory a with
           | some (.value _) =>
-              continue (Suspensions.memoize s a v) (.value (.record [])) rest (.referenceWrite a)
+              proceed (Suspensions.memoize s a v) (.value (.record [])) rest (.referenceWrite a)
           | some (.thunk _ _) => finish s (.stuck .expectedReferenceValue)
           | none => finish s (.stuck (.missingAddress a))
         | _ => finish s (.stuck .expectedAddress)
       | .raise => match v with
-        | .exception _ _ => continue s (.raised v) rest
+        | .exception _ _ => proceed s (.raised v) rest
         | _ => finish s (.stuck .expectedException)
-      | .handler _ _ | .handlerResult _ | .applicationResult => continue s (.value v) rest
+      | .handler _ _ | .handlerResult _ | .applicationResult => proceed s (.value v) rest
       | .memoize a env inner =>
-          continue (Suspensions.memoize s a v) (.pattern env inner v) rest (.cacheWrite a)
+          proceed (Suspensions.memoize s a v) (.pattern env inner v) rest (.cacheWrite a)
       | .recursive env name remaining created body =>
-          continue s (.recursive env remaining (Env.extend created [(name, v)]) body) rest
+          proceed s (.recursive env remaining (Env.extend created [(name, v)]) body) rest
       | _ => finish s (.stuck .invalidContinuation)
   | .raised packet => match k with
     | [] => finish s (.raised packet)
     | .handler env clauses :: rest =>
-        continue s (.clauses env clauses packet) (.handlerResult packet :: rest)
-    | _ :: rest => continue s (.raised packet) rest
+        proceed s (.clauses env clauses packet) (.handlerResult packet :: rest)
+    | _ :: rest => proceed s (.raised packet) rest
   | .pattern env p v => match p with
-    | .wildcard => continue s (.matched []) k
-    | .variable name => continue s (.matched [(name, v)]) k
+    | .wildcard => proceed s (.matched []) k
+    | .variable name => proceed s (.matched [(name, v)]) k
     | .atom a => match v with
-      | .atom b => continue s (if a = b then .matched [] else .mismatch) k
-      | _ => continue s .mismatch k
+      | .atom b => proceed s (if a = b then .matched [] else .mismatch) k
+      | _ => proceed s .mismatch k
     | .constructor tag argument => match v, argument with
       | .constructor actual none, none =>
-          continue s (if tag = actual then .matched [] else .mismatch) k
+          proceed s (if tag = actual then .matched [] else .mismatch) k
       | .constructor actual (some value), some inner =>
-          continue s (if tag = actual then .pattern env inner value else .mismatch) k
-      | _, _ => continue s .mismatch k
+          proceed s (if tag = actual then .pattern env inner value else .mismatch) k
+      | _, _ => proceed s .mismatch k
     | .exception name argument => match env.lookup name with
       | some (.exception tag none) => match v, argument with
         | .exception actual none, none =>
-            continue s (if tag = actual then .matched [] else .mismatch) k
+            proceed s (if tag = actual then .matched [] else .mismatch) k
         | .exception actual (some value), some inner =>
-            continue s (if tag = actual then .pattern env inner value else .mismatch) k
-        | _, _ => continue s .mismatch k
+            proceed s (if tag = actual then .pattern env inner value else .mismatch) k
+        | _, _ => proceed s .mismatch k
       | _ => finish s (.stuck (.invalidExceptionBinding name))
     | .record patterns => match v, patterns with
-      | .record [], [] => continue s (.matched []) k
+      | .record [], [] => proceed s (.matched []) k
       | .record (_ :: _), [] => finish s (.stuck .expectedEmptyRecord)
-      | .record fields, _ :: _ => continue s (.rows env patterns fields []) k
+      | .record fields, _ :: _ => proceed s (.rows env patterns fields []) k
       | _, _ => finish s (.stuck .expectedRecord)
     | .reference inner => match v with
       | .address a => match s.memory a with
-        | some (.value value) => continue s (.pattern env inner value) k (.referenceRead a)
+        | some (.value value) => proceed s (.pattern env inner value) k (.referenceRead a)
         | some (.thunk _ _) => finish s (.stuck .expectedReferenceValue)
         | none => finish s (.stuck (.missingAddress a))
       | _ => finish s (.stuck .expectedAddress)
     | .suspended inner => match v with
       | .address a => match s.memory a with
-        | some (.value value) => continue s (.pattern env inner value) k (.hit a)
+        | some (.value value) => proceed s (.pattern env inner value) k (.hit a)
         | some (.thunk body captured) =>
-            continue s (.eval captured body) (.memoize a env inner :: k) (.body a)
+            proceed s (.eval captured body) (.memoize a env inner :: k) (.body a)
         | none => finish s (.stuck (.missingAddress a))
       | _ => finish s (.stuck .expectedAddress)
-    | .layered name inner => continue s (.pattern env inner v) (.layered name v :: k)
+    | .layered name inner => proceed s (.pattern env inner v) (.layered name v :: k)
   | .matched bindings => match k with
     | [] => finish s (.matched bindings)
-    | .bindMatch env body :: rest => continue s (.eval (Env.extend env bindings) body) rest
-    | .clause env body _ _ :: rest => continue s (.eval (Env.extend env bindings) body) rest
+    | .bindMatch env body :: rest => proceed s (.eval (Env.extend env bindings) body) rest
+    | .clause env body _ _ :: rest => proceed s (.eval (Env.extend env bindings) body) rest
     | .row env remaining fields earlier :: rest =>
-        continue s (.rows env remaining fields (Env.extend earlier bindings)) rest
-    | .layered name v :: rest => continue s (.matched (Env.extend [(name, v)] bindings)) rest
+        proceed s (.rows env remaining fields (Env.extend earlier bindings)) rest
+    | .layered name v :: rest => proceed s (.matched (Env.extend [(name, v)] bindings)) rest
     | _ => finish s (.stuck .invalidContinuation)
   | .mismatch => match k with
     | [] => finish s .mismatch
-    | .clause env _ remaining v :: rest => continue s (.clauses env remaining v) rest
-    | .bindMatch _ _ :: rest => continue s (.raised (.exception parameters.bindException none)) rest
+    | .clause env _ remaining v :: rest => proceed s (.clauses env remaining v) rest
+    | .bindMatch _ _ :: rest => proceed s (.raised (.exception parameters.bindException none)) rest
     | .applicationResult :: rest =>
-        continue s (.raised (.exception parameters.matchException none)) rest
-    | .handlerResult original :: rest => continue s (.raised original) rest
-    | .row _ _ _ _ :: rest | .layered _ _ :: rest => continue s .mismatch rest
+        proceed s (.raised (.exception parameters.matchException none)) rest
+    | .handlerResult original :: rest => proceed s (.raised original) rest
+    | .row _ _ _ _ :: rest | .layered _ _ :: rest => proceed s .mismatch rest
     | _ => finish s (.stuck .invalidContinuation)
   | .clauses env clauses v => match clauses with
-    | [] => continue s .mismatch k
+    | [] => proceed s .mismatch k
     | (p, body) :: remaining =>
-        continue s (.pattern env p v) (.clause env body remaining v :: k)
+        proceed s (.pattern env p v) (.clause env body remaining v :: k)
   | .rows env patterns fields bindings => match patterns with
-    | [] => continue s (.matched bindings) k
+    | [] => proceed s (.matched bindings) k
     | (label, p) :: remaining => match Env.lookup fields label with
-      | some v => continue s (.pattern env p v) (.row env remaining fields bindings :: k)
+      | some v => proceed s (.pattern env p v) (.row env remaining fields bindings :: k)
       | none => finish s (.stuck (.missingField label))
   | .recursive env bindings created body => match bindings with
     | [] =>
         let recursive := Env.rec created
         let state := Suspensions.srec s (addressRange recursive) (fun captured => Env.extend captured recursive)
-        continue state (.eval (Env.extend env recursive) body) k
+        proceed state (.eval (Env.extend env recursive) body) k
     | (name, e) :: remaining =>
         if recursiveRhs e then
-          continue s (.eval env e) (.recursive env name remaining created body :: k)
+          proceed s (.eval env e) (.recursive env name remaining created body :: k)
         else finish s (.stuck (.invalidRecursiveRhs name))
 
 def step (parameters : Parameters Primitive) : Progress.Machine (Config Primitive) (Answer Primitive) :=
@@ -337,9 +337,8 @@ theorem tracedStep_erases (parameters : Parameters Primitive)
     (input : Config Primitive × List Event) :
     Sum.map Prod.fst Prod.fst (tracedStep parameters input) = step parameters input.1 := by
   rcases input with ⟨config, before⟩
-  unfold tracedStep measuredStep Resources.reweight step
-  cases transition parameters config with
-  | mk next event => cases next <;> rfl
+  rcases out : transition parameters config with ⟨next, event⟩
+  cases next <;> simp [tracedStep, measuredStep, Resources.reweight, step, out]
 
 /-- Event collection preserves the existing finite evaluation and transition count. -/
 theorem traced_evaluates_erases {parameters : Parameters Primitive}
@@ -361,37 +360,37 @@ theorem delay_transition (parameters : Parameters Primitive) (s : Memory Primiti
     (env : Env Primitive) (body : Expr Primitive) (stack : List (Frame Primitive)) :
     transition parameters ⟨s, .eval env (.delay body), stack⟩ =
       let out := Suspensions.delay s body env
-      continue out.1 (.value (.address out.2)) stack (.allocate out.2) := rfl
+      proceed out.1 (.value (.address out.2)) stack (.allocate out.2) := rfl
 
 theorem hit_transition (parameters : Parameters Primitive) (s : Memory Primitive)
     (env : Env Primitive) (inner : Pattern) (a : Nat) (v : Value Primitive)
     (stack : List (Frame Primitive)) (found : s.memory a = some (.value v)) :
     transition parameters ⟨s, .pattern env (.suspended inner) (.address a), stack⟩ =
-      continue s (.pattern env inner v) stack (.hit a) := by simp [transition, found]
+      proceed s (.pattern env inner v) stack (.hit a) := by simp [transition, found]
 
 theorem body_transition (parameters : Parameters Primitive) (s : Memory Primitive)
     (env captured : Env Primitive) (inner : Pattern) (a : Nat) (body : Expr Primitive)
     (stack : List (Frame Primitive)) (found : s.memory a = some (.thunk body captured)) :
     transition parameters ⟨s, .pattern env (.suspended inner) (.address a), stack⟩ =
-      continue s (.eval captured body) (.memoize a env inner :: stack) (.body a) := by
+      proceed s (.eval captured body) (.memoize a env inner :: stack) (.body a) := by
   simp [transition, found]
 
 theorem memoize_before_match (parameters : Parameters Primitive) (s : Memory Primitive)
     (env : Env Primitive) (inner : Pattern) (a : Nat) (v : Value Primitive)
     (stack : List (Frame Primitive)) :
     transition parameters ⟨s, .value v, .memoize a env inner :: stack⟩ =
-      continue (Suspensions.memoize s a v) (.pattern env inner v) stack (.cacheWrite a) := rfl
+      proceed (Suspensions.memoize s a v) (.pattern env inner v) stack (.cacheWrite a) := rfl
 
 theorem raised_skips_memoize (parameters : Parameters Primitive) (s : Memory Primitive)
     (env : Env Primitive) (inner : Pattern) (a : Nat) (packet : Value Primitive)
     (stack : List (Frame Primitive)) :
     transition parameters ⟨s, .raised packet, .memoize a env inner :: stack⟩ =
-      continue s (.raised packet) stack := rfl
+      proceed s (.raised packet) stack := rfl
 
 theorem failed_clause_retains_state (parameters : Parameters Primitive) (s : Memory Primitive)
     (env : Env Primitive) (body : Expr Primitive) (remaining : List (Pattern × Expr Primitive))
     (v : Value Primitive) (stack : List (Frame Primitive)) :
     transition parameters ⟨s, .mismatch, .clause env body remaining v :: stack⟩ =
-      continue s (.clauses env remaining v) stack := rfl
+      proceed s (.clauses env remaining v) stack := rfl
 
 end Suspensions.Core.Machine
