@@ -11,11 +11,20 @@ Chapter 2, and it does not implement the source scanner.
 The source is the July 27, 2026 [FDSA book](https://fdsa-book.net/), printed
 pp.21–22, PDF SHA-256
 `9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645`.
-The companion `Natural_Mergesort.thy` at Isabelle revision
-`f86f290225eebcc52c1ae7dba2e098f405f51c21` supplies the actual ascending-run
-builder recurrence used for later correspondence. The exact unit requirements
-and bounded design preflight are preserved in the external `fdsa-control`
-checkpoint directory.
+The companion `Natural_Mergesort.thy` comes from the dated
+[AFP Efficient-Mergesort archive](https://isa-afp.org/release/afp-Efficient-Mergesort-2026-10-26.tar.gz),
+whose SHA-256 is
+`148ba9c80cf876a77219b1209dfa5df9bafe1aef1388bc84fc7088ff9c550708`.
+The theory's SHA-256 is
+`2fd5d686d7702385cc76f84e153034fe9b460ec94c0f751a56e5bd5ea017fe51`.
+It supplies the actual ascending-run builder recurrence used for later
+correspondence and imports `HOL-Data_Structures.Sorting`. The separately
+inspected `Sorting.thy` is pinned to Isabelle revision
+`f86f290225eebcc52c1ae7dba2e098f405f51c21`; that revision does not identify
+the AFP theory. The dated archive postdates the book edition, so this is
+provenance for the compared source, not a claim of identical July source.
+The exact unit requirements, bounded design preflight and its provenance
+correction are preserved in the external `fdsa-control` checkpoint directory.
 
 The value representation is existing `Batteries.DList`, at pinned revision
 `66e469188fe07963e5cf666c7d4433f45b8131c5`. Its `apply` function and invariant
