@@ -51,7 +51,7 @@ theorem contains_iff_mem_entries (x : α) (t : BinaryTree α) :
 theorem entries_length (t : BinaryTree α) : (entries t).length = t.numNodes := by
   induction t with
   | nil => rfl
-  | node x l r hl hr => simp [entries, hl, hr, Nat.add_assoc, Nat.add_comm]
+  | node x l r hl hr => simp [entries, hl, hr, Nat.add_assoc]
 
 /-- All labels, with no order or equality assumptions on the label type. -/
 def All (P : α → Prop) : BinaryTree α → Prop
@@ -158,7 +158,7 @@ theorem member_correct {t : BinaryTree α} (ordered : Ordered t) (x : α) :
         · simpa only [member, memberRun, ite_eq_right xy, ite_eq_left yx] using
             (hr ordered.2.1).trans (contains_right_iff ordered yx).symm
         · have eq : x = y := le_antisymm (le_of_not_gt yx) (le_of_not_gt xy)
-          simp [member, memberRun, xy, yx, Contains, eq]
+          simp [member, memberRun, Contains, eq]
 
 theorem memberRun_bound (x : α) (t : BinaryTree α) :
     (memberRun x t).2 ≤ 2 * t.height := by
@@ -198,8 +198,7 @@ theorem contains_insert (x z : α) (t : BinaryTree α) :
         · simp only [insert, ite_eq_right xy, ite_eq_left yx, Contains, hr]
           tauto
         · have eq : x = y := le_antisymm (le_of_not_gt yx) (le_of_not_gt xy)
-          simp only [insert, ite_eq_right xy, ite_eq_right yx, Contains, eq]
-          tauto
+          simp [insert, Contains, eq]
 
 theorem all_insert {P : α → Prop} {t : BinaryTree α} (h : All P t)
     (x : α) (hx : P x) : All P (insert x t) := by
