@@ -1,4 +1,6 @@
 import Applications.Search.OrderedTree.Interface
+import Applications.Search.OrderedTree.Contents
+import Applications.Search.OrderedTree.Comparison
 
 /-!
 # Checked ordered-set clients and comparison distinctions
@@ -21,11 +23,25 @@ theorem sample_ordered : Ordered sample := by
 
 theorem sample_contains_one : Contains 1 sample := by simp [sample, Contains]
 
+theorem sample_finite_contents :
+    ∃ xs : List Nat, xs.Nodup ∧ xs.length = 3 ∧ ∀ x, Contains x sample ↔ x ∈ xs :=
+  finite_contents sample_ordered
+
 theorem sample_member_one : member 1 sample = true :=
   (member_correct sample_ordered 1).mpr sample_contains_one
 
 theorem sample_candidate_member_one : memberCandidate 1 sample = true :=
   (memberCandidate_correct sample_ordered 1).mpr sample_contains_one
+
+theorem empty_member_and_comparisons :
+    memberCandidate 7 (.nil : BinaryTree Nat) = false ∧
+      (memberCandidateRun 7 none (.nil : BinaryTree Nat)).2 = 0 := by
+  constructor <;> rfl
+
+theorem first_candidate_insertion :
+    insertCandidate 7 (.nil : BinaryTree Nat) = .node 7 .nil .nil := by
+  rw [insertCandidate_eq_insert ordered_nil]
+  rfl
 
 theorem sample_members_agree (x : Nat) :
     memberCandidate x sample = true ↔ member x sample = true :=
@@ -93,5 +109,18 @@ theorem insertion_word_contains_two :
     (candidateOps : Search.AbstractSet.Ops Nat (BinaryTree Nat)).member 2
       (Search.AbstractSet.insertMany candidateOps [3, 1, 3, 2] candidateOps.empty) = true :=
   (insertion_word_membership 2).mpr (by simp)
+
+/-- The comparison bound is sharp on ordered inputs, not only malformed trees. -/
+theorem five_deep_bounds :
+    Ordered (rightSpine 0 5) ∧ (rightSpine 0 5).height = 5 ∧
+      (memberRun 5 (rightSpine 0 5)).2 = 10 ∧
+      (memberCandidateRun 5 none (rightSpine 0 5)).2 = 6 ∧
+      (insertCandidateRun 5 none (rightSpine 0 5)).2 = 6 :=
+  comparison_bounds_attained 4
+
+theorem five_deep_query_absent : ¬ Contains 5 (rightSpine 0 5) :=
+  rightSpine_above_absent (by decide)
+
+theorem five_deep_size : (rightSpine 0 5).numNodes = 5 := rightSpine_numNodes 0 5
 
 end Examples.OrderedTree
