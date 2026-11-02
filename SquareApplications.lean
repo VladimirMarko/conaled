@@ -247,6 +247,7 @@ import Examples.FunctionalBasics
 import Examples.ListReversal
 import Examples.CallModels
 import Examples.SharedDemand
+import Examples.ThreeWayPartition
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
