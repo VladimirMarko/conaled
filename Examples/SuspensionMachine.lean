@@ -231,7 +231,7 @@ def exceptionalInner : Expr Primitive :=
   .newException 3
     (.bind (.variable 1) (.delay (.delay (.raise (.variable 3))))
       (.handle
-        (.bind (.suspended (.suspended .wildcard)) (.variable 1) (integer 99))
+        (.bind (.suspended (.suspended .wildcard)) (.variable 1) (force (.variable 1)))
         [(.exception 3 none, force (.variable 1))]))
 
 /-- The inner pattern raises after the successful outer result is cached. -/
@@ -329,7 +329,7 @@ def referenceInner : Expr Primitive :=
       (.delay (.bind .wildcard (.assign (.variable 1) (boolean true)) (integer 1)))
       (.bind (.variable 3) (.reference (.variable 2))
         (.apply (.function
-          [(.reference (.suspended (.atom (.integer 0))), integer 9),
+          [(.reference (.suspended (.atom (.integer 0))), boolean false),
            (.wildcard, .read (.variable 1))]) (.variable 3))))
 
 /-- Reference matching preserves the effects of its failed suspended subpattern. -/
@@ -345,6 +345,34 @@ theorem reference_inner_effects_retained :
   refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
     (fuel := 220) (by rfl), ?_⟩
   exact ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
+
+
+/-- The function calls the suspension, whose captured recursive environment calls
+that same function. The outer thunk and reference are outside the recursive group. -/
+def mutualCreation : Expr Primitive :=
+  .bind (.variable 3) (.delay (integer 99))
+    (.bind (.variable 4) (.reference (integer 5))
+      (.recursive
+        [(1, .function [(.variable 5,
+          .branch (.variable 5) (integer 7) (force (.variable 2)))]),
+         (2, .delay (.apply (.variable 1) (boolean true)))]
+        (.apply (.variable 1) (boolean false))))
+
+/-- Rec and SRec connect both directions of the mutual dependency. SRec preserves
+an unrelated outer thunk's exact captured environment, and the reference value. -/
+theorem mutual_function_suspension :
+    ∃ answer events steps,
+      Progress.Evaluates (tracedStep parameters) (start initial [] mutualCreation, [])
+        (answer, events) steps ∧
+      answer.result = .value (.atom (.integer 7)) ∧ answer.memory.next = 3 ∧
+      answer.memory.memory 0 = some (.thunk (integer 99) []) ∧
+      answer.memory.memory 1 = some (.value (.atom (.integer 5))) ∧
+      answer.memory.memory 2 = some (.value (.atom (.integer 7))) ∧
+      events.count (.body 2) = 1 ∧ events.count (.cacheWrite 2) = 1 ∧
+      events.count (.body 0) = 0 := by
+  refine ⟨_, _, _, Progress.search_sound (step := tracedStep parameters)
+    (fuel := 300) (by rfl), ?_⟩
+  exact ⟨rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl⟩
 
 def rawStuck : Expr Primitive :=
   .bind .wildcard (.reference (integer 7)) (.read (integer 0))
