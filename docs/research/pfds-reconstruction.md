@@ -29,16 +29,19 @@ solutions do not establish exhaustive coverage.
 
 ## Chapter 1: source accounting
 
-The complete substantive introduction, printed pages 1–5, was inspected in the
-publisher excerpt; the publisher assigns pages 1–6 to the chapter. It contains
-no numbered theorem, exercise, algorithm or code listing. Its explanatory
-distinctions impose requirements on the later formalizations:
+Printed pages 1–5 of the introduction were inspected in the publisher excerpt;
+the publisher assigns pages 1–6 to the chapter. The sample skips printed page 6,
+which has not been independently inspected. The completed roadmap on page 5
+suggests that page 6 is blank, but that remains an inference. Whole-chapter
+source acceptance stays pending until that omission is resolved. The inspected
+pages contain no numbered theorem, exercise, algorithm or code listing. Their
+explanatory distinctions impose requirements on the later formalizations:
 
 | Source section | Classification and conaled interpretation | Technical obligations owned elsewhere |
 | --- | --- | --- |
 | 1.1 | Motivation and terminology for immutable versions. Operations, observations and representation laws remain distinct. | Chapter 2 must prove preservation of old observations and state its sharing model. Persistent versions must not be conflated with crash durability. |
 | 1.2 | Evaluation terminology and motivation for combining evaluation orders. A suspension includes the possibility of shared memoized evaluation. | Chapters 4–7 must state evaluation, demand, memoization and workload assumptions. The introductory comparison is not adopted as an unrestricted impossibility theorem about all strict or lazy languages. |
-| 1.3 | Abstract interfaces, realizations, individual versions and identity across versions are distinct. | Use ordinary operation records and separate simulations where needed. A value or extensional equality is not by itself a model of pointer identity. |
+| 1.3 | Abstract interfaces, realizations, individual versions and logical identity across versions are distinct. Interface functions/operators are distinct from particular operation invocations. | Use function fields for operators, and commands/execution events for invocations when a history is modeled. A logical persistent identity groups versions of one abstract structure; it is not the address of a root or a shared cell. Pointer identity, when needed for sharing, requires a separate model. |
 | 1.4 | A methodology based on reusable design techniques and representative realizations. | Keep each concrete structure optional and expose the premises its clients use. A catalogue of isolated containers would not satisfy the architectural objective. |
 | 1.5 | A roadmap whose technical claims belong to the later chapters. | Chapter-specific source and proof ledgers must retain those claims, including complexity and scheduling. This row supplies no acceptance for later chapters. |
 
@@ -52,12 +55,12 @@ separate returned values from modeled observations. These are examples of
 compatible interfaces, not claims that FIFO behavior formalizes a stack or that
 sequential accounting proves arbitrary persistent amortization.
 
-No new Lean declarations are needed solely to restate Chapter 1's vocabulary.
+No new Lean declarations are needed solely to restate the inspected vocabulary.
 Historical comparisons, citations to external lower bounds and qualitative
 motivation are source context. Any imported mathematical lower-bound result
 would need its own precise model and proof; none is assumed by this work.
 
-## Chapter 2 acceptance boundary
+## Chapter 2 acceptance boundary and shared prerequisites
 
 The inspected list material requires empty-operation failures, two stack
 realizations, append, partial indexed update, retained old versions, sharing
