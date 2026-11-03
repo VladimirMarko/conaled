@@ -264,4 +264,86 @@ theorem height_optimal (s : BinaryTree α) (t : BinaryTree β)
   rw [height_eq_clog_numLeaves s hs]
   exact Nat.clog_le_of_le_pow (hleaves.trans (numLeaves_le_pow_height t))
 
+/-! Local sibling-size constructor support for the source Braun argument.
+The child almost-completeness premises are separate from the size equations.
+Provenance and the retained source notice: `docs/research/fdsa-braun-shape.md`.
+-/
+
+/-- With an almost-complete left child one node larger, the parent's maximum
+height uses the ceiling logarithm of the larger child's external-leaf count.
+The right child may be nil, in which case its external-leaf count is one. -/
+theorem height_node_eq_clog_of_numNodes_succ (a : α) (l r : BinaryTree α)
+    (hl : AlmostComplete l) (hr : AlmostComplete r)
+    (hsize : l.numNodes = r.numNodes + 1) :
+    (BinaryTree.node a l r).height = Nat.clog 2 (r.numLeaves + 1) + 1 := by
+  have hleaves : l.numLeaves = r.numLeaves + 1 := by
+    simp only [BinaryTree.numLeaves_eq_numNodes_succ]
+    omega
+  have hmono : Nat.clog 2 r.numLeaves ≤ Nat.clog 2 (r.numLeaves + 1) :=
+    Nat.clog_mono_right 2 (Nat.le_succ r.numLeaves)
+  rw [BinaryTree.height, height_eq_clog_numLeaves l hl,
+    height_eq_clog_numLeaves r hr, hleaves, max_eq_left hmono]
+
+/-- In the same one-larger case, the parent's minimum external-leaf height
+uses the floor logarithm of the smaller child's external-leaf count. -/
+theorem minHeight_node_eq_log_of_numNodes_succ (a : α) (l r : BinaryTree α)
+    (hl : AlmostComplete l) (hr : AlmostComplete r)
+    (hsize : l.numNodes = r.numNodes + 1) :
+    minHeight (BinaryTree.node a l r) = Nat.log 2 r.numLeaves + 1 := by
+  have hleaves : l.numLeaves = r.numLeaves + 1 := by
+    simp only [BinaryTree.numLeaves_eq_numNodes_succ]
+    omega
+  have hmono : Nat.log 2 r.numLeaves ≤ Nat.log 2 (r.numLeaves + 1) :=
+    Nat.log_mono_right (Nat.le_succ r.numLeaves)
+  rw [minHeight_node, minHeight_eq_log_numLeaves l hl,
+    minHeight_eq_log_numLeaves r hr, hleaves, min_eq_right hmono]
+
+private theorem clog_two_succ_eq_log_add_one (k : Nat) (hk : 0 < k) :
+    Nat.clog 2 (k + 1) = Nat.log 2 k + 1 := by
+  have hlow : 2 ^ Nat.log 2 k ≤ k := Nat.pow_log_le_self 2 (Nat.ne_of_gt hk)
+  have hupp : k < 2 ^ (Nat.log 2 k + 1) :=
+    Nat.lt_pow_succ_log_self (by decide : 1 < 2) k
+  -- The adjacent power interval changes its strict endpoint after adding one.
+  have hlow' : 2 ^ Nat.log 2 k < k + 1 := by omega
+  have hupp' : k + 1 ≤ 2 ^ (Nat.log 2 k + 1) := by omega
+  have hclog_low : Nat.log 2 k < Nat.clog 2 (k + 1) :=
+    (Nat.lt_clog_iff_pow_lt (by decide : 1 < 2)).2 hlow'
+  have hclog_upp : Nat.clog 2 (k + 1) ≤ Nat.log 2 k + 1 :=
+    Nat.clog_le_of_le_pow hupp'
+  omega
+
+private theorem almostComplete_node_of_left_succ (a : α) (l r : BinaryTree α)
+    (hl : AlmostComplete l) (hr : AlmostComplete r)
+    (hsize : l.numNodes = r.numNodes + 1) :
+    AlmostComplete (BinaryTree.node a l r) := by
+  unfold AlmostComplete
+  rw [height_node_eq_clog_of_numNodes_succ a l r hl hr hsize,
+    minHeight_node_eq_log_of_numNodes_succ a l r hl hr hsize]
+  have hclog := clog_two_succ_eq_log_add_one r.numLeaves (BinaryTree.numLeaves_pos r)
+  omega
+
+/-- Almost-complete children whose node counts differ by at most one form an
+almost-complete parent. Both orientations are allowed, and both recursive
+shape premises are necessary; this is a local constructor law. -/
+theorem almostComplete_node_of_numNodes_balance (a : α) (l r : BinaryTree α)
+    (hl : AlmostComplete l) (hr : AlmostComplete r)
+    (hlr : l.numNodes ≤ r.numNodes + 1) (hrl : r.numNodes ≤ l.numNodes + 1) :
+    AlmostComplete (BinaryTree.node a l r) := by
+  have hcases : l.numNodes = r.numNodes ∨
+      l.numNodes = r.numNodes + 1 ∨ r.numNodes = l.numNodes + 1 := by omega
+  rcases hcases with heq | hleft | hright
+  · have hleaves : l.numLeaves = r.numLeaves := by
+      simp only [BinaryTree.numLeaves_eq_numNodes_succ]
+      omega
+    have hheight : l.height = r.height := by
+      rw [height_eq_clog_numLeaves l hl, height_eq_clog_numLeaves r hr, hleaves]
+    have hmin : minHeight l = minHeight r := by
+      rw [minHeight_eq_log_numLeaves l hl, minHeight_eq_log_numLeaves r hr, hleaves]
+    change max l.height r.height + 1 ≤ min (minHeight l) (minHeight r) + 1 + 1
+    rw [hheight, hmin, max_self, min_self]
+    exact Nat.add_le_add_right hr 1
+  · exact almostComplete_node_of_left_succ a l r hl hr hleft
+  · simpa only [AlmostComplete, BinaryTree.height, minHeight_node, max_comm, min_comm]
+      using almostComplete_node_of_left_succ a r l hr hl hright
+
 end Trees

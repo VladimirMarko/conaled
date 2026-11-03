@@ -66,4 +66,25 @@ theorem height_eq_ceil_logb_numLeaves (t : BinaryTree α)
   rw [Real.natCeil_logb_natCast 2 t.numLeaves]
   exact height_eq_clog_numLeaves t ht
 
+/-- The source ceiling-log intermediate identity for two almost-complete
+children with the left one node larger. The cast is of the actual natural
+external-leaf count plus one, including a nil right child. -/
+theorem height_node_eq_ceil_logb_of_numNodes_succ (a : α) (l r : BinaryTree α)
+    (hl : AlmostComplete l) (hr : AlmostComplete r)
+    (hsize : l.numNodes = r.numNodes + 1) :
+    (BinaryTree.node a l r).height =
+      ⌈Real.logb 2 ((r.numLeaves + 1 : Nat) : Real)⌉₊ + 1 := by
+  rw [Real.natCeil_logb_natCast 2 (r.numLeaves + 1)]
+  exact height_node_eq_clog_of_numNodes_succ a l r hl hr hsize
+
+/-- The corresponding source floor-log intermediate identity uses the
+smaller child's positive external-leaf count, rather than its node count. -/
+theorem minHeight_node_eq_floor_logb_of_numNodes_succ (a : α) (l r : BinaryTree α)
+    (hl : AlmostComplete l) (hr : AlmostComplete r)
+    (hsize : l.numNodes = r.numNodes + 1) :
+    minHeight (BinaryTree.node a l r) =
+      ⌊Real.logb 2 (r.numLeaves : Real)⌋₊ + 1 := by
+  rw [Real.natFloor_logb_natCast 2 r.numLeaves]
+  exact minHeight_node_eq_log_of_numNodes_succ a l r hl hr hsize
+
 end Trees

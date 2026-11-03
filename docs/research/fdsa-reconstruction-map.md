@@ -309,3 +309,47 @@ array algorithms and the existing leftist representation and merge-cost bridges
 remain with their chapter tickets. The existing leftist rank proofs are
 unchanged. All integration, candidate validation and final review gates remain
 pending for this draft and its unaccepted prerequisites.
+## Shared Braun structural facts (FDSA-XT09)
+
+This bounded cross-cutting **uncompiled, unaccepted draft** supplies the common
+Braun shape mathematics used by Chapter 11 arrays and Chapter 16 priority
+queues, on the saved XT02 base `974a97321a8ec174b56104c7e6efaaca881b6639`.
+It activates or accepts neither chapter. The complete source correspondence,
+actual declaration/case map, licensing and source-level statement assessment
+are in [fdsa-braun-shape.md](fdsa-braun-shape.md).
+
+| Selected source connection | Actual draft declarations and applications |
+| --- | --- |
+| C11-008; C16-001 shape component | `Trees.Braun`, `braun_nil`, `braun_node`, `braun_node_iff`: exact recursive left-equal-or-one-larger size bias, with both child predicates. |
+| Arbitrary label transport and C11-019 erased-shape uniqueness | `braun_map` is an iff without injectivity or payload capabilities; `braun_shape_eq` compares maps to Unit across independent universes and requires both Braun premises plus equal node counts. `braun_eq_of_numNodes_eq` retains the Unit-labelled source specialization. |
+| C11-014/015 local constructor and its intermediate formulas | Additive `Shape` declarations `almostComplete_node_of_numNodes_balance`, `height_node_eq_clog_of_numNodes_succ`, `minHeight_node_eq_log_of_numNodes_succ`; additive `ShapeLog` ceiling/floor counterparts. Both AC children, actual count hypotheses, leaf positivity and the adjacent-power interval are retained. |
+| C11-016/017; C16-042 height input only | `braun_almostComplete`; actual applications of the unchanged general log/clog, Real rounding and `height_optimal` laws. Nil uses leaves1, and the optimum competitor may have an unrelated payload type and any shape. |
+| Consequential structural and payload boundaries | `BraunShapeExamples` connects Empty/singleton, left/right two-node orientation, malformed equal-count children, B5/A5, noninjective maps, Unit erasure and different Bool payloads to the public laws. |
+| Actual cache compositions | `braun_erase_iff`, `braun_annotate_iff`, `annotated_size_contract`, `cached_shape_and_size` and `sizeBraunFive_contract` combine actual XT01 observations. `valid_cache_nonBraun` and `braun_invalid_cache` distinguish recursive cache validity from shape. |
+
+Braun bias is not ordinary breadth-first left packing. The five-node Braun
+shape has source low-bit indices 1–5 but conventional heap-path positions
+`{1,2,3,4,6}`. That calculation and the source's swapping `del_left` versus
+ordinary BST extraction are documented consumer boundaries; neither operation
+nor an indexing implementation is introduced here. Erased shape equality does
+not imply array-order equality or heap validity, and no cost transfers merely
+from a structural height bound.
+
+The earlier XT02 section and its original exclusions are preserved verbatim.
+XT09 supplies only the selected follow-up above. Full recursive symmetric
+balance C11-018 remains mandatory later work; no second recursive predicate is
+defined here. C11-122 / Exercise 11.1 still requires the independent direct
+power-bound and height proof without first proving AC. The retained AFP PQ
+source supplies a direct route for that later obligation, not a proof imported
+by this unit.
+
+All 135 Chapter 11 rows, all 48 Chapter 16 rows, their other exercises, index
+characterization and converse, array observations/cache/operations/conversions,
+heap algorithms/domains, source-specific costs and all other original book and
+appendix obligations remain required. The source notice and exact July 2026
+PDF/Isabelle/dated AFP identities are retained in the linked note; the formal
+companion pins are not claimed to be the manuscript's generating revision.
+Accepted repaired Chapter 1 and the shared prerequisites, matching focused/full
+guarded validation with both integrity phases and exhaustive audit, both
+independent final review axes and immediate candidate verification remain
+necessary. Source presence, this map, a commit and a checkpoint are not acceptance.
