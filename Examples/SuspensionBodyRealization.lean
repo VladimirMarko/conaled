@@ -122,7 +122,9 @@ theorem not_nodup : ¬ (bodyAddresses (events 50)).Nodup := by
   intro unique
   have bound := (bodyAddresses_nodup_iff (events 50)).mp unique 0
   have actual : bodyEntries 0 (events 50) = 2 :=
-    SuspensionPureBodyCounts.ExternalHandler.two_attempts_without_write.1
+    (bodyEntries_eq_count 0 (events 50)).trans (by
+      simpa only [events] using
+        SuspensionPureBodyCounts.ExternalHandler.two_attempts_without_write.1)
   rw [actual] at bound
   omega
 
@@ -137,7 +139,7 @@ theorem retry_separates_occurrences_and_support :
     (FreeAddMonoid.toList (events 50)).count (.cacheWrite 0) = 0 ∧
     (FreeAddMonoid.toList (events 50)).count (.hit 0) = 0 := by
   refine ⟨?_, ?_, ?_, SuspensionPureBodyCounts.ExternalHandler.two_attempts_without_write⟩
-  · rw [totalBodyEntries_eq_length, body_addresses]
+  · simp only [totalBodyEntries_eq_length, body_addresses, List.length_cons, List.length_nil]
   · simp [body_addresses]
   · simpa [body_addresses] using body_realization_cost (events 50)
 
