@@ -1,4 +1,4 @@
-import Lean
+import Init
 
 /-!
 # Correct computations as commutative squares

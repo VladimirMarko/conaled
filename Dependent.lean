@@ -1,4 +1,4 @@
-import Lean
+import Init
 
 /-!
 # Dependent compilation by commuting squares
