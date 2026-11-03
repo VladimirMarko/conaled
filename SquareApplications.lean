@@ -308,6 +308,15 @@ import Examples.PersistentDebits
 import Examples.PersistentRealization
 import Examples.PersistentObservation
 import Examples.PersistentSourceBoundary
+import Applications.Suspensions.EventCounts
+import Applications.Suspensions.PendingRetention
+import Applications.Suspensions.BodyAccounting
+import Applications.Suspensions.BodyRealization
+import Applications.Suspensions.Pure.BodyCounts
+import Examples.SuspensionEventCounts
+import Examples.SuspensionPendingRetention
+import Examples.SuspensionPureBodyCounts
+import Examples.SuspensionBodyRealization
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
