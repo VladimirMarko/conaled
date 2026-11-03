@@ -106,7 +106,7 @@ end NegativeFinal
 namespace FractionalSavings
 
 /-- Half a unit of modeled work, with three-halves saved or released. -/
-def step (save : Bool) (_ : ℝ) : Measured ℝ ℝ :=
+noncomputable def step (save : Bool) (_ : ℝ) : Measured ℝ ℝ :=
   (if save then 3 / 2 else 0, 1 / 2)
 
 theorem charges :
@@ -136,7 +136,7 @@ namespace DebtSign
 
 /-- The second field models complete work, including work possibly deferred.
 No forcing or persistent-payment law is asserted by this small algebra case. -/
-def step (grow : Bool) (_ : ℝ) : Measured ℝ ℝ :=
+noncomputable def step (grow : Bool) (_ : ℝ) : Measured ℝ ℝ :=
   (if grow then 1 / 4 else 0, 1 / 2)
 
 theorem opposite_charges :
