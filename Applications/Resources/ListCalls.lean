@@ -142,7 +142,7 @@ theorem take_drop_separate (k : Nat) (xs : List α) :
       bind (dropRun k xs) (fun dropped => pure (taken, dropped))) =
       ((SymmetricCosts.splitRun k xs).1, 2 * (SymmetricCosts.splitRun k xs).2) := by
   simp [takeRun_exact, dropRun_exact, SymmetricCosts.splitRun_value,
-    SymmetricCosts.splitRun_work, bind, pure, two_mul]
+    SymmetricCosts.splitRun_work, bind, pure, Nat.two_mul]
 
 /-- Sequential zero-based lookup. The empty-input count of one is an explicit
 extension: the source specifies costs only for valid positions.
