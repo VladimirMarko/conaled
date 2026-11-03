@@ -25,13 +25,19 @@ decreasing_by
 
 theorem sortFloorBy_of_length_le (cmp : α → α → Bool) (xs : List α)
     (h : xs.length ≤ 1) : sortFloorBy cmp xs = xs := by
-  rw [sortFloorBy, if_pos h]
+  rw [sortFloorBy]
+  split
+  · rfl
+  · omega
 
 theorem sortFloorBy_step (cmp : α → α → Bool) (xs : List α)
     (h : 1 < xs.length) :
     sortFloorBy cmp xs = List.merge (sortFloorBy cmp (xs.take (xs.length / 2)))
       (sortFloorBy cmp (xs.drop (xs.length / 2))) cmp := by
-  rw [sortFloorBy, if_neg (by omega)]
+  rw [sortFloorBy]
+  split
+  · omega
+  · rfl
 
 @[simp] theorem sortFloorBy_nil (cmp : α → α → Bool) :
     sortFloorBy cmp [] = [] := sortFloorBy_of_length_le cmp [] (by simp)
