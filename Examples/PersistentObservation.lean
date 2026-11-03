@@ -53,10 +53,60 @@ replaced by the same finite node set. The bound requires its actual enumeration.
 theorem duplicate_enumeration_boundary :
     (run (realizeStep unshared realized) (Fork.operations ++ [.left]) ∅).2 = 5 ∧
       (∑ v ∈ Fork.scope, (unshared v + (Fork.discharges v).card)) = 4 ∧
+      (Fork.operations ++ [.left]).toFinset = Fork.scope ∧
       ¬ (Fork.operations ++ [.left]).Nodup := by
   constructor
   · rw [realize_run_cost]
     decide
-  · constructor <;> decide
+  · exact ⟨by decide, by decide, by decide⟩
+
+private def cycleUnshared (_ : Cycle.Node) : Nat := 0
+private def cycleRealized (operation : Cycle.Node) : Finset Nat :=
+  (Cycle.realizations operation).toFinset
+
+/-- The payment outside this open scope remains in the measured bound. -/
+theorem open_cycle_measured_bound :
+    (run (realizeStep cycleUnshared cycleRealized) [Cycle.Node.first] ∅).2 ≤
+      Cycle.boundary.card +
+        ∑ v ∈ Cycle.openScope, (cycleUnshared v + (Cycle.discharges v).card) :=
+  realize_run_bound_with_boundary cycleUnshared Cycle.discharges Cycle.realizations
+    Cycle.openScope [Cycle.Node.first] (by decide) (by decide)
+    Cycle.boundary Cycle.paid_with_boundary
+
+/-- The same boundary theorem permits independently chosen initial support. -/
+theorem open_cycle_bound_with_seen (seen : Finset Nat) :
+    (run (realizeStep cycleUnshared cycleRealized) [Cycle.Node.first] seen).2 ≤ 1 := by
+  have bound := realize_run_bound_with_boundary_and_seen cycleUnshared
+    Cycle.discharges Cycle.realizations Cycle.openScope [Cycle.Node.first]
+    (by decide) (by decide) Cycle.boundary seen Cycle.paid_with_boundary
+  have credit : Cycle.boundary.card = 1 := by decide
+  have internal : (∑ v ∈ Cycle.openScope,
+      (cycleUnshared v + (Cycle.discharges v).card)) = 0 := by decide
+  simpa only [credit, internal, Nat.add_zero] using bound
+
+/-- The cost is one, internal payment zero, and external credit one. -/
+theorem open_cycle_cost_and_credit :
+    (run (realizeStep cycleUnshared cycleRealized) [Cycle.Node.first] ∅).2 = 1 ∧
+      (∑ v ∈ Cycle.openScope, (cycleUnshared v + (Cycle.discharges v).card)) = 0 ∧
+      Cycle.boundary.card = 1 ∧ ¬ HistoryClosed Cycle.openScope := by
+  constructor
+  · rw [realize_run_cost]
+    decide
+  · exact ⟨by decide, by decide, Cycle.open_not_closed⟩
+
+/-- Payment alone leaves the work charge intact; realized support removes it. -/
+theorem payment_credit_is_not_realized_support :
+    (run (realizeStep cycleUnshared cycleRealized) [Cycle.Node.first] ∅).2 = 1 ∧
+      (run (realizeStep cycleUnshared cycleRealized)
+        [Cycle.Node.first] Cycle.boundary).2 = 0 := by
+  refine ⟨open_cycle_cost_and_credit.1, ?_⟩
+  have balance := realize_run_identity cycleUnshared cycleRealized
+    [Cycle.Node.first] Cycle.boundary
+  have initial : Cycle.boundary.card = 1 := by decide
+  have charges : ([Cycle.Node.first].map cycleUnshared).sum = 0 := by decide
+  have final : (Cycle.boundary ∪
+      realizationSupport cycleRealized [Cycle.Node.first]).card = 1 := by decide
+  rw [initial, charges, final] at balance
+  omega
 
 end Examples.PersistentObservation

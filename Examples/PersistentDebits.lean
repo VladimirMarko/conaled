@@ -21,8 +21,8 @@ private theorem fresh_at {N : Type u} [DecidableEq N] (origin : N) (debits : Set
   intro d hu hv
   by_cases atOrigin : u = origin
   · have away : v ≠ origin := fun h => different (atOrigin.trans h.symm)
-    simpa only [if_neg away, Set.mem_empty_iff_false] using hv
-  · simpa only [if_neg atOrigin, Set.mem_empty_iff_false] using hu
+    simp only [ite_eq_right away, Set.mem_empty_iff_false] at hv
+  · simp only [ite_eq_right atOrigin, Set.mem_empty_iff_false] at hu
 
 namespace Parallel
 
@@ -58,7 +58,7 @@ theorem closed : HistoryClosed scope := by
   intro _ _ u _
   cases u <;> simp [scope]
 
-theorem fresh : Fresh allocations := fresh_at .source {7, 8}
+theorem fresh : Fresh allocations := fresh_at Node.source {7, 8}
 
 theorem allocated : Allocated allocations discharges := by
   intro v d member
@@ -181,7 +181,7 @@ theorem closed : HistoryClosed scope := by
   intro _ _ u _
   cases u <;> simp [scope]
 
-theorem fresh : Fresh allocations := fresh_at .origin {7}
+theorem fresh : Fresh allocations := fresh_at Node.origin {7}
 
 theorem allocated : Allocated allocations discharges := by
   intro v d member
@@ -189,7 +189,7 @@ theorem allocated : Allocated allocations discharges := by
   | origin =>
       have equal : d = 7 := by simpa [discharges] using member
       subst d
-      exact ⟨.origin, history_refl .origin, by simp [allocations]⟩
+      exact ⟨.origin, history_refl Node.origin, by simp [allocations]⟩
   | left => simp [discharges] at member
   | right => simp [discharges] at member
 
@@ -238,7 +238,7 @@ def partialRealizations : Node → Multiset Nat
   | .left => 7 ::ₘ 8 ::ₘ 0
   | .origin | .right => 0
 
-theorem partial_fresh : Fresh partialAllocations := fresh_at .origin {7, 8}
+theorem partial_fresh : Fresh partialAllocations := fresh_at Node.origin {7, 8}
 
 theorem partial_allocated : Allocated partialAllocations partialDischarges := by
   intro v d member
@@ -303,7 +303,7 @@ theorem closed : HistoryClosed scope := by
   intro _ _ u _
   cases u <;> simp [scope]
 
-theorem fresh : Fresh allocations := fresh_at .first {7}
+theorem fresh : Fresh allocations := fresh_at Node.first {7}
 
 theorem allocated : Allocated allocations discharges := by
   intro v d member
@@ -337,7 +337,7 @@ theorem open_not_closed : ¬ HistoryClosed openScope := by
   intro closed
   have member : Node.second ∈ openScope :=
     closed (v := .first) (by simp [openScope]) (history_of_edge Arrow.backward)
-  simpa [openScope] using member
+  simp [openScope] at member
 
 /-- The same complete source-valid labels do not establish an open-scope bound. -/
 theorem open_scope_exceeds :

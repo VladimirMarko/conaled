@@ -68,6 +68,9 @@ private def shift : Nat ↪ Nat :=
 theorem renamed_shared_run :
     run (realizeStep unshared (fun v => (work v).map shift)) [false, true] ∅ = ({17}, 3) := by
   have mapped := realize_run_map shift unshared work [false, true] ∅
-  simpa [final_support, shared_once, shift] using mapped
+  have image : ({7} : Finset Nat).map shift = {17} := by
+    rw [Finset.map_singleton]
+    rfl
+  simpa only [Finset.map_empty, final_support, shared_once, image] using mapped
 
 end Examples.PersistentRealization

@@ -74,6 +74,13 @@ list's unshared sum to the finite-node sum in the source accounting theorem.
 Repeating a vertex name in a list still repeats its unshared charge; silently
 replacing that list by a finite set would lose work.
 
+For an open scope, the measured bound retains an explicit external-payment
+cardinality term through `PaidWithBoundary`. Initially realized support is a
+separate parameter. The cycle client exhibits one charged realization, zero
+internal payment and one boundary debit; merely having payment credit does
+not erase that realization charge. Starting with the same identity already
+realized reduces the interpreter's new-work charge to zero.
+
 This adapter retains the original executor's composition and state trajectory.
 Unique-support cardinality is not an additive reweighting: two observations of
 the same singleton each have cardinality1, but their union has cardinality1.

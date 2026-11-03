@@ -4,7 +4,7 @@ import Applications.Resources.Persistent.Realization
 /-!
 # Logical debit laws bound the same measured realization run
 
-An exact duplicate-free enumeration connects the chronological operation list
+An exact duplicate-free enumeration connects the operation list
 to a finite accounted node set. Source payment laws and history closure then
 bound the abstract debit interpreter's work. Concrete evaluator compatibility
 remains a separate obligation.
@@ -29,6 +29,16 @@ theorem realizationSupport_eq_supportUnion (realized : V → Multiset D)
   | cons operation rest ih =>
       simp [realizationSupport, supportUnion, ih]
 
+/-- An exact enumeration identifies the two observations of the same run. -/
+theorem realize_run_cost_of_enumeration (unshared : V → Nat)
+    (realized : V → Multiset D) (scope : Finset V)
+    (operations : List V) (nodup : operations.Nodup)
+    (enumerates : operations.toFinset = scope) :
+    (run (realizeStep unshared (fun v => (realized v).toFinset)) operations ∅).2 =
+      (∑ v ∈ scope, unshared v) + (supportUnion scope realized).card := by
+  rw [realize_run_cost, realizationSupport_eq_supportUnion,
+    ← List.sum_toFinset unshared nodup, enumerates]
+
 variable [Quiver.{w} V]
 
 /-- Local history payment yields an aggregate bound for this exact enumeration. -/
@@ -40,9 +50,8 @@ theorem realize_run_bound_of_enumeration (unshared : V → Nat)
     (run (realizeStep unshared (fun v => (realized v).toFinset)) operations ∅).2 ≤
       ∑ v ∈ scope, (unshared v + (discharged v).card) := by
   calc
-    _ = (∑ v ∈ scope, unshared v) + (supportUnion scope realized).card := by
-      rw [realize_run_cost, realizationSupport_eq_supportUnion,
-        ← List.sum_toFinset unshared nodup, enumerates]
+    _ = (∑ v ∈ scope, unshared v) + (supportUnion scope realized).card :=
+      realize_run_cost_of_enumeration unshared realized scope operations nodup enumerates
     _ ≤ (∑ v ∈ scope, unshared v) + dischargeCost scope discharged :=
       Nat.add_le_add_left (realized_card_le closed paid) _
     _ = ∑ v ∈ scope, (unshared v + (discharged v).card) := by
@@ -59,5 +68,34 @@ theorem realize_run_bound_with_seen (unshared : V → Nat)
   (realize_run_cost_le_fresh unshared (fun v => (realized v).toFinset) operations seen).trans
     (realize_run_bound_of_enumeration unshared discharged realized scope operations
       nodup enumerates closed paid)
+
+/-- An open scope retains the cardinality of its external payment credit. -/
+theorem realize_run_bound_with_boundary (unshared : V → Nat)
+    (discharged realized : V → Multiset D) (scope : Finset V)
+    (operations : List V) (nodup : operations.Nodup)
+    (enumerates : operations.toFinset = scope) (boundary : Finset D)
+    (paid : PaidWithBoundary scope boundary discharged realized) :
+    (run (realizeStep unshared (fun v => (realized v).toFinset)) operations ∅).2 ≤
+      boundary.card + ∑ v ∈ scope, (unshared v + (discharged v).card) := by
+  calc
+    _ = (∑ v ∈ scope, unshared v) + (supportUnion scope realized).card :=
+      realize_run_cost_of_enumeration unshared realized scope operations nodup enumerates
+    _ ≤ (∑ v ∈ scope, unshared v) + (boundary.card + dischargeCost scope discharged) :=
+      Nat.add_le_add_left (realized_card_le_boundary paid) _
+    _ = boundary.card + ∑ v ∈ scope, (unshared v + (discharged v).card) := by
+      simp only [dischargeCost, Finset.sum_add_distrib]
+      omega
+
+/-- Payment credit and initially realized support are independent parameters. -/
+theorem realize_run_bound_with_boundary_and_seen (unshared : V → Nat)
+    (discharged realized : V → Multiset D) (scope : Finset V)
+    (operations : List V) (nodup : operations.Nodup)
+    (enumerates : operations.toFinset = scope) (boundary seen : Finset D)
+    (paid : PaidWithBoundary scope boundary discharged realized) :
+    (run (realizeStep unshared (fun v => (realized v).toFinset)) operations seen).2 ≤
+      boundary.card + ∑ v ∈ scope, (unshared v + (discharged v).card) :=
+  (realize_run_cost_le_fresh unshared (fun v => (realized v).toFinset) operations seen).trans
+    (realize_run_bound_with_boundary unshared discharged realized scope operations
+      nodup enumerates boundary paid)
 
 end Resources.Persistent
