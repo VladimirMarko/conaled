@@ -47,8 +47,9 @@ realization multiplicities is 2. The latter is a different observation.
 
 `PaidWithBoundary` handles an open scope by retaining an actual supporting
 discharge in logical history. A witness outside the scope must name a debit
-in the explicit boundary set. The cardinality bound includes that boundary;
-the set represents prior payment, not already realized/cached work. A two-node
+in the explicit boundary set. The cardinality bound includes that boundary.
+This term accounts for supporting discharges outside the scope; temporal order
+belongs to the concrete evaluator correspondence. A two-node
 cycle can satisfy the complete source laws while its one-node scope omits the
 only payment. A prefix therefore needs its own scope or boundary justification.
 
