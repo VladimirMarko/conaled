@@ -299,6 +299,15 @@ import Examples.SuspensionCacheWrite
 import Examples.SuspensionCacheAccounting
 import Examples.SuspensionPureCacheCounts
 import Examples.SuspensionTraceObservation
+import Applications.Resources.Persistent.History
+import Applications.Resources.Persistent.Debits
+import Applications.Resources.Persistent.Realization
+import Applications.Resources.Persistent.Observation
+import Examples.PersistentHistory
+import Examples.PersistentDebits
+import Examples.PersistentRealization
+import Examples.PersistentObservation
+import Examples.PersistentSourceBoundary
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
