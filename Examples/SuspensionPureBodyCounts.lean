@@ -254,7 +254,8 @@ theorem no_unwind (address : Nat) :
     have same := Sum.inr.inj reached
     subst next
     rintro ⟨packet, environment, inner, rest, control, stack⟩
-    cases control; cases stack
+    cases control
+  all_goals cases stack
 
 theorem all_budgets (address budget : Nat) :
     Core.Observation.bodyEntries address
