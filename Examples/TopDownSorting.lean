@@ -20,8 +20,8 @@ theorem source_three_split :
 
 theorem source_three_value : sortFloorOn id ([2, 1, 0] : List Nat) = [0, 1, 2] := by
   have h := sortFloorOn_correct id ([2, 1, 0] : List Nat)
-  exact (h.2.trans (by decide : ([2, 1, 0] : List Nat).Perm [0, 1, 2])).eq_of_pairwise'
-    h.1 (by decide)
+  exact List.Perm.eq_of_pairwise' (r := fun a b : Nat => a ≤ b) h.1 (by decide)
+    (h.2.trans (by decide : ([2, 1, 0] : List Nat).Perm [0, 1, 2]))
 
 theorem full_multiset (cmp : Nat → Nat → Bool) :
     ((sortFloorBy cmp [2, 1, 2] : List Nat) : Multiset Nat) =
