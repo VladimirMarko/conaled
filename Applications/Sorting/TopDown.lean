@@ -1,6 +1,6 @@
 import Applications.Sorting.Sort
 
-/-! The floor-left top-down merge sort from FDSA §2.4.2.
+/-! The floor-left top-down merge sort from FDSA §2.4.
 The two contiguous halves preserve the input order across equal-key blocks.
 This value algorithm is separate from its comparison observation; equality
 with the library's ceil-left merge sort does not identify their work counts.

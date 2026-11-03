@@ -1,4 +1,5 @@
 import Applications.Sorting.TopDown
+import Examples.StableSorting
 import Mathlib.Data.Multiset.Basic
 
 /-! Source-split, duplicate-occurrence and keyed-stability clients for floor-left
@@ -66,5 +67,16 @@ theorem arbitrary_comparator_preserves_occurrences (xs : List Nat) :
     (sortFloorBy (fun _ _ => false) xs).Perm xs ∧
     (sortFloorBy (fun _ _ => false) xs).length = xs.length :=
   ⟨sortFloorBy_perm _ xs, sortFloorBy_length _ xs⟩
+
+/-- A comparator contract on this input suffices even when it fails elsewhere. -/
+theorem local_comparator_keys :
+    KeySorted Prod.fst
+      (sortFloorBy StableSorting.nonnegativeCompare StableSorting.nonnegativeInput) :=
+  sortFloorBy_sorted_compatible_on Prod.fst _ _ StableSorting.nonnegative_compatible
+
+/-- Reuse the existing independent signed-record specification through value agreement. -/
+theorem signed_record_value :
+    sortFloorOn Prod.fst StableSorting.input = StableSorting.expected :=
+  (sortFloorOn_eq_sortOn Prod.fst StableSorting.input).trans StableSorting.merge_sort_records
 
 end Examples.TopDownSorting
