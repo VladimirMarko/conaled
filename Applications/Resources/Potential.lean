@@ -66,11 +66,11 @@ theorem run_potential [AddMonoid C] [Preorder C] [AddLeftMono C] [AddRightMono C
               potential (run step is (step i s).1).1) := add_assoc _ _ _
         _ ≤ (step i s).2 + (potential (step i s).1 +
               budget step charge is (step i s).1) :=
-          add_le_add_left (ih (step i s).1) _
+          add_le_add_right (ih (step i s).1) _
         _ = ((step i s).2 + potential (step i s).1) +
               budget step charge is (step i s).1 := (add_assoc _ _ _).symm
         _ ≤ (potential s + charge i s) + budget step charge is (step i s).1 :=
-          add_le_add_right (hstep i s) _
+          add_le_add_left (hstep i s) _
         _ = potential s + (charge i s + budget step charge is (step i s).1) :=
           add_assoc _ _ _
 
@@ -98,7 +98,7 @@ theorem run_cost_le_of_nonneg_final
     (run step is s).2 ≤ potential s + budget step charge is s := by
   have below : (run step is s).2 ≤
       (run step is s).2 + potential (run step is s).1 := by
-    simpa only [add_zero] using add_le_add_left hfinal (run step is s).2
+    simpa only [add_zero] using add_le_add_right hfinal (run step is s).2
   exact below.trans (run_potential step charge potential hstep is s)
 
 theorem run_cost_le (step : ι → σ → σ × Nat) (charge : ι → σ → Nat)
