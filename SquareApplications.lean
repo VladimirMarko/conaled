@@ -26,6 +26,8 @@ import Examples.DijkstraSentinel
 import Examples.RandomAccessEndCosts
 import Examples.RandomAccessCosts
 import Examples.PotentialAccounting
+import Examples.SignedPotential
+import Examples.PotentialTransport
 import Examples.OrderedSearch
 import Examples.OrderedTree
 import Examples.OrderedMap
