@@ -353,3 +353,71 @@ algorithms, Set/Map refinement, balance, costs, positioned rotation schedules,
 interval-cache/search and every later chapter obligation remain queued.
 This is an uncompiled shared source draft, with every integrated validation
 and independent final acceptance gate still pending.
+
+
+## Shared ordinary leftmost extraction (FDSA-XT08)
+
+This is an **uncompiled, unaccepted shared source draft** for the literal
+ordinary helper reused by Chapters 5 and 6. It neither activates those chapters
+nor changes the initial Chapter 2 integration prefix. Its source/base record,
+complete applicable Isabelle notice, exact domains and later-family boundaries
+are in [fdsa-tree-leftmost.md](fdsa-tree-leftmost.md).
+
+`Tree_Map.thy` imports and reuses `Tree_Set.split_min` on full semantic pairs.
+The retained p.82 reference to interval-tree §5.6.4 is erroneous for this use;
+ordinary §5.2, p.61 is intended. The map value is not a derived annotation.
+The pinned companion revision postdates the July 27, 2026 manuscript and is
+not asserted to be the manuscript's generation revision.
+
+| Common source/helper portion | Actual uncompiled declarations and retained boundary |
+| --- | --- |
+| C05-006 and C06-047: guarded ordinary extraction | `Resources.TreeLeftmost.run`, `extract?`, `entries` and direct branch equations. One actual measured recursion returns the full first entry and its actual residual; no right-fringe traversal or terminal nil call occurs on success. |
+| Empty-domain adaptation | `run_nil`, `extract?_eq_none_iff`, `exists_extract?_of_ne_nil`, `extract?_isSome_iff`. Nil is explicitly `(none,1)`; the HOL source supplies no empty equation. Raw nonempty success requires no BST premise, label decision or default. |
+| C05-007 and the helper used by C06-063 | `inorder_of_extract?`, membership/head/tail consequences and `numNodes_of_extract?`. The actual returned entry prefixes the actual residual inorder. This is one-way and retains occurrences; neither arbitrary residual equality nor raw set difference follows. |
+| Extraction portion of C05-013 | `height_of_extract?` proves structural residual-height nonincrease from the actual splice. Full replacing and joining deletion height proofs remain separate. |
+| Ordered and strict-key consequences for C05-007 | `ordered_of_extract?` preserves arbitrary structural relations; `rel_of_extract?` retains transitivity for the all-tail conclusion. The Preorder-key laws give strict tail, `IsLeast`, absence and exact key removal without a payload order, key decision, comparator or global key injectivity. |
+| Full-entry transport and future semantic-map use | `run_map`, `extract?_map`, `entries_map` map the removed entry and actual residual across independent universes. They require no injectivity and do not include separate input-map work or cache repair. |
+| Reconstructed invocation count | Direct entry equations, `one_le_entries`, successful/nonempty height and node bounds, and `entries_le_height_add_one`. The valid source path counts its nonempty left-spine nodes; the all-input bound explicitly accommodates the nil extension. |
+
+`Examples.TreeLeftmost`, under `TreeLeftmostExamples`, connects the actual
+public laws to arbitrary nil/base/opaque-fringe clients, the printed tree,
+semantic false-payload and presence observers, and general actual-result
+List.lookup equations with their separate Boolean-equality assumptions.
+`successorBody` binds extraction of the actual right singleton to reconstruction
+using its full successor entry and residual; its count one is an extraction
+subcost, not a complete delete cost. Noninjective payload mapping and general
+outer-annotation erasure retain their different semantic meanings.
+
+The same file connects actual duplicate-key and key-projected occurrence laws,
+a malformed numeric-minimum boundary, nontransitive residual-order preservation,
+and the stale size-cache counterexample. Its general `leftChain_run` and
+`rightChain_run` return exact shifted residual constructors for every positive
+length, with counts n and one, respectively. They retain equal inorders/heights
+while proving residual-shape difference for n≥3 and count difference for n>1.
+`leftChain_attains_height`, `rightChain_arbitrarily_tall` and `nil_count_boundary`
+connect the sharp upper bound, its missing per-input lower bound and the
+explicit empty extension. These are uncompiled source statements, not chapter
+acceptance or a cost transfer to a balanced extractor.
+
+The ordinary source's cost is reconstructed under explicit zero charges for
+constructors, shape/pair/Option observations and the nonrecursive rebuilding
+body. It is not a generated ordinary T_split_min theorem or a runtime,
+allocation, stack or compiler-sharing result. The retained AFP StronglyJoinable
+source does generate timing for its different join-based extractor, under
+additional rank/balance/size and supplied join-cost assumptions. Its theorem
+is not transferred to ordinary node rebuilding.
+
+Only helper portions of C05-006/007/008/013 and C06-047/048/063 receive source
+support here. Whole insertion/deletion, both ordinary deletion algorithms,
+association-list refinement and Set/Map interpretations remain mandatory.
+C05-021 still needs its direct recursive proof route. Interval smart caches,
+2–3 completeness/underflow, red-black old-child-color rebuilding and painting,
+AVL rightmost variants, actual join contracts, C10-117 and every later work or
+logarithmic bound remain in their original chapter scope. No generic rebuilder,
+mirror extractor, balancer or allocation framework is added as an obligation.
+
+The inherited tree drafts remain unaccepted. This unit still needs prerequisite
+reconciliation, matching focused/full guarded checks with both integrity
+phases, complete integrated build, exhaustive transitive axiom audit, both
+retained independent review axes and immediate candidate verification. Source
+readback, a commit or a saved checkpoint does not replace those gates.

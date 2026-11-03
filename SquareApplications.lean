@@ -254,3 +254,4 @@ import Examples.OrderedTrees
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
+import Examples.TreeLeftmost
