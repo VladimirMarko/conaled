@@ -39,8 +39,8 @@ theorem realBudget (n : Nat) (bs : Bits) :
           (List.replicate n ()) bs :=
       budget_congr_state realStep (fun (_ : Unit) => incWithCost)
         (fun _ _ => (2 : ℝ)) (fun _ _ => rfl) (List.replicate n ()) bs
-    _ = (budget (fun (_ : Unit) => incWithCost) (fun _ _ => (2 : Nat))
-          (List.replicate n ()) bs : ℝ) := by
+    _ = ((budget (fun (_ : Unit) => incWithCost) (fun _ _ => (2 : Nat))
+          (List.replicate n ()) bs : Nat) : ℝ) := by
       simpa only [Nat.coe_castAddMonoidHom, Nat.cast_ofNat] using
         (budget_map (Nat.castAddMonoidHom ℝ) (fun (_ : Unit) => incWithCost)
           (fun _ _ => (2 : Nat)) (List.replicate n ()) bs).symm
