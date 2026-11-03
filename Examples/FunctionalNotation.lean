@@ -4,7 +4,11 @@ import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Algebra.Order.Archimedean.Real.Basic
 import Mathlib.Algebra.Order.Floor.Ring
 import Mathlib.Data.Int.DivMod
-import Mathlib.Data.Set.Lattice
+import Mathlib.Data.Set.Lattice.Bounded
+import Mathlib.Data.Set.Lattice.Disjoint
+import Mathlib.Data.Set.Lattice.Image
+import Mathlib.Data.Set.Lattice.Indexed
+import Mathlib.Data.Set.Lattice.Order
 import Mathlib.Data.Set.Prod
 import Mathlib.Data.Set.Finite.Basic
 import Mathlib.Order.Interval.Finset.Nat
@@ -52,7 +56,7 @@ theorem restricted_comprehension (A : Set α) (P : α → Prop) (x : α) :
 
 theorem two_variable_comprehension (f : α → β → γ) (P : α → β → Prop) (z : γ) :
     z ∈ {z | ∃ x y, z = f x y ∧ P x y} ↔ ∃ x y, P x y ∧ f x y = z := by
-  simp only [Set.mem_setOf_eq, eq_comm, and_comm]
+  simp only [Set.mem_ofPred_eq, eq_comm, and_comm]
 
 theorem indexed_union (A : Set α) (f : α → Set β) :
     Set.sUnion (f '' A) = ⋃ x ∈ A, f x := by
@@ -70,7 +74,7 @@ theorem bounded_quantifiers (A : Set α) (P : α → Prop) :
 theorem product_membership (A : Set α) (B : Set β) (x : α) (y : β) :
     (x, y) ∈ A ×ˢ B ↔ x ∈ A ∧ y ∈ B := Iff.rfl
 
-theorem all_interval_memberships [LE α] [LT α] (a b x : α) :
+theorem all_interval_memberships [Preorder α] (a b x : α) :
     (x ∈ Set.Ici a ↔ a ≤ x) ∧ (x ∈ Set.Iic b ↔ x ≤ b) ∧
     (x ∈ Set.Icc a b ↔ a ≤ x ∧ x ≤ b) ∧
     (x ∈ Set.Ico a b ↔ a ≤ x ∧ x < b) ∧
@@ -115,7 +119,12 @@ theorem floor_and_ceiling :
 theorem submultiset_is_not_support_subset :
     (([1, 1] : List Nat) : Multiset Nat) ⊆ (([1] : List Nat) : Multiset Nat) ∧
     ¬ (([1, 1] : List Nat) : Multiset Nat) ≤ (([1] : List Nat) : Multiset Nat) := by
-  decide
+  constructor
+  · intro a ha
+    simpa using ha
+  · intro h
+    have hc := Multiset.card_le_card h
+    norm_num at hc
 
 theorem repeated_sum_and_product :
     ([2, 2, 3] : List Nat).sum = 7 ∧

@@ -39,7 +39,7 @@ Chapter organization is a coverage index; modules follow reusable domain concept
 | Chapter | Topic | Current implementation scope |
 | --- | --- | --- |
 | 1 | Basics | Detailed witnesses below; acceptance is tracked separately |
-| 2 | Sorting | Queued; shared insertion costs below |
+| 2 | Sorting | Active; shared insertion costs below; acceptance tracked separately |
 | 3 | Selection | Queued; shared insertion costs below |
 | 4 | Binary Trees | Queued |
 | 5 | Binary Search Trees | Queued |
@@ -200,7 +200,7 @@ No such end-to-end stack is postulated here.
 The cost-comparison mathematics on pp7–9 is a separate required part of the
 chapter. Its earlier blanket classification as explanatory scope was incorrect.
 The [cost-model repair](fdsa-call-models.md) supplies the precise statement
-review and intended connections for three currently unvalidated additions:
+review and intended connections for three additions:
 
 - Uniform fine/coarse tariff bounds from a fixed finite local-case catalogue,
   with an exact append-branch client and both asymptotic directions.
@@ -211,8 +211,10 @@ review and intended connections for three currently unvalidated additions:
   bound against a finite eager catalogue, with external-program correspondence
   explicit and unshared duplication treated separately.
 
-These source repairs remain subject to compilation, full candidate gates and
-independent final review; their presence does not close the chapter. Section
+These source repairs were accepted with Chapter 1 at commit
+`07e480f6ec9958d4975bb90151005b84f2907614`, after the full native build/audit,
+both independent reviews and immediate candidate verification. The companion
+tracker retains the exact evidence and earlier failed or unknown attempts. Section
 1.5.3's preference for explicit bounds remains explanatory. Higher-order time
 conventions refer forward to Appendix B.1 and stay on that appendix's list.
 

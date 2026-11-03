@@ -181,6 +181,10 @@ ordinary function eta reduction; it requires no new mathematical operation.
 
 ### Ordered intervals
 
+The standard set-interval declarations use `Preorder α`; the membership witness
+retains that capability. No totality or antisymmetry is needed for these six
+definitional endpoint predicates.
+
 | ID | Source interval | Exact target and membership |
 |---|---|---|
 | AC-085 | Lower closed unbounded `{x..}` | `Set.Ici x`; `z` belongs iff `x ≤ z`. |

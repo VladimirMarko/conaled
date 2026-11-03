@@ -138,8 +138,8 @@ theorem dropRun_exact (k : Nat) (xs : List α) :
 
 /-- Two separate calls return the fused split's value but pay twice its count. -/
 theorem take_drop_separate (k : Nat) (xs : List α) :
-    bind (takeRun k xs) (fun prefix =>
-      bind (dropRun k xs) (fun suffix => pure (prefix, suffix))) =
+    bind (takeRun k xs) (fun taken =>
+      bind (dropRun k xs) (fun dropped => pure (taken, dropped))) =
       ((SymmetricCosts.splitRun k xs).1, 2 * (SymmetricCosts.splitRun k xs).2) := by
   simp [takeRun_exact, dropRun_exact, SymmetricCosts.splitRun_value,
     SymmetricCosts.splitRun_work, bind, pure, two_mul]
@@ -184,7 +184,7 @@ theorem lookupRun_cost_of_lt (xs : List α) (k : Nat) (hk : k < xs.length) :
 theorem lookupRun_valid (xs : List α) (k : Nat) (hk : k < xs.length) :
     lookupRun xs k = (some xs[k], k + 1) := by
   apply Prod.ext
-  · simpa [lookupRun_value] using List.getElem?_eq_getElem hk
+  · simp [lookupRun_value]
   · exact lookupRun_cost_of_lt xs k hk
 
 end Resources.ListCalls

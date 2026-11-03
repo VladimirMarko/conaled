@@ -99,8 +99,8 @@ theorem take_drop_values :
     rfl
 
 theorem separate_vs_fused :
-    Resources.bind (takeRun 2 [1, 2, 3]) (fun prefix =>
-      Resources.bind (dropRun 2 [1, 2, 3]) (fun suffix => Resources.pure (prefix, suffix))) =
+    Resources.bind (takeRun 2 [1, 2, 3]) (fun taken =>
+      Resources.bind (dropRun 2 [1, 2, 3]) (fun dropped => Resources.pure (taken, dropped))) =
         (([1, 2], [3]), 6) ∧
     Resources.SymmetricCosts.splitRun 2 [1, 2, 3] = (([1, 2], [3]), 3) := by
   constructor
