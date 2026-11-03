@@ -19,20 +19,34 @@ theorem source_three_split :
   simpa using sortFloorBy_step (fun a b : Nat => decide (a ≤ b)) [2, 1, 0] (by decide)
 
 theorem source_three_value : sortFloorOn id ([2, 1, 0] : List Nat) = [0, 1, 2] := by
-  rw [sortFloorOn_eq_sortOn]
-  rfl
+  have h := sortFloorOn_correct id ([2, 1, 0] : List Nat)
+  exact (h.2.trans (by decide : ([2, 1, 0] : List Nat).Perm [0, 1, 2])).eq_of_pairwise'
+    h.1 (by decide)
 
 theorem full_multiset (cmp : Nat → Nat → Bool) :
     ((sortFloorBy cmp [2, 1, 2] : List Nat) : Multiset Nat) =
       (([2, 1, 2] : List Nat) : Multiset Nat) :=
   Quot.sound (sortFloorBy_perm cmp [2, 1, 2])
 
+/-- Independent sortedness, permutation and retained equal-key occurrences. -/
+theorem payload_expected_spec {α : Type u} (first middle last : α) :
+    StableSort Prod.fst ([(1, first), (0, middle), (1, last)] : List (Nat × α))
+      [(0, middle), (1, first), (1, last)] where
+  sorted := by simp [KeySorted]
+  perm := List.Perm.swap _ _ _
+  stable := by
+    intro k
+    by_cases h0 : (0 : Nat) = k
+    · subst k; simp
+    · by_cases h1 : (1 : Nat) = k
+      · subst k; simp
+      · simp [h0, h1]
+
 /-- The key order alone sorts arbitrary payloads, including equal-key occurrences. -/
 theorem arbitrary_payload_order {α : Type u} (first middle last : α) :
     sortFloorOn Prod.fst [(1, first), (0, middle), (1, last)] =
-      [(0, middle), (1, first), (1, last)] := by
-  rw [sortFloorOn_eq_sortOn]
-  rfl
+      [(0, middle), (1, first), (1, last)] :=
+  (sortFloorOn_spec Prod.fst _).unique (payload_expected_spec first middle last)
 
 theorem stable_across_split {α : Type u} (first middle last : α) :
     (sortFloorOn Prod.fst [(1, first), (0, middle), (1, last)]).filter
