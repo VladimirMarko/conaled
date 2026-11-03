@@ -260,3 +260,50 @@ requires the project's immutable-candidate verification and exhaustive proof
 audit, both independent review axes, and final candidate-identity verification.
 Their exact outcomes are kept in the local checkpoint's review record rather
 than inferred from this narrative.
+
+## Shared real logarithm bounds (FDSA-XL01 draft)
+
+The [shared logarithm note](fdsa-logarithm-bounds.md) records the two ordinary
+`Real.logb 2` claims used by the splay and pairing analyses, their exact source
+identities and domains, complete AFP notice, actual declaration connections
+and all remaining chapter work. This is an **uncompiled, unaccepted shared
+draft**; Chapter 1 remains the active sequential prerequisite.
+
+`Arithmetic.LogarithmBounds.logb_two_sum_bound` states
+`log₂ x + log₂ y + 2 ≤ 2*log₂(x+y)` for arbitrary positive Real `x,y`.
+`logb_two_sum_strict` derives `1+log₂ x+log₂ y < 2*log₂(x+y)` from that result.
+The sharp bound is non-strict, both permit inputs below one, and neither
+requires a tree or potential interpretation. The core and examples use pinned
+Mathlib, with no dependency on the unaccepted tree/accounting drafts.
+
+| Original source obligation | Actual draft support | Remaining boundary |
+| --- | --- | --- |
+| `C21-074` | The strict public theorem; `LogarithmBoundsExamples.leaf_count_bounds` and `node_leaf_count_bounds` supply canonical external-leaf substitutions. | Splay/zig-zig/zig-zag/splay-max algorithm, nonempty/query/reconstruction premises, actual costs and potential cancellation remain. |
+| `C23-046` | The sharp public theorem; `pairing_sum_bound` uses the actual shifted natural-size arguments after Real casts. | The forest representation, pass recurrence, invariant, potential and work equations remain. |
+| Scalar step of `C23-052` | `pairing_cancellation_steps` keeps both arithmetic steps and arbitrary Real suffix scalar; `pairing_zero_boundary` retains the corrected `+2` sum and the printed `+1` counterexample. | Lemma 23.2's full target and original source-error disposition are unchanged; no whole pass proof is claimed. |
+| Arithmetic within `C22-055–057` | `skew_scalar_sum_bound`, `skew_leaf_sum_bound`, `skew_shifted_leaf_bound`, `leaf_predecessor_cast` reuse existing monotonicity and exact cast premises. | The heavy-spine lemmas, actual merge, signed Int charge, wrapper tariff and history bound remain. |
+| Binary pairing child-size estimate | `pairing_child_product_bound` and `pairing_child_source_bound` retain zero children, the stronger direct product calculation and the source's extra-unit slack. | Whole-root/forest correspondence and actual potential/cost premises remain; the full Real-domain source helper is not added as a core API. |
+
+The `LogarithmBoundsExamples` cases connect both core laws to actual nil trees
+over `Empty`, supplied singleton labels and positive quarter inputs. Separate
+exact identities and counterexamples retain sharpness, zero-input failure,
+the fixed base-two constant, increasing-base premises and Nat versus Real
+subtraction. Skew and shifted-product cases are direct existing-library clients;
+they are not new heap or potential executors.
+
+The source record distinguishes all four `Lemmas_log` statements and the Skew
+helper, live splay calls from a commented alternative, unweighted
+`Splay_Tree_Analysis_Optimal` from separate Static Optimality work, and the
+splay/external-leaf, binary-pairing/node-count and forest/sibling-suffix offsets.
+The dated October 26, 2026 AFP archive supports the July 27 manuscript; it
+postdates that manuscript and is not established as its generating revision.
+The note preserves the complete applicable notice and separate Mathlib license.
+
+All original chapters, appendices, helper obligations, algorithms, exercises,
+exact source tariffs, initial/final credit conditions, multiple-input histories,
+weighted/static-optimality claims and open-conjecture statements remain required.
+This support accepts no inventory row or chapter and imposes no extra general
+framework beyond the original book scope. The retained source findings and
+initial Chapter 2 integration prefix are unchanged. Matching compilation,
+integrity/audit gates, both independent review axes and final verification
+remain prerequisites for any later acceptance.

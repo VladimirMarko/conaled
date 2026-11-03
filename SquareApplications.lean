@@ -250,3 +250,4 @@ import Examples.SharedDemand
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
+import Examples.LogarithmBounds
