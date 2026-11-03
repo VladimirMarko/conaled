@@ -44,7 +44,9 @@ theorem realBudget (n : Nat) (bs : Bits) :
       simpa only [Nat.coe_castAddMonoidHom, Nat.cast_ofNat] using
         (budget_map (Nat.castAddMonoidHom ℝ) (fun (_ : Unit) => incWithCost)
           (fun _ _ => (2 : Nat)) (List.replicate n ()) bs).symm
-    _ = 2 * (n : ℝ) := by simp [budget_constant]
+    _ = 2 * (n : ℝ) := by
+      rw [Resources.budget_constant]
+      simp only [List.length_replicate, Nat.cast_mul, Nat.cast_ofNat]
 
 /-- Apply the exact telescope to the lifted local law, for every initial state. -/
 theorem realRun_potential (n : Nat) (bs : Bits) :
