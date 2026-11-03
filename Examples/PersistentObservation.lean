@@ -29,7 +29,7 @@ theorem fork_measured_bound :
     Fork.closed Fork.law.paid
   have charges : (∑ v ∈ Fork.scope, (unshared v + (Fork.discharges v).card)) = 4 := by
     decide
-  simpa only [charges] using bound
+  simpa only [realized, charges] using bound
 
 /-- The public interpreter identity independently fixes the concrete total. -/
 theorem fork_measured_cost :
@@ -51,10 +51,10 @@ theorem fork_composition :
 /-- Repeating an occurrence label loses unshared work if its list is silently
 replaced by the same finite node set. The bound requires its actual enumeration. -/
 theorem duplicate_enumeration_boundary :
-    (run (realizeStep unshared realized) (Fork.operations ++ [.left]) ∅).2 = 5 ∧
+    (run (realizeStep unshared realized) (Fork.operations ++ [Fork.Node.left]) ∅).2 = 5 ∧
       (∑ v ∈ Fork.scope, (unshared v + (Fork.discharges v).card)) = 4 ∧
-      (Fork.operations ++ [.left]).toFinset = Fork.scope ∧
-      ¬ (Fork.operations ++ [.left]).Nodup := by
+      (Fork.operations ++ [Fork.Node.left]).toFinset = Fork.scope ∧
+      ¬ (Fork.operations ++ [Fork.Node.left]).Nodup := by
   constructor
   · rw [realize_run_cost]
     decide
@@ -82,7 +82,7 @@ theorem open_cycle_bound_with_seen (seen : Finset Nat) :
   have credit : Cycle.boundary.card = 1 := by decide
   have internal : (∑ v ∈ Cycle.openScope,
       (cycleUnshared v + (Cycle.discharges v).card)) = 0 := by decide
-  simpa only [credit, internal, Nat.add_zero] using bound
+  simpa only [cycleRealized, credit, internal, Nat.add_zero] using bound
 
 /-- The cost is one, internal payment zero, and external credit one. -/
 theorem open_cycle_cost_and_credit :

@@ -1,11 +1,11 @@
 # Persistent histories and debit accounting
 
 This development implements a bounded mathematical foundation shared by
-Okasaki's persistent amortization arguments: thesis §§3.2.1,3.3.2,3.4.1
-(printed19–24) and book §§6.1–6.3.1 (printed57–63). It is local task10021,
-supporting the complete source/work-correspondence task10017. The current
-revision is a development snapshot: focused compilation is in progress and
-the required complete-candidate validation and independent review remain open.
+Okasaki's persistent amortization arguments: thesis §§3.2.1, 3.3.2 and 3.4.1
+(printed pages 19–24) and book §§6.1–6.3.1 (printed pages 57–63). It is local
+task 10021, supporting task 10017's complete source/work correspondence.
+The abstract accounting and the concrete evaluator correspondence are separate
+obligations, as described below.
 
 ## Logical operation histories
 
@@ -42,8 +42,8 @@ closure derives the global support inclusion and then bounds realized support
 by discharge multiplicity. The numerical consequence requires neither freshness
 nor allocation provenance, but those laws remain necessary parts of a faithful
 source annotation. A source-valid fork can discharge one debit once and realize
-it in both logical branches: its realized support has size1, while the sum of
-realization multiplicities is2. The latter is a different observation.
+it in both logical branches: its realized support has size 1, while the sum of
+realization multiplicities is 2. The latter is a different observation.
 
 `PaidWithBoundary` handles an open scope by retaining an actual supporting
 discharge in logical history. A witness outside the scope must name a debit
@@ -83,7 +83,7 @@ realized reduces the interpreter's new-work charge to zero.
 
 This adapter retains the original executor's composition and state trajectory.
 Unique-support cardinality is not an additive reweighting: two observations of
-the same singleton each have cardinality1, but their union has cardinality1.
+the same singleton each have cardinality 1, but their union has cardinality 1.
 There is no global additive instance on finite sets or claim that this
 cardinality commutes with ordinary additive execution observations.
 
@@ -102,12 +102,12 @@ undercount. A successful repeated-force example agrees on its particular
 body-entry observation; it does not establish a universal cost correspondence
 or count all transitions in that source execution.
 
-Complete10017 retains the concrete source incidence, primitive-cost,
-memoization/work and timing obligations, its Chapter4/5 dependencies, and
+Task 10017 retains the concrete source incidence, primitive-cost,
+memoization/work and timing obligations, its Chapter 4/5 dependencies, and
 its independent acceptance gates. This foundation does not close a chapter,
 an algorithmic complexity contract, or the complete TU.TRACE obligation.
 
-## Connected uses and current evidence
+## Connected uses
 
 `Examples.PersistentHistory` exercises cycles, distinct parallel arrows,
 multi-input/result histories, closed/open scopes and graph-map transport.
@@ -120,15 +120,10 @@ the same source-valid fork and retains the duplicate-enumeration boundary.
 `Examples.PersistentSourceBoundary` connects the debit interpreter's scope
 to the already checked suspension observations.
 
-The local requirement and implementation reports preserve independently fixed
-expectations, statement review and every focused attempt. At this snapshot,
-History core compiled and its first client needed lint/finite-set normalization
-repairs; Realization core compiled after correcting finite-set-map orientation.
-The actual source-boundary client compiled in the second Realization check;
-the worked interpreter client needed explicit executor composition arguments
-and an explicit natural-number cancellation proof. Their corrected checks and
-the remaining layers are pending.
-No statement or expected case was weakened, and no proof budget or linter
-policy was relaxed. Focused evidence remains distinct from the required stock
-full build, exhaustive audit, exact verification record, both review axes and
-immediate final candidate verification.
+The clients exercise public operations and theorems, establish the applicable
+source-law premises and retain independently specified concrete observations.
+The local requirement and implementation records preserve statement review,
+the expected calculations and every focused attempt. Acceptance follows the
+repository's complete candidate build, exhaustive proof audit, both independent
+review axes and immediate candidate verification; focused evidence remains
+separate from that complete gate.
