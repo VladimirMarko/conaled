@@ -39,7 +39,7 @@ private theorem count_filterMap_bodyAddress (address : Nat) (events : List Event
   induction events with
   | nil => rfl
   | cons event rest ih =>
-      cases event <;> simp [bodyAddress, List.count_cons, ih, beq_iff_eq]
+      cases event <;> simp [List.filterMap_cons, bodyAddress, List.count_cons, ih, beq_iff_eq]
 
 /-- Projecting to addresses preserves the existing actual count at each address. -/
 theorem bodyAddresses_count (address : Nat) (events : FreeAddMonoid Event) :
@@ -88,7 +88,7 @@ theorem realizationSupport_bodyDebits (events : List Event) :
   induction events with
   | nil => rfl
   | cons event rest ih =>
-      cases event <;> simp [realizationSupport, bodyDebits, bodyAddress, ih]
+      cases event <;> simp [realizationSupport, bodyDebits, List.filterMap_cons, bodyAddress, ih]
 
 /-- For any event word, the existing debit interpreter charges the number of
 distinct body addresses. No nonrepetition or source-execution premise is needed. -/

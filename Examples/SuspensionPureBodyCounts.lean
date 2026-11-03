@@ -186,7 +186,7 @@ theorem identical_thunks_separate_entries :
       config.memory.memory 0 = some (.thunk (.atom (.integer 7)) []) ∧
       config.memory.memory 1 = some (.thunk (.atom (.integer 7)) []) ∧ config.memory.next = 2) ∧
     (let events := FreeAddMonoid.toList (Core.Observation.observe rawParameters 34
-      (Core.Machine.start Suspensions.empty [] program)).2
+      (Core.Machine.start Suspensions.empty [] program)).2;
       events.count (.body 0) = 1 ∧ events.count (.body 1) = 1) := by
   constructor
   · exact Examples.SuspensionPureCacheCounts.Distinct.identical_thunks_at_distinct_addresses
@@ -254,7 +254,7 @@ theorem no_unwind (address : Nat) :
     have same := Sum.inr.inj reached
     subst next
     rintro ⟨packet, environment, inner, rest, control, stack⟩
-    cases control <;> cases stack
+    cases control; cases stack
 
 theorem all_budgets (address budget : Nat) :
     Core.Observation.bodyEntries address
