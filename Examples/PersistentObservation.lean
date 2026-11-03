@@ -24,12 +24,13 @@ private def realized (operation : Fork.Node) : Finset Nat :=
 /-- The bound uses the same fork's proved local laws and exact node enumeration. -/
 theorem fork_measured_bound :
     (run (realizeStep unshared realized) Fork.operations ∅).2 ≤ 4 := by
+  unfold realized
   have bound := realize_run_bound_of_enumeration unshared Fork.discharges Fork.realizations
     Fork.scope Fork.operations Fork.operations_nodup Fork.operations_toFinset
     Fork.closed Fork.law.paid
   have charges : (∑ v ∈ Fork.scope, (unshared v + (Fork.discharges v).card)) = 4 := by
     decide
-  simpa only [realized, charges] using bound
+  simpa only [charges] using bound
 
 /-- The public interpreter identity independently fixes the concrete total. -/
 theorem fork_measured_cost :
@@ -76,13 +77,14 @@ theorem open_cycle_measured_bound :
 /-- The same boundary theorem permits independently chosen initial support. -/
 theorem open_cycle_bound_with_seen (seen : Finset Nat) :
     (run (realizeStep cycleUnshared cycleRealized) [Cycle.Node.first] seen).2 ≤ 1 := by
+  unfold cycleRealized
   have bound := realize_run_bound_with_boundary_and_seen cycleUnshared
     Cycle.discharges Cycle.realizations Cycle.openScope [Cycle.Node.first]
     (by decide) (by decide) Cycle.boundary seen Cycle.paid_with_boundary
   have credit : Cycle.boundary.card = 1 := by decide
   have internal : (∑ v ∈ Cycle.openScope,
       (cycleUnshared v + (Cycle.discharges v).card)) = 0 := by decide
-  simpa only [cycleRealized, credit, internal, Nat.add_zero] using bound
+  simpa only [credit, internal, Nat.add_zero] using bound
 
 /-- The cost is one, internal payment zero, and external credit one. -/
 theorem open_cycle_cost_and_credit :
