@@ -27,8 +27,9 @@ private theorem exists_above (xs : List Int) :
     obtain ⟨z, hz⟩ := ih
     refine ⟨max x z + 1, ?_⟩
     intro y hy
-    rcases List.mem_cons.mp hy with rfl | hy
-    · have h := le_max_left x z
+    rcases List.mem_cons.mp hy with he | hy
+    · subst y
+      have h := le_max_left x z
       omega
     · have h := le_max_right x z
       have h' := hz y hy
@@ -42,8 +43,9 @@ private theorem exists_below (xs : List Int) :
     obtain ⟨z, hz⟩ := ih
     refine ⟨min x z - 1, ?_⟩
     intro y hy
-    rcases List.mem_cons.mp hy with rfl | hy
-    · have h := min_le_left x z
+    rcases List.mem_cons.mp hy with he | hy
+    · subst y
+      have h := min_le_left x z
       omega
     · have h := min_le_right x z
       have h' := hz y hy
@@ -59,6 +61,7 @@ theorem ordered_index_injective [LinearOrder α] (xs : List α) (hd : xs.Nodup) 
   have hj : j.val < (ordered xs).length := by
     rw [(ordered_perm xs).length_eq]
     exact j.isLt
+  change (ordered xs)[i.val]? = (ordered xs)[j.val]? at hij
   rw [List.getElem?_eq_getElem hi, List.getElem?_eq_getElem hj] at hij
   have hs : (ordered xs).Nodup := (ordered_perm xs).nodup_iff.mpr hd
   exact Fin.ext (hs.getElem_inj.mp (Option.some.inj hij))
@@ -150,7 +153,7 @@ theorem exists_update_changes (input : Fin n → Int) (k i : Fin n)
       (ordered (List.ofFn (Function.update input i z)))[k.val]? ≠
         (ordered (List.ofFn input))[k.val]? := by
   obtain ⟨z, hz⟩ := exists_set_changes (List.ofFn input) k.val i.val
-    (List.nodup_ofFn_ofInjective hd) (by simpa using k.isLt) (by simpa using i.isLt)
+    (List.nodup_ofFn_ofInjective hd) (by simp) (by simp)
   exact ⟨z, by simpa only [ofFn_update] using hz⟩
 
 end Applications.Selection.CoordinateSensitivity
