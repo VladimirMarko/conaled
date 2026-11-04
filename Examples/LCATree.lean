@@ -1,4 +1,4 @@
-import Applications.Sequences.LCA.TreeStorage
+import Applications.Sequences.LCA.TreeReduction
 
 set_option autoImplicit false
 set_option warningAsError true
@@ -87,5 +87,29 @@ example : TreeBackend.preparationPeak star = 50 := by decide
 example : ¬ TreeBackend.preparationPeak star ≤ 32 := by decide
 example : TreeBackend.preparationPeak star ≤ 80 ∧ TreeBackend.retainedWords star + 4 ≤ 80 :=
   TreeBackend.eligible_capacity star 7 80 (by decide)
+
+
+-- The shared Reduction consumes a static tree; future queries are supplied
+-- separately. Its target carries the derived +/-1 admission proof.
+def starSource : TreeReduction.Source 4 := ⟨star,rfl⟩
+def siblingQuery : TreeReduction.Query 4 := (⟨1,by decide⟩,⟨3,by decide⟩)
+
+example :
+    ((TreeReduction.reduction 4).decode ((TreeReduction.reduction 4).convert starSource).1.1
+      (TreeReduction.rmqSpec ((TreeReduction.reduction 4).convert starSource).1.2
+        ((TreeReduction.reduction 4).encode
+          ((TreeReduction.reduction 4).convert starSource).1.1 siblingQuery).1)).1 = 0 := by
+  exact TreeReduction.translation TreeReduction.rmqSpec (TreeReduction.rmqSpec_correct _)
+    starSource siblingQuery
+
+-- Same-capacity source mutation changes the prepared decoder. Reusing this
+-- state cannot satisfy the shared reduction's source-linked validity equation.
+def starThree : TreeReduction.Source 3 := ⟨.attach (.attach .singleton .singleton) .singleton,rfl⟩
+def chainThree : TreeReduction.Source 3 := ⟨chain,rfl⟩
+example : (TreeReduction.convertM starThree).1.1 ≠ (TreeReduction.convertM chainThree).1.1 := by
+  intro h
+  have he := congrArg (fun d : TreeReduction.Decoder 3 => Dijkstra.Store.lookup d.first ⟨2,by decide⟩) h
+  change 3 = 2 at he
+  omega
 
 end Examples.LCATree
