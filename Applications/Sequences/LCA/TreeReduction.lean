@@ -46,6 +46,8 @@ theorem reindex_tour {n : Nat} (s : Source n) (maps : Maps s.val)
 structure Input (m : Nat) where
   cells : TourStore m
   positive : 0 < m
+  bounded : ∀ i : Fin m, (lookup cells i).2 < m
+  identityBound : ∀ i : Fin m, (lookup cells i).1 < m
   unit : ∀ i (hi : i+1 < m),
     (lookup cells ⟨i+1,hi⟩).2 = (lookup cells ⟨i,by omega⟩).2 + 1 ∨
     (lookup cells ⟨i,by omega⟩).2 = (lookup cells ⟨i+1,hi⟩).2 + 1
@@ -56,6 +58,22 @@ def Input.depth {m : Nat} (input : Input m) (i : Nat) : Nat :=
 def toInput {n : Nat} (s : Source n) (maps : Maps s.val) (hv : Valid s.val maps) : Input (tourSize n) where
   cells := (reindex s maps).tour
   positive := by rw [← source_length s]; exact Tree.tour_nonempty s.val
+  bounded i := by
+    rw [reindex_tour s maps hv]
+    have hd := Tree.depth_lt_size (s.val.visit i.val)
+    have hs := Tree.size_pos s.val
+    have ht := Tree.tour_length s.val
+    have hl := source_length s
+    dsimp
+    omega
+  identityBound i := by
+    rw [reindex_tour s maps hv]
+    have hc := Tree.code_lt (s.val.visit i.val)
+    have hs := Tree.size_pos s.val
+    have ht := Tree.tour_length s.val
+    have hl := source_length s
+    dsimp
+    omega
   unit i hi := by
     rw [reindex_tour s maps hv, reindex_tour s maps hv]
     exact Tree.adjacent_depth s.val i (by rw [source_length s]; exact hi)
@@ -231,7 +249,7 @@ theorem bounds (n : Nat) {R : Type} {p : Ops (Input (tourSize n)) (Nat × Nat) N
   (reduction n).bounds hp (capacityLaws n p V)
 
 theorem conversion_work {n : Nat} (s : Source n) :
-    ((reduction n).convert s).2 ≤ n + 25*tourSize n := by
+    ((reduction n).convert s).2 ≤ 2*n + 30*tourSize n + 7 := by
   have := prepareMapsM_cost s.val
   simpa [reduction, convertM, s.property, source_length s] using this
 

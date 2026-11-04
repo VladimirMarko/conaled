@@ -8,6 +8,11 @@ set_option warningAsError true
 namespace Sequences.LCA.TreeBackend
 open Resources Dijkstra.Store
 
+/-- One target dispatch on entry to a recursive constructor/loop instruction,
+    including its terminal case. Word operations remain separately charged. -/
+def dispatch {α : Type} (run : Measured α Nat) : Measured α Nat :=
+  Resources.bind (((),1) : Measured Unit Nat) fun _ => run
+
 /-- The sentinel is an out-of-tour position. Reading an input, indexed reading,
     comparing, indexed writing, and incrementing each cost one primitive event. -/
 def readWord (x : Nat) : Measured Nat Nat := (x, 1)
@@ -28,9 +33,9 @@ def firstScan {n : Nat} (missing : Nat) : List Nat → Nat → Store n Nat → S
       firstScan missing rest (pos + 1) mem'
 
 def firstScanM {n : Nat} (missing : Nat) : List Nat → Nat → Store n Nat → Measured (Store n Nat) Nat
-  | [], _, mem => pure mem
+  | [], _, mem => dispatch (pure mem)
   | a :: rest, pos, mem =>
-      bind (readWord a) fun a =>
+      dispatch <| bind (readWord a) fun a =>
       bind (checkIndex a n) fun valid =>
       let update : Measured (Store n Nat) Nat :=
         match valid with
@@ -79,30 +84,30 @@ theorem firstScanM_value {n : Nat} (xs : List Nat) (missing pos : Nat) (mem : St
   | cons a rest ih =>
     by_cases ha : a < n
     · by_cases hm : lookup mem ⟨a,ha⟩ = missing <;>
-        simp [firstScanM, firstScan, readWord, checkIndex, ha, hm, Resources.bind,
+        simp [firstScanM, dispatch, firstScan, readWord, checkIndex, ha, hm, Resources.bind,
           readSlot, compareWord, writeSlot, increment, Resources.pure, ih]
-    · simp [firstScanM, firstScan, readWord, checkIndex, ha, Resources.bind,
+    · simp [firstScanM, dispatch, firstScan, readWord, checkIndex, ha, Resources.bind,
         increment, Resources.pure, ih]
 
 theorem firstScanM_cost {n : Nat} (xs : List Nat) (missing pos : Nat) (mem : Store n Nat) :
-    (firstScanM missing xs pos mem).2 ≤ 6 * xs.length := by
+    (firstScanM missing xs pos mem).2 ≤ 7 * xs.length + 1 := by
   induction xs generalizing pos mem with
-  | nil => simp [firstScanM, Resources.pure]
+  | nil => simp [firstScanM, dispatch, Resources.bind, Resources.pure]
   | cons a rest ih =>
     by_cases ha : a < n
     · by_cases hm : lookup mem ⟨a,ha⟩ = missing
       · have hb := ih (pos+1) (write mem ⟨a,ha⟩ pos)
-        simp only [firstScanM, readWord, checkIndex, ha, ↓reduceDIte, Resources.bind,
+        simp only [firstScanM, dispatch, readWord, checkIndex, ha, ↓reduceDIte, Resources.bind,
           readSlot, compareWord, hm, decide_true, ↓reduceIte, writeSlot, increment,
           List.length_cons]
         omega
       · have hb := ih (pos+1) mem
-        simp only [firstScanM, readWord, checkIndex, ha, ↓reduceDIte, Resources.bind,
+        simp only [firstScanM, dispatch, readWord, checkIndex, ha, ↓reduceDIte, Resources.bind,
           readSlot, compareWord, hm, decide_false, Bool.false_eq_true, ↓reduceIte, increment,
           Resources.pure, List.length_cons]
         omega
     · have hb := ih (pos+1) mem
-      simp only [firstScanM, readWord, checkIndex, ha, ↓reduceDIte, Resources.bind,
+      simp only [firstScanM, dispatch, readWord, checkIndex, ha, ↓reduceDIte, Resources.bind,
         increment, Resources.pure, List.length_cons]
       omega
 
@@ -131,13 +136,13 @@ def growSlot {n : Nat} (mem : Store n Nat) (x : Nat) : Measured (Store (n+1) Nat
 /-- Initialize a reserved finite arena, one slot at a time. The logical vector
     grows only up to the reserved capacity; each growth initializes one cell. -/
 def fillM (value : Nat) : (n : Nat) → Measured (Store n Nat) Nat
-  | 0 => pure #v[]
-  | n+1 => bind (fillM value n) fun mem => growSlot mem value
+  | 0 => dispatch (pure #v[])
+  | n+1 => dispatch <| bind (fillM value n) fun mem => growSlot mem value
 
-theorem fillM_exact (value n : Nat) : fillM value n = (Vector.replicate n value, n) := by
+theorem fillM_exact (value n : Nat) : fillM value n = (Vector.replicate n value, 2*n+1) := by
   induction n with
   | zero => rfl
-  | succ n ih => simp [fillM, ih, growSlot, Resources.bind, Vector.replicate_succ]
+  | succ n ih => simp [fillM, dispatch, ih, growSlot, Resources.bind, Vector.replicate_succ]; omega
 
 /-- The initialized first-position store is computed by the instrumented scan. -/
 def prepareFirstM (t : Tree) (ids : List Nat) : Measured (Store t.size Nat) Nat :=
@@ -180,7 +185,7 @@ theorem prepareFirstM_lookup (t : Tree) (j : Fin t.size) :
   exact findPosition_ids t j
 
 theorem prepareFirstM_cost (t : Tree) :
-    (prepareFirstM t (emittedIds t)).2 ≤ t.size + 6 * t.tour.length := by
+    (prepareFirstM t (emittedIds t)).2 ≤ 2*t.size + 7*t.tour.length + 2 := by
   simp only [prepareFirstM, Resources.bind, fillM_exact]
   have := firstScanM_cost (emittedIds t) t.tour.length 0 (Vector.replicate t.size t.tour.length)
   rw [emittedIds_length] at this

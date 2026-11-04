@@ -13,13 +13,13 @@ def writeTour {m : Nat} (mem : TourStore m) (i : Fin m) (p : Nat × Nat) :
     Measured (TourStore m) Nat := (write mem i p, 2)
 
 def fillTourM : (m : Nat) → Measured (TourStore m) Nat
-  | 0 => pure #v[]
-  | m+1 => Resources.bind (fillTourM m) fun mem => (mem.push (0,0), 2)
+  | 0 => dispatch (pure #v[])
+  | m+1 => dispatch <| Resources.bind (fillTourM m) fun mem => (mem.push (0,0), 2)
 
-theorem fillTourM_exact (m : Nat) : fillTourM m = (Vector.replicate m (0,0), 2*m) := by
+theorem fillTourM_exact (m : Nat) : fillTourM m = (Vector.replicate m (0,0), 3*m+1) := by
   induction m with
   | zero => rfl
-  | succ m ih => simp [fillTourM, ih, Resources.bind, Vector.replicate_succ]; omega
+  | succ m ih => simp [fillTourM, dispatch, ih, Resources.bind, Vector.replicate_succ]; omega
 
 def copyScan {m : Nat} : List (Nat × Nat) → Nat → TourStore m → TourStore m
   | [], _, mem => mem
@@ -27,9 +27,9 @@ def copyScan {m : Nat} : List (Nat × Nat) → Nat → TourStore m → TourStore
       copyScan ps (pos+1) (if h : pos < m then write mem ⟨pos,h⟩ p else mem)
 
 def copyScanM {m : Nat} : List (Nat × Nat) → Nat → TourStore m → Measured (TourStore m) Nat
-  | [], _, mem => pure mem
+  | [], _, mem => dispatch (pure mem)
   | p::ps, pos, mem =>
-      Resources.bind (readPair p) fun p =>
+      dispatch <| Resources.bind (readPair p) fun p =>
       Resources.bind (checkIndex pos m) fun valid =>
       Resources.bind (match valid with
         | some i => writeTour mem i p
@@ -42,21 +42,21 @@ theorem copyScanM_value {m : Nat} (xs : List (Nat × Nat)) (pos : Nat) (mem : To
   | nil => rfl
   | cons p ps ih =>
     by_cases h : pos < m <;>
-      simp [copyScanM, copyScan, readPair, writeTour, checkIndex, increment, h,
+      simp [copyScanM, dispatch, copyScan, readPair, writeTour, checkIndex, increment, h,
         Resources.bind, Resources.pure, ih]
 
 theorem copyScanM_cost {m : Nat} (xs : List (Nat × Nat)) (pos : Nat) (mem : TourStore m) :
-    (copyScanM xs pos mem).2 ≤ 6 * xs.length := by
+    (copyScanM xs pos mem).2 ≤ 7 * xs.length + 1 := by
   induction xs generalizing pos mem with
-  | nil => simp [copyScanM, Resources.pure]
+  | nil => simp [copyScanM, dispatch, Resources.bind, Resources.pure]
   | cons p ps ih =>
     by_cases h : pos < m
     · have hb := ih (pos+1) (write mem ⟨pos,h⟩ p)
-      simp only [copyScanM, readPair, writeTour, checkIndex, increment, h,
+      simp only [copyScanM, dispatch, readPair, writeTour, checkIndex, increment, h,
         ↓reduceDIte, Resources.bind, List.length_cons]
       omega
     · have hb := ih (pos+1) mem
-      simp only [copyScanM, readPair, checkIndex, increment, h,
+      simp only [copyScanM, dispatch, readPair, checkIndex, increment, h,
         ↓reduceDIte, Resources.bind, Resources.pure, List.length_cons]
       omega
 
@@ -101,7 +101,7 @@ theorem prepareTourM_at (xs : List (Nat × Nat)) (i : Fin xs.length) :
   simpa using copyScan_at xs 0 (Vector.replicate xs.length (0,0)) i.val i.isLt (by omega)
 
 theorem prepareTourM_cost (m : Nat) (xs : List (Nat × Nat)) :
-    (prepareTourM m xs).2 ≤ 2*m + 6*xs.length := by
+    (prepareTourM m xs).2 ≤ 3*m + 7*xs.length + 2 := by
   simp only [prepareTourM, Resources.bind, fillTourM_exact]
   have := copyScanM_cost xs 0 (Vector.replicate m (0,0))
   omega
@@ -111,9 +111,9 @@ theorem prepareTourM_cost (m : Nat) (xs : List (Nat × Nat)) :
     allocating an uncharged intermediate list of projected node identifiers. -/
 def firstPairsM {n : Nat} (missing : Nat) :
     List (Nat × Nat) → Nat → Store n Nat → Measured (Store n Nat) Nat
-  | [], _, mem => pure mem
+  | [], _, mem => dispatch (pure mem)
   | p :: rest, pos, mem =>
-      Resources.bind (readWord p.1) fun a =>
+      dispatch <| Resources.bind (readWord p.1) fun a =>
       Resources.bind (checkIndex a n) fun valid =>
       let update : Measured (Store n Nat) Nat :=
         match valid with
@@ -129,7 +129,7 @@ theorem firstPairsM_eq {n : Nat} (xs : List (Nat × Nat)) (missing pos : Nat) (m
     firstPairsM missing xs pos mem = firstScanM missing (xs.map Prod.fst) pos mem := by
   induction xs generalizing pos mem with
   | nil => rfl
-  | cons p ps ih => simp only [firstPairsM, firstScanM, List.map_cons, Resources.bind, ih]; rfl
+  | cons p ps ih => simp only [firstPairsM, firstScanM, dispatch, List.map_cons, Resources.bind, ih]; rfl
 
 structure Maps (t : Tree) where
   first : Store t.size Nat
@@ -138,11 +138,18 @@ structure Maps (t : Tree) where
 /-- The same produced stream feeds the finite tour store and the first-position
     scan. No node-position map is recomputed recursively from the tree. -/
 def prepareMapsM (t : Tree) : Measured (Maps t) Nat :=
-  Resources.bind (prepareEmissionM t) fun raw =>
-  Resources.bind (prepareTourM t.tour.length raw) fun tour =>
-  Resources.bind (fillM t.tour.length t.size) fun initial =>
-  Resources.bind (firstPairsM t.tour.length raw 0 initial) fun first =>
-    pure ⟨first, tour⟩
+  Resources.bind (emissionInfoM t) fun info =>
+  Resources.bind (prepareTourM info.entries info.raw) fun tour =>
+  Resources.bind (fillM info.entries info.nodes) fun initial =>
+  Resources.bind (firstPairsM info.entries info.raw 0 initial) fun first =>
+    pure ⟨first.cast info.nodes_eq, tour.cast info.entries_eq⟩
+
+theorem prepareMapsM_value (t : Tree) : (prepareMapsM t).1 =
+    ⟨(firstPairsM t.tour.length (t.cache.emit 0 0 []) 0 (fillM t.tour.length t.size).1).1,
+      (prepareTourM t.tour.length (t.cache.emit 0 0 [])).1⟩ := by
+  unfold prepareMapsM
+  rw [emissionInfoM_eq]
+  rfl
 
 theorem prepareEmissionM_raw (t : Tree) : (prepareEmissionM t).1 = t.cache.emit 0 0 [] := by
   simp [prepareEmissionM, Resources.bind, cacheM_value, emitM_value]
@@ -152,14 +159,15 @@ theorem raw_length (t : Tree) : (t.cache.emit 0 0 []).length = t.tour.length := 
 
 theorem prepareMapsM_first (t : Tree) (j : Fin t.size) :
     lookup (prepareMapsM t).1.first j = Tree.first (t.decode j) := by
-  change lookup (firstPairsM t.tour.length (prepareEmissionM t).1 0 (fillM t.tour.length t.size).1).1 j = _
-  rw [firstPairsM_eq, prepareEmissionM_raw]
+  rw [prepareMapsM_value]
+  change lookup (firstPairsM t.tour.length (t.cache.emit 0 0 []) 0 (fillM t.tour.length t.size).1).1 j = _
+  rw [firstPairsM_eq]
   exact prepareFirstM_lookup t j
 
 theorem prepareMapsM_tour (t : Tree) (i : Fin t.tour.length) :
     lookup (prepareMapsM t).1.tour i = (Tree.code (t.visit i.val), Tree.depth (t.visit i.val)) := by
-  change lookup (prepareTourM t.tour.length (prepareEmissionM t).1).1 i = _
-  rw [prepareEmissionM_raw]
+  rw [prepareMapsM_value]
+  change lookup (prepareTourM t.tour.length (t.cache.emit 0 0 [])).1 i = _
   have hi : i.val < (t.cache.emit 0 0 []).length := by rw [raw_length]; exact i.isLt
   have hh := copyScan_at (t.cache.emit 0 0 []) 0
     (Vector.replicate t.tour.length (0,0)) i.val hi (by rw [raw_length]; omega)
@@ -170,19 +178,20 @@ theorem prepareMapsM_tour (t : Tree) (i : Fin t.tour.length) :
   simp [Tree.emit_spec, Tree.tour_getElem]
 
 theorem prepareMapsM_cost (t : Tree) :
-    (prepareMapsM t).2 ≤ t.size + 25 * t.tour.length := by
-  have hc := prepareEmissionM_cost t
+    (prepareMapsM t).2 ≤ 2*t.size + 30*t.tour.length + 7 := by
+  have hc := emissionDataM_cost t
   have he : t.cache.calls = t.tour.length := by
     have := Tree.cache_calls t
     have := Tree.tour_length t
     omega
   rw [he] at hc
-  have ht := prepareTourM_cost t.tour.length (prepareEmissionM t).1
-  have hf := firstScanM_cost ((prepareEmissionM t).1.map Prod.fst)
+  have ht := prepareTourM_cost t.tour.length (t.cache.emit 0 0 [])
+  have hf := firstScanM_cost ((t.cache.emit 0 0 []).map Prod.fst)
     t.tour.length 0 (Vector.replicate t.size t.tour.length)
-  have hl : (prepareEmissionM t).1.length = t.tour.length := by rw [prepareEmissionM_raw, raw_length]
-  simp only [List.length_map, hl] at ht hf
-  simp only [prepareMapsM, Resources.bind, firstPairsM_eq, fillM_exact, Resources.pure]
+  simp only [List.length_map, raw_length] at ht hf
+  unfold prepareMapsM
+  rw [emissionInfoM_eq]
+  simp only [Resources.bind, firstPairsM_eq, fillM_exact, Resources.pure]
   omega
 
 
