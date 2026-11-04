@@ -1,4 +1,5 @@
 import Applications.Sequences.LCA.Catalog
+import Applications.Sequences.LCA.QueryStorage
 import Examples.LCATree
 
 set_option autoImplicit false
@@ -75,5 +76,14 @@ example : ¬ Feasible {immediateStartup with deadline := 57}
     (Catalog.directProfile 17) deepInput := by decide
 example : ¬ Feasible {immediateStartup with peak := 34}
     (Catalog.directProfile 17) deepInput := by decide
+
+example : (QueryStorage.answerRun deepPrepared (3,13)).2.length = 57 := by decide
+example : (QueryStorage.answerRun deepPrepared (0,0)).2.length = 24 := by decide
+example : (QueryStorage.answerRun deepPrepared (0,17)).2.length = 6 := by decide
+example (q : Nat × Nat) : (QueryStorage.answerRun deepPrepared q).1 =
+    ((ops 17).answer deepPrepared q).1 := QueryStorage.answerRun_value deepPrepared q
+example (q : Nat × Nat) (k : Nat) :
+    ((QueryStorage.answerRun deepPrepared q).2.take k).length ≤ QueryStorage.answerPeak deepPrepared :=
+  QueryStorage.every_prefix_fits deepPrepared q k
 
 end Examples.LCABackend
