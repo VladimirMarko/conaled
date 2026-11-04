@@ -81,8 +81,8 @@ theorem outsiderComparison_mass :
 theorem outsiderComparison_ne_singleton_inverse :
     uniformOn Set.univ outsiderComparison ≠
       (({1} : Finset (Fin 2)).card : ℝ≥0∞)⁻¹ := by
-  rw [outsiderComparison_mass]
-  simpa using (ne_of_lt ENNReal.one_half_lt_one)
+  rw [outsiderComparison_mass, Finset.card_singleton, Nat.cast_one, inv_one]
+  exact ne_of_lt ENNReal.one_half_lt_one
 
 /-- Both keys receive the same priority, regardless of the sampled permutation. -/
 def tiedPriority : Fin 2 → ℕ := fun _ => 0
