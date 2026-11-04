@@ -61,6 +61,7 @@ theorem invalid_value : (run 4 4 input).1.1 = none := by
   rw [run_value 4 4 input (by decide)]
   apply List.getElem?_eq_none_iff.mpr
   rw [(Applications.Selection.ordered_perm input).length_eq]
+  decide
 
 /-- A genuine infinite distinct family, with growing size and largest rank. -/
 theorem range_worst_scan (n : Nat) :
