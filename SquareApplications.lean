@@ -251,5 +251,6 @@ import Examples.MeasuredScan
 import Examples.ScanSearch
 import Examples.ScanOptimality
 
-/-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
+import Examples.EquationComposition
 
+/-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

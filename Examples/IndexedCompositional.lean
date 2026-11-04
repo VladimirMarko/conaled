@@ -1,4 +1,4 @@
-import SquareKit.IndexedCompositional
+import SquareKit.EquationComposition
 
 /-! Independent finite vectors: construction changes length, observation decreases
 it, and compound substitution reuses the shared indexed compatibility theorem. -/
@@ -32,19 +32,37 @@ def algebra : {n : Nat} → (op : signature.Op n) → (∀ k, Vec (signature.chi
   | _, .cons _ a, xs => Fin.cases a (xs 0)
   | _, .double _, xs => fun k => 2 * xs 0 k
 
-def rule : Rule signature behavior where
-  out op xs := match op with
-    | .nil => ()
-    | .cons _ a => a
-    | .double 0 => ()
-    | .double (_+1) => 2 * xs 0
-  step {j} op := by
-    cases op with
-    | nil => exact fun _ a => nomatch a
-    | cons n v => exact fun _ _ => .leaf (.ret 0)
-    | double => cases j with
-      | zero => exact fun _ a => nomatch a
-      | succ n => exact fun _ _ => .node (.double n) (fun _ => .leaf (.succ 0 ()))
+/-- The source equation vocabulary exposes outputs and finite templates only. -/
+inductive Prim : Type → Type → Type 1
+  | literal {A : Type} (value : A) : Prim PUnit A
+  | child {n} (op : Op n) (k : Fin (signature.arity op)) :
+      Prim (ULift (SquareKit.EquationComposition.Outputs signature behavior op))
+        (ULift (behavior.Output (signature.child op k)))
+  | twice : Prim (ULift Nat) (ULift Nat)
+
+def primitiveMeaning : Prim A B → A → B
+  | .literal value, _ => value
+  | .child _ k, xs => ⟨xs.down k⟩
+  | .twice, x => ⟨2 * x.down⟩
+
+/-- Author each output/next cell once; rows and local rules are generated from it. -/
+def equations : SquareKit.EquationTranspose.DataProgram
+    (SquareKit.EquationComposition.signature signature behavior) Prim where
+  body p obs _ := match obs with
+    | .output => match p with
+      | ⟨_, .nil⟩ => .prim (.literal ⟨()⟩) (.var .second)
+      | ⟨_, .cons _ a⟩ => .prim (.literal ⟨a⟩) (.var .second)
+      | ⟨_, .double 0⟩ => .prim (.literal ⟨()⟩) (.var .second)
+      | ⟨_, .double (n+1)⟩ => .prim .twice (.prim (.child (.double (n+1)) 0) (.var .first))
+    | .next r => match p with
+      | ⟨_, .nil⟩ => nomatch r
+      | ⟨_, .cons _ _⟩ => .prim (.literal ⟨.leaf (.ret 0)⟩) (.var .second)
+      | ⟨_, .double 0⟩ => nomatch r
+      | ⟨_, .double (n+1)⟩ =>
+          .prim (.literal ⟨.node (.double n) (fun _ => .leaf (.succ 0 ()))⟩) (.var .second)
+
+def rule : Rule signature behavior :=
+  SquareKit.EquationComposition.compile equations primitiveMeaning
 
 theorem compatible : rule.Compatible algebra native where
   output n op xs := by

@@ -145,3 +145,9 @@ they do not supply the native parser equations proved here. The selected
 finite-family interface answers the present vector and witness-sensitive
 obligations. Generalizing it requires another application that needs the
 additional dependent structure and states its preservation laws.
+
+The [equation-view bridge](equation-composition-bridge.md) generates these vector
+rules and a union/scalar parser fragment from binding-free equation cells.
+It proves row/column presentation independence separately from semantic
+compatibility and identifies a child-inspection cell that cannot factor through
+immediate outputs.
