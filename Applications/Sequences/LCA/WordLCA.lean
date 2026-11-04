@@ -106,6 +106,33 @@ theorem target_frame (source : Source n)
   exact ⟨WordTrace.prefix_fits _ _ _ _ _,
     fun i hi => WordTrace.install_preserves_retained _ _ i hi⟩
 
+/-- Every endpoint used by the actual online machine is an admitted finite
+word; the Nat-valued rejected-query totalization is not its input interface. -/
+theorem translated_endpoints_valid (source : Source n) (q : Query n) :
+    let endpoints := ((reduction n).encode ((reduction n).convert source).1.1 q).1
+    endpoints.1 ≤ endpoints.2 ∧ endpoints.2 < tourSize n := by
+  let maps := (TreeBackend.prepareMapsM source.val).1
+  have hv := TreeBackend.prepareMapsM_valid source.val
+  have ha := Tree.first_lt (source.val.decode (Fin.cast source.property.symm q.1))
+  have hb := Tree.first_lt (source.val.decode (Fin.cast source.property.symm q.2))
+  rw [source_length source] at ha hb
+  change (encodeM (reindex source maps) q).1.1 ≤ (encodeM (reindex source maps) q).1.2 ∧
+    (encodeM (reindex source maps) q).1.2 < tourSize n
+  simp only [encodeM_exact, reindex_first source maps hv]
+  omega
+
+theorem target_endpoints_fit (source : Source n)
+    (h : WordTrace.Machine ((reduction n).convert source).1.2 width capacity) (q : Query n) :
+    let endpoints := ((reduction n).encode (targetPrepared source h).decoder q).1
+    endpoints.1 < 2^width ∧ endpoints.2 < 2^width := by
+  have hv := translated_endpoints_valid source q
+  have hw := MachineCapacity.scalar_fits h.words
+    (show tourSize n ≤ 4*tourSize n+3 by omega)
+  change (((reduction n).encode ((reduction n).convert source).1.1 q).1).1 < 2^width ∧
+    (((reduction n).encode ((reduction n).convert source).1.1 q).1).2 < 2^width
+  dsimp only at hv
+  omega
+
 theorem exists_target_machine (source : Source n) :
     ∃ width, WordTrace.Machine ((reduction n).convert source).1.2 width (512*tourSize n) := by
   obtain ⟨width,h⟩ := BackendBounds.exists_machine ((reduction n).convert source).1.2
@@ -124,5 +151,11 @@ theorem target_guarantee (source : Source n)
 example (source : Source 1) :
     ∃ width, WordTrace.Machine ((reduction 1).convert source).1.2 width 512 :=
   exists_target_machine source
+
+example (source : Source 1)
+    (h : WordTrace.Machine ((reduction 1).convert source).1.2 width capacity) :
+    let endpoints := ((reduction 1).encode (targetPrepared source h).decoder (0,0)).1
+    endpoints.1 < 2^width ∧ endpoints.2 < 2^width :=
+  target_endpoints_fit source h (0,0)
 
 end Sequences.LCA.WordLCA
