@@ -16,8 +16,7 @@ theorem singleton : runsBy natLT [7] = [[7]] := runsBy_singleton _ _
 
 /-- The first failed ascending boundary restarts at 2, without dropping it. -/
 theorem restart_boundary : runsBy natLT [1, 3, 2, 4] = [[1, 3], [2, 4]] := by
-  simp [natLT, runsBy_cons_cons, ascBy_cons, Batteries.DList.singleton,
-    Batteries.DList.push]
+  simp [natLT, runsBy_cons_cons, ascBy_cons, Batteries.DList.singleton]
 
 /-- Equal adjacent keys belong to the ascending run. -/
 theorem ascending_ties : runsBy natLT [1, 1, 2, 3] = [[1, 1, 2, 3]] := by
@@ -33,7 +32,7 @@ theorem empty_is_not_one_run : runsOn id ([] : List Nat) ≠ [[]] := by
 
 /-- Equal keys preserve both arbitrary payloads without requiring payload instances. -/
 theorem payloads_need_no_structure {β : Type} (p q : β) :
-    runsOn Prod.fst [(1 : Nat, p), (1, q)] = [[(1, p), (1, q)]] := by
+    runsOn Prod.fst [((1 : Nat), p), (1, q)] = [[(1, p), (1, q)]] := by
   apply runsOn_of_sorted
   · simp [KeySorted]
   · simp
@@ -116,13 +115,13 @@ def seededBuilder (xs : List Nat) : List Nat := [1, 3] ++ xs
 
 theorem seededBuilder_law : DListLaw seededBuilder := by
   intro xs ys
-  simp [seededBuilder, List.append_assoc]
+  simp [seededBuilder]
 
 /-- This lawful source function is supplied directly, with no scanner history. -/
 theorem arbitrary_builder_restart :
     ascSourceBy natLT 5 seededBuilder seededBuilder_law [4, 6] = [[1, 3, 5], [4, 6]] := by
-  simp [ascSourceBy_cons, ascSourceBy_nil, seededBuilder, natLT, runsBy_cons_cons,
-    ascBy_cons, Batteries.DList.singleton, Batteries.DList.push]
+  rw [ascSourceBy_cons]
+  simp [natLT, seededBuilder, runsBy_cons_cons, Batteries.DList.singleton]
 
 theorem arbitrary_builder_occurrences :
     (ascSourceBy natLT 5 seededBuilder seededBuilder_law [4, 6]).flatten.Perm
@@ -150,7 +149,7 @@ def unsortedBuilder (xs : List Nat) : List Nat := [2, 1] ++ xs
 
 theorem unsortedBuilder_law : DListLaw unsortedBuilder := by
   intro xs ys
-  simp [unsortedBuilder, List.append_assoc]
+  simp [unsortedBuilder]
 
 theorem unsorted_builder_value :
     ascSourceBy natLT 3 unsortedBuilder unsortedBuilder_law [] = [[2, 1, 3]] := by
