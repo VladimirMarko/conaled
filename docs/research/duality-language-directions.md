@@ -203,14 +203,24 @@ their examples do not justify a universal framework. These conclusions do not
 rank all possible language designs or settle the wider conjectures above.
 
 The [bialgebraic adoption assessment](bialgebraic-semantics-adoption.md),
-[#275](https://github.com/VladimirMarko/conaled/issues/275), examines higher-order
-semantics, equations and recursive definitions while retaining independent
-mathematical meanings. The approved follow-ups are exact observational rewrites
-[#276](https://github.com/VladimirMarko/conaled/issues/276), the equation-view
-bridge [#277](https://github.com/VladimirMarko/conaled/issues/277), composable
-constructor/observer extension [#278](https://github.com/VladimirMarko/conaled/issues/278),
-and independent author trials [#279](https://github.com/VladimirMarko/conaled/issues/279).
-#262 remains the distinct semantic-type admissibility experiment. #235 owns
-cross-cutting applicability and recovery of existing specializations; #36 owns internal-language and surface
-integration; #200 owns correspondence research; #8 owns the categorical
-compilation side. Acceptance criteria and dependencies live in the linked issues.
+[#275](https://github.com/VladimirMarko/conaled/issues/275), led to completed
+experiments: exact contextual rewrites (#276), the equation-view bridge (#277),
+constructor/observer interaction (#278), and independent author trials (#279).
+The later #281–#285 results add whole-client workspace comparisons, retained
+parser snapshots, exact transport-spine normalization, guarded recursive streams,
+and a higher-order comparison with independent function meaning.
+
+The [cross-workstream assessment](construction-observation-research-assessment.md)
+records their source-level evidence, limits and consequences for the new
+[research programmes](language-research-agenda.md). Reuse the accepted results
+when testing theory extension (#288), dependent coherence (#289), and theory
+publication/transport (#290). The finite indexed laws do not settle the latter
+two programmes, and semantic equivalence alone does not imply runtime sharing.
+
+#262 remains the distinct semantic-type admissibility experiment; #263 owns
+generic memoization integration beyond the retained parser instance; #109 owns
+source recursion and compilation beyond the guarded-stream construction. #235
+owns cross-cutting applicability and recovery of existing specializations; #36
+owns internal-language and surface integration; #200 owns correspondence research;
+#8 owns categorical compilation. Acceptance criteria and live status belong to
+the issues. Completed studies are evidence, not queued work.

@@ -28,6 +28,25 @@ individual results. Research may propose a replacement architecture even when
 it cannot immediately fit the current library. Implementation proposals must
 then account for retained concrete capabilities and migration costs.
 
+## Construction and observation as an implemented comparison baseline
+
+The [workstream assessment](construction-observation-research-assessment.md)
+checks the recent #276–#285 results against this agenda. #291 should reuse
+exact observer descent and contextual-rewrite evidence, while still proving
+its different all-model extension contract. #292 must distinguish fixed indexed
+families and simply typed binding from its dependent coherence problem. #294
+can compare theory networks with the actual equation-to-rule bridge and guarded
+solution transport. #293 tests requirement discovery, which #279 did not measure.
+
+#285 supplies a concrete higher-order relation for #295's applicability study;
+#284 adds a noninjective solution-transport example. These make the comparison
+more specific without proving that Trocq applies or that relational automation
+has higher priority than the initial studies. #263 and #109 already own the
+remaining memoization and recursion/compiler work. The existing issue graph
+covers these consequences; no new umbrella or automatic framework migration
+is needed. The lower-priority studies remain open to architectures that do not
+look like the current implementation.
+
 ## Lower-priority investigations
 
 These bounded studies make the deferred leads actionable. Their priority is

@@ -188,16 +188,35 @@ The [duality findings and agenda](research/duality-language-directions.md)
 distinguish checked results, source theorems, design inferences and conjectures.
 #256 supplies a bounded syntax transformation; it does not establish an
 isomorphism between arbitrary data and codata, a generic semantic lifting, or
-infinite productivity. Scoped follow-ups are #266–#270, coordinated with #262
-and the existing #235/#36/#200/#8 owners.
+infinite productivity. The completed #266–#270 studies test that agenda;
+#262 retains semantic-type extension work, coordinated with #235/#36/#200/#8.
 
 The [#268 composition experiment](research/compositional-constructor-observer-laws.md)
 now demonstrates this discipline for finitary derivative templates: local
 constructor compatibility yields interpretations of arbitrary finite composites,
 with separate renaming and substitution laws. Weighted concatenation and a
 pointwise extension recover their prior meanings. This supplies one usable
-instance, not a universal rule format. Index-changing constructors and dependent
-observations remain a design question under #271.
+instance, not a universal rule format. The completed #271/#274 results extend
+finite composition to fixed indexed families, index-changing constructors and
+exact parser result fibers. They do not supply arbitrary dependent-context
+substitution or changes of index base.
+
+The [recent workstream assessment](research/construction-observation-research-assessment.md)
+connects these results to the wider research agenda. #277 derives a supported
+local rule from either equation presentation; #276 lifts exact equations through
+finite contexts; #278 proves constructor/observer interaction obligations against
+an independent meaning. #284 separately constructs coordinate-guarded recursive
+solutions and their transport. #285 relates higher-order costed execution to an
+independent function denotation and rejects recovering step counts from that
+denotation. These are several checked contracts, not one universal lifting
+mechanism. The new theory-extension, coherence and proof-transport programmes
+must recover these capabilities or explain their different scope.
+
+Completed #279 provides independent author evidence for the tested vector and
+parser interfaces. It does not measure equation-table authoring, discovering a
+proof's requirements, or general dependent reasoning. Those remain distinct
+author tasks; existing successful trials need not wait for the wider design
+space to be settled.
 
 ## Evolving preservation laws and usable specializations
 

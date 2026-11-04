@@ -3,9 +3,12 @@
 Two independent AI authors completed matched direct and shared proofs for an
 indexed vector client and an exact parser observation extension. Both retained
 the native contracts, including every vector coordinate and selected parser
-witnesses. The focused Lean checks passed. Integrated candidate validation,
-proof audit, and independent Standards/Spec review remain acceptance gates
-owned by the coordinating implementation workflow.
+witnesses. The focused Lean checks passed. The coordinating workflow subsequently
+recorded integrated validation of 986 modules, exhaustive proof audit and passing
+independent Standards/Spec reviews at candidate
+`2556ead64c4846ab2aec80bf0132113bb7c365ad`; see the
+[#279 acceptance record](https://github.com/VladimirMarko/conaled/issues/279#issuecomment-6638773406).
+The assessment below retains the frozen trial conditions and limitations.
 
 This is the bounded author-effectiveness experiment for
 [#279](https://github.com/VladimirMarko/conaled/issues/279), within
@@ -112,9 +115,9 @@ order does not remove exposure effects.
 The frozen matched tasks, independent authors, native contracts, prompts,
 metadata limitations, attempts, failures, assistance records and focused
 successful checks satisfy the experimental evidence portion of #279.
-Full formal acceptance still requires the coordinator's candidate build/audit
-and independent review. No bounded interface correction was justified by the
-observed failures, so no interface revision or affected-task rerun is claimed.
+Full formal acceptance was subsequently recorded by the coordinating workflow
+at the candidate cited above. No bounded interface correction was justified by
+the observed failures, so no interface revision or affected-task rerun is claimed.
 The public library remains unchanged.
 
 These two AI trials establish completion for the recorded tasks and conditions.
