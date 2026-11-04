@@ -32,6 +32,7 @@ theorem slowMedianValueRun_of_some (xs : List α) (hx : xs ≠ []) (a : α)
     (ha : (slowMedianRun xs).1 = some a) :
     slowMedianValueRun xs hx = (a, (slowMedianRun xs).2) := by
   unfold slowMedianValueRun
+  dsimp only
   split
   next h => exact False.elim (hx ((slowMedianRun_none xs).mp h))
   next b hb =>
