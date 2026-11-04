@@ -25,6 +25,7 @@ import Examples.DijkstraSentinel
 import Examples.RandomAccessEndCosts
 import Examples.RandomAccessCosts
 import Examples.PotentialAccounting
+import Examples.MappedPotentialAccounting
 import Examples.OrderedSearch
 import Examples.SymmetricLists
 import Examples.RandomAccessLists

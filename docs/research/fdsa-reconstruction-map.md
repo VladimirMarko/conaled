@@ -56,7 +56,7 @@ Chapter organization is a coverage index; modules follow reusable domain concept
 | 16 | Priority Queues via Braun Trees | Queued |
 | 17 | Binomial Priority Queues | Queued |
 | 18 | Dynamic Programming | Queued |
-| 19 | Amortized Analysis | Queued |
+| 19 | Amortized Analysis | Queued; shared mapped potential-accounting draft linked below |
 | 20 | Queues | Queued |
 | 21 | Splay Trees | Queued |
 | 22 | Skew Heaps | Queued |
@@ -68,6 +68,12 @@ Chapter organization is a coverage index; modules follow reusable domain concept
 | A | List Library | Shared standard interfaces and checked adapters below; acceptance tracked separately |
 | B | Time Functions | Matched as used; final complete inventory pending |
 | C | Notation | Matched as used; final complete inventory pending |
+
+The shared [mapped potential-accounting extension](fdsa-potential-accounting.md)
+prepares signed and fractional observations for Chapters 19–23. Its generic
+unary laws and connected clients are a draft, with validation and review still
+pending. Algorithm-specific and binary-history obligations remain in their
+chapter tickets.
 
 ## Chapter 1: Basics, printed pages 1–10
 
