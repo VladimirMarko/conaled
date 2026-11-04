@@ -9,6 +9,9 @@ computing the map or for a later occurrence lookup. No injectivity of the map is
 needed, so duplicate payloads and equal keys retain their occurrences.
 -/
 
+set_option autoImplicit false
+set_option warningAsError true
+
 namespace Resources.QuickSort
 
 universe u v

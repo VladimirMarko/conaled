@@ -4,6 +4,9 @@ import Mathlib.Tactic.NormNum
 /-! Connected occurrence, duplicate-payload and comparator-boundary examples
 for the actual measured first-pivot execution. -/
 
+set_option autoImplicit false
+set_option warningAsError true
+
 namespace Examples.QuickSortTransport
 
 open Resources.QuickSort
