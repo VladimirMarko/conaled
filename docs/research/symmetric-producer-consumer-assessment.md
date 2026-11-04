@@ -22,15 +22,16 @@ CBV/CBN is a separate type attribute. The simply typed presentation does not
 supply dependent typing. §§5–6 add μ binders, strategy-sensitive substitution,
 and shifts. Under polar evaluation (CBV data, CBN codata), Theorem 5.2 gives
 reduction compatibility modulo eta; binders must avoid free-variable capture.
-Changing polarity alone cannot preserve that strategy: evaluation changes require
-shifts. The reported Coq proofs cover Theorems 3.1–4.3; later extensions have a
+Transposition preserves evaluation order while changing polarity, so its result
+can leave the polar assignment (CBV data, CBN codata). Shifts separately change
+evaluation strategy. The reported Coq proofs cover Theorems 3.1–4.3; later extensions have a
 different evidence boundary.
 
 The source's §1 function example, with `Ω : A → Nat` divergent, distinguishes
 `(λf.5)(λx.Ω x)` from `(λf.5) Ω`: CBV returns 5 for the former and diverges for
 the latter; CBN returns 5 for both. Unrestricted function eta therefore fails
 in that CBV language. The data eta obstruction is dual under CBN (§§1, 2.3).
- [Binder et al., §§1–6](https://arxiv.org/html/2211.13004v1)
+[Binder et al., §§1–6](https://arxiv.org/html/2211.13004v1)
 
 [Curien and Herbelin, *The Duality of Computation*, corrected July 2012 version,
 §§2–5](https://pauillac.inria.fr/~herbelin/articles/icfp-CuHer00-duality%2Berrata6.pdf),
