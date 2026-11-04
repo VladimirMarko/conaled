@@ -61,21 +61,30 @@ than becoming low rankings.
 
 ## Additional perspectives
 
-**Abstract interpretation.** Cousot and Cousot's 1977 account separates concrete
-meaning, abstract domains and approximation of fixed points. Its author-hosted
-summary identifies the language semantics in §3, abstract interpretation in
-§§5–7 and finite approximation in §9. Sound abstraction can deliberately lose
-information; exact equality of meanings is the wrong acceptance condition for
-such a route. The PDF fetch timed out in this pass, so this entry relies on the
-authors' detailed section summary, not a fresh proof inspection.
-[Primary source and access copy](https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml).
+**Abstract interpretation.** Cousot and Cousot's 1977 paper separates semantic
+soundness from computation of an approximation. Direct inspection of §6
+(p. 242) and Appendix 12 (pp. 251–252) confirms monotone abstraction and
+concretization maps, `α(γ(a)) = a`, `c ≤ γ(α(c))`, and local simulation
+inequalities. Under the stated complete-lattice and monotonicity hypotheses,
+T1/T2 bound the concrete greatest/least fixed points by concretizations of the
+corresponding abstract fixed points. They do not assert equality of meanings.
+Section 9.1 (pp. 245–246) separately gives a terminating approximation scheme:
+a widening needs both upper-bound and sequence-termination conditions, with
+widening points meeting every dependency cycle. The result can be a sound
+upper bound rather than the least fixed point itself.
+[Primary paper](https://www.di.ens.fr/~cousot/COUSOTpapers/publications.www/CousotCousot-POPL-77-ACM-p238--252-1977.pdf).
+
+The [source-inspection record](cousot-1977-source-inspection.md) replaces the
+earlier summary-only assessment. OCR served as navigation; retained formulas,
+diagram direction and selected proof arguments were checked against page images.
+This is a bounded reading, not a verified transcription or a formal proof audit.
 
 Proposed test: use one recursive specification with two abstract domains, record
-soundness and precision separately, and identify which iteration/termination
-obligations belong to an analysis algorithm. Require a concrete loss-of-precision
-case. This could reject an architecture that requires invertible interpretation
-or treats terminating analysis as termination of the analyzed program. The test
-is a proposed research contract, not a new checked example.
+soundness and precision separately, and compare exact fixed-point semantics with
+a terminating approximation. Require a concrete loss-of-precision case and
+explicit widening/iteration hypotheses. This could reject an architecture that
+requires invertible interpretation or confuses analysis termination with program
+termination. The test remains a proposed research contract, not a checked example.
 
 **Open dynamical systems.** Vagner, Spivak and Lerman, arXiv:1408.1598v2 (2015),
 Definition 4.2 and Proposition 4.5, organize open smooth systems as an algebra
