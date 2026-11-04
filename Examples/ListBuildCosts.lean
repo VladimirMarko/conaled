@@ -55,13 +55,15 @@ theorem nonempty_seed : appendSubRun [3, 1] [9] = ([9, 3, 1], 5) := by
 theorem nonempty_seed_full_loop : appendLoopRun [3, 1] [9] = ([9, 3, 1], 8) := by
   apply Prod.ext
   · exact appendLoopRun_value [3, 1] [9]
-  · rw [appendLoopRun_cost, nonempty_seed]
+  · simp [appendLoopRun_cost, nonempty_seed]
 
 /-- Abstract payloads and multiplicity are retained without any element instances. -/
 theorem polymorphic_order {α : Type u} (a b : α) :
     appendBuildRun [a, b, a] = ([a, b, a], 11) ∧
-    consReverseBuildRun [a, b, a] = ([a, b, a], 9) :=
-  ⟨appendBuildRun_exact [a, b, a], consReverseBuildRun_exact [a, b, a]⟩
+    consReverseBuildRun [a, b, a] = ([a, b, a], 9) := by
+  constructor
+  · simpa using appendBuildRun_exact [a, b, a]
+  · simpa using consReverseBuildRun_exact [a, b, a]
 
 theorem same_value_different_cost :
     (appendBuildRun [3, 1, 3]).1 = (consReverseBuildRun [3, 1, 3]).1 ∧
