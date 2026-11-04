@@ -1,32 +1,69 @@
 # Language research after the external comparisons
 
 The project owner approved the following issue graph after #280's discovery
-assessment and #286/#287's paper comparisons. This records research ownership
-and the next experiments; it does not select a universal language foundation.
+assessment and #286/#287's paper comparisons. This records research ownership,
+the initial studies and their continuing obligations; it does not select a
+universal language foundation.
 GitHub issues own acceptance criteria and live status. The existing programme
 [#235](https://github.com/VladimirMarko/conaled/issues/235) coordinates these
 children with #36 and #200.
 
 ## Three sustained directions
 
-| Parent | Initial work | Boundary |
+| Parent | Initial evidence | Boundary |
 | --- | --- | --- |
-| [#288: compositional theory extensions](https://github.com/VladimirMarko/conaled/issues/288) | [#291: all-model representation extensions and dependent witness descent](https://github.com/VladimirMarko/conaled/issues/291); coordinate existing [#262](https://github.com/VladimirMarko/conaled/issues/262) | A selected-client compatibility theorem, expansion of every admitted model, consequence reflection and recovery of selected data are different claims. |
-| [#289: dependent semantics and coherence](https://github.com/VladimirMarko/conaled/issues/289) | [#292: local-universes applicability](https://github.com/VladimirMarko/conaled/issues/292) | Test exact model and substitution hypotheses. This does not expand #107's repair or choose #108's fresh theorem. |
-| [#290: reusable theories and proof transport](https://github.com/VladimirMarko/conaled/issues/290) | [#293: proof-requirement discovery trial](https://github.com/VladimirMarko/conaled/issues/293), [#294: theory-network comparison](https://github.com/VladimirMarko/conaled/issues/294) | Proof discovery, theory publication, encoding adequacy and interpretation require separate evidence. No general importer is presumed. |
+| [#288: compositional theory extensions](https://github.com/VladimirMarko/conaled/issues/288) | [#291: checked all-model extensions and dependent descent](all-model-representation-extensions.md); coordinate existing [#262](https://github.com/VladimirMarko/conaled/issues/262) | A selected-client compatibility theorem, expansion of every admitted model, consequence reflection and recovery of selected data are different claims. |
+| [#289: dependent semantics and coherence](https://github.com/VladimirMarko/conaled/issues/289) | [#292: independent discovery and dependent coherence comparison](dependent-coherence-comparison.md) | Test exact model and substitution hypotheses. This does not expand #107's repair or choose #108's fresh theorem. |
+| [#290: reusable theories and proof transport](https://github.com/VladimirMarko/conaled/issues/290) | [#293: proof-requirement discovery trial](proof-requirement-author-trial.md), [#294: theory-network comparison](theory-network-comparison.md) | Proof discovery, theory publication, encoding adequacy and interpretation require separate evidence. No general importer is presumed. |
 
 These are research directions with first milestones, not module boundaries.
-The initial children are independently executable; their scheduling order is
-not a dependency graph. #291 must select its consumer before designing the
-reusable interface. #293 must freeze its support, tasks and trial protocol
-before dispatch. #292 may find that a replacement semantics does not repair the
-source judgment in question. Such a result constrains the proposed architecture
-without weakening that judgment.
+The initial studies were independently executable; their scheduling order was
+not a dependency graph. #291 selected its consumer before designing the
+reusable interface. #293 froze support, tasks and protocol before dispatch.
+#292 distinguished strict semantic substitution from a comparison of source
+annotations, preserving the original judgment obligation.
 
 Each parent requires a synthesis and integration decision beyond its children's
 individual results. Research may propose a replacement architecture even when
 it cannot immediately fit the current library. Implementation proposals must
 then account for retained concrete capabilities and migration costs.
+
+## What the initial studies change
+
+#291 supplies actual all-model product and quotient expansion, old semantic
+consequence reflection, and coherent dependent-section descent in the bounded
+set fixture. Its exact parser client recovers selected decisions. Adoption can
+reuse these constructions without a new frontend. Broader defining formulas,
+syntactic conservativity and higher descent remain separate work under #288;
+#262 owns any bridge to the existing type-interpretation APIs. The negative
+controls reject natural representative selection and unconditional descent.
+
+#292 makes the judgment-interpretation contract the next architectural question
+for #289. Its independent external memo was frozen before local inspection.
+The checked Type-family construction and the counterexamples distinguish
+constructor stability, presentation equality and the hypotheses of local
+universes. The current model interface does not entail a terminal context;
+the concrete groupoid model's LF/full-comprehension package remains unproved,
+not refuted. Keep direct strict models, local universes and chosen-universe
+constructions eligible. Require a candidate higher model to preserve the memo's
+dependent substitutions and higher witness observation before adoption. The
+existing algebraic higher-identity checks and the new Type specialization do
+not jointly prove that capability. #107 and #108 keep their separate scope.
+
+#293 supplies the bounded discovery trial for #290, with independent manual and
+ledger-assisted authors, frozen inputs and preserved attempts. Its report
+separates author observations from preparation and from an implemented
+dependency extractor. #294 supplies a paper comparison of publishing the same
+selected argument through native interfaces and composed theory views. Keep
+native interfaces for that client; investigate a bounded publication adapter
+when its consumer is selected. Cross-logic publication still requires adequate
+encodings and explicit rule and witness preservation. Neither a satisfaction
+law nor a framework's composition theorem proves those obligations by itself.
+
+These results leave the three parent programmes open. They support specific
+constructions and sharper experiments, not a choice of one universal framework
+or a measured ranking of language architectures. The lower-priority studies
+remain eligible to challenge the assumptions used here.
 
 ## Construction and observation as an implemented comparison baseline
 
@@ -108,5 +145,6 @@ requires #116's surface-design outcome and executable comparison readiness.
 #279. It can use a provenance-recorded dependency ledger; that measures the
 assistance actually supplied, not an unimplemented extraction tool.
 
-Creating this graph does not start the studies, reopen completed issues,
-resume #107's paused work, activate #260 or make a custom frontend a prerequisite.
+The initial studies were started by a separate user instruction. Their results
+do not reopen completed issues, resume #107's paused work, activate #260 or make
+a custom frontend a prerequisite.

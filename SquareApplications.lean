@@ -7,6 +7,7 @@ import Examples.IndexedParserComposition
 import Examples.Uncomputation
 import Examples.ClientSchedules
 import Examples.GuardedStreams
+import Examples.GuardedStreamCompiler
 import Examples.CompositionalCoalgebra
 import Examples.EquationTranspose
 import Examples.EquationViews
@@ -259,6 +260,7 @@ import Examples.MeasuredScan
 import Examples.ScanSearch
 import Examples.ScanOptimality
 import SquareKit.HigherOrderComparison
+import SquareKit.WeakHigherOrder
 
 import Examples.EquationComposition
 import Examples.DerivativeNormalization
@@ -266,5 +268,6 @@ import Examples.LocalUniversesBoundary
 
 import Examples.ProofRequirementReference
 import Examples.ProofRequirementComparison
+import Examples.ParserWorkload
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

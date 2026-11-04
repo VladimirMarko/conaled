@@ -55,8 +55,9 @@ uniqueness assumption is discharged, rather than bundled as an unexplained
 model law.
 
 The construction supplies each finite coordinate by terminating Lean recursion.
-It does not turn a source recursive program into compiled code, prove a physical
-producer emits within a bound, or establish sharing. Evaluating earlier
+The solver alone does not translate source syntax, prove a physical producer
+emits within a bound, or establish sharing. The guarded compiler described below
+adds the syntax translation. Evaluating earlier
 coordinates repeatedly may duplicate work. Existing
 [Progress.Streams](../../Applications/Progress/Streams.lean) distinguishes
 operational finite delivery from semantic streams; those contracts remain
@@ -127,7 +128,7 @@ The remaining cases expose boundaries and composition:
 The last example rules out admitting every causal function as guarded:
 identity is causal but does not determine its own solution.
 
-## Existing interfaces and remaining compiler work
+## Direct interfaces and guarded compiler
 
 Ordinary clients can still use direct recursive definitions or mathematical
 sequences. This interface helps when a new body is built from admitted causal
@@ -150,12 +151,88 @@ machinery from direct clients. Neither finality alone nor the finite laws would
 admit x = x. Generalizing this experiment to a different category would require
 its own guarded solution construction or the actual source-theorem hypotheses.
 
-[#109](https://github.com/VladimirMarko/conaled/issues/109) retains the source
-recursion/compiler interface: a syntax of guarded bodies, compositional
-translations, backend admissibility proofs and interpretation squares must still
-be built. Its existing finite-fold compiler does not already compile these
-infinite definitions. Incremental reuse would additionally require retained
-state and change-propagation contracts. #235/#36 own any proposed shared
-interface expansion and recovery of existing clients; #146 retains operational
-termination/productivity certificates. No infinite parser, memoization or
-resource bound follows from this semantic experiment.
+[#302](https://github.com/VladimirMarko/conaled/issues/302) adds the bounded
+[guarded compiler](../../SquareKit/GuardedStreamCompiler.lean), inspected and
+extended from revision `2525b12052e4c85c57f9050dbf18f7a36ba2ef19`. Its
+[checked clients](../../Examples/GuardedStreamCompiler.lean) are imported by the
+public entrypoint. The coordinate construction remains the one described above;
+this compiler does not formalize the categorical GSOS theorem.
+
+### Source, targets and certificates
+
+`Body Const Param Ref Op Bin` has a single recursive variable, stream parameters,
+references to available streams, delay by a named constant, admitted unary causal
+operations, and binary pointwise operations. A `Meaning` assigns these labels
+independent stream semantics. An environment can be extended with a completed
+compiled solution before compiling the next definition. References cannot
+introduce mutual recursion through the syntax; there is no binder for another
+recursive definition. Stream parameters and references have the same constant
+semantics with respect to the current recursive variable, but separate names
+record their roles.
+
+`guarded` checks that every recursive occurrence lies below a delay. Parameters
+and references are guarded because they do not depend on that variable. A unary
+application inherits its child's certificate; a binary node requires both.
+`denote_causal` and `denote_guarded` derive semantic dependence from these local
+rules. The check is sufficient, not complete: an operation that ignores its
+argument could make an unchecked body semantically guarded. The compiler does
+not infer that stronger fact. An unguarded identity is rejected at the check and
+also fails the independent semantic `Guarded` predicate.
+
+A `Target` provides a code type and one constructor for each source constructor.
+`compile` recurses structurally over the finite body and never unfolds a stream.
+A separate `Sound` supplies an interpretation of code and constructor-local
+laws. It assumes neither a recursive-client primitive nor a fixed-point law.
+`compile_sound` establishes body denotation, and `compile_guarded` transfers the
+derived certificate to interpreted code. `solution` admits certified bodies and
+uses the existing constructed `solve` on that interpretation. `solution_fixed`
+proves the source equation. `solution_meaning` recovers any independently given
+stream satisfying that equation, using constructed uniqueness. The function
+target discharges every constructor law by reduction.
+
+`Interpretation` records constant, parameter, reference, causal-operation and
+binary-operation squares between meanings. `bodySquare` uses the existing
+`Squares.identity`, `Squares.compose` and `Squares.pair` to build the whole body
+square. `denote_interpretation` reads its commuting law, and
+`solution_interpretation` lifts that law with `map_solution` across any two sound
+targets. The coefficient map can be lossy; invertibility and injectivity are not
+hypotheses. No shared preservation interface changed. The old direct APIs and
+finite indexed composition contracts retain their statements and assumptions.
+
+### Checked clients and remaining obligations
+
+`compiledOnes_eq` uses `solution_meaning` through `run_meaning` to recover the
+constant-one sequence. `compiledOnes_direct` identifies it with the old `ones`.
+`compiledSums` uses that constructed stream through a reference. Its compiler
+correctness theorem recovers the old `sums` solution and hence n + 1 for every
+coordinate, with checked zero and four cases. `compiledTriangular` refers to
+compiled sums, with an independent finite summation specification and coordinate
+four equal to ten. A separate parameter client and a causal operation outside a
+delay exercise the other source constructors.
+
+`model_interpretation` discharges local laws for an additive map preserving one.
+The modulo-two client first transports compiled ones, then uses that result to
+prove the reference law for compiled sums. It obtains coordinate four as one
+through the public interpretation theorem. The existing noninjectivity theorem
+is retained. `zero_map_rejected` and `zero_map_body_square_fails` show the precise
+failure of a constant-zero interpretation at delay-one and coordinate zero.
+
+Authors supply finite syntax, meanings for parameters and prior references,
+causality of admitted unary operations, and a reducing guard certificate. For a
+new target they supply constructor implementations and local denotation laws;
+for a change of coefficients they supply local interpretation squares. The
+compiler derives body correctness, guardedness, a constructed unique semantic
+solution, and preservation. A closed-form or independently specified recurrence
+still needs its own source-equation proof, as in the sums and triangular cases.
+
+There are three separate termination and progress questions. Syntax translation
+terminates by structural recursion. Semantic existence and uniqueness use
+strict coordinate dependence and the well-founded solver. These do not give an
+operational producer or a bound on delivery of finite observations: admitted
+operations are mathematical functions and may be noncomputable, and evaluation
+can repeat earlier work. #146 and the existing `Progress.Streams` contracts own
+operational delivery certificates. Retained state, repair and change propagation
+remain separate work under #109 and generic memoization #263. #235/#36 retain
+shared-interface expansion and broader language integration. This fragment adds
+no scheduler, unrestricted recursion, arbitrary-category GSOS instance, or runtime
+resource bound.

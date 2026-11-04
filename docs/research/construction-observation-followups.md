@@ -167,3 +167,27 @@ and [#287](https://github.com/VladimirMarko/conaled/issues/287) paper assessment
 preserve that direction: assumption extraction and representation expansion
 have specific additional obligations, without replacing the existing direct
 interfaces.
+
+## Compilation, divergence and complete workloads
+
+Three successors extend these bounded results:
+
+- [#302](https://github.com/VladimirMarko/conaled/issues/302): the
+  [guarded stream compiler](modular-guarded-streams.md) derives interpretation
+  preservation from local constructor laws and composes interpretation squares.
+  Checked clients include an earlier compiled stream reused by a later definition
+  and a lossy parity interpretation. The guard remains a sufficient condition;
+  general recursive definitions and runtime scheduling remain separate work.
+- [#303](https://github.com/VladimirMarko/conaled/issues/303): the
+  [weak higher-order comparison](weak-higher-order-comparison.md) relates a
+  typed fragment with explicit divergence to independent partial function meaning.
+  It proves context preservation and distinguishes divergence from finite delay.
+  The behavioral model and comparison are proved directly; the paper assessments
+  do not establish a general weak GSOS instance or full abstraction.
+- [#304](https://github.com/VladimirMarko/conaled/issues/304): the
+  [complete parser workloads](complete-parser-workloads.md) compare ordinary,
+  retained, normalized and combined policies. Exact native decisions are preserved,
+  including nullable-star witnesses. Complete work and space counts cover the
+  stated explicit transport fragment and arena lifetimes. Repeated queries can
+  repay setup, while short and already simple workloads expose its costs. These
+  are checked representation costs, not measurements of Lean's allocator.

@@ -144,6 +144,33 @@ architecture; an immediately available adapter is not a condition for taking
 a competing theory seriously. These programmes organize research without
 committing the language to a universal foundation.
 
+The [checked representation-extension study](research/all-model-representation-extensions.md)
+now supplies bounded all-model expansion and selected-section descent. Keep
+their obligations separate: admitting a representation for every model does
+not supply a natural representative selector or make every selected section
+descend. Clients still owe the relevant compatibility and equivariance laws.
+
+The [dependent coherence comparison](research/dependent-coherence-comparison.md)
+separates the author's judgment-interpretation boundary from the construction
+of semantic models. Strict semantic substitution alone does not repair source
+annotations or establish that interpretation contract. Keep the independent
+memo's dependent higher-witness test as an adoption condition, and compare
+local universes, direct strict models and chosen-universe constructions against
+it. A bounded Type-family specialization must not replace that requirement.
+The [theory-network comparison](research/theory-network-comparison.md) likewise
+keeps publication and view composition separate from encoding adequacy and
+changes of logic. A total assignment of declarations must preserve their laws
+and selected data; a framework's composition theorem does not discharge those
+obligations for a new encoding.
+
+The [requirement-discovery trial](research/proof-requirement-author-trial.md)
+compares independent manual and prepared-ledger authors on frozen tasks. Both
+retained reusable proofs and selected data; their sufficient witness interfaces
+differed. Use a dependency ledger as optional, reviewable evidence about a
+particular proof. Removing a proof detour requires a checked replacement proof,
+and choosing a more general interface remains a separate design task. This
+bounded trial does not establish causal savings or a preferred architecture.
+
 The duality agenda in #266–#270 is promising but remains a set of hypotheses,
 not a ranking established by an external comparison. Investigating variance,
 inclusion, implication and explicit coercion evidence likewise does not commit
