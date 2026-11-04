@@ -39,8 +39,8 @@ Chapter organization is a coverage index; modules follow reusable domain concept
 | Chapter | Topic | Current implementation scope |
 | --- | --- | --- |
 | 1 | Basics | Detailed witnesses below; acceptance is tracked separately |
-| 2 | Sorting | Queued |
-| 3 | Selection | Queued |
+| 2 | Sorting | Active; shared insertion costs below; acceptance tracked separately |
+| 3 | Selection | Queued; shared insertion costs below |
 | 4 | Binary Trees | Queued |
 | 5 | Binary Search Trees | Queued |
 | 6 | Abstract Data Types | Queued |
@@ -65,7 +65,7 @@ Chapter organization is a coverage index; modules follow reusable domain concept
 | 25 | Knuth–Morris–Pratt String Search | Queued |
 | 26 | Huffman's Algorithm | Queued |
 | 27 | Alpha–Beta Pruning | Queued |
-| A | List Library | Matched as used; final complete inventory pending |
+| A | List Library | Shared standard interfaces and checked adapters below; acceptance tracked separately |
 | B | Time Functions | Matched as used; final complete inventory pending |
 | C | Notation | Matched as used; final complete inventory pending |
 
@@ -200,7 +200,7 @@ No such end-to-end stack is postulated here.
 The cost-comparison mathematics on pp7–9 is a separate required part of the
 chapter. Its earlier blanket classification as explanatory scope was incorrect.
 The [cost-model repair](fdsa-call-models.md) supplies the precise statement
-review and intended connections for three currently unvalidated additions:
+review and intended connections for three additions:
 
 - Uniform fine/coarse tariff bounds from a fixed finite local-case catalogue,
   with an exact append-branch client and both asymptotic directions.
@@ -211,12 +211,235 @@ review and intended connections for three currently unvalidated additions:
   bound against a finite eager catalogue, with external-program correspondence
   explicit and unshared duplication treated separately.
 
-These source repairs remain subject to compilation, full candidate gates and
-independent final review; their presence does not close the chapter. Section
+These source repairs were accepted with Chapter 1 at commit
+`07e480f6ec9958d4975bb90151005b84f2907614`, after the full native build/audit,
+both independent reviews and immediate candidate verification. The companion
+tracker retains the exact evidence and earlier failed or unknown attempts. Section
 1.5.3's preference for explicit bounds remains explanatory. Higher-order time
 conventions refer forward to Appendix B.1 and stay on that appendix's list.
 
+## Shared insertion costs for Chapters 2 and 3
+
+The local cross-cutting ticket FDSA-X002 develops the insertion-sort cost model
+used by §2.2, Exercise 2.1 and the small-input sorting case in Chapter 3. Its
+development does not accept either chapter or omit their remaining obligations.
+
+`Resources.InsertionSort.insertRun` instruments `List.orderedInsert`, and
+`sortRun` instruments the recurrence of the existing `insertionOn`. The value
+projection is proved equal to the existing algorithm. A comparison, constructor
+or projection adds no charge in this model; every insertion invocation and
+every sort invocation, including their empty cases, adds one. Consequently the
+observed cost follows the displayed T-insort equations exactly. These are source
+call counts, with no claim about the cost of an arbitrary comparison function or
+Lean execution time.
+
+| Intended result | Checked witness under `Resources.InsertionSort` |
+| --- | --- |
+| Insertion returns the existing left-biased ordered insertion | `insertRun_value` |
+| Insertion count lies between 1 and input length plus 1 | `insertRun_cost_bounds` |
+| An accepted head comparison terminates insertion immediately | `insertRun_cost_of_head` |
+| Preceding every input element gives the immediate count | `insertRun_cost_of_all` |
+| Rejecting every comparison traverses the entire input | `insertRun_cost_of_all_not` |
+| Sort returns the existing insertion sort and preserves length | `sortRun_value`, `sortRun_length` |
+| Sort counts recursion, insertion into its actual result, and entry | `sortRun_cons_cost` |
+| Uniform lower count `2n+1` | `sortRun_cost_lower` |
+| Uniform triangular upper count `(n+1)(n+2)/2` | `sortRun_double_cost_le`, `sortRun_cost_le` |
+| Source Lemma 2.1's weaker bound `(n+1)^2` | `sortRun_quadratic` |
+| Pairwise-ordered input attains the lower count | `sortRun_cost_of_pairwise` |
+| Pairwise rejection makes every insertion traverse its tail | `sortRun_double_cost_of_opposite` |
+| Descending distinct natural values attain the upper count | `reverse_range_opposite`, `sortRun_cost_reverse_range` |
+| Existing keyed stability, sortedness and permutation contract | `sortRun_stable` |
+
+The lower count is one final empty sort invocation, one sort entry per element,
+and at least one insertion invocation per element. The upper count replaces each
+insertion cost by its sorted tail's length plus one. A descending range attains
+every such upper bound. Here `reverse(range n)` has length `n`; the source's list
+`[n,n-1,...,0]` is the specialization at `n+1`. The exact formula includes empty
+and singleton inputs, whose counts are 1 and 3. Nonincreasing lists with repeated
+values are not asserted to attain the worst case: accepting an equal key stops
+that insertion.
+
+Statement review checked that the operations, erasure, permutation-derived
+length and uniform count bounds require only a decidable relation. Pairwise
+order suffices for the best-case result, without global order assumptions.
+Pairwise rejection is the hypothesis for the generic worst-case result, and
+the descending natural range proves it satisfiable at every length. The doubled
+inequality and equality justify natural-number division in the triangular
+formula. Sorting correctness is a separate use of the existing stable-sorting
+contract and retains its linear-preorder and decidable-key assumptions; it
+requires no order on payloads.
+
+`Examples.InsertionCosts` connects the public results to independently computed
+counts: `[1,1,2]` uses 7 calls, while `[2,1,0]` uses 10. It also checks insertion
+at a tied head even when the later tail comparison would fail, traversal to the
+end, empty and singleton input, the universal bounds, and keyed correctness
+for arbitrary payloads without payload instances. A String instance checks
+preservation of two distinguishable records sharing a key. Its selection client
+uses the existing `Selection.pairwise_ranked` contract to obtain an occurrence
+rank from the measured sort's output, including a repeated value. That client
+observes a sorted result; it does not charge indexing or claim a complete
+selection runtime bound. The connected small-input client pairs that rank with
+the sorting-only bound of 21 calls for an input of length at most five, derived
+from the general triangular inequality and the explicit length hypothesis.
+
+## Appendix A: shared list interfaces, printed pages 343–345
+
+This cross-cutting foundation reuses the existing Lean list carrier and
+operations. The twenty source entries and all their displayed cases have the
+following correspondence. Standard equation theorems are retained directly;
+`Examples.ListLibrary` supplies the boundary and composition witnesses named
+below. This source map does not itself assert completion of the independent
+review and candidate-verification gates.
+
+| Source entry | Existing value and equation witnesses | Checked use |
+| --- | --- | --- |
+| Length | `List.length_nil`, `length_cons` | `duplicate_pipeline`, `update_observations` |
+| Append | `List.nil_append`, `cons_append` | Existing `Examples.FunctionalBasics.append_equations`; `split_reassembles` |
+| Underlying set | `{x \| x ∈ xs}`, using `List.not_mem_nil`, `mem_cons` | `empty_membership_set`, `cons_membership_set` |
+| Map | `List.map_nil`, `map_cons` | `duplicate_pipeline` |
+| Boolean filter | `List.filter_nil`, `filter_cons` | `duplicate_pipeline`, `minimum_filter_spec` |
+| Concatenation of a list of lists | `List.flatten_nil`, `flatten_cons` | `duplicate_pipeline`, including an empty inner list |
+| Take | `List.take_nil`, `take_zero`, `take_succ_cons` | `split_reassembles`, `overlarge_split` |
+| Drop | `List.drop_nil`, `drop_zero`, `drop_succ_cons` | `split_reassembles`, `overlarge_split` |
+| Head of a nonempty list | `List.head?`, `head?_cons`; proof-domain `List.head` | `head_valid`, `empty_payload_queries` |
+| Tail | `List.tail_nil`, `tail_cons` | `last_and_tail_boundaries`, `empty_payload_queries` |
+| Remove last element | `List.dropLast_nil`, `dropLast_singleton`, `dropLast_cons_cons` | `dropLast_cons_equation`, `last_and_tail_boundaries` |
+| Reverse | `List.reverse_nil`, `reverse_cons` | `duplicate_pipeline`; Chapter 1's separate measured realizations |
+| Zero-based indexing | `List.getElem?_cons_zero`, `getElem?_cons_succ`; proof-domain `getElem` | `index_valid`, `invalid_index_and_update`, `empty_payload_queries` |
+| List update | `List.set_nil`, `set_cons_zero`, `set_cons_succ` | `update_observations`, `update_repeated_value`, `invalid_boundary` |
+| Half-open natural interval `[i..<j]` | `List.Ico`, `Ico.succ_top`, `Ico.eq_nil_of_le` | `range_zero_equation`, `range_succ_equation`, `range_boundaries`, `range_membership` |
+| Replicate | `List.replicate_zero`, `replicate_succ` | `replication_boundaries` |
+| Distinctness | `List.Nodup`, `nodup_nil`, `nodup_cons` | `duplicates_are_not_distinct` |
+| Sum | `List.sum_nil`, `sum_cons` | `sum_source_equations`, `duplicate_pipeline` |
+| Nonempty minimum | `List.min?`, `min?_singleton`, `min?_cons`; proof-domain `List.min` | `minimum_source_equation`, `minimum_valid`, `minimum_repeated_values`, `minimum_empty`, `empty_payload_minimum` |
+| Sortedness for an arbitrary relation | `List.Pairwise.nil`, `List.pairwise_cons` | `sorted_wrt_cons`, `adjacent_relation_is_insufficient` |
+
+The source's `concat` combines a list of lists and therefore corresponds to
+`List.flatten`. Ranges include the lower endpoint and exclude the upper one;
+`List.Ico i j` uses the truncated natural length `j-i`. Its checked successor
+equation covers both `i ≤ j` and the empty alternative. Shape inspection for
+drop-last uses `xs.isEmpty`, which distinguishes exactly the empty list without
+requiring equality decisions on payloads.
+
+The source supplies no invalid-input value equation for head, indexing or
+minimum. Optional queries return `none` there. Their valid-input bridges return
+`some` of the existing proof-domain result. Tail and list update retain their
+specified total behavior: an invalid lookup returns `none`, while an invalid
+update preserves the input, including its length and every position. The
+source's zero-based index does not alter conaled's existing one-based public
+selection interface.
+
+Minimum's operation alone needs `Min α`; its source-style right-recursive law
+also needs associativity because the standard realization folds from the left.
+The book's linear-order specialization supplies that law. Leastness in
+`minimum_filter_spec` separately requires a linear order and a successful
+optional result; `filtered_minimum_example` discharges that premise on actual
+data. Neither a top element nor a default payload is introduced. The checked
+`Empty` cases demonstrate head/index failure and optional minimum with an
+empty-domain `Min` operation. Sum has the different explicit capability
+`Zero α`, so it cannot be instantiated at `Empty`; its literal equations need
+only `Add α` and `Zero α`, without associativity or commutativity.
+
+Distinctness and arbitrary-relation sortedness are propositional observations.
+An executable Boolean view uses the corresponding decidability capability when
+needed. `Pairwise` checks every later element. The checked relation `y = x+1`
+on `[0,1,2]` satisfies adjacent comparisons but fails `Pairwise`, so transitivity
+cannot be assumed merely from the word "sorted". The source's Boolean filter
+already matches Lean's `α → Bool` interface.
+
+Statement review retained arbitrary payload universes and the exact validity
+conditions. The duplicate pipeline independently computes four flattened
+elements, filtered-and-incremented values `[3,3,2]`, reverse `[3,1,2,2]` and sum
+8. Update cases distinguish two equal occurrences by their positions. Minimum
+with repeated values returns 2; the filtered-minimum client retains membership,
+predicate satisfaction and leastness for the original input. Empty, singleton,
+overlarge and reversed-boundary cases are covered without adding global
+inhabitation or equality assumptions.
+
+These are value correspondences. The standard reverse's accumulator
+implementation does not inherit the naive source reversal's costs. The same
+distinction applies to minimum's fold association and to other optimized
+standard operations. Appendix B's separate cost recurrences remain separate
+obligations.
+
+## Shared list call counts — Appendix B.1
+
+The seven primitive operations and seven exact properties on printed
+pp.347–348 are mapped below. This is cross-cutting work used by subsequent
+chapters; it does not complete Appendix B's algorithm-specific subsections.
+The callback-bearing operations live in `Resources.ListCalls` and use the
+existing `Resources.Measured`, `bind`, `pure` and `CallCount.tick` vocabulary.
+
+| Source operation/property | Checked realization and result |
+| --- | --- |
+| Append equations and `n+1` | Existing `ListReversal.appendRun_nil`, `appendRun_cons`, `appendRun_exact` |
+| Length equations and `n+1` | Existing `SymmetricCosts.lengthRun` and `lengthRun_exact` |
+| Map equations and sum of callback costs plus `n+1` | `ListCalls.mapRun_nil`, `mapRun_cons`, `mapRun_value`, `mapRun_cost`, `mapRun_exact` |
+| Filter equations and sum of predicate costs plus `n+1` | `filterRun_nil`, `filterRun_cons`, `filterRun_value`, `filterRun_cost`, `filterRun_exact` |
+| Take equations and `min k n+1` | `takeRun_nil`, `takeRun_zero`, `takeRun_succ_cons`, `takeRun_exact` |
+| Drop equations and `min k n+1` | `dropRun_nil`, `dropRun_zero`, `dropRun_succ_cons`, `dropRun_exact` |
+| Valid zero-based lookup equations and `k+1` | `lookupRun_zero_cons`, `lookupRun_succ_cons`, `lookupRun_value`, `lookupRun_cost_of_lt`, `lookupRun_valid` |
+
+Map retains independent input and output universes. Its callback supplies both
+the actual mapped value and its natural-number observation; filter similarly
+uses the returned Boolean to choose whether to retain the head. Each list
+occurrence, including repetitions, contributes its callback observation once.
+Both filter branches process the complete tail. The exact summed formula needs
+no constancy, equality, ordering or inhabitation capability on the payload.
+`filterRun_cost_eq_mapRun` relates only their cost projections. The constant-cost
+specializations require constancy only on elements of the supplied input, and
+give `(c+1)*n+1`. Knapsack's existing source map pays two units per cons; that
+different model is unchanged and is not used for this correspondence.
+
+Take and drop are value projections of the already verified `splitRun`, with
+its observation preserved. Their individual source equations are checked,
+including zero, empty and successor cases. `take_drop_separate` sequences two
+operations on the original input through `bind` and proves twice the fused
+split's observation. It does not apply drop to the returned prefix. Equality
+of the pair of output lists is therefore kept separate from equality of costs.
+
+Lookup recursively follows the list, with no random-access substitution or
+default element. The source gives no empty-input cost equation. This optional
+extension explicitly chooses `(none,1)` there; `lookupRun_cost` proves the
+extension's total count `min k n+1`. Only `lookupRun_cost_of_lt`, under `k<n`,
+is the printed exact-cost property. `lookupRun_valid` connects the optional
+result to `some` of the standard proof-domain indexed element and the valid
+count. The first invalid index reaches the empty list and costs `n+1`; larger
+invalid indices have the same extension count. Those failure counts are not
+attributed to the book.
+
+Statement review compared the definitions, branch behavior, explicit validity
+domain, quantifier universes, and observations with the source recurrences.
+The initial missing connection was that standard list values and the existing
+Knapsack tariff did not supply these measured-callback equations; a plain
+evaluation example could not fill that proof obligation. The retained checked
+clients in `Examples.ListCalls` use the new public exact results:
+
+- Mapping `[2,2,3]` with `(x+10,x)` gives `([12,12,13],11)`. Filtering either
+  `[2,2,3]` or `[3,2,2]` with `(x≤2,x)` gives `([2,2],11)`. The second filter
+  case checks that discarding the head preserves the later retained elements.
+- Zero- and unit-cost callbacks on three elements cost 4 and 7. Filtering out
+  every element with a unit-cost callback still costs 7.
+- `map_then_length` composes the actual mapped result with the existing measured
+  length, with independent payload universes. The concrete callback case costs
+  `11+4=15`. `append_then_length` similarly combines existing append and length
+  without duplicating either realization.
+- Lookup of position 2 in `[4,4,9]` returns `(some 9,3)`. Positions 3 and 20
+  return `(none,4)` under the declared extension. Empty lookup works at `Empty`.
+- Taking and dropping two elements of `[1,2,3]` each costs 3; the sequential
+  pair costs 6 and the fused split costs 3. Zero, empty-payload and overlarge
+  counts are checked separately.
+
+These definitions and examples remain subject to complete candidate validation
+and independent review before acceptance. Cost observations concern the stated
+recursive model, not execution time of standard-library list operations.
+
 ## Architecture and statement review
+
+Appendix C's complete notation correspondence, source corrections and checked
+semantic boundaries are recorded in [the notation map](fdsa-notation-map.md).
+It reuses these list and foundation interfaces rather than introducing source
+editor syntax as a second notation layer.
 
 Operations, returned values and observations remain separate. Exact agreement
 uses ordered lists, so duplicates and order are preserved. Costs require their
