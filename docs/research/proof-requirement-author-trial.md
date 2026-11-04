@@ -1,9 +1,10 @@
-# Discovering reusable proof requirements: author trial preparation
+# Discovering reusable proof requirements: manual and assisted author trial
 
 For [#293](https://github.com/VladimirMarko/conaled/issues/293), two small Lean
 tasks now have concrete source proofs, target interpretations and private checked
-reference solutions. Independent author observations are pending. Preparation
-does not establish a benefit from dependency assistance.
+reference solutions. The two independent authors have been dispatched under the
+frozen protocol; their closed attempts have not yet been evaluated. Preparation
+and dispatch do not establish a benefit from dependency assistance.
 
 The [prospective protocol](../../experiments/proof-requirement-authoring/protocol.md)
 fixes the contracts, independent manual/assisted allocation, 20-minute caps,
@@ -63,6 +64,48 @@ separates task design, private solutions, supplied assistance, compiler failures
 environment work and archived checks from author effort. First checks exposed
 an implicit-argument mistake in a List lemma call; it was repaired before
 freeze. No author saw that failed preparation artifact.
+
+The exact preparation candidate
+`72607d73206b4be824c688aab738bb4f4493bb66` passed the README candidate check
+(992 modules and exhaustive axiom audit) and candidate-record verification.
+The [coordinator archive](../../experiments/proof-requirement-authoring/coordinator/README.md)
+contains those raw logs, the prospective checkpoint and initial dispatch record,
+with copy provenance. This gate covers preparation, not later author submissions.
+The implementation branch subsequently incorporated accepted #292 work from
+`f36b0a61db0e89b8eb6d08a996bbb3adbdec11b3`; frozen task/support hashes remained
+unchanged. Final integrated validation remains outstanding.
+
+## Author observations awaiting closed archives
+
+The coordinator dispatched `/root/author_293_manual` and
+`/root/author_293_assisted` with no conversation fork or model/effort overrides.
+The recorded dispatch interval is bounded by 2026-11-04T20:40:54Z and
+2026-11-04T20:41:31.577643+00:00. These are launch bounds, not author-reported
+start/finish times. The initial dispatch record contains the exact messages and
+their hashes; each omitted only the frozen prompt file's final newline.
+
+| Arm/task | Closed artifact and checks | Contract assessment |
+|---|---|---|
+| Manual E, held out | Pending closed archive | Pending |
+| Manual W, calibration-derived | Pending closed archive | Pending |
+| Assisted E, held out | Pending closed archive | Pending |
+| Assisted W, calibration-derived | Pending closed archive | Pending |
+
+After closure, retain source snapshots and raw diagnostics before evaluating the
+best checked submissions. Assess named requirements, both interpretations,
+original/revised replay, unused versus dispensable evidence, selected data and
+negative controls against the frozen rubric. Record missing evidence and any
+post-attempt repairs separately. No live attempt was inspected while preparing
+this scaffold.
+
+## Causes and recommendation awaiting evaluation
+
+The final comparison will distinguish mathematical obligations from interface
+and documentation work, Lean encoding problems and author mistakes. It will
+record preparation effort separately from author commands, failures, assistance
+and reported time. The coordinator recorded an integration-cache copy running
+on the same host during the trials; host contention was not controlled or
+measured, so elapsed time cannot establish comparative productivity.
 
 Current decision: investigate with the frozen author comparison. Retain, revise
 or drop the assistance format only after recorded attempts are assessed against
