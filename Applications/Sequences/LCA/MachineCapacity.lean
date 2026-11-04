@@ -1,5 +1,6 @@
 import Applications.Sequences.LCA.KeyBounds
 import Applications.Sequences.LCA.Storage
+import Applications.Sequences.LCA.Workspace
 
 /-! Finite-word eligibility for sized RMQ machines. Memory requirements are
 supplied by the preparation lifetime certificate; word requirements cover
@@ -76,5 +77,52 @@ example : ¬ WordEligible 1 5 16 := by
   intro h
   have := h.keys
   norm_num [KeyBounds.wordCapacity] at this
+
+/-- Required memory under the monotone allocation interpretation. The caller
+supplies its borrowed input and separately established scalar/control frame. -/
+def requiredSlots (m inputWords frameWords : Nat) : Nat :=
+  retainedSlots m + Workspace.temporaryWords m + inputWords + frameWords
+
+structure Eligible (m width capacity inputWords frameWords : Nat) : Prop
+    extends WordEligible m width capacity where
+  memory : requiredSlots m inputWords frameWords ≤ capacity
+
+theorem preparation_fits (h : Eligible m width capacity inputWords frameWords)
+    (source : Nat → Resources.Measured Int Nat) :
+    Workspace.words (Workspace.selectedRun source m) + inputWords + frameWords ≤ capacity := by
+  rw [Workspace.selectedRun_words]
+  exact h.memory
+
+/-- Every operation-produced allocation, including all retained temporaries,
+fits together with the caller's separately accounted input and scalar frame. -/
+theorem allocation_prefix_fits (h : Eligible m width capacity inputWords frameWords)
+    (source : Nat → Resources.Measured Int Nat) (k : Nat) :
+    ((Workspace.selectedRun source m).allocations.take k).sum + inputWords + frameWords ≤ capacity := by
+  have hp : ((Workspace.selectedRun source m).allocations.take k).sum ≤
+      (Workspace.selectedRun source m).allocations.sum := by
+    have he := List.sum_take_add_sum_drop (Workspace.selectedRun source m).allocations k
+    omega
+  have hf := preparation_fits h source
+  unfold Workspace.words at hf
+  omega
+
+theorem exists_machine (hm : 0 < m) (inputWords frameWords : Nat) :
+    ∃ width capacity, Eligible m width capacity inputWords frameWords := by
+  obtain ⟨width,hw⟩ := exists_width hm (requiredSlots m inputWords frameWords)
+  exact ⟨width,requiredSlots m inputWords frameWords,hw,le_rfl⟩
+
+/-- A singleton machine with four borrowed words and a sixty-four-word frame
+has a concrete memory/word witness. The separate caller proves its frame use. -/
+example : Eligible 1 8 128 4 64 := by
+  constructor
+  · constructor <;> decide
+  · decide
+
+example : ¬ Eligible 1 8 16 4 64 := by
+  intro h
+  have hh := h.memory
+  norm_num [requiredSlots, retainedSlots, paddedCapacity, blocks,
+    BlockedRMQ.blockCount, sharedSlots, levels, blockSize,
+    SparseExecution.retainedSlots, Workspace.temporaryWords, Nat.log] at hh
 
 end Sequences.LCA.MachineCapacity
