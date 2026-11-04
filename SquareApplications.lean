@@ -247,6 +247,10 @@ import Examples.FunctionalBasics
 import Examples.ListReversal
 import Examples.CallModels
 import Examples.SharedDemand
+import Examples.InsertionCosts
+import Examples.ListLibrary
+import Examples.ListCalls
+import Examples.FunctionalNotation
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
