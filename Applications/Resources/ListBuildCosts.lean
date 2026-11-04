@@ -106,7 +106,6 @@ theorem appendBuildRun_value (items : List α) : (appendBuildRun items).1 = item
 theorem appendBuildRun_cost (items : List α) :
     (appendBuildRun items).2 = items.length * (items.length + 1) / 2 + items.length + 2 := by
   rw [appendBuildRun, CallCount.tick_cost, appendLoopRun_cost, appendSubRun_empty_cost]
-  omega
 
 theorem appendBuildRun_double_cost (items : List α) :
     2 * (appendBuildRun items).2 = items.length * items.length + 3 * items.length + 4 := by
