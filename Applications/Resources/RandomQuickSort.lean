@@ -43,7 +43,10 @@ def uniformIndex (m : Nat) : PMF (Fin (m + 1)) :=
 @[simp] theorem uniformIndex_zero : uniformIndex 0 = PMF.pure (0 : Fin 1) := by
   apply PMF.ext
   intro i
-  have hi : i = 0 := Subsingleton.elim _ _
+  have hi : i = 0 := by
+    apply Fin.ext
+    have hlt := i.isLt
+    omega
   subst i
   simp [PMF.pure_apply]
 
@@ -60,7 +63,7 @@ theorem uniformIndex_event (m : Nat) (event : Fin (m + 1) → Bool) :
       simp only [Finset.sum_filter, uniformIndex_apply]
       apply Finset.sum_congr rfl
       intro i _
-      cases event i <;> rfl
+      cases event i <;> simp
     _ = _ := by rw [Finset.sum_const, nsmul_eq_mul, div_eq_mul_inv]
 
 private theorem eraseIdx_length_lt (xs : List α) (i : Nat) (hi : i < xs.length) :
@@ -441,8 +444,10 @@ theorem costs_of_all_false (lt : α → α → Bool) (xs : List α)
         List.filter_eq_self.mpr (fun x hx => by
           simp [hf x (List.mem_of_mem_eraseIdx hx) pivot hp])
       have hleftResult : left = ([], (1, 0)) := by
+        change left ∈ (run lt (rest.filter (fun x => lt x pivot))).support at hl
         simpa only [hleft, run_nil, PMF.mem_support_pure_iff] using hl
       have hrightSupport : right ∈ (run lt rest).support := by
+        change right ∈ (run lt (rest.filter (fun x => !(lt x pivot)))).support at hright
         simpa only [hrightInput] using hright
       have hc := costs_of_all_false lt rest
         (fun a ha b hb => hf a (List.mem_of_mem_eraseIdx ha)
@@ -453,6 +458,7 @@ theorem costs_of_all_false (lt : α → α → Bool) (xs : List α)
       dsimp only
       rw [hc]
       rw [← hrest]
+      simp only [List.length_nil]
       apply Prod.ext <;> dsimp only <;> nlinarith
 termination_by xs.length
 decreasing_by
