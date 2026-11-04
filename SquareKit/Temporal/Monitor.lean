@@ -1,3 +1,4 @@
+import Mathlib.Order.Lattice
 import Mathlib.Data.Nat.Basic
 import Lean.Elab.Tactic.Omega
 
