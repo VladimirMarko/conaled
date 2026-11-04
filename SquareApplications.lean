@@ -8,6 +8,7 @@ import Examples.CompositionalCoalgebra
 import Examples.EquationTranspose
 import Examples.EquationViews
 import Examples.ParserViews
+import Examples.RetainedParserSnapshot
 import Examples.LanguageCoalgebra
 import Examples.SubtypeEvidence
 import Examples.LanguageExtension
