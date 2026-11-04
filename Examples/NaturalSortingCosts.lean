@@ -205,7 +205,7 @@ theorem repeated_payload_linear (cmp : α → α → Bool) (a : α) :
 theorem ascending_range_exact (n : Nat) :
     comparisons natLT natCompare (List.range n) = n - 1 := by
   change comparisons (fun a b : Nat => decide (a < b)) natCompare (List.range n) = n - 1
-  simpa only [List.length_range] using
+  simpa only [id_eq, List.length_range] using
     comparisons_of_sorted id natCompare (List.range n)
       (List.pairwise_lt_range.imp (fun h => Nat.le_of_lt h))
 
