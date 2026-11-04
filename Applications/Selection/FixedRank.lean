@@ -74,7 +74,8 @@ theorem select0_value (xs : List α) : select0 xs = (ordered xs)[0]? := by
   | none =>
       have hx := (select0_none_iff xs).mp h
       subst xs
-      rfl
+      simp [ordered, Applications.Sorting.sortOn_eq_insertionOn,
+        Applications.Sorting.insertionOn]
   | some a =>
       exact (ordered_getElem?_zero_iff_min.mpr
         ((select0_some_iff_min xs a).mp h)).symm
@@ -137,7 +138,7 @@ private theorem take_orderedInsert_take (m : Nat) (x : α) (ys : List α) :
 theorem ordered_cons_eq_insert (x : α) (xs : List α) :
     ordered (x :: xs) = List.orderedInsert (· ≤ ·) x (ordered xs) := by
   simp only [ordered, Applications.Sorting.sortOn_eq_insertionOn,
-    Applications.Sorting.insertionOn, List.insertionSort_cons]
+    Applications.Sorting.insertionOn, List.insertionSort_cons, id_eq]
 
 theorem boundedInsert_prefix (m : Nat) (x : α) (seen : List α) :
     boundedInsert m x ((ordered seen).take m) = (ordered (x :: seen)).take m := by
@@ -163,7 +164,9 @@ def takeSort (m : Nat) (xs : List α) : List α := prefixLoop m [] xs
 theorem takeSort_value (m : Nat) (xs : List α) :
     takeSort m xs = (ordered xs).take m := by
   have h := prefixLoop_prefix m ([] : List α) xs
-  rw [show ordered ([] : List α) = [] from rfl, List.take_nil, List.append_nil,
+  rw [show ordered ([] : List α) = [] from by
+        simp [ordered, Applications.Sorting.sortOn_eq_insertionOn,
+          Applications.Sorting.insertionOn], List.take_nil, List.append_nil,
     ordered_eq_of_perm (List.reverse_perm xs)] at h
   exact h
 
