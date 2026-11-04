@@ -13,6 +13,34 @@ a reusable argument from an existing proof more directly tests the language's
 promise to help an author discover the abstraction. Effectful realizers remain
 a separate useful question when the selected argument actually changes effects.
 
+## Results of the selected follow-ups
+
+The bounded paper comparisons are complete; their frozen fixtures preceded
+adaptation of either route. They do not constitute a Lean implementation or
+an independent author trial.
+
+- [#286: proof-derived requirements](proof-requirement-comparison.md) replays
+  an algebraic equality and a selected-witness construction in two targets.
+  Extraction exposes sufficient proof dependencies and a dispensable stronger
+  detour, but naming a useful interface remains mathematical work. For these
+  fixtures the direct generic proof is equally short. Retain extraction as a
+  possible opt-in authoring service; stop before building a native-proof importer
+  or claiming weakest requirements or measured productivity gains.
+- [#287: representation extensions](representation-extension-comparison.md)
+  constructs products and quotients for every model in its stated set-model
+  class, with reduct comparisons and composition. A direct parameterized
+  construction proves the same contract. The certificate packages admission
+  obligations; selected dependent witnesses additionally need coherent descent.
+  Failed model expansion and the two-point no-natural-selector case delimit
+  the result. No arbitrary dependent strictification or automatic choice follows.
+
+#235 owns any later implementation or author trial justified by a concrete
+client. #107 retains concrete coherence failures, and #262/#278 retain their
+existing semantic-type and interaction scopes. These results give no reason
+to activate #260 or reopen completed recursive/probability investigations.
+The sequence below records the selection rationale; #286/#287 now have the
+linked outcomes rather than queued comparisons.
+
 ## What evidence changed the selection
 
 The [first pass](external-language-comparison.md) supplies the initial semantic

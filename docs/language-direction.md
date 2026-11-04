@@ -128,9 +128,13 @@ records the completed first pass, its omissions and proposed matched experiments
 The [subsequent assessment](research/external-discovery-assessment.md) revises
 the next sequence toward proof-derived requirements (#286) and representation
 extensions with explicit model/witness contracts (#287). Keep dependent
-coherence tied to concrete author failures. These are selected investigations,
-not adopted foundations or completed experiments; their records state what
-evidence would change the order.
+coherence tied to concrete author failures. The completed paper comparisons of
+[proof-derived requirements](research/proof-requirement-comparison.md) and
+[representation extensions](research/representation-extension-comparison.md)
+retain extraction as a complementary authoring service and a bounded extension
+certificate with separate witness-descent obligations. They establish neither
+an implemented importer/model framework nor measured author benefit. Further
+implementation needs a concrete client and its own scope under #235.
 
 The duality agenda in #266–#270 is promising but remains a set of hypotheses,
 not a ranking established by an external comparison. Investigating variance,
