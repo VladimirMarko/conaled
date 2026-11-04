@@ -8,6 +8,10 @@ entry and experiment D5 in [the external comparison](external-language-compariso
 Page references below use the printed pagination. The distributed PDF has a
 cover sheet, so printed p. 238 is PDF page 2.
 
+A separate [corrected transcription](../references/cousot-1977/README.md) now
+preserves §§5–9 and Appendix 12, with the original scan, diagram crops and
+explicit uncertainty notes. This inspection note remains a mathematical reading.
+
 ## Reading method and limits
 
 Inspected 2026-11-04. The 16-page source PDF has SHA-256

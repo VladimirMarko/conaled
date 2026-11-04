@@ -77,7 +77,9 @@ upper bound rather than the least fixed point itself.
 The [source-inspection record](cousot-1977-source-inspection.md) replaces the
 earlier summary-only assessment. OCR served as navigation; retained formulas,
 diagram direction and selected proof arguments were checked against page images.
-This is a bounded reading, not a verified transcription or a formal proof audit.
+This is a bounded reading, not a formal proof audit. A separate
+[corrected transcription](../references/cousot-1977/README.md) preserves §§5–9
+and Appendix 12 alongside the source scan.
 
 Proposed test: use one recursive specification with two abstract domains, record
 soundness and precision separately, and compare exact fixed-point semantics with
