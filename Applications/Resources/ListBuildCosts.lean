@@ -17,46 +17,46 @@ universe u
 variable {α : Type u}
 
 /-- Append one incoming element to the already constructed ordinary prefix. -/
-def appendStep (a : α) (prefix : List α) : Measured (List α) Nat :=
-  ListReversal.appendRun prefix [a]
+def appendStep (a : α) (acc : List α) : Measured (List α) Nat :=
+  ListReversal.appendRun acc [a]
 
 /-- Observe only the append invocations; the supplied seed is already constructed. -/
-def appendSubRun (items prefix : List α) : Measured (List α) Nat :=
-  run appendStep items prefix
+def appendSubRun (items acc : List α) : Measured (List α) Nat :=
+  run appendStep items acc
 
-@[simp] theorem appendSubRun_nil (prefix : List α) :
-    appendSubRun [] prefix = (prefix, 0) := rfl
+@[simp] theorem appendSubRun_nil (acc : List α) :
+    appendSubRun [] acc = (acc, 0) := rfl
 
-theorem appendSubRun_cons (a : α) (items prefix : List α) :
-    appendSubRun (a :: items) prefix =
-      ((appendSubRun items (prefix ++ [a])).1,
-        prefix.length + 1 + (appendSubRun items (prefix ++ [a])).2) := by
+theorem appendSubRun_cons (a : α) (items acc : List α) :
+    appendSubRun (a :: items) acc =
+      ((appendSubRun items (acc ++ [a])).1,
+        acc.length + 1 + (appendSubRun items (acc ++ [a])).2) := by
   simp only [appendSubRun, run_cons, appendStep, ListReversal.appendRun_exact]
 
-theorem appendSubRun_value (items prefix : List α) :
-    (appendSubRun items prefix).1 = prefix ++ items := by
-  induction items generalizing prefix with
+theorem appendSubRun_value (items acc : List α) :
+    (appendSubRun items acc).1 = acc ++ items := by
+  induction items generalizing acc with
   | nil => simp
   | cons a items ih =>
       simp only [appendSubRun_cons, ih, List.append_assoc, List.singleton_append]
 
 /-- Each next append traverses the prefix returned by the preceding append. -/
-theorem appendSubRun_double_cost (items prefix : List α) :
-    2 * (appendSubRun items prefix).2 =
-      2 * items.length * prefix.length + items.length * (items.length + 1) := by
-  induction items generalizing prefix with
+theorem appendSubRun_double_cost (items acc : List α) :
+    2 * (appendSubRun items acc).2 =
+      2 * items.length * acc.length + items.length * (items.length + 1) := by
+  induction items generalizing acc with
   | nil => simp
   | cons a items ih =>
-      have h := ih (prefix ++ [a])
+      have h := ih (acc ++ [a])
       simp only [List.length_append, List.length_singleton] at h
       simp only [appendSubRun_cons, List.length_cons]
       nlinarith
 
 /-- Natural division is derived from the execution's division-free exact equality. -/
-theorem appendSubRun_cost (items prefix : List α) :
-    (appendSubRun items prefix).2 =
-      items.length * prefix.length + items.length * (items.length + 1) / 2 := by
-  have h := appendSubRun_double_cost items prefix
+theorem appendSubRun_cost (items acc : List α) :
+    (appendSubRun items acc).2 =
+      items.length * acc.length + items.length * (items.length + 1) / 2 := by
+  have h := appendSubRun_double_cost items acc
   simp only [Nat.mul_assoc] at h
   omega
 
@@ -66,33 +66,33 @@ theorem appendSubRun_empty_cost (items : List α) :
 
 /-- The full loop adds one entry at each recursive call, including the terminal call. -/
 def appendLoopRun : List α → List α → Measured (List α) Nat
-  | [], prefix => CallCount.tick (pure prefix)
-  | a :: items, prefix =>
-      CallCount.tick (bind (ListReversal.appendRun prefix [a]) (appendLoopRun items))
+  | [], acc => CallCount.tick (pure acc)
+  | a :: items, acc =>
+      CallCount.tick (bind (ListReversal.appendRun acc [a]) (appendLoopRun items))
 
-@[simp] theorem appendLoopRun_nil (prefix : List α) :
-    appendLoopRun [] prefix = (prefix, 1) := rfl
+@[simp] theorem appendLoopRun_nil (acc : List α) :
+    appendLoopRun [] acc = (acc, 1) := rfl
 
-theorem appendLoopRun_cons (a : α) (items prefix : List α) :
-    appendLoopRun (a :: items) prefix =
-      ((appendLoopRun items (prefix ++ [a])).1,
-        prefix.length + 1 + (appendLoopRun items (prefix ++ [a])).2 + 1) := by
+theorem appendLoopRun_cons (a : α) (items acc : List α) :
+    appendLoopRun (a :: items) acc =
+      ((appendLoopRun items (acc ++ [a])).1,
+        acc.length + 1 + (appendLoopRun items (acc ++ [a])).2 + 1) := by
   simp only [appendLoopRun, ListReversal.appendRun_exact, bind, CallCount.tick]
 
-theorem appendLoopRun_value (items prefix : List α) :
-    (appendLoopRun items prefix).1 = prefix ++ items := by
-  induction items generalizing prefix with
+theorem appendLoopRun_value (items acc : List α) :
+    (appendLoopRun items acc).1 = acc ++ items := by
+  induction items generalizing acc with
   | nil => simp
   | cons a items ih =>
       simp only [appendLoopRun_cons, ih, List.append_assoc, List.singleton_append]
 
-theorem appendLoopRun_cost (items prefix : List α) :
-    (appendLoopRun items prefix).2 =
-      (appendSubRun items prefix).2 + items.length + 1 := by
-  induction items generalizing prefix with
+theorem appendLoopRun_cost (items acc : List α) :
+    (appendLoopRun items acc).2 =
+      (appendSubRun items acc).2 + items.length + 1 := by
+  induction items generalizing acc with
   | nil => rfl
   | cons a items ih =>
-      have h := ih (prefix ++ [a])
+      have h := ih (acc ++ [a])
       simp only [appendLoopRun_cons, appendSubRun_cons, List.length_cons]
       omega
 
