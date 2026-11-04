@@ -1,6 +1,8 @@
 # Indexed constructor–destructor transposition
 
-Implementation of [#256](https://github.com/VladimirMarko/conaled/issues/256).
+Implementation of [#256](https://github.com/VladimirMarko/conaled/issues/256),
+extended with parser coverage and authoring routes in
+[#266](https://github.com/VladimirMarko/conaled/issues/266).
 The bounded calculus transforms typed equation syntax between observer-grouped
 and constructor-grouped programs. It proves both syntactic inverse laws and
 preservation of every interpreted cell. It does not identify arbitrary data
@@ -81,8 +83,9 @@ is inferred from this experiment.
 ## Checked applications
 
 [Transposition.lean](../../Applications/Languages/Transposition.lean) reifies
-union, concatenation and star, with nullable, character derivative and finite
-snapshot observations. Its derivative equations expose sum, scale, construction
+all ten constructors of the existing `Parser`: zero, universal, epsilon, atom,
+union, intersection, scale, concatenation, star and arbitrary transport. Each
+has nullable, character derivative and finite snapshot observations. Its derivative equations expose sum, scale, construction
 and witness transport as syntax. The concatenation body uses the unchanged right
 operand. The star body retains the empty-parse list in `scaleEmpty` and uses the
 existing proved `derivativeStarIso`.
@@ -141,13 +144,12 @@ inverses and explicit transformed derivative clauses.
 
 ## Remaining scope and architecture handoff
 
-The unsupported top-level parser constructors are zero, universal, epsilon,
-atom, intersection, scale and arbitrary transport. They may occur inside operand
-parsers, and some are primitives in equation bodies, but they do not yet have
-rows in this reified signature. Extending the row inventory requires reifying
-and checking their equations. It does not require revising the shared transpose
-proof. #8 owns that remaining language-derivative coverage; it is not a claim
-that the entire ten-constructor source program has been transformed.
+#266 completes the omitted top-level parser rows without changing the existing
+union/concat/star bodies or the general recovery proofs. The coverage is of
+one-layer typed equations over the current parser API. Recursive parser calls
+remain interpreted primitives; extending this coverage does not establish a
+recursive source transformation. The original `Parser` and `WitnessTrie` APIs
+remain available directly. #8 retains the broader language-derivative programme.
 
 #36/#200 retain local/dependent binders, index-unification algorithms, recursive
 source calls and changes of semantic setting as broader research. These need
@@ -170,6 +172,144 @@ per-task token cost were unavailable; weekly allowance was 11% at task start.
 
 The subsequent [duality findings and language agenda](duality-language-directions.md)
 separates the stronger semantic hypotheses and speculative connections from this
-bounded result. #266 now owns the omitted parser rows and verified-view author
-experiments; #267–#270 own observation extensions, composition laws, pairings and
+bounded result. #266 supplies the completed parser rows and the matched authoring comparison
+below; #267–#270 own observation extensions, composition laws, pairings and
 symmetric proof-syntax assessment.
+
+
+## Completed parser rows and exact recovery
+
+The added structural equations are explicit. Intersection computes the product
+of nullable decisions and intersects the derived operands. Scale retains its
+original decision while differentiating its parser operand. Transport maps the
+nullable decision through `e []`; its derivative uses `e (a :: w)`, keeping the
+word index in the isomorphism. Zero and universal derive to themselves. Epsilon
+and atom derivative cells invoke the existing `Prim.derive` on their constructed
+leaf parser, so their equality test and contradiction/isomorphism machinery
+remain in `Parser.derive`. The leaf nullable cells likewise call the existing
+nullable primitive. These cells expose the selected call boundary; they do not
+compile recursion, synthesize equality decisions, or reprove those primitives.
+
+`equations_correct` still proves every cell by reduction to the independently
+existing parser operations. `methods_correct` applies `transpose_preserves`,
+and the unchanged `recovered_nullable`, `recovered_derive` and
+`recovered_snapshot` theorems cover every new constructor. Snapshot lookup has
+its original `w.length ≤ n` premise. `intersection_automatic`, `scale_automatic`
+and `transport_automatic` additionally compose that recovery with the existing
+`WitnessTrie.unfold_*` theorems, obtaining the direct automatic combinators at
+every finite depth. No finite enumeration of nullable-star parses is assumed.
+
+[ParserViews](../../Examples/ParserViews.lean) checks the expected results through
+those public theorems: zero refutes a parse; universal selects `PUnit` on a
+nonempty word; epsilon retains empty-word equality evidence; atom accepts its
+own singleton and rejects another; intersection returns both witnesses; scale
+returns the chosen `true` payload and its epsilon witness; a transport swapping
+ambiguous alternatives returns the right witness. The last example would fail
+if a view preserved only Boolean acceptance. Structural derivative examples
+retain both operands, the scale decision, and the reindexed transport map.
+The old concat syntax and nullable-star witness distinction remain checked in
+[EquationTranspose](../../Examples/EquationTranspose.lean).
+
+`ULift` moves the `Decision A` value into the universe occupied by parsers;
+`scale`'s field is `ULift (Decision A) × Parser P`. The lift is administrative
+packaging, with no witness quotient. Transport's language parameters and
+isomorphism are carried by its constructor name, and its parser is the field.
+This accommodates arbitrary supplied isomorphisms without an implicit coercion
+or an erased result index.
+
+## Authoring additions from either view
+
+`CodataProgram.addConstructors` takes an existing constructor-grouped program,
+a family of new constructor names, their field types, and a new row for every
+name. A row supplies an expression for each existing observer. Old constructor
+names enter through `Sum.inl`, new names through `Sum.inr`.
+`DataProgram.addObservers` is the corresponding observer-grouped route: supply
+new names, their argument/result types, and an expression for each existing
+constructor. It retains the old columns through `Sum.inl`.
+
+Both helpers reuse the existing `Expr`, `Slot`, `transpose` and `untranspose`.
+Their `*_old` laws give literal equality of retained syntax. The signature
+extensions are abbreviations so Lean can expose field and result types during
+elaboration. A new observer result can have a different type from existing
+results; no common untyped output is introduced. `untranspose_preserves` provides
+the reverse denotation equation, alongside the existing forward theorem.
+Both use `Expr.eval_swap`, so their meaning is relative to one fixed primitive
+interpretation. If an author changes that interpretation, old syntax retention
+alone proves nothing about equality of old and new meanings.
+
+[EquationViews](../../Examples/EquationViews.lean) begins with the existing
+vector nil/cons constructors and lookup observer. From the constructor view,
+`repeatRow` adds a repeat constructor: each lookup returns the payload from the
+constructor block. After switching to the observer view, `withSize` adds a size
+column: each cell returns the vector index using `Prim.size`. This is a new
+equation, not a consequence of the old lookup contract. At length two with
+payload seven, repeat lookup returns seven and size returns two.
+
+`old_constructor_cells` and `old_observer_cells` instantiate the shared retention
+laws. `old_lookup_after_views` composes those laws and the inverse theorem to
+recover the original syntax after both additions and view changes. Both
+round-trip directions are checked for both extended programs.
+`repeat_matches_direct` and `size_matches_direct` derive the expected native
+function results through `untranspose_preserves` and `transpose_preserves`.
+The existing head/tail test still yields eleven at the second position.
+`empty_lookup_impossible` retains the negative index boundary after observer
+extension: no argument inhabits `Fin 0`.
+
+Names are intrinsic keys, not source strings subject to alpha-renaming.
+Constructor and observer parameters live in separate positional blocks.
+Inside the constructor view, `Slot.first` is the observer argument and
+`Slot.second` is the constructor field; the observer view reverses that order.
+The type of each block remains attached to its slot. There is no ambient local
+variable context or implicit capture: a local value must be represented in a
+block or supplied explicitly as part of a primitive's meaning. Local binders,
+local matches and recursive source calls are not constructors of `Expr`.
+The inverse laws are equality of this typed syntax (using extensional equality
+for tables), not merely equal denotations and not source-text equality modulo
+arbitrary formatting or declaration reordering.
+
+## Matched author comparison and remaining interfaces
+
+| Matched task | Direct/native route | Verified-view route |
+| --- | --- | --- |
+| Repeat vector lookup | `directRepeat n x` is `fun _ => x`; application gives the payload. | Supply the new name/field family and `repeatRow`; the shared helper retains old rows, and `untranspose_preserves` connects the observation to the same direct function. |
+| Vector size | `directSize` returns the type index. | Supply one new column using `Prim.size`; the helper retains lookup. Both round trips and the retained-cell theorem apply without editing their proofs. |
+| Scale/transport parser observation | Call `Parser.scale` or `Parser.transport`, then nullable/derive/parse directly. | Reify their constructor and primitive cases and the typed equation bodies; unchanged generic recovery handles both organizations and bounded snapshots. |
+| Direct automatic parser result | Use existing `WitnessTrie.intersection`, `scale`, `transport` and their `unfold_*` laws. | Apply `methods_correct`, then the same existing law. No second recursive implementation or proof is authored. |
+
+The direct route is smaller for a single ordinary call. The view route adds
+names, signature cases, `Expr` constructors, `Sum` tags, and parser universe
+lifts. Its benefit is checked reorganization and extension with retained old
+cells and reusable recovery. Existing users need not import or construct these
+wrappers. The parser retrofit added rows and interpretations; it did not change
+the earlier union/concat/star bodies, `Parser`, `WitnessTrie`, or recovery proof
+structure. The vector extension leaves its native function implementation and
+original example module intact.
+
+This implementation encountered concrete Lean diagnostics: opaque signature
+extensions hid expected field types during numeral elaboration, an omitted
+index left a size expression underdetermined, and ordinary `rw` did not unfold
+a projected field type. Making the signature constructors abbreviations,
+supplying the index, and applying the public equality with explicit arguments
+resolved those problems without casts or stronger mathematical assumptions.
+The distinction is between elaboration bookkeeping and the mathematical index
+obligation: `Fin 0` remains impossible, and a new size column still needs its
+own body. The helpers reduce repeated sum-case code but do not yet provide a
+surface-language editor or automatic error explanation.
+
+This is a matched comparison by one implementation agent using the repository
+skills and pinned `lean-toolchain`, not an independent author trial or a general
+human-usability result. No trial was launched under #117. Exact model build,
+reasoning configuration and token/resource budget were unavailable to the task;
+the record supports code and diagnostic comparison rather than measured author
+performance. Future independent trials belong with #117's coordinated protocol.
+
+For #116, these results support offering alternative organizations when both
+surfaces can elaborate to this scoped, indexed cell contract. They provide
+reusable round-trip, extension and denotation criteria. They do not establish
+that this matrix should mediate arbitrary dependent syntax, effects, recursive
+programs or changes of mathematical setting. #235 retains those interface
+mismatches: cell-local binders need explicit scoping/substitution; dependent
+observer results varying with parameter values need transports beyond the
+current result family; recursive calls need a separate termination/productivity
+contract. #271 owns the related index-changing observation design. Keeping the
+ordinary APIs usable is part of any proposed extension to those interfaces.

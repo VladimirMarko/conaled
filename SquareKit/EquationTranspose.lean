@@ -157,4 +157,69 @@ theorem restrict_constructor_cell (p : DataProgram S P) (C : I → Type w)
 theorem restrict_observer_cell (p : DataProgram S P) (D : I → Type w)
     (f : ∀ i, D i → S.Observer i) (i) (c : S.Constructor i) (d : D i) :
     (transpose (restrictObservers p D f)).body i c d = (transpose p).body i c (f i d) := rfl
+/-- The reverse view change preserves the same typed cell values. -/
+theorem untranspose_preserves (p : CodataProgram S P) (m : ∀ {A B}, P A B → A → B)
+    (c : S.Constructor i) (x : S.fields c) (d : S.Observer i) (a : S.arguments d) :
+    (untranspose p).observe m d ⟨c,x⟩ a = p.construct m c x d a :=
+  Expr.eval_swap _ _ _ _
+
+/-- Constructor names remain disjoint, and old field types are unchanged. -/
+abbrev Signature.addConstructors (S : Signature.{u,v,w} I)
+    (C : I → Type w) (F : {i : I} → C i → Type u) : Signature I where
+  Constructor i := S.Constructor i ⊕ C i
+  Observer := S.Observer
+  fields c := match c with
+    | .inl old => S.fields old
+    | .inr new => F new
+  arguments := S.arguments
+  result := S.result
+
+/-- Author new rows in the constructor-grouped view, supplying every old observer. -/
+def CodataProgram.addConstructors (p : CodataProgram S P)
+    (C : I → Type w) (F : {i : I} → C i → Type u)
+    (body : ∀ i (c : C i) (d : S.Observer i),
+      Expr P (Slot (S.arguments d) (F c)) (S.result d)) :
+    CodataProgram (S.addConstructors C F) P where
+  body i c d := match c with
+    | .inl old => p.body i old d
+    | .inr new => body i new d
+
+/-- Old syntax is retained literally; no assumption about primitive meaning is used. -/
+theorem CodataProgram.addConstructors_old (p : CodataProgram S P)
+    (C : I → Type w) (F : {i : I} → C i → Type u)
+    (body : ∀ i (c : C i) (d : S.Observer i),
+      Expr P (Slot (S.arguments d) (F c)) (S.result d))
+    (i) (c : S.Constructor i) (d : S.Observer i) :
+    (p.addConstructors C F body).body i (.inl c) d = p.body i c d := rfl
+
+/-- Observer names remain disjoint, including their argument and result families. -/
+abbrev Signature.addObservers (S : Signature.{u,v,w} I)
+    (D : I → Type w) (A R : {i : I} → D i → Type u) : Signature I where
+  Constructor := S.Constructor
+  Observer i := S.Observer i ⊕ D i
+  fields := S.fields
+  arguments d := match d with
+    | .inl old => S.arguments old
+    | .inr new => A new
+  result d := match d with
+    | .inl old => S.result old
+    | .inr new => R new
+
+/-- Author new columns in the observer-grouped view, supplying every constructor. -/
+def DataProgram.addObservers (p : DataProgram S P)
+    (D : I → Type w) (A R : {i : I} → D i → Type u)
+    (body : ∀ i (d : D i) (c : S.Constructor i),
+      Expr P (Slot (S.fields c) (A d)) (R d)) :
+    DataProgram (S.addObservers D A R) P where
+  body i d c := match d with
+    | .inl old => p.body i old c
+    | .inr new => body i new c
+
+theorem DataProgram.addObservers_old (p : DataProgram S P)
+    (D : I → Type w) (A R : {i : I} → D i → Type u)
+    (body : ∀ i (d : D i) (c : S.Constructor i),
+      Expr P (Slot (S.fields c) (A d)) (R d))
+    (i) (d : S.Observer i) (c : S.Constructor i) :
+    (p.addObservers D A R body).body i (.inl d) c = p.body i d c := rfl
+
 end SquareKit.EquationTranspose
