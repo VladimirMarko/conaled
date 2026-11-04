@@ -133,6 +133,103 @@ theorem query_build (depth : Nat → Int) (hb : 0 < blocks)
   have he : lo+(hi-lo) = hi := by omega
   simpa only [argmin, he] using argmin_correct depth lo (hi-lo)
 
+/-! The following programs expose the query primitive path. A `Key` is an
+abstract ordered cell; the word interpretation packs its depth and index into
+one word, preserving its order. Packing costs two arithmetic operations and
+index extraction one. These counts do not treat a native Lean pair as a
+physical single-word object. Dimensions and arena bases are prepared metadata. -/
+open Resources
+
+def withinMeasured (data : MicroData steps blocks) (hb : 0 < blocks)
+    (block offset len : Nat) : Measured Key Nat :=
+  Resources.bind ((⟨min block (blocks-1), by omega⟩, 1) : Measured (Fin blocks) Nat) fun bi =>
+  Resources.bind (TableExecution.read data.classes bi) fun code =>
+  Resources.bind ((⟨min offset steps, by omega⟩, 1) : Measured (Fin (steps+1)) Nat) fun oi =>
+  Resources.bind ((⟨min len steps, by omega⟩, 1) : Measured (Fin (steps+1)) Nat) fun li =>
+  Resources.bind (TableExecution.read data.shared code) fun table =>
+  Resources.bind (TableExecution.read table oi) fun row =>
+  Resources.bind (TableExecution.read row li) fun key =>
+  Resources.bind (((ofLex key).2, 1) : Measured Nat Nat) fun relativeIndex =>
+  Resources.bind ((block*(steps+1), 1) : Measured Nat Nat) fun base =>
+  Resources.bind ((base+relativeIndex, 1) : Measured Nat Nat) fun global =>
+  Resources.bind ((⟨min global (blocks*(steps+1)-1), by
+      have hp := Nat.mul_pos hb (show 0 < steps+1 by omega)
+      omega⟩, 1) : Measured (Fin (blocks*(steps+1))) Nat) fun gi =>
+  Resources.bind (TableExecution.read data.depths gi) fun depth =>
+  (toLex (depth,global), 2)
+
+theorem withinMeasured_value (data : MicroData steps blocks) (hb : 0 < blocks)
+    (block offset len : Nat) :
+    (withinMeasured data hb block offset len).1 = within data hb block offset len := rfl
+
+theorem withinMeasured_cost (data : MicroData steps blocks) (hb : 0 < blocks)
+    (block offset len : Nat) : (withinMeasured data hb block offset len).2 = 14 := rfl
+
+def summaryMeasured (data : Data steps blocks levels) (hb : 0 < blocks)
+    (start count : Nat) : Measured Key Nat :=
+  Resources.bind ((⟨min start (blocks-1), by omega⟩, 1) : Measured (Fin blocks) Nat) fun si =>
+  Resources.bind ((count+1, 1) : Measured Nat Nat) fun len =>
+  Resources.bind ((⟨min len blocks, by omega⟩, 1) : Measured (Fin (blocks+1)) Nat) fun li =>
+  SparseExecution.query data.macroRows data.macroLogs si li
+
+theorem summaryMeasured_value (data : Data steps blocks levels) (hb : 0 < blocks)
+    (start count : Nat) :
+    (summaryMeasured data hb start count).1 = summary data hb start count := rfl
+
+theorem summaryMeasured_cost (data : Data steps blocks levels) (hb : 0 < blocks)
+    (start count : Nat) : (summaryMeasured data hb start count).2 = 13 := rfl
+
+def queryKeyMeasured (data : Data steps blocks levels) (hb : 0 < blocks)
+    (lo hi : Nat) : Measured Key Nat :=
+  Resources.bind ((lo/(steps+1), 1) : Measured Nat Nat) fun first =>
+  Resources.bind ((hi/(steps+1), 1) : Measured Nat Nat) fun last =>
+  Resources.bind ((decide (first=last), 1) : Measured Bool Nat) fun same =>
+  if same then
+    Resources.bind ((lo%(steps+1), 1) : Measured Nat Nat) fun offset =>
+    Resources.bind ((hi-lo, 1) : Measured Nat Nat) fun len =>
+    withinMeasured data.micro hb first offset len
+  else
+    Resources.bind ((lo%(steps+1), 1) : Measured Nat Nat) fun offset =>
+    Resources.bind ((steps-offset, 1) : Measured Nat Nat) fun leftLen =>
+    Resources.bind (withinMeasured data.micro hb first offset leftLen) fun left =>
+    Resources.bind ((hi%(steps+1), 1) : Measured Nat Nat) fun rightLen =>
+    Resources.bind (withinMeasured data.micro hb last 0 rightLen) fun right =>
+    Resources.bind ((first+1, 1) : Measured Nat Nat) fun next =>
+    Resources.bind ((decide (last=next), 1) : Measured Bool Nat) fun adjacent =>
+    if adjacent then (min left right, 1)
+    else
+      Resources.bind ((last-first, 1) : Measured Nat Nat) fun gap =>
+      Resources.bind ((gap-2, 1) : Measured Nat Nat) fun middleLen =>
+      Resources.bind (summaryMeasured data hb next middleLen) fun middle =>
+      Resources.bind ((min middle right, 1) : Measured Key Nat) fun rest => (min left rest, 1)
+
+theorem queryKeyMeasured_value (data : Data steps blocks levels) (hb : 0 < blocks)
+    (lo hi : Nat) : (queryKeyMeasured data hb lo hi).1 = queryKey data hb lo hi := by
+  simp [queryKeyMeasured, Resources.bind, queryKey, blockedQuery,
+    withinMeasured_value, summaryMeasured_value]
+  split_ifs <;> rfl
+
+theorem queryKeyMeasured_cost (data : Data steps blocks levels) (hb : 0 < blocks)
+    (lo hi : Nat) : (queryKeyMeasured data hb lo hi).2 ≤ 53 := by
+  simp only [queryKeyMeasured, Resources.bind]
+  split <;> simp only [withinMeasured_cost, summaryMeasured_cost]
+  · omega
+  · split <;> omega
+
+def queryMeasured (data : Data steps blocks levels) (hb : 0 < blocks)
+    (lo hi : Nat) : Measured Nat Nat :=
+  Resources.bind (queryKeyMeasured data hb lo hi) fun key => ((ofLex key).2, 1)
+
+theorem queryMeasured_value (data : Data steps blocks levels) (hb : 0 < blocks)
+    (lo hi : Nat) : (queryMeasured data hb lo hi).1 = query data hb lo hi := by
+  simp [queryMeasured, Resources.bind, queryKeyMeasured_value, query]
+
+theorem queryMeasured_cost (data : Data steps blocks levels) (hb : 0 < blocks)
+    (lo hi : Nat) : (queryMeasured data hb lo hi).2 ≤ 54 := by
+  have hh := queryKeyMeasured_cost data hb lo hi
+  simp only [queryMeasured, Resources.bind]
+  omega
+
 /-- For nonempty inputs this is ceil(n/(steps+1)). The final block may be
 short; upward padding completes its class without adding admitted queries. -/
 def blockCount (n steps : Nat) : Nat := (n-1)/(steps+1)+1
@@ -169,6 +266,16 @@ theorem query_padded_eq (depth : Nat → Int) (hn : 0 < n) (h : UnitSteps (n-1) 
   · exact query_padded depth hn h steps hq hhi
   · simpa only [show lo+(hi-lo) = hi by omega] using argmin_correct depth lo (hi-lo)
 
+theorem queryMeasured_padded (depth : Nat → Int) (hn : 0 < n)
+    (h : UnitSteps (n-1) depth) (steps : Nat) (hq : lo ≤ hi) (hhi : hi < n) :
+    LeftmostMinimum depth lo hi
+      (queryMeasured (buildPadded depth n steps) (blockCount_pos n steps) lo hi).1 ∧
+    (queryMeasured (buildPadded depth n steps) (blockCount_pos n steps) lo hi).2 ≤ 54 := by
+  constructor
+  · rw [queryMeasured_value]
+    exact query_padded depth hn h steps hq hhi
+  · exact queryMeasured_cost _ _ _ _
+
 private def exampleDepth : Nat → Int
   | 0 => 2
   | 1 => 1
@@ -199,5 +306,15 @@ example : query (buildPadded exampleDepth 5 1) (blockCount_pos 5 1) 3 3 = 3 := b
 example : query (buildPadded (fun _ => 7) 1 0) (blockCount_pos 1 0) 0 0 = 0 := by
   rw [query_padded_eq (fun _ => 7) (by decide) (by intro i hi; omega) 0 (by decide) (by decide)]
   decide
+
+/-- The complete middle-block path reaches the fixed query budget. -/
+example :
+    (queryMeasured (buildPadded exampleDepth 5 1) (blockCount_pos 5 1) 0 4).1 = 2 ∧
+    (queryMeasured (buildPadded exampleDepth 5 1) (blockCount_pos 5 1) 0 4).2 = 54 := by
+  constructor
+  · rw [queryMeasured_value,
+      query_padded_eq exampleDepth (by decide) exampleSteps 1 (by decide) (by decide)]
+    decide
+  · decide
 
 end Sequences.LCA.BlockedRMQ
