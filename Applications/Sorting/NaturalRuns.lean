@@ -68,7 +68,7 @@ mutual
         if lt b a then descBy lt b [a] xs
         else ascBy lt b (Batteries.DList.singleton a) xs
   termination_by xs => xs.length
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf <;> omega
 
   /-- The builder represents the consumed prefix before the current element. -/
   def ascBy (lt : α → α → Bool) (a : α) (d : Batteries.DList α) :
@@ -78,7 +78,7 @@ mutual
         if lt b a then d.apply [a] :: runsBy lt (b :: bs)
         else ascBy lt b (d.push a) bs
   termination_by ys => ys.length + 1
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf <;> omega
 
   /-- The accumulator contains the consumed descending prefix in reverse order. -/
   def descBy (lt : α → α → Bool) (a : α) (acc : List α) :
@@ -88,7 +88,7 @@ mutual
         if lt b a then descBy lt b (a :: acc) bs
         else (a :: acc) :: runsBy lt (b :: bs)
   termination_by ys => ys.length + 1
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf <;> omega
 end
 
 @[simp] theorem runsBy_nil (lt : α → α → Bool) : runsBy lt [] = [] := by
@@ -158,7 +158,7 @@ mutual
         · simpa only [Batteries.DList.toList_singleton, List.singleton_append] using
             ascBy_perm lt b (Batteries.DList.singleton a) bs
   termination_by xs.length
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf <;> omega
 
   /-- The arbitrary builder prefix precedes the current element chronologically. -/
   theorem ascBy_perm (lt : α → α → Bool) (a : α) (d : Batteries.DList α)
@@ -174,7 +174,7 @@ mutual
       · simpa only [Batteries.DList.toList_push, List.append_assoc,
           List.singleton_append] using ascBy_perm lt b (d.push a) bs
   termination_by ys.length + 1
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf <;> omega
 
   /-- The arbitrary descending accumulator is in reverse chronological order. -/
   theorem descBy_perm (lt : α → α → Bool) (a : α) (acc ys : List α) :
@@ -192,7 +192,7 @@ mutual
           List.singleton_append] using
           ((List.reverse_perm (a :: acc)).symm.append (runsBy_perm lt (b :: bs)))
   termination_by ys.length + 1
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf <;> omega
 end
 
 theorem runsBy_multiset (lt : α → α → Bool) (xs : List α) :
@@ -243,7 +243,7 @@ mutual
         · exact descBy_nonempty lt b [a] bs
         · exact ascBy_nonempty lt b (Batteries.DList.singleton a) bs
   termination_by xs.length
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf <;> omega
 
   theorem ascBy_nonempty (lt : α → α → Bool) (a : α) (d : Batteries.DList α)
       (ys : List α) : ∀ run ∈ ascBy lt a d ys, run ≠ [] := by
@@ -257,7 +257,7 @@ mutual
           And.intro he (runsBy_nonempty lt (b :: bs))
       · exact ascBy_nonempty lt b (d.push a) bs
   termination_by ys.length + 1
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf <;> omega
 
   theorem descBy_nonempty (lt : α → α → Bool) (a : α) (acc ys : List α) :
       ∀ run ∈ descBy lt a acc ys, run ≠ [] := by
@@ -269,7 +269,7 @@ mutual
       · exact descBy_nonempty lt b (a :: acc) bs
       · simpa using runsBy_nonempty lt (b :: bs)
   termination_by ys.length + 1
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf <;> omega
 end
 
 mutual
@@ -291,7 +291,7 @@ mutual
           simp only [List.length_cons]
           omega
   termination_by xs.length
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf <;> omega
 
   /-- The bound is independent of the size of the arbitrary consumed prefix. -/
   theorem ascBy_length_le (lt : α → α → Bool) (a : α) (d : Batteries.DList α)
@@ -308,7 +308,7 @@ mutual
         simp only [List.length_cons]
         omega
   termination_by ys.length + 1
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf <;> omega
 
   theorem descBy_length_le (lt : α → α → Bool) (a : α) (acc ys : List α) :
       (descBy lt a acc ys).length ≤ ys.length + 1 := by
@@ -324,7 +324,7 @@ mutual
         simp only [List.length_cons] at h ⊢
         omega
   termination_by ys.length + 1
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf <;> omega
 end
 
 theorem ascBy_ne_nil (lt : α → α → Bool) (a : α) (d : Batteries.DList α)
@@ -373,7 +373,7 @@ private theorem pairwise_snoc (r : α → α → Prop) (xs : List α) (a : α)
 mutual
   /-- Ordering is observed separately; compatibility is required only on the input. -/
   theorem runsBy_pairwise_on (r : α → α → Prop) (lt : α → α → Bool)
-      (ht : Transitive r) (xs : List α)
+      (ht : ∀ ⦃x y z : α⦄, r x y → r y z → r x z) (xs : List α)
       (hc : ∀ x ∈ xs, ∀ y ∈ xs,
         (lt x y = true → r x y) ∧ (lt x y = false → r y x)) :
       ∀ run ∈ runsBy lt xs, run.Pairwise r := by
@@ -404,11 +404,11 @@ mutual
             subst x
             exact (hc b (by simp) a (by simp)).2 (Bool.eq_false_iff.mpr hba)
   termination_by xs.length
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf <;> omega
 
   /-- Every lawful builder is allowed; its sorted prefix and upper bound are explicit. -/
   theorem ascBy_pairwise_on (r : α → α → Prop) (lt : α → α → Bool)
-      (ht : Transitive r) (a : α) (d : Batteries.DList α) (ys : List α)
+      (ht : ∀ ⦃x y z : α⦄, r x y → r y z → r x z) (a : α) (d : Batteries.DList α) (ys : List α)
       (hc : ∀ x ∈ a :: ys, ∀ y ∈ a :: ys,
         (lt x y = true → r x y) ∧ (lt x y = false → r y x))
       (hp : d.toList.Pairwise r) (hb : ∀ x ∈ d.toList, r x a) :
@@ -443,11 +443,11 @@ mutual
             subst x
             exact hab
   termination_by ys.length + 1
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf <;> omega
 
   /-- An arbitrary descending accumulator needs its own sortedness and lower bound. -/
   theorem descBy_pairwise_on (r : α → α → Prop) (lt : α → α → Bool)
-      (ht : Transitive r) (a : α) (acc ys : List α)
+      (ht : ∀ ⦃x y z : α⦄, r x y → r y z → r x z) (a : α) (acc ys : List α)
       (hc : ∀ x ∈ a :: ys, ∀ y ∈ a :: ys,
         (lt x y = true → r x y) ∧ (lt x y = false → r y x))
       (hp : acc.Pairwise r) (hb : ∀ x ∈ acc, r a x) :
@@ -476,11 +476,11 @@ mutual
           exact he
         · exact runsBy_pairwise_on r lt ht (b :: bs) hc' run hr
   termination_by ys.length + 1
-  decreasing_by all_goals simp_wf; omega
+  decreasing_by all_goals simp_wf <;> omega
 end
 
 theorem ascSourceBy_pairwise_on (r : α → α → Prop) (lt : α → α → Bool)
-    (ht : Transitive r) (a : α) (f : List α → List α) (h : DListLaw f) (ys : List α)
+    (ht : ∀ ⦃x y z : α⦄, r x y → r y z → r x z) (a : α) (f : List α → List α) (h : DListLaw f) (ys : List α)
     (hc : ∀ x ∈ a :: ys, ∀ y ∈ a :: ys,
       (lt x y = true → r x y) ∧ (lt x y = false → r y x))
     (hp : (f []).Pairwise r) (hb : ∀ x ∈ f [], r x a) :
