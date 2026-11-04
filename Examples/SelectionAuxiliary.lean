@@ -14,27 +14,26 @@ universe u
 
 theorem empty_payload_selection : slowSelectRun 17 ([] : List (Fin 0)) = (none, 2) := by
   apply Prod.ext
-  · rw [slowSelectRun_value]
-    rfl
+  · exact (slowSelectRun_none 17 ([] : List (Fin 0))).mpr (by decide)
   · rw [slowSelectRun_cost]
     rfl
 
 theorem singleton_selection : slowSelectRun 0 [7] = (some 7, 4) := by
   apply Prod.ext
   · rw [slowSelectRun_value]
-    rfl
+    simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using
+      (show (Applications.Sorting.insertionOn id ([7] : List Nat))[0]? = some 7 by
+        decide +kernel)
   · rw [slowSelectRun_cost_of_lt 0 [7] (by decide)]
     rfl
 
 theorem singleton_invalid : slowSelectRun 1 [7] = (none, 5) ∧
     slowSelectRun 17 [7] = (none, 5) := by
   constructor <;> apply Prod.ext
-  · rw [slowSelectRun_value]
-    rfl
+  · exact (slowSelectRun_none 1 [7]).mpr (by decide)
   · rw [slowSelectRun_cost]
     rfl
-  · rw [slowSelectRun_value]
-    rfl
+  · exact (slowSelectRun_none 17 [7]).mpr (by decide)
   · rw [slowSelectRun_cost]
     rfl
 
@@ -44,7 +43,9 @@ theorem public_rank_bridge {α : Type u} [LinearOrder α] (k : Nat) (xs : List �
 theorem duplicate_occurrence_rank : RankedAt [3, 1, 3, 2] 2 3 := by
   apply (slowSelectRun_some_iff 2 [3, 1, 3, 2] 3).mp
   rw [slowSelectRun_value]
-  rfl
+  simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using
+    (show (Applications.Sorting.insertionOn id ([3, 1, 3, 2] : List Nat))[2]? = some 3 by
+      decide +kernel)
 
 /-- A relabeling can merge all keys; this makes no claim about cost transport. -/
 theorem collapsed_occurrence_rank : RankedAt [0, 0, 0, 0] 2 0 := by
@@ -64,28 +65,36 @@ theorem empty_payload_median : slowMedianRun ([] : List (Fin 0)) = (none, 3) := 
 theorem singleton_median : slowMedianRun [7] = (some 7, 6) := by
   apply Prod.ext
   · rw [slowMedianRun_value, lowerMedian_value List.head? head_pivot_valid]
-    rfl
+    simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using
+      (show (Applications.Sorting.insertionOn id ([7] : List Nat))[0]? = some 7 by
+        decide +kernel)
   · rw [slowMedianRun_cost, Resources.SymmetricCosts.lengthRun_exact, slowSelectRun_cost]
     rfl
 
 theorem lower_even_median : slowMedianRun [7, 2] = (some 2, 10) := by
   apply Prod.ext
   · rw [slowMedianRun_value, lowerMedian_value List.head? head_pivot_valid]
-    rfl
+    simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using
+      (show (Applications.Sorting.insertionOn id ([7, 2] : List Nat))[0]? = some 2 by
+        decide +kernel)
   · rw [slowMedianRun_cost, Resources.SymmetricCosts.lengthRun_exact, slowSelectRun_cost]
     rfl
 
 theorem repeated_central_values : slowMedianRun [4, 4] = (some 4, 9) := by
   apply Prod.ext
   · rw [slowMedianRun_value, lowerMedian_value List.head? head_pivot_valid]
-    rfl
+    simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using
+      (show (Applications.Sorting.insertionOn id ([4, 4] : List Nat))[0]? = some 4 by
+        decide +kernel)
   · rw [slowMedianRun_cost, Resources.SymmetricCosts.lengthRun_exact, slowSelectRun_cost]
     rfl
 
 theorem ascending_five_median : slowMedianRun (List.range 5) = (some 2, 20) := by
   apply Prod.ext
   · rw [slowMedianRun_value, lowerMedian_value List.head? head_pivot_valid]
-    rfl
+    simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using
+      (show (Applications.Sorting.insertionOn id (List.range 5))[2]? = some 2 by
+        decide +kernel)
   · rw [slowMedianRun_cost, Resources.SymmetricCosts.lengthRun_exact,
       slowSelectRun_cost_of_pairwise _ _ (by decide) (by decide)]
     rfl
@@ -93,7 +102,9 @@ theorem ascending_five_median : slowMedianRun (List.range 5) = (some 2, 20) := b
 theorem descending_five_median : slowMedianRun (List.range 5).reverse = (some 2, 30) := by
   apply Prod.ext
   · rw [slowMedianRun_value, lowerMedian_value List.head? head_pivot_valid]
-    rfl
+    simpa only [ordered, Applications.Sorting.sortOn_eq_insertionOn] using
+      (show (Applications.Sorting.insertionOn id (List.range 5).reverse)[2]? = some 2 by
+        decide +kernel)
   · rw [slowMedianRun_cost, Resources.SymmetricCosts.lengthRun_exact,
       slowSelectRun_cost_reverse_range 5 _ (by decide)]
     rfl
