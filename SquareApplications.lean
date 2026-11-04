@@ -262,5 +262,6 @@ import SquareKit.HigherOrderComparison
 
 import Examples.EquationComposition
 import Examples.DerivativeNormalization
+import Examples.LocalUniversesBoundary
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
