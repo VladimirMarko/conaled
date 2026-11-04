@@ -252,6 +252,7 @@ import Examples.RetainedHistory
 import Examples.MeasuredScan
 import Examples.ScanSearch
 import Examples.ScanOptimality
+import SquareKit.HigherOrderComparison
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
