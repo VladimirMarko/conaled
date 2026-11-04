@@ -13,6 +13,10 @@ open Resources Dijkstra.Store
 def dispatch {α : Type} (run : Measured α Nat) : Measured α Nat :=
   Resources.bind (((),1) : Measured Unit Nat) fun _ => run
 
+/-- A successful count-loop dispatch also computes the predecessor counter. -/
+def countDispatch {α : Type} (run : Measured α Nat) : Measured α Nat :=
+  dispatch (dispatch run)
+
 /-- The sentinel is an out-of-tour position. Reading an input, indexed reading,
     comparing, indexed writing, and incrementing each cost one primitive event. -/
 def readWord (x : Nat) : Measured Nat Nat := (x, 1)
@@ -137,12 +141,12 @@ def growSlot {n : Nat} (mem : Store n Nat) (x : Nat) : Measured (Store (n+1) Nat
     grows only up to the reserved capacity; each growth initializes one cell. -/
 def fillM (value : Nat) : (n : Nat) → Measured (Store n Nat) Nat
   | 0 => dispatch (pure #v[])
-  | n+1 => dispatch <| bind (fillM value n) fun mem => growSlot mem value
+  | n+1 => countDispatch <| bind (fillM value n) fun mem => growSlot mem value
 
-theorem fillM_exact (value n : Nat) : fillM value n = (Vector.replicate n value, 2*n+1) := by
+theorem fillM_exact (value n : Nat) : fillM value n = (Vector.replicate n value, 3*n+1) := by
   induction n with
   | zero => rfl
-  | succ n ih => simp [fillM, dispatch, ih, growSlot, Resources.bind, Vector.replicate_succ]; omega
+  | succ n ih => simp [fillM, countDispatch, dispatch, ih, growSlot, Resources.bind, Vector.replicate_succ]; omega
 
 /-- The initialized first-position store is computed by the instrumented scan. -/
 def prepareFirstM (t : Tree) (ids : List Nat) : Measured (Store t.size Nat) Nat :=
@@ -185,7 +189,7 @@ theorem prepareFirstM_lookup (t : Tree) (j : Fin t.size) :
   exact findPosition_ids t j
 
 theorem prepareFirstM_cost (t : Tree) :
-    (prepareFirstM t (emittedIds t)).2 ≤ 2*t.size + 7*t.tour.length + 2 := by
+    (prepareFirstM t (emittedIds t)).2 ≤ 3*t.size + 7*t.tour.length + 2 := by
   simp only [prepareFirstM, Resources.bind, fillM_exact]
   have := firstScanM_cost (emittedIds t) t.tour.length 0 (Vector.replicate t.size t.tour.length)
   rw [emittedIds_length] at this

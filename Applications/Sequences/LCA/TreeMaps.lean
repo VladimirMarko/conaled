@@ -14,12 +14,12 @@ def writeTour {m : Nat} (mem : TourStore m) (i : Fin m) (p : Nat × Nat) :
 
 def fillTourM : (m : Nat) → Measured (TourStore m) Nat
   | 0 => dispatch (pure #v[])
-  | m+1 => dispatch <| Resources.bind (fillTourM m) fun mem => (mem.push (0,0), 2)
+  | m+1 => countDispatch <| Resources.bind (fillTourM m) fun mem => (mem.push (0,0), 2)
 
-theorem fillTourM_exact (m : Nat) : fillTourM m = (Vector.replicate m (0,0), 3*m+1) := by
+theorem fillTourM_exact (m : Nat) : fillTourM m = (Vector.replicate m (0,0), 4*m+1) := by
   induction m with
   | zero => rfl
-  | succ m ih => simp [fillTourM, dispatch, ih, Resources.bind, Vector.replicate_succ]; omega
+  | succ m ih => simp [fillTourM, countDispatch, dispatch, ih, Resources.bind, Vector.replicate_succ]; omega
 
 def copyScan {m : Nat} : List (Nat × Nat) → Nat → TourStore m → TourStore m
   | [], _, mem => mem
@@ -101,7 +101,7 @@ theorem prepareTourM_at (xs : List (Nat × Nat)) (i : Fin xs.length) :
   simpa using copyScan_at xs 0 (Vector.replicate xs.length (0,0)) i.val i.isLt (by omega)
 
 theorem prepareTourM_cost (m : Nat) (xs : List (Nat × Nat)) :
-    (prepareTourM m xs).2 ≤ 3*m + 7*xs.length + 2 := by
+    (prepareTourM m xs).2 ≤ 4*m + 7*xs.length + 2 := by
   simp only [prepareTourM, Resources.bind, fillTourM_exact]
   have := copyScanM_cost xs 0 (Vector.replicate m (0,0))
   omega
@@ -178,7 +178,7 @@ theorem prepareMapsM_tour (t : Tree) (i : Fin t.tour.length) :
   simp [Tree.emit_spec, Tree.tour_getElem]
 
 theorem prepareMapsM_cost (t : Tree) :
-    (prepareMapsM t).2 ≤ 2*t.size + 30*t.tour.length + 7 := by
+    (prepareMapsM t).2 ≤ 3*t.size + 31*t.tour.length + 7 := by
   have hc := emissionDataM_cost t
   have he : t.cache.calls = t.tour.length := by
     have := Tree.cache_calls t

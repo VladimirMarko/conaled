@@ -66,14 +66,14 @@ example : depth (visit chain 2) = depth (visit chain 1) + 1 ∨
 
 
 -- Repeated visits do not overwrite the initialized first-position map.
-example : (TreeBackend.prepareFirstM star (TreeBackend.emittedIds star)).2 = 56 := by decide
+example : (TreeBackend.prepareFirstM star (TreeBackend.emittedIds star)).2 = 60 := by decide
 example : Dijkstra.Store.lookup (TreeBackend.prepareFirstM star (TreeBackend.emittedIds star)).1
     ⟨3, by decide⟩ = 5 := by
   exact TreeBackend.prepareFirstM_lookup star ⟨3, by decide⟩
 
 
 example : (TreeBackend.prepareEmissionM star).2 = 59 := by decide
-example : (TreeBackend.prepareMapsM star).2 = 190 := by decide
+example : (TreeBackend.prepareMapsM star).2 = 201 := by decide
 example : TreeBackend.Valid branched (TreeBackend.prepareMapsM branched).1 :=
   TreeBackend.prepareMapsM_valid branched
 example : TreeBackend.translateM (TreeBackend.prepareMapsM star).1

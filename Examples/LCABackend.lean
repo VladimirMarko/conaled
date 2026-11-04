@@ -1,4 +1,4 @@
-import Applications.Sequences.LCA.Backend
+import Applications.Sequences.LCA.Catalog
 import Examples.LCATree
 
 set_option autoImplicit false
@@ -53,5 +53,27 @@ example : ¬ Valid deepInput ((ops 17).prepare
   have he := congrArg (fun r : State 17 => r.micro.depths[8]) h
   revert he
   decide
+
+set_option maxRecDepth 4096 in
+example : (Catalog.directAnswer deepInput (0,16)).1 = 0 := by decide
+set_option maxRecDepth 4096 in
+example : (Catalog.directAnswer deepInput (0,16)).2 = 173 := by decide
+example (q : Nat × Nat) :
+    (Catalog.directAnswer deepInput q).1 = ((ops 17).answer deepPrepared q).1 := by
+  exact (agreement (Catalog.direct_laws 17) deepInput q).trans
+    (agreement (laws 17) deepInput q).symm
+
+def immediateStartup : Requirements where
+  startup := some 0
+  deadline := 183
+  maintenance := 0
+  capacity := 34
+  peak := 46
+
+example : Feasible immediateStartup (Catalog.directProfile 17) deepInput := by decide
+example : ¬ Feasible {immediateStartup with deadline := 57}
+    (Catalog.directProfile 17) deepInput := by decide
+example : ¬ Feasible {immediateStartup with peak := 34}
+    (Catalog.directProfile 17) deepInput := by decide
 
 end Examples.LCABackend

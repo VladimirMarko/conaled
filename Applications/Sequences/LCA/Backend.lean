@@ -130,7 +130,7 @@ theorem lca_answer_cost {n : Nat} (state : Decoder n × State (tourSize n)) (q :
   exact ht.trans (by omega)
 
 theorem lca_prepare_cost {n : Nat} (s : Source n) :
-    ((lcaOps n).prepare s).2 ≤ 2*n + 1054*tourSize n + 7 := by
+    ((lcaOps n).prepare s).2 ≤ 3*n + 1055*tourSize n + 7 := by
   have ht := conversion_work s
   have hb := prepare_cost ((TreeReduction.reduction n).convert s).1.2
   rw [lcaOps, Reduction.preparation_work]

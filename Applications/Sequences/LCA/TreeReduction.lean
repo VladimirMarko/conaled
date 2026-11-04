@@ -249,7 +249,7 @@ theorem bounds (n : Nat) {R : Type} {p : Ops (Input (tourSize n)) (Nat × Nat) N
   (reduction n).bounds hp (capacityLaws n p V)
 
 theorem conversion_work {n : Nat} (s : Source n) :
-    ((reduction n).convert s).2 ≤ 2*n + 30*tourSize n + 7 := by
+    ((reduction n).convert s).2 ≤ 3*n + 31*tourSize n + 7 := by
   have := prepareMapsM_cost s.val
   simpa [reduction, convertM, s.property, source_length s] using this
 
