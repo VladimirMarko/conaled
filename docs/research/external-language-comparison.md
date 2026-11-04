@@ -18,16 +18,18 @@ The earlier [#201 atlas](logic-correspondence-atlas.md) classifies logic fragmen
 and interpretations. It is prior evidence, not the scope owner for this
 comparison. The first pass was merged locally in `c929cce`; subsequent Cousot
 source inspection and transcription strengthen one entry.
-[#280](https://github.com/VladimirMarko/conaled/issues/280) owns the remaining
-external discovery and priority assessment. #235 retains continuing architectural
+#280's [completed selection assessment](external-discovery-assessment.md) records
+the subsequent discovery, challenges this pass's priorities, and selects
+#286/#287. #235 retains continuing architectural
 discovery and integration ownership. The experiments below remain proposals.
 
 The first pass compares selected traditions more strongly than it justifies
 the selection of those traditions. Its named search families and shared
 categorical vocabulary leave that selection open to challenge. #280 therefore
-calls for discovery from author needs before exposure to this shortlist, followed
-by assessment of omissions that could change the proposed priorities. This
-qualifies the D1/D3 recommendation; it does not discard the source assessments.
+used discovery from author needs before exposing fresh researchers to this
+shortlist, then assessed omissions that could change the priorities. Its revised
+sequence supersedes the D1/D3-first recommendation below while retaining this
+source assessment as the first-pass record.
 
 ## Discovery scope and limits
 
@@ -203,8 +205,11 @@ cross-theory reuse. They expose different failures: coherence of dependent
 meaning and retention of computational witnesses. This is a priority for gaining
 information, not a total ranking of the literature. D4 stays in scope even if
 its implementation is more demanding; D5 and D6 provide independent quantitative
-and open-system tests. #280 owns reassessing this order and handing selected experiments to separate
-issues. The owner column identifies coordinating programmes, not dedicated
+and open-system tests. #280 has reassessed this order and handed selected
+experiments to #286/#287.
+See its [decision record](external-discovery-assessment.md) for the revised
+sequence and deferred D1–D6 ownership. The owner column identifies coordinating
+programmes, not dedicated
 experiment tickets or authorization to start all six. #235 owns reconciling
 eventual experiment outcomes before selecting a retrofit. #260 remains conditional; this assessment does not activate implicit
 subtyping or choose its semantic algebra. The #266–#270 duality agenda remains

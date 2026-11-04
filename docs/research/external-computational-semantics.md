@@ -18,9 +18,9 @@ of logic and dependent setting; the [synthesis](external-language-comparison.md)
 records local fit and proposed follow-up priorities.
 
 This completed first-pass note is retained evidence for
-[#280](https://github.com/VladimirMarko/conaled/issues/280), which owns the
-remaining discovery and priority assessment under #235. Its proposed comparisons
-are not completed experiments or selected implementation work.
+[#280's completed assessment](external-discovery-assessment.md), which selects
+#286/#287 and records deferred comparisons under #235. This first-pass note's
+proposed comparisons remain evidence, not completed experiments.
 
 ## Algebraic effects and call-by-push-value
 

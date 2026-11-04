@@ -122,11 +122,15 @@ Record omitted traditions and uncertainty. Propose discriminating experiments
 that our current approach could fail, rather than only examples it already fits.
 #235 retains continuing discovery and integration ownership, coordinated with
 #36, #200 and #8. [#280](https://github.com/VladimirMarko/conaled/issues/280) owns
-the bounded remaining external discovery and research-priority assessment.
+the completed bounded external discovery and research-priority assessment.
 The [external comparison assessment](research/external-language-comparison.md)
 records the completed first pass, its omissions and proposed matched experiments.
-Its priorities remain provisional pending that assessment; the experiments have
-not been completed by the first pass.
+The [subsequent assessment](research/external-discovery-assessment.md) revises
+the next sequence toward proof-derived requirements (#286) and representation
+extensions with explicit model/witness contracts (#287). Keep dependent
+coherence tied to concrete author failures. These are selected investigations,
+not adopted foundations or completed experiments; their records state what
+evidence would change the order.
 
 The duality agenda in #266–#270 is promising but remains a set of hypotheses,
 not a ranking established by an external comparison. Investigating variance,

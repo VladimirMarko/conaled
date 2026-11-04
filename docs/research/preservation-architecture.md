@@ -11,8 +11,8 @@ missing adapters.
 The later [external comparison](external-language-comparison.md) assesses
 alternative foundations and computational semantics against the language ambition.
 Its completed first pass proposes discriminating experiments.
-[#280](https://github.com/VladimirMarko/conaled/issues/280) owns the remaining
-external discovery and priority assessment before selecting experiment follow-ups;
+The [#280 assessment](external-discovery-assessment.md) selects #286/#287 for
+requirement discovery and representation-extension comparisons;
 the local milestone below remains evidence for its original bounded clients.
 
 ## A family of compatible laws
