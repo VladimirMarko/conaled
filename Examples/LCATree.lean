@@ -1,4 +1,4 @@
-import Applications.Sequences.LCA.TreeMaps
+import Applications.Sequences.LCA.TreeStorage
 
 set_option autoImplicit false
 set_option warningAsError true
@@ -80,5 +80,12 @@ example : TreeBackend.translateM (TreeBackend.prepareMapsM star).1
     ⟨3, by decide⟩ ⟨1, by decide⟩ = ((1,5),3) := by
   exact TreeBackend.translate_valid _ (TreeBackend.prepareMapsM_valid star) _ _
 example : TreeBackend.retainedWords star = 18 := rfl
+
+
+example : TreeBackend.Eligible star 7 80 := by decide
+example : TreeBackend.preparationPeak star = 50 := by decide
+example : ¬ TreeBackend.preparationPeak star ≤ 32 := by decide
+example : TreeBackend.preparationPeak star ≤ 80 ∧ TreeBackend.retainedWords star + 4 ≤ 80 :=
+  TreeBackend.eligible_capacity star 7 80 (by decide)
 
 end Examples.LCATree
