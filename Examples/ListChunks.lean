@@ -47,7 +47,7 @@ theorem duplicate_counts :
 
 theorem duplicate_multiset :
     ((chop 2 ([1, 1, 2, 1, 3] : List Nat)).map
-      (fun ys => (ys : Multiset Nat))).sum = ([1, 1, 2, 1, 3] : Multiset Nat) :=
+      (fun ys : List Nat => (ys : Multiset Nat))).sum = ([1, 1, 2, 1, 3] : Multiset Nat) :=
   sum_multiset_chop _ _ (by decide)
 
 theorem short_group_nonempty (ys : List Nat)

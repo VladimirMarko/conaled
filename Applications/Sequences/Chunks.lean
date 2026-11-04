@@ -1,6 +1,6 @@
 import Mathlib.Data.List.SplitLengths
 import Mathlib.Algebra.Order.Floor.Div
-import Mathlib.Algebra.Order.Group.Multiset
+import Mathlib.Data.Multiset.AddSub
 
 /-!
 The source chopping operation as a value adapter to List.splitLengths.
@@ -23,7 +23,7 @@ def chop (d : Nat) (xs : List α) : List (List α) :=
   (List.replicate (xs.length ⌈/⌉ d) d).splitLengths xs
 
 @[simp] theorem chop_zero (xs : List α) : chop 0 xs = [] := by
-  simp [chop, ceilDiv_zero]
+  simp [chop]
 
 @[simp] theorem chop_nil (d : Nat) : chop d ([] : List α) = [] := by
   simp [chop]
@@ -130,9 +130,9 @@ theorem countP_chop (d : Nat) (xs : List α) (hd : 0 < d) (p : α → Bool) :
   rw [← List.countP_flatten, flatten_chop d xs hd]
 
 theorem sum_multiset_chop (d : Nat) (xs : List α) (hd : 0 < d) :
-    ((chop d xs).map (fun ys => (ys : Multiset α))).sum = (xs : Multiset α) := by
+    ((chop d xs).map (fun ys : List α => (ys : Multiset α))).sum = (xs : Multiset α) := by
   have h (xss : List (List α)) :
-      (xss.map (fun ys => (ys : Multiset α))).sum = (xss.flatten : Multiset α) := by
+      (xss.map (fun ys : List α => (ys : Multiset α))).sum = (xss.flatten : Multiset α) := by
     induction xss with
     | nil => rfl
     | cons ys xss ih =>
