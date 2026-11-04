@@ -157,7 +157,6 @@ theorem workExpectation_cons (k : Nat) (head : α) (tail : List α)
   simp only [RandomQuickSort.uniformIndex_apply]
   apply Finset.sum_congr rfl
   intro i _
-  dsimp only
   apply congrArg (fun e : ℝ≥0∞ => (((tail.length + 1 : Nat) : ℝ≥0∞)⁻¹) * e)
   cases (stepRun k (head :: tail) i).1 with
   | inl state =>
@@ -179,12 +178,12 @@ def sourceExpectation (k : Nat) (xs : List α) : ℝ≥0∞ :=
 theorem scanExpectation_eq_workExpectation (k : Nat) (xs : List α) :
     scanExpectation k xs =
       workExpectation k xs (fun result => (scanVolume result.2.1 : ℝ≥0∞)) := by
-  rw [scanExpectation, lintegral_nat_eq, scanLaw, weighted_map]
+  rw [scanExpectation, lintegral_nat_eq, scanLaw, weighted_map, workExpectation]
 
 theorem sourceExpectation_eq_workExpectation (k : Nat) (xs : List α) :
     sourceExpectation k xs =
       workExpectation k xs (fun result => (result.2.2 : ℝ≥0∞)) := by
-  rw [sourceExpectation, lintegral_nat_eq, sourceLaw, weighted_map]
+  rw [sourceExpectation, lintegral_nat_eq, sourceLaw, weighted_map, workExpectation]
 
 /-- The natural triangular bound is divided before its cast. It proves
 finiteness without assuming the forthcoming linear expected bound. -/
@@ -248,7 +247,7 @@ theorem sourceExpectation_comparison (k : Nat) (xs : List α) :
 
 @[simp] theorem scanExpectation_nil (k : Nat) : scanExpectation k ([] : List α) = 0 := by
   rw [scanExpectation_eq_workExpectation]
-  exact workExpectation_nil k _
+  exact workExpectation_nil (α := α) k _
 
 @[simp] theorem sourceExpectation_nil (k : Nat) : sourceExpectation k ([] : List α) = 2 := by
   rw [sourceExpectation_eq_workExpectation]
@@ -342,10 +341,11 @@ theorem sourceMean_comparison (k : Nat) (xs : List α) :
   · rw [scanMean_eq_toReal, sourceMean_eq_toReal]
     have hmul : 9 * scanExpectation k xs ≠ ∞ :=
       ENNReal.mul_ne_top (ENNReal.natCast_ne_top 9) (scanExpectation_ne_top k xs)
+    have htwo : (2 : ℝ≥0∞) ≠ ∞ := ENNReal.ofNat_ne_top
     have hfinite : 9 * scanExpectation k xs + 2 ≠ ∞ :=
-      ENNReal.add_ne_top.mpr ⟨hmul, ENNReal.natCast_ne_top 2⟩
+      ENNReal.add_ne_top.mpr ⟨hmul, htwo⟩
     have h := ENNReal.toReal_mono hfinite hup
-    simpa only [ENNReal.toReal_add hmul (ENNReal.natCast_ne_top 2),
+    simpa only [ENNReal.toReal_add hmul htwo,
       ENNReal.toReal_mul, ENNReal.toReal_ofNat] using h
 
 @[simp] theorem scanMean_nil (k : Nat) : scanMean k ([] : List α) = 0 := by
