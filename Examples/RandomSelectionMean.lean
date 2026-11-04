@@ -85,6 +85,7 @@ theorem duplicate_source_law (x : α) :
     sourceLaw 1 [x, x] = PMF.map (fun i : Fin 2 => 12 + i.val)
       (Resources.RandomQuickSort.uniformIndex 1) := by
   rw [sourceLaw, Examples.RandomSelectionRun.duplicate_execution, PMF.map_comp]
+  rfl
 
 theorem duplicate_means (x : α) :
     scanMean 1 [x, x] = 2 ∧ sourceMean 1 [x, x] = (25 : ℝ) / 2 := by
@@ -98,7 +99,13 @@ continues, and its requested child is the singleton [0]. -/
 theorem two_key_scan_step :
     scanExpectation 0 ([0, 1] : List Nat) =
       2 + (2 : ℝ≥0∞)⁻¹ * scanExpectation 0 ([0] : List Nat) := by
-  rw [scanExpectation_cons, Fin.sum_univ_two]
+  rw [scanExpectation_cons]
+  change 2 + (2 : ℝ≥0∞)⁻¹ *
+    (∑ i : Fin 2,
+      match (stepRun 0 ([0, 1] : List Nat) i).1 with
+      | Sum.inl (j, ys) => scanExpectation j ys
+      | Sum.inr _ => 0) = _
+  rw [Fin.sum_univ_two]
   simp [stepRun_eq, Applications.Selection.partition3_eq_filters]
 
 theorem arbitrary_input_integrable (k : Nat) (xs : List α) :
