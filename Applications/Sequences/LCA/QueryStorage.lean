@@ -39,8 +39,10 @@ def key (x : Key) : Run Key := note x [.key x]
 def bit (x : Bool) : Run Bool := note x [.bit x]
 def index {n : Nat} (x : Fin n) : Run (Fin n) := note x [.nat x.val]
 
-/-- Every result is retained until query return. This deliberately simple
-lifetime interpretation gives a bound without relying on register reuse. -/
+/-- Every primitive's semantic result is retained until query return. A packed
+key occupies one output register: its multiply/add encoding reuses that
+register for the intermediate product. The encoding's intermediate word bounds
+are separate. No reuse between distinct primitive results is assumed. -/
 def withinRun {steps blocks : Nat} (data : MicroData steps blocks) (hb : 0 < blocks)
     (block offset len : Nat) : Run Key :=
   bindRun (index (⟨min block (blocks-1),by omega⟩ : Fin blocks)) fun bi =>
