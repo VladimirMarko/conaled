@@ -30,7 +30,8 @@ theorem partition_equal_singleton_of_nodup (p : α) (xs : List α)
     (hxs : xs.Nodup) (hp : p ∈ xs) : (partition3 p xs).2.1 = [p] := by
   rw [partition3_eq_filters]
   change xs.filter (fun a => decide (a = p)) = [p]
-  simpa only [List.count_eq_one_of_mem hxs hp] using (List.filter_eq (l := xs) p)
+  simpa only [List.count_eq_one_of_mem hxs hp, List.replicate_one] using
+    (List.filter_eq (l := xs) p)
 
 theorem partition_left_eq_nil_of_minimum (p : α) (xs : List α)
     (hmin : ∀ a ∈ xs, p ≤ a) : (partition3 p xs).1 = [] := by
