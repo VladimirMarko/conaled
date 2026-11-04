@@ -75,7 +75,7 @@ theorem compose_rep (f g : Builder α) (prefixF prefixG : List α)
     (repF : Rep f prefixF) (repG : Rep g prefixG) :
     Rep (compose f g) (prefixF ++ prefixG) := by
   intro suffix
-  simp only [compose_value, repF, repG, List.append_assoc]
+  rw [compose_value, repF ((g suffix).1), repG suffix, List.append_assoc]
 
 theorem compose_appCost (f g : Builder α) (k l : Nat)
     (costF : AppCost f k) (costG : AppCost g l) :
