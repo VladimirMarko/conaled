@@ -27,7 +27,8 @@ theorem prepend_injective (n i calls : Nat) :
     Function.Injective (prepend (α := α) n i calls) := by
   intro r s h
   apply Prod.ext
-  · exact congrArg (fun z : Outcome α => z.1) h
+  · have hv := congrArg (fun z : Outcome α => z.1) h
+    exact hv
   · apply Prod.ext
     · exact congrArg (fun z : Outcome α => z.2.1.tail) h
     · exact Nat.add_left_cancel (congrArg (fun z : Outcome α => z.2.2) h)
