@@ -565,3 +565,18 @@ costs remain mandatory in the original chapters. Accepted repaired Chapter 1,
 focused compatibility checks, the full candidate build/audit, both independent
 review axes and immediate candidate verification remain required. No source
 preflight or authored draft supplies acceptance evidence.
+
+## Shared fixed-subset minimum probability (draft)
+
+The [uniform-permutation minimum unit](fdsa-permutation-minimum.md) supplies a
+source draft of the probability that a member of a fixed finite subset is
+first under one global uniform permutation of injective priorities. It uses
+ordinary permutations, finsets and Mathlib measures, with no new probability
+carrier. Its examples connect the general theorem to overlapping subsets,
+infinite-target integer priorities, empty indices, outsiders and ties.
+
+This groundwork supports Chapters 2 and 10. It does not supply conditional
+pivot/subproblem laws, full relative-order restrictions, the expected first
+position, treap construction/ancestor/charging proofs or algorithm cost
+correspondences. Its source and examples remain uncompiled and unaccepted;
+the local FDSA-XU01 record retains the frozen scope and subsequent gate results.
