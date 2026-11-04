@@ -77,11 +77,11 @@ theorem partition3_cons (p y : α) (ys : List α) :
       else if p = y then (t.1, y :: t.2.1, t.2.2)
       else (t.1, t.2.1, y :: t.2.2) := by
   by_cases hlt : y < p
-  · simp [partition3_eq_filters, List.filter_cons, hlt, ne_of_lt hlt, not_lt_of_gt hlt]
+  · simp [partition3_eq_filters, hlt, ne_of_lt hlt, not_lt_of_gt hlt]
   · by_cases heq : p = y
     · subst y
-      simp [partition3_eq_filters, List.filter_cons]
+      simp [partition3_eq_filters]
     · have hgt : p < y := lt_of_le_of_ne (le_of_not_gt hlt) heq
-      simp [partition3_eq_filters, List.filter_cons, hlt, heq, Ne.symm heq, hgt]
+      simp [partition3_eq_filters, hlt, heq, Ne.symm heq, hgt]
 
 end Sequences.Partition
