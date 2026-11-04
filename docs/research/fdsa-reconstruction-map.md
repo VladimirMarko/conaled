@@ -521,8 +521,8 @@ realizations are optional and do not impose an allocation or storage capability
 on other targets. These are ordinary Lean/Type results; no cross-setting
 interpretation of these new induction proofs is claimed.
 
-The only existing public-interface adjustment is the universe signature of
-`Resources.erasureSquare`. Its value carriers may now live above the cost type;
+For Chapter 1, the only existing public-interface adjustment is the universe
+signature of `Resources.erasureSquare`. Its value carriers may now live above the cost type;
 this permits natural costs for lists of arbitrary-universe payloads. Its
 implementation, semantic contract, old equal-universe specializations and
 assumptions are unchanged. The new squares and universal composition example

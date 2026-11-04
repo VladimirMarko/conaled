@@ -64,11 +64,11 @@ theorem run_potential_map_of_invariant [AddZero C] [AddMonoid D] [Preorder D]
           add_assoc _ _ _
         _ ≤ h (step i s).2 +
             (potential (step i s).1 + budget step charge is (step i s).1) :=
-          add_le_add_left tail _
+          ‹AddLeftMono D›.elim (h (step i s).2) tail
         _ = (h (step i s).2 + potential (step i s).1) +
             budget step charge is (step i s).1 := (add_assoc _ _ _).symm
         _ ≤ (potential s + charge i s) + budget step charge is (step i s).1 :=
-          add_le_add_right localLaw _
+          ‹AddRightMono D›.elim (budget step charge is (step i s).1) localLaw
         _ = potential s + (charge i s + budget step charge is (step i s).1) :=
           add_assoc _ _ _
 
@@ -145,7 +145,8 @@ theorem run_cost_le_map_of_invariant [AddZero C] [AddMonoid D] [Preorder D]
     closed hstep is s hs
   have lower : h (run step is s).2 ≤
       h (run step is s).2 + potential (run step is s).1 := by
-    simpa only [add_zero] using add_le_add_left final (h (run step is s).2)
+    simpa only [add_zero] using
+      ‹AddLeftMono D›.elim (h (run step is s).2) final
   exact lower.trans boundary
 
 /-- The signed source amortized expression, summed along the actual trajectory.
