@@ -262,6 +262,7 @@ import SquareKit.HigherOrderComparison
 
 import Examples.EquationComposition
 import Examples.DerivativeNormalization
+import Examples.LocalUniversesBoundary
 
 import Examples.ProofRequirementReference
 
