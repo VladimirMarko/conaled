@@ -72,8 +72,8 @@ theorem stepRun_eq (k : Nat) (xs : List α) (i : Fin xs.length) :
   simp only [stepRun, pivotRun_exact, SymmetricCosts.lengthRun_exact,
     Partition.partitionRun_value, Partition.partitionRun_cost,
     Applications.Selection.partition3]
-  split_ifs <;> apply Prod.ext
-  all_goals first | rfl | omega
+  split_ifs with hl he <;> simp_all only [↓reduceIte]
+  all_goals first | omega | (apply Prod.ext <;> first | rfl | omega)
 
 /-- Pivot membership supplies decrease; a valid parent rank supplies a valid
 child rank. Neither conclusion assumes distinctness of the input values. -/
@@ -91,7 +91,6 @@ theorem stepRun_child (k : Nat) (xs : List α) (i : Fin xs.length)
     subst j
     subst ys
     exact ⟨hs.1, fun _ => hl⟩
-  · cases h
   · dsimp only at h
     have hj := congrArg Prod.fst (Sum.inl.inj h)
     have hy := congrArg Prod.snd (Sum.inl.inj h)
@@ -169,7 +168,7 @@ theorem pivotLaw_event (head : α) (tail : List α) (event : α → Bool) :
         event ((head :: tail)[i.val]'i.isLt) = true)).card : ℝ≥0∞) /
           ((tail.length + 1 : Nat) : ℝ≥0∞) := by
   rw [pivotLaw, PMF.map_comp]
-  simpa only [Function.comp_apply, pivotRun_exact] using
+  simpa only [Function.comp_def, pivotRun_exact] using
     RandomQuickSort.uniformIndex_event tail.length
       (fun i => event ((pivotRun (head :: tail) i).1))
 
