@@ -15,7 +15,7 @@ kernel and surjectivity axioms must compare isomorphically over its reduct.
 The named consumer is the existing exact parser observation contract in
 `Applications/Languages/IndexedCompositional.lean`, retaining the entire
 `Decision (P w)` for words within the fixed depth, including the selected
-witness. Its model adapter takes A to parsers for a fixed inhabited language,
+witness. Its model adapter takes A to parsers for a fixed language with a supplied `p₀ : Parser P`,
 B to the singleton type, R to equality of all bounded exact observations,
 and P to the unrestricted always-true predicate. The resulting quotient must
 recover native `Parser.parse` at every bounded word through the public

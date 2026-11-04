@@ -1,3 +1,4 @@
+import Examples.RepresentationExtension
 import Examples.ConstructorObserverExtension
 import Examples.ExactParserRewrites
 import SquareKit.IndexedCompositionalOrdinary
