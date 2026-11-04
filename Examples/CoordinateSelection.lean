@@ -45,7 +45,7 @@ length cost3. The one acquired coordinate is charged separately. -/
 theorem singleton_run (a : Int) :
     Runs (observedSelect 0) (fun _ : Fin 1 => a) [] [(0, a)] (some a, 7) := by
   have selector : Resources.Selection.selectRun 0 [a] = (some a, 7) := by
-    rw [Resources.Selection.selectRun_small 0 [a] (by decide) (by decide)]
+    rw [Resources.Selection.selectRun_small 0 [a] (by simp) (by simp)]
     rfl
   simpa only [List.ofFn_succ, List.ofFn_zero, selector] using
     observedSelect_run 0 (fun _ : Fin 1 => a)
@@ -117,6 +117,7 @@ theorem invalid_every_work (input : Fin 3 → Int) (trace : Transcript 3 Int)
   have ho := observedSelect_of_invalid 3 input trace observation run (by decide)
   refine ⟨ho, ?_⟩
   rw [work_acquisition 3 input trace observation run 2, ho]
+  rfl
 
 /-- The size20 base uses the actual insertion helper: source count73 and
 twenty unit-price coordinate reads give combined work93. -/
@@ -146,7 +147,7 @@ theorem first_recursive_run :
   obtain ⟨trace, observation, run⟩ :=
     observedSelect_total 10 (fun i : Fin 21 => (i.val : Int))
   have ranked : RankedAt (List.ofFn (fun i : Fin 21 => (i.val : Int))) 10 10 := by
-    apply ranked_iff_index.mpr
+    apply ranked_iff_count_bounds.mpr
     decide +kernel
   have scalar : Resources.SelectionRecurrence.F 21 = 1419 := by
     calc
@@ -164,7 +165,7 @@ theorem first_recursive_run :
 /-- All valid ranks provide an actual total correct member of the competitor
 class. Correctness has no distinctness premise. -/
 theorem total_correct_value_view (k : Fin n) :
-    Total (selectedValue k.val) ∧ Selects (selectedValue k.val) k :=
+    Total (selectedValue (n := n) k.val) ∧ Selects (selectedValue k.val) k :=
   ⟨selectedValue_total k.val, selectedValue_correct k⟩
 
 theorem any_valid_input_contract (k : Fin n) (input : Fin n → Int)
@@ -191,8 +192,9 @@ theorem pair_minimum_comparison :
   obtain ⟨K, bound⟩ := exists_uniform_optimality
   refine ⟨K, ?_⟩
   intro input distinct
-  simpa only [queryWork_unit] using bound 1 2 (0 : Fin 2) input distinct
-    Examples.CoordinateQueries.pairMinimum Examples.CoordinateQueries.pairMinimum_total
-    Examples.CoordinateQueries.pairMinimum_correct (by decide)
+  simpa only [queryWork_unit, show (0 : Fin 2).val = 0 by decide] using
+    bound 1 2 (0 : Fin 2) input distinct
+      Examples.CoordinateQueries.pairMinimum Examples.CoordinateQueries.pairMinimum_total
+      Examples.CoordinateQueries.pairMinimum_correct (by decide)
 
 end Examples.CoordinateSelection
