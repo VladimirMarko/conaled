@@ -18,7 +18,7 @@ filename remains stable so existing links continue to resolve.
 | Checked locally | #256 transposes intrinsically indexed equation bodies, swaps their parameter scopes, and proves both syntax round trips and exact denotational preservation. | Binding-free cells with total primitive interpretations; no arbitrary recursive source transformation. |
 | Checked locally | #255 gives finite-word final behavior and exact finite parser/trie observations; #256 recovers its selected union/concat/star observations. | No equivalence between all finite syntax and all codata behaviors, or infinite-productivity/runtime-sharing theorem. |
 | Checked locally | #268 derives composite interpretations and compatible substitution from local constructor laws in a finite-arity derivative-template format. | Ordinary type carriers and fixed outputs; fixed-fiber vector specialization, with index-changing/dependent observations owned by #271. |
-| Checked locally | #271 derives composite preservation and compatible substitution for finite terms over fixed indexed families. | Index-changing vectors and exact parser/trie union/transport; full depth-restricted parser composition remains #274. |
+| Checked locally | #271 derives composite preservation and compatible substitution for finite terms over fixed indexed families. | Index-changing vectors and exact parser/trie operations; #274 adds coherent restriction and full finite composition. |
 | Existing literature | Decomposition diversity, bialgebraic semantics, Chu pairings and symmetric proof calculi supply related structures. | Their assumptions differ; no single source identifies all of them with our implementation. |
 | Design inference | Constructor/observer interaction equations may support several verified program organizations and more explicit extension obligations. | Requires usable author routes and checked composition beyond the existing cell transformation. |
 | Conjectural connection | A compatible account of construction, observation and proof transport may explain several current interfaces together. | Dependent results, witnesses, binders, recursion and changes of setting remain substantive tests, not details to erase. |
@@ -121,10 +121,12 @@ word observations, including distinct selected nullable-star witnesses.
 An explicit singleton-index bridge recovers #268's ordinary contract.
 
 The indexed theorem does not infer compatibility from transposed source cells
-or cover arbitrary changes of index base. Full parser concatenation and star
-need coherent depth restriction for retained operands; [#274](https://github.com/VladimirMarko/conaled/issues/274)
-owns that continuation. A table of handlers or #256's permutation alone does
-not supply these composition laws.
+or cover arbitrary changes of index base. [#274](https://github.com/VladimirMarko/conaled/issues/274)
+adds coherent depth restriction for retained operands, plus scale, intersection,
+concatenation and star templates. Both native interpretations satisfy the local
+laws; the same theorem now recovers exact observations and whole finite tries
+for arbitrary composite terms. A table of handlers or #256's permutation alone
+does not supply these composition laws.
 
 ## Pairings, variance and the limits of dual equivalence
 
@@ -195,13 +197,20 @@ construction/observation duality or thermodynamic law.
 ## Priority and ownership
 
 The checked local results are #266's source views, #267's extension contracts,
-#268's ordinary composition laws and #271's indexed continuation. The #269,
-#270 and #273 assessments retain narrower interfaces or separate theories where
+#268's ordinary composition laws, #271's indexed continuation and #274's full
+finite parser composition. The #269, #270 and #273 assessments retain narrower interfaces or separate theories where
 their examples do not justify a universal framework. These conclusions do not
 rank all possible language designs or settle the wider conjectures above.
 
-#274 owns the next parser composition boundary. #262 remains the distinct
-semantic-type admissibility experiment. #235 owns cross-cutting applicability
-and recovery of existing specializations; #36 owns internal-language and surface
+The [bialgebraic adoption assessment](bialgebraic-semantics-adoption.md),
+[#275](https://github.com/VladimirMarko/conaled/issues/275), examines higher-order
+semantics, equations and recursive definitions while retaining independent
+mathematical meanings. The approved follow-ups are exact observational rewrites
+[#276](https://github.com/VladimirMarko/conaled/issues/276), the equation-view
+bridge [#277](https://github.com/VladimirMarko/conaled/issues/277), composable
+constructor/observer extension [#278](https://github.com/VladimirMarko/conaled/issues/278),
+and independent author trials [#279](https://github.com/VladimirMarko/conaled/issues/279).
+#262 remains the distinct semantic-type admissibility experiment. #235 owns
+cross-cutting applicability and recovery of existing specializations; #36 owns internal-language and surface
 integration; #200 owns correspondence research; #8 owns the categorical
 compilation side. Acceptance criteria and dependencies live in the linked issues.

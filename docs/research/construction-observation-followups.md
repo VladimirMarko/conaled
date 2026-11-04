@@ -34,6 +34,14 @@ remain usable; the examples do not establish independent author effectiveness.
 
 ## What #274 would add
 
+**Completion update, 2026-11-04:** #274 supplies the cut constructor, coherent
+restriction, and local compatibility for scale, intersection, concatenation and
+star. The existing all-term theorem now recovers exact decisions and whole
+finite tries for arbitrary composite expressions. Checked cases retain nullable
+star choices, including a nonstandard selected empty witness that a resetting
+rule would lose. See the [implementation record](indexed-constructor-observer-laws.md).
+The following proposal records the gap that motivated this work.
+
 [#274](https://github.com/VladimirMarko/conaled/issues/274) would recover existing
 native parser/trie combinators through the shared indexed theorem, including
 scale, intersection, concatenation and star. Concatenation exposes the key gap:
