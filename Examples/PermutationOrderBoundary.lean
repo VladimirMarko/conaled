@@ -122,7 +122,9 @@ theorem incomplete_support_counterexample :
   constructor
   · decide
   · rw [incomplete_output]
-    decide
+    intro h
+    have hlength := ((mem_orders _ _ _).mp h).length_eq
+    norm_num at hlength
 
 /-- Repeated labels change key multiplicities under the inverse permutation. -/
 theorem repeated_output :
@@ -139,6 +141,8 @@ theorem repeated_support_counterexample :
   · intro a
     fin_cases a <;> simp
   · rw [repeated_output]
-    decide
+    intro h
+    have hcount := ((mem_orders _ _ _).mp h).count_eq (0 : Fin 2)
+    norm_num at hcount
 
 end Examples.PermutationOrderBoundary
