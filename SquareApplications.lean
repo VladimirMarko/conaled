@@ -257,5 +257,6 @@ import Examples.ScanOptimality
 import SquareKit.HigherOrderComparison
 
 import Examples.EquationComposition
+import Examples.DerivativeNormalization
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
