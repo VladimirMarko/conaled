@@ -209,7 +209,7 @@ theorem uniformOn_firstEvent
         intro ys hys
         obtain ⟨xs, hxs, rfl⟩ := Finset.mem_image.mp hys
         rw [uniformOn_restrictedOrder_eq positions hnd hcomplete S (a :: xs),
-          if_pos ((cons_mem_orders positions hnd S a (hcomplete a) ha xs).mpr hxs)]
+          ite_eq_left ((cons_mem_orders positions hnd S a (hcomplete a) ha xs).mpr hxs)]
       _ = _ := by rw [Finset.sum_const, nsmul_eq_mul]
   have hcard : C.card = (orders positions (S.erase a)).card :=
     Finset.card_image_of_injective _ (fun _xs _ys h => (List.cons.inj h).2)
@@ -262,9 +262,9 @@ theorem cond_tail_eq
     uniformOn_restrictedOrder_eq positions hnd hcomplete S (a :: xs),
     inv_inv, cons_mem_orders positions hnd S a (hcomplete a) ha xs]
   by_cases hxs : xs ∈ orders positions (S.erase a)
-  · simp only [if_pos hxs]
+  · simp only [ite_eq_left hxs]
     exact factorial_ratio_tail S a ha
-  · simp only [if_neg hxs, mul_zero]
+  · simp only [ite_eq_right hxs, mul_zero]
 
 /-- The actual tail's pushforward under the original law conditioned on its
 first selected key is the existing uniform remaining-order measure. -/

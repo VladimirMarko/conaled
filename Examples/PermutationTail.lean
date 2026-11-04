@@ -105,7 +105,7 @@ theorem tail_23_mass : afterFirst {π | tailOrder π = [2, 3]} = 1 / 2 := by
         then (Nat.factorial (selected.erase 0).card : ℝ≥0∞)⁻¹ else 0 :=
       cond_tail_eq positions positions_nodup positions_complete
         selected 0 (by decide) [2, 3]
-    _ = 1 / 2 := by rw [if_pos hmem]; norm_num [selected, one_div]
+    _ = 1 / 2 := by rw [ite_eq_left hmem]; norm_num [selected, one_div]
 
 /-- The other tail mass is obtained through the generic conditional HasLaw. -/
 theorem tail_32_mass : afterFirst {π | tailOrder π = [3, 2]} = 1 / 2 := by
@@ -123,7 +123,7 @@ theorem repeated_tail_mass_zero : afterFirst {π | tailOrder π = [2, 2]} = 0 :=
         then (Nat.factorial (selected.erase 0).card : ℝ≥0∞)⁻¹ else 0 :=
       cond_tail_eq positions positions_nodup positions_complete
         selected 0 (by decide) [2, 2]
-    _ = 0 := if_neg hbad
+    _ = 0 := ite_eq_right hbad
 
 def filteredTail (π : Equiv.Perm (Fin 4)) : List (Fin 4) :=
   (tailOrder π).filter (fun b => decide (b ∈ ({3} : Finset (Fin 4))))

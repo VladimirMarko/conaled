@@ -127,7 +127,7 @@ private theorem counter_full_mass (xs : List (Fin 3))
     counterLaw {π | restrictedOrder counterPositions Finset.univ π = xs} = 1 / 6 := by
   unfold counterLaw
   rw [uniformOn_restrictedOrder_eq counterPositions counterPositions_nodup
-    counterPositions_complete Finset.univ xs, if_pos hxs]
+    counterPositions_complete Finset.univ xs, ite_eq_left hxs]
   norm_num [one_div]
 
 /-- Finite value calculation over the six supported full lists, not over a new law. -/
