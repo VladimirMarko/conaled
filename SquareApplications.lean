@@ -4,6 +4,7 @@ import Examples.EquationTranspose
 import Examples.LanguageCoalgebra
 import Examples.SubtypeEvidence
 import Examples.LanguageExtension
+import Examples.ObservationExtension
 import Examples.IndefiniteService
 import Examples.InitializedFeedback
 import Examples.PreservationBounds
