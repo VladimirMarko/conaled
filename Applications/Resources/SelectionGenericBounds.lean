@@ -98,10 +98,10 @@ theorem genericSelectionMajorant_monotone (d cutoff : Nat) (hd : 5 ≤ d) :
 execution and does not take a supremum over arbitrary payload values. -/
 theorem selectRunWith_cost_le_groupBase_of_prefix (d cutoff : Nat)
     (hd : 2 ≤ d) (hc : 1 ≤ cutoff) (k : Nat) (xs : List α)
-    (prefix : xs.length ≤ cutoff ∨ xs.length ≤ GroupSelectionRecurrence.cutoff d) :
+    (hprefix : xs.length ≤ cutoff ∨ xs.length ≤ GroupSelectionRecurrence.cutoff d) :
     (selectRunWith d cutoff hd hc k xs).2 ≤ genericSelectionBase d cutoff :=
   (selectRunWith_cost_le_envelope d cutoff hd hc k xs).trans
-    (prefix_max_bound d cutoff (GroupSelectionRecurrence.cutoff d) xs.length prefix)
+    (prefix_max_bound d cutoff (GroupSelectionRecurrence.cutoff d) xs.length hprefix)
 
 /-- The entry-and-length cost of every invalid rank fits the same scalar. -/
 theorem invalid_cost_le_groupMajorant (d cutoff : Nat) (hd : 5 ≤ d) (n : Nat) :
@@ -131,8 +131,8 @@ theorem selectRunWith_cost_le_groupMajorant_of_lt (d cutoff : Nat)
   induction n using Nat.strongRecOn with
   | ind n ih =>
     intro ys hyn j hj
-    by_cases prefix : ys.length ≤ cutoff ∨ ys.length ≤ GroupSelectionRecurrence.cutoff d
-    · have bounded := selectRunWith_cost_le_groupBase_of_prefix d cutoff hd hc j ys prefix
+    by_cases hprefix : ys.length ≤ cutoff ∨ ys.length ≤ GroupSelectionRecurrence.cutoff d
+    · have bounded := selectRunWith_cost_le_groupBase_of_prefix d cutoff hd hc j ys hprefix
       exact bounded.trans (genericSelectionBase_le_majorant d cutoff hgroup n)
     · have large : cutoff < ys.length := by omega
       have large_n : GroupSelectionRecurrence.cutoff d < n := by omega

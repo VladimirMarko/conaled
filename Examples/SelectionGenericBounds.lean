@@ -139,11 +139,11 @@ theorem actual_cutoff_above_scalar :
   have cut : Resources.GroupSelectionRecurrence.cutoff 5 = 71 :=
     Examples.GroupSelectionRecurrence.explicit_cutoffs.1
   refine ⟨by omega, range_value 5 100 (by decide) (by decide) 80 0 (by decide), ?_, ?_⟩
-  · have prefix := selectRunWith_cost_le_groupBase_of_prefix 5 100 (by decide) (by decide)
+  · have hprefix := selectRunWith_cost_le_groupBase_of_prefix 5 100 (by decide) (by decide)
       0 (List.range 80) (Or.inl (by
         simpa only [List.length_range] using (show (80 : Nat) ≤ 100 from by decide)))
     simpa only [genericSelectionBase, cut, show max (100 : Nat) 71 = 100 from by decide]
-      using prefix
+      using hprefix
   · simpa only [List.length_range] using
       selectRunWith_cost_le_groupMajorant 5 100 (by decide) (by decide) (by decide)
         0 (List.range 80)
