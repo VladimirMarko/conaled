@@ -97,7 +97,7 @@ theorem restrictedOrder_perm (positions : List I) (hnd : positions.Nodup)
 /-- Mapping the observed keys back to labels preserves their positions' order. -/
 theorem map_restrictedOrder_sublist (positions : List I) (S : Finset I)
     (π : Equiv.Perm I) :
-    (restrictedOrder positions S π).map π <+ positions := by
+    ((restrictedOrder positions S π).map π).Sublist positions := by
   have h := List.Sublist.map π
     (List.filter_sublist (p := fun a => decide (a ∈ S))
       (l := positions.map π.symm))
@@ -155,7 +155,7 @@ private theorem exists_map_eq_of_nodup (xs ys : List I)
   have hg : Function.Injective g := by
     intro i j hij
     apply Fin.ext
-    exact congrArg Fin.val (hys.injective_get hij)
+    exact congrArg (fun k : Fin ys.length => k.val) (hys.injective_get hij)
   obtain ⟨σ, hσ⟩ :=
     Equiv.Perm.exists_extending_pair xs.get g hxs.injective_get hg
   refine ⟨σ, List.ext_getElem (by simpa only [List.length_map] using hlength) ?_⟩
@@ -189,7 +189,8 @@ private theorem restrictedOrder_relabel (positions : List I) (S : Finset I)
       (restrictedOrder positions S π).map σ := by
   have hglobal : positions.map (π * σ.symm).symm =
       (positions.map π.symm).map σ := by
-    simp only [List.map_map]
+    change positions.map (σ ∘ π.symm) = (positions.map π.symm).map σ
+    rw [List.map_map]
   unfold restrictedOrder
   rw [hglobal, List.filter_map]
   apply congrArg (List.map σ)
@@ -241,7 +242,7 @@ theorem uniformOn_restrictedOrder_eq
   classical
   let := Fintype.ofList positions hcomplete
   by_cases hxs : xs ∈ orders positions S
-  · rw [if_pos hxs]
+  · rw [ite_eq_left hxs]
     have hpre : (restrictedOrder positions S) ⁻¹'
         (orders positions S : Set (List I)) = Set.univ := by
       apply Set.eq_univ_of_forall
@@ -278,7 +279,7 @@ theorem uniformOn_restrictedOrder_eq
             uniformOn Set.univ {π | restrictedOrder positions S π = ys} := hsum.symm
         _ = 1 := hpartition
     simpa only [orders_card positions hnd hcomplete S] using hmass
-  · rw [if_neg hxs]
+  · rw [ite_eq_right hxs]
     have hempty : ({π : Equiv.Perm I | restrictedOrder positions S π = xs}) = ∅ := by
       apply Set.ext
       intro π
