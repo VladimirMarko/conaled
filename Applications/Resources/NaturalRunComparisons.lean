@@ -160,10 +160,10 @@ mutual
       cases h : lt b a with
       | false =>
         have hs := ascRunBy_spec lt b (Batteries.DList.singleton a) bs
-        simp only [h, CallCount.tick, pure, bind, Bool.false_eq_true, ↓reduceIte, hs]
+        simp only [CallCount.tick, pure, bind, Bool.false_eq_true, ↓reduceIte, hs]
       | true =>
         have hs := descRunBy_spec lt b [a] bs
-        simp only [h, CallCount.tick, pure, bind, ↓reduceIte, hs]
+        simp only [CallCount.tick, pure, bind, ↓reduceIte, hs]
   termination_by xs.length
   decreasing_by all_goals simp_wf
 
@@ -176,10 +176,10 @@ mutual
       cases h : lt b a with
       | false =>
         have hs := ascRunBy_spec lt b (d.push a) bs
-        simp only [h, CallCount.tick, pure, bind, Bool.false_eq_true, ↓reduceIte, hs]
+        simp only [CallCount.tick, pure, bind, Bool.false_eq_true, ↓reduceIte, hs]
       | true =>
         have hs := runsRunBy_spec lt (b :: bs)
-        simp only [h, CallCount.tick, pure, bind, ↓reduceIte, hs, Nat.add_zero]
+        simp only [CallCount.tick, pure, bind, ↓reduceIte, hs, Nat.add_zero]
   termination_by ys.length + 1
   decreasing_by all_goals simp_wf
 
@@ -192,11 +192,11 @@ mutual
       cases h : lt b a with
       | false =>
         have hs := runsRunBy_spec lt (b :: bs)
-        simp only [h, CallCount.tick, pure, bind, Bool.false_eq_true, ↓reduceIte, hs,
+        simp only [CallCount.tick, pure, bind, Bool.false_eq_true, ↓reduceIte, hs,
           Nat.add_zero]
       | true =>
         have hs := descRunBy_spec lt b (a :: acc) bs
-        simp only [h, CallCount.tick, pure, bind, ↓reduceIte, hs]
+        simp only [CallCount.tick, pure, bind, ↓reduceIte, hs]
   termination_by ys.length + 1
   decreasing_by all_goals simp_wf
 end
