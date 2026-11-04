@@ -6,6 +6,7 @@ import Examples.IndexedParserComposition
 import Examples.Uncomputation
 import Examples.ClientSchedules
 import Examples.GuardedStreams
+import Examples.GuardedStreamCompiler
 import Examples.CompositionalCoalgebra
 import Examples.EquationTranspose
 import Examples.EquationViews
