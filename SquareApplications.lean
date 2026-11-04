@@ -265,6 +265,7 @@ import SquareKit.WeakHigherOrder
 import Examples.EquationComposition
 import Examples.DerivativeNormalization
 import Examples.LocalUniversesBoundary
+import Examples.DependentComprehension
 
 import Examples.ProofRequirementReference
 import Examples.ProofRequirementComparison
