@@ -48,7 +48,7 @@ Chapter organization is a coverage index; modules follow reusable domain concept
 | --- | --- | --- |
 | 1 | Basics | Accepted at `07e480f`; detailed witnesses below |
 | 2 | Sorting | [112-obligation source correspondence](fdsa-sorting.md), including the selected stable Exercise 2.7; validation and acceptance tracked separately |
-| 3 | Selection | Queued; shared insertion and partition groundwork below |
+| 3 | Selection | Formalization in progress; see the [chapter correspondence](fdsa-selection.md) for coverage and remaining obligations |
 | 4 | Binary Trees | Queued |
 | 5 | Binary Search Trees | Queued |
 | 6 | Abstract Data Types | Queued |

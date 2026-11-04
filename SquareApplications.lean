@@ -283,5 +283,41 @@ import Examples.RandomQuickSortRank
 import Examples.UniformQuickSortMean
 import Examples.RandomQuickSortGrowth
 
+import Examples.ChunkCalls
+import Examples.CoordinateQueries
+import Examples.CoordinateReadAll
+import Examples.CoordinateSelection
+import Examples.CoordinateSensitivity
+import Examples.FixedRankSelection
+import Examples.GeneralMedianBounds
+import Examples.GroupSelectionRecurrence
+import Examples.HalvingTrace
+import Examples.ListChunks
+import Examples.MedianCounterfamily
+import Examples.MedianOfMedians
+import Examples.MedianPolicy
+import Examples.MedianReduction
+import Examples.MinimumPivot
+import Examples.OutsidePivot
+import Examples.RandomSelection
+import Examples.RandomSelectionDrift
+import Examples.RandomSelectionEqual
+import Examples.RandomSelectionMean
+import Examples.RandomSelectionRun
+import Examples.RandomSelectionTail
+import Examples.RoundedRecurrence
+import Examples.RoundedRecurrenceBounds
+import Examples.SelectionAuxiliary
+import Examples.SelectionBounds
+import Examples.SelectionComposition
+import Examples.SelectionCosts
+import Examples.SelectionCountRank
+import Examples.SelectionCutoff
+import Examples.SelectionEnvelope
+import Examples.SelectionGenericBounds
+import Examples.SelectionGenericEnvelope
+import Examples.SelectionMedians
+import Examples.SelectionRecurrence
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 

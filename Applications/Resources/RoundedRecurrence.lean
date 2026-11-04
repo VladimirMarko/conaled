@@ -11,8 +11,8 @@ unrestricted; no nonnegativity assumption on the scalar function is introduced.
 
 These statements reconstruct (3.16)--(3.18) and the exact rounded recurrence
 step. The slope condition is non-strict, correcting the printed strict sign.
-The full induction and the existence/natural-valued corollaries are separate
-remaining obligations. Source: FDSA, July 27, 2026, printed pp. 41--43;
+The full induction and the existence/natural-valued corollaries are proved in
+Applications.Resources.RoundedRecurrenceBounds. Source: FDSA, July 27, 2026, printed pp. 41--43;
 Manuel Eberl's Selection.thy at f86f290225eebcc52c1ae7dba2e098f405f51c21.
 -/
 set_option autoImplicit false
