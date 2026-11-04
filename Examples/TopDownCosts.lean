@@ -22,7 +22,7 @@ def natCompare (a b : Nat) : Bool := decide (a ≤ b)
 
 theorem pair_run (cmp : α → α → Bool) (a b : α) :
     run cmp [a, b] = Resources.reweight Prod.fst (Resources.ListMerge.run cmp [a] [b]) := by
-  rw [run_step cmp [a, b] (by decide)]
+  rw [run_step cmp [a, b] (by simp)]
   simp [Resources.bind, Resources.reweight]
 
 /-- The source's one-by-two split feeds the actual sorted right half to the root. -/
@@ -30,7 +30,7 @@ theorem floor_three_run (cmp : α → α → Bool) (a b c : α) :
     run cmp [a, b, c] =
       Resources.bind (Resources.reweight Prod.fst (Resources.ListMerge.run cmp [b] [c]))
         (fun right => Resources.reweight Prod.fst (Resources.ListMerge.run cmp [a] right)) := by
-  rw [run_step cmp [a, b, c] (by decide)]
+  rw [run_step cmp [a, b, c] (by simp)]
   simp [pair_run, Resources.bind, Resources.reweight]
 
 /-- The standard logical sort's two-by-one recursion tree, specialized to length three.
@@ -88,7 +88,7 @@ theorem tagged_exact (first middle last : α) :
         [(1, first), (0, middle), (1, last)] =
       ([(0, middle), (1, first), (1, last)], 3) := by
   simp [floor_three_run, Resources.ListMerge.run_cons_cons,
-    Resources.ListMerge.run_nil_left, Resources.ListMerge.run_nil_right,
+    Resources.ListMerge.run_nil_left,
     Resources.bind, Resources.reweight]
 
 theorem tagged_stable (first middle last : α) :
