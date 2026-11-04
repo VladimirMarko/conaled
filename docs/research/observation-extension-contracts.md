@@ -157,3 +157,9 @@ Observation preservation gives none of the following for free:
 [transposition account](constructor-destructor-transposition.md), and
 [Construction and observation agenda](duality-language-directions.md) retain
 their separate scopes.
+
+The [constructor/observer composition experiment](constructor-observer-composition.md)
+combines these contracts with indexed finite composition for the native vector
+client. It proves the shift/sum cross interaction, old-coordinate recovery,
+conditional extension-order comparison, and separate failures of an incorrect
+cross cell and a representation-sensitive observer's quotient descent.
