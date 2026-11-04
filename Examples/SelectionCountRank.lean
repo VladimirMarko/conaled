@@ -60,7 +60,7 @@ theorem outside_pivot_value :
   have h : 0 < (partition3 2 ([1] : List Nat)).1.length := by
     rw [partition3_eq_filters]
     decide
-  rw [if_pos h]
+  rw [ite_eq_left h]
 
 theorem equal_occurrence_branch :
     (ordered ([3, 2, 2, 1] : List Nat))[2]? = some 2 := by
@@ -72,7 +72,7 @@ theorem equal_occurrence_branch :
       (partition3 2 ([3, 2, 2, 1] : List Nat)).2.1.length := by
     rw [partition3_eq_filters]
     decide
-  rw [if_neg hl, if_pos he]
+  rw [ite_eq_right hl, ite_eq_left he]
 
 theorem ordered_blocks :
     ordered ([2, 1] ++ [4, 3] : List Nat) = ordered [2, 1] ++ ordered [4, 3] :=
