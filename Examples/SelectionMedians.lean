@@ -43,7 +43,7 @@ theorem two_chunk_map :
     mapSlowMedianRun ([[7, 2], [4, 4]] : List (List Nat))
       (by
         intro ys hy
-        simp only [List.mem_cons, List.mem_singleton] at hy
+        simp only [List.mem_cons, List.not_mem_nil, or_false] at hy
         rcases hy with rfl | rfl <;> decide) = ([2, 4], 22) := by
   apply Prod.ext
   · apply (List.map_inj_right
