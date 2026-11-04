@@ -254,5 +254,6 @@ import Examples.ScanSearch
 import Examples.ScanOptimality
 import SquareKit.HigherOrderComparison
 
-/-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
+import Examples.EquationComposition
 
+/-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
