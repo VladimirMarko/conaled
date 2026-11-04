@@ -123,7 +123,7 @@ theorem runWith_tariff (choose : List α → Measured (Option α) Nat)
               min (k - (partition3 p xs).1.length) (partition3 p xs).2.1.length + 1 ≤
                 xs.length := by omega
           simp only [hl, he, ↓reduceIte, List.sum_cons, List.sum_nil,
-            List.length_cons, List.length_nil, Nat.add_zero, Nat.mul_one]
+            List.length_cons, List.length_nil, Nat.add_zero]
           constructor
           · omega
           · rw [Nat.add_mul]
