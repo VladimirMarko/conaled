@@ -136,6 +136,14 @@ certificate with separate witness-descent obligations. They establish neither
 an implemented importer/model framework nor measured author benefit. Further
 implementation needs a concrete client and its own scope under #235.
 
+The [research agenda](research/language-research-agenda.md) gives these next
+steps explicit owners: compositional theory extensions (#288), dependent
+semantics and coherence (#289), and reusable theories and proof transport
+(#290). Their first tasks and lower-priority studies may challenge the current
+architecture; an immediately available adapter is not a condition for taking
+a competing theory seriously. These programmes organize research without
+committing the language to a universal foundation.
+
 The duality agenda in #266–#270 is promising but remains a set of hypotheses,
 not a ranking established by an external comparison. Investigating variance,
 inclusion, implication and explicit coercion evidence likewise does not commit
@@ -238,6 +246,16 @@ that diagnosis. Distinguish missing mathematical structure, interface design,
 documentation, language expressiveness, elaboration behavior and author
 capability. A failed attempt alone establishes neither a language limitation
 nor the impossibility of a practical encoding.
+
+Research and bounded author trials can proceed alongside each other. Freeze
+the interface, mathematical contract and permitted assistance for each trial;
+retain the attempts as a baseline when the interface later changes. Use failures
+to identify missing abstractions as well as local repairs. Reassess changed
+interfaces with affected tasks and fresh held-out tasks, preserving author
+independence and separating preparation cost from author effort. A trial does
+not commit the project to its tested architecture or rank unexplored designs.
+The [agenda](research/language-research-agenda.md#author-trials-alongside-architectural-research)
+records completed evidence and the distinct prerequisites of pending trials.
 
 Author trials measure effectiveness for recorded authors, tasks and tools.
 Retain model/version, configuration and resource budget, available documentation,

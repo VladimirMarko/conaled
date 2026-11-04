@@ -41,6 +41,18 @@ to activate #260 or reopen completed recursive/probability investigations.
 The sequence below records the selection rationale; #286/#287 now have the
 linked outcomes rather than queued comparisons.
 
+## Approved continuation after the paper comparisons
+
+The [follow-up agenda](language-research-agenda.md) records three parent issues
+(#288–#290), their first executable tasks (#291–#294), and lower-priority studies
+(#295–#301). It also records the completed #278/#279/#285 evidence and keeps
+#108/#117's existing trial gates intact. #293 supplies the previously missing
+proof-requirement author comparison; #291 separately owns #287's all-model
+formalization rather than adding that requirement silently to #262.
+
+The original sequence below is historical selection rationale. It does not
+queue #286/#287 again or supersede the new issue graph.
+
 ## What evidence changed the selection
 
 The [first pass](external-language-comparison.md) supplies the initial semantic
