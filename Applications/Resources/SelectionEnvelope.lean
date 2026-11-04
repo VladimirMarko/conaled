@@ -45,7 +45,7 @@ theorem envelope_mono (d : Nat) : Monotone (envelope d) :=
 
 theorem small_budget_le (d n : Nat) : smallBudget n ≤ envelope d n := by
   cases n with
-  | zero => decide
+  | zero => change (3 : Nat) ≤ 4; decide
   | succ n => exact le_max_left _ _
 
 theorem invalid_budget_le (d n : Nat) : n + 2 ≤ envelope d n := by
