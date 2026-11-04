@@ -265,5 +265,6 @@ import Examples.DerivativeNormalization
 import Examples.LocalUniversesBoundary
 
 import Examples.ProofRequirementReference
+import Examples.ProofRequirementComparison
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

@@ -16,6 +16,11 @@ not author observations or an exported agent-session transcript.
 - `dispatch-initial.json`: a snapshot of root's initial dispatch record. It gives
   exact route messages, launch bounds and configuration, and records concurrent
   host activity. It does not provide author start/finish times or outcomes.
+- `dispatch-final.json`: root's separately preserved closure record with reported
+  author times, final source paths, no recorded interventions and the completed
+  concurrent cache-copy event. `dispatch-final-provenance.json` records its copy
+  origin and hash. Its pending-evaluation status is historical; the subsequent
+  coordinator assessment is in `../evaluation/assessment.md`.
 
 Later dispatch/closure records should use new filenames, preserving this initial
 snapshot. Closed author attempts, self-reports and raw shell evidence belong in
