@@ -511,3 +511,35 @@ requirements are unchanged. All concrete C14 queue/whole-enumeration/carrier
 and quadratic claims remain queued, and binomial carry is a different operation.
 The initial C2 integration prefix remains c80eec9, without this later component.
 This is a source draft with no compilation, final-review or acceptance claim.
+
+## Shared three-way partition values and source execution (FDSA-XQ01)
+
+This bounded cross-cutting **uncompiled draft** exposes the existing independent
+partition semantics to Sorting and Selection, with a separately measured
+one-pass realization for Appendix B.2. It activates or accepts neither chapter
+and does not widen the initial Chapter 2 foundation prefix. Exact provenance,
+source/model distinctions, interface compatibility and cases are in
+[fdsa-three-way-partition.md](fdsa-three-way-partition.md).
+
+| Common source obligation | Draft declarations / intended connection |
+| --- | --- |
+| Three ordered filters and occurrence semantics, partition component of C02-102 and C03-011 | `Sequences.Partition.partition3` retains the existing two-stage value body, exact filter/perm/membership/length laws and standard nested tuple. |
+| Qualified strict-side decrease, C03-013 | Existing `partition_strict_sizes` retains pivot membership as a sufficient premise. Arbitrary-pivot correctness remains unconditional. |
+| Existing Selection compatibility | The old same-signature operation and seven theorem names remain wrappers/adapters. The selection-specific remainder, Rank, Consumers and RankSelection examples are unchanged. |
+| Companion source value equations | Shared nil/cons theorems expose one-tail reconstruction with tests `y<p` then `p=y`, without defining another pure operation or assigning a cost to the old implementation. |
+| Actual source count, C03-031 and B-018/019 | `Resources.Partition.partitionRun` uses one recursive tail call and its actual returned triple; separate value and count laws give the shared value and work `length+1`, including nil. |
+| Consequential clients | Generic equal-block/empty cases; mixed ordered duplicates; absent outside/interior pivots; old-name compatibility; same-program bind on the actual returned lower bucket with expected total thirteen. |
+
+The manuscript prints the three-filter specification and time recurrence;
+the pinned companion supplies the explicit single-pass code equation. The
+old two-pass value implementation, new actual source program and Exercise
+2.4's two-filter quicksort metric remain distinct. No physical runtime,
+tail-recursion, constant stack or arbitrary monotone bucket-transport claim
+is introduced.
+
+Complete quicksort3, selection rank/middle-index bridges, actual selector
+recursion and termination, median-of-medians, random policies and their total
+costs remain mandatory in the original chapters. Accepted repaired Chapter 1,
+focused compatibility checks, the full candidate build/audit, both independent
+review axes and immediate candidate verification remain required. No source
+preflight or authored draft supplies acceptance evidence.

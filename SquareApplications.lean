@@ -251,6 +251,7 @@ import Examples.InsertionCosts
 import Examples.ListLibrary
 import Examples.ListCalls
 import Examples.FunctionalNotation
+import Examples.ThreeWayPartition
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
