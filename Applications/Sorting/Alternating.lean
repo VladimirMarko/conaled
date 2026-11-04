@@ -40,7 +40,9 @@ theorem halve_perm (xs left right : List α) :
     calc
       _ ~ rest ++ (x :: left) ++ (y :: right) :=
         halve_perm rest (x :: left) (y :: right)
-      _ ~ x :: (rest ++ (left ++ y :: right)) := List.perm_middle
+      _ ~ x :: (rest ++ (left ++ y :: right)) := by
+        simpa only [List.append_assoc, List.cons_append] using
+          (List.perm_middle (a := x) (l₁ := rest) (l₂ := left ++ y :: right))
       _ ~ x :: (rest ++ y :: (left ++ right)) :=
         ((List.Perm.refl rest).append List.perm_middle).cons x
       _ ~ (x :: y :: rest) ++ left ++ right := by
