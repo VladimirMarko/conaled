@@ -45,7 +45,7 @@ theorem affine_bound_of_prefix (f : Nat → ℝ)
     (ha : 0 < a) (hc : 0 < c) (contract : a + c < 1) (toll_nonneg : 0 ≤ C1)
     (cutoff : n0 ≤ N)
     (threshold : (max 0 b + max 0 d + 2) / (1 - a - c) < (N : ℝ))
-    (prefix : ∀ n, n ≤ N → f n ≤ C4)
+    (hprefix : ∀ n, n ≤ N → f n ≤ C4)
     (slope : C1 / (1 - a - c) ≤ C3)
     (absorb : (C1 * (N : ℝ) + C2 + C4) /
       ((1 - a - c) * (N : ℝ) - max 0 b - max 0 d - 2) ≤ C3)
@@ -58,7 +58,7 @@ theorem affine_bound_of_prefix (f : Nat → ℝ)
   induction n using Nat.strongRecOn with
   | ind n ih =>
       by_cases small : n ≤ N
-      · exact (prefix n small).trans
+      · exact (hprefix n small).trans
           (le_add_of_nonneg_left (mul_nonneg nonneg (Nat.cast_nonneg n)))
       · have above : N < n := Nat.lt_of_not_ge small
         have children := ceil_children_lt a b c d N n ha hc contract threshold above
