@@ -222,3 +222,9 @@ and binding/substitution cases. Its checked counterexample rejects recovery of
 step-sensitive observations from extensional ground meaning. The source theorem
 hypotheses and the remaining weak-domain/full-abstraction scope are recorded
 there; the experiments in this section remain the original #275 specifications.
+
+The recursive successor [#284 guarded-stream experiment](modular-guarded-streams.md)
+constructs unique coordinate-guarded solutions, reuses solved ones in the sums
+scheme, and transports the solutions through a lossy coefficient interpretation.
+It is a bounded specialization; the source's full GSOS-relative recursive-scheme
+and completely iterative algebra machinery remains outside its claims.
