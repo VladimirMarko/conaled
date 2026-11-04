@@ -12,7 +12,7 @@ set_option autoImplicit false
 set_option warningAsError true
 
 namespace Examples.GeneralMedianBounds
-open Applications.Selection Applications.Sequences.Chunks Sequences.Partition
+open Applications.Selection Applications.Sequences.Chunks
 universe u
 variable {α : Type u} [LinearOrder α]
 
@@ -101,7 +101,7 @@ theorem odd_medians : chunkMedians 3 oddInput = [0, 2, 9] := by
   have hm (ys : List Nat) (hy : ys ∈ chop 3 oddInput) :
       lowerMedianValue ys (chop_mem_ne_nil 3 oddInput ys hy) = ys.headD 0 := by
     have hy' : ys = [0, 0, 1] ∨ ys = [2, 2, 3] ∨ ys = [9] := by
-      simpa only [odd_chops, List.mem_cons, List.mem_singleton] using hy
+      simpa only [odd_chops, List.mem_cons, List.mem_singleton, List.not_mem_nil, or_false] using hy
     rcases hy' with rfl | rfl | rfl <;>
       exact (lowerMedianValue_ranked _ _).unique (ranked_iff_count_bounds.mpr (by decide))
   exact (chunkMedians_eq_heads 3 oddInput hm).trans
@@ -143,7 +143,7 @@ theorem even_medians : chunkMedians 4 evenInput = [0, 3, 9] := by
   have hm (ys : List Nat) (hy : ys ∈ chop 4 evenInput) :
       lowerMedianValue ys (chop_mem_ne_nil 4 evenInput ys hy) = ys.headD 0 := by
     have hy' : ys = [0, 0, 1, 2] ∨ ys = [3, 3, 4, 5] ∨ ys = [9] := by
-      simpa only [even_chops, List.mem_cons, List.mem_singleton] using hy
+      simpa only [even_chops, List.mem_cons, List.mem_singleton, List.not_mem_nil, or_false] using hy
     rcases hy' with rfl | rfl | rfl <;>
       exact (lowerMedianValue_ranked _ _).unique (ranked_iff_count_bounds.mpr (by decide))
   exact (chunkMedians_eq_heads 4 evenInput hm).trans
