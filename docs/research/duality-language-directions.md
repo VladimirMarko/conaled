@@ -1,9 +1,9 @@
 # Construction and observation
 
 Discussion and follow-up agenda, 2026-10-30. The owner requested preservation of
-both findings and speculations after #256. #268 now supplies the bounded
-composition result described below. The remaining proposals are research tasks,
-not a selected universal language architecture.
+both findings and speculations after #256. The checked results and bounded
+assessments below refine that agenda. They do not select a universal language
+architecture.
 
 The project owner adopted **Construction and observation** as the workstream
 name on 2026-10-30. Duality remains a central research direction within it.
@@ -18,6 +18,7 @@ filename remains stable so existing links continue to resolve.
 | Checked locally | #256 transposes intrinsically indexed equation bodies, swaps their parameter scopes, and proves both syntax round trips and exact denotational preservation. | Binding-free cells with total primitive interpretations; no arbitrary recursive source transformation. |
 | Checked locally | #255 gives finite-word final behavior and exact finite parser/trie observations; #256 recovers its selected union/concat/star observations. | No equivalence between all finite syntax and all codata behaviors, or infinite-productivity/runtime-sharing theorem. |
 | Checked locally | #268 derives composite interpretations and compatible substitution from local constructor laws in a finite-arity derivative-template format. | Ordinary type carriers and fixed outputs; fixed-fiber vector specialization, with index-changing/dependent observations owned by #271. |
+| Checked locally | #271 derives composite preservation and compatible substitution for finite terms over fixed indexed families. | Index-changing vectors and exact parser/trie union/transport; full depth-restricted parser composition remains #274. |
 | Existing literature | Decomposition diversity, bialgebraic semantics, Chu pairings and symmetric proof calculi supply related structures. | Their assumptions differ; no single source identifies all of them with our implementation. |
 | Design inference | Constructor/observer interaction equations may support several verified program organizations and more explicit extension obligations. | Requires usable author routes and checked composition beyond the existing cell transformation. |
 | Conjectural connection | A compatible account of construction, observation and proof transport may explain several current interfaces together. | Dependent results, witnesses, binders, recursion and changes of setting remain substantive tests, not details to erase. |
@@ -50,10 +51,13 @@ supplies a smaller intrinsic fragment; it does not implement their full source
 languages. The direction is multiple useful views where their preservation laws
 hold, not a mandatory equation-matrix IR for every fragment.
 
-[#266](https://github.com/VladimirMarko/conaled/issues/266) owns the next concrete
-test: complete the remaining parser rows, recover their observations, and compare
-matched constructor-oriented and observer-oriented author tasks. This also gives
-#8's omitted-row follow-up a scoped owner and informs #116's surface work.
+The [#266 implementation record](constructor-destructor-transposition.md)
+completes the remaining parser rows and recovers their exact observations.
+Its vector example adds a constructor row and an observer column while retaining
+old cells through both view changes. The matched author comparison records the
+required wrappers and diagnostics; it does not claim an independent usability
+trial. These results discharge #8's omitted-row follow-up and inform #116's
+surface work.
 
 ## Observations belong in extension contracts
 
@@ -70,18 +74,17 @@ A new observer descends to an old quotient only if it respects that quotient's
 relation. For dependent results, the required transport/comparison must be stated
 before even formulating observer agreement.
 
-This is a proposed proof obligation, not a new quotient theorem in this note.
-It explains how an old theorem can remain correct under its original contract
-while becoming insufficient for a richer one. Adding axioms is a separate change;
-no preservation of consistency or arbitrary metatheorems follows from retaining
-old equation cells.
+The [#267 extension contract](observation-extension-contracts.md) proves
+restriction, compatible extension and quotient descent, with a non-factorization
+counterexample. An old theorem remains correct under its original contract;
+restriction also lets refined hypotheses reuse it. A new observer requires its
+own compatibility proof to respect the old equivalence. Adding axioms is a
+separate change; retaining old equation cells does not establish consistency.
 
-[#267](https://github.com/VladimirMarko/conaled/issues/267) owns a checked
-restriction theorem, compatible extension, and non-factorization counterexample.
 [#262](https://github.com/VladimirMarko/conaled/issues/262) retains the distinct
-semantic-type admissibility experiment. Together they should expose which old
-assumptions remain valid, rather than silently changing the observations or
-weakening an existing client.
+semantic-type admissibility experiment. The #267 parser and FIFO examples state
+which old assumptions remain valid and distinguish observer refinement from
+compatibility with the old quotient.
 
 ## From local equations to composite behavior
 
@@ -109,12 +112,19 @@ semantics, and pointwise multiplication adds one local compatibility case.
 A deliberately incorrect concatenation rule remains natural but fails semantic
 compatibility, so naturality alone does not establish the intended meaning.
 
-The independent vector family retains its size index within each fixed fiber.
-Index-changing constructors and dependent parser observations need a stronger
-setting, owned by [#271](https://github.com/VladimirMarko/conaled/issues/271).
-A table of typed handlers or #256's permutation alone does not supply these laws.
-The experiment does not implement a general distributive-law framework or infer
-compatibility automatically from transposed source cells.
+The #268 vector family retains its size index within each fixed fiber.
+The [#271 indexed continuation](indexed-constructor-observer-laws.md) adds
+index-changing constructors and observations over a fixed family. Its vector
+cons/head/tail case and native parser/trie union-and-transport case use the same
+local-to-composite theorem. Exact `Decision (P word)` results survive bounded
+word observations, including distinct selected nullable-star witnesses.
+An explicit singleton-index bridge recovers #268's ordinary contract.
+
+The indexed theorem does not infer compatibility from transposed source cells
+or cover arbitrary changes of index base. Full parser concatenation and star
+need coherent depth restriction for retained operands; [#274](https://github.com/VladimirMarko/conaled/issues/274)
+owns that continuation. A table of handlers or #256's permutation alone does
+not supply these composition laws.
 
 ## Pairings, variance and the limits of dual equivalence
 
@@ -165,24 +175,33 @@ The eta laws have strategy-specific conditions, and core transposition requires
 local matches on the transformed type to be lifted first. These qualifications
 prevent inferring unrestricted eta equality from the data/codata analogy.
 
-[#270](https://github.com/VladimirMarko/conaled/issues/270) owns a bounded design
-assessment using the existing #203 Curry–Howard and #212 session examples,
-coordinated with #116's surfaces and #145's codata findings. Any change in logic,
-structural rules, control principles, equality or evaluation assumptions must be
-explicit. A consumer is not automatically a constructive refutation. No decision
-to replace the current calculus follows from this research direction.
+The [#270 assessment](symmetric-producer-consumer-assessment.md) compares
+bounded producer/consumer syntax with the existing #203 Curry–Howard and #212
+session examples. Its vector and exact parser-witness cases separate polarity,
+evaluation order and structural rules. Transposition can leave the polar default
+strategy assignment while preserving evaluation order. The assessment retains
+direct clients and finds no basis for replacing the current calculus.
+
+## Demand, retention and cleanup
+
+The [#273 assessment](demand-retention-cleanup-assessment.md) tests the proposed
+connection against demand, heap liveness, resource reasoning and reversible
+computation. An unused divergent thunk, retained storage, recomputation and
+reversible scratch expose different obligations. Root sets, execution order,
+ownership and retained history affect the resource claims. The examples support
+keeping these theories separate with explicit connections; they establish no
+construction/observation duality or thermodynamic law.
 
 ## Priority and ownership
 
-The first mathematical priority is explicit extension and composition laws:
-#267 and #268, coordinated with #262. #266 can develop independently from the
-existing checked syntax. #269 and #270 are bounded assessments whose negative
-findings would be useful; they need not block local source-view improvements.
-There is no artificial hard dependency among these investigations. #268 selected
-a restricted template law; its indexed continuation #271 retains a design gate.
+The checked local results are #266's source views, #267's extension contracts,
+#268's ordinary composition laws and #271's indexed continuation. The #269,
+#270 and #273 assessments retain narrower interfaces or separate theories where
+their examples do not justify a universal framework. These conclusions do not
+rank all possible language designs or settle the wider conjectures above.
 
-#235 owns cross-cutting applicability and recovery of existing specializations;
-#36 owns internal-language and surface integration; #200 owns correspondence
-research; #8 owns the categorical compilation side. Acceptance criteria live in
-the linked issues. The checked #268 result is bounded as above; the remaining
-agenda does not follow from it without further evidence.
+#274 owns the next parser composition boundary. #262 remains the distinct
+semantic-type admissibility experiment. #235 owns cross-cutting applicability
+and recovery of existing specializations; #36 owns internal-language and surface
+integration; #200 owns correspondence research; #8 owns the categorical
+compilation side. Acceptance criteria and dependencies live in the linked issues.
