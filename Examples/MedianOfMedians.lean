@@ -11,6 +11,26 @@ set_option warningAsError true
 namespace Examples.MedianOfMedians
 open Applications.Selection Applications.Sequences.Chunks
 
+/-- A computable reference for the concrete cases, connected through the
+public occurrence-rank and sorting correspondence. Nonemptiness ensures that
+the fallback value is never used for a chunk's payload median. -/
+private theorem lowerMedianValue_eq_insertionLookup (xs : List Nat) (hx : xs ≠ []) :
+    lowerMedianValue xs hx =
+      ((List.insertionSort (· ≤ ·) xs)[(xs.length - 1) / 2]?).getD 0 := by
+  have hs : ordered xs = List.insertionSort (· ≤ ·) xs :=
+    Applications.Sorting.sortOn_eq_insertionOn id xs
+  have hv := ranked_iff_index.mp (lowerMedianValue_ranked xs hx)
+  rw [hs] at hv
+  exact congrArg (fun result : Option Nat => result.getD 0) hv.symm
+
+private theorem chunkMedians_eq_insertionLookups (d : Nat) (xs : List Nat) :
+    chunkMedians d xs = (chop d xs).map (fun ys : List Nat =>
+      ((List.insertionSort (· ≤ ·) ys)[(ys.length - 1) / 2]?).getD 0) := by
+  unfold chunkMedians
+  simp only [lowerMedianValue_eq_insertionLookup]
+  exact List.attach_map_val (f := fun ys : List Nat =>
+    ((List.insertionSort (· ≤ ·) ys)[(ys.length - 1) / 2]?).getD 0)
+
 /-- The payload adapter uses the lower occurrence of an even-sized list. -/
 theorem lower_even_value : lowerMedianValue ([2, 7] : List Nat) (by decide) = 2 :=
   (lowerMedianValue_ranked _ _).unique (ranked_iff_count_bounds.mpr (by decide))
@@ -21,7 +41,7 @@ theorem lower_even_adapter : lowerMedianWith lastPivot ([2, 7] : List Nat) = som
 /-- The p.37 strict-half assertion fails for the greater-than orientation:
 two chunks have medians 2 and 7, and exactly one exceeds their lower median. -/
 theorem two_full_chunk_medians : chunkMedians 5 (List.range 10) = [2, 7] := by
-  decide
+  exact (chunkMedians_eq_insertionLookups 5 (List.range 10)).trans (by decide)
 
 theorem two_full_chunk_pivot : medianOfMedians 5 (List.range 10) = some 2 := by
   apply (medianOfMedians_some_iff_ranked 5 _ 2).mpr
@@ -41,7 +61,8 @@ theorem strict_half_is_false :
 
 theorem corrected_non_strict_half :
     (chunkMedians 5 (List.range 10)).countP (fun x => decide (2 < x)) ≤ 1 := by
-  simpa using (medianOfMedians_median_counts 5 _ 2 two_full_chunk_pivot).2
+  simpa [Nat.ceilDiv_eq_add_pred_div] using
+    (medianOfMedians_median_counts 5 _ 2 two_full_chunk_pivot).2
 
 theorem greater_median_group_is_one :
     (chunkMedianGroups 5 (List.range 10) (fun x => decide (2 < x))).1.length = 1 := by
@@ -57,7 +78,7 @@ theorem complementary_group_is_one :
 
 /-- The final chunk [5,6] is retained, and its lower median is 5. -/
 theorem short_final_chunk_medians : chunkMedians 5 (List.range 7) = [2, 5] := by
-  decide
+  exact (chunkMedians_eq_insertionLookups 5 (List.range 7)).trans (by decide)
 
 theorem short_final_chunk_pivot : medianOfMedians 5 (List.range 7) = some 2 := by
   apply (medianOfMedians_some_iff_ranked 5 _ 2).mpr
@@ -67,11 +88,12 @@ theorem short_final_chunk_pivot : medianOfMedians 5 (List.range 7) = some 2 := b
 theorem short_final_chunk_balance :
     (List.range 7).countP (fun x => decide (x < 2)) ≤ 7 ∧
       (List.range 7).countP (fun x => decide (2 < x)) ≤ 7 := by
-  simpa using medianOfMedians_count_bounds 5 _ 2 (by decide) short_final_chunk_pivot
+  simpa [Nat.ceilDiv_eq_add_pred_div] using
+    medianOfMedians_count_bounds 5 _ 2 (by decide) short_final_chunk_pivot
 
 /-- Equal medians are kept as two occurrences, including the singleton chunk. -/
 theorem duplicate_chunk_medians : chunkMedians 5 (List.replicate 6 4) = [4, 4] := by
-  decide
+  exact (chunkMedians_eq_insertionLookups 5 (List.replicate 6 4)).trans (by decide)
 
 theorem duplicate_pivot : medianOfMedians 5 (List.replicate 6 4) = some 4 := by
   apply (medianOfMedians_some_iff_ranked 5 _ 4).mpr
@@ -89,7 +111,33 @@ theorem duplicate_strict_sides (p : Nat)
 theorem duplicate_groups :
     chunkMedianGroups 5 (List.replicate 6 4) (fun x => decide (4 < x)) =
       ([], [[4, 4, 4, 4, 4], [4]]) := by
-  decide
+  let chunks := (chop 5 (List.replicate 6 (4 : Nat))).attach
+  let pick := fun ys : {ys // ys ∈ chop 5 (List.replicate 6 (4 : Nat))} =>
+    decide (4 < lowerMedianValue ys.val
+      (chop_mem_ne_nil 5 (List.replicate 6 4) ys.val ys.property))
+  have hpick (ys : {ys // ys ∈ chop 5 (List.replicate 6 (4 : Nat))}) :
+      pick ys = false := by
+    have hm : lowerMedianValue ys.val
+        (chop_mem_ne_nil 5 (List.replicate 6 4) ys.val ys.property) ∈
+          List.replicate 6 (4 : Nat) :=
+      mem_of_mem_chop ys.property (lowerMedianValue_mem _ _)
+    have he := (List.mem_replicate.mp hm).2
+    simp only [pick, he, lt_self_iff_false, decide_false]
+  have hf : chunks.filter pick = [] := by
+    apply List.filter_eq_nil_iff.mpr
+    intro ys _
+    simp [hpick]
+  have ht : chunks.filter (fun ys => !pick ys) = chunks := by
+    apply List.filter_eq_self.mpr
+    intro ys _
+    simp [hpick]
+  have ha : chunks.map Subtype.val = chop 5 (List.replicate 6 (4 : Nat)) :=
+    List.attach_map_subtype_val _
+  have hc : chop 5 (List.replicate 6 (4 : Nat)) = [[4, 4, 4, 4, 4], [4]] := by
+    decide
+  change ((chunks.filter pick).map Subtype.val,
+    (chunks.filter (fun ys => !pick ys)).map Subtype.val) = _
+  rw [hf, ht, List.map_nil, ha, hc]
 
 theorem duplicate_groups_multiset :
     ([[4, 4, 4, 4, 4], [4]] : Multiset (List Nat)) =
