@@ -38,8 +38,12 @@ theorem mergePairsBy_step (cmp : α → α → Bool) (xs ys : List α)
 theorem mergePairsBy_length (cmp : α → α → Bool) (xss : List (List α)) :
     (mergePairsBy cmp xss).length = (xss.length + 1) / 2 := by
   match xss with
-  | [] => rfl
-  | [xs] => rfl
+  | [] =>
+    simp only [mergePairsBy_nil, List.length_nil]
+    decide
+  | [xs] =>
+    simp only [mergePairsBy_singleton, List.length_cons, List.length_nil]
+    decide
   | xs :: ys :: rest =>
     rw [mergePairsBy_step, List.length_cons, mergePairsBy_length cmp rest]
     simp only [List.length_cons]
@@ -80,7 +84,9 @@ theorem multiset_flatten_eq_sum (xss : List (List α)) :
   induction xss with
   | nil => rfl
   | cons xs xss ih =>
-    rw [List.flatten_cons, List.map_cons, List.sum_cons, ← ih]
+    change ((xs ++ xss.flatten : List α) : Multiset α) =
+      (xs : Multiset α) + (xss.map (fun ys => (ys : Multiset α))).sum
+    rw [← ih]
     rfl
 
 /-- Input-local compatibility suffices to preserve sortedness of each run. -/
