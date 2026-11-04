@@ -302,6 +302,7 @@ import Examples.OutsidePivot
 import Examples.RandomSelection
 import Examples.RandomSelectionDrift
 import Examples.RandomSelectionEqual
+import Examples.RandomSelectionEndpoints
 import Examples.RandomSelectionMean
 import Examples.RandomSelectionRun
 import Examples.RandomSelectionTail
