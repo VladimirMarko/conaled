@@ -57,12 +57,27 @@ translation state. It also measures query encoding and answer decoding.
 Its semantic law transfers agreement; its work theorems retain the converted
 static input in the backend's size-indexed profile. The expanded-RMQ caller
 converts a two-cell source into four cells, accounts for four writes plus
-backend preparation, and adds both query translations. `reductionPeak`
-records the conversion, preparation, encoding, querying and decoding lifetime
-schedule, including simultaneously live converted inputs and intermediate
-answers. Its numeric arguments are backend capacity premises, not facts
-inferred from Lean types. The checked expanded caller evaluates its
-conservative arena bound to fourteen cells.
+backend preparation, and adds both query translations. `Reduction.Arena`
+observes converted inputs, retained translator state, and actual encoded
+queries and backend answers. `Reduction.CapacityLaws` requires bounds on
+those values and translation stages. `Reduction.bounds` combines these
+premises with backend `Bounds` to certify the reduced operations themselves.
+The storage schedule retains the converted input during backend preparation,
+the encoded query during backend answering, and the backend answer during
+decoding. Its maximum ranges over a finite query domain; this particular
+storage construction requires `Fintype Q`. Core operations, semantics and
+work composition do not require finite queries. An infinite query domain,
+such as an unrestricted parser request type, needs a different uniform storage
+interpretation before applying this storage construction.
+
+The expanded caller proves the component premises: zero translator cells,
+four converted cells, one encoded-query cell, and one answer cell. Conversion
+holds its two source cells and four output cells simultaneously. Backend
+preparation overlaps the four converted cells with its ten-cell peak, giving
+a conservative fourteen-cell arena bound. The checked caller derives full
+`Bounds`, including eight retained cells and five query steps, then establishes
+feasibility for those requirements. The standalone `reductionPeak` arithmetic
+helper is not itself a certificate for an operation.
 
 ## Concrete realizations
 

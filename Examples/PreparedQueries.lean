@@ -80,7 +80,50 @@ example : ((expanded.apply sparse).prepare #v[5,2]).2 ≤ 20 :=
   expanded.preparation_bound sparseBounds #v[5,2]
 example : ((expanded.apply sparse).answer ((expanded.apply sparse).prepare #v[5,2]).1 .q02).2 ≤ 5 :=
   expanded.query_bound_of_bounds sparseBounds #v[5,2] _ (expanded_laws.prepare _) .q02 1 1 le_rfl le_rfl
-example : reductionPeak 4 4 0 8 2 1 1 2 1 1 = 14 := rfl
+/-- The finite arena counts abstract values; Unit translator state takes no
+cells. The four converted values overlap the backend's ten-cell setup peak. -/
+def expandedArena : Reduction.Arena (Vector Nat 2) Unit (Input Nat) Query Nat where
+  translatorCells _ := 0
+  inputCells xs := xs.size
+  queryCells _ := 1
+  answerCells _ := 1
+  conversionPeak xs := xs.size + 4
+  encodePeak _ := 1
+  decodePeak _ := 1
+
+def expandedCapacity : Reduction.Capacity := ⟨6,4,0,1,1,1,1,1,1⟩
+
+theorem expanded_capacities : expanded.CapacityLaws sparse
+    (fun s r => r = build s) expandedArena expandedCapacity where
+  conversion _ := le_rfl
+  input _ := le_rfl
+  translator _ := le_rfl
+  encoded _ _ := le_rfl
+  answer _ _ _ _ := le_rfl
+  encodePeak _ := le_rfl
+  decodePeak _ := le_rfl
+  encodeWork _ _ := le_rfl
+  decodeWork _ _ _ _ := le_rfl
+
+theorem expanded_bounds : Bounds (expanded.apply sparse)
+    (expanded.Valid (fun s r => r = build s))
+    (expanded.storage sparse expandedArena sparseStorage)
+    (expanded.profile sparseProfile expandedCapacity) :=
+  expanded.bounds sparseBounds expanded_capacities
+
+example : (expanded.storage sparse expandedArena sparseStorage).preparePeak #v[5,2] ≤ 14 :=
+  expanded_bounds.preparePeak #v[5,2]
+example : (expanded.storage sparse expandedArena sparseStorage).queryPeak
+    ((expanded.apply sparse).prepare #v[5,2]).1 ≤ 14 :=
+  expanded_bounds.queryPeak _ _ (expanded_laws.prepare #v[5,2])
+example : (expanded.storage sparse expandedArena sparseStorage).retained
+    ((expanded.apply sparse).prepare #v[5,2]).1 ≤ 8 :=
+  expanded_bounds.retained _ _ (expanded_laws.prepare #v[5,2])
+example : Feasible ⟨none,5,0,8,14⟩ (expanded.profile sparseProfile expandedCapacity) #v[5,2] := by
+  decide
+example : ((expanded.apply sparse).answer ((expanded.apply sparse).prepare #v[5,2]).1 .q02).2 ≤ 5 :=
+  response_deadline expanded_bounds (by decide : Feasible ⟨none,5,0,8,14⟩
+    (expanded.profile sparseProfile expandedCapacity) #v[5,2]) (expanded_laws.prepare _) .q02
 
 end RMQ
 

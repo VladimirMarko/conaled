@@ -12,6 +12,10 @@ inductive Query where
   | q00 | q01 | q02 | q03 | q11 | q12 | q13 | q22 | q23 | q33
   deriving DecidableEq, Repr
 
+instance : Fintype Query where
+  elems := {.q00, .q01, .q02, .q03, .q11, .q12, .q13, .q22, .q23, .q33}
+  complete q := by cases q <;> simp
+
 def Query.lo : Query → Fin 4
   | .q00 | .q01 | .q02 | .q03 => 0
   | .q11 | .q12 | .q13 => 1
