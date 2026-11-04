@@ -227,8 +227,112 @@ theorem Reduction.preparation_bound (e : Reduction S Q A T P B X)
   rw [e.preparation_work]
   exact Nat.add_le_add_left (hp.preparation _) _
 
+/-- Abstract-cell observations for translation. Conversion includes its live
+source and output; encode/decode peaks include their own input/output temporaries.
+The caller retains X and R throughout each query. -/
+structure Reduction.Arena (S X T P B : Type) where
+  translatorCells : X → Nat
+  inputCells : T → Nat
+  queryCells : P → Nat
+  answerCells : B → Nat
+  conversionPeak : S → Nat
+  encodePeak : X → Nat
+  decodePeak : X → Nat
+
+/-- A finite query domain lets us observe the largest actual intermediate.
+Converted T overlaps backend preparation; encoded P overlaps backend querying;
+backend B overlaps decoding. Aliasing is conservatively counted twice. -/
+def Reduction.storage [Fintype Q] (e : Reduction S Q A T P B X)
+    (p : Ops T P B R) (a : Reduction.Arena S X T P B) (bs : Storage T R) :
+    Storage S (X × R) where
+  retained xr := a.translatorCells xr.1 + bs.retained xr.2
+  preparePeak s := max (a.conversionPeak s)
+    (a.translatorCells (e.convert s).1.1 + a.inputCells (e.convert s).1.2 +
+      bs.preparePeak (e.convert s).1.2)
+  queryPeak xr := Finset.univ.sup fun q =>
+    max (a.translatorCells xr.1 + bs.retained xr.2 + a.encodePeak xr.1)
+      (max (a.translatorCells xr.1 + a.queryCells (e.encode xr.1 q).1 + bs.queryPeak xr.2)
+        (a.translatorCells xr.1 + bs.retained xr.2 +
+          a.answerCells (p.answer xr.2 (e.encode xr.1 q).1).1 + a.decodePeak xr.1))
+
+structure Reduction.Capacity where
+  conversion : Nat
+  input : Nat
+  translator : Nat
+  encoded : Nat
+  answer : Nat
+  encodePeak : Nat
+  decodePeak : Nat
+  encodeWork : Nat
+  decodeWork : Nat
+
+/-- The backend peak already includes its representation and scratch cells. -/
+def Reduction.profile (e : Reduction S Q A T P B X) (b : Profile T)
+    (c : Reduction.Capacity) : Profile S where
+  preparation s := (e.convert s).2 + b.preparation (e.convert s).1.2
+  query s := c.encodeWork + b.query (e.convert s).1.2 + c.decodeWork
+  maintenance _ := 0
+  retained s := c.translator + b.retained (e.convert s).1.2
+  peak s := max c.conversion
+    (max (c.translator + c.input + b.peak (e.convert s).1.2)
+      (max (c.translator + b.retained (e.convert s).1.2 + c.encodePeak)
+        (max (c.translator + c.encoded + b.peak (e.convert s).1.2)
+          (c.translator + b.retained (e.convert s).1.2 + c.answer + c.decodePeak))))
+
+/-- Capacities bound the objects produced by this reduction, including every
+valid backend state, rather than just its initially prepared representation. -/
+structure Reduction.CapacityLaws (e : Reduction S Q A T P B X)
+    (p : Ops T P B R) (V : T → R → Prop)
+    (a : Reduction.Arena S X T P B) (c : Reduction.Capacity) : Prop where
+  conversion : ∀ s, a.conversionPeak s ≤ c.conversion
+  input : ∀ s, a.inputCells (e.convert s).1.2 ≤ c.input
+  translator : ∀ s, a.translatorCells (e.convert s).1.1 ≤ c.translator
+  encoded : ∀ s q, a.queryCells (e.encode (e.convert s).1.1 q).1 ≤ c.encoded
+  answer : ∀ s r, V (e.convert s).1.2 r → ∀ q,
+    a.answerCells (p.answer r (e.encode (e.convert s).1.1 q).1).1 ≤ c.answer
+  encodePeak : ∀ s, a.encodePeak (e.convert s).1.1 ≤ c.encodePeak
+  decodePeak : ∀ s, a.decodePeak (e.convert s).1.1 ≤ c.decodePeak
+  encodeWork : ∀ s q, (e.encode (e.convert s).1.1 q).2 ≤ c.encodeWork
+  decodeWork : ∀ s r, V (e.convert s).1.2 r → ∀ q,
+    (e.decode (e.convert s).1.1 (p.answer r (e.encode (e.convert s).1.1 q).1).1).2 ≤ c.decodeWork
+
+theorem Reduction.bounds [Fintype Q] (e : Reduction S Q A T P B X)
+    {p : Ops T P B R} {V : T → R → Prop} {bs : Storage T R} {b : Profile T}
+    {a : Reduction.Arena S X T P B} {c : Reduction.Capacity}
+    (hb : Bounds p V bs b) (hc : e.CapacityLaws p V a c) :
+    Bounds (e.apply p) (e.Valid V) (e.storage p a bs) (e.profile b c) where
+  preparation s := e.preparation_bound hb s
+  query s xr hv q := by
+    have he := hc.encodeWork s q
+    have hd := hc.decodeWork s xr.2 hv.2 q
+    rw [← hv.1] at he hd
+    exact e.query_bound_of_bounds hb s xr hv q _ _ he hd
+  retained s xr hv := by
+    exact Nat.add_le_add (hv.1 ▸ hc.translator s) (hb.retained _ _ hv.2)
+  preparePeak s := by
+    have hx := hc.translator s
+    have hi := hc.input s
+    have hp := hb.preparePeak (e.convert s).1.2
+    have hc := hc.conversion s
+    simp only [Reduction.storage, Reduction.profile]
+    omega
+  queryPeak s xr hv := by
+    apply Finset.sup_le
+    intro q _
+    have hx := hc.translator s
+    have he := hc.encodePeak s
+    have hd := hc.decodePeak s
+    have hq := hc.encoded s q
+    have ha := hc.answer s xr.2 hv.2 q
+    rw [← hv.1] at hx he hd hq ha
+    have hr := hb.retained _ _ hv.2
+    have hp := hb.queryPeak _ _ hv.2
+    simp only [Reduction.profile]
+    omega
+
 /-- A sequential arena schedule includes the live converted input, query and
-answer. Each argument is a capacity premise of the chosen backend. -/
+answer. Arguments alone do not certify an operation; use `Reduction.bounds`
+with component capacity premises for that connection. -/
 def reductionPeak (conversionPeak inputCells translatorCells retained
     prepareScratch encodePeak queryCells queryScratch answerCells decodePeak : Nat) : Nat :=
   max conversionPeak (max (translatorCells + inputCells + retained + prepareScratch)
