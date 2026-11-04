@@ -28,6 +28,26 @@ Lean-hosted base. This is a shallow semantic specialization, not a claim of a
 new parser, a syntactic universe of all theories, or arbitrary internal sites.
 No categorical model is supplied as the parameter.
 
+Existing declarations make that boundary explicit. `FiniteSetting.Formula`,
+`Sequent`, `axioms` and `Formula.eval` express and interpret the finite geometric
+scheme; `Presentation.parameter` supplies its internal predicate in Set/X.
+The concrete arithmetic predicate n>0 and the generic-tag predicate are
+Lean-hosted predicate expressions, not trees in a new arithmetic source syntax.
+`Total`, `genericSection`, `genericModel`, `modelSectionEquiv` and the recovery
+laws construct and interpret its generic model. `formedDisplay`,
+`formedCoproduct`, `formedClassifierIso` and `modelPartitionEquivalence` in
+`SquareKit/Internal/FiniteClassifierComparison.lean` connect that construction
+to the categorical classifier object in Set/X. The slice formation itself is
+a metatheoretic construction interpreting the internal presentation, not an
+object-language term whose result is an externally supplied category.
+
+The new nested result must connect both generic models to this universal
+section interpretation: a first selected model followed by a second model in
+its induced context determines a unique map into the nested total, and
+reindexing along that map recovers the two dependent sections. A proof only
+about the cardinalities or pointwise tags of the displayed fibers will not
+satisfy this fixture.
+
 ## Selected argument and independent observations
 
 Choose a(n) left when n>0 and right at n=0. Choose b(n) left when a(n) is left
