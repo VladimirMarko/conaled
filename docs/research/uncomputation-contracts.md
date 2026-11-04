@@ -233,6 +233,8 @@ when implementing a tensor fragment; preserve existing ordinary cartesian
 specializations. This is a mathematical requirement, not observed Lean
 elaborator failure or an assessment of an author's capability.
 
+The checked follow-up is documented in [the clean-ancilla implementation](clean-ancilla-implementation.md).
+
 ## A bounded next experiment and its proof boundary
 
 A justified followup is **one clean-ancilla combinator with two interpretations**,

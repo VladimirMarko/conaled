@@ -1,3 +1,4 @@
+import Examples.Uncomputation
 import Examples.CompositionalCoalgebra
 import Examples.EquationTranspose
 import Examples.LanguageCoalgebra
