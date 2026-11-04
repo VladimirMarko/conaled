@@ -157,8 +157,8 @@ private theorem nat_map_lintegral {β : Type v} (p : PMF β) (f : β → Nat) :
       apply tsum_congr
       intro result
       by_cases h : n = f result
-      · simp only [if_pos h]
-      · simp only [if_neg h]
+      · simp only [ite_eq_left h]
+      · simp only [ite_eq_right h]
     _ = ∑' n : Nat, ∑' result,
         if n = f result then (n : ℝ≥0∞) * p result else 0 := by
       simp only [← ENNReal.tsum_mul_left, mul_ite, mul_zero]
