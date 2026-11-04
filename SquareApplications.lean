@@ -3,6 +3,7 @@ import SquareKit.IndexedCompositionalOrdinary
 import Examples.IndexedCompositional
 import Examples.IndexedParserComposition
 import Examples.Uncomputation
+import Examples.ClientSchedules
 import Examples.CompositionalCoalgebra
 import Examples.EquationTranspose
 import Examples.EquationViews
