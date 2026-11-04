@@ -485,6 +485,33 @@ These definitions and examples remain subject to complete candidate validation
 and independent review before acceptance. Cost observations concern the stated
 recursive model, not execution time of standard-library list operations.
 
+## Shared affine recurrence groundwork
+
+`Resources.AffineRecurrence.exists_affine_bound_of_two_branch` supplies a
+uniform all-input affine upper bound for an already total scalar function.
+Its two natural child maps have a strictly contracting eventual sum bound;
+its recurrence and toll are upper bounds. The scalar carrier is an
+Archimedean linearly ordered commutative ring, with signed function values
+and signed tolls allowed. Ordinary finite maxima, natural multiples and strong
+induction provide the witnesses; no recurrence structure or executor is added.
+
+`Examples.AffineRecurrence` connects the theorem to the actual terminating
+quarter-size recurrence over rational casts, a signed integer recurrence, and
+parameter-uniformity boundaries. The finite prefix, including zero, is covered
+by the same constants as every later input. A one-sided order bound is kept
+distinct from an absolute-value or asymptotic norm bound.
+
+At the 4 November 2026 receiving-preparation snapshot, both independent
+assessments of the original source were complete with no new XR source findings;
+the unit had no compiler, expanded-type, guarded-full-check or audit result.
+Current receiving validation and acceptance are recorded in the local
+`fdsa-control` review and acceptance evidence. Its
+[source and statement notes](fdsa-affine-recurrence.md) preserve Chapter 3's
+remaining exact ceiling and negative-offset laws, sharper source constant
+choices, selector-to-cost correspondence and noncontracting counterexample.
+This groundwork does not activate or accept Chapter 3, and it does not prove
+termination of an algorithm by merely enlarging a later proof cutoff.
+
 ## Architecture and statement review
 
 Appendix C's complete notation correspondence, source corrections and checked
@@ -499,8 +526,8 @@ realizations are optional and do not impose an allocation or storage capability
 on other targets. These are ordinary Lean/Type results; no cross-setting
 interpretation of these new induction proofs is claimed.
 
-The only existing public-interface adjustment is the universe signature of
-`Resources.erasureSquare`. Its value carriers may now live above the cost type;
+For Chapter 1, the only existing public-interface adjustment is the universe
+signature of `Resources.erasureSquare`. Its value carriers may now live above the cost type;
 this permits natural costs for lists of arbitrary-universe payloads. Its
 implementation, semantic contract, old equal-universe specializations and
 assumptions are unchanged. The new squares and universal composition example
