@@ -70,6 +70,27 @@ transport, finite-store read/write simulation, and bounds on the packing
 intermediates. These lemmas require the caller's depth and index bounds; they
 do not assume arbitrary integers fit into words.
 
+`WordMachine` makes the query instruction tariff explicit. An indexed load
+includes base-plus-index address formation and one read. Word addition,
+subtraction, multiplication, division, remainder, shifts and minimum take one
+operation each; packing performs a multiplication and an
+addition. The inner same-block and adjacent-block tests use one
+compare-and-branch operation each. The outer validity guard instead computes
+two comparisons and charges a separate Boolean dispatch. These are declared
+model primitives, not instruction latency measurements. Arithmetic results wrap
+to the selected width; admitted-execution proofs must establish that required
+intermediates fit and that every loaded address is in range.
+
+`WordQuery.answer_spec` closes the whole RMQ query refinement: execution on the
+initialized packed arena returns the independent RMQ answer. The query reads
+class codes, descriptors, keys, depths, logarithms and spans from that arena.
+It does not consult the abstract nested tables as an oracle. The full finite
+word query retains the 57-operation bound. Valid target endpoints fit the input
+length. `WordLCA.target_endpoints_fit` derives that condition from the finite
+node-identifier interface. The Nat-valued semantic interface also specifies a
+zero result for malformed intervals; that totalization does not certify
+constant-time comparisons of arbitrary-precision integers.
+
 ## Phase tradeoffs
 
 The backend is specialized to a fixed input length `m`. Its block dimensions
@@ -87,6 +108,10 @@ executor, and `Backend` supplies shared-block queries. Their work budgets are:
 | Direct | 0, transferring ownership of the input | `10*m+13` |
 | Sparse | `26*m+3+floor(log2 m)*(11*m+7)` | 16 |
 | Shared blocks | `1024*m` | 57 |
+
+The bounds count word operations and word slots, not bit operations. Increasing
+input size may require wider words and a larger arena; a fixed-width machine
+admits only sizes satisfying its eligibility conditions.
 
 These are proved upper bounds with conservative constants. They are not
 measurements or claims that the shared strategy always performs fewer primitive
@@ -111,6 +136,14 @@ representation. A finite width exists for every admitted input at capacity
 `512*m`. The width bound covers arithmetic intermediates as well as stored
 keys; its quadratic key envelope is `(4*m+4)^2`.
 
+`WordTrace.Machine` additionally reserves 64 words for the actual packed query
+trace, including arithmetic intermediates. Every prefix fits this frame, and
+installing it preserves retained tables. `WordLCA.target_guarantee` combines
+the packed RMQ execution with the retained Euler decoder: every later finite
+node query returns its independently specified LCA within 62 modeled
+operations. The decoder storage and translation overhead are accounted for by
+the tree reduction below.
+
 For a tree of size `n`, put `m=2*n-1`. `TreeReduction` composes the RMQ contract
 with map construction and query translation. The real-time requirement allows
 unbounded startup, admits 62 modeled operations per response, reserves
@@ -126,6 +159,27 @@ each selected implementation's `Laws` and `Bounds`. Minimality is relative to
 that three-element catalog. These constructions demonstrate reusable
 certification and finite selection; they do not automatically discover the
 Euler reduction or invent shape sharing from an arbitrary program.
+
+The development still required separate value, work, allocation, control and
+word interpretations. `TableTransport` reduces that burden for cumulative rows
+and sparse preparation: a minimum-preserving cell map transports the complete
+measured construction, preserving cost as well as output. Its prefix theorem
+requires agreement only at source positions the loop visits. This is derived
+reuse from an algebraic law, rather than a new independent correctness premise.
+`PreparationCertificate` instantiates that transport for every generated class
+and the macro sparse table. Its payload theorems identify the resulting cells
+with the packed arena representation, and its width theorems embed them in the
+selected word domain. Encoding here is a representation relation for the
+executed stores, not an additional uncharged traversal after preparation.
+
+Further interpretation reuse remains a concrete architectural question for
+[#235](https://github.com/VladimirMarko/conaled/issues/235).
+[#314](https://github.com/VladimirMarko/conaled/issues/314)'s audit supplies a
+relevant distinction between derivable consequences, missing interfaces,
+specialization and foundation limits. The LCA effort does not establish a
+failure of the dependent structural/J model or a dependency on its replacement.
+The separate interpretation proofs and host-level elaboration costs should
+remain distinct evidence in that investigation.
 
 ## Provenance
 
