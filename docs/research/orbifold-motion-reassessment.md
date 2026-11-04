@@ -200,19 +200,20 @@ not justify dismissing the synthetic route as merely a prettier description.
 ## What later workstreams change
 
 This comparison uses source at `2525b12052e4c85c57f9050dbf18f7a36ba2ef19`
-and GitHub issue bodies/states read on 2026-11-04. Entries marked as proposals
+and GitHub issue bodies/states read on 2026-11-04. The #291–#294 entries
+were subsequently updated from integrated revision `d108142`. Entries marked as proposals
 are recommendations of this assessment, not integrations performed here.
 
 | Work and evidence | Application to orbifold motion | Boundary and decision |
 | --- | --- | --- |
 | Checked arrow-sensitive composition: [GroupoidTransportRoutes](../../SquareKit/GroupoidTransportRoutes.lean), especially `Route.comp`, `transport`, `transport_concat`, `reindex_comp` | Reuse composition of a base functor and natural fibre map when comparing symmetry actions and tangent families. | Adopt where these hypotheses fit. These are set-valued families over categories; they supply neither arbitrary smooth restriction/descent nor connection transport along physical paths. #103 still requires its source-to-smooth-model proof. |
-| Checked pullback coherence: [FamilyCoherence](../../SquareKit/FamilyCoherence.lean), and the open [#292 comparison](https://github.com/VladimirMarko/conaled/issues/292) | Compare the repeated dependent substitution obligations of #107 with local universes or a different representation of contexts and substitution. | Investigate through #292/#289. Its approved discovery stage permits replacement architectures. Lumsdaine–Warren [Theorem 3.4.1](https://arxiv.org/html/1411.1736v2) requires a full comprehension category, condition LF and the appropriate weakly stable constructors. Neither the current helpers nor the paper alone discharge our syntax/annotation correspondence. |
+| Checked pullback coherence: [FamilyCoherence](../../SquareKit/FamilyCoherence.lean), and the completed [#292 comparison](https://github.com/VladimirMarko/conaled/issues/292) | Compare the repeated dependent substitution obligations of #107 with local universes or a different representation of contexts and substitution. | Use the [completed #292 assessment](dependent-coherence-comparison.md) and continue through #289/#314–#319. The Type-family construction does not supply a dependent higher model; LF/full comprehension for the concrete groupoid setting remains unproved, not refuted. Lumsdaine–Warren [Theorem 3.4.1](https://arxiv.org/html/1411.1736v2) requires a full comprehension category, condition LF and the appropriate weakly stable constructors. Neither the current helpers nor the paper alone discharge our syntax/annotation correspondence. |
 | Checked exact observer descent: [ObservationExtension](../../SquareKit/ObservationExtension.lean), `descend`, `no_factor`; [#267 record](observation-extension-contracts.md) | Organize which observations survive forgetting a frame, choosing a quotient, or changing a representation. A distinguishing pair can refute a proposed coarse observation contract. | Adopt for exact set-valued observations. The setoid API must not replace isotropy arrows or moving tangent fibres. Recovering position observations does not recover the full orbifold. |
-| [#287 representation-extension assessment](representation-extension-comparison.md), with [#291](https://github.com/VladimirMarko/conaled/issues/291) still open | Make witness descent and the impossibility of a natural representative selector explicit when comparing representations. | Use as a design constraint. Its paper construction uses thin equivalence-relation groupoids; its Morita terminology does not establish Morita equivalence of orbifold presentations. No completed all-model Lean extension or orbifold descent integration is inferred. |
+| [#287 assessment](representation-extension-comparison.md) and completed [#291 set-model constructions](all-model-representation-extensions.md) | Reuse bounded product/quotient expansion and coherent selected-section descent where the hypotheses fit; retain the obstruction to natural representative selection. | The checked set-model result does not establish higher orbifold descent or Morita equivalence of orbifold presentations. |
 | Checked [structured linear realizations and costs](structured-linear-implementation.md), #265 | Reuse the distinction between geometry, coordinates, storage and algorithms, and the measured-work/whole-workload comparison machinery for new matrix or factored motion backends. | Investigate an adapter for the actual operation. Matrix-vector application is not certified projective motion composition; closure, form preservation, projective decoding and frame agreement remain required. Small disk matrices do not automatically benefit from sparse storage. The cost model excludes scalar bit complexity, so it does not resolve rational growth in #49. |
 | Checked [bounded FRP driver](frp-driver.md), #233; [finite-circuit indefinite service](indefinite-reactive-service.md), #234 | Reuse pure transition/IO separation, bounded decoding, replay and explicit failure contracts when implementing #49's command runner. | Adopt the applicable architecture, investigate actual API reuse. The existing driver serves a different lifecycle. #234's fixed Boolean circuits do not establish bounded memory or per-step work for rational-valued simulation. Interactive controls need not wait for a universal FRP runtime. |
 | Open [#299 quantitative composition](https://github.com/VladimirMarko/conaled/issues/299) | The existing recurrence `e' = (1 + 13*d)*e + 39*d^2` is a concrete numerical client for comparing relational, ordered and metric accounts. | Investigate if it reduces recurring proof obligations. It is not nonexpansive, does not give an intrinsic-distance bound, and supplies no rounding term. Keep #49's rational-growth feasibility check. |
-| Open [#297 modal contexts/higher identity](https://github.com/VladimirMarko/conaled/issues/297), [#294 theory reuse](https://github.com/VladimirMarko/conaled/issues/294), and [#293 requirement discovery](https://github.com/VladimirMarko/conaled/issues/293) | Separate the differential, identity and context-restriction principles used by a synthetic geometry argument, then compare reusable presentations. | Coordinate with #36/#100; these are research tasks, not already constructed Myers semantics. Modal context control and preservation of nontrivial identity data are different requirements. |
+| Open [#297 modal contexts/higher identity](https://github.com/VladimirMarko/conaled/issues/297), completed [#294 theory comparison](theory-network-comparison.md) and [#293 author trial](proof-requirement-author-trial.md) | Separate the principles used by a synthetic geometry argument; use the comparison and trial as scoped evidence about publishing and discovering reusable arguments. | These do not construct Myers semantics or an automatic proof importer. Modal context control and preservation of nontrivial identity data remain distinct. |
 
 The [language direction](../language-direction.md#selecting-research-by-semantic-requirements)
 now explicitly asks discovery to consider approaches that could replace the
@@ -228,8 +229,8 @@ three presentations: current explicit groupoids and framed paths, connection
 transport over differentiable stacks, and synthetic infinitesimal geometry in
 a higher smooth setting. This is a proposal, not a migration or implementation
 started by this assessment. Coordinate geometry under #32/#34 and model/source
-interpretation under #36/#100, with #292 owning the dependent-coherence
-comparison. Keep the numerical runner under #49 independently actionable.
+interpretation under #36/#100, using #292’s completed dependent-coherence comparison and its
+follow-ups under #289. Keep the numerical runner under #49 independently actionable.
 
 Use the same cases across routes:
 
@@ -278,9 +279,12 @@ for a wholesale migration. Their issue bodies own acceptance criteria. They
 can begin independently; #310 integrates the foundation comparison while the
 other investigations retain distinct dynamics and realization questions.
 
-The owner reports that #292 is being finished. #310 must consume its final
-reviewed findings when available and verify their exact scope. This does not
-assume that #107 is repaired or that a higher smooth interpretation exists.
+The completed [#292 result](dependent-coherence-comparison.md) is integrated
+in `d108142f9b5875437c49441a4b45b3ad4988e5e5`. Its bounded Type-family
+construction and rejection examples inform #310; they do not repair #107 or
+construct the required higher smooth interpretation. The recommended separate
+judgment-interpretation investigation continues under #289 and #315, with the
+dependent higher test under #316.
 
 The owner also identified proficiency in an embedded language or a new
 frontend as an unwanted burden. The research must begin with the mathematical
@@ -292,6 +296,68 @@ of the internal calculus. No frontend is prescribed as a prerequisite, and a
 new mathematical setting need not imply a new host language. Any claim that
 these burdens have been removed needs concrete author evidence; this assessment
 does not claim that the current interfaces already achieve that goal.
+
+## Comparison evidence and the cubical-model programme
+
+The owner supplied two in-progress Agda checkpoints from external ChatGPT Pro
+sessions. Exact archives, checksums and a bounded source inventory are retained
+in the [Agda checkpoint archive](../history/orbifold/agda-checkpoints/README.md).
+Myers checkpoint 22 uses Agda 2.8.0.2, Cubical v0.9 and native crisp-context
+support; Kock uses Agda 2.8.0.2 with `--safe --without-K` and no external
+libraries. They therefore need different source-interpretation assessments.
+
+The archived successful checker receipts cover 357 Myers and 146 Kock source
+files; all listed source hashes and both archive manifests were verified here.
+This is receipt/source integrity evidence, not a fresh Agda check. Source
+inspection finds substantive conditional proofs, including Myers' internal
+proper-étale orbifold construction and Kock's calculus/tangent constructions.
+Their explicit ambient hypotheses still require a model; the archive guide
+names representative files and the limits of this inspection.
+
+[#310](https://github.com/VladimirMarko/conaled/issues/310) now separates three
+levels. Its initial deliverable is a mathematical comparison on a common
+problem, using paper derivations. Available Lean and Agda artifacts can then
+be aligned on statements and examples, with their assumptions audited
+separately. A machine-checked correspondence requires its own interpretation
+or comparison theorems and is a follow-up. The supplied checkpoints must now be included in the comparison inventory.
+If a common example needs an absent theorem, name that capability gap; an
+initial source inspection is not a completed cross-system proof comparison. Building a
+common Lean foundation or an automatic Agda importer is not an implicit
+acceptance requirement.
+
+[#321](https://github.com/VladimirMarko/conaled/issues/321), under #36, owns a
+programme to construct a Lean model and sound interpretation of a specified
+cubical theory for selected proof reuse. Its initial checkpoint selects the
+source rules, consumer and model route; the whole programme remains incomplete
+until its advertised semantics and interpretation are constructed. It
+coordinates #316's dependent higher test and #315's author boundary rather
+than duplicating them. The issue is marked `needs-triage` pending that source
+and milestone selection, not because #310 must wait for it.
+
+The integrated Lean dependency manifest contains no cubical-model package. The
+[reuse assessment](higher-theory-reuse-and-outsourcing.md) pins a Cubical
+library revision as research evidence; the
+[internal-language assessment](internal-languages-lean.md) similarly records
+HoTTLean. Neither reference establishes an integrated cubical model. The new
+Myers archive additionally preserves its actual Cubical v0.9 dependency source;
+archiving that Agda library is not a Lean model of its type theory. The
+tracked constructions inspected here provide groupoid semantics and bounded
+higher-identity examples, not a sound interpretation of Cubical Agda.
+
+[Agda's versioned cubical documentation](https://agda.readthedocs.io/en/v2.8.0/language/cubical.html)
+describes a CCHM variant with generalized transport and homogeneous composition,
+along with paths, Glue and higher inductive types. Source compatibility must
+therefore name the actual version, primitives and computation rules used by
+the selected artifacts. The supplied pins now identify their compiler as
+Agda 2.8.0.2; the preserved source manifests identify the distinct mode flags.
+
+Cubical semantics does not alone validate the extra smooth, infinitesimal or
+cohesive principles of a Myers/Kock development. Conversely, using a particular
+fragment of that development does not automatically require formalizing all
+of Cubical Agda. In particular, Kock’s noncubical source should be assessed
+for a smaller intensional interpretation. The programme must distinguish a constructed model, a checked
+source derivation, source compatibility, and the additional smooth-model
+comparison. No new host axioms or frontend are prescribed.
 
 ## Evidence scope
 
