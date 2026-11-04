@@ -2,7 +2,8 @@ import Applications.Sequences.LCA.FiniteSparse
 import Applications.Sequences.LCA.TableExecution
 
 /-! Indexed sparse-table execution. Costs count word arithmetic, comparisons,
-reads and slot writes. Vector push denotes initializing the next reserved slot,
+reads and slot writes. Each loop iteration also charges its comparison and
+increment. Vector push denotes initializing the next reserved slot,
 not a claim about native persistent-array copying. Row descriptors contain a
 row address and its power-of-two span; spans are obtained by doubling. -/
 namespace Sequences.LCA.SparseExecution
@@ -17,7 +18,7 @@ def logs : (n : Nat) → Measured (Vector Nat (n+1)) Nat
     bind (if k = 0 then (0, 1) else
       bind ((⟨(k+1)/2, by omega⟩, 1) : Measured (Fin (k+1)) Nat) fun j =>
       bind (TableExecution.read prev j) fun v => (v+1, 2)) fun v =>
-    (prev.push v, 1)
+    (prev.push v, 3)
 
 private theorem log_recur (k : Nat) (hk : k ≠ 0) :
     Nat.log 2 ((k+1)/2) + 1 = Nat.log 2 (k+1) := by
@@ -43,7 +44,7 @@ theorem logs_get (n : Nat) (i : Fin (n+1)) :
         rw [ih ⟨(n+1)/2, by omega⟩]
         exact log_recur n hn
 
-theorem logs_cost (n : Nat) : (logs n).2 ≤ 1 + 5*n := by
+theorem logs_cost (n : Nat) : (logs n).2 ≤ 1 + 7*n := by
   induction n with
   | zero => simp [logs]
   | succ n ih =>
@@ -78,7 +79,7 @@ theorem nextRow_value (seed : α) (row : Vector α n) (k : Nat) :
   simp [nextSparseRow, rowCell_value]
 
 theorem nextRow_cost (seed : α) (row : Vector α n) (span : Nat) :
-    (nextRow seed row span).2 ≤ 7*n := by
+    (nextRow seed row span).2 ≤ 11*n := by
   simpa [nextRow, Nat.mul_comm] using
     tabulate_cost seed (rowCell row span) 5 (fun i => (rowCell_cost row span i).le)
 
@@ -91,7 +92,7 @@ def build (seed : α) (input : Vector α n) :
     bind ((prev[k], 2) : Measured (Vector α n × Nat) Nat) fun desc =>
     bind (nextRow seed desc.1 desc.2) fun row =>
     bind ((desc.2+desc.2, 1) : Measured Nat Nat) fun span =>
-    (prev.push (row,span), 2)
+    (prev.push (row,span), 4)
 
 theorem build_get (seed : α) (input : Vector α n) (levels : Nat)
     (k : Fin (levels+1)) :
@@ -116,7 +117,7 @@ theorem build_rows (seed : α) (input : Vector α n) (levels : Nat) :
   rw [build_get seed input levels ⟨i,hi⟩, buildSparse_get input levels ⟨i,hi⟩]
 
 theorem build_cost (seed : α) (input : Vector α n) (levels : Nat) :
-    (build seed input levels).2 ≤ 3*n + 2 + levels*(7*n+5) := by
+    (build seed input levels).2 ≤ 7*n + 2 + levels*(11*n+7) := by
   induction levels with
   | zero =>
     have hh := tabulate_cost seed (TableExecution.read input) 1 (fun _ => by rfl)
@@ -182,7 +183,7 @@ def prepare (seed : α) (input : Vector α n) (levels : Nat) :
   bind (logs n) fun logTable => pure (table, logTable)
 
 theorem prepare_cost (seed : α) (input : Vector α n) (levels : Nat) :
-    (prepare seed input levels).2 ≤ 8*n + 3 + levels*(7*n+5) := by
+    (prepare seed input levels).2 ≤ 14*n + 3 + levels*(11*n+7) := by
   have hb := build_cost seed input levels
   have hl := logs_cost n
   simp only [prepare, Resources.bind, Resources.pure]
