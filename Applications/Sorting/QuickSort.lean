@@ -21,6 +21,7 @@ def quickSortBy (lt : α → α → Bool) : List α → List α
         ([pivot] ++ quickSortBy lt (xs.filter (fun x => !(lt x pivot))))
 termination_by xs => xs.length
 decreasing_by
+  all_goals simp only [List.unattach_filter, List.unattach_attach]
   all_goals exact Nat.lt_succ_of_le (List.length_filter_le _ _)
 
 @[simp] theorem quickSortBy_nil (lt : α → α → Bool) :
@@ -134,6 +135,7 @@ def quickSortAccBy (lt : α → α → Bool) : List α → List α → List α
         (pivot :: quickSortAccBy lt (xs.filter (fun x => !(lt x pivot))) suffix)
 termination_by xs _ => xs.length
 decreasing_by
+  all_goals simp only [List.unattach_filter, List.unattach_attach]
   all_goals exact Nat.lt_succ_of_le (List.length_filter_le _ _)
 
 @[simp] theorem quickSortAccBy_nil (lt : α → α → Bool) (suffix : List α) :
