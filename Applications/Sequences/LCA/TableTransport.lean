@@ -46,6 +46,21 @@ theorem rowFill_transport (f : α → β) (hf : ∀ a b, f (min a b) = min (f a)
     · simp [hk, write, Vector.map_set]
     · simp [hk, lookup, write, Vector.map_set, hf]
 
+/-- A bounded row never observes source positions outside its initialized
+prefix. This lets a finite-cell lifting totalize its unused source positions. -/
+theorem rowFill_congr_source (seed : α) (source other : Nat → Measured α Nat)
+    (capacity len : Nat) (h : len ≤ capacity)
+    (he : ∀ i, i < len → source i = other i) :
+    MicroExecution.rowFill seed source capacity len h =
+      MicroExecution.rowFill seed other capacity len h := by
+  induction len with
+  | zero => rfl
+  | succ k ih =>
+    simp only [MicroExecution.rowFill]
+    rw [ih (by omega) (by intro i hi; exact he i (by omega))]
+    simp only [Resources.bind, MicroExecution.rowIndex, he k (by omega)]
+    rfl
+
 theorem buildRow_transport (f : α → β) (hf : ∀ a b, f (min a b) = min (f a) (f b))
     (seed : α) (source : Nat → Measured α Nat) (n : Nat) :
     MicroExecution.buildRow (f seed) (fun i => transport f (source i)) n =
@@ -124,5 +139,13 @@ example :
       (fun i => transport WordKey.cellWord ((if i=0 then late else early),1)) 2).2 = 18 := by
   rw [wordBuildRow]
   decide
+
+/-- Even an expensive, unrelated tail cannot affect a bounded row run. -/
+example : MicroExecution.rowFill 0
+    (fun i => if i<2 then (i,1) else (999,99)) 2 2 (by decide) =
+      MicroExecution.rowFill 0 (fun i => (i,1)) 2 2 (by decide) := by
+  apply rowFill_congr_source
+  intro i hi
+  simp [hi]
 
 end Sequences.LCA.TableTransport
