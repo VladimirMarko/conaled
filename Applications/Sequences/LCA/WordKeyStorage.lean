@@ -94,9 +94,11 @@ theorem encoded_min_index {a b : Int ×ₗ Nat}
   · simpa only [min_eq_right (le_of_not_ge h)] using hj
 
 example : min (encode 2 4 (-1) 3) (encode 2 4 (-1) 1) % 4 = 1 := by
-  rw [encoded_min_index (offset := 2) (stride := 4) (a := toLex (-1,3)) (b := toLex (-1,1))
-    (by decide) (by decide) (by decide) (by decide)]
-  decide
+  have h := encoded_min_index (offset := 2) (stride := 4)
+    (a := toLex (-1,3)) (b := toLex (-1,1))
+    (by decide) (by decide) (by decide) (by decide)
+  have he : (ofLex (min (toLex (-1,3) : Int ×ₗ Nat) (toLex (-1,1)))).2 = 1 := by decide
+  simpa only [ofLex_toLex, he] using h
 
 private def early : Cell 2 4 4 := ⟨toLex (-1,1), by decide⟩
 private def late : Cell 2 4 4 := ⟨toLex (-1,3), by decide⟩
