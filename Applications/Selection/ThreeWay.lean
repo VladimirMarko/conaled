@@ -1,4 +1,5 @@
 import Applications.Selection.Rank
+import Applications.Sequences.Partition
 
 /-! Three-way selection with operations separated from pivot validity. -/
 set_option autoImplicit false
@@ -10,54 +11,38 @@ variable {α : Type u} [LinearOrder α]
 
 /-- Standard stable partitions retain every equal occurrence in input order. -/
 def partition3 (p : α) (xs : List α) : List α × List α × List α :=
-  let sides := xs.partition (fun x => decide (x < p))
-  let upper := sides.2.partition (fun x => decide (x = p))
-  (sides.1, upper.1, upper.2)
+  Sequences.Partition.partition3 p xs
 
 theorem partition3_eq_filters (p : α) (xs : List α) :
     partition3 p xs = (xs.filter (fun x => decide (x < p)),
-      xs.filter (fun x => decide (x = p)), xs.filter (fun x => decide (p < x))) := by
-  simp only [partition3, List.partition_eq_filter_filter, List.filter_filter]
-  congr 2 <;> apply List.filter_congr <;> intro x hx <;>
-    apply Bool.eq_iff_iff.mpr <;>
-    simp only [Function.comp_def, Bool.and_eq_true, Bool.not_eq_true', decide_eq_false_iff_not,
-      decide_eq_true_eq] <;> constructor <;> intro h
-  · exact h.1
-  · subst x; simp
-  · exact lt_of_le_of_ne (le_of_not_gt h.2) (Ne.symm h.1)
-  · exact ⟨ne_of_gt h, not_lt_of_gt h⟩
+      xs.filter (fun x => decide (x = p)), xs.filter (fun x => decide (p < x))) :=
+  Sequences.Partition.partition3_eq_filters p xs
 
 theorem partition3_perm (p : α) (xs : List α) :
-    ((partition3 p xs).1 ++ (partition3 p xs).2.1 ++ (partition3 p xs).2.2).Perm xs := by
-  simp only [partition3, List.partition_eq_filter_filter]
-  rw [List.append_assoc]
-  exact (List.Perm.append_left _ (List.filter_append_perm _ _)).trans
-    (List.filter_append_perm _ _)
+    ((partition3 p xs).1 ++ (partition3 p xs).2.1 ++ (partition3 p xs).2.2).Perm xs :=
+  Sequences.Partition.partition3_perm p xs
 
 theorem partition_left_mem (p : α) (xs : List α) (x : α) :
-    x∈(partition3 p xs).1 ↔ x∈xs ∧ x<p := by
-  simp [partition3_eq_filters]
+    x∈(partition3 p xs).1 ↔ x∈xs ∧ x<p :=
+  Sequences.Partition.partition_left_mem p xs x
 
 theorem partition_equal_mem (p : α) (xs : List α) (x : α) :
-    x∈(partition3 p xs).2.1 ↔ x∈xs ∧ x=p := by
-  simp [partition3_eq_filters]
+    x∈(partition3 p xs).2.1 ↔ x∈xs ∧ x=p :=
+  Sequences.Partition.partition_equal_mem p xs x
 
 theorem partition_right_mem (p : α) (xs : List α) (x : α) :
-    x∈(partition3 p xs).2.2 ↔ x∈xs ∧ p<x := by
-  simp [partition3_eq_filters]
+    x∈(partition3 p xs).2.2 ↔ x∈xs ∧ p<x :=
+  Sequences.Partition.partition_right_mem p xs x
 
 theorem partition_lengths (p : α) (xs : List α) :
     (partition3 p xs).1.length+(partition3 p xs).2.1.length+
-      (partition3 p xs).2.2.length=xs.length := by
-  simpa [Nat.add_assoc] using (partition3_perm p xs).length_eq
+      (partition3 p xs).2.2.length=xs.length :=
+  Sequences.Partition.partition_lengths p xs
 
 theorem partition_strict_sizes (p : α) (xs : List α) (hp : p∈xs) :
     (partition3 p xs).1.length<xs.length ∧
-      (partition3 p xs).2.2.length<xs.length := by
-  have he : p∈(partition3 p xs).2.1 := (partition_equal_mem p xs p).mpr ⟨hp,rfl⟩
-  have hn : 0<(partition3 p xs).2.1.length := List.length_pos_iff.mpr (List.ne_nil_of_mem he)
-  have hl:=partition_lengths p xs
-  omega
+      (partition3 p xs).2.2.length<xs.length :=
+  Sequences.Partition.partition_strict_sizes p xs hp
 
 theorem sorted_partition (p : α) (xs : List α) :
     ordered xs=ordered (partition3 p xs).1++(partition3 p xs).2.1++ordered (partition3 p xs).2.2 := by

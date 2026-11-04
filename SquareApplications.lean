@@ -15,6 +15,7 @@ import Examples.CurryHoward
 import Examples.ProbabilisticProgress
 import Examples.MetropolisHastings
 import Examples.ProbabilityCorrelation
+import Examples.PermutationMinimum
 import Examples.StatefulIncremental
 import Examples.ExternalInteraction
 import Examples.InteractionTransport
@@ -251,6 +252,9 @@ import Examples.InsertionCosts
 import Examples.ListLibrary
 import Examples.ListCalls
 import Examples.FunctionalNotation
+import Examples.MergeCosts
+import Examples.DifferenceListCosts
+import Examples.ThreeWayPartition
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 

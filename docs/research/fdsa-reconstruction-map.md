@@ -28,6 +28,14 @@ tickets, independent review records and candidate validation evidence. That
 tracker is the authority for acceptance; the presence of a source mapping below
 does not by itself mean that its chapter has passed all gates.
 
+**Accepted-base snapshot — 4 November 2026.** Chapter 1 was accepted at
+`07e480f6ec9958d4975bb90151005b84f2907614`. The shared foundation was accepted at
+`f17cc6b1a2bf44215b16202ed0fcee2b5c130761`, covering insertion costs, all twenty
+Appendix A entries, Appendix B.1 and all ninety Appendix C notation rows.
+The local tracker retains their complete validation and independent review
+evidence. Later shared-unit and chapter acceptance requires its own matching
+immutable-candidate gates; whole Appendix B remains open.
+
 ## Chapter order and scope
 
 The full scope is all 27 chapters and appendices A–C. Mathematical definitions,
@@ -38,9 +46,9 @@ Chapter organization is a coverage index; modules follow reusable domain concept
 
 | Chapter | Topic | Current implementation scope |
 | --- | --- | --- |
-| 1 | Basics | Detailed witnesses below; acceptance is tracked separately |
-| 2 | Sorting | Active; shared insertion costs below; acceptance tracked separately |
-| 3 | Selection | Queued; shared insertion costs below |
+| 1 | Basics | Accepted at `07e480f`; detailed witnesses below |
+| 2 | Sorting | Active; shared insertion, merge, builder, partition and minimum-law groundwork below; acceptance tracked separately |
+| 3 | Selection | Queued; shared insertion and partition groundwork below |
 | 4 | Binary Trees | Queued |
 | 5 | Binary Search Trees | Queued |
 | 6 | Abstract Data Types | Queued |
@@ -65,9 +73,9 @@ Chapter organization is a coverage index; modules follow reusable domain concept
 | 25 | Knuth–Morris–Pratt String Search | Queued |
 | 26 | Huffman's Algorithm | Queued |
 | 27 | Alpha–Beta Pruning | Queued |
-| A | List Library | Shared standard interfaces and checked adapters below; acceptance tracked separately |
-| B | Time Functions | Matched as used; final complete inventory pending |
-| C | Notation | Matched as used; final complete inventory pending |
+| A | List Library | Accepted at `f17cc6b`; all twenty entries mapped below |
+| B | Time Functions | B.1 accepted at `f17cc6b`; remaining subsections and whole-appendix acceptance pending |
+| C | Notation | Accepted at `f17cc6b`; complete notation correspondence linked below |
 
 ## Chapter 1: Basics, printed pages 1–10
 
@@ -483,3 +491,106 @@ requires the project's immutable-candidate verification and exhaustive proof
 audit, both independent review axes, and final candidate-identity verification.
 Their exact outcomes are kept in the local checkpoint's review record rather
 than inferred from this narrative.
+
+## Shared ordinary list merge observations — FDSA-XM01
+
+`Applications.Sorting.Merge` adds the two order-free input sublists, arbitrary-
+relation pairwise converse and the input-local keyed sortedness iff, preserving
+its existing operation/forward/stability contracts. `Resources.ListMerge.run`
+is one actual selected-branch execution with comparison/invocation observations.
+Its first cost coordinate (`run.2.1`) has the handwritten C_merge equations;
+its second cost coordinate (`run.2.2`) counts all merge entries, including the
+terminal base. Exact erasure, E=C+1, loose length bounds and input-local exact
+map/key transport retain arbitrary payload universes and require no sorting,
+equality or inhabitant on the raw domain.
+
+This supports C02-025, the merge portion of C02-027, and C02-028/029/031/033/035/037.
+`Examples.MergeCosts` connects actual bind/reweight, the second merge's real
+first value, source/key adapters, stable and unsorted cases, noninjective key
+erasure, Empty, the qualified C1 positive/zero comparison, and an actual raw
+LeftistQueue.toListQ node body. That body's counts concern only its one merge
+of already obtained child lists. Full child/traversal work is not included.
+
+The prescribed C2 merge/comparison model and chosen C14 exercise components
+are distinguished in [the source note](fdsa-list-merge.md), with pinned sources,
+license and full observation boundaries. All whole-sort/logarithmic, run/builder,
+exercise and stability obligations remain; the original 107/current 112 C2
+requirements are unchanged. All concrete C14 queue/whole-enumeration/carrier
+and quadratic claims remain queued, and binomial carry is a different operation.
+The original foundation prefix c80eec9 excludes this later component.
+The source note retains a dated validation snapshot; acceptance requires the
+complete immutable-candidate gates recorded in the local FDSA-XM01 record.
+
+## Shared difference-list closure groundwork
+
+`Resources.DifferenceListCosts` adds ordinary measured suffix callbacks with
+separate ordered-prefix and application-cost predicates. Identity, singleton
+and composition callbacks have a declared invocation tariff; their creation
+operations carry a separate fixed-size capture tariff. Existing `run` executes
+compositional pushes. The seed-general construction laws imply `2*n+1` for
+creation and one application of the identity-seeded builder.
+
+The value representation remains Batteries.DList. Its fused push and the
+explicit compositional model have value correspondence, with no transfer of
+exact costs. Connected cases retain nonempty suffixes, duplicate/order
+preservation, empty payloads, repeated materialization, charged identity and
+empty-prefix histories with unbounded application work. Shared self-composition
+distinguishes distinct creation events from unfolded invocation occurrences.
+
+The
+[source and statement notes](fdsa-difference-list-costs.md) retain the actual
+singleton-seeded asc/scanner and repeated ordinary append/reverse obligations
+for Chapter 2. It makes no compiler or machine-runtime claim and does not
+activate or accept that chapter.
+
+The source note retains a dated validation snapshot; full immutable-candidate
+acceptance gates remain required.
+
+## Shared three-way partition values and source execution (FDSA-XQ01)
+
+This bounded cross-cutting unit exposes the existing independent
+partition semantics to Sorting and Selection, with a separately measured
+one-pass realization for Appendix B.2. It activates or accepts neither chapter
+and does not widen the initial Chapter 2 foundation prefix. Exact provenance,
+source/model distinctions, interface compatibility and cases are in
+[fdsa-three-way-partition.md](fdsa-three-way-partition.md).
+The source note retains the dated validation history; it does not substitute
+for this unit's full candidate gates.
+
+| Common source obligation | Draft declarations / intended connection |
+| --- | --- |
+| Three ordered filters and occurrence semantics, partition component of C02-102 and C03-011 | `Sequences.Partition.partition3` retains the existing two-stage value body, exact filter/perm/membership/length laws and standard nested tuple. |
+| Qualified strict-side decrease, C03-013 | Existing `partition_strict_sizes` retains pivot membership as a sufficient premise. Arbitrary-pivot correctness remains unconditional. |
+| Existing Selection compatibility | The old same-signature operation and seven theorem names remain wrappers/adapters. The selection-specific remainder, Rank, Consumers and RankSelection examples are unchanged. |
+| Companion source value equations | Shared nil/cons theorems expose one-tail reconstruction with tests `y<p` then `p=y`, without defining another pure operation or assigning a cost to the old implementation. |
+| Actual source count, C03-031 and B-018/019 | `Resources.Partition.partitionRun` uses one recursive tail call and its actual returned triple; separate value and count laws give the shared value and work `length+1`, including nil. |
+| Consequential clients | Generic equal-block/empty cases; mixed ordered duplicates; absent outside/interior pivots; old-name compatibility; same-program bind on the actual returned lower bucket with expected total thirteen. |
+
+The manuscript prints the three-filter specification and time recurrence;
+the pinned companion supplies the explicit single-pass code equation. The
+old two-pass value implementation, new actual source program and Exercise
+2.4's two-filter quicksort metric remain distinct. No physical runtime,
+tail-recursion, constant stack or arbitrary monotone bucket-transport claim
+is introduced.
+
+Complete quicksort3, selection rank/middle-index bridges, actual selector
+recursion and termination, median-of-medians, random policies and their total
+costs remain mandatory in the original chapters. Accepted repaired Chapter 1,
+focused compatibility checks, the full candidate build/audit, both independent
+review axes and immediate candidate verification remain required. No source
+preflight or authored draft supplies acceptance evidence.
+
+## Shared fixed-subset minimum probability (draft)
+
+The [uniform-permutation minimum unit](fdsa-permutation-minimum.md) supplies a
+source draft of the probability that a member of a fixed finite subset is
+first under one global uniform permutation of injective priorities. It uses
+ordinary permutations, finsets and Mathlib measures, with no new probability
+carrier. Its examples connect the general theorem to overlapping subsets,
+infinite-target integer priorities, empty indices, outsiders and ties.
+
+This groundwork supports Chapters 2 and 10. It does not supply conditional
+pivot/subproblem laws, full relative-order restrictions, the expected first
+position, treap construction/ancestor/charging proofs or algorithm cost
+correspondences. Its source note retains a dated validation snapshot;
+the local FDSA-XU01 record retains the frozen scope and subsequent gate results.
