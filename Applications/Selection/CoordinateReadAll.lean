@@ -40,24 +40,24 @@ theorem readPlan_done (indices : List (Fin n)) (compute : List α → β)
 /-- The prefix history is generated from actual answers. An arbitrary supplied
 history is not presumed to satisfy this execution invariant. -/
 private theorem readPlan_run_from (input : Fin n → α) (compute : List α → β)
-    (prefix remaining : List (Fin n)) :
-    Runs (readPlan (prefix ++ remaining) compute) input
-      (prefix.map (fun i => (i, input i))).reverse
+    (prior remaining : List (Fin n)) :
+    Runs (readPlan (prior ++ remaining) compute) input
+      (prior.map (fun i => (i, input i))).reverse
       (remaining.map (fun i => (i, input i)))
-      (compute ((prefix ++ remaining).map input)) := by
-  induction remaining generalizing prefix with
+      (compute ((prior ++ remaining).map input)) := by
+  induction remaining generalizing prior with
   | nil =>
     apply Runs.done
     simp [readPlan]
   | cons i remaining ih =>
     apply Runs.query
-    · have query : (prefix ++ i :: remaining)[prefix.length]? = some i := by
-        rw [List.getElem?_append_right (Nat.le_refl prefix.length)]
+    · have query : (prior ++ i :: remaining)[prior.length]? = some i := by
+        rw [List.getElem?_append_right (Nat.le_refl prior.length)]
         simp
       simpa only [readPlan, List.length_reverse, List.length_map, query]
     · simpa only [List.append_assoc, List.singleton_append, List.map_append,
         List.map_cons, List.map_nil, List.reverse_append, List.reverse_cons,
-        List.reverse_nil, List.nil_append] using ih (prefix ++ [i])
+        List.reverse_nil, List.nil_append] using ih (prior ++ [i])
 
 /-- Every finite plan has this actual execution, including repeated indices. -/
 theorem readPlan_run (indices : List (Fin n)) (compute : List α → β)
