@@ -101,8 +101,11 @@ and `reveal_no_factor` identify the failed premise and rule out descent to this
 old quotient. #259's `no_reveal_primitives` already exposes the same obstruction
 at the compiler's `Primitives.correct` field; that proof is not duplicated.
 The old client remains valid because it never assumed private layout was
-observable. Applying it to a stronger contract would require the missing
-`Compatible old reveal` premise, which the checked pair refutes.
+observable. It also remains applicable to inputs related by the refined contract,
+by restriction, without any compatibility premise for `reveal`. What fails is
+retaining the old identification while claiming that `reveal` is invariant on
+all old-related states: that requires `Compatible old reveal`, which the checked
+pair refutes.
 
 ## Extension kinds and author obligations
 
