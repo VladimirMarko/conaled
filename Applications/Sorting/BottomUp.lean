@@ -40,10 +40,8 @@ theorem mergePairsBy_length (cmp : α → α → Bool) (xss : List (List α)) :
   match xss with
   | [] =>
     simp only [mergePairsBy_nil, List.length_nil]
-    decide
   | [xs] =>
     simp only [mergePairsBy_singleton, List.length_cons, List.length_nil]
-    decide
   | xs :: ys :: rest =>
     rw [mergePairsBy_step, List.length_cons, mergePairsBy_length cmp rest]
     simp only [List.length_cons]
