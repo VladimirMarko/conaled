@@ -205,7 +205,7 @@ private theorem fiber_mass_eq
     uniformOn Set.univ {π | restrictedOrder positions S π = xs} =
       uniformOn Set.univ {π | restrictedOrder positions S π = ys} := by
   classical
-  letI := Fintype.ofList positions hcomplete
+  let := Fintype.ofList positions hcomplete
   obtain ⟨σ, hmap, hS⟩ := exists_relabel_orders positions hnd hcomplete S xs ys hxs hys
   have hpre : (fun π : Equiv.Perm I => π * σ.symm) ⁻¹'
       {π | restrictedOrder positions S π = ys} =
@@ -239,7 +239,7 @@ theorem uniformOn_restrictedOrder_eq
       then (Nat.factorial S.card : ℝ≥0∞)⁻¹
       else 0 := by
   classical
-  letI := Fintype.ofList positions hcomplete
+  let := Fintype.ofList positions hcomplete
   by_cases hxs : xs ∈ orders positions S
   · rw [if_pos hxs]
     have hpre : (restrictedOrder positions S) ⁻¹'
@@ -300,7 +300,7 @@ theorem map_restrictedOrder_uniformOn
     (uniformOn (Set.univ : Set (Equiv.Perm I))).map (restrictedOrder positions S) =
       uniformOn (orders positions S : Set (List I)) := by
   classical
-  letI := Fintype.ofList positions hcomplete
+  let := Fintype.ofList positions hcomplete
   apply Measure.ext_of_singleton
   intro xs
   rw [Measure.map_apply (measurable_of_finite _) (measurableSet_singleton xs)]
