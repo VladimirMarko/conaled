@@ -171,6 +171,9 @@ and the macro sparse table. Its payload theorems identify the resulting cells
 with the packed arena representation, and its width theorems embed them in the
 selected word domain. Encoding here is a representation relation for the
 executed stores, not an additional uncharged traversal after preparation.
+`PreparationMinima` proves that block-minimum queries need only the initialized
+micro prefix. Their finite-word results feed the sparse builder with the same
+measured cost, before any macro-table contents are available.
 
 Further interpretation reuse remains a concrete architectural question for
 [#235](https://github.com/VladimirMarko/conaled/issues/235).
