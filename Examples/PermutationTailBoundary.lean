@@ -48,7 +48,11 @@ theorem swap01_first_events :
     swap01 ∈ firstEvent (restrictedOrder positions selected) 0 ∧
       swap01 ∈ firstEvent (fun π : Equiv.Perm (Fin 4) => positions.map π.symm) 1 ∧
       swap01 ∉ firstEvent (fun π : Equiv.Perm (Fin 4) => positions.map π.symm) 0 := by
-  simp [firstEvent, swap01_selected_order, swap01_global_order]
+  change (restrictedOrder positions selected swap01).head? = some 0 ∧
+    (positions.map swap01.symm).head? = some 1 ∧
+    (positions.map swap01.symm).head? ≠ some 0
+  rw [swap01_selected_order, swap01_global_order]
+  decide
 
 /-- The new source-fiber theorem covers a singleton with empty actual tail. -/
 theorem singleton_conditional_tail_mass :
@@ -137,6 +141,8 @@ private theorem joint12_table :
         xs.filter (fun a => decide (a ∈ outsideSubset)) = [1, 2]) ↔
         xs = [0, 1, 2]) := by
   simp only [orders, Finset.mem_univ, decide_true, List.filter_true]
+  rw [List.toFinset_eq_of_perm _ _
+    (List.permutations_perm_permutations' counterPositions)]
   decide
 
 private theorem joint21_table :
@@ -145,6 +151,8 @@ private theorem joint21_table :
         xs.filter (fun a => decide (a ∈ outsideSubset)) = [2, 1]) ↔
         xs = [0, 2, 1] ∨ xs = [2, 0, 1]) := by
   simp only [orders, Finset.mem_univ, decide_true, List.filter_true]
+  rw [List.toFinset_eq_of_perm _ _
+    (List.permutations_perm_permutations' counterPositions)]
   decide
 
 private theorem counter_joint12 :
@@ -195,6 +203,8 @@ private theorem counter_joint12_mass :
   rw [counter_joint12]
   exact counter_full_mass [0, 1, 2] (by
     simp only [orders, Finset.mem_univ, decide_true, List.filter_true]
+    rw [List.toFinset_eq_of_perm _ _
+      (List.permutations_perm_permutations' counterPositions)]
     decide)
 
 private theorem counter_joint21_mass :
@@ -204,12 +214,16 @@ private theorem counter_joint21_mass :
   rw [counter_joint21, measure_union full_fibers_disjoint (by trivial)]
   rw [counter_full_mass [0, 2, 1] (by
       simp only [orders, Finset.mem_univ, decide_true, List.filter_true]
+      rw [List.toFinset_eq_of_perm _ _
+        (List.permutations_perm_permutations' counterPositions)]
       decide),
     counter_full_mass [2, 0, 1] (by
       simp only [orders, Finset.mem_univ, decide_true, List.filter_true]
+      rw [List.toFinset_eq_of_perm _ _
+        (List.permutations_perm_permutations' counterPositions)]
       decide)]
-  rw [← ENNReal.coe_div (p := 1) (by norm_num : (6 : ℝ≥0) ≠ 0),
-    ← ENNReal.coe_div (p := 1) (by norm_num : (3 : ℝ≥0) ≠ 0),
+  simp only [← ENNReal.coe_div (p := 1) (by norm_num : (6 : NNReal) ≠ 0),
+    ← ENNReal.coe_div (p := 1) (by norm_num : (3 : NNReal) ≠ 0),
     ← ENNReal.coe_add, ENNReal.coe_inj]
   norm_num
 
@@ -220,8 +234,8 @@ theorem outside_order_12_mass :
   have hhalf : (1 / 2 : ℝ≥0∞)⁻¹ = 2 := by simp [one_div]
   rw [outsideConditional, cond_apply (s := counterFirst) (by trivial) counterLaw,
     counter_first_mass, counter_joint12_mass, hhalf]
-  rw [← ENNReal.coe_div (p := 1) (by norm_num : (6 : ℝ≥0) ≠ 0),
-    ← ENNReal.coe_div (p := 1) (by norm_num : (3 : ℝ≥0) ≠ 0),
+  simp only [← ENNReal.coe_div (p := 1) (by norm_num : (6 : NNReal) ≠ 0),
+    ← ENNReal.coe_div (p := 1) (by norm_num : (3 : NNReal) ≠ 0),
     ← ENNReal.coe_mul, ENNReal.coe_inj]
   norm_num
 
@@ -232,8 +246,8 @@ theorem outside_order_21_mass :
   have hhalf : (1 / 2 : ℝ≥0∞)⁻¹ = 2 := by simp [one_div]
   rw [outsideConditional, cond_apply (s := counterFirst) (by trivial) counterLaw,
     counter_first_mass, counter_joint21_mass, hhalf]
-  rw [← ENNReal.coe_div (p := 1) (by norm_num : (3 : ℝ≥0) ≠ 0),
-    ← ENNReal.coe_div (p := 2) (by norm_num : (3 : ℝ≥0) ≠ 0),
+  simp only [← ENNReal.coe_div (p := 1) (by norm_num : (3 : NNReal) ≠ 0),
+    ← ENNReal.coe_div (p := 2) (by norm_num : (3 : NNReal) ≠ 0),
     ← ENNReal.coe_mul, ENNReal.coe_inj]
   norm_num
 
