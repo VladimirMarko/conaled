@@ -83,7 +83,9 @@ theorem marginal_product :
     law (minimumEvent id firstSubset 1) *
       law (minimumEvent id secondSubset 1) = 1 / 4 := by
   rw [first_minimum_mass, second_minimum_mass]
-  norm_num [← ENNReal.coe_div, ← ENNReal.coe_mul]
+  simpa only [one_div, show (2 : ℝ≥0∞) * 2 = 4 by norm_num] using
+    (ENNReal.mul_inv (a := (2 : ℝ≥0∞)) (b := 2)
+      (Or.inl (by norm_num)) (Or.inr (by norm_num))).symm
 
 /-- Uniform marginals on overlapping subsets do not assert their independence. -/
 theorem overlap_mass_ne_product :
@@ -95,7 +97,7 @@ theorem overlap_mass_ne_product :
 
 theorem singleton_minimum_mass (a : Fin 3) :
     law (minimumEvent id {a} a) = 1 := by
-  simpa [law] using
+  simpa only [law, Finset.card_singleton, Nat.cast_one, inv_one] using
     (uniformOn_minimumEvent (id : Fin 3 → Fin 3) Function.injective_id
       {a} a (Finset.mem_singleton_self a))
 
@@ -108,8 +110,7 @@ theorem spacedPriority_values :
   decide
 
 theorem spacedPriority_injective : Function.Injective spacedPriority := by
-  intro a b hab
-  fin_cases a <;> fin_cases b <;> norm_num [spacedPriority] at hab ⊢
+  decide
 
 theorem spacedPriority_not_monotone : ¬ Monotone spacedPriority := by
   intro h
