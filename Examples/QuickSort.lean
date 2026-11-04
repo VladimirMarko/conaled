@@ -26,7 +26,7 @@ theorem source_complementary_multiset (p q : α → Prop) [DecidablePred p]
     Multiset.filter p s + Multiset.filter q s = s := by
   have hp : Multiset.filter p s = Multiset.filter (fun x => ¬ q x) s :=
     Multiset.filter_congr h
-  rw [hp, add_comm]
+  rw [hp, Multiset.add_comm]
   exact Multiset.filter_add_not q s
 
 theorem source_key_partition [LinearOrder κ] (key : α → κ)
@@ -74,6 +74,7 @@ theorem mixed_accumulator_value :
     quickSortAccOn id ([2, 1, 2, 3, 0] : List Nat) [4, 0, 2] =
       [0, 1, 2, 2, 3, 4, 0, 2] := by
   rw [quickSortAccOn_eq_append, mixed_source_value]
+  rfl
 
 theorem empty_first_input :
     quickSortAccOn id ([] : List Nat) [4, 0, 2] = [4, 0, 2] :=
@@ -95,12 +96,13 @@ theorem all_equal_accumulator :
     have h := quickSortOn_correct id ([2, 2, 2] : List Nat)
     exact List.Perm.eq_of_pairwise' (r := fun a b : Nat => a ≤ b) h.1 (by decide) h.2
   rw [he]
+  rfl
 
 /-- Even a sorted suffix need not follow the sorted prefix in key order. -/
 theorem sorted_suffix_is_not_enough :
     KeySorted id ([1] : List Nat) ∧
       ¬ KeySorted id (quickSortAccOn id ([2] : List Nat) [1]) := by
-  rw [quickSortAccBy_singleton]
+  simp only [quickSortAccOn, quickSortAccBy_singleton]
   decide
 
 theorem empty_payload :
@@ -142,9 +144,11 @@ theorem localLess_compatible :
     ∀ a ∈ ([2, 0, 2, 1] : List Int), ∀ b ∈ ([2, 0, 2, 1] : List Int),
       (localLess a b = true → a ≤ b) ∧ (localLess a b = false → b ≤ a) := by
   intro a ha b hb
-  have ha0 : 0 ≤ a := by simp only [List.mem_cons, List.mem_singleton] at ha; omega
-  have hb0 : 0 ≤ b := by simp only [List.mem_cons, List.mem_singleton] at hb; omega
-  simp only [localLess, if_pos ⟨ha0, hb0⟩]
+  simp only [List.mem_cons, List.not_mem_nil, or_false] at ha hb
+  have ha0 : 0 ≤ a := by omega
+  have hb0 : 0 ≤ b := by omega
+  have hab0 : 0 ≤ a ∧ 0 ≤ b := ⟨ha0, hb0⟩
+  simp only [localLess, ite_eq_left hab0]
   exact ⟨fun h => le_of_lt (of_decide_eq_true h),
     fun h => le_of_not_gt (of_decide_eq_false h)⟩
 
