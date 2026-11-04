@@ -12,6 +12,8 @@ import Examples.LanguageCoalgebra
 import Examples.SubtypeEvidence
 import Examples.LanguageExtension
 import Examples.ObservationExtension
+import Examples.ConstructionObservationAuthorA
+import Examples.ConstructionObservationAuthorB
 import Examples.IndefiniteService
 import Examples.InitializedFeedback
 import Examples.PreservationBounds
