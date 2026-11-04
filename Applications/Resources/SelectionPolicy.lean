@@ -84,6 +84,7 @@ theorem runWith_step (choose : List α → Measured (Option α) Nat)
         Partition.partitionRun_value, Partition.partitionRun_cost,
         ListCalls.lookupRun_value, ListCalls.lookupRun_cost,
         Applications.Selection.partition3]
+      rfl
 
 /-- Trace instrumentation and measured primitives preserve the existing source
 control flow at every fuel, including invalid indices and policy failure. -/
