@@ -60,21 +60,21 @@ theorem ascending_three_execution :
   singleRunOpsBy_of_sorted id [1, 2, 3] (by decide) (by decide)
 
 theorem descending_two : runsOpsBy natLT [2, 1] = ([[1, 2]], 6) := by
-  simpa using runsOpsBy_of_strictly_descending id [2, 1] (by decide) (by simp)
+  simpa [natLT] using runsOpsBy_of_strictly_descending id [2, 1] (by decide) (by simp)
 
 theorem descending_three : runsOpsBy natLT [3, 2, 1] = ([[1, 2, 3]], 9) := by
-  simpa using runsOpsBy_of_strictly_descending id [3, 2, 1] (by decide) (by simp)
+  simpa [natLT] using runsOpsBy_of_strictly_descending id [3, 2, 1] (by decide) (by simp)
 
 theorem descending_two_execution :
     singleRunOpsBy natLT [2, 1]
       (runsOn_length_le_one_of_strictly_descending id [2, 1] (by decide)) = ([1, 2], 7) := by
-  simpa using singleRunOpsBy_of_strictly_descending id [2, 1] (by decide) (by simp)
+  simpa [natLT] using singleRunOpsBy_of_strictly_descending id [2, 1] (by decide) (by simp)
 
 theorem descending_three_execution :
     singleRunOpsBy natLT [3, 2, 1]
       (runsOn_length_le_one_of_strictly_descending id [3, 2, 1] (by decide)) =
         ([1, 2, 3], 10) := by
-  simpa using singleRunOpsBy_of_strictly_descending id [3, 2, 1] (by decide) (by simp)
+  simpa [natLT] using singleRunOpsBy_of_strictly_descending id [3, 2, 1] (by decide) (by simp)
 
 theorem ascending_ties : runsOpsBy natLT [1, 1, 2, 3] = ([[1, 1, 2, 3]], 19) := by
   have path := runsOpsBy_buildAscending natLT 1 3 [1, 2] (by decide)
@@ -92,11 +92,13 @@ theorem three_boundary_worker : descOpsBy natLT 1 [3] [2] = ([[1, 3], [2]], 7) :
   rw [descOpsBy_cons]
   change ([1, 3] :: (runsOpsBy natLT [2]).1, 4 + (runsOpsBy natLT [2]).2) = _
   rw [runsOpsBy_singleton]
+  rfl
 
 theorem three_boundary : runsOpsBy natLT [3, 1, 2] = ([[1, 3], [2]], 10) := by
   rw [runsOpsBy_cons_cons]
   change ((descOpsBy natLT 1 [3] [2]).1, 3 + (descOpsBy natLT 1 [3] [2]).2) = _
   rw [three_boundary_worker]
+  rfl
 
 theorem restart_worker :
     ascOpsBy natLT 3 (singleton 1) [2, 4] = ([[1, 3], [2, 4]], 12) := by
@@ -106,12 +108,14 @@ theorem restart_worker :
   change ([1, 3] :: (runsOpsBy natLT [2, 4]).1,
     1 + 4 + (runsOpsBy natLT [2, 4]).2) = _
   rw [rest]
+  rfl
 
 theorem restart_boundary : runsOpsBy natLT [1, 3, 2, 4] = ([[1, 3], [2, 4]], 15) := by
   rw [runsOpsBy_cons_cons]
   change ((ascOpsBy natLT 3 (singleton 1) [2, 4]).1,
     3 + (ascOpsBy natLT 3 (singleton 1) [2, 4]).2) = _
   rw [restart_worker]
+  rfl
 
 /-- The final singleton remains an outer run; two restart boundaries are charged. -/
 theorem odd_runs :
@@ -120,21 +124,25 @@ theorem odd_runs :
     rw [ascOpsBy_cons]
     change ([2, 4] :: (runsOpsBy natLT [0]).1, 1 + 4 + (runsOpsBy natLT [0]).2) = _
     rw [runsOpsBy_singleton]
+    rfl
   have rest : runsOpsBy natLT [2, 4, 0] = ([[2, 4], [0]], 11) := by
     rw [runsOpsBy_cons_cons]
     change ((ascOpsBy natLT 4 (singleton 2) [0]).1,
       3 + (ascOpsBy natLT 4 (singleton 2) [0]).2) = _
     rw [lastWorker]
+    rfl
   have firstWorker :
       ascOpsBy natLT 3 (singleton 1) [2, 4, 0] = ([[1, 3], [2, 4], [0]], 16) := by
     rw [ascOpsBy_cons]
     change ([1, 3] :: (runsOpsBy natLT [2, 4, 0]).1,
       1 + 4 + (runsOpsBy natLT [2, 4, 0]).2) = _
     rw [rest]
+    rfl
   rw [runsOpsBy_cons_cons]
   change ((ascOpsBy natLT 3 (singleton 1) [2, 4, 0]).1,
     3 + (ascOpsBy natLT 3 (singleton 1) [2, 4, 0]).2) = _
   rw [firstWorker]
+  rfl
 
 /-- A tie starts ascent; the following decrease emits both tagged occurrences. -/
 theorem weak_descent_with_ties :
@@ -150,12 +158,14 @@ theorem weak_descent_with_ties :
       (runsOpsBy (fun a b : Record => decide (a.1 < b.1)) [(2, "C")]).1,
         1 + 4 + (runsOpsBy (fun a b : Record => decide (a.1 < b.1)) [(2, "C")]).2) = _
     rw [runsOpsBy_singleton]
+    rfl
   rw [runsOpsBy_cons_cons]
   change ((ascOpsBy (fun a b : Record => decide (a.1 < b.1))
     (3, "B") (singleton (3, "A")) [(2, "C")]).1,
       3 + (ascOpsBy (fun a b : Record => decide (a.1 < b.1))
         (3, "B") (singleton (3, "A")) [(2, "C")]).2) = _
   rw [worker]
+  rfl
 
 theorem multiple_runs_outside_dispatch :
     ¬(runsBy natLT [3, 1, 2]).length ≤ 1 ∧
@@ -180,6 +190,7 @@ theorem arbitrary_builder_restart :
   change ([1, 3, 5] :: (runsOpsBy natLT [4, 6]).1,
     3 + 4 + (runsOpsBy natLT [4, 6]).2) = _
   rw [rest]
+  rfl
 
 theorem unsorted_builder_value_and_work :
     ascOpsBy natLT 3 (compose (singleton 2) (singleton 1)) [] = ([[2, 1, 3]], 6) := by
@@ -276,6 +287,7 @@ theorem padded_worker (lt : α → α → Bool) (a : α) (n : Nat) :
   apply Prod.ext
   · change [(DifferenceListCosts.padded n [a]).1] = [[a]]
     rw [DifferenceListCosts.padded_rep n [a]]
+    rfl
   · have count := DifferenceListCosts.padded_appCost (α := α) n [a]
     change (DifferenceListCosts.padded n [a]).2 + 3 = 2 * n + 4
     omega
@@ -320,7 +332,8 @@ theorem constant_key_domain (xs : List α) :
 theorem repeated_payload_exact (a : α) (n : Nat) (hn : 2 ≤ n) :
     singleRunOpsBy (fun _ _ => false) (List.replicate n a)
       (constant_key_domain _) = (List.replicate n a, 6 * n - 4) := by
-  simpa only [List.length_replicate] using
+  have hzero : decide ((0 : Nat) < 0) = false := by decide
+  simpa only [List.length_replicate, hzero] using
     singleRunOpsBy_of_sorted (fun _ : α => (0 : Nat)) (List.replicate n a)
       (List.pairwise_of_forall (fun _ _ => Nat.le_refl 0))
       (by simpa only [List.length_replicate] using hn)
@@ -330,7 +343,7 @@ theorem ascending_range_exact (n : Nat) (hn : 2 ≤ n) :
       (runsOn_length_le_one_of_sorted id (List.range n)
         (List.pairwise_lt_range.imp (fun h => Nat.le_of_lt h))) =
       (List.range n, 6 * n - 4) := by
-  simpa only [id_eq, List.length_range] using
+  simpa only [natLT, id_eq, List.length_range] using
     singleRunOpsBy_of_sorted id (List.range n)
       (List.pairwise_lt_range.imp (fun h => Nat.le_of_lt h))
       (by simpa only [List.length_range] using hn)
