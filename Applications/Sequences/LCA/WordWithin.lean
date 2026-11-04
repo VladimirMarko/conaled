@@ -52,10 +52,26 @@ theorem within_fits (input : TreeReduction.Input m) (hblock : block < blocks m)
 private theorem scalar_value (hi : i < 2^width) : (WordMachine.scalar width i).1.val = i :=
   WordMachine.word_of_lt hi
 
-theorem within_value (input : TreeReduction.Input m)
+structure MicroReads (input : TreeReduction.Input m)
+    (mem : Store capacity (WordMachine.Word width)) : Prop where
+  load_class (i : Fin (blocks m)) :
+    (WordMachine.load (mem) (paddedCapacity m) i.val).1.val = ((state input).micro.classes[i.val]).val
+  load_sharedDescriptor (code : Fin (2^(blockSize m-1))) :
+    (WordMachine.load (mem) (paddedCapacity m+blocks m) code.val).1.val = paddedCapacity m+blocks m+2^(blockSize m-1)+code.val*FlatTable.words (blockSize m-1+1) (blockSize m-1+1)
+  load_sharedRowDescriptor (code : Fin (2^(blockSize m-1))) (start : Fin (blockSize m-1+1)) :
+    (WordMachine.load (mem) (paddedCapacity m+blocks m+2^(blockSize m-1)+code.val*FlatTable.words (blockSize m-1+1) (blockSize m-1+1)) start.val).1.val = paddedCapacity m+blocks m+2^(blockSize m-1)+code.val*FlatTable.words (blockSize m-1+1) (blockSize m-1+1)+(blockSize m-1+1)+start.val*(blockSize m-1+1)
+  load_sharedPayload (code : Fin (2^(blockSize m-1))) (start len : Fin (blockSize m-1+1)) :
+    (WordMachine.load (mem) (paddedCapacity m+blocks m+2^(blockSize m-1)+code.val*FlatTable.words (blockSize m-1+1) (blockSize m-1+1)+(blockSize m-1+1)+start.val*(blockSize m-1+1)) len.val).1.val = WordKey.encode ((blockSize m-1 : Nat) : Int) (2*(blockSize m-1+1))
+      (ofLex ((((state input).micro.shared.get code).get start).get len)).1
+      (ofLex ((((state input).micro.shared.get code).get start).get len)).2
+  load_depth (i : Fin (blocks m*(blockSize m-1+1))) :
+    ((WordMachine.load (mem) (0) i.val).1.val : Int) = (state input).micro.depths[i.val]
+
+theorem within_value_of_reads (input : TreeReduction.Input m)
     (h : MachineCapacity.Eligible m width capacity inputWords frameWords)
+    (mem : Store capacity (WordMachine.Word width)) (reads : MicroReads input mem)
     (hblock : block < blocks m) (hinterval : offset+len < blockSize m) :
-    (within m (arena input h) block offset len).1.val =
+    (within m mem block offset len).1.val =
       WordKey.encode 0 (paddedCapacity m)
         (ofLex (BlockedRMQ.within (state input).micro (blocks_pos m) block offset len)).1
         (ofLex (BlockedRMQ.within (state input).micro (blocks_pos m) block offset len)).2 := by
@@ -106,12 +122,12 @@ theorem within_value (input : TreeReduction.Input m)
   have hbaseword : block*blockSize m < 2^width := MachineCapacity.scalar_fits h.toWordEligible (by change block*blockSize m+relativeIndex < paddedCapacity m at hg; omega)
   have hgword : global < 2^width := MachineCapacity.scalar_fits h.toWordEligible (by omega)
   have hclip : min global (paddedCapacity m-1) = global := min_eq_left (by omega)
-  have hcode := WordLoads.load_class input h (⟨block,hblock⟩ : Fin (blocks m))
-  have htable := WordLoads.load_sharedDescriptor input h code
-  have hrow := WordLoads.load_sharedRowDescriptor input h code oi
-  have hkey := WordLoads.load_sharedPayload input h code oi li
-  have hdepth := WordLoads.load_depth input h gi
-  have hdepthnat : (WordMachine.load (arena input h) 0 global).1.val =
+  have hcode := reads.load_class (⟨block,hblock⟩ : Fin (blocks m))
+  have htable := reads.load_sharedDescriptor code
+  have hrow := reads.load_sharedRowDescriptor code oi
+  have hkey := reads.load_sharedPayload code oi li
+  have hdepth := reads.load_depth gi
+  have hdepthnat : (WordMachine.load mem 0 global).1.val =
       ((state input).micro.depths[gi.val]).toNat := by
     have hh := congrArg Int.toNat hdepth
     simpa using hh
@@ -124,7 +140,7 @@ theorem within_value (input : TreeReduction.Input m)
   rw [hcode,htable,hrow,hkey]
   rw [hdecode,scalar_value hrword,scalar_value hbaseword]
   change (WordMachine.pack (paddedCapacity m)
-    (WordMachine.load (arena input h) 0
+    (WordMachine.load mem 0
       (WordMachine.scalar width (min (WordMachine.scalar width global).1.val (paddedCapacity m-1))).1.val).1
     (WordMachine.scalar width global).1).1.val = _
   rw [scalar_value hgword,hclip,scalar_value hgword]
@@ -132,6 +148,24 @@ theorem within_value (input : TreeReduction.Input m)
   · rw [hdepthnat,scalar_value hgword]
   · rw [hdepthnat]; omega
   · rw [hdepthnat,scalar_value hgword]; exact hsum
+
+theorem arena_reads (input : TreeReduction.Input m)
+    (h : MachineCapacity.Eligible m width capacity inputWords frameWords) :
+    MicroReads input (arena input h) where
+  load_class := WordLoads.load_class input h
+  load_sharedDescriptor := WordLoads.load_sharedDescriptor input h
+  load_sharedRowDescriptor := WordLoads.load_sharedRowDescriptor input h
+  load_sharedPayload := WordLoads.load_sharedPayload input h
+  load_depth := WordLoads.load_depth input h
+
+theorem within_value (input : TreeReduction.Input m)
+    (h : MachineCapacity.Eligible m width capacity inputWords frameWords)
+    (hblock : block < blocks m) (hinterval : offset+len < blockSize m) :
+    (within m (arena input h) block offset len).1.val =
+      WordKey.encode 0 (paddedCapacity m)
+        (ofLex (BlockedRMQ.within (state input).micro (blocks_pos m) block offset len)).1
+        (ofLex (BlockedRMQ.within (state input).micro (blocks_pos m) block offset len)).2 :=
+  within_value_of_reads input h _ (arena_reads input h) hblock hinterval
 
 /-- The first singleton interval exercises the same full packed lookup path. -/
 example (input : TreeReduction.Input m)

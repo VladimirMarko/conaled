@@ -293,6 +293,7 @@ import Examples.LCAPhases
 import Applications.Sequences.LCA.TableTransport
 import Applications.Sequences.LCA.PreparationInvariants
 import Applications.Sequences.LCA.PreparationCertificate
+import Applications.Sequences.LCA.PreparationMinima
 import Applications.Sequences.LCA.WordTrace
 import Applications.Sequences.LCA.WordLCA
 import Examples.LCAWordQuery
