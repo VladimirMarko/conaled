@@ -26,7 +26,10 @@ def threeWayQuickSort : List α → List α
           threeWayQuickSort (xs.filter (fun x => decide (pivot < x))))
 termination_by xs => xs.length
 decreasing_by
-  all_goals exact Nat.lt_succ_of_le (List.length_filter_le _ _)
+  all_goals
+    apply Nat.lt_succ_of_le
+    rw [List.length_unattach, ← List.length_attach (l := xs)]
+    exact List.length_filter_le _ _
 
 @[simp] theorem threeWayQuickSort_nil : threeWayQuickSort ([] : List α) = [] := by
   rw [threeWayQuickSort]
