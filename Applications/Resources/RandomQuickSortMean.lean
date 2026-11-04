@@ -304,7 +304,8 @@ theorem literalMean_comparison (lt : α → α → Bool) (xs : List α) :
   · rw [literalMean_eq_toReal_lintegral, exerciseMean_eq_toReal_lintegral]
     have h := ENNReal.toReal_mono
       (ENNReal.mul_ne_top (ENNReal.natCast_ne_top 2) (exerciseLaw_lintegral_ne_top lt xs)) hup
-    simpa only [ENNReal.toReal_mul, ENNReal.toReal_natCast] using h
+    rw [ENNReal.toReal_mul, ENNReal.toReal_natCast] at h
+    simpa only [Nat.cast_ofNat] using h
 
 /-- A source-specific all-false family keeps its quadratic actual mean. -/
 theorem exerciseMean_of_all_false (lt : α → α → Bool) (xs : List α)
