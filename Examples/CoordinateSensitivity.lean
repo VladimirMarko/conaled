@@ -1,4 +1,5 @@
 import Applications.Selection.CoordinateSensitivity
+import Mathlib.Data.Fin.VecNotation
 
 /-! Source sensitivity and the public one-based selection interface. -/
 set_option autoImplicit false
@@ -45,12 +46,14 @@ theorem selected_coordinate_replaced :
 theorem singleton_sensitive (a : Int) :
     ∃ z : Int, (ordered ([a].set 0 z))[0]? ≠ some a := by
   obtain ⟨z, hz⟩ := exists_set_changes [a] 0 0 (by simp) (by simp) (by simp)
-  exact ⟨z, by simpa only [show (ordered [a])[0]? = some a from rfl] using hz⟩
+  have ha : (ordered [a])[0]? = some a :=
+    ranked_iff_index.mp ⟨[], [], List.Perm.refl _, rfl, by simp, by simp⟩
+  exact ⟨z, by simpa only [ha] using hz⟩
 
 theorem valid_ranks_are_injective :
     Function.Injective
       (fun k : Fin 3 => (ordered ([8, 1, 5] : List Int))[k.val]?) :=
-  ordered_index_injective _ (by decide)
+  ordered_index_injective ([8, 1, 5] : List Int) (by decide)
 
 /-- The preceding valid-index qualification is necessary. -/
 theorem invalid_ranks_agree :

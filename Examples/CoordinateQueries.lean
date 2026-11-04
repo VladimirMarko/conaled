@@ -1,4 +1,5 @@
 import Applications.Selection.CoordinateQueries
+import Mathlib.Data.Fin.VecNotation
 
 /-! Total correct query protocols, adaptive repetition, and their actual charges. -/
 set_option autoImplicit false
@@ -74,15 +75,13 @@ theorem repeated_negative_charges (a : Int) (negative : a < 0) :
       ([(0, a), (0, a)] : Transcript 1 Int).length = 2 ∧
       queryWork (fun _ _ => 3) ([(0, a), (0, a)] : Transcript 1 Int) = 6 := by
   refine ⟨repeatNegative_negative_run _ negative, rfl, ?_⟩
-  rw [queryWork_constant]
-  decide
+  norm_num [queryWork_constant]
 
 theorem nonnegative_single_charge (a : Int) (nonnegative : 0 ≤ a) :
     Runs repeatNegative (fun _ => a) [] [(0, a)] a ∧
       queryWork (fun _ _ => 3) ([(0, a)] : Transcript 1 Int) = 3 := by
   refine ⟨repeatNegative_nonnegative_run _ nonnegative, ?_⟩
-  rw [queryWork_constant]
-  decide
+  norm_num [queryWork_constant]
 
 theorem adaptive_run_lower_bound (input : Fin 1 → Int) (trace : Transcript 1 Int)
     (value : Int) (run : Runs repeatNegative input [] trace value) :
@@ -125,20 +124,24 @@ theorem pairMinimum_correct : Selects pairMinimum 0 := by
   intro input trace value run
   have hv := (run.deterministic (pairMinimum_run input)).2
   rw [hv]
-  simpa only [List.ofFn_succ, List.ofFn_zero] using
+  simpa only [List.ofFn_succ, List.ofFn_zero,
+    show ((0 : Fin 1).succ : Fin 2) = 1 by decide,
+    show (0 : Fin 2).val = 0 by decide] using
     pair_minimum_ranked (input 0) (input 1)
 
 theorem pairMinimum_distinct_coverage :
     ∀ i : Fin 2, i ∈ ([(0, (8 : Int)), (1, 1)] : Transcript 2 Int).map Prod.fst := by
   have run : Runs pairMinimum (![8, 1] : Fin 2 → Int) [] [(0, 8), (1, 1)] 1 := by
-    simpa only [show min (8 : Int) 1 = 1 by decide] using
+    simpa only [Matrix.cons_val_zero, Matrix.cons_val_one,
+      show min (8 : Int) 1 = 1 by decide] using
       pairMinimum_run (![8, 1] : Fin 2 → Int)
   exact run.queries_all 0 pairMinimum_correct (by decide +kernel)
 
 theorem pairMinimum_distinct_lower_bound :
     2 ≤ ([(0, (8 : Int)), (1, 1)] : Transcript 2 Int).length := by
   have run : Runs pairMinimum (![8, 1] : Fin 2 → Int) [] [(0, 8), (1, 1)] 1 := by
-    simpa only [show min (8 : Int) 1 = 1 by decide] using
+    simpa only [Matrix.cons_val_zero, Matrix.cons_val_one,
+      show min (8 : Int) 1 = 1 by decide] using
       pairMinimum_run (![8, 1] : Fin 2 → Int)
   exact run.length_lower_bound 0 pairMinimum_correct (by decide +kernel)
 
