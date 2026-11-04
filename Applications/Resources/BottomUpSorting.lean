@@ -115,13 +115,14 @@ theorem clog_two_source_half (n : Nat) (hn : 2 ≤ n) :
 /-- The integer-ceiling source convention agrees also at zero and one. -/
 theorem int_ceil_logb_two_nat (n : Nat) :
     ⌈Real.logb 2 (n : ℝ)⌉ = (Nat.clog 2 n : ℤ) := by
-  rw [Real.ceil_logb_natCast (b := 2) (r := (n : ℝ)) (Nat.cast_nonneg n),
-    Int.clog_natCast]
+  simpa only [Nat.cast_ofNat, Int.clog_natCast] using
+    Real.ceil_logb_natCast (b := 2) (r := (n : ℝ)) (Nat.cast_nonneg n)
 
 theorem int_ceil_logb_two_source_half (n : Nat) (hn : 2 ≤ n) :
     ⌈Real.logb 2 (n : ℝ)⌉ =
       ⌈Real.logb 2 (((n - 1) / 2 + 1 : Nat) : ℝ)⌉ + 1 := by
-  simp only [int_ceil_logb_two_nat, clog_two_source_half n hn,
+  rw [int_ceil_logb_two_nat n, int_ceil_logb_two_nat ((n - 1) / 2 + 1),
+    clog_two_source_half n hn,
     Nat.cast_add, Nat.cast_one]
 
 /-- The recursive call uses the first projection of the same measured pass.
@@ -143,15 +144,19 @@ abbrev allComparisons (cmp : α → α → Bool) (xss : List (List α)) : Nat :=
 
 @[simp] theorem allRun_nil (cmp : α → α → Bool) : allRun cmp [] = ([], 0) := by
   rw [allRun]
+  rfl
 
 @[simp] theorem allRun_singleton (cmp : α → α → Bool) (xs : List α) :
-    allRun cmp [xs] = (xs, 0) := by rw [allRun]
+    allRun cmp [xs] = (xs, 0) := by
+  rw [allRun]
+  rfl
 
 /-- Sequencing feeds the pass's actual returned list into the next execution. -/
 theorem allRun_step (cmp : α → α → Bool) (xs ys : List α) (rest : List (List α)) :
     allRun cmp (xs :: ys :: rest) =
       Resources.bind (pairsRun cmp (xs :: ys :: rest)) (allRun cmp) := by
   rw [allRun]
+  rfl
 
 theorem allRun_value (cmp : α → α → Bool) (xss : List (List α)) :
     (allRun cmp xss).1 = mergeAllBy cmp xss := by
@@ -370,15 +375,19 @@ abbrev allRevComparisons (cmp : α → α → Bool) (xss : List (List α)) : Nat
 
 @[simp] theorem allRevRun_nil (cmp : α → α → Bool) : allRevRun cmp [] = ([], 0) := by
   rw [allRevRun]
+  rfl
 
 @[simp] theorem allRevRun_singleton (cmp : α → α → Bool) (xs : List α) :
-    allRevRun cmp [xs] = (xs, 0) := by rw [allRevRun]
+    allRevRun cmp [xs] = (xs, 0) := by
+  rw [allRevRun]
+  rfl
 
 theorem allRevRun_step (cmp : α → α → Bool) (xs ys : List α)
     (rest : List (List α)) :
     allRevRun cmp (xs :: ys :: rest) =
       Resources.bind (pairsRevRun cmp [] (xs :: ys :: rest)) (allRevRun cmp) := by
   rw [allRevRun]
+  rfl
 
 theorem allRevRun_value (cmp : α → α → Bool) (xss : List (List α)) :
     (allRevRun cmp xss).1 = mergeAllRevBy cmp xss := by
