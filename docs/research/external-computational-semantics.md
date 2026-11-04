@@ -17,6 +17,11 @@ by the cited authors. This comparison does not select a replacement architecture
 of logic and dependent setting; the [synthesis](external-language-comparison.md)
 records local fit and proposed follow-up priorities.
 
+This completed first-pass note is retained evidence for
+[#280](https://github.com/VladimirMarko/conaled/issues/280), which owns the
+remaining discovery and priority assessment under #235. Its proposed comparisons
+are not completed experiments or selected implementation work.
+
 ## Algebraic effects and call-by-push-value
 
 Plotkin and Pretnar's *Handling Algebraic Effects*, LMCS 9(4:23), 2013,

@@ -16,6 +16,11 @@ condition. The [computational comparison](external-computational-semantics.md) c
 semantic commitments; the [synthesis](external-language-comparison.md) records
 local fit and proposed follow-up priorities.
 
+This completed first-pass note is retained evidence for
+[#280](https://github.com/VladimirMarko/conaled/issues/280), which owns the
+remaining discovery and priority assessment under #235. Its proposed comparisons
+are not completed experiments or selected implementation work.
+
 ## Institutions: change the logic while retaining theory structure
 
 **Source result.** Goguen and Burstall's institution consists of signatures,

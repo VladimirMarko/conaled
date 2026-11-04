@@ -1,6 +1,6 @@
 # External comparison for setting-parametric programming and proof
 
-Assessment for [#235](https://github.com/VladimirMarko/conaled/issues/235),
+Completed first-pass assessment for [#235](https://github.com/VladimirMarko/conaled/issues/235),
 coordinated with #36, #200 and #8. Research date: 2026-11-04. Local inspection
 baseline: `d509582f845133fca03d912f656b2576d4b98a57`.
 
@@ -15,8 +15,19 @@ The assessment responds to the
 [external-discovery brief](https://github.com/VladimirMarko/conaled/issues/235#issuecomment-6530272680)
 and the [semantic selection criteria](../language-direction.md#selecting-research-by-semantic-requirements).
 The earlier [#201 atlas](logic-correspondence-atlas.md) classifies logic fragments
-and interpretations. It is prior evidence, not the scope owner for this pending
-comparison. #235 remains open for architectural discovery and author usability.
+and interpretations. It is prior evidence, not the scope owner for this
+comparison. The first pass was merged locally in `c929cce`; subsequent Cousot
+source inspection and transcription strengthen one entry.
+[#280](https://github.com/VladimirMarko/conaled/issues/280) owns the remaining
+external discovery and priority assessment. #235 retains continuing architectural
+discovery and integration ownership. The experiments below remain proposals.
+
+The first pass compares selected traditions more strongly than it justifies
+the selection of those traditions. Its named search families and shared
+categorical vocabulary leave that selection open to challenge. #280 therefore
+calls for discovery from author needs before exposure to this shortlist, followed
+by assessment of omissions that could change the proposed priorities. This
+qualifies the D1/D3 recommendation; it does not discard the source assessments.
 
 ## Discovery scope and limits
 
@@ -187,13 +198,15 @@ the task until it passes.
 | D5. Approximation and quantitative observation, #174/#200/#235 | Compare an abstract/graded route with native relational and kernel observations on a fixed specification. State which order, mass and fixed-point assumptions compose. Include equal-support/different-mass and sound-but-imprecise cases. | A shared equality or Boolean observation cannot express the required distinction; an external route may also fail if its grade algebra loses correlations. |
 | D6. Hierarchical open composition, #27/#36/#235 | Compare wiring-algebra interconnection with a chosen native presentation, retaining the same smooth vector-field contract and allowed wiring. Record decomposition invariance and separate trajectory/solver obligations. | A route needs artificial closed operations or weakens the input/output contract just to encode the network. |
 
-The recommended first pair is D1 and D3, with D2 assessed alongside them for
+The provisional first-pass recommendation is D1 and D3, with D2 assessed alongside them for
 cross-theory reuse. They expose different failures: coherence of dependent
 meaning and retention of computational witnesses. This is a priority for gaining
 information, not a total ranking of the literature. D4 stays in scope even if
 its implementation is more demanding; D5 and D6 provide independent quantitative
-and open-system tests. #235 owns reconciling the outcomes before selecting a
-retrofit. #260 remains conditional; this assessment does not activate implicit
+and open-system tests. #280 owns reassessing this order and handing selected experiments to separate
+issues. The owner column identifies coordinating programmes, not dedicated
+experiment tickets or authorization to start all six. #235 owns reconciling
+eventual experiment outcomes before selecting a retrofit. #260 remains conditional; this assessment does not activate implicit
 subtyping or choose its semantic algebra. The #266–#270 duality agenda remains
 one set of hypotheses to compare with these alternatives.
 

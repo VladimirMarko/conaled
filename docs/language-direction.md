@@ -120,9 +120,13 @@ produce a small example immediately. Compare explicit assumptions, composition,
 extension obligations, preserved equality and witnesses, and author effort.
 Record omitted traditions and uncertainty. Propose discriminating experiments
 that our current approach could fail, rather than only examples it already fits.
-#235 owns this external comparison, coordinated with #36, #200 and #8.
+#235 retains continuing discovery and integration ownership, coordinated with
+#36, #200 and #8. [#280](https://github.com/VladimirMarko/conaled/issues/280) owns
+the bounded remaining external discovery and research-priority assessment.
 The [external comparison assessment](research/external-language-comparison.md)
-records the first discovery pass, its omissions and proposed matched experiments.
+records the completed first pass, its omissions and proposed matched experiments.
+Its priorities remain provisional pending that assessment; the experiments have
+not been completed by the first pass.
 
 The duality agenda in #266–#270 is promising but remains a set of hypotheses,
 not a ranking established by an external comparison. Investigating variance,
