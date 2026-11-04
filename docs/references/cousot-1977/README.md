@@ -91,7 +91,7 @@ program-specific names mean. The page links lead to their definitions.
 | Values, Env | Values is a semantic lattice. $\mathrm{Env}=\mathrm{Ident}^0\to\mathrm{Values}$ holds identifier bindings. | [p. 239, §3.2](source.pdf#page=3) |
 | I-states; $\underline{\mathrm{n\text{-}state}}$ | Initial states; the deterministic next-state function. Its superscript $n$ means repeated function application. | [pp. 239–240](source.pdf#page=3) |
 | Contexts, Context-Vectors | $\mathrm{Contexts}=2^{\mathrm{Env}}$ collects sets of environments at a program point. A context vector assigns a context to each arc, with domain $\mathrm{Arcs}^0$. | [p. 240, §4](source.pdf#page=4) |
-| $\underline{\mathrm{n\text{-}context}}$, $\underline{\mathrm{F\text{-}cont}}$ | The former computes one arc's context from a context vector. The latter packages those results into a context-vector functional. | [p. 240, §4](source.pdf#page=4) |
+| $\underline{\mathrm{n\text{-}context}}$, $\underline{\mathrm{F\text{-}Cont}}$ | The former computes one arc's context from a context vector. The latter packages those results into a context-vector functional. | [p. 240, §4](source.pdf#page=4) |
 | $\widetilde f$ | Pointwise lift of $f$ to arc-indexed vectors; tilde scope identifies exactly what is lifted. | [p. 242, §6](sections-5-6.md) |
 | $\alpha$, $\gamma$ | Abstraction and concretization maps with the paper's stated monotonicity, retraction, extensivity and transfer hypotheses. | [§6](sections-5-6.md), [Appendix H2/H3](appendix-12.md) |
 

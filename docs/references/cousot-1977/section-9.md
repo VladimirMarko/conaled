@@ -332,7 +332,7 @@ which is true, from 9.1.3.6, Q.E.D.
 
 In a PASCAL program operating on arrays, the compiler should ensure that arrays
 are subscripted only by indices within bounds. For that purpose one can use the
-lattice $\mathrm I_p$ of section 7. Let us take an obvious example:
+lattice $\mathrm I_{\mathrm I}$ of section 7. Let us take an obvious example:
 
 ## [Printed p.247](source.pdf#page=11)
 
