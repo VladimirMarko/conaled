@@ -215,3 +215,9 @@ constructor/observer extension composition, and #279 owns author comparisons.
 These tasks should use the additional structure only when their examples need
 it. No operational cost or effect equivalence is inferred from the present
 finite-path morphism theorem.
+
+The recursive successor [#284 guarded-stream experiment](modular-guarded-streams.md)
+constructs unique coordinate-guarded solutions, reuses solved ones in the sums
+scheme, and transports the solutions through a lossy coefficient interpretation.
+It is a bounded specialization; the source's full GSOS-relative recursive-scheme
+and completely iterative algebra machinery remains outside its claims.
