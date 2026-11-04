@@ -521,7 +521,7 @@ checks the paper derivations and source hypotheses. No build or proof-audit
 result is claimed for the new mathematics.
 
 The candidate incorporates integration tip
-`2525b12052e4c85c57f9050dbf18f7a36ba2ef19`, which is its review base.
+`90980ba02aee0d878fc0946b787c25def70937f5`, which is its review base.
 The documentation check ran through `direnv exec . python3`: all seven
 relative links resolve, the fixture matches its freeze commit byte for byte,
 and authored prose contains no em dashes. The staged diff passes whitespace
