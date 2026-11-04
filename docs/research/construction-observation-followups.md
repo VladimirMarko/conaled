@@ -141,3 +141,29 @@ keep modular recursion with #109, memoization/reuse with #263, and semantic-type
 admissibility with #262. None of those existing scopes needs a duplicate umbrella
 issue. General higher-order state, weak equivalence and arbitrary changes of
 index base remain possible research directions rather than automatic additions.
+
+## Implemented follow-ups
+
+The bounded implementations from #276–#279 and #281–#285 keep independent
+meaning and exact observations as their acceptance contracts. Their research
+records distinguish the checked claims from broader adoption questions.
+
+| Issue | Result and boundary |
+| --- | --- |
+| [#276](https://github.com/VladimirMarko/conaled/issues/276) | [Exact contextual rewrites](exact-observational-rewrites.md) preserve selected witnesses through arbitrary supported finite contexts. Boolean recognition alone still cannot justify witness-changing rewrites. |
+| [#277](https://github.com/VladimirMarko/conaled/issues/277) | [Equation-view compilation](equation-composition-bridge.md) supplies rules for a stated common fragment. Transposition preserves the rule; local semantic compatibility remains a separate obligation. |
+| [#278](https://github.com/VladimirMarko/conaled/issues/278) | [Constructor/observer composition](constructor-observer-composition.md) combines a vector constructor and observer through a common meaning and explicit cross-obligations. It does not establish arbitrary extension-order commutation. |
+| [#279](https://github.com/VladimirMarko/conaled/issues/279) | Independent authors checked direct and shared routes against a frozen protocol. The trial record reports assistance, failed attempts and configuration limits; it does not establish human usability or a causal productivity advantage. |
+| [#281](https://github.com/VladimirMarko/conaled/issues/281) | [Whole-client schedules](whole-client-workspace.md) compare retention and recomputation, including cleanup and a surrounding computation. Work/space results concern the specified schedules, not optimal implementations. |
+| [#282](https://github.com/VladimirMarko/conaled/issues/282) | [Retained snapshots](retained-parser-snapshots.md) reuse stored derivatives with exact lookup and depth restriction. Explicit workloads include construction costs and an adverse case; the result is a bounded client for #263. |
+| [#283](https://github.com/VladimirMarko/conaled/issues/283) | [Transport normalization](derivative-transport-normalization.md) reduces redundant outer wrappers while preserving exact parse decisions. Logical derivative-call savings can exceed packing costs on the stated workload; short and already simple states can lose. |
+| [#284](https://github.com/VladimirMarko/conaled/issues/284) | [Modular guarded streams](modular-guarded-streams.md) have unique solutions, and a later definition reuses an earlier solution. The coordinate construction rejects an unguarded equation and does not implement the paper's full categorical framework. |
+| [#285](https://github.com/VladimirMarko/conaled/issues/285) | [Higher-order comparison](higher-order-extensional-comparison.md) connects a typed behavioral model with independently specified function meaning. Equal mathematical results can have different beta-step counts; forgetting those counts requires its own comparison proof. |
+
+These results support continued use of local compatibility and explicit
+comparison theorems. They do not select a universal syntax or turn logical
+cost models into runtime measurements. The completed [#286](https://github.com/VladimirMarko/conaled/issues/286)
+and [#287](https://github.com/VladimirMarko/conaled/issues/287) paper assessments
+preserve that direction: assumption extraction and representation expansion
+have specific additional obligations, without replacing the existing direct
+interfaces.
