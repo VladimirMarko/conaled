@@ -100,8 +100,9 @@ replacement for semantic-type admissibility or arbitrary changes of base.
 v2](https://arxiv.org/pdf/1503.02447v2), Theorem 4.3, characterizes descent of a
 distributive law `T F ⇒ F T` to an equational quotient monad: it descends
 uniquely precisely when the law preserves the generating equations after
-quotienting. Assumption 2.2 supplies algebra coequalizers and preservation of
-regular epimorphisms by the relevant forgetful/composite functors. Propositions
+quotienting. Assumption 2.2 requires coequalizers in `Alg(T)` and requires
+`U`, `TU` and `EU` to send regular epimorphisms there to epimorphisms in the
+base category. It does not require those images to be regular epimorphisms. Propositions
 4.10 and 4.12 extend the result to copointed functors and comonads. Preservation
 is a behavioral obligation, not merely a syntax quotient construction.
 
