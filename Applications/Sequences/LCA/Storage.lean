@@ -1,3 +1,4 @@
+import Applications.Sequences.LCA.Arena
 import Applications.Sequences.LCA.BlockedRMQ
 import Applications.Sequences.LCA.PreparationBounds
 
@@ -97,5 +98,31 @@ theorem different_regions_disjoint (n inputWords : Nat) (r s : Region) (h : r �
   have hi := i.isLt
   have hj := j.isLt
   cases r <;> cases s <;> simp_all [address, regionBase, regionSize] <;> omega
+
+def segment (n inputWords : Nat) (r : Region) :
+    Arena.Segment (PreparationBounds.peakSlots n inputWords) (regionSize n inputWords r) :=
+  ⟨regionBase n inputWords r, region_end_le n inputWords r⟩
+
+theorem segments_disjoint (n inputWords : Nat) (r s : Region) (h : r ≠ s) :
+    Arena.Disjoint (segment n inputWords r) (segment n inputWords s) := by
+  cases r <;> cases s <;>
+    simp_all [Arena.Disjoint, segment, regionBase, regionSize] <;> omega
+
+/-- A region is an actual finite vector of words, installed into a finite
+initialized flat arena. Its reads and later writes use `Arena`'s simulation. -/
+def realizeRegion (n inputWords width : Nat) (r : Region)
+    (cells : Dijkstra.Store.Store (regionSize n inputWords r) (Fin (2^width))) :=
+  Arena.install (segment n inputWords r) cells
+    (Arena.initialized (PreparationBounds.peakSlots n inputWords) width)
+
+theorem realizeRegion_reads (n inputWords width : Nat) (r : Region)
+    (cells : Dijkstra.Store.Store (regionSize n inputWords r) (Fin (2^width))) :
+    Arena.Represents (segment n inputWords r) cells (realizeRegion n inputWords width r cells) :=
+  Arena.install_represents _ _ _
+
+example : regionBase 3 6 .classes = 3 := by decide
+example : regionBase 3 6 .minima = 9 := by decide
+example : Arena.Disjoint (segment 3 6 .depths) (segment 3 6 .classes) :=
+  segments_disjoint 3 6 _ _ (by decide)
 
 end Sequences.LCA.Storage
