@@ -261,5 +261,6 @@ import SquareKit.HigherOrderComparison
 
 import Examples.EquationComposition
 import Examples.DerivativeNormalization
+import Examples.ParserWorkload
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
