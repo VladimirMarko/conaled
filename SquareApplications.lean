@@ -272,4 +272,29 @@ import Applications.Sequences.LCA.Sparse
 import Applications.Sequences.LCA.SharedTable
 import Examples.LCATree
 
+import Applications.Sequences.LCA.Backend
+import Applications.Sequences.LCA.Catalog
+import Applications.Sequences.LCA.KeyBounds
+import Applications.Sequences.LCA.Workspace
+import Applications.Sequences.LCA.FlatTable
+import Applications.Sequences.LCA.MachineCapacity
+import Applications.Sequences.LCA.SparseCatalog
+import Examples.LCABackend
+
+import Applications.Sequences.LCA.Control
+import Applications.Sequences.LCA.QueryStorage
+import Applications.Sequences.LCA.PackedBackend
+
+import Applications.Sequences.LCA.BackendBounds
+import Applications.Sequences.LCA.StrategySelection
+import Applications.Sequences.LCA.PackedReads
+import Examples.LCAPhases
+
+import Applications.Sequences.LCA.TableTransport
+import Applications.Sequences.LCA.PreparationInvariants
+import Applications.Sequences.LCA.PreparationCertificate
+import Applications.Sequences.LCA.WordTrace
+import Applications.Sequences.LCA.WordLCA
+import Examples.LCAWordQuery
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
