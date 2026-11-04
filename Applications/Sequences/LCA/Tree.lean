@@ -11,7 +11,7 @@ set_option warningAsError true
 attachment expresses arbitrary branching. Node identities distinguish all
 occurrences even when their subtrees have identical shapes.
 -/
-namespace Applications.Sequences.LCA
+namespace Sequences.LCA
 
 inductive Tree where
   | singleton
@@ -564,4 +564,4 @@ theorem emit_entry_bounds (t : Tree) (base d : Nat) (x : Nat × Nat)
   omega
 
 end Tree
-end Applications.Sequences.LCA
+end Sequences.LCA

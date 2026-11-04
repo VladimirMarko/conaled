@@ -1,11 +1,11 @@
-import Applications.Sequences.LCA.Tree
+import Applications.Sequences.LCA.TreeBackend
 
 set_option autoImplicit false
 set_option warningAsError true
 
 /-! Checked Euler reductions for singleton, chain and arbitrary branching. -/
 namespace Examples.LCATree
-open Applications.Sequences.LCA Tree
+open Sequences.LCA Tree
 
 def one : Tree := .singleton
 def chain : Tree := .attach .singleton (.attach .singleton .singleton)
@@ -63,5 +63,12 @@ example : (cache branched).calls + 1 = 8 := cache_calls branched
 example : (tour star).length + 1 = 8 := tour_length star
 example : depth (visit chain 2) = depth (visit chain 1) + 1 ∨
     depth (visit chain 1) = depth (visit chain 2) + 1 := adjacent_depth chain 1 (by decide)
+
+
+-- Repeated visits do not overwrite the initialized first-position map.
+example : (TreeBackend.prepareFirstM star (TreeBackend.emittedIds star)).2 = 43 := by decide
+example : Dijkstra.Store.lookup (TreeBackend.prepareFirstM star (TreeBackend.emittedIds star)).1
+    ⟨3, by decide⟩ = 5 := by
+  exact TreeBackend.prepareFirstM_lookup star ⟨3, by decide⟩
 
 end Examples.LCATree
