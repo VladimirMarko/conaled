@@ -1,4 +1,4 @@
-import Applications.Sequences.LCA.TreeBackend
+import Applications.Sequences.LCA.TreeMaps
 
 set_option autoImplicit false
 set_option warningAsError true
@@ -70,5 +70,15 @@ example : (TreeBackend.prepareFirstM star (TreeBackend.emittedIds star)).2 = 43 
 example : Dijkstra.Store.lookup (TreeBackend.prepareFirstM star (TreeBackend.emittedIds star)).1
     ⟨3, by decide⟩ = 5 := by
   exact TreeBackend.prepareFirstM_lookup star ⟨3, by decide⟩
+
+
+example : (TreeBackend.prepareEmissionM star).2 = 45 := by decide
+example : (TreeBackend.prepareMapsM star).2 = 144 := by decide
+example : TreeBackend.Valid branched (TreeBackend.prepareMapsM branched).1 :=
+  TreeBackend.prepareMapsM_valid branched
+example : TreeBackend.translateM (TreeBackend.prepareMapsM star).1
+    ⟨3, by decide⟩ ⟨1, by decide⟩ = ((1,5),3) := by
+  exact TreeBackend.translate_valid _ (TreeBackend.prepareMapsM_valid star) _ _
+example : TreeBackend.retainedWords star = 18 := rfl
 
 end Examples.LCATree
