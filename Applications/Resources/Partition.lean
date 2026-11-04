@@ -42,6 +42,7 @@ theorem partitionRun_value (p : α) (xs : List α) :
   | cons y ys ih =>
       rw [partitionRun_cons, CallCount.tick_value, Resources.bind_value, ih,
         Sequences.Partition.partition3_cons]
+      rfl
 
 @[simp] theorem partitionRun_nil_cost (p : α) :
     (partitionRun p []).2 = 1 := rfl
