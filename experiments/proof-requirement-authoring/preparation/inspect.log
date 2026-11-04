@@ -1,0 +1,14 @@
+theorem ProofRequirementTrial.Source.reverseBlocks : (∀ (t : List ℕ), t ++ [] = t) →
+  ∀ (x y z : List ℕ), (x ++ (y ++ z)).reverse = z.reverse ++ y.reverse ++ x.reverse :=
+fun _ambient x y z =>
+  Trans.trans
+    (Trans.trans
+      (Trans.trans (congrArg (fun t => (t ++ (y ++ z)).reverse) (Eq.symm (List.reverse_reverse x)))
+        (congrArg (fun t => (t ++ (y ++ z)).reverse) (List.reverse_reverse x)))
+      List.reverse_append)
+    (congrArg (fun t => t ++ x.reverse) List.reverse_append)
+def ProofRequirementTrial.Source.selected : (x : List ℕ) → { y // y.length = (x ++ []).length } :=
+fun x => ⟨x, ProofRequirementTrial.Source.selected._proof_1 x⟩
+@List.reverse_reverse : ∀ {α : Type u_1} (as : List α), as.reverse.reverse = as
+@List.reverse_append : ∀ {α : Type u_1} {as bs : List α}, (as ++ bs).reverse = bs.reverse ++ as.reverse
+@List.append_nil : ∀ {α : Type u_1} (as : List α), as ++ [] = as
