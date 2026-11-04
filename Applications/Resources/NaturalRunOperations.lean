@@ -404,7 +404,7 @@ theorem buildAscending_counts_add_three (first : α) (middle : List α) (last : 
       ((buildAscending first middle).1 [last]).2 + 3 =
         2 * (first :: (middle ++ [last])).length := by
   rw [buildAscending_cost, buildAscending_appCost first middle [last]]
-  simp only [List.length_cons, List.length_append, List.length_singleton]
+  simp only [List.length_cons, List.length_append, List.length_nil]
   constructor <;> omega
 
 theorem buildAscending_counts (first : α) (middle : List α) (last : α) :
