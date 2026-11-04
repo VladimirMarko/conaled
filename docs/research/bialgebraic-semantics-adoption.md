@@ -215,3 +215,10 @@ constructor/observer extension composition, and #279 owns author comparisons.
 These tasks should use the additional structure only when their examples need
 it. No operational cost or effect equivalence is inferred from the present
 finite-path morphism theorem.
+
+The higher-order successor [#285 comparison](higher-order-extensional-comparison.md)
+now implements the independent function interpretation, typed logical comparison,
+and binding/substitution cases. Its checked counterexample rejects recovery of
+step-sensitive observations from extensional ground meaning. The source theorem
+hypotheses and the remaining weak-domain/full-abstraction scope are recorded
+there; the experiments in this section remain the original #275 specifications.
