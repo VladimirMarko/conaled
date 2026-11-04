@@ -1,0 +1,67 @@
+import Applications.Sequences.LCA.Tree
+
+set_option autoImplicit false
+set_option warningAsError true
+
+/-! Checked Euler reductions for singleton, chain and arbitrary branching. -/
+namespace Examples.LCATree
+open Applications.Sequences.LCA Tree
+
+def one : Tree := .singleton
+def chain : Tree := .attach .singleton (.attach .singleton .singleton)
+def star : Tree := .attach (.attach (.attach .singleton .singleton) .singleton) .singleton
+def branched : Tree := .attach (.attach .singleton (.attach .singleton .singleton)) .singleton
+
+-- The root is 0, the first child's descendant is 2, and the final child is 3.
+example : (tour branched).map code = [0, 1, 2, 1, 0, 3, 0] := rfl
+example : depthTable branched = [0, 1, 2, 1, 0, 1, 0] := rfl
+example : firstTable branched = [0, 1, 2, 5] := rfl
+example : depthTable one = [0] := rfl
+example : depthTable chain = [0, 1, 2, 1, 0] := rfl
+example : depthTable star = [0, 1, 0, 1, 0, 1, 0] := rfl
+
+-- Concrete ancestry results are obtained from the independent universal law.
+example : IsLCA (decode branched ⟨1, by decide⟩) (decode branched ⟨2, by decide⟩)
+    (decode branched ⟨1, by decide⟩) := by
+  exact lca_spec _ _
+example : IsLCA (decode branched ⟨2, by decide⟩) (decode branched ⟨3, by decide⟩)
+    (root branched) := by
+  exact lca_spec _ _
+example : IsLCA (root one) (root one) (root one) := lca_spec _ _
+example : IsLCA (decode chain ⟨2, by decide⟩) (decode chain ⟨2, by decide⟩)
+    (decode chain ⟨2, by decide⟩) := lca_spec _ _
+
+-- The star interval contains the root twice. Either minimum index recovers
+-- the same node identity; the downstream RMQ may choose the leftmost one.
+example : visit star 2 = lca (decode star ⟨1, by decide⟩) (decode star ⟨3, by decide⟩) := by
+  apply rmq_recovers_lca _ _ 2 (by decide) (by decide)
+  intro i _ _
+  exact Nat.zero_le _
+example : visit star 4 = lca (decode star ⟨1, by decide⟩) (decode star ⟨3, by decide⟩) := by
+  apply rmq_recovers_lca _ _ 4 (by decide) (by decide)
+  intro i _ _
+  exact Nat.zero_le _
+
+-- Reversed query endpoints use the same interval theorem.
+example : visit star 2 = lca (decode star ⟨3, by decide⟩) (decode star ⟨1, by decide⟩) := by
+  apply rmq_recovers_lca_sorted _ _ 2 (by decide) (by decide)
+  intro i _ _
+  exact Nat.zero_le _
+
+-- This case exercises an interval whose minimum has positive depth.
+example : visit chain 1 = lca (decode chain ⟨1, by decide⟩) (decode chain ⟨2, by decide⟩) := by
+  apply rmq_recovers_lca _ _ 1 (by decide) (by decide)
+  intro i hlo hhi
+  have hi : i = 1 ∨ i = 2 := by change 1 ≤ i at hlo; change i ≤ 2 at hhi; omega
+  rcases hi with rfl | rfl <;> decide
+
+-- The cached emitter is used through its general refinement theorem.
+example : (cache branched).emit 0 0 [] = [(0, 0), (1, 1), (2, 2), (1, 1), (0, 0), (3, 1), (0, 0)] := by
+  rw [emit_spec]
+  rfl
+example : (cache branched).calls + 1 = 8 := cache_calls branched
+example : (tour star).length + 1 = 8 := tour_length star
+example : depth (visit chain 2) = depth (visit chain 1) + 1 ∨
+    depth (visit chain 1) = depth (visit chain 2) + 1 := adjacent_depth chain 1 (by decide)
+
+end Examples.LCATree
