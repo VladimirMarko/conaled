@@ -121,6 +121,8 @@ extension obligations, preserved equality and witnesses, and author effort.
 Record omitted traditions and uncertainty. Propose discriminating experiments
 that our current approach could fail, rather than only examples it already fits.
 #235 owns this external comparison, coordinated with #36, #200 and #8.
+The [external comparison assessment](research/external-language-comparison.md)
+records the first discovery pass, its omissions and proposed matched experiments.
 
 The duality agenda in #266–#270 is promising but remains a set of hypotheses,
 not a ranking established by an external comparison. Investigating variance,

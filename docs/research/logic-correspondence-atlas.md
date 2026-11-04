@@ -23,6 +23,11 @@ they are not names of new library abstractions.
 The [integration assessment](correspondence-contracts-and-integration.md)
 compares shared contracts and proposes bounded adapters between these routes.
 
+The [external language comparison](external-language-comparison.md) continues
+discovery under #235, including alternatives that could replace the current
+architecture. It separates semantic suitability from local implementation fit
+and proposes matched tests for topic-selection assumptions.
+
 ## Reading and extending an entry
 
 Each entry records a **fragment/profile**, **counterpart**, **direction and

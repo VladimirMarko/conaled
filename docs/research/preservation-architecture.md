@@ -8,6 +8,11 @@ The [inventory](preservation-contract-inventory.md) and the experiment's
 compatibility table remain the source-backed record of native contracts and
 missing adapters.
 
+The later [external comparison](external-language-comparison.md) assesses
+alternative foundations and computational semantics against the language ambition.
+It proposes discriminating experiments before a further integration choice;
+the local milestone below remains evidence for its original bounded clients.
+
 ## A family of compatible laws
 
 `Interaction.Refines` covers each admitted target behavior by a related source
