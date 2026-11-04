@@ -39,6 +39,7 @@ theorem ascending_zero_merge :
   mergeComparisons_of_sorted id natCompare [0, 1, 2] (by decide) (by simp)
 
 theorem descending : run natLT natCompare [2, 1, 0] = ([0, 1, 2], 2) := by
+  change run (fun a b : Nat => decide (a < b)) natCompare [2, 1, 0] = ([0, 1, 2], 2)
   simpa using run_of_strictly_descending id natCompare [2, 1, 0] (by decide) (by simp)
 
 theorem three_boundary_scan :
@@ -155,12 +156,15 @@ theorem integer_zero_one_bound :
     (comparisons natLT natCompare [] : ℤ) ≤ 0 ∧
       (comparisons natLT natCompare [7] : ℤ) ≤ 1 := by
   constructor
-  · simpa using comparisons_le_int_ceil natLT natCompare []
-  · simpa using comparisons_le_int_ceil natLT natCompare [7]
+  · simpa only [List.length_nil, Nat.cast_zero, zero_mul, add_zero] using
+      comparisons_le_int_ceil natLT natCompare []
+  · simpa only [List.length_singleton, Nat.cast_one, Real.logb_one, Int.ceil_zero,
+      mul_zero, add_zero] using comparisons_le_int_ceil natLT natCompare [7]
 
 /-- Every payload type and comparator is allowed: the constant key produces only one run. -/
 theorem repeated_payload_exact (cmp : α → α → Bool) (a : α) (n : Nat) :
     comparisons (fun _ _ => false) cmp (List.replicate n a) = n - 1 := by
+  change comparisons (fun _ _ : α => decide ((0 : Nat) < 0)) cmp (List.replicate n a) = n - 1
   simpa only [List.length_replicate] using
     comparisons_of_sorted (fun _ : α => (0 : Nat)) cmp (List.replicate n a)
       (by simp [KeySorted])
@@ -171,9 +175,10 @@ theorem constant_key_run_count (xs : List α) :
   | nil => simp
   | cons a xs =>
     have hr : runsBy (fun _ _ => false) (a :: xs) = [a :: xs] :=
-      runsOn_of_sorted (fun _ : α => (0 : Nat)) (a :: xs) (by simp [KeySorted]) (by simp)
+      runsOn_of_sorted (fun _ : α => (0 : Nat)) (a :: xs)
+        (List.pairwise_of_forall (fun _ _ => Nat.le_refl 0)) (by simp)
     calc
-      (runsBy (fun _ _ => false) (a :: xs)).length = 1 := by rw [hr]
+      (runsBy (fun _ _ => false) (a :: xs)).length = 1 := by rw [hr]; rfl
       _ ≤ 1 := Nat.le_refl 1
 
 /-- The adaptive growth theorem is exercised with a proved run budget, including n=0. -/
@@ -201,7 +206,7 @@ theorem ascending_range_exact (n : Nat) :
     comparisons natLT natCompare (List.range n) = n - 1 := by
   simpa only [List.length_range] using
     comparisons_of_sorted id natCompare (List.range n)
-      (List.pairwise_lt_range.imp (fun _ _ h => Nat.le_of_lt h))
+      (List.pairwise_lt_range.imp (fun h => Nat.le_of_lt h))
 
 theorem ascending_range_linear :
     Asymptotics.IsTheta Filter.atTop
@@ -211,7 +216,7 @@ theorem ascending_range_linear :
   · intro n
     simp
   · intro n
-    exact List.pairwise_lt_range.imp (fun _ _ h => Nat.le_of_lt h)
+    exact List.pairwise_lt_range.imp (fun h => Nat.le_of_lt h)
 
 /-- This oscillating family has length n; the general bound needs no run-count estimate. -/
 theorem periodic_family_isBigO :
