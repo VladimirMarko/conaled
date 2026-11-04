@@ -145,10 +145,11 @@ to investigate before claiming an equivalence. An exact program-organization
 involution does not answer them, and initial syntax and final behavior must not
 be identified merely because both appear in the same semantics.
 
-[#269](https://github.com/VladimirMarko/conaled/issues/269) owns a source-backed
-fit/mismatch assessment against existing squares, relations and #257's variance
-interfaces. It may recommend an additional layer or reject the proposed fit;
-it does not prescribe a universal Chu framework.
+The [#269 pairing assessment](pairing-observation-transport.md) compares Chu
+maps with existing squares, relations and #257's variance interfaces. Its parser
+and vector cases support reuse of exact squares with explicit query transport;
+changed result fibers still need dependent comparison. It recommends no universal
+Chu framework for these clients and leaves broader applicability under #235.
 
 ## Symmetric proof syntax and evaluation order
 
