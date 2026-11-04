@@ -16,32 +16,37 @@ def store {n : Nat} (mem : Store n α) (i : Fin n) (x : α) : Measured (Store n 
 
 def initStore (seed : α) : (n : Nat) → Measured (Store n α) Nat
   | 0 => pure #v[]
-  | n+1 => bind (initStore seed n) fun cells => (cells.push seed, 1)
+  | n+1 => bind (initStore seed n) fun cells => (cells.push seed, 3)
 
 theorem initStore_exact (seed : α) (n : Nat) :
-    initStore seed n = (Vector.replicate n seed, n) := by
+    initStore seed n = (Vector.replicate n seed, 3*n) := by
   induction n with
   | zero => rfl
-  | succ n ih => simp [initStore, ih, Resources.bind, Vector.replicate_succ]
+  | succ n ih => simp [initStore, ih, Resources.bind, Vector.replicate_succ]; omega
+
+/-- A bounded loop counter visit performs its comparison and increment. The
+list passed to `fill` denotes the control schedule, not a target heap list. -/
+def visitIndex {n : Nat} (i : Fin n) : Measured (Fin n) Nat := (i, 2)
 
 def fill {n : Nat} (f : Fin n → Measured α Nat) : List (Fin n) → Store n α → Measured (Store n α) Nat
   | [], mem => pure mem
-  | i :: rest, mem => bind (f i) fun a => bind (store mem i a) fun mem' => fill f rest mem'
+  | i :: rest, mem => bind (visitIndex i) fun j =>
+      bind (f j) fun a => bind (store mem j a) fun mem' => fill f rest mem'
 
 theorem fill_value {n : Nat} (f : Fin n → Measured α Nat) (indices : List (Fin n))
     (mem : Store n α) :
     (fill f indices mem).1 = accum (fun _ x => x) mem (indices.map (fun i => (i, (f i).1))) := by
   induction indices generalizing mem with
   | nil => rfl
-  | cons i rest ih => simpa [fill, Resources.bind, store, accum, accumStep] using ih (write mem i (f i).1)
+  | cons i rest ih => simpa [fill, visitIndex, Resources.bind, store, accum, accumStep] using ih (write mem i (f i).1)
 
 theorem fill_cost {n : Nat} (f : Fin n → Measured α Nat) (indices : List (Fin n))
     (mem : Store n α) (c : Nat) (hc : ∀ i, (f i).2 ≤ c) :
-    (fill f indices mem).2 ≤ indices.length * (c+1) := by
+    (fill f indices mem).2 ≤ indices.length * (c+3) := by
   induction indices generalizing mem with
   | nil => simp [fill, Resources.pure]
   | cons i rest ih =>
-    simp only [fill, Resources.bind, store, List.length_cons]
+    simp only [fill, visitIndex, Resources.bind, store, List.length_cons]
     have hh := ih (write mem i (f i).1)
     have hi := hc i
     nlinarith
@@ -64,7 +69,7 @@ theorem tabulate_value {n : Nat} (seed : α) (f : Fin n → Measured α Nat) :
 
 theorem tabulate_cost {n : Nat} (seed : α) (f : Fin n → Measured α Nat)
     (c : Nat) (hc : ∀ i, (f i).2 ≤ c) :
-    (tabulate seed f).2 ≤ n * (c+2) := by
+    (tabulate seed f).2 ≤ n * (c+6) := by
   simp only [tabulate, Resources.bind, initStore_exact]
   have hh := fill_cost f (List.finRange n) (Vector.replicate n seed) c hc
   simp only [List.length_finRange] at hh
