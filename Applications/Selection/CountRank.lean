@@ -253,7 +253,7 @@ theorem sorted_filter_gt_sublist_drop {ys : List α} {k : Nat} {a : α}
     | zero =>
       simp only [List.getElem?_cons_zero, Option.some.injEq] at ha
       subst a
-      simpa using (List.filter_sublist (p := fun y => decide (x < y)) (l := ys))
+      simp
     | succ k =>
       have ht : ys[k]? = some a := ha
       have hx : x ≤ a := (List.pairwise_cons.mp hs).1 a (List.mem_of_getElem? ht)
