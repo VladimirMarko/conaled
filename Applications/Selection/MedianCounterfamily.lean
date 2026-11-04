@@ -33,7 +33,9 @@ theorem mem_fullBlocks_length (i : Nat) (ys : List Nat) (hy : ys ∈ fullBlocks 
     ys.length = 5 := by
   rcases List.mem_append.mp hy with hy | hy
   · rw [List.eq_of_mem_replicate hy]
+    rfl
   · rw [List.eq_of_mem_replicate hy]
+    rfl
 
 theorem flatten_fullBlocks_length (i : Nat) :
     (fullBlocks i).flatten.length = 5 * (2 * i + 1) := by
@@ -56,6 +58,7 @@ theorem family_ne_nil (i : Nat) : family i ≠ [] :=
 
 theorem family_lengths_strictMono : StrictMono (fun i => (family i).length) := by
   intro i j hij
+  change (family i).length < (family j).length
   rw [family_length, family_length]
   omega
 
@@ -107,7 +110,7 @@ theorem chunkMedians_family (i : Nat) :
       intro ys _
       exact hm ys.val ys.property
     _ = (chop 5 (family i)).map (fun ys : List Nat => ys.headD 0) :=
-      List.attach_map_val
+      List.attach_map_val (l := chop 5 (family i)) (f := fun ys : List Nat => ys.headD 0)
     _ = List.replicate i 0 ++ List.replicate (i + 1) 1 ++ [0] := by
       rw [chop_family]
       simp [fullBlocks, lowBlock, highBlock]
