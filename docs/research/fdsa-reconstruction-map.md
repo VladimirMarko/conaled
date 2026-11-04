@@ -47,7 +47,7 @@ Chapter organization is a coverage index; modules follow reusable domain concept
 | Chapter | Topic | Current implementation scope |
 | --- | --- | --- |
 | 1 | Basics | Accepted at `07e480f`; detailed witnesses below |
-| 2 | Sorting | Active; shared insertion, merge, builder, partition and minimum-law groundwork below; acceptance tracked separately |
+| 2 | Sorting | [112-obligation source correspondence](fdsa-sorting.md), including the selected stable Exercise 2.7; validation and acceptance tracked separately |
 | 3 | Selection | Queued; shared insertion and partition groundwork below |
 | 4 | Binary Trees | Queued |
 | 5 | Binary Search Trees | Queued |
@@ -225,6 +225,49 @@ both independent reviews and immediate candidate verification. The companion
 tracker retains the exact evidence and earlier failed or unknown attempts. Section
 1.5.3's preference for explicit bounds remains explanatory. Higher-order time
 conventions refer forward to Appendix B.1 and stay on that appendix's list.
+
+## Chapter 2: Sorting, printed pages 13–29
+
+The [complete sorting correspondence](fdsa-sorting.md) retains all 112 frozen
+obligations: C02-001–107 and the five operational clarifications C02-108–112.
+It maps every section, display, named result and exercise to exact declarations,
+connected examples, standard reuse or an explicit correction/proof-step
+disposition. This is source correspondence at the recorded immutable candidate,
+not a declaration of acceptance.
+
+The ordinary algorithms preserve input multiplicities and establish pairwise
+sortedness with their stated order laws. Keyed contracts preserve full records
+and filtered equal-key subsequences. Exercise 2.7 selects the source floor-left
+top-down sorter, with contiguous take/drop and the non-strict left-tie merge.
+Alternating and reversed-pass variants retain ordinary correctness and their
+explicit instability cases.
+
+Measured insertion, merge, top-down, bottom-up and natural-sort recurrences
+operate on actual returned children or runs. Comparison counts, function-entry
+counts, append observations and the declared closure/scanner operational work
+remain separate. The natural best-case development covers the actual one-run
+output and zero merge comparisons, constant local closure creation, bounded
+materialization, the full scanner and the stated zero/single-run final dispatch.
+It makes no all-input operational merge or physical-runtime claim.
+
+Both quicksort average assertions have source developments. Uniform input uses
+one global uniform permutation of occurrence labels and conditional laws of
+that same experiment. Fresh random pivot selects a new uniform occurrence
+index at each nonempty recursive call. Actual integrability, child-value and
+cost transport, rank laws and recurrence proofs lead to the harmonic formula
+for the exercise tariff. Literal append-inclusive means have separate bounds.
+Mapped-key distinctness, zero/one logarithm boundaries, duplicate quadratic
+families and uncharged sampling/indexing overhead stay explicit.
+
+The note records the source's early accumulator names, antisymmetry wording,
+floor-left split, conditional logarithm domains and cost-model distinctions.
+The public entrypoint adds 23 example imports while preserving the already
+exposed shared foundations and probability units. The existing audit imports
+that entrypoint and therefore includes the chapter through its normal dependency.
+Exact compiler, exhaustive audit, independent Standards/Spec and immediate
+candidate-verification outcomes remain in the local records. Accepted Chapter 1 and the independently accepted shared prerequisites are
+preserved; the local records retain their exact acceptance evidence.
+No later chapter is accepted by these Chapter 2 preparations.
 
 ## Shared insertion costs for Chapters 2 and 3
 
@@ -513,9 +556,10 @@ of already obtained child lists. Full child/traversal work is not included.
 
 The prescribed C2 merge/comparison model and chosen C14 exercise components
 are distinguished in [the source note](fdsa-list-merge.md), with pinned sources,
-license and full observation boundaries. All whole-sort/logarithmic, run/builder,
-exercise and stability obligations remain; the original 107/current 112 C2
-requirements are unchanged. All concrete C14 queue/whole-enumeration/carrier
+license and full observation boundaries. The original 107/current 112 C2
+requirements are unchanged; their whole-sort, logarithmic, run/builder, exercise
+and stability source clients are mapped in [fdsa-sorting.md](fdsa-sorting.md).
+All concrete C14 queue/whole-enumeration/carrier
 and quadratic claims remain queued, and binomial carry is a different operation.
 The original foundation prefix c80eec9 excludes this later component.
 The source note retains a dated validation snapshot; acceptance requires the
@@ -537,21 +581,23 @@ preservation, empty payloads, repeated materialization, charged identity and
 empty-prefix histories with unbounded application work. Shared self-composition
 distinguishes distinct creation events from unfolded invocation occurrences.
 
-The
-[source and statement notes](fdsa-difference-list-costs.md) retain the actual
-singleton-seeded asc/scanner and repeated ordinary append/reverse obligations
-for Chapter 2. It makes no compiler or machine-runtime claim and does not
-activate or accept that chapter.
+This cross-cutting source component is included in the active Chapter 2
+candidate. The [source and statement notes](fdsa-difference-list-costs.md) retain
+its closure model; the [sorting correspondence](fdsa-sorting.md) maps the actual
+singleton-seeded ascending worker/scanner and ordinary append/reverse clients.
+Local candidate/review records distinguish focused evidence, source corrections
+and pending full gates. The abstract observations do not imply compiler or
+machine-runtime bounds, and this source map does not accept the chapter.
 
 The source note retains a dated validation snapshot; full immutable-candidate
 acceptance gates remain required.
 
 ## Shared three-way partition values and source execution (FDSA-XQ01)
 
-This bounded cross-cutting unit exposes the existing independent
+This bounded cross-cutting component exposes the existing independent
 partition semantics to Sorting and Selection, with a separately measured
-one-pass realization for Appendix B.2. It activates or accepts neither chapter
-and does not widen the initial Chapter 2 foundation prefix. Exact provenance,
+one-pass realization for Appendix B.2. It does not accept either chapter
+or widen the initial Chapter 2 foundation prefix. Exact provenance,
 source/model distinctions, interface compatibility and cases are in
 [fdsa-three-way-partition.md](fdsa-three-way-partition.md).
 The source note retains the dated validation history; it does not substitute
@@ -573,12 +619,13 @@ old two-pass value implementation, new actual source program and Exercise
 tail-recursion, constant stack or arbitrary monotone bucket-transport claim
 is introduced.
 
-Complete quicksort3, selection rank/middle-index bridges, actual selector
-recursion and termination, median-of-medians, random policies and their total
-costs remain mandatory in the original chapters. Accepted repaired Chapter 1,
-focused compatibility checks, the full candidate build/audit, both independent
-review axes and immediate candidate verification remain required. No source
-preflight or authored draft supplies acceptance evidence.
+Chapter 2's complete quicksort3 and actual random-quicksort source developments
+are mapped in [fdsa-sorting.md](fdsa-sorting.md). Selection rank/middle-index
+bridges, actual selector recursion and termination, median-of-medians and its
+random policies/total costs remain mandatory in their original chapters.
+Accepted repaired Chapter 1 is preserved. The full candidate build/audit, both
+independent review axes and immediate candidate verification remain required;
+no source preflight or authored draft supplies acceptance evidence.
 
 ## Shared fixed-subset minimum probability (draft)
 
@@ -592,7 +639,9 @@ infinite-target integer priorities, empty indices, outsiders and ties.
 This groundwork supports Chapters 2 and 10. It does not supply conditional
 pivot/subproblem laws, full relative-order restrictions, the expected first
 position, treap construction/ancestor/charging proofs or algorithm cost
-correspondences. Its source note retains a dated validation snapshot;
+correspondences by itself. The Chapter 2 algorithm clients of this and the
+later order/tail units are mapped in [fdsa-sorting.md](fdsa-sorting.md).
+Its source note retains a dated validation snapshot;
 the local FDSA-XU01 record retains the frozen scope and subsequent gate results.
 
 ## Shared whole-subset ordering (draft)
@@ -608,7 +657,9 @@ nested filtering and empty/orientation/invalid-enumeration boundaries.
 
 This is further shared groundwork for Chapters 2 and 10. Conditional
 histories, adaptive subsets, joint independence, expected positions, algorithm
-semantics and actual costs remain separate obligations. The source note retains the 4 November 2026 development validation history;
+semantics and actual costs remain separate obligations. Chapter 2's actual
+algorithm clients are mapped in [fdsa-sorting.md](fdsa-sorting.md); they do not
+postulate a joint independence law. The source note retains the 4 November 2026 development validation history;
 the local FDSA-XU02 record retains the frozen exact scope and subsequent
 candidate/review evidence. Full immutable-candidate acceptance gates remain
 required.
@@ -625,7 +676,8 @@ their separate measurable hypotheses and on-event value bridges.
 
 The examples include two successive reveals, a changed environment with a
 uniform observed tail, actual filtered projections, null conditioning and a
-counterexample to weakening subset containment. This supports Chapter 2 and
-Chapter 3 preparation; complete history, algorithm correspondence, sampling
-coupling and cost proofs remain queued. The source note retains the 4 November 2026 development validation history; full immutable-candidate acceptance gates remain required. Local FDSA-XU03 retains the frozen scope, exact expectations,
+counterexample to weakening subset containment. Chapter 2's actual child-filter,
+conditional-mean and cost recurrence clients are mapped in
+[fdsa-sorting.md](fdsa-sorting.md). Complete history and Chapter 3 algorithm,
+sampling-coupling and cost obligations remain separate. The source note retains the 4 November 2026 development validation history; full immutable-candidate acceptance gates remain required. Local FDSA-XU03 retains the frozen scope, exact expectations,
 candidate identity and later validation/review evidence.

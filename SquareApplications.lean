@@ -258,5 +258,29 @@ import Examples.MergeCosts
 import Examples.DifferenceListCosts
 import Examples.ThreeWayPartition
 
+import Examples.InsertionObservations
+import Examples.QuickSort
+import Examples.QuickSortCosts
+import Examples.TopDownSorting
+import Examples.TopDownCosts
+import Examples.BottomUpSorting
+import Examples.BottomUpCosts
+import Examples.AlternatingSorting
+import Examples.NaturalRuns
+import Examples.NaturalRunComparisons
+import Examples.NaturalSorting
+import Examples.NaturalSortingCosts
+import Examples.ListBuildCosts
+import Examples.ThreeWayQuickSort
+import Examples.RandomQuickSort
+import Examples.SortUniqueness
+import Examples.NaturalRunOperations
+import Examples.QuickSortTransport
+import Examples.RandomQuickSortMean
+import Examples.QuickSortMean
+import Examples.RandomQuickSortRank
+import Examples.UniformQuickSortMean
+import Examples.RandomQuickSortGrowth
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
