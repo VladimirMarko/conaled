@@ -143,7 +143,8 @@ theorem chunkMedianGroups_lengths (d : Nat) (xs : List α) (r : α → Bool) :
 theorem chunkMedianGroups_related_length (d : Nat) (xs : List α) (r : α → Bool) :
     (chunkMedianGroups d xs r).1.length = (chunkMedians d xs).countP r := by
   unfold chunkMedianGroups chunkMedians
-  simp only [List.length_map, ← List.countP_eq_length_filter, List.countP_map]
+  simp only [List.length_map, ← List.countP_eq_length_filter, List.countP_map,
+    Function.comp_def]
 
 /-- A chunk whose median is at least the pivot contributes at most half its
 size to the strict lower side, including a short final chunk and ties. -/
@@ -223,8 +224,8 @@ private theorem chunk_count_bound (d : Nat) (xs : List α) (r bad : α → Bool)
     simp only [chunks, List.length_attach, length_chop]
   have hbad : chunks.countP (fun ys => bad (med ys)) =
       (chunkMedians d xs).countP bad := by
-    unfold chunkMedians
-    rw [List.countP_map]
+    dsimp only [chunks, med]
+    simp only [chunkMedians, List.countP_map, Function.comp_def]
   rw [hsum, hlen, hbad] at h
   exact h.trans (Nat.add_le_add_left (Nat.mul_le_mul_left _ hmed) _)
 
@@ -282,7 +283,7 @@ theorem size_five_ceiling (n : Nat) :
   rw [← ceil_nat_div R (7 * n + 30) 10 (by decide)]
   congr 1
   push_cast
-  ring
+  norm_num [add_div]
 
 theorem medianOfMedians_five_ceil_bounds (xs : List α) (p : α)
     (hp : medianOfMedians 5 xs = some p) :
