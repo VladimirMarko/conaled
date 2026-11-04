@@ -153,6 +153,7 @@ private theorem nat_map_lintegral {β : Type v} (p : PMF β) (f : β → Nat) :
       apply tsum_congr
       intro n
       rw [PMF.toMeasure_apply_singleton _ n (measurableSet_singleton n), PMF.map_apply]
+      rfl
     _ = ∑' n : Nat, ∑' result,
         if n = f result then (n : ℝ≥0∞) * p result else 0 := by
       simp only [← ENNReal.tsum_mul_left, mul_ite, mul_zero]
@@ -186,12 +187,14 @@ theorem run_activeSize_zero (k : Nat) (xs : List α) (result : Outcome α)
           rw [hstep] at hr
           obtain ⟨child, _, he⟩ := (PMF.mem_support_map_iff _ _ _).mp hr
           rw [← he]
+          rfl
       | inr p =>
           rw [hstep] at hr
           have he : result =
               (some p, ([((head :: tail).length, i.val)], (stepRun k (head :: tail) i).2)) :=
             (PMF.mem_support_pure_iff _ _).mp hr
           rw [he]
+          rfl
 
 theorem run_activeSize_le (j k : Nat) (xs : List α) (result : Outcome α)
     (hr : result ∈ (run k xs).support) : activeSize j result.2.1 ≤ xs.length :=
@@ -286,7 +289,6 @@ theorem sizeExpectation_succ_cons (time k : Nat) (head : α) (tail : List α) :
   simp only [RandomQuickSort.uniformIndex_apply]
   apply Finset.sum_congr rfl
   intro i _
-  dsimp only
   apply congrArg (fun e : ℝ≥0∞ => (((tail.length + 1 : Nat) : ℝ≥0∞)⁻¹) * e)
   cases (stepRun k (head :: tail) i).1 with
   | inl state => rcases state with ⟨j, ys⟩; rfl
@@ -302,7 +304,6 @@ theorem residualExpectation_succ_cons (w k : Nat) (head : α) (tail : List α) :
   simp only [RandomQuickSort.uniformIndex_apply]
   apply Finset.sum_congr rfl
   intro i _
-  dsimp only
   apply congrArg (fun e : ℝ≥0∞ => (((tail.length + 1 : Nat) : ℝ≥0∞)⁻¹) * e)
   cases (stepRun k (head :: tail) i).1 with
   | inl state => rcases state with ⟨j, ys⟩; rfl
@@ -379,7 +380,7 @@ theorem residualExpectation_geometric_le (w k : Nat) (xs : List α) :
 
 theorem sizeExpectation_absorbed (j k : Nat) (xs : List α) (hj : xs.length ≤ j) :
     sizeExpectation j k xs = 0 := by
-  apply le_antisymm _ (zero_le _)
+  apply le_antisymm _ zero_le
   calc
     _ ≤ workExpectation k xs (fun _ => 0) := by
       apply workExpectation_mono
@@ -389,7 +390,7 @@ theorem sizeExpectation_absorbed (j k : Nat) (xs : List α) (hj : xs.length ≤ 
 
 theorem residualExpectation_absorbed (w k : Nat) (xs : List α) (hw : xs.length ≤ w) :
     residualExpectation w k xs = 0 := by
-  apply le_antisymm _ (zero_le _)
+  apply le_antisymm _ zero_le
   calc
     _ ≤ workExpectation k xs (fun _ => 0) := by
       apply workExpectation_mono
@@ -462,7 +463,7 @@ theorem residualLaw_markov (w k : Nat) (xs : List α) (threshold : Nat)
   have hevent : {r : Nat | (threshold : ℝ≥0∞) ≤ (r : ℝ≥0∞)} =
       {r : Nat | threshold ≤ r} := by
     ext r
-    simp only [Set.mem_setOf_eq, Nat.cast_le]
+    simp only [Set.mem_ofPred_eq, Nat.cast_le]
   rw [hevent, residualLaw_lintegral] at hm
   exact hm
 
@@ -484,7 +485,13 @@ theorem scanLaw_tail (w k : Nat) (xs : List α) (hn : 0 < xs.length) :
       apply (ENNReal.div_le_iff hzero (ENNReal.natCast_ne_top _)).2
       calc
         _ ≤ 4 * (3 / 4 : ℝ≥0∞) ^ w * xs.length := residualExpectation_geometric_le w k xs
-        _ = _ := by rw [Nat.cast_mul, Nat.cast_ofNat]; ac_rfl
+        _ = _ := by
+          rw [Nat.cast_mul, Nat.cast_ofNat]
+          exact
+            (mul_assoc (4 : ℝ≥0∞) ((3 / 4 : ℝ≥0∞) ^ w)
+              (xs.length : ℝ≥0∞)).trans
+              (mul_left_comm (4 : ℝ≥0∞) ((3 / 4 : ℝ≥0∞) ^ w)
+                (xs.length : ℝ≥0∞))
 
 theorem sourceLaw_tail_le_scanLaw (w k : Nat) (xs : List α) :
     (sourceLaw k xs).toMeasure {t : Nat | 9 * ((4 + w) * xs.length) + 2 ≤ t} ≤
@@ -506,6 +513,7 @@ theorem sourceLaw_tail (w k : Nat) (xs : List α) (hn : 0 < xs.length) :
 
 @[simp] theorem scanLaw_nil (k : Nat) : scanLaw k ([] : List α) = PMF.pure 0 := by
   rw [scanLaw, run_nil, PMF.pure_map]
+  rfl
 
 /-- At empty input the non-strict proportional threshold is zero, so its
 event has probability one at every excess parameter. -/
