@@ -65,6 +65,39 @@ constructions and sharper experiments, not a choice of one universal framework
 or a measured ranking of language architectures. The lower-priority studies
 remain eligible to challenge the assumptions used here.
 
+## Structural audit and replacement experiments
+
+The owner requested a substantial reassessment after #292, including three
+independent challenges to the proposed architecture. The
+[synthesis and individual assessments](dependent-architecture-reassessment.md)
+distinguish derivable laws, independent requirements, specialized signature
+choices and alternative foundations. The four proposed responsibilities remain
+mutually constrained research hypotheses. They are not fixed module boundaries.
+
+[#314](https://github.com/VladimirMarko/conaled/issues/314) audits the structural
+contract and attempts its proposed reconstructions before strengthening it.
+[#315](https://github.com/VladimirMarko/conaled/issues/315) compares dependent
+judgment representations, using that diagnosis. In parallel,
+[#316](https://github.com/VladimirMarko/conaled/issues/316) investigates the
+concrete dependent higher model and
+[#319](https://github.com/VladimirMarko/conaled/issues/319) tests setting
+construction from context-varying internal presentations.
+[#317](https://github.com/VladimirMarko/conaled/issues/317) exercises constructor
+admission through an explicit judgment contract;
+[#318](https://github.com/VladimirMarko/conaled/issues/318) constructs categorical
+hypotheses when a named model-construction benefit warrants them.
+[#320](https://github.com/VladimirMarko/conaled/issues/320) owns comparative author
+trials after reviewed interface freezes. These issues are under #289, coordinated
+with #36/#235, #288's extension questions and #290's author evidence.
+
+#297 retains its broader modal/higher comparison; its higher inquiry supplies
+#316, while modal context restrictions remain distinct from #319's internal
+setting construction. #301 continues to challenge the assumptions of the entire
+agenda from outside its current candidates. The investigations may recommend
+repair, structural factoring or replacement foundations. They preserve #107's
+pause and #108's independent-theorem gate. Creating this follow-up graph does
+not start its formalizations or trials.
+
 ## Construction and observation as an implemented comparison baseline
 
 The [workstream assessment](construction-observation-research-assessment.md)

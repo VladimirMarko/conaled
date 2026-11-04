@@ -157,6 +157,18 @@ annotations or establish that interpretation contract. Keep the independent
 memo's dependent higher-witness test as an adoption condition, and compare
 local universes, direct strict models and chosen-universe constructions against
 it. A bounded Type-family specialization must not replace that requirement.
+The [three-perspective reassessment](research/dependent-architecture-reassessment.md)
+keeps author requirements, interpretation, model construction and comparisons
+as interacting responsibilities rather than fixed independent layers. Derive
+what follows from existing universal properties before adding assumptions;
+separate primitive signatures and constructor capabilities where the arguments
+permit it. Stronger laws can constrain existing operations as well as accompany
+new ones. Compare alternative foundations when current judgments impose
+recurring presentation work. Interpretation comparisons must act coherently on
+types, terms and dependent witnesses. A setting constructed from presentation
+data varying within a context needs its own reindexing contract; externally
+selected models do not establish that capability. These are research criteria,
+not a decision to adopt a particular structural core or framework.
 The [theory-network comparison](research/theory-network-comparison.md) likewise
 keeps publication and view composition separate from encoding adequacy and
 changes of logic. A total assignment of declarations must preserve their laws
