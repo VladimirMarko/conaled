@@ -1,3 +1,5 @@
+import Mathlib.Algebra.BigOperators.Group.List.Defs
+import Mathlib.Algebra.Ring.Defs
 import Applications.Resources.Measured
 import Applications.Optimization.Transport
 import Lean.Elab.Tactic.Omega
