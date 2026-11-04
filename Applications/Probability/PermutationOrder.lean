@@ -148,6 +148,7 @@ theorem orders_card (positions : List I) (hnd : positions.Nodup)
   rw [List.toFinset_card_of_nodup (List.nodup_permutations base hbase),
     List.length_permutations, hlength]
 
+omit [DecidableEq I] in
 private theorem exists_map_eq_of_nodup (xs ys : List I)
     (hxs : xs.Nodup) (hys : ys.Nodup) (hlength : xs.length = ys.length) :
     ∃ σ : Equiv.Perm I, xs.map σ = ys := by
