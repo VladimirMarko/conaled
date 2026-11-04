@@ -60,6 +60,44 @@ theorem packing_intermediates (k : Cell offset heights stride)
   unfold encode pack
   omega
 
+/-- Bare-key version for composing packed execution without changing the
+semantic table's element type. Bounds concern both operands, including ties. -/
+theorem encode_min {a b : Int ×ₗ Nat}
+    (ha : 0 ≤ (ofLex a).1 + offset) (hb : 0 ≤ (ofLex b).1 + offset)
+    (hi : (ofLex a).2 < stride) (hj : (ofLex b).2 < stride) :
+    encode offset stride (ofLex (min a b)).1 (ofLex (min a b)).2 =
+      min (encode offset stride (ofLex a).1 (ofLex a).2)
+        (encode offset stride (ofLex b).1 (ofLex b).2) := by
+  have horder : encode offset stride (ofLex a).1 (ofLex a).2 ≤
+      encode offset stride (ofLex b).1 (ofLex b).2 ↔ a ≤ b :=
+    encode_le_iff ha hb hi hj
+  by_cases h : a ≤ b
+  · rw [min_eq_left h, min_eq_left (horder.2 h)]
+  · have h' : b ≤ a := le_of_not_ge h
+    have hp : encode offset stride (ofLex b).1 (ofLex b).2 ≤
+        encode offset stride (ofLex a).1 (ofLex a).2 := by
+      have hr := encode_le_iff hb ha hj hi
+      exact hr.2 h'
+    rw [min_eq_right h', min_eq_right hp]
+
+theorem encoded_min_index {a b : Int ×ₗ Nat}
+    (ha : 0 ≤ (ofLex a).1 + offset) (hb : 0 ≤ (ofLex b).1 + offset)
+    (hi : (ofLex a).2 < stride) (hj : (ofLex b).2 < stride) :
+    min (encode offset stride (ofLex a).1 (ofLex a).2)
+      (encode offset stride (ofLex b).1 (ofLex b).2) % stride =
+      (ofLex (min a b)).2 := by
+  rw [← encode_min ha hb hi hj]
+  unfold encode
+  apply pack_mod
+  by_cases h : a ≤ b
+  · simpa only [min_eq_left h] using hi
+  · simpa only [min_eq_right (le_of_not_ge h)] using hj
+
+example : min (encode 2 4 (-1) 3) (encode 2 4 (-1) 1) % 4 = 1 := by
+  rw [encoded_min_index (offset := 2) (stride := 4) (a := toLex (-1,3)) (b := toLex (-1,1))
+    (by decide) (by decide) (by decide) (by decide)]
+  decide
+
 private def early : Cell 2 4 4 := ⟨toLex (-1,1), by decide⟩
 private def late : Cell 2 4 4 := ⟨toLex (-1,3), by decide⟩
 
