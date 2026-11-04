@@ -1,5 +1,8 @@
 import Applications.Sequences.LCA.Catalog
 import Applications.Sequences.LCA.Workspace
+import Applications.Sequences.LCA.QueryStorage
+import Applications.Sequences.LCA.Control
+import Applications.Sequences.LCA.KeyBounds
 
 /-! The full sparse-table intermediate strategy for the same bounded RMQ input
 and total query specification as the shared-block backend. -/
@@ -81,6 +84,128 @@ theorem prepare_cost (input : Input m) : ((ops m).prepare input).2 ≤ preparati
   have hs := SparseExecution.prepare_cost (toLex (0,0)) (keysM input).1 (Nat.log 2 m)
   simp only [ops, Resources.bind, preparationWork]
   omega
+
+/-- Retain each produced scalar until this query returns. The ten sparse
+register results are shared with the verified common query interpreter. -/
+def answerRun (state : State m) (q : Nat × Nat) : QueryStorage.Run Nat :=
+  QueryStorage.bindRun (QueryStorage.note ()
+    [.nat q.1,.nat q.2,.bit (decide (q.1 ≤ q.2)),.bit (decide (q.2 < m))]) fun _ =>
+  if h : q.1 ≤ q.2 ∧ q.2 < m then
+    QueryStorage.bindRun (QueryStorage.scalar (q.2-q.1)) fun len =>
+    QueryStorage.bindRun (QueryStorage.scalar (len+1)) fun length =>
+    QueryStorage.bindRun (QueryStorage.sparseRun state.1 state.2
+      ⟨q.1,by omega⟩ ⟨min length m,by omega⟩) fun result =>
+      QueryStorage.scalar (ofLex result).2
+  else QueryStorage.scalar 0
+
+theorem answerRun_value (state : State m) (q : Nat × Nat) :
+    (answerRun state q).1 = (answer state q).1 := by
+  by_cases h : q.1 ≤ q.2 ∧ q.2 < m <;>
+    simp [answerRun, answer, QueryStorage.bindRun, QueryStorage.note, QueryStorage.scalar,
+      QueryStorage.sparseRun_value, h, TreeBackend.countDispatch, TreeBackend.dispatch,
+      Resources.bind, Resources.pure, subtractWord, TreeBackend.increment]
+
+theorem answerRun_slots (state : State m) (q : Nat × Nat) :
+    (answerRun state q).2.length ≤ 17 := by
+  by_cases h : q.1 ≤ q.2 ∧ q.2 < m <;>
+    simp [answerRun, QueryStorage.bindRun_slots, QueryStorage.scalar, QueryStorage.note,
+      QueryStorage.sparseRun_slots, h]
+
+def stateWords (state : State m) : Nat :=
+  2*state.1.toArray.size + (state.1.toList.map (fun row => row.1.toArray.size)).sum +
+    state.2.toArray.size
+
+theorem stateWords_eq (state : State m) :
+    stateWords state = SparseExecution.retainedSlots m (Nat.log 2 m) := by
+  simp [stateWords, SparseExecution.retainedSlots, List.sum_replicate]
+  ring
+
+/-- The six slots hold the input reference, two indices, guard result, loaded
+depth and encoded key during a bounds-safe key load. -/
+def keyControl (input : Input m) (i : Fin m) : Control.Run Key :=
+  let depth := (Dijkstra.Store.lookup input.cells i).2
+  let result : Key := toLex ((depth : Int),i.val)
+  Control.note result [.ref input.cells,.nat i.val,.nat m,.bit true,.nat depth,.ref result]
+
+theorem keyControl_value (input : Input m) (i : Fin m) :
+    (keyControl input i).value = (keyM input i.val).1 := by
+  rw [keyM_value]
+  simp [keyControl, Control.note, depthKey, Input.depth, i.isLt]
+
+def keysControl (input : Input m) : Control.Run (Vector Key m) :=
+  Control.tabulate (toLex (0,0)) (keyControl input)
+
+theorem keysControl_value (input : Input m) : (keysControl input).value = keys input := by
+  simp [keysControl, Control.tabulate_value, keyControl_value, keys]
+
+theorem keysControl_peak (input : Input m) : (keysControl input).peak ≤ 14 :=
+  Control.tabulate_peak _ _ (c := 6) (by intro i; exact Nat.le_refl _)
+
+/-- All source, copied keys and sparse buffers remain live during construction.
+The scalar bounds observe the actual table/control interpreters; adding their
+peaks is a conservative schedule that needs no early frame reclamation. -/
+def preparationPeak (input : Input m) : Nat :=
+  2*input.cells.toArray.size + (keys input).toArray.size +
+    Workspace.words (Workspace.sparseRun (toLex (0,0)) (keys input) (Nat.log 2 m)) +
+    (keysControl input).peak +
+    (Control.sparseRun (toLex (0,0)) (keys input) (Nat.log 2 m)).peak + 4
+
+def storage (m : Nat) : Resources.Prepared.Storage (Input m) (State m) where
+  retained := stateWords
+  preparePeak := preparationPeak
+  queryPeak state := stateWords state + 17
+
+theorem query_frame_fits (state : State m) (q : Nat × Nat) :
+    stateWords state + (answerRun state q).2.length ≤ (storage m).queryPeak state := by
+  have := answerRun_slots state q
+  change _ ≤ stateWords state + 17
+  omega
+
+def profile (m : Nat) : Profile (Input m) where
+  preparation _ := preparationWork m
+  query _ := 16
+  maintenance _ := 0
+  retained _ := SparseExecution.retainedSlots m (Nat.log 2 m)
+  peak _ := SparseExecution.retainedSlots m (Nat.log 2 m) + 3*m +
+    8*(Nat.log 2 m+1)+8*(m+1)+64
+
+theorem preparationPeak_le (input : Input m) : preparationPeak input ≤ (profile m).peak input := by
+  have hk := keysControl_peak input
+  have hs := Control.sparseRun_peak (toLex (0,0)) (keys input) (Nat.log 2 m)
+  simp only [preparationPeak, Vector.size_toArray, Workspace.sparseRun_words, profile]
+  omega
+
+theorem bounds (m : Nat) : Bounds (ops m) Valid (storage m) (profile m) where
+  preparation := prepare_cost
+  query _ state _ q := answer_cost state q
+  retained _ state _ := by simp [storage, profile, stateWords_eq]
+  preparePeak := preparationPeak_le
+  queryPeak _ state _ := by simp [storage, profile, stateWords_eq]; omega
+
+theorem preparationControl_value (input : Input m) :
+    (Control.sparseRun (toLex (0,0)) (keysControl input).value (Nat.log 2 m)).value =
+      ((ops m).prepare input).1 := by
+  simp [Control.sparseRun_value, keysControl_value, ops, Resources.bind, keysM_value]
+
+theorem preparationBuffers_value (input : Input m) :
+    (Workspace.sparseRun (toLex (0,0)) (keys input) (Nat.log 2 m)).value =
+      ((ops m).prepare input).1 := by
+  simp [Workspace.sparseRun_value, ops, Resources.bind, keysM_value]
+
+/-- Every copied key and every stored sparse cell fits the finite rectangle
+whose encoding preserves depth order and tie identity. -/
+theorem keys_fit (input : Input m) (i : Fin m) :
+    KeyBounds.Fits 0 m m (keys input)[i.val] := by
+  have hd := input.bounded i
+  simp only [keys, Vector.getElem_ofFn, keyM_value, depthKey, KeyBounds.Fits,
+    ofLex_toLex, Input.depth, i.isLt, dite_true, add_zero]
+  exact ⟨by omega,by exact_mod_cast hd,True.intro⟩
+
+theorem prepared_cell_fits (input : Input m) (level : Fin (Nat.log 2 m+1)) (i : Fin m) :
+    KeyBounds.Fits 0 m m ((prepared input).1[level.val].1)[i.val] := by
+  simp only [prepared, SparseExecution.prepare, Resources.bind, Resources.pure,
+    SparseExecution.build_get _ _ _ level]
+  exact KeyBounds.finiteRow_fits _ (keys_fit input) level.val i
 
 private def small : Input 3 where
   cells := #v[(0,1),(0,0),(0,1)]
