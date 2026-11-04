@@ -247,7 +247,8 @@ theorem sourceExpectation_comparison (k : Nat) (xs : List α) :
 
 @[simp] theorem scanExpectation_nil (k : Nat) : scanExpectation k ([] : List α) = 0 := by
   rw [scanExpectation_eq_workExpectation]
-  exact workExpectation_nil (α := α) k _
+  simpa only [scanVolume_nil, Nat.cast_zero] using
+    workExpectation_nil k (fun result : Outcome α => (scanVolume result.2.1 : ℝ≥0∞))
 
 @[simp] theorem sourceExpectation_nil (k : Nat) : sourceExpectation k ([] : List α) = 2 := by
   rw [sourceExpectation_eq_workExpectation]
