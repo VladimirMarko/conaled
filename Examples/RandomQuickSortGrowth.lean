@@ -24,7 +24,8 @@ theorem empty_payload_means :
       exerciseMean (fun _ _ : Empty => false) [] = 1 ∧
       literalMean (fun _ _ : Empty => false) [] = 1 := by
   constructor
-  · exact exerciseMean_eq_harmonic (fun _ : Empty => (0 : Nat)) [] (by simp)
+  · simpa only [exerciseMean_nil, List.length_nil, Nat.cast_zero] using
+      (exerciseMean_eq_harmonic (fun _ : Empty => (0 : Nat)) [] (by simp))
   · simp
 
 theorem singleton_payload_means {α : Type u} {κ : Type v} [LinearOrder κ]
@@ -162,7 +163,7 @@ theorem shifted_range_family_growth :
     (fun n => List.range (n + 2)) hd ht
   have hf := literalMean_family_isBigO_logb (id : Nat → Nat) Filter.atTop
     (fun n => List.range (n + 2)) hd ht
-  simpa only [List.length_range] using And.intro he hf
+  simpa only [List.length_range, id] using And.intro he hf
 
 /-- Constant key 7 gives the all-false comparator despite distinct payloads. -/
 theorem equal_key_three_not_harmonic :
