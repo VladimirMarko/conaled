@@ -105,7 +105,7 @@ theorem negative_square_upper {R : Type*} [CommRing R] [LinearOrder R]
   nlinarith only [sq_nonneg (n : R)]
 
 theorem negative_square_absolute_value :
-    -((2 : Int) ^ 2) ≤ 0 ∧ | -((2 : Int) ^ 2)| = 4 := by
+    -((2 : Int) ^ 2) ≤ 0 ∧ |-((2 : Int) ^ 2)| = 4 := by
   norm_num
 
 /-- The same recurrence parameters work for each p, but the prefix depends on p.
