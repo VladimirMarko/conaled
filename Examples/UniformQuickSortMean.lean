@@ -68,7 +68,7 @@ private theorem observed_card_one {I : Type*} [DecidableEq I]
     observedCost positions lt S π = 5 := by
   have hlen : (restrictedOrder positions S π).length = 1 :=
     (restrictedOrder_length positions hnd hcomplete S π).trans hcard
-  obtain ⟨a, ha⟩ := List.length_eq_one.mp hlen
+  obtain ⟨a, ha⟩ := List.length_eq_one_iff.mp hlen
   simp [observedCost, ha]
 
 private theorem observed_card_two {I : Type*} [DecidableEq I]
@@ -86,7 +86,13 @@ private theorem observed_card_two {I : Type*} [DecidableEq I]
 
 inductive Label
   | high | low | middle | outside
-  deriving DecidableEq, Fintype
+  deriving DecidableEq
+
+instance instFintypeLabel : Fintype Label where
+  elems := {Label.high, Label.low, Label.middle, Label.outside}
+  complete := by
+    intro x
+    cases x <;> simp
 
 open Label
 
@@ -114,7 +120,7 @@ theorem positions_complete (a : Label) : a ∈ positions := by
 
 theorem selected_keys : Set.InjOn key (selected : Set Label) := by
   intro a ha b hb h
-  cases a <;> cases b <;> norm_num [selected, key] at ha hb h ⊢
+  cases a <;> cases b <;> simp_all [selected, key]
 
 theorem selected_card : selected.card = 3 := by decide
 
@@ -193,15 +199,20 @@ theorem extreme_first_mass :
     (firstEvents_disjoint positions selected (by decide : low ∈ selected)
       (by decide : high ∈ selected) (by decide : low ≠ high)) (by trivial),
     low_first_mass, high_first_mass]
-  norm_num
+  have h : (1 / 3 : NNReal) + 1 / 3 = 2 / 3 := by norm_num
+  have h3 : (3 : NNReal) ≠ 0 := by norm_num
+  simpa only [ENNReal.coe_add, ENNReal.coe_div (p := 1) h3,
+    ENNReal.coe_div (p := 2) h3, ENNReal.coe_one, ENNReal.coe_ofNat] using
+    congrArg (fun x : NNReal => (x : ENNReal)) h
 
 private theorem conditional_of_constant (a : Label) (ha : a ∈ selected) (c : ℝ)
     (hc : ∀ π ∈ firstEvent (restrictedOrder positions selected) a,
       observedCost positions comparator selected π = c) :
     (∫ π, observedCost positions comparator selected π ∂
       law[|firstEvent (restrictedOrder positions selected) a]) = c := by
-  let : IsProbabilityMeasure (law[|firstEvent (restrictedOrder positions selected) a]) :=
-    cond_isProbabilityMeasure
+  let : IsProbabilityMeasure (law[|firstEvent (restrictedOrder positions selected) a]) := by
+    unfold law
+    exact cond_isProbabilityMeasure
       (ne_of_gt (firstEvent_positive_finite positions positions_nodup positions_complete selected a ha).1)
   rw [integral_congr_ae (ae_cond_of_forall_mem (by trivial) hc)]
   simp
@@ -250,6 +261,7 @@ theorem three_mean_from_heads : meanBy positions comparator selected = (71 : ℝ
 /-- The separate universal rank/cardinality proof gives the same expectation
 despite unsorted label positions and the deliberate outside key collision. -/
 theorem three_mean_from_closedForm : meanBy positions comparator selected = (71 : ℝ) / 3 := by
+  unfold comparator
   rw [meanBy_eq_closedForm positions positions_nodup positions_complete key selected selected_keys,
     selected_card]
   exact Examples.QuickSortMean.three_mean
@@ -263,6 +275,7 @@ theorem low_empty_actual_child (π : Equiv.Perm Label)
 theorem low_empty_child_mean :
     (∫ π, observedCost positions comparator (leftChild comparator selected low) π ∂
       law[|firstEvent (restrictedOrder positions selected) low]) = 1 := by
+  unfold law
   rw [child_integral_cond positions positions_nodup positions_complete comparator selected low
     (by decide) _ (leftChild_subset_erase comparator selected low), low_children.1,
     meanBy_empty positions positions_complete]
@@ -270,6 +283,7 @@ theorem low_empty_child_mean :
 theorem high_empty_child_mean :
     (∫ π, observedCost positions comparator (rightChild comparator selected high) π ∂
       law[|firstEvent (restrictedOrder positions selected) high]) = 1 := by
+  unfold law
   rw [child_integral_cond positions positions_nodup positions_complete comparator selected high
     (by decide) _ (rightChild_subset_erase comparator selected high), high_children.2,
     meanBy_empty positions positions_complete]
@@ -288,7 +302,7 @@ theorem arbitrary_tagged_three (x y z : α) :
 def taggedEqual (n : Nat) : List (Nat × Nat) := (List.range n).map (fun i => (0, i))
 
 theorem taggedEqual_payloads_distinct (n : Nat) : (taggedEqual n).Nodup := by
-  apply List.Nodup.map _ (List.nodup_range n)
+  apply List.Nodup.map _ (List.nodup_range (n := n))
   intro i j h
   exact congrArg Prod.snd h
 
@@ -316,7 +330,7 @@ theorem taggedRange_length (payload : Nat → α) (n : Nat) :
 
 theorem taggedRange_keys (payload : Nat → α) (n : Nat) :
     ((taggedRange payload n).map Prod.fst).Nodup := by
-  simpa [taggedRange, List.map_map, Function.comp_def] using List.nodup_range n
+  simpa [taggedRange, List.map_map, Function.comp_def] using (List.nodup_range (n := n))
 
 theorem taggedRange_mean (payload : Nat → α) (n : Nat) :
     inputMean Prod.fst (taggedRange payload n) = Resources.QuickSortMean.closedForm n := by
