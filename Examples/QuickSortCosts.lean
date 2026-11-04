@@ -70,7 +70,7 @@ theorem left_associated_appends :
     bind (ListReversal.appendRun [0, 1] [2])
       (fun middle => ListReversal.appendRun middle [3]) =
         (([0, 1, 2, 3] : List Nat), 7) := by
-  simp [bind, ListReversal.appendRun_exact]
+  simp [Resources.bind, ListReversal.appendRun_exact]
 
 /-- The exact source strict/nonstrict split and both unit-filter tariffs. -/
 theorem mixed_source_tariff :
