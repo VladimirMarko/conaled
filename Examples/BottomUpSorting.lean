@@ -20,7 +20,7 @@ def raggedRuns : List (List Nat) := [[1, 3], [2], [], [0, 4], [2, 5]]
 theorem ragged_pass_value :
     mergePairsBy natCompare raggedRuns = [[1, 2, 3], [0, 4], [2, 5]] := by
   rw [raggedRuns, mergePairsBy_step, mergePairsBy_step, mergePairsBy_singleton]
-  simp [List.cons_merge_cons, natCompare]
+  simp [natCompare]
 
 theorem ragged_run_count : (mergePairsBy natCompare raggedRuns).length = 3 := by
   calc
@@ -147,9 +147,9 @@ theorem ordinary_equal_keys {α : Type u} (first middle last : α) :
       [(0, first), (0, middle), (0, last)] := by
   simp only [sortBottomUpOn, sortBottomUpBy, List.map_cons, List.map_nil]
   rw [mergeAllBy_step, mergePairsBy_step, mergePairsBy_singleton]
-  simp [List.cons_merge_cons]
+  simp
   rw [mergeAllBy_step, mergePairsBy_step, mergePairsBy_nil, mergeAllBy_singleton]
-  simp [List.cons_merge_cons]
+  simp
 
 /-- Reversing the completed runs can move a later equal-key occurrence first. -/
 theorem tail_equal_keys {α : Type u} (first middle last : α) :
@@ -157,15 +157,15 @@ theorem tail_equal_keys {α : Type u} (first middle last : α) :
       [(0, last), (0, first), (0, middle)] := by
   simp only [sortBottomUpRevOn, sortBottomUpRevBy, List.map_cons, List.map_nil]
   rw [mergeAllRevBy_step, mergePairsRevBy_step, mergePairsRevBy_singleton]
-  simp [List.cons_merge_cons]
+  simp
   rw [mergeAllRevBy_step, mergePairsRevBy_step, mergePairsRevBy_nil, mergeAllRevBy_singleton]
-  simp [List.cons_merge_cons]
+  simp
 
 theorem tail_pass_need_not_equal_ordinary_pass :
     mergePairsRevBy natCompare [] [[1], [2], [3]] ≠
       mergePairsBy natCompare [[1], [2], [3]] := by
   rw [mergePairsRevBy_eq_reverse_append, mergePairsBy_step, mergePairsBy_singleton]
-  simp [List.cons_merge_cons, natCompare]
+  simp [natCompare]
 
 theorem tail_sort_need_not_be_stable :
     ¬ Stable Prod.fst ([(0, "first"), (0, "middle"), (0, "last")] : List (Nat × String))
