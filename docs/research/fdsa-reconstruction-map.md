@@ -597,3 +597,21 @@ histories, adaptive subsets, joint independence, expected positions, algorithm
 semantics and actual costs remain separate obligations. The source draft is
 uncompiled and unaccepted; the local FDSA-XU02 record owns its frozen exact
 scope and subsequent candidate/review evidence.
+
+## Shared conditional remaining orders (draft)
+
+The [conditional-tail unit](fdsa-permutation-tail.md) connects a specified
+optional head to the law of the actual remaining list. Its existing HasLaw
+premise permits an arbitrary current environment measure, so the result can
+be reused after a prior conditioning without assuming the full environment
+is again uniform. Fixed remaining-subset filtering composes this observed
+law, and explicit global-permutation source-fiber/map specializations retain
+their separate measurable hypotheses and on-event value bridges.
+
+The examples include two successive reveals, a changed environment with a
+uniform observed tail, actual filtered projections, null conditioning and a
+counterexample to weakening subset containment. This supports Chapter 2 and
+Chapter 3 preparation; complete history, algorithm correspondence, sampling
+coupling and cost proofs remain queued. The source is uncompiled and
+unaccepted. Local FDSA-XU03 retains the frozen scope, exact expectations,
+candidate identity and later validation/review evidence.
