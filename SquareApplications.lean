@@ -258,6 +258,7 @@ import Examples.MeasuredScan
 import Examples.ScanSearch
 import Examples.ScanOptimality
 import SquareKit.HigherOrderComparison
+import SquareKit.WeakHigherOrder
 
 import Examples.EquationComposition
 import Examples.DerivativeNormalization
