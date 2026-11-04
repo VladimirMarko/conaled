@@ -155,8 +155,8 @@ theorem key_source_value [LE κ] [DecidableLE κ] (key : α → κ) (xs ys : Lis
     letI : LE α := ⟨fun a b => key a ≤ key b⟩
     letI : DecidableLE α := fun a b => inferInstanceAs (Decidable (key a ≤ key b))
     (run (byKey key) xs ys).1 = sourceMerge xs ys := by
-  letI : LE α := ⟨fun a b => key a ≤ key b⟩
-  letI : DecidableLE α := fun a b => inferInstanceAs (Decidable (key a ≤ key b))
+  let : LE α := ⟨fun a b => key a ≤ key b⟩
+  let : DecidableLE α := fun a b => inferInstanceAs (Decidable (key a ≤ key b))
   exact (key_value key xs ys).trans (mergeBy_source key xs ys).symm
 
 theorem key_sorted_iff [LE κ] [DecidableLE κ] [Std.IsLinearPreorder κ]
@@ -173,8 +173,8 @@ theorem source_key_sorted_iff [LE κ] [DecidableLE κ] [Std.IsLinearPreorder κ]
     letI : LE α := ⟨fun a b => key a ≤ key b⟩
     letI : DecidableLE α := fun a b => inferInstanceAs (Decidable (key a ≤ key b))
     KeySorted key (sourceMerge xs ys) ↔ KeySorted key xs ∧ KeySorted key ys := by
-  letI : LE α := ⟨fun a b => key a ≤ key b⟩
-  letI : DecidableLE α := fun a b => inferInstanceAs (Decidable (key a ≤ key b))
+  let : LE α := ⟨fun a b => key a ≤ key b⟩
+  let : DecidableLE α := fun a b => inferInstanceAs (Decidable (key a ≤ key b))
   rw [← key_source_value key xs ys]
   exact key_sorted_iff key xs ys
 
@@ -215,8 +215,10 @@ theorem tagged_key_transport (a b c : α) :
       run natCompare [1] [1, 1] =
         ((run (byKey Prod.fst) (taggedRight c) (taggedLeft a b)).1.map Prod.fst,
           (run (byKey Prod.fst) (taggedRight c) (taggedLeft a b)).2) :=
-  ⟨run_map (byKey Prod.fst) natCompare Prod.fst _ _ (fun _ _ _ _ => rfl),
-    run_map (byKey Prod.fst) natCompare Prod.fst _ _ (fun _ _ _ _ => rfl)⟩
+  ⟨run_map (byKey Prod.fst) natCompare Prod.fst (taggedLeft a b) (taggedRight c)
+      (fun _ _ _ _ => rfl),
+    run_map (byKey Prod.fst) natCompare Prod.fst (taggedRight c) (taggedLeft a b)
+      (fun _ _ _ _ => rfl)⟩
 
 theorem tagged_counts (a b c : α) :
     (run (byKey Prod.fst) (taggedLeft a b) (taggedRight c)).2 = (2, 3) ∧
@@ -229,7 +231,7 @@ theorem tagged_counts (a b c : α) :
 theorem tagged_values (a b c : α) :
     (run (byKey Prod.fst) (taggedLeft a b) (taggedRight c)).1 = [(1, a), (1, b), (1, c)] ∧
       (run (byKey Prod.fst) (taggedRight c) (taggedLeft a b)).1 = [(1, c), (1, a), (1, b)] := by
-  constructor <;> rw [key_value] <;> rfl
+  constructor <;> rw [key_value] <;> simp [mergeBy, taggedLeft, taggedRight]
 
 theorem tagged_exact (a b c : α) :
     run (byKey Prod.fst) (taggedLeft a b) (taggedRight c) =
@@ -294,6 +296,7 @@ theorem unsorted_record_filters :
         (run (byKey Prod.fst) unsortedRecordsLeft unsortedRecordsRight).1 := by
   refine ⟨?_, by decide, ?_⟩
   · rw [unsorted_records_run]
+    decide
   · intro stable
     have wrong := stable 1
     rw [unsorted_records_run] at wrong
@@ -358,6 +361,7 @@ theorem second_stage : run natCompare [1] [0, 2] = ([0, 1, 2], (2, 3)) := by
 
 theorem twoStage_example : twoStage natCompare [2] [0] [1] = ([0, 1, 2], (3, 5)) := by
   rw [twoStage, Resources.CallCount.let_rule, first_stage, second_stage]
+  rfl
 
 /-- Substituting the original concatenation changes both value and subsequent work. -/
 theorem substituted_input_example :
@@ -366,6 +370,7 @@ theorem substituted_input_example :
   have second : run natCompare [1] [2, 0] = ([1, 2, 0], (1, 2)) := by
     simp [natCompare, run_cons_cons, run_nil_left, Resources.bind]
   rw [Resources.CallCount.let_rule, first_stage, second]
+  rfl
 
 theorem actual_input_matters :
     (twoStage natCompare [2] [0] [1]).1 ≠
@@ -400,9 +405,10 @@ theorem queueBody_observation [LE κ] [DecidableLE κ] (x : α) (p : κ)
     (l r : Search.LeftistQueue.PQ α κ) :
     (queueBody x p l r).2 =
       (comparisons (byKey Prod.snd) (Search.LeftistQueue.toListQ l) (Search.LeftistQueue.toListQ r),
-        entries (byKey Prod.snd) (Search.LeftistQueue.toListQ l) (Search.LeftistQueue.toListQ r)) :=
-  congrArg Prod.snd (Resources.CallCount.primitive_rule (fun zs => (x, p) :: zs)
-    (run (byKey Prod.snd) (Search.LeftistQueue.toListQ l) (Search.LeftistQueue.toListQ r)))
+        entries (byKey Prod.snd) (Search.LeftistQueue.toListQ l) (Search.LeftistQueue.toListQ r)) := by
+  have h := Resources.CallCount.primitive_rule (fun zs => (x, p) :: zs)
+    (run (byKey Prod.snd) (Search.LeftistQueue.toListQ l) (Search.LeftistQueue.toListQ r))
+  simpa only [queueBody, comparisons, entries] using congrArg Prod.snd h
 
 /-- Raw content preservation supplies child lengths without heap or rank invariants. -/
 theorem queueBody_bounds [LE κ] [DecidableLE κ] (x : α) (p : κ)
