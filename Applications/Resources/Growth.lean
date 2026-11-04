@@ -28,6 +28,7 @@ theorem clog_two_cast_le_two_logb (n : Nat) (hn : 2 ≤ n) :
       _ ≤ Real.logb 2 n := Real.logb_le_logb_of_le (by norm_num) (by norm_num) hn'
   have hceil : (Nat.clog 2 n : ℝ) < Real.logb 2 n + 1 := by
     rw [← Real.natCeil_logb_natCast 2 n]
+    simp only [Nat.cast_ofNat]
     exact Nat.ceil_lt_add_one (by linarith)
   linarith
 
