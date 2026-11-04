@@ -472,4 +472,3 @@ decreasing_by
   all_goals exact Nat.lt_succ_of_le (List.length_filter_le _ _)
 
 end Resources.QuickSort
-end Resources.QuickSort
