@@ -33,6 +33,7 @@ theorem ascending : sortNaturalBy natLT natCompare [0, 1, 2] = [0, 1, 2] :=
   sortNaturalOn_of_sorted id [0, 1, 2] (by decide)
 
 theorem descending : sortNaturalBy natLT natCompare [2, 1, 0] = [0, 1, 2] := by
+  change sortNaturalOn id ([2, 1, 0] : List Nat) = [0, 1, 2]
   simpa using sortNaturalOn_of_strictly_descending id [2, 1, 0] (by decide)
 
 /-- The strict descending prefix stops before 2, which starts the next run. -/
@@ -130,11 +131,11 @@ theorem arbitrary_operations_preserve_occurrences (lt cmp : α → α → Bool)
 theorem constant_key_fixed_point (xs : List α) :
     sortNaturalOn (fun _ : α => (0 : Nat)) xs = xs := by
   apply sortNaturalOn_of_sorted
-  simp [KeySorted]
+  exact List.pairwise_of_forall (fun _ _ => Nat.le_refl 0)
 
 theorem range_fixed_point (n : Nat) :
     sortNaturalBy natLT natCompare (List.range n) = List.range n := by
   apply sortNaturalOn_of_sorted id
-  exact List.pairwise_lt_range.imp (fun _ _ h => Nat.le_of_lt h)
+  exact List.pairwise_lt_range.imp (fun h => Nat.le_of_lt h)
 
 end Examples.NaturalSorting

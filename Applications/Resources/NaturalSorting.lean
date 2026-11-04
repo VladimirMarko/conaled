@@ -231,7 +231,7 @@ theorem comparisons_isBigO_of_bounded_runs (lt cmp : α → α → Bool)
 /-- Every length-indexed input family retains the scan lower bound eventually. -/
 theorem size_isBigO_comparisons (lt cmp : α → α → Bool) (inputs : Nat → List α)
     (hlen : ∀ n, (inputs n).length = n) :
-    Asymptotics.IsBigO Filter.atTop (fun n => (n : ℝ))
+    Asymptotics.IsBigO Filter.atTop (fun n : Nat => (n : ℝ))
       (fun n => (comparisons lt cmp (inputs n) : ℝ)) := by
   apply Resources.isBigO_of_nat_bound (fun n => n) _ 2 2
   intro n hn
