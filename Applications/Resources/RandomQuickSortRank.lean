@@ -67,6 +67,7 @@ private theorem filter_length_eq_card_indices (xs : List α) (p : α → Bool) :
       (List.toFinset_card_of_nodup ((List.nodup_finRange _).filter _)).symm
     _ = _ := by
       rw [List.toFinset_filter, List.toFinset_finRange]
+      rfl
 
 private theorem strict_filter_length_eq_rank [LinearOrder κ] (key : α → κ)
     (xs : List α) (hd : (xs.map key).Nodup) (i : Fin xs.length) :
@@ -86,6 +87,7 @@ private theorem strict_filter_length_eq_rank [LinearOrder κ] (key : α → κ)
       refine Finset.mem_image.mpr ⟨ρ.symm r, ?_, ρ.apply_symm_apply r⟩
       refine Finset.mem_filter.mpr ⟨Finset.mem_univ _, ?_⟩
       apply (occurrenceRank_lt_iff key xs hd (ρ.symm r) i).mp
+      change ρ (ρ.symm r) < ρ i
       simpa only [Equiv.apply_symm_apply] using (Finset.mem_Iio.mp hr)
   have hc := congrArg Finset.card himage
   rw [Finset.card_image_of_injective _ ρ.injective, Fin.card_Iio] at hc
@@ -174,6 +176,7 @@ theorem left_length_law [LinearOrder κ] (key : α → κ) (head : α) (tail : L
   rw [hfun]
   change PMF.map (Fin.val ∘ occurrenceRank key (head :: tail)) (uniformIndex tail.length) = _
   rw [← PMF.map_comp, uniformIndex_map_perm]
+  rfl
 
 /-- Equal lengths and distinct mapped keys give equal means of the actual
 recursive PMFs, even across independent payload and key universes. The proof
@@ -373,7 +376,8 @@ theorem sizeMean_succ (m : Nat) :
       _ = _ := by
         have h := exerciseMean_cons_size_formula (id : Nat → Nat) head tail hd
         rw [Fin.sum_univ_eq_sum_range] at h ⊢
-        simpa only [ht] using h
+        rw [ht] at h
+        exact h
 
 /-- Positive-size range-sum interface for a later harmonic solver. Its sequence
 is the actual execution mean; the zero case is the separate theorem above.
