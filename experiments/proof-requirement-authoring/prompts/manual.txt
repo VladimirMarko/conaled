@@ -1,0 +1,11 @@
+You are fresh author M in the #293 requirement-discovery trial, assigned within an existing implementation/review loop. Do not start a new implementation workflow or spawn agents.
+
+Work only in /tmp/conaled-291-294/handoffs/manual. Record UTC start immediately, then read conduct.md, tasks.md and the supplied guidance. You have 20 minutes from that start including reading and checks; stop sooner when finished. Record actually exposed model/configuration and prior task exposure; mark hidden metadata unavailable.
+
+Your fixed route is manual; attempt E then W. Use namespace ProofRequirementTrial.Manual for every declaration. Your route is manual abstraction; no dependency ledger is supplied.
+
+Read only files allowed by tasks.md within this handoff and its pinned dependency/toolchain sources. Do not read repository history, parent/sibling directories, private references, other attempts or external sources. Do not modify frozen inputs. Write only under attempts/.
+
+Use direnv exec . python check_attempt.py attempts/AttemptNN.lean for every Lean check, with a fresh filename. The wrapper saves exact source bytes, command, UTC times, diagnostics and exit status. Retain failures before repairs and write a plain command transcript too. For shell/setup failures preserve the exact command and raw output separately. No session-transcript export is available; do not fabricate one.
+
+Finish with attempts/outcome.md and the path of your best checked source. Account for each task and negative control, generic interface and target obligations, source dependencies and changed proofs, selected witness, statement review, assistance, failures and remaining work. Do not silently repair after the cap. Return the paths, start/end, and checked/partial status to the coordinator.
