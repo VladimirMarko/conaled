@@ -1,8 +1,8 @@
 # Construction and observation: conclusions and further research
 
-Assessment after #266–#273, 2026-11-04. Literature recommendations below are
-proposals, not decisions to adopt a framework. No new tracker issues were
-created for this assessment.
+Assessment after #266–#273, 2026-11-04. The owner approved the five scoped follow-ups below. Their creation does not
+select a universal framework. The subsequent [adoption assessment](bialgebraic-semantics-adoption.md)
+examines all four prioritized papers and their remaining semantic obligations.
 
 ## What the checked work establishes
 
@@ -89,37 +89,37 @@ The Gambino–Kock and Gambino–Hyland polynomial-family papers already used by
 
 ## Proposed follow-up issues
 
-These are proposed scopes, not newly created tickets. Priorities reflect the
-present project questions, not a ranking of the entire literature.
+The approved scopes are tracked in #275–#279. Priorities reflect the present
+project questions, not a ranking of the entire literature.
 
 1. **Assess higher-order bialgebraic denotational semantics against independent
-   mathematical meanings.** Under #235/#36, map the 2026 papers' assumptions to a
+   mathematical meanings.** [#275](https://github.com/VladimirMarko/conaled/issues/275) Under #235/#36, map the 2026 papers' assumptions to a
    bounded higher-order example. Construct or identify its semantic domain,
    state the comparison with the intended mathematical interpretation, and
    distinguish adequacy, congruence and full abstraction. Include a failed
    assumption case and assess what current indexed interfaces can recover.
    Deliver research and a selected experiment before committing to a full
    framework. This is the strongest strategic research lead.
-2. **Retain exact observations through equations and contextual rewrites.**
+2. **Retain exact observations through equations and contextual rewrites.** [#276](https://github.com/VladimirMarko/conaled/issues/276)
    Under #235, use the 2015 quotient-law criterion to select one useful valid
    equation and one Boolean-valid but selected-witness-invalid transformation.
    Prove replacement in arbitrary supported constructor contexts. Compare the
    existing concrete morphism route with a quotient presentation; adopt extra
    categorical infrastructure only if it discharges a real missing obligation.
-3. **Connect verified equation views to compositional semantic rules.** Under
+3. **Connect verified equation views to compositional semantic rules.** [#277](https://github.com/VladimirMarko/conaled/issues/277) Under
    #36, choose a common fragment of #266 and #271. Translate supported cells
    to the rule format, preserve their interpretation through transposition,
    and apply the shared fold theorem after local compatibility is supplied.
    Exercise a mixed term and expose unsupported cells. This must not claim
    that transposition establishes compatibility or that all primitives fit.
-4. **Compose constructor and observer extensions with explicit cross-obligations.**
+4. **Compose constructor and observer extensions with explicit cross-obligations.** [#278](https://github.com/VladimirMarko/conaled/issues/278)
    Under #235, combine #267's observation contract with #271's composition law.
    Test one new constructor and one new observer, state their interaction
    obligations, preserve old observations through the old-syntax embedding,
    and demonstrate a failed compatibility case. New semantic types remain
    #262's scope; this proposed task concerns composition of operation and
    observation extensions.
-5. **Run independent author trials for the new construction/observation APIs.**
+5. **Run independent author trials for the new construction/observation APIs.** [#279](https://github.com/VladimirMarko/conaled/issues/279)
    A bounded child of #235, coordinated with #117's methodology, should compare
    direct and shared routes for the same extension tasks. Use authors who did
    not implement the interfaces; record wrappers, casts, diagnostics, assistance
