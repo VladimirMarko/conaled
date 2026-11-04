@@ -28,12 +28,12 @@ theorem ordered_composition :
 
 /-- Standard DList append supplies the same ordered observation, separately
 from the callback's charged application law. -/
-theorem standard_composition_value (f g : Builder α) (prefix more : List α)
-    (hf : Rep f prefix) (hg : Rep g more) :
+theorem standard_composition_value (f g : Builder α) (pref more : List α)
+    (hf : Rep f pref) (hg : Rep g more) :
     Batteries.DList.toList
-        (toDList (compose f g) (prefix ++ more)
-          (compose_rep f g prefix more hf hg)) =
-      Batteries.DList.toList ((toDList f prefix hf) ++ (toDList g more hg)) := by
+        (toDList (compose f g) (pref ++ more)
+          (compose_rep f g pref more hf hg)) =
+      Batteries.DList.toList ((toDList f pref hf) ++ (toDList g more hg)) := by
   rw [toList_toDList, Batteries.DList.toList_append, toList_toDList, toList_toDList]
 
 /-- Capturing supplied callbacks charges neither of their application counts. -/
@@ -122,10 +122,10 @@ theorem extendSingleton_eq (a : α) (items suffix : List α) :
 
 /-- The existing fused push supplies this value, but the chosen explicit
 composition model has its own application and construction observations. -/
-theorem fused_push_value (a : α) (f : Builder α) (prefix suffix : List α)
-    (rep : Rep f prefix) :
+theorem fused_push_value (a : α) (f : Builder α) (pref suffix : List α)
+    (rep : Rep f pref) :
     ((pushRun a f).1 suffix).1 =
-      (Batteries.DList.push (toDList f prefix rep) a).apply suffix := by
+      (Batteries.DList.push (toDList f pref rep) a).apply suffix := by
   rfl
 
 /-- Charged identity preserves values but adds two invocation occurrences. -/
