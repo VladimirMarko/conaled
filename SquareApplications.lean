@@ -265,4 +265,8 @@ import Examples.EquationComposition
 import Examples.DerivativeNormalization
 import Examples.ParserWorkload
 
+import Applications.Sequences.LCA.BlockShape
+import Applications.Sequences.LCA.BlockBounds
+import Applications.Sequences.LCA.Sparse
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
