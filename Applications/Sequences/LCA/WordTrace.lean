@@ -108,14 +108,14 @@ def answer {width capacity : Nat} (m : Nat) (mem : Store capacity (Word width))
 theorem queryKey_value {width capacity : Nat} (m : Nat)
     (mem : Store capacity (Word width)) (lo hi : Nat) :
     (queryKey m mem lo hi).1 = (WordQuery.queryKey m mem lo hi).1 := by
-  dsimp only [queryKey,WordQuery.queryKey,bind,Resources.bind,bit,scalar,WordMachine.scalar]
+  dsimp only [queryKey,WordQuery.queryKey,WordQuery.reconstruct,bind,Resources.bind,bit,scalar,WordMachine.scalar]
   split <;> simp only [within_value,summary_value]
   split <;> rfl
 
 theorem queryKey_length {width capacity : Nat} (m : Nat)
     (mem : Store capacity (Word width)) (lo hi : Nat) :
     (queryKey m mem lo hi).2.length = (WordQuery.queryKey m mem lo hi).2 := by
-  dsimp only [queryKey,WordQuery.queryKey,bind,Resources.bind,bit,scalar,WordMachine.scalar]
+  dsimp only [queryKey,WordQuery.queryKey,WordQuery.reconstruct,bind,Resources.bind,bit,scalar,WordMachine.scalar]
   split_ifs <;> simp only [within_value,within_length,WordWithin.within_cost,
     summary_value,summary_length,WordSummary.run_cost,minimum,WordMachine.minimum,
     List.length_append,List.length_cons,List.length_nil]
