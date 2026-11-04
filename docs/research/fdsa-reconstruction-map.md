@@ -594,3 +594,21 @@ pivot/subproblem laws, full relative-order restrictions, the expected first
 position, treap construction/ancestor/charging proofs or algorithm cost
 correspondences. Its source note retains a dated validation snapshot;
 the local FDSA-XU01 record retains the frozen scope and subsequent gate results.
+
+## Shared whole-subset ordering (draft)
+
+The [relative-order unit](fdsa-permutation-order.md) connects the actual
+inverse-permutation/list-filter observation to the uniform law on every
+order of a fixed subset. Its value contracts retain exact membership,
+distinctness, support, a mapped-sublist order bridge and repeated-filter
+composition. The source-event probability and Measure.map semantics have
+separate measurable hypotheses; a complete position list supplies finiteness
+locally. The connected examples use complete triple outputs, mapped meaning,
+nested filtering and empty/orientation/invalid-enumeration boundaries.
+
+This is further shared groundwork for Chapters 2 and 10. Conditional
+histories, adaptive subsets, joint independence, expected positions, algorithm
+semantics and actual costs remain separate obligations. The source note retains the 4 November 2026 development validation history;
+the local FDSA-XU02 record retains the frozen exact scope and subsequent
+candidate/review evidence. Full immutable-candidate acceptance gates remain
+required.
