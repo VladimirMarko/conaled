@@ -153,7 +153,12 @@ private theorem nat_map_lintegral {β : Type v} (p : PMF β) (f : β → Nat) :
       apply tsum_congr
       intro n
       rw [PMF.toMeasure_apply_singleton _ n (measurableSet_singleton n), PMF.map_apply]
-      rfl
+      apply congrArg (fun e : ℝ≥0∞ => (n : ℝ≥0∞) * e)
+      apply tsum_congr
+      intro result
+      by_cases h : n = f result
+      · simp only [if_pos h]
+      · simp only [if_neg h]
     _ = ∑' n : Nat, ∑' result,
         if n = f result then (n : ℝ≥0∞) * p result else 0 := by
       simp only [← ENNReal.tsum_mul_left, mul_ite, mul_zero]
@@ -292,7 +297,7 @@ theorem sizeExpectation_succ_cons (time k : Nat) (head : α) (tail : List α) :
   apply congrArg (fun e : ℝ≥0∞ => (((tail.length + 1 : Nat) : ℝ≥0∞)⁻¹) * e)
   cases (stepRun k (head :: tail) i).1 with
   | inl state => rcases state with ⟨j, ys⟩; rfl
-  | inr _p => exact congrArg (fun n : Nat => (n : ℝ≥0∞)) (activeSize_nil time)
+  | inr _p => simp only [activeSize_succ_cons, activeSize_nil, Nat.cast_zero]
 
 theorem residualExpectation_succ_cons (w k : Nat) (head : α) (tail : List α) :
     residualExpectation (w + 1) k (head :: tail) =
@@ -307,7 +312,7 @@ theorem residualExpectation_succ_cons (w k : Nat) (head : α) (tail : List α) :
   apply congrArg (fun e : ℝ≥0∞ => (((tail.length + 1 : Nat) : ℝ≥0∞)⁻¹) * e)
   cases (stepRun k (head :: tail) i).1 with
   | inl state => rcases state with ⟨j, ys⟩; rfl
-  | inr _p => exact congrArg (fun n : Nat => (n : ℝ≥0∞)) (residualWork_nil w)
+  | inr _p => simp only [residualWork_succ_cons, residualWork_nil, Nat.cast_zero]
 
 /-- Conditional drift iterated on the actual trace; successive sizes are
 not assumed independent. -/
