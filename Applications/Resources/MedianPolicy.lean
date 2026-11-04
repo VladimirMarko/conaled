@@ -51,7 +51,7 @@ theorem pivotRun_none (xs : List α) : (pivotRun xs).1 = none ↔ xs = [] := by
     exact List.length_eq_zero_iff.mp (by omega)
   · intro h
     subst xs
-    decide
+    simp
 
 theorem pivot_valid : PivotValid (fun xs : List α => (pivotRun xs).1) := by
   intro xs hx
@@ -86,7 +86,8 @@ theorem pivotRun_small (xs : List α) (hx : xs ≠ []) (hs : xs.length ≤ 20) :
 
 theorem pivotRun_singleton (x : α) : pivotRun [x] = (some x, 10) := by
   rw [pivotRun_small [x] (by simp) (by simp)]
-  rfl
+  simp [SelectionAuxiliary.slowSelectRun, InsertionSort.sortRun,
+    InsertionSort.insertRun, ListCalls.lookupRun, bind, CallCount.tick]
 
 /-- One constant precedes the payload type and every intermediate input. -/
 theorem pivotRun_exists_uniform_linear_bound :
