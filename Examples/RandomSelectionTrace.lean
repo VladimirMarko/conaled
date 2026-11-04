@@ -63,6 +63,15 @@ theorem middle_path_trace :
     exact ENNReal.inv_ne_zero.mpr (ENNReal.natCast_ne_top 6)
   exact (traceLaw_atom 1 ([3, 1, 2] : List Int) _ hr).trans middle_path_atom
 
+/-- The public support-image law carries the positive complete-outcome witness
+to the actual trace distribution at an unsorted interior-rank request. -/
+theorem middle_path_supported :
+    [(3, 1), (2, 0), (1, 0)] ∈ (traceLaw 1 ([3, 1, 2] : List Int)).support := by
+  apply (traceLaw_support 1 ([3, 1, 2] : List Int) _).mpr
+  refine ⟨(some 2, ([(3, 1), (2, 0), (1, 0)], 33)), ?_, rfl⟩
+  rw [PMF.mem_support_iff, middle_path_atom]
+  exact ENNReal.inv_ne_zero.mpr (ENNReal.natCast_ne_top 6)
+
 /-- The exact trace still identifies the actual value and source cost. -/
 theorem middle_path_observations (r : Outcome Int)
     (hr : r ∈ (run 1 [3, 1, 2]).support)
