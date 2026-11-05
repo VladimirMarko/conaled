@@ -180,11 +180,19 @@ including their selected dependent payloads under repeated substitution.
 The [judgment experiment](research/dependent-judgment-representation.md) now
 supplies a source boundary without all-model annotation indices. Authors'
 derivations inherit interpretation, substitution and strict-map preservation;
-model builders prove the primitive operation laws once. Use it for the next
-constructor and author experiments, while keeping source-typing effort,
-coherent comparison scope and old-client migration explicit. The checked
+model builders prove the primitive operation laws once. Use it for the author
+experiment, while keeping source-typing effort, coherent comparison scope and
+old-client migration explicit. The checked
 groupoid and native Type cases do not settle the final author interface or
 establish author-productivity gains.
+The [constructor experiment](research/dependent-constructor-admission.md)
+checks this discipline for object-language dependent sums. Its operations and
+inverse laws derive dependent elimination and compatibility, while exact
+reduct recovery retains old selected witnesses. Judgmental eta is an explicit
+capability requirement. A further law-only extension shows that new requirements
+can also constrain existing operations. Admit each extension against its
+semantic contract; forward inclusion and reduct recovery alone do not prove
+conservativity or expansion of every old model.
 The [checked higher source test](research/dependent-higher-identity.md) retains
 the frozen memo's witness observations, but its corresponding Lean model and
 sound interpretation remain to be constructed. Keep that adoption condition

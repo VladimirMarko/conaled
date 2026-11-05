@@ -88,8 +88,26 @@ does not retire the old annotated API or select the final author interface.
 The new representation still exposes source typing and motive/branch formation
 to authors, consumes the existing semantic model interface, and owes explicit
 migration of old clients. Its native coherent comparisons use proof-irrelevant
-identity; they do not discharge the higher-model gate. Constructor admission
-and comparative author evidence remain with #317 and #320.
+identity; they do not discharge the higher-model gate. Comparative author
+evidence remains with #320.
+
+The [constructor experiment](dependent-constructor-admission.md) now admits
+object-language dependent sums through that boundary. Its capability supplies
+a comprehension isomorphism, including both inverse laws; judgmental eta is
+part of the selected contract. Dependent elimination, its naturality and
+model-map preservation follow from those operations and laws. Checked source
+cases retain the dependent motive and branch under repeated substitution.
+Exact reduct recovery preserves the old value, certificate and dependent
+action. A second, law-only extension admits a derived split-eta equation and
+retains the same old data through both stages.
+
+This supports the discipline of deriving consequences once and keeping new
+requirements explicit. Conditional expansion from a supplied sum capability
+does not establish expansion of every old model or conservativity of the
+extended theory. The rejected singleton/Boolean type equation and missing
+second-family guard show why a syntactically expressible extension still needs
+semantic admission. Use the checked extension in #320; keep its constructor
+capability distinct from the trial's comparison of ordinary author work.
 
 ## What the earlier account understated
 
@@ -116,7 +134,7 @@ into an undifferentiated verdict against the model.
 | Is the distinguished `empty` terminal? | Complete countermodels refute global existence and full-reachable uniqueness. Generated empty substitutions nevertheless exist by a checked recursion. | Specify the objects and arrows of the intended category before requiring terminality; generated-arrow uniqueness remains a separate question. |
 | Does the concrete groupoid setting satisfy LF? | No failure was proved. The categorical package remains unconstructed. | Prove the exact hypotheses if a selected construction needs them; direct models need not all provide LF. |
 | Is the structural interface sufficiently general? | `base`, `fiber`, Id and reflexivity are bundled with context structure; semantic-code indices quantify over the entire J-equipped model. | Compare a signature-independent core and constructor capabilities with a replacement foundation. |
-| Is the requested pair already an object-language term? | Context extension exists, but the current generated fragment has no Sigma constructor. | Specify object-language Sigma versus a contextual package explicitly; neither can silently stand in for the other. |
+| Is the requested pair already an object-language term? | Context extension was already present; #317 now adds an object-language Sigma constructor through an explicit capability. | Specify object-language Sigma versus a contextual package explicitly; neither can silently stand in for the other. |
 
 “Additional required laws should come with additional structure” is a useful
 design question, with three cases. Some laws follow from existing universal
@@ -188,9 +206,10 @@ dependency and review gates.
 
 The judgment experiment uses the structure audit and includes the nested
 internal-setting case. Constructor admission now uses that reviewed judgment
-contract; author dispatch waits for its reviewed extension and prospective
-interface freeze. The categorical-package task retains its concrete-benefit
-condition before constructing another model package.
+contract and has passed review. Author dispatch requires the prospective
+interface and task freezes after those reviewed results. The categorical-package
+task retains its concrete-benefit condition before constructing another model
+package.
 
 #297 keeps the broader modal/higher comparison, with separate questions for
 context restrictions and higher identities. #301 remains an external challenge

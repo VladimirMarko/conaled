@@ -108,9 +108,15 @@ dependent payloads and their slice interpretations. Its finite geometric syntax,
 Lean predicate data and metatheoretic slice formation have explicit boundaries;
 it does not internalize arbitrary semantic categories.
 
-[#317](https://github.com/VladimirMarko/conaled/issues/317) exercises constructor
-admission through this reviewed judgment contract, which has contextual
-dependent packages but no object-language Sigma constructor.
+The reviewed [#317 experiment](dependent-constructor-admission.md) adds an
+object-language Sigma constructor through an explicit stable comprehension
+isomorphism. Its inverse laws include judgmental eta; dependent elimination,
+stability and model-map preservation are derived. Source cases cover repeated
+substitution with dependent motives and branches. Exact reduct recovery retains
+the old selected data, including through a second, law-only extension. Rejected
+rules distinguish formation requirements from valid type equations. Use this
+admission mechanism in #320; all-model expansion, conservativity and the higher
+interpretation remain separate obligations.
 
 The reviewed [#318 assessment](concrete-dependent-coherence.md) defers a new
 strictification package. #289 promotes it when a selected weak model has the
