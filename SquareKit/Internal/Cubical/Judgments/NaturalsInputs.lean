@@ -31,14 +31,13 @@ theorem successorSchema_valid (out : Judgment (Fin 2))
   subst ρ
   exact valid Γ n
 
-theorem eliminationSchema_valid (out : Judgment (Fin 4))
-    (valid : ∀ (Γ : Context.{u}) (B : Family (total (natFamily Γ)))
+theorem eliminationSchema_inputs (out : Judgment (Fin 4)) (ρ : Fin 4 → Value.{u})
+    (h : ∀ i, ((eliminationSchema out).premise i).eval algebra ρ) :
+    ∃ (Γ : Context.{u}) (B : Family (total (natFamily Γ)))
       (z : Presheaf.Term (reindex B (Presheaf.pair (𝟙 Γ) (natZero Γ)))) (s : NatStepTerm B),
-      out.eval algebra ![.context Γ,.family (total (natFamily Γ)) B,
+      ρ = ![.context Γ,.family (total (natFamily Γ)) B,
         .term Γ (reindex B (Presheaf.pair (𝟙 Γ) (natZero Γ))) z,
-        .term (total B) (reindex B (projection B ≫ natSuccessorSub Γ)) s]) :
-    Satisfies algebra.{u} (eliminationSchema out) := by
-  intro ρ h
+        .term (total B) (reindex B (projection B ≫ natSuccessorSub Γ)) s] := by
   rcases h 0 with ⟨Γ,hΓ⟩
   change ρ 0 = .context Γ at hΓ
   have hb := h 1
@@ -69,7 +68,81 @@ theorem eliminationSchema_valid (out : Judgment (Fin 4))
       .term (total B) (reindex B (projection B ≫ natSuccessorSub Γ)) s] := by
     funext i
     fin_cases i <;> first | exact hΓ | exact hB | exact hz | exact hs
-  subst ρ
+  exact ⟨Γ,B,z,s,he⟩
+
+theorem eliminationSchema_valid (out : Judgment (Fin 4))
+    (valid : ∀ (Γ : Context.{u}) (B : Family (total (natFamily Γ)))
+      (z : Presheaf.Term (reindex B (Presheaf.pair (𝟙 Γ) (natZero Γ)))) (s : NatStepTerm B),
+      out.eval algebra ![.context Γ,.family (total (natFamily Γ)) B,
+        .term Γ (reindex B (Presheaf.pair (𝟙 Γ) (natZero Γ))) z,
+        .term (total B) (reindex B (projection B ≫ natSuccessorSub Γ)) s]) :
+    Satisfies algebra.{u} (eliminationSchema out) := by
+  intro ρ h
+  rcases eliminationSchema_inputs out ρ h with ⟨Γ,B,z,s,rfl⟩
   exact valid Γ B z s
+
+theorem substitutionSchema_valid (out : Judgment (Fin 3))
+    (valid : ∀ (Γ Δ : Context.{u}) (σ : Δ ⟶ Γ),
+      out.eval algebra ![.context Γ,.context Δ,.substitution Δ Γ σ]) :
+    Satisfies algebra.{u} (substitutionSchema out) := by
+  intro ρ h
+  rcases h 0 with ⟨Δ,Γ,σ,hΔ,hΓ,hσ⟩
+  have he : ρ = ![.context Γ,.context Δ,.substitution Δ Γ σ] := by
+    funext i
+    fin_cases i <;> first | exact hΓ | exact hΔ | exact hσ
+  subst ρ
+  exact valid Γ Δ σ
+
+theorem successorSubstitutionSchema_valid (out : Judgment (Fin 4))
+    (valid : ∀ (Γ Δ : Context.{u}) (σ : Δ ⟶ Γ) (n : Presheaf.Term (natFamily Γ)),
+      out.eval algebra ![.context Γ,.context Δ,.substitution Δ Γ σ,.term Γ (natFamily Γ) n]) :
+    Satisfies algebra.{u} (successorSubstitutionSchema out) := by
+  intro ρ h
+  rcases h 0 with ⟨Δ,Γ,σ,hΔ,hΓ,hσ⟩
+  change ρ 0 = .context Γ at hΓ
+  change ρ 1 = .context Δ at hΔ
+  change ρ 2 = .substitution Δ Γ σ at hσ
+  have hn := h 1
+  change Source.predicate .term ![ρ 0,extraOperation .nat ![ρ 0],ρ 3] at hn
+  rw [hΓ,extra_nat] at hn
+  obtain ⟨n,hn⟩ := Value.term_input Γ (natFamily Γ) _ hn
+  have he : ρ = ![.context Γ,.context Δ,.substitution Δ Γ σ,.term Γ (natFamily Γ) n] := by
+    funext i
+    fin_cases i <;> first | exact hΓ | exact hΔ | exact hσ | exact hn
+  subst ρ
+  exact valid Γ Δ σ n
+
+theorem eliminationSubstitutionSchema_valid (out : Judgment (Fin 6))
+    (valid : ∀ (Γ Δ : Context.{u}) (B : Family (total (natFamily Γ)))
+      (z : Presheaf.Term (reindex B (Presheaf.pair (𝟙 Γ) (natZero Γ)))) (s : NatStepTerm B) (σ : Δ ⟶ Γ),
+      out.eval algebra ![.context Γ,.family (total (natFamily Γ)) B,
+        .term Γ (reindex B (Presheaf.pair (𝟙 Γ) (natZero Γ))) z,
+        .term (total B) (reindex B (projection B ≫ natSuccessorSub Γ)) s,
+        .context Δ,.substitution Δ Γ σ]) :
+    Satisfies algebra.{u} (eliminationSubstitutionSchema out) := by
+  intro ρ h
+  have hp : ∀ i, eliminationRule.premise i |>.eval algebra (fun j => ρ (j.castAdd 2)) := by
+    intro i
+    have hi := h ⟨i.val, Nat.lt_trans i.isLt (by decide : 4 < 5)⟩
+    simpa only [eliminationSubstitutionSchema, dite_eq_left i.isLt, Atom.eval_subst,
+      GuardedTheory.Term.eval, FinitaryTerm.fold] using hi
+  rcases eliminationSchema_inputs _ _ hp with ⟨Γ,B,z,s,e⟩
+  have hΓ : ρ 0 = .context Γ := congrFun e 0
+  have hB := congrFun e 1
+  have hz := congrFun e 2
+  have hs := congrFun e 3
+  have hσ := h 4
+  change Source.predicate .substitution ![ρ 4,ρ 0,ρ 5] at hσ
+  rcases hσ with ⟨Δ,Γ',σ,hΔ,hΓ',hσ⟩
+  have he := Value.context.inj (hΓ'.symm.trans hΓ)
+  subst Γ'
+  have he : ρ = ![.context Γ,.family (total (natFamily Γ)) B,
+      .term Γ (reindex B (Presheaf.pair (𝟙 Γ) (natZero Γ))) z,
+      .term (total B) (reindex B (projection B ≫ natSuccessorSub Γ)) s,
+      .context Δ,.substitution Δ Γ σ] := by
+    funext i
+    fin_cases i <;> first | exact hΓ | exact hB | exact hz | exact hs | exact hΔ | exact hσ
+  subst ρ
+  exact valid Γ Δ B z s σ
 
 end SquareKit.Cubical.Source.Naturals

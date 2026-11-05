@@ -102,4 +102,23 @@ theorem successorSub_eval {V : Type} (γ : Expression V) (ρ : V → Value.{u})
   rw [ht]
   rfl
 
+theorem lift_eval {V : Type} (δ a τ : Expression V) (ρ : V → Value.{u})
+    (Γ Δ : Context.{u}) (A : Family Γ) (σ : Δ ⟶ Γ)
+    (hΔ : δ.eval algebra ρ = .context Δ) (hA : a.eval algebra ρ = .family Γ A)
+    (hσ : τ.eval algebra ρ = .substitution Δ Γ σ) :
+    (lift δ a τ).eval algebra ρ = .substitution (total (reindex A σ)) (total A) (liftSub A σ) := by
+  change Source.operation .pair ![a.eval algebra ρ,
+    Source.operation .comp ![τ.eval algebra ρ,
+      Source.operation .weaken ![δ.eval algebra ρ,Source.operation .subTy ![a.eval algebra ρ,τ.eval algebra ρ]]],
+    Source.operation .generic ![δ.eval algebra ρ,Source.operation .subTy ![a.eval algebra ρ,τ.eval algebra ρ]]] = _
+  rw [hΔ,hA,hσ]
+  simp only [Source.operation,Matrix.cons_val_zero,Matrix.cons_val_one,Matrix.cons_val_two,
+    Matrix.head_cons,Matrix.tail_cons,Value.familyAt_family,Value.substitutionAt_substitution]
+  have ht : Value.termAt (total (reindex A σ))
+      (Semantics.subTy A (Semantics.compSub σ (Semantics.weaken Δ (Semantics.subTy A σ))))
+      (.term (total (reindex A σ)) (reindex (reindex A σ) (projection (reindex A σ)))
+        (Presheaf.generic (reindex A σ))) = some (Presheaf.generic (reindex A σ)) := Value.termAt_term _ _ _
+  rw [ht]
+  rfl
+
 end SquareKit.Cubical.Source.Naturals

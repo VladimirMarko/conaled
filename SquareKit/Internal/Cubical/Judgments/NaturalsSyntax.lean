@@ -77,4 +77,43 @@ abbrev successorBetaRule := eliminationSchema
     (subTm (.var 3) (pair (.var 1) (identity (extend (.var 0) (nat (.var 0))))
       (elim (.var 0) (.var 1) (.var 2) (.var 3)))))
 
+abbrev substitution (Δ Γ σ : Expression V) : Judgment V :=
+  .pred (.inl (.inl (.inl .substitution))) ![Δ,Γ,σ]
+
+abbrev substitutionSchema (out : Judgment (Fin 3)) : Rule signature where
+  parameterCount := 3
+  hypotheses := 1
+  premise := ![substitution (.var 1) (.var 0) (.var 2)]
+  conclusion := out
+abbrev natSubRule := substitutionSchema
+  (.eq (subTy (nat (.var 0)) (.var 2)) (nat (.var 1)))
+abbrev zeroSubRule := substitutionSchema
+  (.eq (subTm (zero (.var 0)) (.var 2)) (zero (.var 1)))
+
+abbrev successorSubstitutionSchema (out : Judgment (Fin 4)) : Rule signature where
+  parameterCount := 4
+  hypotheses := 2
+  premise := ![substitution (.var 1) (.var 0) (.var 2),term (.var 0) (nat (.var 0)) (.var 3)]
+  conclusion := out
+abbrev successorSubRule := successorSubstitutionSchema
+  (.eq (subTm (succ (.var 0) (.var 3)) (.var 2)) (succ (.var 1) (subTm (.var 3) (.var 2))))
+
+abbrev lift (Δ A σ : Expression V) : Expression V :=
+  pair A (comp σ (weaken Δ (subTy A σ))) (generic Δ (subTy A σ))
+
+abbrev eliminationSubstitutionSchema (out : Judgment (Fin 6)) : Rule signature where
+  parameterCount := 6
+  hypotheses := 5
+  premise i := if h : i.val < 4 then
+    (eliminationRule.premise ⟨i.val,h⟩).subst (fun j => .var (j.castAdd 2))
+    else substitution (.var 4) (.var 0) (.var 5)
+  conclusion := out
+abbrev eliminationSubRule := eliminationSubstitutionSchema
+  (.eq (subTm (elim (.var 0) (.var 1) (.var 2) (.var 3))
+      (lift (.var 4) (nat (.var 0)) (.var 5)))
+    (elim (.var 4) (subTy (.var 1) (lift (.var 4) (nat (.var 0)) (.var 5)))
+      (subTm (.var 2) (.var 5))
+      (subTm (.var 3) (lift (extend (.var 4) (nat (.var 4))) (.var 1)
+        (lift (.var 4) (nat (.var 0)) (.var 5))))))
+
 end SquareKit.Cubical.Source.Naturals

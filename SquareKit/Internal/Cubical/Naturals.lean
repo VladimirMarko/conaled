@@ -124,4 +124,19 @@ theorem natElim_reindex {Γ Δ : Context.{u}} {B : Family (total (natFamily Γ))
   | zero => rfl
   | succ n ih => exact congrArg (s.val (Γ.elementsMk I (σ.app I x)) n) ih
 
+/-- A typed successor body substitutes through both its number and induction
+hypothesis binders. Its coherent-method interpretation preserves that map. -/
+theorem NatStep.ofTerm_reindex {Γ Δ : Context.{u}} {B : Family (total (natFamily Γ))}
+    (s : NatStepTerm B) (σ : Δ ⟶ Γ) :
+    NatStep.ofTerm (B := Presheaf.reindex B (liftSub (natFamily Γ) σ))
+      (s.reindex (liftSub B (liftSub (natFamily Γ) σ))) = (NatStep.ofTerm s).reindex σ := rfl
+
+theorem natElim_term_reindex {Γ Δ : Context.{u}} {B : Family (total (natFamily Γ))}
+    (z : Term (reindex B (pair (𝟙 Γ) (natZero Γ)))) (s : NatStepTerm B) (σ : Δ ⟶ Γ) :
+    (natElim z (NatStep.ofTerm s)).reindex (liftSub (natFamily Γ) σ) =
+      natElim (B := reindex B (liftSub (natFamily Γ) σ)) (z.reindex σ)
+        (NatStep.ofTerm (s.reindex (liftSub B (liftSub (natFamily Γ) σ)))) := by
+  rw [NatStep.ofTerm_reindex]
+  exact natElim_reindex z (NatStep.ofTerm s) σ
+
 end SquareKit.Cubical.Presheaf

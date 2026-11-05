@@ -295,5 +295,6 @@ import Examples.CubicalPathConversion
 import Examples.CubicalSourceProducts
 import Examples.CubicalSourceSums
 import Examples.CubicalSourceNaturals
+import Examples.CubicalSourceIntervals
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

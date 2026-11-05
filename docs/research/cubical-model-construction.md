@@ -568,8 +568,13 @@ validates formation, zero, successor, arbitrary-motive elimination, and both
 computation rules. Its successor method is a typed section in `Γ,n,b` with
 result `B(n+1)`. [The finite-motive example](../../Examples/CubicalSourceNaturals.lean)
 interprets the source successor derivation and evaluates it at two, retaining
-the `Fin(n+1)` result family. Nat constructor substitution, interval and Path
-source extensions, and their combined connection to the archived recursive
+the `Fin(n+1)` result family. Nat constructor substitution is also validated, including both lifted
+binders in the successor method. The interval extension evaluates arbitrary
+De Morgan expressions by actual cube substitutions and validates typing,
+syntactic conversion, dimension composition, and context substitution.
+[Its source example](../../Examples/CubicalSourceIntervals.lean) interprets
+double reversal at the generic interval variable. Path source rules and
+their combined connection to the archived recursive
 contraction remain open. The earlier fixed-`X` recursive characterization has
 not yet been derived in this combined raw source theory. M2 acceptance still
 requires those extensions and that connection; M3–M6 retain all obligations
