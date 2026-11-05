@@ -1,0 +1,162 @@
+[0mdirenv: loading /tmp/conaled-314-320/320/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+Examples/DependentAuthorTrialCases.lean:151:62: error: unsolved goals
+⊢ (match
+        (if k :
+                (fun γ =>
+                    ULift.{0, 0}
+                      (PLift
+                        (inputs.value.down
+                            (({ Context := Type, Family := fun Γ => Γ → Type,
+                                      Section := fun Γ A => ULift.{1, 0} ((γ : Γ) → A γ),
+                                      Substitution := fun Δ Γ => ULift.{1, 0} (Δ → Γ), empty := PUnit.{1},
+                                      extend := fun Γ A => (γ : Γ) × A γ, idSub := fun x => { down := id },
+                                      compSub := fun {Γ Δ Θ} σ τ => { down := σ.down ∘ τ.down },
+                                      subTy := fun {Γ Δ} A σ => A ∘ σ.down,
+                                      subTm := fun {Γ Δ} {A} t σ => { down := fun δ => t.down (σ.down δ) },
+                                      weaken := fun x x_1 => { down := Sigma.fst },
+                                      genericVariable := fun x x_1 => { down := Sigma.snd },
+                                      pairSub := fun {Γ Δ} x σ t => { down := fun δ => ⟨σ.down δ, t.down δ⟩ },
+                                      base := fun x x_1 => ℕ, fiber := fun {Γ} x γ => Fin (x.down γ + 1),
+                                      identity := fun {Γ} x x_1 y γ => ULift.{0, 0} (PLift (x_1.down γ = y.down γ)),
+                                      reflexivity := fun {Γ} x x_1 => { down := fun x_2 => { down := { down := ⋯ } } },
+                                      comp_id_left := @NativeType.structuralModel._proof_2,
+                                      comp_id_right := @NativeType.structuralModel._proof_3,
+                                      comp_assoc := @NativeType.structuralModel._proof_4,
+                                      subTy_id := @NativeType.structuralModel._proof_5,
+                                      subTy_comp := @NativeType.structuralModel._proof_6,
+                                      subTm_id := @NativeType.structuralModel._proof_7,
+                                      subTm_comp := @NativeType.structuralModel._proof_8, base_sub := ⋯, fiber_sub := ⋯,
+                                      identity_sub := @NativeType.structuralModel._proof_11,
+                                      refl_sub := @NativeType.structuralModel._proof_12,
+                                      weaken_pair := @NativeType.structuralModel._proof_13,
+                                      variable_pair := @NativeType.structuralModel._proof_14,
+                                      pair_eta := @NativeType.structuralModel._proof_16 }.rootTail
+                                  inputs.family inputs.point inputs.tail).down
+                              γ) =
+                          inputs.value.down
+                            (({ Context := Type, Family := fun Γ => Γ → Type,
+                                      Section := fun Γ A => ULift.{1, 0} ((γ : Γ) → A γ),
+                                      Substitution := fun Δ Γ => ULift.{1, 0} (Δ → Γ), empty := PUnit.{1},
+                                      extend := fun Γ A => (γ : Γ) × A γ, idSub := fun x => { down := id },
+                                      compSub := fun {Γ Δ Θ} σ τ => { down := σ.down ∘ τ.down },
+                                      subTy := fun {Γ Δ} A σ => A ∘ σ.down,
+                                      subTm := fun {Γ Δ} {A} t σ => { down := fun δ => t.down (σ.down δ) },
+                                      weaken := fun x x_1 => { down := Sigma.fst },
+                                      genericVariable := fun x x_1 => { down := Sigma.snd },
+                                      pairSub := fun {Γ Δ} x σ t => { down := fun δ => ⟨σ.down δ, t.down δ⟩ },
+                                      base := fun x x_1 => ℕ, fiber := fun {Γ} x γ => Fin (x.down γ + 1),
+                                      identity := fun {Γ} x x_1 y γ => ULift.{0, 0} (PLift (x_1.down γ = y.down γ)),
+                                      reflexivity := fun {Γ} x x_1 => { down := fun x_2 => { down := { down := ⋯ } } },
+                                      comp_id_left := @NativeType.structuralModel._proof_2,
+                                      comp_id_right := @NativeType.structuralModel._proof_3,
+                                      comp_assoc := @NativeType.structuralModel._proof_4,
+                                      subTy_id := @NativeType.structuralModel._proof_5,
+                                      subTy_comp := @NativeType.structuralModel._proof_6,
+                                      subTm_id := @NativeType.structuralModel._proof_7,
+                                      subTm_comp := @NativeType.structuralModel._proof_8, base_sub := ⋯, fiber_sub := ⋯,
+                                      identity_sub := @NativeType.structuralModel._proof_11,
+                                      refl_sub := @NativeType.structuralModel._proof_12,
+                                      weaken_pair := @NativeType.structuralModel._proof_13,
+                                      variable_pair := @NativeType.structuralModel._proof_14,
+                                      pair_eta := @NativeType.structuralModel._proof_16 }.rootTail
+                                  inputs.family inputs.point inputs.tail).down
+                              γ)))) =
+                  (fun γ => ULift.{0, 0} (PLift True)) ∘
+                    ({ Context := Type, Family := fun Γ => Γ → Type, Section := fun Γ A => ULift.{1, 0} ((γ : Γ) → A γ),
+                            Substitution := fun Δ Γ => ULift.{1, 0} (Δ → Γ), empty := PUnit.{1},
+                            extend := fun Γ A => (γ : Γ) × A γ, idSub := fun x => { down := id },
+                            compSub := fun {Γ Δ Θ} σ τ => { down := σ.down ∘ τ.down },
+                            subTy := fun {Γ Δ} A σ => A ∘ σ.down,
+                            subTm := fun {Γ Δ} {A} t σ => { down := fun δ => t.down (σ.down δ) },
+                            weaken := fun x x_1 => { down := Sigma.fst },
+                            genericVariable := fun x x_1 => { down := Sigma.snd },
+                            pairSub := fun {Γ Δ} x σ t => { down := fun δ => ⟨σ.down δ, t.down δ⟩ },
+                            base := fun x x_1 => ℕ, fiber := fun {Γ} x γ => Fin (x.down γ + 1),
+                            identity := fun {Γ} x x_1 y γ => ULift.{0, 0} (PLift (x_1.down γ = y.down γ)),
+                            reflexivity := fun {Γ} x x_1 => { down := fun x_2 => { down := { down := ⋯ } } },
+                            comp_id_left := @NativeType.structuralModel._proof_2,
+                            comp_id_right := @NativeType.structuralModel._proof_3,
+                            comp_assoc := @NativeType.structuralModel._proof_4,
+                            subTy_id := @NativeType.structuralModel._proof_5,
+                            subTy_comp := @NativeType.structuralModel._proof_6,
+                            subTm_id := @NativeType.structuralModel._proof_7,
+                            subTm_comp := @NativeType.structuralModel._proof_8, base_sub := ⋯, fiber_sub := ⋯,
+                            identity_sub := @NativeType.structuralModel._proof_11,
+                            refl_sub := @NativeType.structuralModel._proof_12,
+                            weaken_pair := @NativeType.structuralModel._proof_13,
+                            variable_pair := @NativeType.structuralModel._proof_14,
+                            pair_eta := @NativeType.structuralModel._proof_16 }.rootTail
+                        inputs.family inputs.point inputs.tail).down then
+              some (k ▸ { down := fun x => { down := { down := ⋯ } } })
+            else none).bind
+          fun a =>
+          some
+            { context := inputs.context, family := inputs.family, term := inputs.point, length := inputs.length,
+              telescope := inputs.tail, motive := fun γ => ULift.{0, 0} (PLift True), branch := a } with
+      | some p =>
+        pure
+          (Value.term
+            (StructuralModel.Telescope.total
+              { Context := Type, Family := fun Γ => Γ → Type, Section := fun Γ A => ULift.{1, 0} ((γ : Γ) → A γ),
+                Substitution := fun Δ Γ => ULift.{1, 0} (Δ → Γ), empty := PUnit.{1}, extend := fun Γ A => (γ : Γ) × A γ,
+                idSub := fun x => { down := id }, compSub := fun {Γ Δ Θ} σ τ => { down := σ.down ∘ τ.down },
+                subTy := fun {Γ Δ} A σ => A ∘ σ.down,
+                subTm := fun {Γ Δ} {A} t σ => { down := fun δ => t.down (σ.down δ) },
+                weaken := fun x x_1 => { down := Sigma.fst }, genericVariable := fun x x_1 => { down := Sigma.snd },
+                pairSub := fun {Γ Δ} x σ t => { down := fun δ => ⟨σ.down δ, t.down δ⟩ }, base := fun x x_1 => ℕ,
+                fiber := fun {Γ} x γ => Fin (x.down γ + 1),
+                identity := fun {Γ} x x_1 y γ => ULift.{0, 0} (PLift (x_1.down γ = y.down γ)),
+                reflexivity := fun {Γ} x x_1 => { down := fun x_2 => { down := { down := ⋯ } } },
+                comp_id_left := @NativeType.structuralModel._proof_2,
+                comp_id_right := @NativeType.structuralModel._proof_3,
+                comp_assoc := @NativeType.structuralModel._proof_4, subTy_id := @NativeType.structuralModel._proof_5,
+                subTy_comp := @NativeType.structuralModel._proof_6, subTm_id := @NativeType.structuralModel._proof_7,
+                subTm_comp := @NativeType.structuralModel._proof_8, base_sub := ⋯, fiber_sub := ⋯,
+                identity_sub := @NativeType.structuralModel._proof_11,
+                refl_sub := @NativeType.structuralModel._proof_12, weaken_pair := @NativeType.structuralModel._proof_13,
+                variable_pair := @NativeType.structuralModel._proof_14,
+                pair_eta := @NativeType.structuralModel._proof_16 }
+              p.telescope)
+            p.motive (NativeType.contextualJ ℕ (fun n => Fin (n + 1)) p.family p.term p.telescope p.motive p.branch))
+      | x => pure Value.invalid).run =
+    Value.term
+      (StructuralModel.Telescope.total
+        { Context := Type, Family := fun Γ => Γ → Type, Section := fun Γ A => ULift.{1, 0} ((γ : Γ) → A γ),
+          Substitution := fun Δ Γ => ULift.{1, 0} (Δ → Γ), empty := PUnit.{1}, extend := fun Γ A => (γ : Γ) × A γ,
+          idSub := fun x => { down := id }, compSub := fun {Γ Δ Θ} σ τ => { down := σ.down ∘ τ.down },
+          subTy := fun {Γ Δ} A σ => A ∘ σ.down, subTm := fun {Γ Δ} {A} t σ => { down := fun δ => t.down (σ.down δ) },
+          weaken := fun x x_1 => { down := Sigma.fst }, genericVariable := fun x x_1 => { down := Sigma.snd },
+          pairSub := fun {Γ Δ} x σ t => { down := fun δ => ⟨σ.down δ, t.down δ⟩ }, base := fun x x_1 => ℕ,
+          fiber := fun {Γ} x γ => Fin (x.down γ + 1),
+          identity := fun {Γ} x x_1 y γ => ULift.{0, 0} (PLift (x_1.down γ = y.down γ)),
+          reflexivity := fun {Γ} x x_1 => { down := fun x_2 => { down := { down := ⋯ } } },
+          comp_id_left := @NativeType.structuralModel._proof_2, comp_id_right := @NativeType.structuralModel._proof_3,
+          comp_assoc := @NativeType.structuralModel._proof_4, subTy_id := @NativeType.structuralModel._proof_5,
+          subTy_comp := @NativeType.structuralModel._proof_6, subTm_id := @NativeType.structuralModel._proof_7,
+          subTm_comp := @NativeType.structuralModel._proof_8, base_sub := ⋯, fiber_sub := ⋯,
+          identity_sub := @NativeType.structuralModel._proof_11, refl_sub := @NativeType.structuralModel._proof_12,
+          weaken_pair := @NativeType.structuralModel._proof_13, variable_pair := @NativeType.structuralModel._proof_14,
+          pair_eta := @NativeType.structuralModel._proof_16 }
+        inputs.tail)
+      (fun γ => ULift.{0, 0} (PLift (inputs.value.down γ = inputs.value.down γ)))
+      (NativeType.contextualJ ℕ (fun n => Fin (n + 1)) inputs.family inputs.point inputs.tail
+        (fun γ => ULift.{0, 0} (PLift (inputs.value.down γ = inputs.value.down γ)))
+        { down := fun x => { down := { down := ⋯ } } })
+Examples/DependentAuthorTrialCases.lean:154:35: warning: This simp argument is unused:
+  Contextual.operation
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [certificateExpression, certificateCommand, DependentAuthorReference.Candidate.certificateCommand,
+    Command.expression, Term.eval, Contextual.algebra, DependentJudgments.operation, environment]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Examples/DependentAuthorTrialCases.lean:155:4: warning: This simp argument is unused:
+  DependentJudgments.operation
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [certificateExpression, certificateCommand, DependentAuthorReference.Candidate.certificateCommand,
+    Command.expression, Term.eval, Contextual.algebra, Contextual.operation, environment]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,143 @@
+[0mdirenv: loading /tmp/conaled-314-320/320/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+Examples/DependentAuthorTrialCases.lean:71:14: error: Application type mismatch: The argument
+  ⟨2, ?m.37⟩
+has type
+  Fin 4
+but is expected to have type
+  fiberCode NamedCaller.xAtQ.code native
+    ⟨⟨⟨⟨⟨PUnit.unit, 3⟩, 3⟩, { down := { down := ?m.24 } }⟩, 3⟩, { down := { down := ?m.31 } }⟩
+in the application
+  ⟨⟨⟨⟨⟨⟨PUnit.unit, 3⟩, 3⟩, { down := { down := ?m.24 } }⟩, 3⟩, { down := { down := ?m.31 } }⟩, ⟨2, ?m.37⟩⟩
+Examples/DependentAuthorTrialCases.lean:71:6: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.30 = ?m.30
+but is expected to have type
+  (NamedCaller.yAtZ.code native).down ⟨⟨⟨⟨PUnit.unit, 3⟩, 3⟩, { down := { down := ?m.24 } }⟩, 3⟩ =
+    (NamedCaller.z.code native).down ⟨⟨⟨⟨PUnit.unit, 3⟩, 3⟩, { down := { down := ?m.24 } }⟩, 3⟩
+in the application
+  { down := ⋯ }
+Examples/DependentAuthorTrialCases.lean:194:82: error: unsolved goals
+⊢ (match
+      Value.termIn
+        (native.extend (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+          (native.identity inputs.valueFamily inputs.value inputs.value))
+        (match
+          Value.termIn (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+            (SquareKit.FinitaryTerm.fold
+              (fun x =>
+                match (motive :=
+                  (x : Contextual.signature.Operation) →
+                    (Fin (Contextual.signature.arity x) → Value native.toStructuralModel) →
+                      Value native.toStructuralModel)
+                  x with
+                | Sum.inl op => DependentJudgments.operation native.toStructuralModel op
+                | Sum.inr op => Contextual.operation native op)
+              ![Value.context inputs.context, Value.family inputs.context inputs.family,
+                Value.term inputs.context inputs.family inputs.point,
+                Value.telescope (native.pathContext inputs.family inputs.point) inputs.length inputs.tail,
+                Value.family (StructuralModel.Telescope.total native.toStructuralModel inputs.tail) inputs.valueFamily,
+                Value.term (StructuralModel.Telescope.total native.toStructuralModel inputs.tail) inputs.valueFamily
+                  inputs.value]
+              (DependentAuthorReference.Candidate.certificateCommand point tail value).expression) with
+        | some ⟨A, t⟩ =>
+          Value.term
+            (native.extend (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+              (native.identity inputs.valueFamily inputs.value inputs.value))
+            (native.subTy A
+              (native.weaken (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+                (native.identity inputs.valueFamily inputs.value inputs.value)))
+            (native.subTm t
+              (native.weaken (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+                (native.identity inputs.valueFamily inputs.value inputs.value)))
+        | none => Value.invalid) with
+    | some ⟨A, t⟩ =>
+      Value.term
+        (native.extend
+          (native.extend (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+            (native.identity inputs.valueFamily inputs.value inputs.value))
+          (native.identity
+            (native.subTy (native.identity inputs.valueFamily inputs.value inputs.value)
+              (native.weaken (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+                (native.identity inputs.valueFamily inputs.value inputs.value)))
+            (native.genericVariable (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+              (native.identity inputs.valueFamily inputs.value inputs.value))
+            (native.genericVariable (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+              (native.identity inputs.valueFamily inputs.value inputs.value))))
+        (native.subTy A
+          (native.weaken
+            (native.extend (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+              (native.identity inputs.valueFamily inputs.value inputs.value))
+            (native.identity
+              (native.subTy (native.identity inputs.valueFamily inputs.value inputs.value)
+                (native.weaken (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+                  (native.identity inputs.valueFamily inputs.value inputs.value)))
+              (native.genericVariable (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+                (native.identity inputs.valueFamily inputs.value inputs.value))
+              (native.genericVariable (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+                (native.identity inputs.valueFamily inputs.value inputs.value)))))
+        (native.subTm t
+          (native.weaken
+            (native.extend (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+              (native.identity inputs.valueFamily inputs.value inputs.value))
+            (native.identity
+              (native.subTy (native.identity inputs.valueFamily inputs.value inputs.value)
+                (native.weaken (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+                  (native.identity inputs.valueFamily inputs.value inputs.value)))
+              (native.genericVariable (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+                (native.identity inputs.valueFamily inputs.value inputs.value))
+              (native.genericVariable (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+                (native.identity inputs.valueFamily inputs.value inputs.value)))))
+    | none => Value.invalid) =
+    Value.term
+      (native.extend
+        (native.extend (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+          (native.identity inputs.valueFamily inputs.value inputs.value))
+        (native.identity
+          (native.subTy (native.identity inputs.valueFamily inputs.value inputs.value)
+            (native.weaken (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+              (native.identity inputs.valueFamily inputs.value inputs.value)))
+          (native.genericVariable (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+            (native.identity inputs.valueFamily inputs.value inputs.value))
+          (native.genericVariable (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+            (native.identity inputs.valueFamily inputs.value inputs.value))))
+      (native.subTy
+        (native.subTy (native.identity inputs.valueFamily inputs.value inputs.value)
+          (native.weaken (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+            (native.identity inputs.valueFamily inputs.value inputs.value)))
+        (native.weaken
+          (native.extend (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+            (native.identity inputs.valueFamily inputs.value inputs.value))
+          (native.identity
+            (native.subTy (native.identity inputs.valueFamily inputs.value inputs.value)
+              (native.weaken (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+                (native.identity inputs.valueFamily inputs.value inputs.value)))
+            (native.genericVariable (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+              (native.identity inputs.valueFamily inputs.value inputs.value))
+            (native.genericVariable (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+              (native.identity inputs.valueFamily inputs.value inputs.value)))))
+      (native.subTm
+        (native.subTm nativeCertificate
+          (native.weaken (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+            (native.identity inputs.valueFamily inputs.value inputs.value)))
+        (native.weaken
+          (native.extend (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+            (native.identity inputs.valueFamily inputs.value inputs.value))
+          (native.identity
+            (native.subTy (native.identity inputs.valueFamily inputs.value inputs.value)
+              (native.weaken (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+                (native.identity inputs.valueFamily inputs.value inputs.value)))
+            (native.genericVariable (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+              (native.identity inputs.valueFamily inputs.value inputs.value))
+            (native.genericVariable (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+              (native.identity inputs.valueFamily inputs.value inputs.value)))))
+Examples/DependentAuthorTrialCases.lean:198:47: warning: This simp argument is unused:
+  selected_certificate
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Term.eval, Contextual.algebra, Contextual.operation, DependentJudgments.operation, environment,
+    nativeFirst, nativeSecond, nativeFinalContext, nativeFirstContext, nativeSecondFamily, nativeWitness, nativeMotive]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

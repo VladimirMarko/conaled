@@ -1,0 +1,24 @@
+[0mdirenv: loading /tmp/conaled-314-320/320/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+Examples/DependentAuthorTrialCases.lean:70:20: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat (baseCode emptyCode native PUnit.unit) 3
+numerals are polymorphic in Lean, but the numeral `3` cannot be used in a context where the expected type is
+  baseCode emptyCode native PUnit.unit
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Examples/DependentAuthorTrialCases.lean:194:76: error: Application type mismatch: The argument
+  first
+has type
+  Contextual.Sub (Contextual.extend (total t) (identity q p p)) (total t) (Contextual.weaken (total t) (identity q p p))
+of sort `Type` but is expected to have type
+  Typed.Model
+of sort `Type (?u.16 + 1)` in the application
+  DependentAuthorReference.Candidate.extensionSelected point tail value first
+Examples/DependentAuthorTrialCases.lean:193:82: error: unsolved goals
+⊢ Term.eval (Sigma.algebra native stable.toCapability) environment
+      (Term.inl Sigma.extraSignature
+        (Contextual.subTm (Contextual.subTm certificateExpression firstArrow) secondArrow)) =
+    Value.term nativeFinalContext (native.subTy (native.subTy nativeMotive nativeFirst) nativeSecond)
+      (native.subTm (native.subTm nativeCertificate nativeFirst) nativeSecond)

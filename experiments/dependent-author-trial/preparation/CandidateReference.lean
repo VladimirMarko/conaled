@@ -1,0 +1,128 @@
+import SquareKit.Internal.DependentJudgments.Templates
+import SquareKit.Internal.DependentJudgments.Sigma.Authoring
+import SquareKit.Internal.DependentJudgments.Sigma.Stability
+/-! Coordinator reference for the frozen dependent author trial (#320).
+This source is excluded from measured author handoffs. Its experimental scope
+and prospective evidence are recorded in docs/research/dependent-author-interface-trial.md. -/
+namespace DependentAuthorReference.Candidate
+open SquareKit.Internal SquareKit.Internal.DependentJudgments SquareKit.GuardedTheory
+open Contextual
+set_option backward.isDefEq.respectTransparency false
+variable {V : Type} {Ω : List (Contextual.Judgment V)}
+variable {Γ A x T Q p : Contextual.Expression V} {n : Nat}
+variable (hx : Tm (Ω := Ω) Γ A x)
+  (hT : Tel (Ω := Ω) n (path A x) T)
+  (hp : Tm (Ω := Ω) (total T) Q p)
+
+def calibration (cmd : Command Ω Γ A x) {Δ σ : Contextual.Expression V}
+    (hσ : Contextual.Sub (Ω := Ω) Δ Γ σ) := cmd.comparison hσ
+
+private def applyRule (a : Contextual.Axiom) (σ : Fin (Contextual.rule a).parameterCount → Contextual.Expression V)
+    (h : ∀ i, Derivation Contextual.theory Ω (((Contextual.rule a).premise i).subst σ)) :
+    Derivation Contextual.theory Ω ((Contextual.rule a).conclusion.subst σ) :=
+  Derivation.rule (T := Contextual.theory) (Sum.inr a) σ h
+
+def rootTyping (hx : Tm (Ω := Ω) Γ A x) (hT : Tel (Ω := Ω) n (path A x) T) :
+    Contextual.Sub (Ω := Ω) (total (pullback T (root A x))) (total T) (rootTail A x T) := by
+  have e : Derivation Contextual.theory Ω
+      ((Contextual.rule (.rootTail n)).conclusion.subst ![Γ, A, x, T]) :=
+    applyRule (.rootTail n) ![Γ, A, x, T]
+      (Fin.cases (by simpa [Contextual.rule, rootTailRule, tailSchema] using hx)
+        (Fin.cases (by simpa [Contextual.rule, rootTailRule, tailSchema] using hT) (fun i => nomatch i)))
+  simpa [Contextual.rule, rootTailRule, tailSchema] using e
+
+def certificateCommand : Command Ω Γ A x where
+  point := hx
+  length := n
+  tail := T
+  tailTyping := hT
+  motive := identity Q p p
+  motiveTyping := hp.identity hp
+  branch := reflexivity (subTy Q (rootTail A x T)) (subTm p (rootTail A x T))
+  branchTyping := ((hp.substitute (rootTyping hx hT)).reflexivity).convert
+    (hp.identitySub hp (rootTyping hx hT)).symmetric
+
+def certificate := (certificateCommand hx hT hp).typing
+
+variable {Δ Θ σ τ : Contextual.Expression V}
+variable (hσ : Sub (Ω := Ω) Δ (total T) σ) (hτ : Sub (Ω := Ω) Θ Δ τ)
+
+def valueTwice := (hp.substitute hσ).substitute hτ
+def certificateTwice := ((certificate hx hT hp).substitute hσ).substitute hτ
+def valueTypeComparison := hp.family.subComp hσ hτ
+def valueComparison := hp.subComp hσ hτ
+def certificateTypeComparison := (hp.identity hp).subComp hσ hτ
+def certificateComparison := (certificate hx hT hp).subComp hσ hτ
+
+def certificateAligned := (certificateTwice hx hT hp hσ hτ).convert
+  (certificateTypeComparison hp hσ hτ)
+
+noncomputable def extendedCertificate := Sigma.retain (certificateTwice hx hT hp hσ hτ)
+
+theorem extensionSelected (M : PathTransport.Typed.Model)
+    (S : Sigma.Stable M.toStructuralModel) (ρ : V → Value M.toStructuralModel) :
+    ((subTm (subTm (certificateCommand hx hT hp).expression σ) τ).inl Sigma.extraSignature).eval
+      (Sigma.algebra M S.toCapability) ρ =
+    (subTm (subTm (certificateCommand hx hT hp).expression σ) τ).eval (Contextual.algebra M) ρ :=
+  Sigma.eval_old M S.toCapability _ ρ
+
+def firstWeakening := (hp.identity hp).weaken
+def witnessVariable := (hp.identity hp).generic
+def secondWeakening := ((witnessVariable hp).identity (witnessVariable hp)).weaken
+
+def dependentWeakeningCertificate := certificateTwice hx hT hp (firstWeakening hp) (secondWeakening hp)
+def dependentWeakeningComparison := certificateComparison hx hT hp (firstWeakening hp) (secondWeakening hp)
+end DependentAuthorReference.Candidate
+namespace DependentAuthorReference.Candidate
+open SquareKit.Internal SquareKit.Internal.DependentJudgments SquareKit.GuardedTheory
+open Contextual
+variable {V : Type} {Ω : List (Contextual.Judgment V)}
+variable {Γ A x T Q p Δ Θ σ τ : Contextual.Expression V} {n : Nat}
+variable (hx : Tm (Ω := Ω) Γ A x) (hT : Tel (Ω := Ω) n (path A x) T)
+  (hp : Tm (Ω := Ω) (total T) Q p)
+  (hσ : Contextual.Sub (Ω := Ω) Δ (total T) σ) (hτ : Contextual.Sub (Ω := Ω) Θ Δ τ)
+variable (M : PathTransport.Typed.Model) (S : Sigma.Stable M.toStructuralModel)
+  (ρ : V → Value M.toStructuralModel)
+  (hΩ : ∀ j ∈ Ω, j.eval (Contextual.algebra M) ρ)
+
+include hσ hτ hΩ in
+theorem certificateValidity :
+    (Contextual.term Θ (Contextual.subTy (Contextual.subTy (identity Q p p) σ) τ)
+      (Contextual.subTm (Contextual.subTm (certificateCommand hx hT hp).expression σ) τ)).eval
+      (Contextual.algebra M) ρ :=
+  Contextual.interpret (certificateTwice hx hT hp hσ hτ) M ρ hΩ
+
+include hp hσ hτ hΩ in
+theorem valueValidity :
+    (Contextual.term Θ (Contextual.subTy (Contextual.subTy Q σ) τ)
+      (Contextual.subTm (Contextual.subTm p σ) τ)).eval (Contextual.algebra M) ρ :=
+  Contextual.interpret (valueTwice hp hσ hτ) M ρ hΩ
+
+include hσ hτ hΩ in
+theorem extendedValidity :
+    ((Contextual.term Θ (Contextual.subTy (Contextual.subTy (identity Q p p) σ) τ)
+      (Contextual.subTm (Contextual.subTm (certificateCommand hx hT hp).expression σ) τ)).inl
+      Sigma.extraSignature).eval (Sigma.algebra M S.toCapability) ρ := by
+  apply Sigma.interpret (extendedCertificate hx hT hp hσ hτ) M S.toCapability ρ
+  intro j hj
+  rcases List.mem_map.mp hj with ⟨k, hk, rfl⟩
+  simpa only [Sigma.eval_old_judgment] using hΩ k hk
+
+include hp hσ hτ hΩ in
+theorem certificateTypeValidity :
+    (Contextual.subTy (Contextual.subTy (identity Q p p) σ) τ).eval (Contextual.algebra M) ρ =
+      (Contextual.subTy (identity Q p p) (Contextual.comp σ τ)).eval (Contextual.algebra M) ρ :=
+  Contextual.interpret (certificateTypeComparison hp hσ hτ) M ρ hΩ
+
+theorem extensionValue :
+    ((Contextual.subTm (Contextual.subTm p σ) τ).inl Sigma.extraSignature).eval
+      (Sigma.algebra M S.toCapability) ρ =
+    (Contextual.subTm (Contextual.subTm p σ) τ).eval (Contextual.algebra M) ρ :=
+  Sigma.eval_old M S.toCapability _ ρ
+
+theorem extensionType :
+    ((Contextual.subTy (Contextual.subTy (identity Q p p) σ) τ).inl Sigma.extraSignature).eval
+      (Sigma.algebra M S.toCapability) ρ =
+    (Contextual.subTy (Contextual.subTy (identity Q p p) σ) τ).eval (Contextual.algebra M) ρ :=
+  Sigma.eval_old M S.toCapability _ ρ
+end DependentAuthorReference.Candidate

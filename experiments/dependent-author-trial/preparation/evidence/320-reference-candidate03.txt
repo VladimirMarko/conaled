@@ -1,0 +1,41 @@
+[0mdirenv: loading /tmp/conaled-314-320/320/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+experiments/dependent-author-trial/preparation/CandidateReference.lean:17:19: error: Type mismatch: After simplification, term
+  hx
+ has type
+  Tm Γ A x
+but is expected to have type
+  Derivation (comprehensionTheory.extend extraSignature Axiom rule) Ω
+    (Atom.subst ![Γ, A, x, T]
+      (((comprehensionTheory.extend extraSignature Axiom rule).rule (Sum.inr (Axiom.rootTail n))).premise 0))
+experiments/dependent-author-trial/preparation/CandidateReference.lean:18:21: error: Type mismatch: After simplification, term
+  hT
+ has type
+  Tel n (path A x) T
+but is expected to have type
+  Derivation (comprehensionTheory.extend extraSignature Axiom rule) Ω
+    (Atom.subst ![Γ, A, x, T]
+      (((comprehensionTheory.extend extraSignature Axiom rule).rule (Sum.inr (Axiom.rootTail n))).premise 1))
+experiments/dependent-author-trial/preparation/CandidateReference.lean:19:2: error: Type mismatch: After simplification, term
+  e
+ has type
+  Derivation (comprehensionTheory.extend extraSignature Axiom rule) Ω
+    (Atom.subst ![Γ, A, x, T]
+      ((comprehensionTheory.extend extraSignature Axiom rule).rule (Sum.inr (Axiom.rootTail n))).conclusion)
+but is expected to have type
+  Contextual.Sub (total (pullback T (root A x))) (total T) (rootTail A x T)
+experiments/dependent-author-trial/preparation/CandidateReference.lean:29:35: error: Function expected at
+  rootTyping
+but this term has type
+  Contextual.Sub (total (pullback ?m.36 (root ?m.34 ?m.35))) (total ?m.36) (rootTail ?m.34 ?m.35 ?m.36)
+
+Note: Expected a function because this term is being applied to the argument
+  hx
+experiments/dependent-author-trial/preparation/CandidateReference.lean:30:24: error: Function expected at
+  rootTyping
+but this term has type
+  Contextual.Sub (total (pullback ?m.63 (root ?m.61 ?m.62))) (total ?m.63) (rootTail ?m.61 ?m.62 ?m.63)
+
+Note: Expected a function because this term is being applied to the argument
+  hx

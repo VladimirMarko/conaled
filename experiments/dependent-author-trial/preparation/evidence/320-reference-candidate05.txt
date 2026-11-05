@@ -1,0 +1,22 @@
+[0mdirenv: loading /tmp/conaled-314-320/320/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+experiments/dependent-author-trial/preparation/CandidateReference.lean:19:21: error: Type mismatch: After simplification, term
+  hx
+ has type
+  Tm Γ A x
+but is expected to have type
+  Derivation theory Ω (Atom.subst ![Γ, A, x, T] ((theory.rule (Sum.inr (Axiom.rootTail n))).premise 0))
+experiments/dependent-author-trial/preparation/CandidateReference.lean:20:23: error: Type mismatch: After simplification, term
+  hT
+ has type
+  Tel n (path A x) T
+but is expected to have type
+  Derivation theory Ω (Atom.subst ![Γ, A, x, T] ((theory.rule (Sum.inr (Axiom.rootTail n))).premise 1))
+experiments/dependent-author-trial/preparation/CandidateReference.lean:32:43: error(lean.invalidField): Invalid field `symm`: The environment does not contain `SquareKit.GuardedTheory.Derivation.symm`, so it is not possible to project the field `symm` from an expression
+  hp.identitySub hp (rootTyping hx hT)
+of type
+  Derivation theory Ω
+    (Atom.eq (Contextual.subTy (identity Q p p) (rootTail A x T))
+      (identity (Contextual.subTy Q (rootTail A x T)) (Contextual.subTm p (rootTail A x T))
+        (Contextual.subTm p (rootTail A x T))))

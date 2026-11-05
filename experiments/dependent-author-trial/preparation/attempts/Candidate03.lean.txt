@@ -1,0 +1,62 @@
+import SquareKit.Internal.DependentJudgments.Templates
+import SquareKit.Internal.DependentJudgments.Sigma.Authoring
+import SquareKit.Internal.DependentJudgments.Sigma.Stability
+namespace DependentAuthorReference.Candidate
+open SquareKit.Internal SquareKit.Internal.DependentJudgments SquareKit.GuardedTheory
+open Contextual
+set_option backward.isDefEq.respectTransparency false
+variable {V : Type} {Ω : List (Contextual.Judgment V)}
+variable {Γ A x T Q p : Contextual.Expression V} {n : Nat}
+variable (hx : Tm (Ω := Ω) Γ A x)
+  (hT : Tel (Ω := Ω) n (path A x) T)
+  (hp : Tm (Ω := Ω) (total T) Q p)
+
+def rootTyping : Sub (Ω := Ω) (total (pullback T (root A x))) (total T) (rootTail A x T) := by
+  have e := Derivation.rule (T := Contextual.theory) (Γ := Ω) (Sum.inr (.rootTail n))
+    ![Γ, A, x, T]
+    (Fin.cases (by simpa [Contextual.theory, Contextual.rule, rootTailRule, tailSchema] using hx)
+      (Fin.cases (by simpa [Contextual.theory, Contextual.rule, rootTailRule, tailSchema] using hT) (fun i => nomatch i)))
+  simpa [Contextual.theory, Contextual.rule, rootTailRule, tailSchema] using e
+
+def certificateCommand : Command Ω Γ A x where
+  point := hx
+  length := n
+  tail := T
+  tailTyping := hT
+  motive := identity Q p p
+  motiveTyping := hp.identity hp
+  branch := reflexivity (subTy Q (rootTail A x T)) (subTm p (rootTail A x T))
+  branchTyping := ((hp.substitute (rootTyping hx hT)).reflexivity).convert
+    (hp.identitySub hp (rootTyping hx hT)).symm
+
+def certificate := (certificateCommand hx hT hp).typing
+
+variable {Δ Θ σ τ : Contextual.Expression V}
+variable (hσ : Sub (Ω := Ω) Δ (total T) σ) (hτ : Sub (Ω := Ω) Θ Δ τ)
+
+def valueTwice := (hp.substitute hσ).substitute hτ
+def certificateTwice := ((certificate hx hT hp).substitute hσ).substitute hτ
+def valueTypeComparison := hp.family.subComp hσ hτ
+def valueComparison := hp.subComp hσ hτ
+def certificateTypeComparison := (hp.identity hp).subComp hσ hτ
+def certificateComparison := (certificate hx hT hp).subComp hσ hτ
+
+def certificateAligned := (certificateTwice hx hT hp hσ hτ).convert
+  (certificateTypeComparison hp hσ hτ)
+
+noncomputable def extendedCertificate := Sigma.retain (certificateTwice hx hT hp hσ hτ)
+
+theorem extensionSelected (M : PathTransport.Typed.Model)
+    (S : Sigma.Stable M.toStructuralModel) (ρ : V → Value M.toStructuralModel) :
+    ((subTm (subTm (certificateCommand hx hT hp).expression σ) τ).inl Sigma.extraSignature).eval
+      (Sigma.algebra M S.toCapability) ρ =
+    (subTm (subTm (certificateCommand hx hT hp).expression σ) τ).eval (Contextual.algebra M) ρ :=
+  Sigma.eval_old M S.toCapability _ ρ
+
+def firstWeakening := (hp.identity hp).weaken
+def witnessVariable := (hp.identity hp).generic
+def secondWeakening := ((witnessVariable hp).identity (witnessVariable hp)).weaken
+
+def dependentWeakeningCertificate := certificateTwice hx hT hp (firstWeakening hp) (secondWeakening hp)
+def dependentWeakeningComparison := certificateComparison hx hT hp (firstWeakening hp) (secondWeakening hp)
+end DependentAuthorReference.Candidate

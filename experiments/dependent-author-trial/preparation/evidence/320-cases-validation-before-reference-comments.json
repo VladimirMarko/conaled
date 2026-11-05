@@ -1,0 +1,36 @@
+{
+  "commands": {
+    "focused_build": [
+      "direnv",
+      "exec",
+      ".",
+      "lake",
+      "build",
+      "Examples.DependentAuthorTrialCases"
+    ],
+    "focused_audit": [
+      "direnv",
+      "exec",
+      ".",
+      "lake",
+      "env",
+      "lean",
+      "/tmp/conaled-314-320/records/320-cases-audit.lean"
+    ]
+  },
+  "build_log": "/tmp/conaled-314-320/records/320-cases-build03.log",
+  "build_exit": 0,
+  "input_sha256": {
+    "Examples/DependentAuthorTrialCases.lean": "e2da88298c38e3dcda78dea3c9aca9e0f242b7e7bb6798b0b5a08a56f0ed56a1",
+    "Examples/DependentAuthorBaselineReference.lean": "355233ec6f6af9fd6a3cd8c81e393986e62c1b90e4bb88a6b87b486b7dcb9f57",
+    "Examples/DependentAuthorCandidateReference.lean": "0e842582f37c3dd7f26064f1e7105ed21615557caa20b2e8f316d2e3c80eb84b",
+    "ProofAudit.lean": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lake-manifest.json": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+    "lakefile.toml": "76966dfb4ea744d75d4bbe20ed3a6c576a17145d23f36ba44c4422673c51b04f"
+  },
+  "audit_started": "2026-11-05T02:53:05.640673+00:00",
+  "audit_finished": "2026-11-05T02:53:07.075873+00:00",
+  "audit_seconds": 1.435208901999431,
+  "audit_exit": 0
+}
