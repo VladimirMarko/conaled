@@ -1,0 +1,105 @@
+{
+  "recorded_utc": "2026-11-05T03:05:46.110238+00:00",
+  "arms": {
+    "baseline": {
+      "source": "experiments/dependent-author-trial/authors/baseline/Submission.lean",
+      "integrated": "Examples/DependentAuthorBaseline.lean",
+      "sha256": "2415929c8fdb7e2d5e4c6c5fa1664e2a0daf119b89009c0c8e9719009326dcf9",
+      "byte_identical": true,
+      "replay": "experiments/dependent-author-trial/evaluation/replays/baseline",
+      "result": {
+        "acceptance": "pending coordinator declaration/statement/axiom checks",
+        "cwd": "/tmp/conaled-314-320/authors/baseline",
+        "elapsed_seconds": 1.9159368139989965,
+        "environment": {
+          "LEAN_PATH": null,
+          "LEAN_SRC_PATH": null,
+          "LEAN_SYSROOT": null
+        },
+        "evidence_sha256": {
+          "Source.lean": "2415929c8fdb7e2d5e4c6c5fa1664e2a0daf119b89009c0c8e9719009326dcf9",
+          "attempt.json": "635edb698d082401602ceb6a05106e18efeff8a1ce0eaa38c27b155e906abbf0",
+          "deps.command.json": "22aa4e57df18c012e547662e678d2ef424efa7bb5ca59eec6f5aaaeb6cfad96c",
+          "deps.result.json": "ccd05849909cf191fb2f316716fb0d449d77286a6a3c723eff82ce7bddd82fb7",
+          "deps.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "deps.stdout.log": "6c13ea853fbf36f980dcaa2c8261d615dc5f9648cd40ed56ba750e31c8105b4c",
+          "imports.json": "12298a748de7ba348f546d98cdec00e61c94d6545a85809fe28acfafa81fc0f3",
+          "lean.command.json": "c6b86211045f0342a0298d7096670c3c528929558d700bb692476aa19433b2aa",
+          "lean.result.json": "9062c75ad3e16efcfd940f156b762825b6bd419cfa06f689119f74b9b0711ea2",
+          "lean.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "lean.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.command.json": "0395d892bfa299865ed5a3630be4c6b4b8fe1358db0fc4a68a2beec59e642f59",
+          "libdir.result.json": "05e2d6599bed41cd6d311c1815e2e6aa6f943477851a64133d47b93c7877cf78",
+          "libdir.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.stdout.log": "780311b8eaa8d21cda60455ef753e7a83da17deeb41348d28705f182817bc091",
+          "public-manifest.json": "c67e857a328b46479c593f49ba8d60eb609c9557e9aca808feb6ce6a575877cd"
+        },
+        "exit": 0,
+        "finish": "2026-11-05T03:05:05.872731+00:00",
+        "invocation": [
+          "check_attempt.py",
+          "attempts/CoordinatorReplay.lean"
+        ],
+        "lean_exit": 0,
+        "manifest_sha256": "c67e857a328b46479c593f49ba8d60eb609c9557e9aca808feb6ce6a575877cd",
+        "public_inputs_after": "verified",
+        "public_inputs_before": "verified",
+        "schema": 1,
+        "source": "attempts/CoordinatorReplay.lean",
+        "source_sha256": "2415929c8fdb7e2d5e4c6c5fa1664e2a0daf119b89009c0c8e9719009326dcf9",
+        "start": "2026-11-05T03:05:03.956734+00:00",
+        "status": "lean-passed"
+      }
+    },
+    "candidate": {
+      "source": "experiments/dependent-author-trial/authors/candidate/Submission.lean",
+      "integrated": "Examples/DependentAuthorCandidate.lean",
+      "sha256": "83b8e0996d27f7d215d177268d7d098adf6cbb0ec9592c156333475c4c4d5a51",
+      "byte_identical": true,
+      "replay": "experiments/dependent-author-trial/evaluation/replays/candidate",
+      "result": {
+        "acceptance": "pending coordinator declaration/statement/axiom checks",
+        "cwd": "/tmp/conaled-314-320/authors/candidate",
+        "elapsed_seconds": 1.803147495000303,
+        "environment": {
+          "LEAN_PATH": null,
+          "LEAN_SRC_PATH": null,
+          "LEAN_SYSROOT": null
+        },
+        "evidence_sha256": {
+          "Source.lean": "83b8e0996d27f7d215d177268d7d098adf6cbb0ec9592c156333475c4c4d5a51",
+          "attempt.json": "fee6f202d94469fa9626cdc87c96b6593846d176274812354cb728c7f29c237a",
+          "deps.command.json": "5de145848fb1b12bd333bb57ab27371c217dbc40efe0d87732079768522907bc",
+          "deps.result.json": "54511e9b580260d1141c89ba269c53025cf22456459bbcbc49d74a656595fa00",
+          "deps.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "deps.stdout.log": "04189b043b56454c4b62425a1c5c497af9784e6b771773f79621b87903370cdf",
+          "imports.json": "6d9816e32c7829b5a3c07401fe266f3688222d4856eae874d007186b74b7daf0",
+          "lean.command.json": "c27613454aff0f0b9c33ca8b30e9184bc32a2ce3434300715ac8048532c3d6f6",
+          "lean.result.json": "3c8aef92bdfe0461929259d03b82b373bb1c1a6948be282b4597dc5939463b19",
+          "lean.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "lean.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.command.json": "c9b86ce70cbe7940d37eebeff37f76a6d512b96603f9e45992573df06d6026b6",
+          "libdir.result.json": "a7471f6312c094a62b36e8f352b632540aa85cbc6ce2d6806467f61638c44c38",
+          "libdir.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.stdout.log": "780311b8eaa8d21cda60455ef753e7a83da17deeb41348d28705f182817bc091",
+          "public-manifest.json": "6d5e8c4b44f04c71a200209268eb8675d68e45f7a47ed040d7e3ef2ecd5d5e89"
+        },
+        "exit": 0,
+        "finish": "2026-11-05T03:05:06.866669+00:00",
+        "invocation": [
+          "check_attempt.py",
+          "attempts/CoordinatorReplay.lean"
+        ],
+        "lean_exit": 0,
+        "manifest_sha256": "6d5e8c4b44f04c71a200209268eb8675d68e45f7a47ed040d7e3ef2ecd5d5e89",
+        "public_inputs_after": "verified",
+        "public_inputs_before": "verified",
+        "schema": 1,
+        "source": "attempts/CoordinatorReplay.lean",
+        "source_sha256": "83b8e0996d27f7d215d177268d7d098adf6cbb0ec9592c156333475c4c4d5a51",
+        "start": "2026-11-05T03:05:05.063475+00:00",
+        "status": "lean-passed"
+      }
+    }
+  }
+}

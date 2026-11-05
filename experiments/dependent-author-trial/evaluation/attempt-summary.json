@@ -1,0 +1,157 @@
+{
+  "baseline": {
+    "compiled_closure_unchanged": true,
+    "compiled_count": 10,
+    "attempts": [
+      {
+        "source": "attempts/Attempt01.lean",
+        "start": "2026-11-05T02:56:51.142133+00:00",
+        "finish": "2026-11-05T02:56:52.950248+00:00",
+        "elapsed_seconds": 1.808047214999533,
+        "status": "lean-passed",
+        "exit": 0,
+        "source_sha256": "581df619640fc468f8754128a2b7af65feedcfe615a74f07b5b5a73d933131d2",
+        "public_inputs_before": "verified",
+        "public_inputs_after": "verified"
+      },
+      {
+        "source": "attempts/Attempt02.lean",
+        "start": "2026-11-05T02:58:01.225094+00:00",
+        "finish": "2026-11-05T02:58:03.153316+00:00",
+        "elapsed_seconds": 1.9281672430006438,
+        "status": "lean-failed",
+        "exit": 1,
+        "source_sha256": "9b3019fd3865f43b26e9ecf4671e38331ace281125859306c6dc420bd908a2aa",
+        "public_inputs_before": "verified",
+        "public_inputs_after": "verified"
+      },
+      {
+        "source": "attempts/Attempt03.lean",
+        "start": "2026-11-05T02:58:31.512999+00:00",
+        "finish": "2026-11-05T02:58:33.350800+00:00",
+        "elapsed_seconds": 1.8377205609995144,
+        "status": "lean-passed",
+        "exit": 0,
+        "source_sha256": "1af33563388f48d6677090a0fa0957163f595c6895bb0a357d41239d033efdc6",
+        "public_inputs_before": "verified",
+        "public_inputs_after": "verified"
+      },
+      {
+        "source": "attempts/Attempt04.lean",
+        "start": "2026-11-05T02:59:03.578679+00:00",
+        "finish": "2026-11-05T02:59:05.532992+00:00",
+        "elapsed_seconds": 1.9542511550007475,
+        "status": "lean-passed",
+        "exit": 0,
+        "source_sha256": "2415929c8fdb7e2d5e4c6c5fa1664e2a0daf119b89009c0c8e9719009326dcf9",
+        "public_inputs_before": "verified",
+        "public_inputs_after": "verified"
+      },
+      {
+        "source": "attempts/Attempt05.lean",
+        "start": "2026-11-05T02:59:08.301190+00:00",
+        "finish": "2026-11-05T02:59:11.317261+00:00",
+        "elapsed_seconds": 3.0160066039989033,
+        "status": "lean-passed",
+        "exit": 0,
+        "source_sha256": "d7166d57807b943a3b050d8879966977cfad56d3a79d72a026bccc1e0dbb207f",
+        "public_inputs_before": "verified",
+        "public_inputs_after": "verified"
+      },
+      {
+        "source": "attempts/Submission.lean",
+        "start": "2026-11-05T03:00:21.695327+00:00",
+        "finish": "2026-11-05T03:00:23.709971+00:00",
+        "elapsed_seconds": 2.0145800720001716,
+        "status": "lean-passed",
+        "exit": 0,
+        "source_sha256": "2415929c8fdb7e2d5e4c6c5fa1664e2a0daf119b89009c0c8e9719009326dcf9",
+        "public_inputs_before": "verified",
+        "public_inputs_after": "verified"
+      }
+    ]
+  },
+  "candidate": {
+    "compiled_closure_unchanged": true,
+    "compiled_count": 32,
+    "attempts": [
+      {
+        "source": "attempts/Attempt01.lean",
+        "start": "2026-11-05T02:57:00.384485+00:00",
+        "finish": "2026-11-05T02:57:02.207423+00:00",
+        "elapsed_seconds": 1.822871682999903,
+        "status": "lean-passed",
+        "exit": 0,
+        "source_sha256": "17212966ec13055de74756cd4a8d639d832ea83878530abcebe48d4c3dfa4ee4",
+        "public_inputs_before": "verified",
+        "public_inputs_after": "verified"
+      },
+      {
+        "source": "attempts/Attempt02.lean",
+        "start": "2026-11-05T02:58:12.480463+00:00",
+        "finish": "2026-11-05T02:58:14.471863+00:00",
+        "elapsed_seconds": 1.9913429050011473,
+        "status": "lean-failed",
+        "exit": 1,
+        "source_sha256": "f0a595e89db81e0ae5f0ca0a45a67dbaa2c44b19b5fba8ae2a6b6a986a19992b",
+        "public_inputs_before": "verified",
+        "public_inputs_after": "verified"
+      },
+      {
+        "source": "attempts/Attempt03.lean",
+        "start": "2026-11-05T02:58:26.724236+00:00",
+        "finish": "2026-11-05T02:58:28.845237+00:00",
+        "elapsed_seconds": 2.1209423000000243,
+        "status": "lean-passed",
+        "exit": 0,
+        "source_sha256": "4633b2e345a0a261342af685be9fba7fabd4a9397c34fa4bc9773d4b98a33c0c",
+        "public_inputs_before": "verified",
+        "public_inputs_after": "verified"
+      },
+      {
+        "source": "attempts/Attempt04.lean",
+        "start": "2026-11-05T02:59:23.176965+00:00",
+        "finish": "2026-11-05T02:59:26.506207+00:00",
+        "elapsed_seconds": 3.3291794399992796,
+        "status": "lean-failed",
+        "exit": 1,
+        "source_sha256": "3a3c4d13bea353b8ef26afe964c14a971d100bc4199b9eb13b798ba455744509",
+        "public_inputs_before": "verified",
+        "public_inputs_after": "verified"
+      },
+      {
+        "source": "attempts/Attempt05.lean",
+        "start": "2026-11-05T02:59:51.441911+00:00",
+        "finish": "2026-11-05T02:59:53.575910+00:00",
+        "elapsed_seconds": 2.1339350060006836,
+        "status": "lean-passed",
+        "exit": 0,
+        "source_sha256": "e5da316a29e373a211bd6c52a677201d8acad2872fa55adc92cd27cf011785a5",
+        "public_inputs_before": "verified",
+        "public_inputs_after": "verified"
+      },
+      {
+        "source": "attempts/Attempt06.lean",
+        "start": "2026-11-05T03:00:19.279957+00:00",
+        "finish": "2026-11-05T03:00:21.336200+00:00",
+        "elapsed_seconds": 2.05618086100003,
+        "status": "lean-passed",
+        "exit": 0,
+        "source_sha256": "b9e1356d45547192fa798e0d23657c6faf32fb8cd1740d87532817202d99e1d8",
+        "public_inputs_before": "verified",
+        "public_inputs_after": "verified"
+      },
+      {
+        "source": "attempts/Submission.lean",
+        "start": "2026-11-05T03:00:36.832714+00:00",
+        "finish": "2026-11-05T03:00:38.841851+00:00",
+        "elapsed_seconds": 2.00907650299996,
+        "status": "lean-passed",
+        "exit": 0,
+        "source_sha256": "83b8e0996d27f7d215d177268d7d098adf6cbb0ec9592c156333475c4c4d5a51",
+        "public_inputs_before": "verified",
+        "public_inputs_after": "verified"
+      }
+    ]
+  }
+}

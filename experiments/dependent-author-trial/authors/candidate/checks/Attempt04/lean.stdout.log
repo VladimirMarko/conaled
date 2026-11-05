@@ -1,0 +1,113 @@
+attempts/checks/Attempt04/Source.lean:139:12: error(lean.unknownIdentifier): Unknown identifier `hp`
+attempts/checks/Attempt04/Source.lean:139:15: error(lean.unknownIdentifier): Unknown identifier `M`
+attempts/checks/Attempt04/Source.lean:139:17: error(lean.unknownIdentifier): Unknown identifier `ρ`
+attempts/checks/Attempt04/Source.lean:139:19: error(lean.unknownIdentifier): Unknown identifier `hΩ`
+attempts/checks/Attempt04/Source.lean:143:25: error(lean.unknownIdentifier): Unknown identifier `hx`
+attempts/checks/Attempt04/Source.lean:143:28: error(lean.unknownIdentifier): Unknown identifier `hT`
+attempts/checks/Attempt04/Source.lean:143:31: error(lean.unknownIdentifier): Unknown identifier `hp`
+attempts/checks/Attempt04/Source.lean:143:35: error(lean.unknownIdentifier): Unknown identifier `M`
+attempts/checks/Attempt04/Source.lean:143:37: error(lean.unknownIdentifier): Unknown identifier `ρ`
+attempts/checks/Attempt04/Source.lean:143:39: error(lean.unknownIdentifier): Unknown identifier `hΩ`
+attempts/checks/Attempt04/Source.lean:147:24: error(lean.unknownIdentifier): Unknown identifier `hp`
+attempts/checks/Attempt04/Source.lean:147:27: error(lean.unknownIdentifier): Unknown identifier `hσ`
+attempts/checks/Attempt04/Source.lean:147:30: error(lean.unknownIdentifier): Unknown identifier `hτ`
+attempts/checks/Attempt04/Source.lean:147:34: error(lean.unknownIdentifier): Unknown identifier `M`
+attempts/checks/Attempt04/Source.lean:147:36: error(lean.unknownIdentifier): Unknown identifier `ρ`
+attempts/checks/Attempt04/Source.lean:147:38: error(lean.unknownIdentifier): Unknown identifier `hΩ`
+attempts/checks/Attempt04/Source.lean:152:30: error(lean.unknownIdentifier): Unknown identifier `hx`
+attempts/checks/Attempt04/Source.lean:152:33: error(lean.unknownIdentifier): Unknown identifier `hT`
+attempts/checks/Attempt04/Source.lean:152:36: error(lean.unknownIdentifier): Unknown identifier `hp`
+attempts/checks/Attempt04/Source.lean:152:39: error(lean.unknownIdentifier): Unknown identifier `hσ`
+attempts/checks/Attempt04/Source.lean:152:42: error(lean.unknownIdentifier): Unknown identifier `hτ`
+attempts/checks/Attempt04/Source.lean:152:46: error(lean.unknownIdentifier): Unknown identifier `M`
+attempts/checks/Attempt04/Source.lean:152:48: error(lean.unknownIdentifier): Unknown identifier `ρ`
+attempts/checks/Attempt04/Source.lean:152:50: error(lean.unknownIdentifier): Unknown identifier `hΩ`
+attempts/checks/Attempt04/Source.lean:157:39: error(lean.unknownIdentifier): Unknown identifier `hp`
+attempts/checks/Attempt04/Source.lean:157:42: error(lean.unknownIdentifier): Unknown identifier `hσ`
+attempts/checks/Attempt04/Source.lean:157:45: error(lean.unknownIdentifier): Unknown identifier `hτ`
+attempts/checks/Attempt04/Source.lean:157:49: error(lean.unknownIdentifier): Unknown identifier `M`
+attempts/checks/Attempt04/Source.lean:157:51: error(lean.unknownIdentifier): Unknown identifier `ρ`
+attempts/checks/Attempt04/Source.lean:157:53: error(lean.unknownIdentifier): Unknown identifier `hΩ`
+attempts/checks/Attempt04/Source.lean:162:35: error(lean.unknownIdentifier): Unknown identifier `hx`
+attempts/checks/Attempt04/Source.lean:162:38: error(lean.unknownIdentifier): Unknown identifier `hT`
+attempts/checks/Attempt04/Source.lean:162:41: error(lean.unknownIdentifier): Unknown identifier `hp`
+attempts/checks/Attempt04/Source.lean:162:44: error(lean.unknownIdentifier): Unknown identifier `hσ`
+attempts/checks/Attempt04/Source.lean:162:47: error(lean.unknownIdentifier): Unknown identifier `hτ`
+attempts/checks/Attempt04/Source.lean:162:51: error(lean.unknownIdentifier): Unknown identifier `M`
+attempts/checks/Attempt04/Source.lean:162:53: error(lean.unknownIdentifier): Unknown identifier `ρ`
+attempts/checks/Attempt04/Source.lean:162:55: error(lean.unknownIdentifier): Unknown identifier `hΩ`
+attempts/checks/Attempt04/Source.lean:165:36: error: don't know how to synthesize implicit argument `V`
+  @Atom.inl (DependentJudgments.signature.sum extraSignature) ?m.15 Sigma.extraSignature
+context:
+V : Type
+Ω : List sorry
+Γ : sorry
+Δ : sorry
+A : sorry
+x : sorry
+σ : sorry
+Θ : sorry
+T : sorry
+Q : sorry
+p : sorry
+τ : sorry
+n : ℕ
+hx : Tm sorry sorry sorry
+hT : Tel n (path sorry sorry) sorry
+hp : Tm (total sorry) sorry sorry
+hσ : sorry
+hτ : sorry
+M : PathTransport.Typed.Model
+S : Sigma.Stable M.toStructuralModel
+ρ : V → Value M.toStructuralModel
+hΩ : (a : sorry) → a ∈ Ω → sorry
+⊢ Type ?u.43
+
+Note: Because this declaration's type has been explicitly provided, all parameter types and holes (e.g., `_`) in its header are resolved before its body is processed; information from the declaration body cannot be used to infer what these values should be
+attempts/checks/Attempt04/Source.lean:169:18: error(lean.inferDefTypeFailed): Failed to infer type of definition `extendedCertificateTwice`
+attempts/checks/Attempt04/Source.lean:171:18: error(lean.inferDefTypeFailed): Failed to infer type of definition `extendedCertificateAligned`
+attempts/checks/Attempt04/Source.lean:173:18: error(lean.inferDefTypeFailed): Failed to infer type of definition `extendedValue`
+attempts/checks/Attempt04/Source.lean:174:18: error(lean.inferDefTypeFailed): Failed to infer type of definition `extendedType`
+attempts/checks/Attempt04/Source.lean:180:45: error(lean.unknownIdentifier): Unknown identifier `hΩ`
+attempts/checks/Attempt04/Source.lean:185:19: error(lean.unknownIdentifier): Unknown identifier `extendedCertificate`
+attempts/checks/Attempt04/Source.lean:185:49: error(lean.unknownIdentifier): Unknown identifier `M`
+attempts/checks/Attempt04/Source.lean:185:51: error(lean.unknownIdentifier): Unknown identifier `S.toCapability`
+attempts/checks/Attempt04/Source.lean:185:66: error(lean.unknownIdentifier): Unknown identifier `ρ`
+attempts/checks/Attempt04/Source.lean:186:25: error(lean.unknownIdentifier): Unknown identifier `M`
+attempts/checks/Attempt04/Source.lean:186:27: error(lean.unknownIdentifier): Unknown identifier `S`
+attempts/checks/Attempt04/Source.lean:186:29: error(lean.unknownIdentifier): Unknown identifier `ρ`
+attempts/checks/Attempt04/Source.lean:186:31: error(lean.unknownIdentifier): Unknown identifier `hΩ`
+attempts/checks/Attempt04/Source.lean:192:19: error(lean.unknownIdentifier): Unknown identifier `extendedCertificateTwice`
+attempts/checks/Attempt04/Source.lean:192:60: error(lean.unknownIdentifier): Unknown identifier `M`
+attempts/checks/Attempt04/Source.lean:192:62: error(lean.unknownIdentifier): Unknown identifier `S.toCapability`
+attempts/checks/Attempt04/Source.lean:192:77: error(lean.unknownIdentifier): Unknown identifier `ρ`
+attempts/checks/Attempt04/Source.lean:193:25: error(lean.unknownIdentifier): Unknown identifier `M`
+attempts/checks/Attempt04/Source.lean:193:27: error(lean.unknownIdentifier): Unknown identifier `S`
+attempts/checks/Attempt04/Source.lean:193:29: error(lean.unknownIdentifier): Unknown identifier `ρ`
+attempts/checks/Attempt04/Source.lean:193:31: error(lean.unknownIdentifier): Unknown identifier `hΩ`
+attempts/checks/Attempt04/Source.lean:196:8: warning: declaration uses `sorry`
+attempts/checks/Attempt04/Source.lean:207:20: error(lean.unknownIdentifier): Unknown identifier `extendedValue`
+attempts/checks/Attempt04/Source.lean:207:38: error(lean.unknownIdentifier): Unknown identifier `M`
+attempts/checks/Attempt04/Source.lean:207:40: error(lean.unknownIdentifier): Unknown identifier `S.toCapability`
+attempts/checks/Attempt04/Source.lean:207:55: error(lean.unknownIdentifier): Unknown identifier `ρ`
+attempts/checks/Attempt04/Source.lean:207:78: error(lean.unknownIdentifier): Unknown identifier `M`
+attempts/checks/Attempt04/Source.lean:207:80: error(lean.unknownIdentifier): Unknown identifier `S`
+attempts/checks/Attempt04/Source.lean:207:82: error(lean.unknownIdentifier): Unknown identifier `ρ`
+attempts/checks/Attempt04/Source.lean:207:84: error(lean.unknownIdentifier): Unknown identifier `hΩ`
+attempts/checks/Attempt04/Source.lean:208:19: error(lean.unknownIdentifier): Unknown identifier `M`
+attempts/checks/Attempt04/Source.lean:208:21: error(lean.unknownIdentifier): Unknown identifier `S.toCapability`
+attempts/checks/Attempt04/Source.lean:208:38: error(lean.unknownIdentifier): Unknown identifier `ρ`
+attempts/checks/Attempt04/Source.lean:218:20: error(lean.unknownIdentifier): Unknown identifier `extendedType`
+attempts/checks/Attempt04/Source.lean:218:43: error(lean.unknownIdentifier): Unknown identifier `M`
+attempts/checks/Attempt04/Source.lean:218:45: error(lean.unknownIdentifier): Unknown identifier `S.toCapability`
+attempts/checks/Attempt04/Source.lean:218:60: error(lean.unknownIdentifier): Unknown identifier `ρ`
+attempts/checks/Attempt04/Source.lean:219:25: error(lean.unknownIdentifier): Unknown identifier `M`
+attempts/checks/Attempt04/Source.lean:219:27: error(lean.unknownIdentifier): Unknown identifier `S`
+attempts/checks/Attempt04/Source.lean:219:29: error(lean.unknownIdentifier): Unknown identifier `ρ`
+attempts/checks/Attempt04/Source.lean:219:31: error(lean.unknownIdentifier): Unknown identifier `hΩ`
+attempts/checks/Attempt04/Source.lean:219:51: error(lean.unknownIdentifier): Unknown identifier `M`
+attempts/checks/Attempt04/Source.lean:219:53: error(lean.unknownIdentifier): Unknown identifier `S.toCapability`
+attempts/checks/Attempt04/Source.lean:219:70: error(lean.unknownIdentifier): Unknown identifier `ρ`
+attempts/checks/Attempt04/Source.lean:228:65: error(lean.unknownIdentifier): Unknown identifier `M`
+attempts/checks/Attempt04/Source.lean:228:67: error(lean.unknownIdentifier): Unknown identifier `S.toCapability`
+attempts/checks/Attempt04/Source.lean:228:84: error(lean.unknownIdentifier): Unknown identifier `ρ`

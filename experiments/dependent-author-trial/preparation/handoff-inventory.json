@@ -1,0 +1,85 @@
+{
+  "created_utc": "2026-11-05T02:47:46.369151+00:00",
+  "arms": {
+    "baseline": {
+      "public_manifest_sha256": "c67e857a328b46479c593f49ba8d60eb609c9557e9aca808feb6ce6a575877cd",
+      "public_git_head": "0c3594721f26e14e89b74000ed4bc41228bfef85",
+      "source_count": 10,
+      "compiled_modules": {
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/Sigma/Capability.olean": "345c3688059b1b9f91f65e4a2d80a10b190dd35a1ed3347e485caafe66c225b6",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/Sigma/Stability.olean": "1b2824c994dd8806dd20aea5460ee1e374b85fda21a70edd98a851261bf570c0",
+        ".lake/build/lib/lean/SquareKit/Internal/PathTransport/Authoring.olean": "d5ea0adc5d5b9b65677a54f9dc6dfffc08071c7f2811a3dd0125462516193456",
+        ".lake/build/lib/lean/SquareKit/Internal/PathTransport/Comprehension.olean": "f4ac5f3a2de89a6f58780e633ece38b69452d56fbf5337590766759d99b09387",
+        ".lake/build/lib/lean/SquareKit/Internal/PathTransport/ContextualModel.olean": "be407e6f3f1c7eb723562f37d0fe25884cee1af7a83f229f8c38b22732ab8adc",
+        ".lake/build/lib/lean/SquareKit/Internal/PathTransport/InterpretationMaps.olean": "3eed97a1f943aca57360c3ac0f950641f41fd14ea473da3c0b4dc791891d9594",
+        ".lake/build/lib/lean/SquareKit/Internal/PathTransport/Model.olean": "05f873b05858bd67034baf0d86ba844ed0281019c494eb5114cda2b9db6618ad",
+        ".lake/build/lib/lean/SquareKit/Internal/PathTransport/RawContext.olean": "376b322cd57bb6fb80e357e692e52c3356632b3be6bbfc5b13ac69fadb8f932f",
+        ".lake/build/lib/lean/SquareKit/Internal/PathTransport/Syntax.olean": "18245f3a8c018205e06a2a59161b6960d296a41e7bf2c49f4769e6fb2ca4e1c0",
+        ".lake/build/lib/lean/SquareKit/Internal/PathTransport/Typed.olean": "2fe544f2734e5b3ac34275226ca1cfd7d22b79f9004c463fd6fbc14a851ace7a"
+      },
+      "dependency_commits": {
+        "importGraph": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "Cli": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "proofwidgets": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "batteries": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "Qq": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "plausible": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "LeanSearchClient": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "aesop": "4a174c490d8707121c4a9290800489f105d85e07",
+        "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      "no_private_project_modules": true
+    },
+    "candidate": {
+      "public_manifest_sha256": "6d5e8c4b44f04c71a200209268eb8675d68e45f7a47ed040d7e3ef2ecd5d5e89",
+      "public_git_head": "a7ee6bd884c9fe7b2346daa7c3a96b066be75ba5",
+      "source_count": 32,
+      "compiled_modules": {
+        ".lake/build/lib/lean/SquareKit/FinitaryTerm.olean": "3847ad7944c108ec50994c630828dc21c6fd27084fc27816ae3a2ed1cb62bfd5",
+        ".lake/build/lib/lean/SquareKit/GuardedTheory/Extension.olean": "e6e9b1cc8d040c751375ea987ba99c6ce75fb97352ded5e73ae701d21c261da3",
+        ".lake/build/lib/lean/SquareKit/GuardedTheory.olean": "f6f8e79696706a728db487f2ccee298d35de6743a9a98d0af157b84af0e944d3",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/Authoring.olean": "47fca3a2e12591431061a3c24a01857a8768c61eef20d6a53af9d51a59789005",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/Comprehension.olean": "575dd1086095015997cad0a0505cec77dac1688fe50776db89994e9e7d405f57",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/ComprehensionEtaRule.olean": "33df17658cc43abc98b8414bc05c34101444b8333484eae6f769e55be96b7cdb",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/ComprehensionMaps.olean": "117ca4e81278f5ed3073a3521c467210d7e713c28a8daf8a1f1bff914b2df24b",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/ContextualOperations.olean": "d1d07d8d7ca548f9de11879c947dc63b62aa0ada20e6e0e4106d8c228e9e55ba",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/ContextualRules.olean": "06f25a2cb47989963a5ef5cbb5e047a7af380661ec8bab50f130bc8883982544",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/DerivedRules.olean": "e231b7c28f3b49a1c58b3e00a23baa20b6411d90ca1a47ed9d12b42e307a5637",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/NilReindexRules.olean": "89a4d86326f050db0a32804dc4717e08058eb411bccddf678d7c36c575b6c2d3",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/PairComposition.olean": "f04fef245183f94a731586c86a718168e0c1cef87ded06f06ec22d67a2b49e70",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/PathReindexRules.olean": "529ddd0c7368969dd0500ae441c2326afb616fe8cfae8d0bc0bc7cb8872e2c4d",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/Sigma/Authoring.olean": "b9032505da31ebc771475914b9e0941b755e81ca1e53f1dd5c7deaf8b1ccf630",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/Sigma/Capability.olean": "345c3688059b1b9f91f65e4a2d80a10b190dd35a1ed3347e485caafe66c225b6",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/Sigma/Operations.olean": "3f50a91384092038552894f816a108c081c6c47ec3b9800e3e807f2b1c44d2c8",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/Sigma/Pairing.olean": "c270f7945d62a007ca3a16ba1418cb0caa7a7359f31a78c35a231d3c69670859",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/Sigma/Rules.olean": "8bfb63a0bd58eb6ed81a9d24471a6a631ce2b19a28a82d2845d040cbdf69aa5d",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/Sigma/Stability.olean": "1b2824c994dd8806dd20aea5460ee1e374b85fda21a70edd98a851261bf570c0",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/Sigma/Substitution.olean": "f5d2e602e100817863318bfe6315195b1eaa58d3f808f156adb6a8c2cc17bee5",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/Sigma/Syntax.olean": "268d5bf101d6faec3169507cdcbb614740092e53388aec7a2beb19f890473ca7",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/Sigma/Theory.olean": "9345785335440f3fa85efb202aaf701c4da001924d3b3388690d35dbf41c0d2a",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/SourceSubstitution.olean": "e118e381abd2701dd5477a3813ec41a371f4a44f4a6c8eaed3432d8606ee2db6",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/StructuralRules.olean": "5c7389fee9f234cca1741eb52d08d3bedc426d27b139de952e6327377eb66538",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/Templates.olean": "8862434eb872e05cad6f2dd6e2d8f5082d4c0359eb7b1d7a3752e5706c4a1fe6",
+        ".lake/build/lib/lean/SquareKit/Internal/DependentJudgments/Theory.olean": "cf2a7126ea7b79544b52fc54ed7028bb028afbbde37e228b2c9f58e646743646",
+        ".lake/build/lib/lean/SquareKit/Internal/PathTransport/Comprehension.olean": "f4ac5f3a2de89a6f58780e633ece38b69452d56fbf5337590766759d99b09387",
+        ".lake/build/lib/lean/SquareKit/Internal/PathTransport/ContextualModel.olean": "be407e6f3f1c7eb723562f37d0fe25884cee1af7a83f229f8c38b22732ab8adc",
+        ".lake/build/lib/lean/SquareKit/Internal/PathTransport/InterpretationMaps.olean": "3eed97a1f943aca57360c3ac0f950641f41fd14ea473da3c0b4dc791891d9594",
+        ".lake/build/lib/lean/SquareKit/Internal/PathTransport/Model.olean": "05f873b05858bd67034baf0d86ba844ed0281019c494eb5114cda2b9db6618ad",
+        ".lake/build/lib/lean/SquareKit/Internal/PathTransport/RawContext.olean": "376b322cd57bb6fb80e357e692e52c3356632b3be6bbfc5b13ac69fadb8f932f",
+        ".lake/build/lib/lean/SquareKit/Internal/PathTransport/Syntax.olean": "18245f3a8c018205e06a2a59161b6960d296a41e7bf2c49f4769e6fb2ca4e1c0"
+      },
+      "dependency_commits": {
+        "importGraph": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "Cli": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "proofwidgets": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "batteries": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "Qq": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "plausible": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "LeanSearchClient": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "aesop": "4a174c490d8707121c4a9290800489f105d85e07",
+        "mathlib": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      "no_private_project_modules": true
+    }
+  }
+}

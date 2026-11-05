@@ -1,0 +1,28 @@
+[0mdirenv: loading /tmp/conaled-314-320/320/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+⚠ [511/654] Replayed SquareKit.Internal.PathTransport.Syntax
+warning: SquareKit/Internal/PathTransport/Syntax.lean: imports `Mathlib.Data.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [517/654] Replayed SquareKit.Internal.PathTransport.Comprehension
+warning: SquareKit/Internal/PathTransport/Comprehension.lean: imports `Mathlib.Logic.Equiv.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [522/654] Replayed SquareKit.FinitaryTerm
+warning: SquareKit/FinitaryTerm.lean: imports `Mathlib.Data.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [815/850] Replayed SquareKit.Internal.DependentJudgments.Comprehension
+warning: SquareKit/Internal/DependentJudgments/Comprehension.lean: imports `Mathlib.Data.Fin.VecNotation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SquareKit/Internal/DependentJudgments/Comprehension.lean: imports `Mathlib.Tactic.FinCases` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SquareKit/Internal/DependentJudgments/Comprehension.lean: imports `Mathlib.Data.Fintype.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [845/850] Replayed SquareKit.Internal.DependentJudgments.NativeTypeModel
+warning: SquareKit/Internal/DependentJudgments/NativeTypeModel.lean: imports `Mathlib.Logic.Equiv.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [848/850] Replayed SquareKit.Internal.DependentJudgments.CoherentTypePresentations
+warning: SquareKit/Internal/DependentJudgments/CoherentTypePresentations.lean: imports `Mathlib.Logic.Equiv.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✖ [850/850] Building Examples.DependentAuthorTrialCases (1.0s)
+trace: .> LEAN_PATH=/tmp/conaled-314-320/320/.lake/packages/Cli/.lake/build/lib/lean:/tmp/conaled-314-320/320/.lake/packages/batteries/.lake/build/lib/lean:/tmp/conaled-314-320/320/.lake/packages/Qq/.lake/build/lib/lean:/tmp/conaled-314-320/320/.lake/packages/aesop/.lake/build/lib/lean:/tmp/conaled-314-320/320/.lake/packages/proofwidgets/.lake/build/lib/lean:/tmp/conaled-314-320/320/.lake/packages/importGraph/.lake/build/lib/lean:/tmp/conaled-314-320/320/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/tmp/conaled-314-320/320/.lake/packages/plausible/.lake/build/lib/lean:/tmp/conaled-314-320/320/.lake/packages/mathlib/.lake/build/lib/lean:/tmp/conaled-314-320/320/.lake/build/lib/lean /home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /tmp/conaled-314-320/320/Examples/DependentAuthorTrialCases.lean -o /tmp/conaled-314-320/320/.lake/build/lib/lean/Examples/DependentAuthorTrialCases.olean -i /tmp/conaled-314-320/320/.lake/build/lib/lean/Examples/DependentAuthorTrialCases.ilean -c /tmp/conaled-314-320/320/.lake/build/ir/Examples/DependentAuthorTrialCases.c --setup /tmp/conaled-314-320/320/.lake/build/ir/Examples/DependentAuthorTrialCases.setup.json --json
+error: Examples/DependentAuthorTrialCases.lean:35:28: Failed to infer type of theorem `certificate_valid`
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+error: Examples/DependentAuthorTrialCases.lean:38:29: Failed to infer type of theorem `extension_selected`
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+Some required targets logged failures:
+- Examples.DependentAuthorTrialCases
+error: build failed

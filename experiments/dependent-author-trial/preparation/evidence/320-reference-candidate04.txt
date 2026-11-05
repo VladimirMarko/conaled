@@ -1,0 +1,242 @@
+[0mdirenv: loading /tmp/conaled-314-320/320/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+experiments/dependent-author-trial/preparation/CandidateReference.lean:17:19: error: Type mismatch: After simplification, term
+  hx
+ has type
+  Tm Γ A x
+but is expected to have type
+  Derivation
+    { Axiom := ComprehensionAxiom ⊕ Axiom,
+      rule := fun x =>
+        match x with
+        | Sum.inl a =>
+          Rule.inl extraSignature
+            (match a with
+            | ComprehensionAxiom.variablePair => variablePairRule
+            | ComprehensionAxiom.pairing => pairingRule
+            | ComprehensionAxiom.weakenPair => weakenPairRule
+            | ComprehensionAxiom.extension => extensionRule
+            | ComprehensionAxiom.weakening => weakeningRule
+            | ComprehensionAxiom.generic => genericRule
+            | ComprehensionAxiom.empty => emptyRule
+            | ComprehensionAxiom.identity => DependentJudgments.identityRule)
+        | Sum.inr a =>
+          match a with
+          | Axiom.pairEta => pairEtaRule
+          | Axiom.pathSubDef => pathSubDefRule
+          | Axiom.pathTailNil => pathTailNilRule
+          | Axiom.pathTailMapNil => pathTailMapNilRule
+          | Axiom.reindexBranchNil => reindexBranchNilRule
+          | Axiom.pairComp => pairCompRule
+          | Axiom.pathDef => pathDefRule
+          | Axiom.rootDef => rootDefRule
+          | Axiom.rootProjection => rootProjectionRule
+          | Axiom.rootTailNil => rootTailNilRule
+          | Axiom.totalNil => totalNilRule
+          | Axiom.pullbackNil => pullbackNilRule
+          | Axiom.subTy => subTyRule
+          | Axiom.subTm => subTmRule
+          | Axiom.comp => compRule
+          | Axiom.compIdLeft => compIdLeftRule
+          | Axiom.compIdRight => compIdRightRule
+          | Axiom.compAssoc => compAssocRule
+          | Axiom.subTyId => subTyIdRule
+          | Axiom.subTmId => subTmIdRule
+          | Axiom.subTyComp => subTyCompRule
+          | Axiom.subTmComp => subTmCompRule
+          | Axiom.termFamily => termFamilyRule
+          | Axiom.familyContext => familyContextRule
+          | Axiom.identity => Contextual.identityRule
+          | Axiom.identitySub => identitySubRule
+          | Axiom.reflexivity => reflexivityRule
+          | Axiom.reflSub => reflSubRule
+          | Axiom.path => pathRule
+          | Axiom.root => rootRule
+          | Axiom.pathSub => pathSubRule
+          | Axiom.telNil => telNilRule
+          | Axiom.telCons n => telConsRule n
+          | Axiom.total n => totalRule n
+          | Axiom.projection n => projectionRule n
+          | Axiom.pullback n => pullbackRule n
+          | Axiom.tailMap n => tailMapRule n
+          | Axiom.rootTail n =>
+            { parameterCount := 4, hypotheses := 2,
+              premise :=
+                ![Contextual.term (Term.var 0) (Term.var 1) (Term.var 2),
+                  telescope n (path (Term.var 1) (Term.var 2)) (Term.var 3)],
+              conclusion :=
+                Contextual.substitution (total (pullback (Term.var 3) (root (Term.var 1) (Term.var 2))))
+                  (total (Term.var 3)) (rootTail (Term.var 1) (Term.var 2) (Term.var 3)) }
+          | Axiom.pathTail n => pathTailRule n
+          | Axiom.pathTailMap n => pathTailMapRule n
+          | Axiom.branchMap n => branchMapRule n
+          | Axiom.reindexBranch n => reindexBranchRule n
+          | Axiom.j n => jRule n
+          | Axiom.jBeta n => jBetaRule n
+          | Axiom.jSub n => jSubRule n }
+    Ω (Contextual.term Γ A x)
+experiments/dependent-author-trial/preparation/CandidateReference.lean:18:21: error: Type mismatch: After simplification, term
+  hT
+ has type
+  Tel n (path A x) T
+but is expected to have type
+  Derivation
+    { Axiom := ComprehensionAxiom ⊕ Axiom,
+      rule := fun x =>
+        match x with
+        | Sum.inl a =>
+          Rule.inl extraSignature
+            (match a with
+            | ComprehensionAxiom.variablePair => variablePairRule
+            | ComprehensionAxiom.pairing => pairingRule
+            | ComprehensionAxiom.weakenPair => weakenPairRule
+            | ComprehensionAxiom.extension => extensionRule
+            | ComprehensionAxiom.weakening => weakeningRule
+            | ComprehensionAxiom.generic => genericRule
+            | ComprehensionAxiom.empty => emptyRule
+            | ComprehensionAxiom.identity => DependentJudgments.identityRule)
+        | Sum.inr a =>
+          match a with
+          | Axiom.pairEta => pairEtaRule
+          | Axiom.pathSubDef => pathSubDefRule
+          | Axiom.pathTailNil => pathTailNilRule
+          | Axiom.pathTailMapNil => pathTailMapNilRule
+          | Axiom.reindexBranchNil => reindexBranchNilRule
+          | Axiom.pairComp => pairCompRule
+          | Axiom.pathDef => pathDefRule
+          | Axiom.rootDef => rootDefRule
+          | Axiom.rootProjection => rootProjectionRule
+          | Axiom.rootTailNil => rootTailNilRule
+          | Axiom.totalNil => totalNilRule
+          | Axiom.pullbackNil => pullbackNilRule
+          | Axiom.subTy => subTyRule
+          | Axiom.subTm => subTmRule
+          | Axiom.comp => compRule
+          | Axiom.compIdLeft => compIdLeftRule
+          | Axiom.compIdRight => compIdRightRule
+          | Axiom.compAssoc => compAssocRule
+          | Axiom.subTyId => subTyIdRule
+          | Axiom.subTmId => subTmIdRule
+          | Axiom.subTyComp => subTyCompRule
+          | Axiom.subTmComp => subTmCompRule
+          | Axiom.termFamily => termFamilyRule
+          | Axiom.familyContext => familyContextRule
+          | Axiom.identity => Contextual.identityRule
+          | Axiom.identitySub => identitySubRule
+          | Axiom.reflexivity => reflexivityRule
+          | Axiom.reflSub => reflSubRule
+          | Axiom.path => pathRule
+          | Axiom.root => rootRule
+          | Axiom.pathSub => pathSubRule
+          | Axiom.telNil => telNilRule
+          | Axiom.telCons n => telConsRule n
+          | Axiom.total n => totalRule n
+          | Axiom.projection n => projectionRule n
+          | Axiom.pullback n => pullbackRule n
+          | Axiom.tailMap n => tailMapRule n
+          | Axiom.rootTail n =>
+            { parameterCount := 4, hypotheses := 2,
+              premise :=
+                ![Contextual.term (Term.var 0) (Term.var 1) (Term.var 2),
+                  telescope n (path (Term.var 1) (Term.var 2)) (Term.var 3)],
+              conclusion :=
+                Contextual.substitution (total (pullback (Term.var 3) (root (Term.var 1) (Term.var 2))))
+                  (total (Term.var 3)) (rootTail (Term.var 1) (Term.var 2) (Term.var 3)) }
+          | Axiom.pathTail n => pathTailRule n
+          | Axiom.pathTailMap n => pathTailMapRule n
+          | Axiom.branchMap n => branchMapRule n
+          | Axiom.reindexBranch n => reindexBranchRule n
+          | Axiom.j n => jRule n
+          | Axiom.jBeta n => jBetaRule n
+          | Axiom.jSub n => jSubRule n }
+    Ω (telescope n (path A x) T)
+experiments/dependent-author-trial/preparation/CandidateReference.lean:19:2: error: Type mismatch: After simplification, term
+  e
+ has type
+  Derivation
+    { Axiom := ComprehensionAxiom ⊕ Axiom,
+      rule := fun x =>
+        match x with
+        | Sum.inl a =>
+          Rule.inl extraSignature
+            (match a with
+            | ComprehensionAxiom.variablePair => variablePairRule
+            | ComprehensionAxiom.pairing => pairingRule
+            | ComprehensionAxiom.weakenPair => weakenPairRule
+            | ComprehensionAxiom.extension => extensionRule
+            | ComprehensionAxiom.weakening => weakeningRule
+            | ComprehensionAxiom.generic => genericRule
+            | ComprehensionAxiom.empty => emptyRule
+            | ComprehensionAxiom.identity => DependentJudgments.identityRule)
+        | Sum.inr a =>
+          match a with
+          | Axiom.pairEta => pairEtaRule
+          | Axiom.pathSubDef => pathSubDefRule
+          | Axiom.pathTailNil => pathTailNilRule
+          | Axiom.pathTailMapNil => pathTailMapNilRule
+          | Axiom.reindexBranchNil => reindexBranchNilRule
+          | Axiom.pairComp => pairCompRule
+          | Axiom.pathDef => pathDefRule
+          | Axiom.rootDef => rootDefRule
+          | Axiom.rootProjection => rootProjectionRule
+          | Axiom.rootTailNil => rootTailNilRule
+          | Axiom.totalNil => totalNilRule
+          | Axiom.pullbackNil => pullbackNilRule
+          | Axiom.subTy => subTyRule
+          | Axiom.subTm => subTmRule
+          | Axiom.comp => compRule
+          | Axiom.compIdLeft => compIdLeftRule
+          | Axiom.compIdRight => compIdRightRule
+          | Axiom.compAssoc => compAssocRule
+          | Axiom.subTyId => subTyIdRule
+          | Axiom.subTmId => subTmIdRule
+          | Axiom.subTyComp => subTyCompRule
+          | Axiom.subTmComp => subTmCompRule
+          | Axiom.termFamily => termFamilyRule
+          | Axiom.familyContext => familyContextRule
+          | Axiom.identity => Contextual.identityRule
+          | Axiom.identitySub => identitySubRule
+          | Axiom.reflexivity => reflexivityRule
+          | Axiom.reflSub => reflSubRule
+          | Axiom.path => pathRule
+          | Axiom.root => rootRule
+          | Axiom.pathSub => pathSubRule
+          | Axiom.telNil => telNilRule
+          | Axiom.telCons n => telConsRule n
+          | Axiom.total n => totalRule n
+          | Axiom.projection n => projectionRule n
+          | Axiom.pullback n => pullbackRule n
+          | Axiom.tailMap n => tailMapRule n
+          | Axiom.rootTail n =>
+            { parameterCount := 4, hypotheses := 2,
+              premise :=
+                ![Contextual.term (Term.var 0) (Term.var 1) (Term.var 2),
+                  telescope n (path (Term.var 1) (Term.var 2)) (Term.var 3)],
+              conclusion :=
+                Contextual.substitution (total (pullback (Term.var 3) (root (Term.var 1) (Term.var 2))))
+                  (total (Term.var 3)) (rootTail (Term.var 1) (Term.var 2) (Term.var 3)) }
+          | Axiom.pathTail n => pathTailRule n
+          | Axiom.pathTailMap n => pathTailMapRule n
+          | Axiom.branchMap n => branchMapRule n
+          | Axiom.reindexBranch n => reindexBranchRule n
+          | Axiom.j n => jRule n
+          | Axiom.jBeta n => jBetaRule n
+          | Axiom.jSub n => jSubRule n }
+    Ω (Contextual.substitution (total (pullback T (root A x))) (total T) (rootTail A x T))
+but is expected to have type
+  Contextual.Sub (total (pullback T (root A x))) (total T) (rootTail A x T)
+experiments/dependent-author-trial/preparation/CandidateReference.lean:29:35: error: Function expected at
+  rootTyping
+but this term has type
+  Contextual.Sub (total (pullback ?m.36 (root ?m.34 ?m.35))) (total ?m.36) (rootTail ?m.34 ?m.35 ?m.36)
+
+Note: Expected a function because this term is being applied to the argument
+  hx
+experiments/dependent-author-trial/preparation/CandidateReference.lean:30:24: error: Function expected at
+  rootTyping
+but this term has type
+  Contextual.Sub (total (pullback ?m.63 (root ?m.61 ?m.62))) (total ?m.63) (rootTail ?m.61 ?m.62 ?m.63)
+
+Note: Expected a function because this term is being applied to the argument
+  hx

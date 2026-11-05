@@ -281,5 +281,6 @@ import Examples.ProofRequirementReference
 import Examples.ProofRequirementComparison
 import Examples.ParserWorkload
 import Examples.NestedSetting
+import Examples.DependentAuthorTrialReplay
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

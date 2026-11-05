@@ -1,0 +1,43 @@
+{
+  "acceptance": "pending coordinator declaration/statement/axiom checks",
+  "cwd": "/tmp/conaled-314-320/authors/baseline",
+  "elapsed_seconds": 1.7505512130010175,
+  "environment": {
+    "LEAN_PATH": null,
+    "LEAN_SRC_PATH": null,
+    "LEAN_SYSROOT": null
+  },
+  "evidence_sha256": {
+    "Source.lean": "07e8bf67ba01859af40343cb4beba0458ac6bed8770cced9496ac98a8e02eb9e",
+    "attempt.json": "50022d54444815ce912ceec272b18fa58d3ad0065997424076411648e62d4df1",
+    "deps.command.json": "9d9738f2e3d47ec930f702428199e9c58e6817a7f259be4c421ab5414d86835d",
+    "deps.result.json": "d92e89fb6bbfa715dd9a6f3966634f6a8cc4694000f4921233d7d68bb989e020",
+    "deps.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "deps.stdout.log": "5530c90bf827d283638957f85255457eaac259b1e5f9bb2e1194ce154e2c68d1",
+    "imports.json": "fc91cdd98d468aa6963ff4252712fd51752f75972ada0ae4a3cafb400a5f8a22",
+    "lean.command.json": "5ffe7dd7edbbf68b49b624740005edcc4960d70d57c593a3c4da063be5db0be9",
+    "lean.result.json": "e2b03ceef4ac01cb40eb117f4293414908cc7b94bc1c5319b0a564e895490097",
+    "lean.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lean.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "libdir.command.json": "e0ebee00723c2d95ceb9f22908e611d98facdb5e7f8fb9aa95ebed55a9a401f1",
+    "libdir.result.json": "999d1c436e30431e2f96fb235ea6111d371a40c4c364b4dd8458af0c7b350297",
+    "libdir.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "libdir.stdout.log": "780311b8eaa8d21cda60455ef753e7a83da17deeb41348d28705f182817bc091",
+    "public-manifest.json": "c67e857a328b46479c593f49ba8d60eb609c9557e9aca808feb6ce6a575877cd"
+  },
+  "exit": 0,
+  "finish": "2026-11-05T02:47:56.053983+00:00",
+  "invocation": [
+    "check_attempt.py",
+    "attempts/CoordinatorSmoke.lean"
+  ],
+  "lean_exit": 0,
+  "manifest_sha256": "c67e857a328b46479c593f49ba8d60eb609c9557e9aca808feb6ce6a575877cd",
+  "public_inputs_after": "verified",
+  "public_inputs_before": "verified",
+  "schema": 1,
+  "source": "attempts/CoordinatorSmoke.lean",
+  "source_sha256": "07e8bf67ba01859af40343cb4beba0458ac6bed8770cced9496ac98a8e02eb9e",
+  "start": "2026-11-05T02:47:54.303361+00:00",
+  "status": "lean-passed"
+}

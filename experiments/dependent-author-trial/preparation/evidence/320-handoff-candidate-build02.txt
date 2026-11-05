@@ -1,0 +1,49 @@
+[0mdirenv: loading /tmp/conaled-314-320/authors/candidate/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: cache invalidated: profile (/tmp/conaled-314-320/authors/candidate/.direnv/flake-profile-a5d5b61aa8a61b7d9d765e1daf971a9a578f1cfa) does not exist
+[0mdirenv: nix-direnv: cache invalidated: profile_rc (/tmp/conaled-314-320/authors/candidate/.direnv/flake-profile-a5d5b61aa8a61b7d9d765e1daf971a9a578f1cfa.rc) does not exist
+[0mdirenv: nix-direnv: cache invalidated: files newer than cache:
+nix-direnv: /tmp/conaled-314-320/authors/candidate/.envrc
+/tmp/conaled-314-320/authors/candidate/lean-toolchain
+/tmp/conaled-314-320/authors/candidate/flake.nix
+/tmp/conaled-314-320/authors/candidate/flake.lock
+[0mdirenv: nix-direnv: Renewed cache
+⚠ [802/833] Built SquareKit.FinitaryTerm (736ms)
+warning: SquareKit/FinitaryTerm.lean: imports `Mathlib.Data.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [803/833] Built SquareKit.Internal.PathTransport.Syntax (968ms)
+warning: SquareKit/Internal/PathTransport/Syntax.lean: imports `Mathlib.Data.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [804/833] Built SquareKit.Internal.PathTransport.RawContext (644ms)
+✔ [805/833] Built SquareKit.GuardedTheory (907ms)
+✔ [806/833] Built SquareKit.Internal.PathTransport.Model (672ms)
+✔ [807/833] Built SquareKit.GuardedTheory.Extension (654ms)
+✔ [808/833] Built SquareKit.Internal.PathTransport.ContextualModel (2.5s)
+⚠ [809/833] Built SquareKit.Internal.PathTransport.Comprehension (559ms)
+warning: SquareKit/Internal/PathTransport/Comprehension.lean: imports `Mathlib.Logic.Equiv.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [810/833] Built SquareKit.Internal.DependentJudgments.Comprehension (1.2s)
+warning: SquareKit/Internal/DependentJudgments/Comprehension.lean: imports `Mathlib.Data.Fin.VecNotation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SquareKit/Internal/DependentJudgments/Comprehension.lean: imports `Mathlib.Tactic.FinCases` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SquareKit/Internal/DependentJudgments/Comprehension.lean: imports `Mathlib.Data.Fintype.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [811/833] Built SquareKit.Internal.PathTransport.InterpretationMaps (1.2s)
+✔ [812/833] Built SquareKit.Internal.DependentJudgments.Sigma.Capability (669ms)
+✔ [813/833] Built SquareKit.Internal.DependentJudgments.ComprehensionMaps (1.1s)
+✔ [814/833] Built SquareKit.Internal.DependentJudgments.Sigma.Stability (698ms)
+✔ [815/833] Built SquareKit.Internal.DependentJudgments.ContextualOperations (1.5s)
+✔ [816/833] Built SquareKit.Internal.DependentJudgments.StructuralRules (863ms)
+✔ [817/833] Built SquareKit.Internal.DependentJudgments.ContextualRules (898ms)
+✔ [818/833] Built SquareKit.Internal.DependentJudgments.DerivedRules (719ms)
+✔ [819/833] Built SquareKit.Internal.DependentJudgments.PairComposition (745ms)
+✔ [820/833] Built SquareKit.Internal.DependentJudgments.NilReindexRules (834ms)
+✔ [821/833] Built SquareKit.Internal.DependentJudgments.PathReindexRules (709ms)
+✔ [822/833] Built SquareKit.Internal.DependentJudgments.ComprehensionEtaRule (685ms)
+✔ [823/833] Built SquareKit.Internal.DependentJudgments.Theory (833ms)
+✔ [824/833] Built SquareKit.Internal.DependentJudgments.SourceSubstitution (901ms)
+✔ [825/833] Built SquareKit.Internal.DependentJudgments.Sigma.Syntax (822ms)
+✔ [826/833] Built SquareKit.Internal.DependentJudgments.Sigma.Operations (685ms)
+✔ [827/833] Built SquareKit.Internal.DependentJudgments.Sigma.Rules (921ms)
+✔ [828/833] Built SquareKit.Internal.DependentJudgments.Authoring (1.8s)
+✔ [829/833] Built SquareKit.Internal.DependentJudgments.Sigma.Pairing (793ms)
+✔ [830/833] Built SquareKit.Internal.DependentJudgments.Templates (731ms)
+✔ [831/833] Built SquareKit.Internal.DependentJudgments.Sigma.Theory (641ms)
+✔ [832/833] Built SquareKit.Internal.DependentJudgments.Sigma.Substitution (647ms)
+✔ [833/833] Built SquareKit.Internal.DependentJudgments.Sigma.Authoring (840ms)
+Build completed successfully (833 jobs).

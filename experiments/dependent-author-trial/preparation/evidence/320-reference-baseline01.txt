@@ -1,0 +1,18 @@
+[0mdirenv: loading /tmp/conaled-314-320/320/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+experiments/dependent-author-trial/preparation/BaselineReference.lean:37:4: error: Type mismatch
+  subTmCode (subTmCode (certificateCommand hΓ hA hx hT hQ hp).motive.branchCode (idCode (branchCode a ξ T)))
+    (idCode (branchCode a ξ T)) M
+has type
+  M.Section (branchCode a ξ T M)
+    (subTyCode
+      (subTyCode (subTyCode (certificateCommand hΓ hA hx hT hQ hp).motive.code (rootTailCode a ξ T))
+        (idCode (branchCode a ξ T)))
+      (idCode (branchCode a ξ T)) M)
+but is expected to have type
+  M.Section (θ M) (subTyCode (subTyCode (certificateCommand hΓ hA hx hT hQ hp).motive.code s) t M)
+experiments/dependent-author-trial/preparation/BaselineReference.lean:38:34: error: unsolved goals
+M : Model
+_S : DependentJudgments.Sigma.Stable M.toStructuralModel
+⊢ sorry

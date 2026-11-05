@@ -1,0 +1,46 @@
+[0mdirenv: loading /tmp/conaled-314-320/320/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+Examples/DependentAuthorTrialCases.lean:151:62: error: unsolved goals
+⊢ (match
+        (Value.termAt
+              (StructuralModel.Telescope.total native.toStructuralModel
+                (StructuralModel.Telescope.pullback native.toStructuralModel inputs.tail
+                  (native.rootSub inputs.family inputs.point)))
+              (native.subTy (native.identity inputs.valueFamily inputs.value inputs.value)
+                (native.rootTail inputs.family inputs.point inputs.tail))
+              (Value.term
+                (StructuralModel.Telescope.total native.toStructuralModel
+                  (StructuralModel.Telescope.pullback native.toStructuralModel inputs.tail
+                    (native.rootSub inputs.family inputs.point)))
+                (native.identity
+                  (native.subTy inputs.valueFamily (native.rootTail inputs.family inputs.point inputs.tail))
+                  (native.subTm inputs.value (native.rootTail inputs.family inputs.point inputs.tail))
+                  (native.subTm inputs.value (native.rootTail inputs.family inputs.point inputs.tail)))
+                (native.reflexivity
+                  (native.subTy inputs.valueFamily (native.rootTail inputs.family inputs.point inputs.tail))
+                  (native.subTm inputs.value (native.rootTail inputs.family inputs.point inputs.tail))))).bind
+          fun b =>
+          some
+            { context := inputs.context, family := inputs.family, term := inputs.point, length := inputs.length,
+              telescope := inputs.tail, motive := native.identity inputs.valueFamily inputs.value inputs.value,
+              branch := b } with
+      | some p =>
+        pure
+          (Value.term (StructuralModel.Telescope.total native.toStructuralModel p.telescope) p.motive
+            (native.j p.family p.term p.telescope p.motive p.branch))
+      | x => pure Value.invalid).run =
+    Value.term (StructuralModel.Telescope.total native.toStructuralModel inputs.tail)
+      (native.identity inputs.valueFamily inputs.value inputs.value)
+      (native.j inputs.family inputs.point inputs.tail (native.identity inputs.valueFamily inputs.value inputs.value)
+        (native.reflexivity (native.subTy inputs.valueFamily (native.rootTail inputs.family inputs.point inputs.tail))
+          (native.subTm inputs.value (native.rootTail inputs.family inputs.point inputs.tail))))
+Examples/DependentAuthorTrialCases.lean:156:59: warning: This simp argument is unused:
+  native.identity_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [certificateExpression, certificateCommand, DependentAuthorReference.Candidate.certificateCommand,
+    Command.expression, Term.eval, Contextual.algebra, Contextual.operation, DependentJudgments.operation, environment,
+    nativeCertificate, nativeMotive, nativeRoot, Contextual.problem, Contextual.tail, Contextual.point]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

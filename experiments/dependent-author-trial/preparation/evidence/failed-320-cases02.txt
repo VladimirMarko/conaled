@@ -1,0 +1,98 @@
+[0mdirenv: loading /tmp/conaled-314-320/320/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+Examples/DependentAuthorTrialCases.lean:101:10: warning: This simp argument is unused:
+  premises
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Term.eval, Contextual.algebra, Contextual.operation, DependentJudgments.operation, environment]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Examples/DependentAuthorTrialCases.lean:102:6: warning: This simp argument is unused:
+  DependentJudgments.operation
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [premises, Term.eval, Contextual.algebra, Contextual.operation, environment]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Examples/DependentAuthorTrialCases.lean:104:10: warning: This simp argument is unused:
+  premises
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Term.eval, Contextual.algebra, Contextual.operation, DependentJudgments.operation, environment]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Examples/DependentAuthorTrialCases.lean:105:6: warning: This simp argument is unused:
+  DependentJudgments.operation
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [premises, Term.eval, Contextual.algebra, Contextual.operation, environment]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Examples/DependentAuthorTrialCases.lean:113:14: error: unexpected token 'variable'; expected identifier
+Examples/DependentAuthorTrialCases.lean:113:23: error: unexpected token ':='; expected '(', '[', '{' or '⦃'
+Examples/DependentAuthorTrialCases.lean:114:84: error: unexpected token 'variable'; expected '(', '[', '{' or '⦃'
+Examples/DependentAuthorTrialCases.lean:115:0: error: expected checkColGt
+Examples/DependentAuthorTrialCases.lean:115:30: error: overloaded, errors 
+  115:50 Application type mismatch: The argument
+    secondFamily
+  has type
+    Contextual.Expression (Fin 6) → Contextual.Expression (Fin 6) → Contextual.Expression (Fin 6)
+  but is expected to have type
+    Contextual.Expression (Fin 6)
+  in the application
+    Contextual.weaken firstContext secondFamily
+  
+  115:37 Application type mismatch: The argument
+    firstContext
+  has type
+    Contextual.Expression (Fin 6)
+  but is expected to have type
+    DependentJudgments.Expression ?m.3
+  in the application
+    DependentJudgments.weaken firstContext
+Examples/DependentAuthorTrialCases.lean:116:31: error: overloaded, errors 
+  116:51 Application type mismatch: The argument
+    secondFamily
+  has type
+    Contextual.Expression (Fin 6) → Contextual.Expression (Fin 6) → Contextual.Expression (Fin 6)
+  but is expected to have type
+    Contextual.Expression (Fin 6)
+  in the application
+    Contextual.extend firstContext secondFamily
+  
+  116:38 Application type mismatch: The argument
+    firstContext
+  has type
+    Contextual.Expression (Fin 6)
+  but is expected to have type
+    DependentJudgments.Expression ?m.3
+  in the application
+    DependentJudgments.extend firstContext
+Examples/DependentAuthorTrialCases.lean:117:38: error: overloaded, errors 
+  117:43 Unknown identifier `finalContext`
+  
+  117:43 Unknown identifier `finalContext`
+Examples/DependentAuthorTrialCases.lean:123:28: error(lean.unknownIdentifier): Unknown identifier `certificateJudgment.eval`
+Examples/DependentAuthorTrialCases.lean:130:5: error(lean.unknownIdentifier): Unknown identifier `certificateJudgment.inl`
+Examples/DependentAuthorTrialCases.lean:141:2: error: Type mismatch
+  interpret (DependentAuthorReference.Candidate.dependentWeakeningComparison point tail value) native environment
+    assumptions_valid
+has type
+  Atom.eval (Contextual.algebra native) environment
+    (Atom.eq
+      (Contextual.subTm
+        (Contextual.subTm (DependentAuthorReference.Candidate.certificateCommand point tail value).expression
+          (Contextual.weaken (total t) (identity q p p)))
+        (Contextual.weaken (Contextual.extend (total t) (identity q p p))
+          (identity (Contextual.subTy (identity q p p) (Contextual.weaken (total t) (identity q p p)))
+            (Contextual.generic (total t) (identity q p p)) (Contextual.generic (total t) (identity q p p)))))
+      (Contextual.subTm (DependentAuthorReference.Candidate.certificateCommand point tail value).expression
+        (Contextual.comp (Contextual.weaken (total t) (identity q p p))
+          (Contextual.weaken (Contextual.extend (total t) (identity q p p))
+            (identity (Contextual.subTy (identity q p p) (Contextual.weaken (total t) (identity q p p)))
+              (Contextual.generic (total t) (identity q p p)) (Contextual.generic (total t) (identity q p p)))))))
+but is expected to have type
+  Atom.eval (Contextual.algebra native) environment
+    (Atom.eq (Contextual.subTm (Contextual.subTm certificateExpression firstArrow) secondArrow)
+      (Contextual.subTm certificateExpression (Contextual.comp firstArrow secondArrow)))

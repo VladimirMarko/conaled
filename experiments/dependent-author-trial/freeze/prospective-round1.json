@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "round": 1,
+  "created_utc": "2026-11-05T02:54:59.710891+00:00",
+  "interface_freeze_commit": "dbf56af4845f954cf6ebdcf8bc3faeed268f5ce0",
+  "interface_source_commit": "7b8c00ae171c8a0b6de696e42aaf8470ff1e7c96",
+  "source_interface_manifest_sha256": "c70fd164c89c1b76c0f900e4bbba9902a21939488cdbd98f6978adae0f592029",
+  "task_order": [
+    "public calibration",
+    "held-out J certificate"
+  ],
+  "coordinator_is_measured_author": false,
+  "author_count_per_arm": 1,
+  "dispatch": "root only, fork_turns none, no model/reasoning overrides requested",
+  "resource_policy": "No wall-clock, token or attempt cap; complete submission, documented concrete obstruction after attempted remedies, or recorded external interruption/resource failure. Hidden serving metadata/usage remains unavailable.",
+  "assistance_policy": "Environment/contract clarification logged; mathematical assistance separated from unaided outcomes; interface repairs require new round and fresh heldout.",
+  "private_reference_files": {
+    "Examples/DependentAuthorBaselineReference.lean": "355233ec6f6af9fd6a3cd8c81e393986e62c1b90e4bb88a6b87b486b7dcb9f57",
+    "Examples/DependentAuthorCandidateReference.lean": "0e842582f37c3dd7f26064f1e7105ed21615557caa20b2e8f316d2e3c80eb84b",
+    "Examples/DependentAuthorTrialCases.lean": "e2da88298c38e3dcda78dea3c9aca9e0f242b7e7bb6798b0b5a08a56f0ed56a1",
+    "experiments/dependent-author-trial/preparation/statement-review.md": "fe8d52e20375ddb9875b24903bf726d076d4cff3d39d30240f0e958564665130",
+    "experiments/dependent-author-trial/preparation/selection.json": "41a0c5bf27cfbf88ed5c73e88f20d9fbdade5247484039a735b2d818913ef3a3",
+    "experiments/dependent-author-trial/preparation/handoff-inventory.json": "40ffb740897f452586843c6d3050abd24c414c8a15b9ccabe84e4b1d1837b938",
+    "experiments/dependent-author-trial/preparation/cache-copies.json": "bfaad7d2ed10f5fbff3e30634c1a3806ec496865f597b75d2896496cf568ce63",
+    "experiments/dependent-author-trial/preparation/evidence/320-cases-validation.json": "3f12c85d6929a869ab91fe6cfd69ac32bb4eb11e8afb0b53cb24cd8e66dc5760",
+    "experiments/dependent-author-trial/preparation/evidence/320-cases-statement-review.md": "442c07b1f5da267b2aea320b6746e4857a9edb4b4b39753e3f78a16a107761bd",
+    "experiments/dependent-author-trial/preparation/evidence/320-cases-build04.txt": "e21da9e33c1b7057c78dc5a9d3765ba2deaa0b4ec554d73cd79dde12d1a5bff2",
+    "experiments/dependent-author-trial/preparation/evidence/320-cases-audit-final.txt": "985aa213747bbce29b7df4a2be7d2a987c2192597234cd23f9c05f46699fe7d9"
+  },
+  "arms": {
+    "baseline": {
+      "handoff_path": "/tmp/conaled-314-320/authors/baseline",
+      "git_head": "0c3594721f26e14e89b74000ed4bc41228bfef85",
+      "manifest_sha256": "c67e857a328b46479c593f49ba8d60eb609c9557e9aca808feb6ce6a575877cd",
+      "public_archive": "experiments/dependent-author-trial/preparation/baseline-public.tar.gz",
+      "public_archive_sha256": "141505ddd534de6d3a8afb2eedf227cc4d8a4b5ff18da351b05c1a0c0803c2ae",
+      "prompt_sha256": "850291a5f73dbb6b6a1c05fe01641812ef7dde62797d4b4cd9b3022cbc9a6736",
+      "attempts_empty": true
+    },
+    "candidate": {
+      "handoff_path": "/tmp/conaled-314-320/authors/candidate",
+      "git_head": "a7ee6bd884c9fe7b2346daa7c3a96b066be75ba5",
+      "manifest_sha256": "6d5e8c4b44f04c71a200209268eb8675d68e45f7a47ed040d7e3ef2ecd5d5e89",
+      "public_archive": "experiments/dependent-author-trial/preparation/candidate-public.tar.gz",
+      "public_archive_sha256": "dd7f9ca6ef8fecd0dd95b81ed917da425c46b17bad1a0f023c724e953add1883",
+      "prompt_sha256": "f420c18e322bdf3b99cafcb095e196666920888cea4ef6a548fe32505533491e",
+      "attempts_empty": true
+    }
+  }
+}

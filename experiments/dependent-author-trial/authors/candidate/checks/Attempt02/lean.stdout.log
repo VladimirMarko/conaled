@@ -1,0 +1,10 @@
+attempts/checks/Attempt02/Source.lean:28:19: error: Type mismatch: After simplification, term
+  hx
+ has type
+  Tm Γ A x
+but is expected to have type
+  Derivation (SquareKit.Internal.DependentJudgments.comprehensionTheory.extend extraSignature Axiom rule) ?m.14
+    (Atom.subst ![Γ, A, x, T]
+      (((SquareKit.Internal.DependentJudgments.comprehensionTheory.extend extraSignature Axiom rule).rule
+            (Sum.inr (Axiom.rootTail n))).premise
+        0))
