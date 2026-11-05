@@ -312,4 +312,9 @@ import Examples.TwoFamilyFiber
 
 import Examples.TwoIdentityMateFunctoriality
 
+import Examples.TwoFamilyPathContraction
+import Examples.TwoFamilySigmaAction
+import Examples.TwoFamilySigmaCells
+import Examples.TwoFamilySigmaNaturality
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

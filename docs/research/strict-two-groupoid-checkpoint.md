@@ -362,8 +362,16 @@ strict higher family with groupoid and local-groupoid fibers; no new
 contraction or eliminator premise is assumed. Equality proof irrelevance only
 identifies canonical casts, and does not identify genuine original 2-cells.
 The integer specialization exercises normalization in the same context that
-retains those cells. Strong naturality and its laws are still missing, so these
-components do not yet constitute a coherent contraction or establish J.
+retains those cells. The comparison cell at each arbitrary path-context arrow is now constructed.
+Its second endpoint cell is the inverse mate of the supplied path-family cell;
+its identity-fiber action is proved to be the inverse of that supplied cell.
+Cartesian factorization and naturality identify both normalized endpoint
+arrows, then both full path-context arrows, with the actual contraction
+composites. `contractionNaturalityCell` consequently has the required strong
+naturality boundaries. The integer example proves that its second endpoint
+cell is `-k`, including a nonzero control. Naturality with respect to 2-cells,
+identity/composition coherence and normalized restriction along reflexivity
+remain missing. These cells do not yet assemble a strong contraction or J.
 
 The strict fiber inclusion `fiberInclusion F γ` now embeds each full higher
 fiber into `Total F`. It needs no groupoid premise. Restricting an arbitrary
@@ -371,9 +379,16 @@ fiber into `Total F`. It needs no groupoid premise. Restricting an arbitrary
 constructed `sigmaFiber F γ B`. Its universe levels are the maxima of the two
 input fiber levels; groupoid and local-groupoid closure follow from the proved
 total construction. The integer example retains two independent cell
-components and distinguishes a nonzero second component. This establishes
-Sigma fibers only. Base transport and its higher action, substitution,
-total regrouping, pairing and projections are not yet constructed.
+components and distinguishes a nonzero second component. For each base arrow, `sigmaMap` now constructs a strict higher map of these
+fibers. Cartesian comparison cells give an actual component for every base
+2-cell. Their naturality at arbitrary dependent arrows is proved and assembled
+as the ordinary `sigmaCellNaturalTransformation`. Higher naturality at genuine
+fiber 2-cells and the base-action coherence laws remain unproved, so this is
+not yet a full higher Sigma family. Substitution, total regrouping, pairing and
+projections remain pending. `EqualityFiber` is used only for canonical
+cartesian comparison cells; the integer example proves that a nonzero genuine
+fiber cell does not satisfy it. It is not a restriction on admitted families
+or cells.
 
 ## Remaining construction
 
