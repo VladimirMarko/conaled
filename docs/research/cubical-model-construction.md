@@ -557,13 +557,19 @@ derivation. These checks cover the structural and Π fragment only.
 
 The dependent sum extension constructs natural packing/unpacking maps between
 `Γ.A.B` and `Γ.(Σ A B)`, proves both inverse laws, and validates guarded
-formation, packing, unpacking, cancellation, and formation/substitution rules.
+formation, packing, unpacking, cancellation, formation/substitution, and
+arbitrary-motive elimination with its β rule.
 The semantic eliminator accepts an arbitrary motive over the sum context.
 [Its example](../../Examples/CubicalSourceSums.lean) derives cancellation in
-the source theory and separately checks a motive whose fiber depends on the
-second component. Source derivations of general dependent elimination and
-packing/substitution coherence remain to be connected. Nat, interval, and Path
-source extensions and their combined connection to the archived recursive
+the source theory and uses an interpreted elimination β derivation to recover
+a body in a motive whose fiber depends on the second component.
+Packing/substitution coherence remains to be connected. The Nat extension
+validates formation, zero, successor, arbitrary-motive elimination, and both
+computation rules. Its successor method is a typed section in `Γ,n,b` with
+result `B(n+1)`. [The finite-motive example](../../Examples/CubicalSourceNaturals.lean)
+interprets the source successor derivation and evaluates it at two, retaining
+the `Fin(n+1)` result family. Nat constructor substitution, interval and Path
+source extensions, and their combined connection to the archived recursive
 contraction remain open. The earlier fixed-`X` recursive characterization has
 not yet been derived in this combined raw source theory. M2 acceptance still
 requires those extensions and that connection; M3–M6 retain all obligations

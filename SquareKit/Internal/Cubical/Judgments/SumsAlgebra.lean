@@ -80,4 +80,40 @@ theorem lifted_eval (Γ Δ : Context.{u}) (A : Family Γ) (B : Family (total A))
   simp only [lifted, GuardedTheory.Term.eval_inl, algebra, Algebra.restrictLeft, Products.algebra]
   exact Products.lift_eval Γ Δ A σ
 
+theorem eliminationSchema_valid (out : Judgment (Fin 5))
+    (valid : ∀ (Γ : Context.{u}) (A : Family Γ) (B : Family (total A))
+      (C : Family (total (Presheaf.sigma A B))) (b : Presheaf.Term (reindex C (sigmaPack A B))),
+      out.eval algebra ![.context Γ,.family Γ A,.family (total A) B,
+        .family (total (Presheaf.sigma A B)) C,.term (total B) (reindex C (sigmaPack A B)) b]) :
+    Satisfies algebra.{u} (eliminationSchema out) := by
+  intro ρ h
+  have hf : ∀ i, (Products.formationRule.premise i).eval Products.algebra (fun j => ρ (j.castAdd 2)) := by
+    intro i
+    fin_cases i
+    · exact h 0
+    · exact h 1
+  rcases Products.formationSchema_inputs _ _ hf with ⟨Γ,A,B,e⟩
+  have hΓ : ρ 0 = .context Γ := congrFun e 0
+  have hA : ρ 1 = .family Γ A := congrFun e 1
+  have hB : ρ 2 = .family (total A) B := congrFun e 2
+  have hc := h 2
+  change ∃ Δ C, Source.operation .extend ![ρ 0,extraOperation .sigma ![ρ 1,ρ 2]] = .context Δ ∧ ρ 3 = .family Δ C at hc
+  rw [hΓ,hA,hB,extra_sigma] at hc
+  simp only [Source.operation, Matrix.cons_val_zero,Matrix.cons_val_one,Value.familyAt_family] at hc
+  rcases hc with ⟨Δ,C,eΔ,hC⟩
+  have he := Value.context.inj eΔ
+  subst Δ
+  have hb := h 3
+  change Source.predicate .term ![Source.operation .extend ![Source.operation .extend ![ρ 0,ρ 1],ρ 2],
+    Source.operation .subTy ![ρ 3,extraOperation .pack ![ρ 1,ρ 2]],ρ 4] at hb
+  rw [hΓ,hA,hB,hC,extra_pack] at hb
+  simp only [Source.operation,Matrix.cons_val_zero,Matrix.cons_val_one,Value.familyAt_family] at hb
+  obtain ⟨b,hb⟩ := Value.term_input (total B) (reindex C (sigmaPack A B)) (ρ 4) hb
+  have he : ρ = ![.context Γ,.family Γ A,.family (total A) B,
+      .family (total (Presheaf.sigma A B)) C,.term (total B) (reindex C (sigmaPack A B)) b] := by
+    funext i
+    fin_cases i <;> first | exact hΓ | exact hA | exact hB | exact hC | exact hb
+  subst ρ
+  exact valid Γ A B C b
+
 end SquareKit.Cubical.Source.Sums

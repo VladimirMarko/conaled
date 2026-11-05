@@ -32,6 +32,42 @@ theorem source_pack_cancel (Γ : Context) (A : Family Γ) (B : Family (total A))
     Value.substitutionAt_substitution,Value.familyAt_family] at h
   exact eq_of_heq (Value.substitution.inj h).2.2
 
+noncomputable def eliminationBetaSource :
+    Derivation theory (List.ofFn eliminationBetaRule.premise) eliminationBetaRule.conclusion := by
+  have d := Derivation.rule (T := theory) (.inr .eliminationBeta) SquareKit.GuardedTheory.Term.var
+    (fun i => .hypothesis (List.mem_ofFn.mpr ⟨i,rfl⟩))
+  simpa only [theory,Theory.extend,Sums.rule,Atom.subst_id] using d
+
+theorem source_elimination_beta (Γ : Context) (A : Family Γ) (B : Family (total A))
+    (C : Family (total (Presheaf.sigma A B))) (b : Presheaf.Term (reindex C (sigmaPack A B))) :
+    (sigmaElim b).reindex (sigmaPack A B) = b := by
+  have h := interpret eliminationBetaSource ![.context Γ,.family Γ A,.family (total A) B,
+      .family (total (Presheaf.sigma A B)) C,.term (total B) (reindex C (sigmaPack A B)) b] (by
+    intro p hp
+    rcases List.mem_ofFn.mp hp with ⟨i,rfl⟩
+    fin_cases i
+    · exact ⟨Γ,A,rfl,rfl⟩
+    · refine ⟨total A,B,?_,rfl⟩
+      change Source.operation .extend ![.context Γ,.family Γ A] = _
+      simp [Source.operation]
+    · refine ⟨total (Presheaf.sigma A B),C,?_,rfl⟩
+      change Source.operation .extend ![.context Γ,extraOperation .sigma ![.family Γ A,.family (total A) B]] = _
+      rw [extra_sigma]
+      simp [Source.operation]
+    · refine ⟨total B,reindex C (sigmaPack A B),b,?_,?_,rfl⟩
+      · change Source.operation .extend ![Source.operation .extend ![.context Γ,.family Γ A],.family (total A) B] = _
+        simp [Source.operation]
+      · change Source.operation .subTy ![.family (total (Presheaf.sigma A B)) C,
+          extraOperation .pack ![.family Γ A,.family (total A) B]] = _
+        rw [extra_pack]
+        simp [Source.operation])
+  change Source.operation .subTm ![Source.operation .subTm ![.term (total B) (reindex C (sigmaPack A B)) b,
+    extraOperation .unpack ![.family Γ A,.family (total A) B]],
+    extraOperation .pack ![.family Γ A,.family (total A) B]] = _ at h
+  rw [extra_unpack,extra_pack] at h
+  simp only [Source.operation,Matrix.cons_val_zero,Matrix.cons_val_one,Value.termIn_term] at h
+  exact eq_of_heq (Value.term.inj h).2.2
+
 /-- The motive's size depends on the selected second component, whose type
 already depends on the first component and the context index. -/
 abbrev secondFiber : Family (total (Presheaf.sigma finiteFiber argumentFiber)) where
@@ -53,6 +89,6 @@ theorem dependent_elimination_at_two :
 
 theorem dependent_body_recovered :
     (sigmaElim body).reindex (sigmaPack finiteFiber argumentFiber) = body :=
-  sigmaElim_beta body
+  source_elimination_beta naturals finiteFiber argumentFiber secondFiber body
 
 end Examples.CubicalSourceSums

@@ -6,7 +6,7 @@ open GuardedTheory Presheaf
 universe u
 
 inductive Axiom where
-  | formation | pack | unpack | beta | eta | sigmaSub
+  | formation | pack | unpack | beta | eta | sigmaSub | elimination | eliminationBeta
 
 def rule : Axiom → Rule signature
   | .formation => formationRule
@@ -15,6 +15,8 @@ def rule : Axiom → Rule signature
   | .beta => betaRule
   | .eta => etaRule
   | .sigmaSub => sigmaSubRule
+  | .elimination => eliminationRule
+  | .eliminationBeta => eliminationBetaRule
 
 def theory := Products.theory.extend extraSignature Axiom rule
 
@@ -32,6 +34,8 @@ noncomputable def model : GuardedTheory.Model.{0,u+1} theory where
     | .inr .beta => beta_valid
     | .inr .eta => eta_valid
     | .inr .sigmaSub => sigmaSub_valid
+    | .inr .elimination => elimination_valid
+    | .inr .eliminationBeta => eliminationBeta_valid
 
 theorem interpret {V : Type} {Ω : List (Judgment V)} {a : Judgment V}
     (d : Derivation theory Ω a) (ρ : V → Value.{u})

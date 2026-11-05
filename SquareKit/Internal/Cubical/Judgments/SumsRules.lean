@@ -61,4 +61,27 @@ theorem sigmaSub_valid : Satisfies algebra.{u} sigmaSubRule := by
     Value.familyAt_family]
   exact (extra_sigma Δ (reindex A σ) (reindex B (liftSub A σ))).symm
 
+theorem elimination_valid : Satisfies algebra.{u} eliminationRule := by
+  apply eliminationSchema_valid
+  intro Γ A B C b
+  refine ⟨total (Presheaf.sigma A B),C,sigmaElim b,?_,rfl,?_⟩
+  · change Source.operation .extend ![.context Γ,extraOperation .sigma ![.family Γ A,.family (total A) B]] = _
+    rw [extra_sigma]
+    simp [Source.operation]
+  · change Source.operation .subTm ![.term (total B) (reindex C (sigmaPack A B)) b,
+      extraOperation .unpack ![.family Γ A,.family (total A) B]] = _
+    rw [extra_unpack]
+    simp only [Source.operation,Matrix.cons_val_zero,Matrix.cons_val_one,Value.termIn_term]
+    rfl
+
+theorem eliminationBeta_valid : Satisfies algebra.{u} eliminationBetaRule := by
+  apply eliminationSchema_valid
+  intro Γ A B C b
+  change Source.operation .subTm ![Source.operation .subTm ![.term (total B) (reindex C (sigmaPack A B)) b,
+    extraOperation .unpack ![.family Γ A,.family (total A) B]],
+    extraOperation .pack ![.family Γ A,.family (total A) B]] = _
+  rw [extra_unpack,extra_pack]
+  simp only [Source.operation,Matrix.cons_val_zero,Matrix.cons_val_one,Value.termIn_term]
+  rfl
+
 end SquareKit.Cubical.Source.Sums

@@ -64,4 +64,24 @@ abbrev sigmaSubRule := substitutionSchema
   (.eq (subTy (sigma (.var 2) (.var 3)) (.var 4))
     (sigma (subTy (.var 2) (.var 4)) (subTy (.var 3) lifted)))
 
+abbrev term (Γ A t : Expression V) : Judgment V :=
+  .pred (.inl (.inl .term)) ![Γ,A,t]
+abbrev subTm (t σ : Expression V) : Expression V := .app (.inl (.inl .subTm)) ![t,σ]
+
+abbrev eliminationSchema (out : Judgment (Fin 5)) : Rule signature where
+  parameterCount := 5
+  hypotheses := 4
+  premise := ![family (.var 0) (.var 1), family (extend (.var 0) (.var 1)) (.var 2),
+    family (extend (.var 0) (sigma (.var 1) (.var 2))) (.var 3),
+    term (extend (extend (.var 0) (.var 1)) (.var 2))
+      (subTy (.var 3) (pack (.var 1) (.var 2))) (.var 4)]
+  conclusion := out
+
+abbrev eliminationRule := eliminationSchema
+  (term (extend (.var 0) (sigma (.var 1) (.var 2))) (.var 3)
+    (subTm (.var 4) (unpack (.var 1) (.var 2))))
+
+abbrev eliminationBetaRule := eliminationSchema
+  (.eq (subTm (subTm (.var 4) (unpack (.var 1) (.var 2))) (pack (.var 1) (.var 2))) (.var 4))
+
 end SquareKit.Cubical.Source.Sums
