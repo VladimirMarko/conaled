@@ -178,4 +178,48 @@ def Hom.compose {S : Signature} {M N P : Algebra S} (G : Hom N P) (F : Hom M N) 
   operation op args := (congrArg G.map (F.operation op args)).trans (G.operation op _)
   predicate p args h := G.predicate p _ (F.predicate p args h)
 
+/-- A totalized partial algebra. Defined results require defined operands.
+The distinguished failure value belongs to the interpreter, not the source. -/
+structure PartialAlgebra (S : Signature.{u}) extends Algebra.{u,v} S where
+  invalid : Carrier
+  strict : ∀ op args, operation op args ≠ invalid → ∀ i, args i ≠ invalid
+
+/-- Only defined operations must commute. The map need not reflect definedness
+and may send formerly ill-sorted raw operands to well-sorted target operands. -/
+structure PartialHom {S : Signature.{u}} (M : PartialAlgebra.{u,v} S)
+    (N : PartialAlgebra.{u,w} S) where
+  map : M.Carrier → N.Carrier
+  operation : ∀ op args, M.operation op args ≠ M.invalid →
+    map (M.operation op args) = N.operation op (map ∘ args)
+  defined : ∀ x, x ≠ M.invalid → map x ≠ N.invalid
+  predicate : ∀ p args, M.predicate p args → N.predicate p (map ∘ args)
+
+theorem PartialHom.eval {S : Signature} {M N : PartialAlgebra S} (F : PartialHom M N)
+    {V : Type} (t : Term S V) (ρ : V → M.Carrier)
+    (ht : t.eval M.toAlgebra ρ ≠ M.invalid) :
+    F.map (t.eval M.toAlgebra ρ) = t.eval N.toAlgebra (F.map ∘ ρ) := by
+  induction t with
+  | var => rfl
+  | app op args ih =>
+    rw [Term.eval, F.operation op _ ht]
+    congr 1
+    exact funext (fun i => ih i (M.strict op _ ht i))
+
+def PartialHom.identity {S : Signature} (M : PartialAlgebra S) : PartialHom M M where
+  map x := x
+  operation _ _ _ := rfl
+  defined _ h := h
+  predicate _ _ h := h
+
+def PartialHom.compose {S : Signature} {M N P : PartialAlgebra S}
+    (G : PartialHom N P) (F : PartialHom M N) : PartialHom M P where
+  map := G.map ∘ F.map
+  operation op args h := by
+    have hn : N.operation op (F.map ∘ args) ≠ N.invalid := by
+      intro e
+      exact F.defined _ h ((F.operation op args h).trans e)
+    exact (congrArg G.map (F.operation op args h)).trans (G.operation op _ hn)
+  defined x h := G.defined _ (F.defined x h)
+  predicate p args h := G.predicate p _ (F.predicate p args h)
+
 end SquareKit.GuardedTheory

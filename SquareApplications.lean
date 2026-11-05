@@ -267,6 +267,7 @@ import Examples.DerivativeNormalization
 import Examples.LocalUniversesBoundary
 import Examples.DependentComprehension
 import Examples.DependentJudgments
+import Examples.GuardedContextualJudgments
 
 import Examples.ProofRequirementReference
 import Examples.ProofRequirementComparison
