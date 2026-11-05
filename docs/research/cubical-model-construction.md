@@ -169,8 +169,8 @@ contract and rejection cases.
 | --- | --- | --- | --- |
 | Dimension substitution, endpoints, connections, reversal | Connection and endpoints used | Required by chosen cubical semantics | Equational dimension presentation and cube category constructed in M1; semantic universal property/remaining rules are not claimed |
 | Face restrictions and compatible systems | No partial system in term | Needed for fibrancy | Construct face lattice/restriction semantics; pending |
-| Dependent contexts, Π, Σ, substitution | Function parameter and Nat recursion | Both substitutions and genuinely varying families | Families/sections, reindexing and comprehension constructed in M2a; constructor closure remains M2b |
-| Path abstraction/application and endpoints | Essential | Higher semantic observations | Construct Path families and conversion interpretation; pending |
+| Dependent contexts, Π, Σ, substitution | Function parameter and Nat recursion | Both substitutions and genuinely varying families | Families/sections and comprehension constructed in M2a; Π/Σ/Nat operations and coherent substitution comparisons constructed in M2b |
+| Path abstraction/application and endpoints | Essential | Higher semantic observations | Dependent Path families, abstraction/application, endpoint rules and substitution isomorphisms constructed in M2b |
 | Generalized transport and homogeneous composition | Not used by this declaration | Needed for general dependent higher interpretation | Construct uniform operations with side conditions and boundaries; pending |
 | Strict intensional Id, contextual J | Not used | Essential, arbitrary motives and finite tails | Construct strict Id and prove β/substitution, not native Lean Eq; pending |
 | Nontrivial higher parameter, nonconstant family | Not witnessed by contraction | Essential | Construct cubical parameter and detector; reuse exact memo after rule soundness |
@@ -314,6 +314,146 @@ category-of-elements arrow. Context, fiber and term sizes use one declared Lean
 universe; no internal classifier or resizing is inferred. Metatheoretic equality
 proves these structure laws but does not stand for an interpreted identity type.
 The finite example varies its fiber with its base value; it is not the required
-higher monodromy example. M2a supplies no Π/Σ/Nat/Path constructor soundness,
-fibrancy, transport or J. M2b, M3–M6 and the source-derivation interpretation
-therefore remain open.
+higher monodromy example. M2a alone supplies no Π/Σ/Nat/Path constructor soundness, fibrancy, transport
+or J. The next checkpoint supplies constructor operations and the selected
+source recursion; fibrancy and M3–M6 remain open.
+
+## M2b constructor and source-recursion checkpoint
+
+This checkpoint constructs Π, Σ, Nat and dependent Path operations, coherent
+isomorphisms for their substitution comparisons, and a checked realization of
+the selected contraction recursion. The model is presented as families and
+sections with semantic conversion laws, not a whole-syntax soundness theorem.
+M3–M6 remain open.
+
+[TypeFormers.lean](../../SquareKit/Internal/Cubical/TypeFormers.lean) constructs
+Σ from dependent pairs, including introduction, projections, β/η, and equality
+of the reindexed family with the sum of reindexed constituents. A Π value gives
+a result for every arrow out of the current generalized element and every
+argument at its target. Its coherence law relates those results under further
+restriction. This quantification constructs the presheaf dependent product;
+pointwise set functions would omit it. Abstraction and application are coherent
+sections and satisfy β/η. `piReindex` is a natural comparison with the product
+after substitution; `lam_reindex` and `app_reindex` prove their commuting rules.
+Its inverse and both inverse laws are constructed in
+[Substitution.lean](../../SquareKit/Internal/Cubical/Substitution.lean).
+
+[Naturals.lean](../../SquareKit/Internal/Cubical/Naturals.lean) uses the constant
+natural-number family, lifted to the family universe. Dependent elimination
+constructs values by recursion and proves restriction coherence by induction.
+The motive is an arbitrary family over `Γ.Nat`, not a constant codomain.
+`NatStepTerm` gives the successor-method judgment in context `Γ,n,b` with result
+`B[n+1]`. Its conversions to and from `NatStep` are inverse, so the latter record
+is a representation of a typed method, not an assumed eliminator. Zero and
+successor computation and substitution stability are proved. The
+[finite-fiber cases](../../Examples/CubicalTypeFormers.lean) abstract a function
+with result `Fin (n+1)`, evaluate it at `3`, and separately construct its last
+element by dependent recursion. `countedLast_is_last` proves agreement for every
+`n` through the recursor's public successor equation.
+
+[Interval.lean](../../SquareKit/Internal/Cubical/Interval.lean) constructs the
+represented interval family, endpoints and meet, retaining their cube action.
+[Paths.lean](../../SquareKit/Internal/Cubical/Paths.lean) takes coherent interval
+functions whose two endpoints agree with the supplied dependent sections at
+every restriction. Path abstraction/application satisfy β/η and the two endpoint
+equations. `pathReindex` and `pathLam_reindex` supply a forward substitution
+comparison and its abstraction equation. `pathReindexIso` constructs its inverse
+and proves both inverse laws. These constructions assume no filler, `transp`,
+`hcomp`, Path-J or strict Id.
+
+The substitution inverse uses a constructed equivalence between arrows out of
+a generalized element and underlying cube restrictions. Every such restriction
+has a unique lifted target and element value. `substitutionArrowEquiv` therefore
+makes the induced arrow map bijective even when the context substitution is not
+injective. `piInverseElement` extends function values along that equivalence;
+lifting two successive arrows proves coherence. The Path inverse retains both
+endpoint conditions under the same lift. Identity and composition equations
+for the forward comparisons, together with both inverse laws, provide coherent
+substitution isomorphisms. Dependent function and interpreted Path roundtrips
+are retained in the examples.
+
+### Selected source derivation
+
+The archived `Orbifolds.CubicalShells` source defines `Cube 0 X = X` and
+`Cube (n+1) X = I → Cube n X`. Its contraction has zero body `refl` and successor
+body `contract-cube n (c (i ∧ j)) j`. Here `j` is the path binder and `i` is the
+outer cube-function binder. The checked interpretation fixes an arbitrary
+presheaf `X` externally. It does not interpret the source's universe-polymorphic
+binder as an internal universe or claim a whole-Agda syntax soundness theorem.
+
+[CubeContraction.lean](../../SquareKit/Internal/Cubical/CubeContraction.lean)
+represents an `n`-cube by its action on generalized `n`-tuples of interval values,
+including all cube restrictions. `cubeZeroIso` and `cubeSuccessorIso` prove the
+zero and successor identifications with the source's types. The interval
+exponential has constructed abstraction/application with β/η; `cubeLam_pi` and
+`cubeApp_pi` relate those operations to the dependent Π operations. The natural
+coordinate-scaling construction `contractCube` supplies both endpoint proofs.
+It is not the sole evidence for interpretation of the recursive source.
+
+[SourceContraction.lean](../../SquareKit/Internal/Cubical/SourceContraction.lean)
+provides the recursion bridge:
+
+| Source judgment or conversion | Constructed interpretation and checked connection |
+|---|---|
+| Fixed parameter `X`; `n : Nat` | `methodFamily X` is a Nat-indexed family of global natural contraction operations. Each operation has context `(c,j)` and returns a complete `n`-cube. |
+| Zero branch `refl` | `sourceZero` projects off `j`; `sourceZero_contract` connects it to the zero-dimensional coordinate construction. |
+| Successor body with `c,j,i` | `sourceStepBody` applies the lower method to `c.apply (meet i j)` and `j`; naturality is proved using interval meet and function application. |
+| Abstraction of `i` and successor cube conversion | `sourceStep` uses `cubeLam` and `cubeUncurry`. `sourceStepBody_contract` is proved through the exact recursive equation `contractCube_apply`; `sourceStep_contract` uses abstraction/application β/η and the currying inverse law. |
+| Dependent recursion on `n` | `sourceRecursion` calls the constructed `natElim`. `interpretedContraction_zero` and `interpretedContraction_successor` use its public computation rules. |
+| Realization and Path introduction | `sourceRecursion_at` proves realization at any base cube agrees with the closed operation. `interpretedContraction_eq` identifies the interpreted recursion with coordinate scaling. `interpretedContractionPath` then uses `pathLam`; its equality to `cubeContraction` is proved. |
+
+The recursion motive above is a family of **global semantic operations**,
+followed by realization at each cube and application to `c,j`. It is not an
+internal universe of types. This bridge checks the selected recursive
+characterization, binding order and conversions at a fixed presheaf parameter;
+it does not extend the admitted fragment to arbitrary source type-level
+recursion. The Π/Path stability isomorphisms are separately proved for all
+modeled families, rather than inferred from this source example.
+
+[The source cases](../../Examples/CubicalContraction.lean) reach the `n=1`
+connection through `interpretedContraction_eq`. The result at two independent
+dimension variables is the actual quotient morphism `Cube.connection`.
+`line_not_constant_origin` rejects replacing the contraction path by equality
+of the line with its constant origin, using the finite De Morgan soundness
+model. The arbitrary-dimensional endpoint cases consume `pathApp_zero` and
+`pathApp_one` on the interpreted recursion's Path term. Two arbitrary context
+substitutions retain that full term through the existing substitution theorem.
+
+Statement review distinguishes metatheoretic equality of natural transformations
+from the constructed Path inhabitant. All restriction quantifiers are retained;
+the interval is not a two-point set. The source case is not the mandatory
+nonzero higher-identity consumer from M5/M6. Stable fibrancy, strict Id/J and the frozen memo interpretation remain
+explicit obligations of #321. The constructor comparisons are coherent natural
+isomorphisms; this checkpoint does not claim they are definitional equalities
+of family representations or supply a separate strictification theorem for an
+uninterpreted source syntax.
+
+### Conversion contract and remaining M2 rule soundness
+
+The checked conversion contract has two distinct parts. For terms already in
+the same semantic family, the Π/Σ/Path β/η and Nat computation theorems prove
+Lean equality of the constructed sections. For type formation under context
+substitution, Π and Path use the chosen natural isomorphisms
+`piReindexIso` and `pathReindexIso`; their forward maps obey identity and
+composition, and both inverse laws are proved. The successor source cube type
+also uses `cubeSuccessorIso`. These are explicit semantic comparisons, not
+literal equality or definitional equality of the family representations.
+
+Accordingly this is a **partial M2 milestone**, even though the constructor and
+substitution operations and the selected recursive realization check. There is
+no theorem interpreting every typing, substitution and judgmental-conversion
+derivation of the advertised source fragment. The selected source bridge
+checks the stated recursive characterization through the Nat recursor and
+function/Path operations; it does not imply that general judgment theorem.
+
+The #321 implementation owner must complete that rule layer before claiming
+selected-fragment acceptance: either construct a split interpretation with the
+required strict equalities, or define conversion by the stated comparisons and
+prove source-rule soundness, including independence from conversion derivations
+and compatibility with substitution. The present isomorphisms supply data for
+that work; they are not a strictification proof. M4 must preserve this boundary:
+strict Id, arbitrary-motive J and its computation/substitution rules must be
+connected to the admitted source judgments. Metatheoretic equality of existing
+sections cannot replace the required interpreted Id/J data or discharge the
+frozen memo's strict identity rules. M6 still requires that source-rule bridge
+alongside its constructed higher parameter and dependent observation.

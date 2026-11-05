@@ -288,6 +288,7 @@ import Examples.GuardedJAuthoring
 import Examples.GuardedJRetestValidation
 import Examples.GuardedJAuthorEvaluation
 
-import Examples.CubicalPresheaf
+import Examples.CubicalTypeFormers
+import Examples.CubicalContraction
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
