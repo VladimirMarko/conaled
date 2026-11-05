@@ -83,6 +83,44 @@ theorem pair_natural {Γ Δ Θ} (A : F.Ty Γ) (f : Δ ⟶ Γ) (t : F.Tm Δ (F.pu
   simp only [R.natural, pair, Equiv.apply_symm_apply]
   rfl
 
+/-- A map into a represented family is determined by its base and dependent
+section. No signature, identity types or distinguished context is used. -/
+theorem pair_unique {Γ Δ} (A : F.Ty Γ) (f : Δ ⟶ Γ)
+    (t : F.Tm Δ (F.pullTy A f)) (g : Δ ⟶ R.ext Γ A)
+    (hp : g ≫ R.projection A = f) (ht : HEq (F.pullTm (R.generic A) g) t) :
+    g = R.pair A f t := by
+  apply (R.decode A Δ).injective
+  rw [R.decode_eq, pair, Equiv.apply_symm_apply]
+  exact Sigma.ext hp ((cast_heq _ _).trans ht)
+
+/-- Sections of a reindexed family correspond to all maps over the specified
+base map. The inverse retains the selected section, not just its existence. -/
+def sectionsOver {Γ Δ} (A : F.Ty Γ) (f : Δ ⟶ Γ) :
+    F.Tm Δ (F.pullTy A f) ≃ {g : Δ ⟶ R.ext Γ A // g ≫ R.projection A = f} where
+  toFun t := ⟨R.pair A f t, R.pair_projection A f t⟩
+  invFun g := cast (congrArg (F.Tm Δ)
+    ((F.ty_comp A (R.projection A) g.val).trans (congrArg (F.pullTy A) g.property)))
+    (F.pullTm (R.generic A) g.val)
+  left_inv t := eq_of_heq ((cast_heq _ _).trans (R.pair_variable A f t))
+  right_inv g := by
+    apply Subtype.ext
+    exact (R.pair_unique A f _ g.val g.property (cast_heq _ _).symm).symm
+
+/-- The correspondence commutes with further substitution, including its
+dependent result type. -/
+theorem sectionsOver_natural {Γ Δ Θ} (A : F.Ty Γ) (f : Δ ⟶ Γ)
+    (t : F.Tm Δ (F.pullTy A f)) (g : Θ ⟶ Δ) :
+    g ≫ (R.sectionsOver A f t).val =
+      (R.sectionsOver A (g ≫ f)
+        (cast (congrArg (F.Tm Θ) (F.ty_comp A f g)) (F.pullTm t g))).val :=
+  R.pair_natural A f t g
+
+/-- The identity-base case presents a section as a section of the display
+projection. This is structural even when the supplied term was built using J. -/
+def sections {Γ} (A : F.Ty Γ) :
+    F.Tm Γ A ≃ {g : Γ ⟶ R.ext Γ A // g ≫ R.projection A = 𝟙 Γ} :=
+  (Equiv.cast (congrArg (F.Tm Γ) (F.ty_id A).symm)).trans (R.sectionsOver A (𝟙 Γ))
+
 end Representation
 end IndexedFamilies
 end SquareKit
