@@ -292,5 +292,7 @@ import Examples.CubicalTypeFormers
 import Examples.CubicalContraction
 import Examples.CubicalConversion
 import Examples.CubicalPathConversion
+import Examples.CubicalSourceProducts
+import Examples.CubicalSourceSums
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

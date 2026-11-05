@@ -529,3 +529,43 @@ The #321 implementation owner still owes that general interpreter and its rule
 soundness before M2 acceptance. M3 uniform fibrancy and exact primitive side
 conditions, M4 strict Id/J, and M5/M6's higher parameter and exact frozen memo
 consumer remain required in dependency order. No checkpoint closes #321.
+
+## Source-rule construction in progress
+
+The structural and Π fragment now has an independently specified guarded
+source theory and a constructed tagged presheaf algebra in
+[Judgments](../../SquareKit/Internal/Cubical/Judgments/ProductsTheory.lean).
+The structural rules reuse the annotation-free comprehension signature.
+The Π rules specify formation, abstraction, generic application, β/η, and
+substitution, with explicit typing premises. Their validity proofs recover
+arbitrary dependent families and sections from those premises. Semantic
+validity is not a premise of the source rules.
+
+`interpret` handles arbitrary derivations of this fragment. `typed_result`
+recovers a coherent section in the declared family. `familyEquality` extracts
+literal family equality from a derived source equality, and
+`conversion_independent` proves that two such derivations transport every
+section identically. Schematic substitution of raw names is separate from
+the validated object-context operations `subTy` and `subTm`.
+
+[Source examples](../../Examples/CubicalSourceProducts.lean) derive Π β and
+formation/substitution as source judgments, then interpret those derivations.
+The varying `Fin(n+1)`/`Fin(a.val+1)` example uses the resulting family equality
+to transport a section after successor substitution. A rejection example
+proves that a context tag cannot serve as a function type in a closed typing
+derivation. These checks cover the structural and Π fragment only.
+
+The dependent sum extension constructs natural packing/unpacking maps between
+`Γ.A.B` and `Γ.(Σ A B)`, proves both inverse laws, and validates guarded
+formation, packing, unpacking, cancellation, and formation/substitution rules.
+The semantic eliminator accepts an arbitrary motive over the sum context.
+[Its example](../../Examples/CubicalSourceSums.lean) derives cancellation in
+the source theory and separately checks a motive whose fiber depends on the
+second component. Source derivations of general dependent elimination and
+packing/substitution coherence remain to be connected. Nat, interval, and Path
+source extensions and their combined connection to the archived recursive
+contraction remain open. The earlier fixed-`X` recursive characterization has
+not yet been derived in this combined raw source theory. M2 acceptance still
+requires those extensions and that connection; M3–M6 retain all obligations
+listed above. Focused Lean checks do not constitute a full candidate audit or
+independent milestone approval.
