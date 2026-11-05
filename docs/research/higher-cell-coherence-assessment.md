@@ -1,7 +1,8 @@
 # Faithful observations in higher coherence proofs
 
 For #336, retain the native reflection proofs used by #322 and defer a new
-higher law-transport abstraction. The current consumers already separate the
+faithful-observation coherence API. Use the bounded substitution data-normalization
+builder described below for its two concrete consumers. The contraction consumers separate the
 constructed comparison cells from the laws proved about them. A wrapper around
 their reflection step would leave their dependent boundary work unchanged.
 This assessment does not discharge J beta, substitution, finite dependent tails,
@@ -75,5 +76,29 @@ changes none of those statements or their assumptions.
 The cost comparison is about caller obligations, not source-file length: both
 presentations require the same local-faithfulness proof and the same three
 normalization arguments. A new wrapper would additionally require packaging
-those arguments and adapting dependent boundaries to its parameters. No new
-formal claim or model capability follows from this assessment.
+those arguments and adapting dependent boundaries to its parameters. The retained contraction interfaces gain no new model capability from this assessment.
+
+## Substitution data normalization
+
+During the resumed #322 construction, endpoint and path-context substitution
+provided a separate factoring case. A proved equality of families gave an
+existing lawful substitution functor, but its casted object and arrow data did
+not reduce to the intended explicit operations. Reproving strict functor laws
+for each explicit presentation would duplicate reindexing coherence.
+
+`strictFunctorOfEqualData` constructs a strict higher functor from supplied raw
+object, arrow, and cell operations equal to those of an existing strict functor.
+Its returned operations reduce to the supplied data, while identity,
+composition, and both whiskering laws are derived. `reindexOfData` specializes
+that construction to a family equal to a pullback. Its six observations retain
+the base and fiber in each dimension; they imply equality with the existing
+substitution functor. They do not ask for the final coherence equations.
+
+`endpointReindex` and `pathReindex` each supply their explicit operations and six
+reflexive observations. Both reuse the same normalization and law proof. The
+checked projection example retains each integer path arrow and genuine endpoint
+cell. This is the bounded adopted helper: it removes duplicate substitution
+coherence proofs and their cast bookkeeping from two actual consumers. It does
+not replace the contraction unit/composition/cell-naturality normalization
+arguments, claim faithfulness of a projection, or provide the more general
+non-strict interpretation comparison owned by #325.
