@@ -58,4 +58,27 @@ theorem pairing_from_representability {Γ Δ Θ} (A : M.Family Γ)
       (cast (congrArg (M.Section Θ) (M.subTy_comp A f g)) (M.subTm t g)) :=
   M.representation.pair_natural A f t g
 
+/-- Recover the existing all-maps-over-a-base consumer from the independent
+representation. Its provider no longer needs the full structural signature. -/
+def representedSectionsOver {Γ Δ} (A : M.Family Γ) (f : M.Substitution Δ Γ) :
+    M.Section Δ (M.subTy A f) ≃
+      { g : M.Substitution Δ (M.extend Γ A) // M.compSub (M.weaken Γ A) g = f } := by
+  refine (M.representation.sectionsOver A f).trans
+    { toFun := fun g => ⟨g.val, ?_⟩
+      invFun := fun g => ⟨g.val, ?_⟩
+      left_inv := fun _ => rfl
+      right_inv := fun _ => rfl }
+  · have hg := g.property
+    change M.compSub (M.representation.projection A) g.val = f at hg
+    simpa only [representation_projection] using hg
+  · change M.compSub (M.representation.projection A) g.val = f
+    simpa only [representation_projection] using g.property
+
+theorem representedSectionsOver_eq {Γ Δ} (A : M.Family Γ) (f : M.Substitution Δ Γ) :
+    M.representedSectionsOver A f = M.sectionsOver A f := by
+  apply Equiv.ext
+  intro t
+  apply Subtype.ext
+  rfl
+
 end SquareKit.Internal.PathTransport.Typed.StructuralModel
