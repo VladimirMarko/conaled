@@ -128,16 +128,22 @@ theorem perfectThree_real_height :
 
 theorem rightTwo_strict_real :
     (1 : Real) < Real.logb 2 3 ∧ Real.logb 2 3 < (2 : Real) := by
-  exact ⟨Trees.minHeight_lt_logb_numLeaves rightTwo rightTwo_incomplete,
-    Trees.logb_numLeaves_lt_height rightTwo rightTwo_incomplete⟩
+  have hm : Trees.minHeight rightTwo = 1 := rfl
+  have hl : rightTwo.numLeaves = 3 := rfl
+  have hh : rightTwo.height = 2 := rfl
+  constructor
+  · simpa only [hm, hl, Nat.cast_one, Nat.cast_ofNat] using
+      Trees.minHeight_lt_logb_numLeaves rightTwo rightTwo_incomplete
+  · simpa only [hl, hh, Nat.cast_ofNat] using
+      Trees.logb_numLeaves_lt_height rightTwo rightTwo_incomplete
 
 theorem sample_real_rounding :
     ⌊Real.logb 2 (5 : Real)⌋₊ = 2 ∧ ⌈Real.logb 2 (5 : Real)⌉₊ = 3 := by
   constructor
-  · simpa only [sample_leaves, sample_minHeight] using
+  · simpa only [sample_leaves, sample_minHeight, Nat.cast_ofNat] using
       (Trees.minHeight_eq_floor_logb_numLeaves
         TreeCacheExamples.sample sample_almostComplete).symm
-  · simpa only [sample_leaves, TreeCacheExamples.sample_height] using
+  · simpa only [sample_leaves, TreeCacheExamples.sample_height, Nat.cast_ofNat] using
       (Trees.height_eq_ceil_logb_numLeaves
         TreeCacheExamples.sample sample_almostComplete).symm
 
