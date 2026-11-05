@@ -1,7 +1,9 @@
 # Prospective retest protocol draft
 
-This draft follows the immutable #320 evidence method. The exact author prompt,
-public archives and dispatch approval do not yet exist. Do not dispatch from it.
+This historical draft records the preparation checkpoint at `959ae39`.
+The concrete protocol, prompts and tasks now live in the trial directory;
+`dispatch-manifest.json` records their public archives and checks. This draft
+is retained as preparation history and does not authorize dispatch.
 
 1. The approved interface freeze is e376ba585603ae8f2c174d5ceaab374242942cbd.
    Its approval is archived verbatim. The selection record was written after

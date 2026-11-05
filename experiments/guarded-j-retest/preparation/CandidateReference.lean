@@ -11,6 +11,8 @@ variable (hx : Tm (Ω := Ω) Γ A x) (hT : Tel (Ω := Ω) n (path A x) T)
   (hp : Tm (Ω := Ω) (total T) Q p)
 
 def inner := Command.reflexivity hx hT hp
+def calibration := inner hx hT hp
+
 def outer := Command.reflexivity hx hT (inner hx hT hp).typing
 
 def rootMap := hx.rootTail hT

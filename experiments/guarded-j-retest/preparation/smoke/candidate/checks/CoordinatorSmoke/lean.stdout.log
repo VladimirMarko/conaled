@@ -1,0 +1,36 @@
+SquareKit.Internal.DependentJudgments.Contextual.Tm.rootTail {V : Type}
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)}
+  {Γ A x T : SquareKit.Internal.DependentJudgments.Contextual.Expression V} {n : ℕ}
+  (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x)
+  (hT :
+    SquareKit.Internal.DependentJudgments.Contextual.Tel n (SquareKit.Internal.DependentJudgments.Contextual.path A x)
+      T) :
+  SquareKit.Internal.DependentJudgments.Contextual.Sub
+    (SquareKit.Internal.DependentJudgments.Contextual.total
+      (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+        (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+    (SquareKit.Internal.DependentJudgments.Contextual.total T)
+    (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T)
+SquareKit.Internal.DependentJudgments.Contextual.Tm.reflexivitySub {V : Type}
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)}
+  {Γ Δ A σ x : SquareKit.Internal.DependentJudgments.Contextual.Expression V}
+  (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x)
+  (hσ : SquareKit.Internal.DependentJudgments.Contextual.Sub Δ Γ σ) :
+  SquareKit.Internal.DependentJudgments.Contextual.Tm Δ
+    (SquareKit.Internal.DependentJudgments.Contextual.subTy
+      (SquareKit.Internal.DependentJudgments.Contextual.identity A x x) σ)
+    (SquareKit.Internal.DependentJudgments.Contextual.reflexivity
+      (SquareKit.Internal.DependentJudgments.Contextual.subTy A σ)
+      (SquareKit.Internal.DependentJudgments.Contextual.subTm x σ))
+SquareKit.Internal.DependentJudgments.Contextual.Command.reflexivity {V : Type}
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)}
+  {Γ A x : SquareKit.Internal.DependentJudgments.Contextual.Expression V} {n : ℕ}
+  {T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V}
+  (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x)
+  (hT :
+    SquareKit.Internal.DependentJudgments.Contextual.Tel n (SquareKit.Internal.DependentJudgments.Contextual.path A x)
+      T)
+  (hp :
+    SquareKit.Internal.DependentJudgments.Contextual.Tm (SquareKit.Internal.DependentJudgments.Contextual.total T) Q
+      p) :
+  SquareKit.Internal.DependentJudgments.Contextual.Command Ω Γ A x

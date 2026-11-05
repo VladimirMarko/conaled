@@ -20,9 +20,14 @@ command. No ordinary reflexivity section replaces either selected J.
 The constructed weakening extends the root-tail total by the restricted inner
 certificate's family, the pullback of Id_Q(p,p). It is a valid dependent
 substitution derived from source judgments, not a hypothetical map assumed to
-have the desired effect. Existing inhabited arbitrary-tail calibration remains
-available; concrete reference specializations should be included in evaluator
-acceptance before final issue completion.
+have the desired effect. `NativeCases.lean` consumes both references at the actual NamedCaller
+three-binder tail with nonconstant Fin(n+1) fibers. It proves the full tail,
+root pullback and constructed weakening context inhabited. The guarded source
+assumptions are discharged in its concrete environment, then both operand
+interpretations, comparison and selected Sigma retention consume the new
+reference declarations. Baseline comparison and selected retention likewise
+consume its new reference at the same caller. Native equality remains
+lower-truncated; these cases make no higher-model claim.
 
 The guarded `substitutedBeta` uses raw binary congruence and finite premise
 cases. This is a remaining preparation burden distinct from the repaired
@@ -41,3 +46,12 @@ needed explicit congruence signature/arguments and an explicit substitution
 binder; a baseline recipe probe used an unavailable local projection name,
 then defined its own raw-index projection. These are coordinator failures,
 not measured author outcomes. No author has been dispatched.
+
+The native check `Native01` failed on attempted inferred theorem headers and
+a direct root-tail population proof. The successful construction instead uses
+the existing native telescope/root equivalence to transport the inhabited tail.
+`Native02` had a nonzero overall exit despite the audit command's allowed-axiom
+message: importing the full public entrypoint made two unqualified `Term.eval`
+names ambiguous. They were qualified. `Native03` returned exit zero with the
+full exhaustive audit. The exact inputs, diagnostics, status and hashes are
+retained separately for every check.

@@ -13,6 +13,9 @@ variable (hΓ : CtxDeriv Γ γ) (hA : TyDeriv Γ γ A a) (hx : TmDeriv Γ γ A a
   (hp : TmDeriv (Ξ ++ pathCtx Γ A x) (telTotal T) Q q p π)
 
 def inner := PathCommand.make hΓ hA hx hT (Motive.reflexivity hΓ hA hx hT hQ hp)
+def calibration := inner hΓ hA hx hT hQ hp
+def rootMap := SubDeriv.rootTail hΓ hA hx hT
+
 def outer := PathCommand.make hΓ hA hx hT
   (Motive.reflexivity hΓ hA hx hT (inner hΓ hA hx hT hQ hp).motive.typing
     (inner hΓ hA hx hT hQ hp).genericTerm)
