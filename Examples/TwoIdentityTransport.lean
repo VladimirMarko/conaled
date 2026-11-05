@@ -47,4 +47,18 @@ theorem embedded_comparison (m n : ℤ) :
     ((TwoIdentityTransport.locallyDiscreteTrans (comparison m n)).app ⟨arrow⟩).as =
       Multiplicative.ofAdd (n - m) := comparison_integer m n
 
+/-- The general mate-pasting law applies to arbitrary integer endpoint cells. -/
+theorem inverse_mate_pasting (m n : ℤ) :
+    TwoIdentityTransport.inverseMate (u := arrow) (u' := arrow) (h := arrow)
+      ((Multiplicative.ofAdd m : arrow ⟶ arrow) ≫
+        Bicategory.whiskerLeft arrow (g := arrow) (h := arrow ≫ arrow)
+          (Multiplicative.ofAdd n) ≫
+        eqToHom (Category.assoc arrow arrow arrow).symm) =
+      eqToHom (Category.assoc (inv arrow) arrow arrow).symm ≫
+        TwoIdentityTransport.inverseMate (u := arrow) (u' := arrow) (h := arrow)
+          (Multiplicative.ofAdd m) ▷ arrow ≫
+        TwoIdentityTransport.inverseMate (u := arrow) (u' := arrow) (h := arrow)
+          (Multiplicative.ofAdd n) :=
+  TwoIdentityTransport.inverseMate_comp _ _
+
 end Examples.TwoIdentityTransport

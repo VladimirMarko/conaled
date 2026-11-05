@@ -183,10 +183,20 @@ The double-delooping examples retain an arbitrary integer fiber cell through
 hom transport and compute the endpoint comparison as `n - m`. The embedded
 identity fiber retains the same integer arrow. Statement review distinguishes
 this locally discrete identity fiber from erasure of the original fiber's
-2-cells: those 2-cells become its 1-arrows. The generic endpoint-action
-composition and substitution laws remain pending. An attempted direct
-simplification of composition leaves a real interchange/inverse-mate
-coherence obligation; a passing identity law does not discharge it.
+2-cells: those 2-cells become its 1-arrows. The generic endpoint comparison now preserves vertical composition. Strict
+inverse 1-arrows supply constructed adjunctions. The inverse endpoint mate
+is proved equal to Mathlib's mate correspondence, so `mateEquiv_vcomp`
+proves its pasting law. Two naturality squares and interchange then prove
+`homComparison_comp`. The integer example applies the general mate-pasting
+law to arbitrary integer cells. Statement review checks that the hypotheses
+retain arbitrary locally groupoidal fiber 2-cells and that the comparison
+law uses the pasted endpoint cells, not equality of those cells.
+
+The earlier failed direct simplification is retained in orchestration evidence.
+Its mate and interchange obligations are now discharged; general horizontal
+transport composition, substitution and assembly into the full open identity
+family still remain. The focused 812-target identity build and focused proof
+audit pass after these additions, with only the three permitted axioms.
 
 ## Remaining construction
 
