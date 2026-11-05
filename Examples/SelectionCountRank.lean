@@ -20,6 +20,15 @@ theorem duplicate_bounds :
       ([1, 2, 2, 3] : List Nat).countP (fun x => decide (2 < x)) < 4 - 2 :=
   duplicate_upper_rank.count_bounds
 
+/-- At the second occurrence of 2, the prefix also contains an equal occurrence.
+The strict filters still embed in the indicated prefix and suffix. -/
+theorem duplicate_sorted_filter_sublists :
+    ([1] : List Nat).Sublist [1, 2] ∧ ([3] : List Nat).Sublist [3] := by
+  have hs : ([1, 2, 2, 3] : List Nat).Pairwise (· ≤ ·) := by decide
+  have ha : ([1, 2, 2, 3] : List Nat)[2]? = some 2 := rfl
+  exact ⟨sorted_filter_lt_sublist_take (ys := [1, 2, 2, 3]) (k := 2) (a := 2) hs ha,
+    sorted_filter_gt_sublist_drop (ys := [1, 2, 2, 3]) (k := 2) (a := 2) hs ha⟩
+
 theorem duplicate_public_selection : selectWith lastPivot 3 [1, 2, 2, 3] = some 2 :=
   (selectWith_succ_some_iff_count_bounds _ last_pivot_valid _ 2 2).mpr
     duplicate_bounds
