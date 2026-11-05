@@ -147,3 +147,7 @@ The retained cases are in [`DependentComprehension`](../../Examples/DependentCom
 Attempting a literal lift identity without transporting its domain fails at the type: `extend Γ (A[id])` and `extend Γ A` are only propositionally equal. `familyComparison` is the required correction. Equating all display squares with chosen-lift-preserving groupoid maps is mathematically false, as the shear proves. Inferring generated-empty nonuniqueness from ambient loops would also be invalid; that inference is explicitly excluded. The failed assumptions are retained as stated boundaries rather than promoted to extra fields.
 
 Focused validation builds `Examples.DependentComprehension`, which imports every new module. The public entrypoint imports it for the full build and exhaustive axiom audit. Exact candidate validation and independent review receipts are recorded in the implementation handoff. No toolchain, audit exception, source axiom or frozen memo was changed.
+
+The [component acceptance record](dependent-foundations-validation/reviews/314-review.md)
+retains the exact reviewed candidate, both independent reports and matching
+validation evidence. Final orchestration acceptance is a separate gate.

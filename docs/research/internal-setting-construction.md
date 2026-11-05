@@ -180,7 +180,12 @@ No author trial in this ticket establishes ergonomic benefit.
 
 **Investigate broader admission with #317 and #36/#235.** A different setting
 constructor must state its closure and preservation obligations; a replacement
-foundation remains eligible. **Defer higher adoption to #316/#321**, where
-native proof-irrelevant identity cannot serve as the requested higher model.
+foundation remains eligible. **Defer higher adoption to the #321/#322 continuations identified by
+[#316](dependent-higher-identity.md)**. Native proof-irrelevant identity cannot
+serve as the requested higher model.
 The result does not resume #107, prepare #108's theorem, activate #260, or
 settle #297's independent modal-context question.
+
+The [component acceptance record](dependent-foundations-validation/reviews/319-review.md)
+retains the exact reviewed candidate, both independent reports and matching
+validation evidence. Final orchestration acceptance is a separate gate.

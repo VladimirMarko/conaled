@@ -305,3 +305,7 @@ receipt remain evidence from their own work; no new Lean build, proof audit,
 Agda run, categorical theorem or higher interpretation is claimed here.
 Independent Standards and Spec review of this assessment is recorded in the
 implementation handoff.
+
+The [component acceptance record](dependent-foundations-validation/reviews/318-review.md)
+retains the exact reviewed candidate, both independent reports and matching
+validation evidence. Final orchestration acceptance is a separate gate.

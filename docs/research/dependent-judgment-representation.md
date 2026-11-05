@@ -2,7 +2,7 @@
 
 The experiment constructs model-independent source judgments for the frozen transport memo, with interpretation in any supplied full contextual model. The selected value, value-dependent certificate and `apd_η(h)` are generated from contextual J. Their substitution comparisons are generated source equations, including equality with a freshly reconstructed certificate and dependent action. Ordinary authors inherit these equations and strict-model preservation from their derivations.
 
-The proposed decision is to **adopt this source boundary for the next constructor and independent-author experiments**, subject to independent review. Retirement of the existing universally annotated `Typed` API is deferred. The replacement has a checked path-sensitive groupoid interpretation as well as native Type examples, but it does not discharge the separate higher-model gate or automatically translate every old client. This report states those recovery obligations below.
+The reviewed decision is to **adopt this source boundary for the constructor and independent-author experiments**. The [component review](dependent-foundations-validation/reviews/315-review.md) records both independent axes and exact candidate validation. Retirement of the existing universally annotated `Typed` API is deferred. The replacement has a checked path-sensitive groupoid interpretation as well as native Type examples, but it does not discharge the separate higher-model gate or automatically translate every old client. This report states those recovery obligations below.
 
 ## Mathematical contract and representation decision
 
@@ -102,7 +102,7 @@ Migration obligations before retiring the old API are explicit:
 - Translate existing annotated derivations with their erasures preserved, or replace named clients individually with checked generated recipes. No universal translator is claimed.
 - Recover the existing full structural, conversion, Id/J and arbitrary-tail capabilities. This experiment constructs those in the new source and interprets them in the existing full models.
 - Preserve named selected observations, including path-sensitive groupoid behavior. Equality between different selected recipes requires its own comparison; endpoint inhabitation is insufficient.
-- Add the actual dependent constructor in #317 and run independent ordinary-author observations in #320 before treating this as an established author interface.
+- Use the [admitted dependent constructor](dependent-constructor-admission.md) from #317 and complete independent ordinary-author observations in #320 before treating this as an established author interface.
 - Keep the higher-model gate and its selected second-identity observation open until a concrete interpretation passes it. Native Type comparisons do not authorize retiring that requirement.
 
 ## Statement review and validation boundary
