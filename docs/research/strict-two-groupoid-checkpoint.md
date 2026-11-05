@@ -343,8 +343,14 @@ coherent family transformation.
 The actual general `PathContext` now has reflexivity objects, arrows and cells.
 The cell construction uses diagonal inverse-mate cancellation and retains the
 original fiber cell at both endpoints. Integer examples retain arbitrary
-integer cells. Reflexivity preserves identity arrows; composition and the
-higher-functor laws remain unproved.
+integer cells. Reflexivity preserves identity and composite arrows, identity and vertical
+composition of cells, and both whiskerings. These laws assemble the strict
+higher functor `pathReflexivity`. Its projection is exactly `diagonalTotal`;
+the integer specialization exercises the assembled functor on the selected
+cell. The cell-law proofs retain the endpoint cell and use subsingleton
+fiber 2-homs only in the locally discrete identity fiber. They do not identify
+the original family's genuine 2-cells. Ordinary `with_reducible exact` at the
+two assembly fields avoids an elaboration timeout without changing the laws.
 
 `contractionComponent` is an arrow in this same general path context, from the
 reflexive first endpoint to the supplied path. Its endpoint transport satisfies

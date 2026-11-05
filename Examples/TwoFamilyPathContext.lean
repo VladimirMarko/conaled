@@ -1,5 +1,5 @@
 import SquareKit.Internal.PathTransport.TwoFamilyPathContraction
-import SquareKit.Internal.PathTransport.TwoFamilyPathReflexivity
+import SquareKit.Internal.PathTransport.TwoFamilyPathReflexivityHigher
 import Examples.TwoOpenIdentityHigher
 
 /-! The full path context retains the integer boundary relating path arrows. -/
@@ -69,5 +69,21 @@ example : TwoFamily.contractionComponent integerFamily
 example : TwoFamily.pathReflexivityMap integerFamily (𝟙 sourceObject) =
     𝟙 (TwoFamily.pathReflexivityObj integerFamily sourceObject) :=
   TwoFamily.pathReflexivityMap_id integerFamily sourceObject
+
+/-- Composition is preserved in the path context with genuine integer cells. -/
+example : TwoFamily.pathReflexivityMap integerFamily (sourceArrow ≫ sourceArrow) =
+    TwoFamily.pathReflexivityMap integerFamily sourceArrow ≫
+      TwoFamily.pathReflexivityMap integerFamily sourceArrow :=
+  TwoFamily.pathReflexivityMap_comp integerFamily sourceArrow sourceArrow
+
+/-- The assembled higher functor retains the selected integer cell itself. -/
+example (k : ℤ) :
+    HEq ((TwoFamily.pathReflexivity integerFamily).map₂ (sourceCell k)).base.fiber.1
+      (Multiplicative.ofAdd k) :=
+  TwoFamily.diagonal_cell_fst_heq integerFamily (sourceCell k)
+
+example : (TwoFamily.pathReflexivity integerFamily).comp
+    (TwoFamily.pathEndpoints integerFamily) = TwoFamily.diagonalTotal integerFamily :=
+  TwoFamily.pathReflexivity_endpoints integerFamily
 
 end Examples.TwoFamilyPathContext
