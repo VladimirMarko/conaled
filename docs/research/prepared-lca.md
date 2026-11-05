@@ -98,16 +98,19 @@ and logarithms are configuration shared by inputs of that size. The proofs do
 not certify a uniform runtime compiler that chooses those parameters for an
 unknown input size.
 
-The three implementations answer the same total RMQ specification. Invalid
-intervals return zero; valid intervals return a leftmost minimum index.
-`Catalog` supplies direct scanning, `SparseCatalog` adapts the full sparse
-executor, and `Backend` supplies shared-block queries. Their work budgets are:
+The implementations answer the same total RMQ specification. Invalid intervals
+return zero; valid intervals return a leftmost minimum index. `Catalog` supplies
+direct scanning, `SparseCatalog` adapts the full sparse executor, and `Backend`
+supplies the nested shared-block construction. `TargetBackend` additionally
+charges installation into the compact finite-word query layout. Their work
+budgets are:
 
 | Strategy | Preparation operations | Worst-case query operations |
 |---|---:|---:|
 | Direct | 0, transferring ownership of the input | `10*m+13` |
 | Sparse | `26*m+3+floor(log2 m)*(11*m+7)` | 16 |
-| Shared blocks | `1024*m` | 57 |
+| Shared blocks, before installation | `1024*m` | 57 |
+| Shared blocks, installed target | `32768*m` | 57 |
 
 The bounds count word operations and word slots, not bit operations. Increasing
 input size may require wider words and a larger arena; a fixed-width machine
@@ -120,21 +123,34 @@ asymptotic preparation and storage requirements while preserving a constant
 query bound. The LCA reduction additionally charges map construction and every
 query translation/recovery operation.
 
-`BackendBounds` combines those operation counts with the allocation and
-control interpreters. Shared queries retain at most `36*m` words; the complete
-preparation/query peak budget is conservatively `512*m` words. `Workspace`
+`BackendBounds` combines the nested construction counts with the allocation
+and control interpreters. Its tables retain at most `36*m` words, and its
+construction/query peak budget is conservatively `512*m` words. `Workspace`
 retains every buffer allocation, including seed rows and canonical-height
 temporaries. `Control` follows the preparation's saved scalar frames, and
 `QueryStorage` retains the query's produced scalar values and bounds each
 prefix. `Storage` observes the actual nested arrays, while `PackedBackend`
 places their finite-word representations and descriptors into a finite arena.
 
+`ResidentInstallation` first converts the constructed buffers through measured
+finite-word reads and encoding operations. `Installation` constructs compact
+descriptor-and-payload tables through charged arithmetic, reads and stores. `Materialize` copies their resident buffers into
+an initialized output bank without first allocating a concatenated array.
+Construction buffers and the destination coexist during installation. The
+installed `TargetBackend` retains the entire `512*m`-word output bank, including
+unused initialized cells, and has a conservative `2048*m` peak budget. Its
+preparation bound includes the installation loops. These constants simplify
+the allocation proof; they are not a compact-storage optimality claim.
+
 `MachineCapacity` separates address and packed-key width from the memory
 budget. `BackendBounds.Machine` requires the actual preparation and query peaks
 to fit the capacity and derives the arena eligibility used by the packed
 representation. A finite width exists for every admitted input at capacity
 `512*m`. The width bound covers arithmetic intermediates as well as stored
-keys; its quadratic key envelope is `(4*m+4)^2`.
+keys; its quadratic key envelope is `(4*m+4)^2`. The installed target's
+`TargetBackend.Config` instead covers the full `2048*m` capacity. Its width
+existence theorem and the executed preparation bounds establish a nonempty
+family of installed machines.
 
 `WordTrace.Machine` additionally reserves 64 words for the actual packed query
 trace, including arithmetic intermediates. Every prefix fits this frame, and
@@ -144,19 +160,22 @@ node query returns its independently specified LCA within 62 modeled
 operations. The decoder storage and translation overhead are accounted for by
 the tree reduction below.
 
-For a tree of size `n`, put `m=2*n-1`. `TreeReduction` composes the RMQ contract
-with map construction and query translation. The real-time requirement allows
-unbounded startup, admits 62 modeled operations per response, reserves
-`n+38*m` retained words, and bounds peak space by `n+516*m+8`. Preparation still
+For a tree of size `n`, put `m=2*n-1`. `TreeReduction` composes the installed
+`TargetBackend` contract with map construction and query translation. Its
+real-time requirement allows unbounded startup, admits 62 modeled operations
+per response, reserves `n+514*m` retained words, and bounds peak space by
+`n+2052*m+8`. Preparation still
 terminates and has its own linear operation bound. Unsupported tree changes
 require preparation again; a zero maintenance profile supplies no update
 operation.
 
-`StrategySelection` filters direct, sparse and shared candidates by startup,
+`TargetSelection` filters direct, sparse and installed shared candidates by startup,
 query, retained-space and peak-space requirements, then minimizes preparation
 work among feasible candidates. Its agreement and deadline results consume
 each selected implementation's `Laws` and `Bounds`. Minimality is relative to
-that three-element catalog. These constructions demonstrate reusable
+that three-element catalog. `StrategySelection` retains the earlier comparison
+before installation; it does not supply the installed target's resource
+certificate. These constructions demonstrate reusable
 certification and finite selection; they do not automatically discover the
 Euler reduction or invent shape sharing from an arbitrary program.
 
@@ -169,8 +188,11 @@ reuse from an algebraic law, rather than a new independent correctness premise.
 `PreparationCertificate` instantiates that transport for every generated class
 and the macro sparse table. Its payload theorems identify the resulting cells
 with the packed arena representation, and its width theorems embed them in the
-selected word domain. Encoding here is a representation relation for the
-executed stores, not an additional uncharged traversal after preparation.
+selected word domain. `PreparationScalars` supplies finite-word executions of shifted canonical
+heights, classification, floor logs, span doubling and sparse-row address
+arithmetic, preserving their measured costs. Representation transport explains the construction's cell semantics. The final
+target separately executes and charges conversion and compact installation,
+including their temporary copies.
 `PreparationMinima` proves that block-minimum queries need only the initialized
 micro prefix. Their finite-word results feed the sparse builder with the same
 measured cost, before any macro-table contents are available.
