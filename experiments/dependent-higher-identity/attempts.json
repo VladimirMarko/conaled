@@ -1,0 +1,26 @@
+{
+  "scope": "Interrupted checker attempts retained as cost/implementation observations, not mathematical counterexamples",
+  "attempts": [
+    {
+      "module": "HigherWitness.agda",
+      "form": "Transparent double-identities proof; otherwise same higher construction and observations",
+      "checker": "Agda 2.8.0.2",
+      "elapsed_seconds": 483.753,
+      "exit_code": -15,
+      "receipt_source": "Pre-resumption private state/logs/latest.json, inspected before new runs overwrote it",
+      "disposition": "Owner interrupted checker; abstract double-identities proof boundary then checked successfully"
+    },
+    {
+      "module": "Monodromy.agda",
+      "form": "transport-three = refl; transport-two = refl",
+      "exit_code": -15,
+      "disposition": "Owner interrupted repeated conversion normalization; replaced with single-loop computation and Memo.η composition"
+    },
+    {
+      "module": "Monodromy.agda",
+      "form": "Abstract step/two-steps but transparent imported loop",
+      "exit_code": -15,
+      "disposition": "Owner interrupted repeated loop expansion; made circle-loop and step one abstract block; final module checked successfully"
+    }
+  ]
+}

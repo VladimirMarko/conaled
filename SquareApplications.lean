@@ -272,5 +272,6 @@ import Examples.GuardedContextualJudgments
 import Examples.ProofRequirementReference
 import Examples.ProofRequirementComparison
 import Examples.ParserWorkload
+import Examples.NestedSetting
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
