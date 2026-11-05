@@ -1,0 +1,23 @@
+[0mdirenv: loading /tmp/conaled-235-orchestration/authors-323/baseline/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: cache invalidated: profile (/tmp/conaled-235-orchestration/authors-323/baseline/.direnv/flake-profile-a5d5b61aa8a61b7d9d765e1daf971a9a578f1cfa) does not exist
+[0mdirenv: nix-direnv: cache invalidated: profile_rc (/tmp/conaled-235-orchestration/authors-323/baseline/.direnv/flake-profile-a5d5b61aa8a61b7d9d765e1daf971a9a578f1cfa.rc) does not exist
+[0mdirenv: nix-direnv: cache invalidated: files newer than cache:
+nix-direnv: /tmp/conaled-235-orchestration/authors-323/baseline/.envrc
+/tmp/conaled-235-orchestration/authors-323/baseline/lean-toolchain
+/tmp/conaled-235-orchestration/authors-323/baseline/flake.nix
+/tmp/conaled-235-orchestration/authors-323/baseline/flake.lock
+[0mdirenv: nix-direnv: Renewed cache
+⚠ [512/522] Built SquareKit.Internal.PathTransport.Syntax (1.7s)
+warning: SquareKit/Internal/PathTransport/Syntax.lean: imports `Mathlib.Data.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [513/522] Built SquareKit.Internal.PathTransport.RawContext (671ms)
+✔ [514/522] Built SquareKit.Internal.PathTransport.Model (661ms)
+✔ [515/522] Built SquareKit.Internal.PathTransport.ContextualModel (1.0s)
+⚠ [516/522] Built SquareKit.Internal.PathTransport.Comprehension (624ms)
+warning: SquareKit/Internal/PathTransport/Comprehension.lean: imports `Mathlib.Logic.Equiv.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [517/522] Built SquareKit.Internal.PathTransport.InterpretationMaps (1.0s)
+✔ [518/522] Built SquareKit.Internal.DependentJudgments.Sigma.Capability (503ms)
+✔ [519/522] Built SquareKit.Internal.DependentJudgments.Sigma.Stability (565ms)
+✔ [520/522] Built SquareKit.Internal.PathTransport.Typed (33s)
+✔ [521/522] Built SquareKit.Internal.PathTransport.Authoring (8.6s)
+Build completed successfully (522 jobs).

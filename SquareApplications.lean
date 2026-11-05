@@ -16,6 +16,7 @@ import Examples.RetainedParserSnapshot
 import Examples.LanguageCoalgebra
 import Examples.SubtypeEvidence
 import Examples.LanguageExtension
+import Examples.SemanticTypeExtension
 import Examples.ObservationExtension
 import Examples.ConstructionObservationAuthorA
 import Examples.ConstructionObservationAuthorB
@@ -284,6 +285,10 @@ import Examples.NestedSetting
 import Examples.DependentAuthorTrialReplay
 import Examples.TwoGroupoidPath
 import Examples.TwoGroupoidHom
+
+import Examples.GuardedJAuthoring
+import Examples.GuardedJRetestValidation
+import Examples.GuardedJAuthorEvaluation
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 

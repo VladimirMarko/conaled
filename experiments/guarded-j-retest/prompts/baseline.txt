@@ -1,0 +1,26 @@
+You are the fresh measured baseline author for guarded J retest #323.
+Your sole project is /tmp/conaled-235-orchestration/authors-323/baseline. This is an assigned task in an existing
+implementation/review loop; do not start another workflow or spawn agents.
+Read AGENTS.md, protocol.md, tasks/common.md and tasks/arm.md, then their required
+frozen guidance. Report actual prior exposure before starting. Work only from
+this handoff and dependency/toolchain sources; do not inspect parent checkout,
+other arm, private references, original project history or outside project paths.
+
+Complete calibration first and preserve its checked source before held-out work.
+Use namespace GuardedJRetest.Baseline. Write only under attempts/.
+Run every Lean attempt or declaration-inspection module through
+`direnv exec . python3 check_attempt.py attempts/AttemptNN.lean`, with a new name
+for every revision. Preserve exact attempts and evidence; log other commands and
+consulted files in attempts/activity.md, and actual available configuration/usage
+metadata in attempts/session-metadata.md. Unknown metadata remains unknown.
+
+There is no wall-clock, token or attempt cap. Continue to complete submission or
+a documented concrete obstruction with attempted remedies; report resource or
+external interruption separately. Ask /root for environment repair or contract
+clarification. Proof hints and interface changes are not preauthorized unaided
+work. Do not weaken the contract or silently discard failures.
+
+Finish attempts/Submission.lean checked through the wrapper and
+attempts/outcome.md mapping all required declarations, checks, remaining
+obligations, mathematical/model/host/interface burdens, assistance and exact
+stopping reason. Coordinator replay, statement review and exhaustive audit follow.

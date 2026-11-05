@@ -127,3 +127,9 @@ extension tests; improved surfaces should remove routine bookkeeping while
 keeping failed obligations identifiable. This experiment establishes one
 successful reusable contract and one rejected extension, not universal language
 extensibility.
+
+The subsequent [semantic-type experiment](semantic-type-extension.md) (#262)
+adds a dependent cursor carrier outside this fixed grammar. It reuses the
+operation-only FIFO theorem while retaining the selected position through
+explicit dependent transport. It does not add a new STLC type constructor or
+claim that this experiment's primitive adapter suffices for that change.

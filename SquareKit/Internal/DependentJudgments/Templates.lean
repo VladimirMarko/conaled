@@ -19,6 +19,21 @@ structure Command (Ω : List (Judgment V)) (Γ A x : Expression V) where
   branchTyping : Tm (Ω := Ω) (total (pullback tail (root A x)))
     (subTy motive (rootTail A x tail)) branch
 
+/-- A selected J certificate of reflexivity for a section over the whole
+based path and dependent tail. The branch conversion is derived by the author
+interface; callers supply only their source point, tail and section. -/
+def Command.reflexivity {n : Nat} {T Q p : Expression V}
+    (hx : Tm (Ω := Ω) Γ A x) (hT : Tel (Ω := Ω) n (path A x) T)
+    (hp : Tm (Ω := Ω) (total T) Q p) : Command Ω Γ A x where
+  point := hx
+  length := n
+  tail := T
+  tailTyping := hT
+  motive := identity Q p p
+  motiveTyping := hp.identity hp
+  branch := Contextual.reflexivity (subTy Q (rootTail A x T)) (subTm p (rootTail A x T))
+  branchTyping := hp.reflexivitySub (hx.rootTail hT)
+
 def Command.expression (c : Command Ω Γ A x) : Expression V := j A x c.tail c.motive c.branch
 
 def Command.typing (c : Command Ω Γ A x) : Tm (Ω := Ω) (total c.tail) c.motive c.expression :=

@@ -1,0 +1,27 @@
+{
+  "start": "2026-11-05T05:31:53.995169+00:00",
+  "module_source_sha256": "83f8168673403e0c856c6b4fcd4009503e5e767927dc0894ee79697603360ec5",
+  "audit_source_sha256": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd",
+  "fixture_source_sha256": "ff43ee790a40267d14d57b1efd45f99f26483928cf0f4045dcd80e791db13006",
+  "expected": "nonzero exit and forbidden-axiom diagnostic from recognized private validation module",
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "--root=/tmp/nix-shell.xhHVL8/guarded-j-audit-negative-xjnc1ipl",
+    "/tmp/nix-shell.xhHVL8/guarded-j-audit-negative-xjnc1ipl/Examples/GuardedJRetestValidationNegative.lean"
+  ],
+  "command_exit": 1,
+  "expected_rejection_verified": true,
+  "finish": "2026-11-05T05:31:55.724415+00:00",
+  "audited_module_counts": {
+    "logical": 151,
+    "theorem": 39,
+    "unsafe_runtime": 0
+  },
+  "evidence_sha256": {
+    "Forbidden.lean.txt": "ff43ee790a40267d14d57b1efd45f99f26483928cf0f4045dcd80e791db13006",
+    "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.log": "257b1b113d133adc21c0d16e9faeaed307ffc39ec1c62a35b292ba87011a4837"
+  }
+}

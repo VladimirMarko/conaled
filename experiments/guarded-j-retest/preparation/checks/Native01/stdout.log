@@ -1,0 +1,53 @@
+/tmp/nix-shell.DY4iUE/guarded-j-reference-check-we1oms2_/Combined.lean:183:27: error(lean.inferDefTypeFailed): Failed to infer type of theorem `retainedSelected`
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+/tmp/nix-shell.DY4iUE/guarded-j-reference-check-we1oms2_/Combined.lean:249:2: error: unsolved goals
+case refine_1
+γ : inputs.context := ⟨PUnit.unit, 3⟩
+chosen : inputs.family γ := inputs.point.down γ
+⊢ ((native.lift
+                (baseCode
+                  (extendCode
+                    (extendCode (extendCode emptyCode (baseCode emptyCode))
+                      (baseCode (extendCode emptyCode (baseCode emptyCode))))
+                    (identityCode
+                      (subTyCode (baseCode (extendCode emptyCode (baseCode emptyCode)))
+                        (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                          (baseCode (extendCode emptyCode (baseCode emptyCode)))))
+                      (subTmCode NamedCaller.x.code
+                        (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                          (baseCode (extendCode emptyCode (baseCode emptyCode)))))
+                      (varCode (extendCode emptyCode (baseCode emptyCode))
+                        (baseCode (extendCode emptyCode (baseCode emptyCode))))))
+                  native)
+                (native.rootSub inputs.family inputs.point)).down
+            ⟨γ, chosen⟩).fst.fst.snd =
+    ((native.lift
+            (baseCode
+              (extendCode
+                (extendCode (extendCode emptyCode (baseCode emptyCode))
+                  (baseCode (extendCode emptyCode (baseCode emptyCode))))
+                (identityCode
+                  (subTyCode (baseCode (extendCode emptyCode (baseCode emptyCode)))
+                    (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                      (baseCode (extendCode emptyCode (baseCode emptyCode)))))
+                  (subTmCode NamedCaller.x.code
+                    (weakenCode (extendCode emptyCode (baseCode emptyCode))
+                      (baseCode (extendCode emptyCode (baseCode emptyCode)))))
+                  (varCode (extendCode emptyCode (baseCode emptyCode))
+                    (baseCode (extendCode emptyCode (baseCode emptyCode))))))
+              native)
+            (native.rootSub inputs.family inputs.point)).down
+        ⟨γ, chosen⟩).snd
+/tmp/nix-shell.DY4iUE/guarded-j-reference-check-we1oms2_/Combined.lean:301:26: error(lean.inferDefTypeFailed): Failed to infer type of theorem `interpretedLeft`
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+/tmp/nix-shell.DY4iUE/guarded-j-reference-check-we1oms2_/Combined.lean:305:27: error(lean.inferDefTypeFailed): Failed to infer type of theorem `interpretedRight`
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+/tmp/nix-shell.DY4iUE/guarded-j-reference-check-we1oms2_/Combined.lean:309:26: error(lean.inferDefTypeFailed): Failed to infer type of theorem `comparisonSound`
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+/tmp/nix-shell.DY4iUE/guarded-j-reference-check-we1oms2_/Combined.lean:312:27: error(lean.inferDefTypeFailed): Failed to infer type of theorem `retainedSelected`
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be

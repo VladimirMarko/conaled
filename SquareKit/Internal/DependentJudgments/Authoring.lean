@@ -197,6 +197,15 @@ def Tm.identitySub (hx : Tm (Ω := Ω) Γ A x) (hy : Tm (Ω := Ω) Γ A y) (hσ 
   have e := extra (Ω := Ω) .identitySub ![Γ, A, x, y, Δ, σ] (Fin.cases (by simpa [rule] using hx) (Fin.cases (by simpa [rule] using hy) (Fin.cases (by simpa [rule] using hσ) (fun i => nomatch i))))
   simpa [rule, sectionSub, pathFamily] using e
 
+/-- Reflexivity after substitution, converted to the substituted identity
+family. This supplies a J branch when the substitution is `hx.rootTail hT`;
+`hΓ.identity` also works, without identifying source substitution with host
+reduction. The conversion uses derived judgmental equality, not object identity. -/
+def Tm.reflexivitySub (hx : Tm (Ω := Ω) Γ A x) (hσ : Sub (Ω := Ω) Δ Γ σ) :
+    Tm (Ω := Ω) Δ (subTy (Contextual.identity A x x) σ)
+      (Contextual.reflexivity (subTy A σ) (subTm x σ)) :=
+  (hx.substitute hσ).reflexivity.convert (Derivation.symmetric (hx.identitySub hx hσ))
+
 def Tm.pathDef (hx : Tm (Ω := Ω) Γ A x) : Equal (Ω := Ω) (Contextual.path A x) (Contextual.extend (Contextual.extend Γ A) (pathFamily Γ A x)) := by
   have e := extra (Ω := Ω) .pathDef ![Γ, A, x] (Fin.cases (by simpa [rule] using hx) (fun i => nomatch i))
   simpa [rule, sectionSub, pathFamily] using e
@@ -291,6 +300,17 @@ def Ty.pairEta (hA : Ty (Ω := Ω) Γ A) (hσ : Sub (Ω := Ω) Δ (Contextual.ex
     Equal (Ω := Ω) (Contextual.pair A (Contextual.comp (Contextual.weaken Γ A) σ) (subTm (Contextual.generic Γ A) σ)) σ := by
   have e := extra (Ω := Ω) .pairEta ![Γ, Δ, A, σ]
     (Fin.cases (by simpa [rule] using hA) (Fin.cases (by simpa [rule] using hσ) (fun i => nomatch i)))
+  simpa [rule] using e
+
+/-- The root map lifted through an arbitrary finite dependent tail. Its only
+premises are the admitted point and telescope judgments. -/
+def Tm.rootTail (hx : Tm (Ω := Ω) Γ A x)
+    (hT : Tel (Ω := Ω) n (Contextual.path A x) T) :
+    Sub (Ω := Ω) (total (Contextual.pullback T (Contextual.root A x)))
+      (total T) (Contextual.rootTail A x T) := by
+  have e := extra (Ω := Ω) (.rootTail n) ![Γ, A, x, T]
+    (Fin.cases (by simpa [rule] using hx)
+      (Fin.cases (by simpa [rule] using hT) (fun i => nomatch i)))
   simpa [rule] using e
 
 end SquareKit.Internal.DependentJudgments.Contextual
