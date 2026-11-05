@@ -290,8 +290,6 @@ import Examples.GuardedJAuthoring
 import Examples.GuardedJRetestValidation
 import Examples.GuardedJAuthorEvaluation
 
-/-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
-
 import Examples.TwoFamily
 
 import Examples.TwoFamilyReindex
@@ -309,3 +307,5 @@ import Examples.TwoOpenIdentity
 import Examples.TwoOpenIdentityHigher
 
 import Examples.TwoIdentityMateFunctoriality
+
+/-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
