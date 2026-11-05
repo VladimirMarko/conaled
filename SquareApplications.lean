@@ -283,5 +283,6 @@ import Examples.ParserWorkload
 import Examples.NestedSetting
 import Examples.DependentAuthorTrialReplay
 import Examples.TwoGroupoidPath
+import Examples.TwoGroupoidHom
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

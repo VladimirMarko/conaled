@@ -1,6 +1,6 @@
 # Strict two-groupoid construction checkpoint
 
-This is the first construction checkpoint for [#322](https://github.com/VladimirMarko/conaled/issues/322).
+These are construction checkpoints for [#322](https://github.com/VladimirMarko/conaled/issues/322).
 The dependent higher adoption gate remains closed. The
 [frozen test](dependent-higher-identity.md) and its memo are unchanged.
 
@@ -34,6 +34,41 @@ yet constructed a general higher-family interface or a Grothendieck operation
 whose specialization produces that bicategory. The fiber action and boundary
 connection constrain that next construction; they do not replace it.
 
+## General hom-categories and reindexing
+
+`TwoGroupoidHom` now constructs the hom-category for extension endpoints from
+an arbitrary category `C`, strict bicategory `B`, evaluation functor `E : C ⥤ B`,
+and target object `b`. Objects are pairs `(c,f)` with `f : E(c) → b`.
+An arrow consists of `α : c → d` and a genuine fiber 2-cell
+`ρ : f ⇒ E(α) · g`. In its intended application, `C` is a base hom-category,
+so these objects and arrows are the total context's 1-cells and 2-cells.
+
+The construction restricts bicategorical Yoneda along `E` and uses Mathlib's
+contravariant Grothendieck construction. That construction can be reused for
+each hom-category even though its locally discrete base prevents directly
+using it as the whole higher context extension. Reindexing along any functor
+`D ⥤ C` preserves the fiber cell, and its identity and composition laws are
+proved as equalities of functors. When `C` is groupoidal and every hom-category
+of `B` is groupoidal, the total hom-category is groupoidal. The inverse is
+constructed from the inverse base cell, strict base cancellation and the
+whiskered inverse fiber cell; both inverse equations are proved.
+
+`StrictTwoTransformation.Trans` supplies the next family-action component:
+a strict natural transformation between strict higher functors, with its
+arrow equation and fiber 2-cell naturality. Its conversion to a Mathlib strong
+transformation derives the unit and composition coherences. These are
+structural transformation laws, not assumed elimination laws. The integer
+action gives a concrete inhabitant with its component preserved by conversion.
+
+`Examples.TwoGroupoidHom` connects the integer-boundary cells to the general
+construction by mutually inverse encoding and decoding. A separate example
+uses `B²ℤ` as the fiber and a discrete base. Its integer-one fiber 2-cell is
+distinguished from zero, rejecting a general locally discrete fiber shortcut.
+The reindexing and inverse cases consume the generic construction's theorems.
+No third cell data is introduced at this layer; equalities establish the
+ordinary hom-category laws. This is not yet a proof that all dependent type
+constructors preserve the finite-dimensional restriction.
+
 ## Statement review and retained cases
 
 Every new cell operation preserves its stated boundary. Equality of cells
@@ -55,15 +90,26 @@ category instance inference and explicitly typing categorical composition;
 they did not show a failure of finite-dimensional closure. Those errors were
 resolved without changing the independently chosen boundary or contraction.
 
+For the general layer, statement review checked the direction of the
+contravariant Grothendieck boundary and inverse pasting, arbitrary functor
+quantification in reindexing, and both input hypotheses of groupoid closure.
+The generic layer does not assume locally discrete fibers. Its positive
+integer fiber case witnesses that distinction. Encoding and decoding recover
+the complete concrete cells, including their base components; equality of
+decoded labels alone is not used as a claim of a general extension equivalence.
+
 ## Remaining construction
 
 1. Specify the general small strict 2-groupoids and higher family collection,
    reusing Mathlib bicategories and strict functors where appropriate. Families
    must retain transformation action on base 2-cells; sections need their own
    coherent 2-cell data. Construct reindexing and Grothendieck extension,
-   then connect this concrete example to that operation. Mathlib's existing
-   `Bicategory/Grothendieck` takes a locally discrete base and cannot supply
-   this step for the base's integer 2-cells.
+   then connect this concrete example to that operation. The hom-category,
+   its strict reindexing and vertical inverses are constructed. What remains
+   is the admitted higher-family collection with its horizontal action laws,
+   horizontal composition of these hom-categories, coherent sections and
+   substitution of the complete extension. The cell correspondence above
+   does not supply those missing constructions.
 2. Prove closure of the proposed dimension restriction under extension,
    reindexing, Sigma and open identity. Construct reflexivity and contraction
    in general. Do not replace non-discrete fiber 2-cells by host equality.
@@ -85,7 +131,7 @@ The separate #321 cubical programme is unchanged.
 
 ## Validation boundary
 
-The focused Lake build checks the construction and four retained examples.
+The focused Lake builds check both construction layers and their retained examples.
 The repository audit implementation, with its entrypoint replaced by that
 focused import, checks all declarations in their project import closure.
 This is development evidence. Full candidate acceptance, the integrated
