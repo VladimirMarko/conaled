@@ -139,4 +139,31 @@ theorem Tm.interpret_map {Γ A t : Expression V} (ht : Tm (Ω := Ω) Γ A t)
       t.eval (algebra N) (Value.map F.toStructuralMap ∘ ρ) :=
   Contextual.interpret_map F t ρ ((Defined.term ht).sound M ρ hΩ)
 
+/-- Typed comparison results transport even when the surrounding raw theory
+contains untyped equality assumptions: both result operands are defined in the
+source interpretation. Reusing all target premises uses `interpret_target`. -/
+theorem TypedEquality.map {Γ A s t : Expression V}
+    (comparison : TypedEquality Ω Γ A s t)
+    {M : PathTransport.Typed.Model.{u}} {N : PathTransport.Typed.Model.{v}}
+    (F : ModelMap M N) (ρ : V → Value M.toStructuralModel)
+    (hΩ : ∀ p ∈ Ω, p.eval (algebra M) ρ) :
+    s.eval (algebra N) (Value.map F.toStructuralMap ∘ ρ) =
+      t.eval (algebra N) (Value.map F.toStructuralMap ∘ ρ) := by
+  have h := interpret comparison.equality M ρ hΩ
+  change s.eval (algebra M) ρ = t.eval (algebra M) ρ at h
+  rw [← comparison.left.interpret_map F ρ hΩ,
+    ← comparison.right.interpret_map F ρ hΩ, h]
+
+/-- Ordinary command authors inherit the substituted-versus-fresh comparison
+at every specified strict target map. No target comparison field is supplied. -/
+theorem Command.comparison_map {Γ Δ A x σ : Expression V}
+    (command : Command Ω Γ A x) (hσ : Sub (Ω := Ω) Δ Γ σ)
+    {M : PathTransport.Typed.Model.{u}} {N : PathTransport.Typed.Model.{v}}
+    (F : ModelMap M N) (ρ : V → Value M.toStructuralModel)
+    (hΩ : ∀ p ∈ Ω, p.eval (algebra M) ρ) :
+    (subTm command.expression (pathTailMap A x command.tail σ)).eval
+        (algebra N) (Value.map F.toStructuralMap ∘ ρ) =
+      (command.fresh hσ).expression.eval (algebra N) (Value.map F.toStructuralMap ∘ ρ) :=
+  (command.comparison hσ).map F ρ hΩ
+
 end SquareKit.Internal.DependentJudgments.Contextual

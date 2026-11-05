@@ -1,3 +1,4 @@
+import SquareKit.Internal.DependentJudgments.GeneratedContexts
 import SquareKit.Internal.DependentJudgments.Templates
 import SquareKit.Internal.PathTransport.GroupoidSoundness
 

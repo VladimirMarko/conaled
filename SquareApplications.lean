@@ -269,6 +269,7 @@ import Examples.DependentComprehension
 import Examples.DependentJudgments
 import Examples.GuardedContextualJudgments
 import Examples.CoherentGuardedJudgments
+import Examples.GuardedCommandComparisons
 import Examples.GuardedJudgmentBoundaries
 import Examples.GuardedInternalSetting
 
