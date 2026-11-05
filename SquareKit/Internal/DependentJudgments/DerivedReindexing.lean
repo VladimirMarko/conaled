@@ -10,7 +10,7 @@ variable {V : Type} {Ω : List (Judgment V)}
 variable {Γ Δ A B σ x : Expression V}
 
 abbrev lift (Δ A σ : Expression V) : Expression V :=
-  Contextual.pair A (Contextual.comp σ (Contextual.weaken Δ (Contextual.subTy A σ))) (Contextual.generic Δ (Contextual.subTy A σ))
+  liftSyntax Δ A σ
 
 def Sub.lift (hσ : Sub (Ω := Ω) Δ Γ σ) (hA : Ty (Ω := Ω) Γ A) :
     Sub (Ω := Ω) (Contextual.extend Δ (Contextual.subTy A σ)) (Contextual.extend Γ A) (Contextual.lift Δ A σ) :=
@@ -52,9 +52,9 @@ def Tm.basedJSub {D d : Expression V} (hx : Tm (Ω := Ω) Γ A x)
     (hD : Ty (Ω := Ω) (Contextual.path A x) D)
     (hd : Tm (Ω := Ω) Γ (Contextual.subTy D (Contextual.root A x)) d)
     (hσ : Sub (Ω := Ω) Δ Γ σ) :
-    Equal (Ω := Ω) (Contextual.subTm (Contextual.basedJ A x D d) (pathSub A x σ))
+    Equal (Ω := Ω) (Contextual.subTm (Contextual.basedJ A x D d) (Contextual.pathSub A x σ))
       (Contextual.basedJ (Contextual.subTy A σ) (Contextual.subTm x σ)
-        (Contextual.subTy D (pathSub A x σ)) (Contextual.subTm d σ)) := by
+        (Contextual.subTy D (Contextual.pathSub A x σ)) (Contextual.subTm d σ)) := by
   have eT := hx.pathTailNil hx.path.nil hσ
   have eS := hx.pathTailMapNil hx.path.nil hσ
   have eD := hD.recontext hx.path.totalNil.symmetric

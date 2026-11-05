@@ -271,4 +271,26 @@ def Tm.reindexBranchNil (hx : Tm (Ω := Ω) Γ A x) (hT : Tel (Ω := Ω) 0 (Cont
         (Fin.cases (by simpa [rule] using hσ) (fun i => nomatch i))))))
   simpa [rule] using e
 
+def Tm.pathSub (hx : Tm (Ω := Ω) Γ A x) (hσ : Sub (Ω := Ω) Δ Γ σ) :
+    Sub (Ω := Ω) (Contextual.path (subTy A σ) (subTm x σ)) (Contextual.path A x) (Contextual.pathSub A x σ) := by
+  have e := extra (Ω := Ω) .pathSub ![Γ, Δ, A, x, σ]
+    (Fin.cases (by simpa [rule] using hx) (Fin.cases (by simpa [rule] using hσ) (fun i => nomatch i)))
+  simpa [rule] using e
+
+def Tm.pathSubDef (hx : Tm (Ω := Ω) Γ A x) (hσ : Sub (Ω := Ω) Δ Γ σ) :
+    Equal (Ω := Ω) (Contextual.pathSub A x σ)
+      (Contextual.pair (pathFamily Γ A x)
+        (Contextual.comp (liftSyntax Δ A σ)
+          (Contextual.weaken (Contextual.extend Δ (subTy A σ)) (pathFamily Δ (subTy A σ) (subTm x σ))))
+        (Contextual.generic (Contextual.extend Δ (subTy A σ)) (pathFamily Δ (subTy A σ) (subTm x σ)))) := by
+  have e := extra (Ω := Ω) .pathSubDef ![Γ, Δ, A, x, σ]
+    (Fin.cases (by simpa [rule] using hx) (Fin.cases (by simpa [rule] using hσ) (fun i => nomatch i)))
+  simpa [rule, liftSyntax, pathFamily] using e
+
+def Ty.pairEta (hA : Ty (Ω := Ω) Γ A) (hσ : Sub (Ω := Ω) Δ (Contextual.extend Γ A) σ) :
+    Equal (Ω := Ω) (Contextual.pair A (Contextual.comp (Contextual.weaken Γ A) σ) (subTm (Contextual.generic Γ A) σ)) σ := by
+  have e := extra (Ω := Ω) .pairEta ![Γ, Δ, A, σ]
+    (Fin.cases (by simpa [rule] using hA) (Fin.cases (by simpa [rule] using hσ) (fun i => nomatch i)))
+  simpa [rule] using e
+
 end SquareKit.Internal.DependentJudgments.Contextual
