@@ -16,6 +16,7 @@ import Examples.RetainedParserSnapshot
 import Examples.LanguageCoalgebra
 import Examples.SubtypeEvidence
 import Examples.LanguageExtension
+import Examples.SemanticTypeExtension
 import Examples.ObservationExtension
 import Examples.ConstructionObservationAuthorA
 import Examples.ConstructionObservationAuthorB
