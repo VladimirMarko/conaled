@@ -49,4 +49,14 @@ theorem retained_path_arrow (k : ℤ) : (pathArrow k).fiber.as = Multiplicative.
 example : IsGroupoid (TwoFamily.PathContext integerFamily) := inferInstance
 example : IsLocallyGroupoid (TwoFamily.PathContext integerFamily) := inferInstance
 
+def sourceObject : TwoFamily.Total integerFamily := ⟨point, point⟩
+def sourceArrow : sourceObject ⟶ sourceObject := ⟨arrow, arrow⟩
+def sourceCell (k : ℤ) : sourceArrow ⟶ sourceArrow := ⟨𝟙 arrow, Multiplicative.ofAdd k⟩
+
+/-- Reflexivity preserves each integer cell in its diagonal endpoint component. -/
+theorem reflexivity_retains_cell (k : ℤ) :
+    HEq (TwoFamily.pathReflexivityCell integerFamily (sourceCell k)).base.fiber.1
+      (Multiplicative.ofAdd k) :=
+  TwoFamily.diagonal_cell_fst_heq integerFamily (sourceCell k)
+
 end Examples.TwoFamilyPathContext
