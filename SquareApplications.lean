@@ -274,6 +274,8 @@ import Examples.GuardedJudgmentBoundaries
 import Examples.GuardedInternalSetting
 import Examples.GuardedNativeMemo
 import Examples.GuardedGroupoidMemo
+import Examples.GuardedSigma
+import Examples.GuardedSigmaReindexing
 
 import Examples.ProofRequirementReference
 import Examples.ProofRequirementComparison
