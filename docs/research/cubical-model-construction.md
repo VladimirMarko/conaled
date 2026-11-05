@@ -169,7 +169,7 @@ contract and rejection cases.
 | --- | --- | --- | --- |
 | Dimension substitution, endpoints, connections, reversal | Connection and endpoints used | Required by chosen cubical semantics | Equational dimension presentation and cube category constructed in M1; semantic universal property/remaining rules are not claimed |
 | Face restrictions and compatible systems | No partial system in term | Needed for fibrancy | Construct face lattice/restriction semantics; pending |
-| Dependent contexts, Π, Σ, substitution | Function parameter and Nat recursion | Both substitutions and genuinely varying families | Construct families, sections, comprehension and constructor stability; pending |
+| Dependent contexts, Π, Σ, substitution | Function parameter and Nat recursion | Both substitutions and genuinely varying families | Families/sections, reindexing and comprehension constructed in M2a; constructor closure remains M2b |
 | Path abstraction/application and endpoints | Essential | Higher semantic observations | Construct Path families and conversion interpretation; pending |
 | Generalized transport and homogeneous composition | Not used by this declaration | Needed for general dependent higher interpretation | Construct uniform operations with side conditions and boundaries; pending |
 | Strict intensional Id, contextual J | Not used | Essential, arbitrary motives and finite tails | Construct strict Id and prove β/substitution, not native Lean Eq; pending |
@@ -278,3 +278,42 @@ Focused builds of both modules pass. Both are imported by the public entrypoint
 for exhaustive acceptance auditing. Full committed validation and independent
 review evidence are retained with the milestone handoff. M1 does not complete
 the selected calculus or the programme.
+
+## M2a dependent presheaf comprehension
+
+[Presheaf.lean](../../SquareKit/Internal/Cubical/Presheaf.lean) constructs
+contexts as `Cubeᵒᵖ ⥤ Type u`, families as functors from Mathlib's category of
+elements into `Type u`, and terms using Mathlib's coherent sections. Contexts
+are contravariant on cubes; a family's map follows the corresponding arrow in
+the category of elements. Reindexing composes with the substitution's actual
+`mapElements` functor. Identity and repeated reindexing are proved equal,
+including dependent term types.
+
+Comprehension is constructed pointwise from dependent pairs, with restriction
+using the family functor's map. `totalMap_ofHom` relates that operation to
+arbitrary element-category arrows and proves identity/composition without
+postulating a comprehension law. `projection`, `generic` and `pair` satisfy
+both projection equations and `pair_eta`, recovering every map into
+comprehension from its two components. `pair_reindex` proves stability under
+substitution. The terminal singleton presheaf has a constructed unique map
+from every context.
+
+[The retained cases](../../Examples/CubicalPresheaf.lean) use a finite family
+with fiber `Fin (n+1)` and its coherent last-element section. Substituting
+successor after doubling maps the input `2` to index `5`; the term is `5` in
+`Fin 6`, through the general repeated-substitution theorem. The same inputs
+exercise pairing and the generic component. Fibers at `0` and `1` are not
+equivalent by cardinality, rejecting a constant-fiber interpretation. Separately,
+the represented interval and its coordinate section exercise actual cube
+restriction: the two faces of the connection retain respectively the zero line
+and the identity line in both components of the comprehension context.
+
+Statement review: all families in the stated universe are admitted as functors,
+not only the finite example. The section condition quantifies over every
+category-of-elements arrow. Context, fiber and term sizes use one declared Lean
+universe; no internal classifier or resizing is inferred. Metatheoretic equality
+proves these structure laws but does not stand for an interpreted identity type.
+The finite example varies its fiber with its base value; it is not the required
+higher monodromy example. M2a supplies no Π/Σ/Nat/Path constructor soundness,
+fibrancy, transport or J. M2b, M3–M6 and the source-derivation interpretation
+therefore remain open.

@@ -288,6 +288,6 @@ import Examples.GuardedJAuthoring
 import Examples.GuardedJRetestValidation
 import Examples.GuardedJAuthorEvaluation
 
-import SquareKit.Internal.Cubical.DimensionModels
+import Examples.CubicalPresheaf
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
