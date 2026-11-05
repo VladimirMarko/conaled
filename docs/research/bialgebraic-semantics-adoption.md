@@ -228,3 +228,16 @@ constructs unique coordinate-guarded solutions, reuses solved ones in the sums
 scheme, and transports the solutions through a lossy coefficient interpretation.
 It is a bounded specialization; the source's full GSOS-relative recursive-scheme
 and completely iterative algebra machinery remains outside its claims.
+
+## Reassessment against dependent interpretation
+
+The [#329 comparison](bialgebraic-dependent-reassessment.md) reopens the same
+pinned paper versions against the later guarded dependent interpretation and
+constructor evidence. Its matched clients require the selected J certificate,
+transported dependent action source, exact parser witnesses and ordinary weighted
+meaning. Retain local compatibility; investigate family/reindexing comparison
+with #325 before proposing a dependent bialgebraic interface. The report gives
+explicit theorem hypotheses, equality directions, counterexamples and promotion
+conditions. It does not derive dependent J or higher identity from binding,
+presheaves or behavioral congruence, and recommends no replacement of native
+contracts.

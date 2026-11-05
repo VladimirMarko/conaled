@@ -384,3 +384,15 @@ all competing traditions. The positive result is more concrete: useful
 specializations now share proofs, fail visibly when an intended observation is
 lost, and supply stronger tests for whatever architecture the next research
 programmes recommend.
+
+## Dependent interpretation follow-up
+
+The [#329 reassessment](bialgebraic-dependent-reassessment.md), inspected at
+`701023ce73ff297604fb21f2b6caada9e727c10c`, compares the published bialgebraic
+contracts with the newer dependent judgments and constructor admission. The
+fixed memo and exact parser/weighted clients supply distinct preservation
+requirements. Generic compatibility remains useful; a family/section comparison
+that removes repeated proof work is a proposed next test with #325, not a
+constructed consequence of higher-order congruence. The report retains the
+witness-loss and step-observation failures and specifies recovery conditions
+before any replacement of the ordinary/indexed interfaces.
