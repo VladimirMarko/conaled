@@ -122,4 +122,57 @@ theorem reindex_comp (σ : StrictPseudofunctor Δ Γ) (τ : StrictPseudofunctor 
     reindex τ (reindex σ F) = reindex (τ.comp σ) F :=
   StrictTwoTransformation.functor_ext rfl
 
+set_option maxHeartbeats 1000000 in
+set_option backward.isDefEq.respectTransparency true in
+set_option backward.isDefEq.respectTransparency.types true in
+/-- Successive substitutions equal substitution by the composite, including every 2-cell. -/
+theorem Section.reindex_comp (s : Section F) (σ : StrictPseudofunctor Δ Γ)
+    (τ : StrictPseudofunctor Θ Δ) :
+    Section.cast (reindex_comp F σ τ) ((s.reindex F σ).reindex _ τ) =
+      s.reindex F (τ.comp σ) := by
+  apply Section.ext_fiber
+  · intro x
+    exact HEq.trans (Section.cast_obj_fiber _ _ x)
+      (HEq.trans ((s.reindex F σ).reindex_obj_fiber _ τ x)
+        (HEq.trans (s.reindex_obj_fiber F σ (τ.obj x))
+          (s.reindex_obj_fiber F (τ.comp σ) x).symm))
+  · intro x y p
+    exact HEq.trans (Section.cast_map_fiber _ _ p)
+      (HEq.trans ((s.reindex F σ).reindex_map_fiber _ τ p)
+        (HEq.trans (s.reindex_map_fiber F σ (τ.map p))
+          (s.reindex_map_fiber F (τ.comp σ) p).symm))
+  · intro x y p q α
+    have h1 := Section.cast_cell_fiber (TwoFamily.reindex_comp F σ τ)
+      ((s.reindex F σ).reindex _ τ) α
+    have h2 := (s.reindex F σ).reindex_cell_fiber (TwoFamily.reindex σ F) τ α
+    have h3 := s.reindex_cell_fiber F σ (τ.map₂ α)
+    have h4 := s.reindex_cell_fiber F (τ.comp σ) α
+    -- Supply the transitivity arguments explicitly. Reinferring them repeatedly
+    -- unfolds nested dependent family casts. The resulting HEq proof term is
+    -- checked normally by Lean's kernel; no checking is disabled here.
+    run_tac Lean.Elab.Tactic.withMainContext do
+      let h1 ← Lean.Meta.getLocalDeclFromUserName `h1
+      let h2 ← Lean.Meta.getLocalDeclFromUserName `h2
+      let h3 ← Lean.Meta.getLocalDeclFromUserName `h3
+      let h4 ← Lean.Meta.getLocalDeclFromUserName `h4
+      let t1 ← Lean.instantiateMVars h1.type
+      let t2 ← Lean.instantiateMVars h2.type
+      let t3 ← Lean.instantiateMVars h3.type
+      let t4 ← Lean.instantiateMVars h4.type
+      let a := t1.getAppArgs
+      let b := t2.getAppArgs
+      let c := t3.getAppArgs
+      let d := t4.getAppArgs
+      unless [t1, t2, t3, t4].all (fun t => t.isAppOfArity ``HEq 4) do
+        throwError "Expected fully applied HEq types"
+      let levels := t1.getAppFn.constLevels!
+      let symm := Lean.mkAppN (Lean.mkConst ``HEq.symm levels)
+        #[d[0]!, d[2]!, d[1]!, d[3]!, h4.toExpr]
+      let trans := Lean.mkConst ``HEq.trans levels
+      let t34 := Lean.mkAppN trans #[c[0]!, c[2]!, d[0]!, c[1]!, c[3]!, d[1]!, h3.toExpr, symm]
+      let t234 := Lean.mkAppN trans #[b[0]!, b[2]!, d[0]!, b[1]!, b[3]!, d[1]!, h2.toExpr, t34]
+      let proof := Lean.mkAppN trans #[a[0]!, a[2]!, d[0]!, a[1]!, a[3]!, d[1]!, h1.toExpr, t234]
+      Lean.Elab.Tactic.closeMainGoal `exact proof
+
+
 end SquareKit.Internal.PathTransport.TwoFamily

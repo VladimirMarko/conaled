@@ -1,4 +1,5 @@
-import SquareKit.Internal.PathTransport.TwoFamilyPathContext
+import SquareKit.Internal.PathTransport.TwoFamilyPathContraction
+import SquareKit.Internal.PathTransport.TwoFamilyPathReflexivity
 import Examples.TwoOpenIdentityHigher
 
 /-! The full path context retains the integer boundary relating path arrows. -/
@@ -58,5 +59,15 @@ theorem reflexivity_retains_cell (k : ℤ) :
     HEq (TwoFamily.pathReflexivityCell integerFamily (sourceCell k)).base.fiber.1
       (Multiplicative.ofAdd k) :=
   TwoFamily.diagonal_cell_fst_heq integerFamily (sourceCell k)
+
+/-- Normalization applies in the same path context retaining integer cells. -/
+example : TwoFamily.contractionComponent integerFamily
+    (TwoFamily.pathReflexivityObj integerFamily sourceObject) =
+    𝟙 (TwoFamily.pathReflexivityObj integerFamily sourceObject) :=
+  TwoFamily.contractionComponent_refl integerFamily sourceObject
+
+example : TwoFamily.pathReflexivityMap integerFamily (𝟙 sourceObject) =
+    𝟙 (TwoFamily.pathReflexivityObj integerFamily sourceObject) :=
+  TwoFamily.pathReflexivityMap_id integerFamily sourceObject
 
 end Examples.TwoFamilyPathContext

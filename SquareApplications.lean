@@ -307,6 +307,7 @@ import Examples.TwoFamilySectionMap
 import Examples.TwoStrongTransport
 import Examples.TwoOpenIdentity
 import Examples.TwoOpenIdentityHigher
+import Examples.TwoFamilyPathContext
 
 import Examples.TwoIdentityMateFunctoriality
 

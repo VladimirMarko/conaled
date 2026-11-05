@@ -18,4 +18,7 @@ theorem mapped_retains_fiber (n : ℤ) :
     TwoFamily.variableSection, TwoFamily.variableLift]
   simp only [Category.comp_id]
   rfl
+theorem mapped_is_identity : mapped = TwoFamilySections.genericSection :=
+  TwoFamily.Section.map_identity _ _
+
 end Examples.TwoFamilySectionMap

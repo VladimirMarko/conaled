@@ -285,11 +285,20 @@ retention, section extensionality from all three fiber actions, and the exact
 identity-substitution law also check. The identity law includes the explicit
 family equality cast and concludes equality of the whole section.
 
-Composition substitution remains unfinished. Its proof reduces to the same
-retention lemmas, but elaborating transitivity through nested family casts
-exceeded the local budgets. The intermediate terms and their types compare
-syntactically equal in the preserved diagnostic. This is an elaboration
-obstruction, not a proved composition law.
+Composition substitution now concludes exact equality of whole sections after
+the explicit associativity cast of the family. The nested-projection example
+uses two genuine context extensions and consumes this general theorem. Its
+cell proof supplies the arguments to `HEq.symm` and `HEq.trans` explicitly,
+avoiding repeated implicit inference through nested dependent casts. Lean's
+kernel checks the resulting term normally; no checking or assumptions are
+changed.
+
+The initial failed diagnostic inspected uninstantiated local type metavariables
+and compared fallback dummy expressions. Its reported syntactic equality was
+invalid. The original diagnostic is preserved with this correction. The corrected
+diagnostic instantiates types and checks the shape before inspection; the
+expressions differ syntactically. The explicit proof term resolves the theorem
+without assuming their syntactic identity.
 
 `TwoOpenIdentityHigher` now proves both horizontal endpoint-cell laws and
 assembles `openIdCat` and `openIdHigher` as full strict higher functors.
@@ -320,10 +329,38 @@ assumes the desired eliminator, interpretation or finite soundness result.
 The original integer contraction remains a discriminator, not the missing
 general contraction. The frozen memo is unchanged.
 
+## Subsequent checked construction
+
+`Section.reindex_comp` now proves exact whole-section equality for arbitrary
+composable substitutions, including the genuine cell action. The nested
+context-projection specialization uses this public theorem. Its cell proof
+supplies every argument of `HEq.trans` explicitly through local proof-term
+construction; Lean checks the resulting term. The corrected diagnostic above
+must be retained: the original syntactic-identity diagnostic was invalid.
+`Section.map_identity` also proves exact section equality for the identity
+coherent family transformation.
+
+The actual general `PathContext` now has reflexivity objects, arrows and cells.
+The cell construction uses diagonal inverse-mate cancellation and retains the
+original fiber cell at both endpoints. Integer examples retain arbitrary
+integer cells. Reflexivity preserves identity arrows; composition and the
+higher-functor laws remain unproved.
+
+`contractionComponent` is an arrow in this same general path context, from the
+reflexive first endpoint to the supplied path. Its endpoint transport satisfies
+the required fiber boundary. At a reflexive path the component equals the total
+identity arrow exactly. These claims quantify over the existing arbitrary
+strict higher family with groupoid and local-groupoid fibers; no new
+contraction or eliminator premise is assumed. Equality proof irrelevance only
+identifies canonical casts, and does not identify genuine original 2-cells.
+The integer specialization exercises normalization in the same context that
+retains those cells. Strong naturality and its laws are still missing, so these
+components do not yet constitute a coherent contraction or establish J.
+
 ## Remaining construction
 
-1. Finish composition coherence of section substitution and the laws for
-   coherent section transport. Keep arbitrary higher sections admitted.
+1. Establish the remaining laws for coherent section transport. Keep arbitrary
+   higher sections admitted.
 2. Prove the remaining finite-dimensional closure, including Sigma and finite
    dependent context tails. Existing groupoid closure covers total extension
    and reindexing; it does not establish all type constructors.

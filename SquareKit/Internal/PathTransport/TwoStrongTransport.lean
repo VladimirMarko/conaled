@@ -70,7 +70,7 @@ variable (E : Family.{u,v,w,u',v',w'} Γ)
 variable {σ τ : StrictPseudofunctor Δ Γ}
 /-- Transport any section along a coherent base homotopy, retaining its full cell action. -/
 def Section.transport (η : Pseudofunctor.StrongTrans σ.toPseudofunctor τ.toPseudofunctor)
-    (s : Section (reindex σ E)) : Section (reindex τ E) :=
+    (s : Section (TwoFamily.reindex σ E)) : Section (TwoFamily.reindex τ E) :=
   s.map (strongPostcomp η E)
 end TwoFamily
 end SquareKit.Internal.PathTransport

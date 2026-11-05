@@ -35,4 +35,16 @@ theorem substitution_is_identity :
       TwoFamilySections.genericSection :=
   TwoFamily.Section.reindex_id _ _
 
+abbrev genericFamily := TwoFamily.reindex
+  (TwoFamily.projectionHigher TwoFamilyCoherence.universal) TwoFamilyCoherence.universal
+abbrev firstProjection := TwoFamily.projectionHigher genericFamily
+abbrev nextProjection := TwoFamily.projectionHigher (TwoFamily.reindex firstProjection genericFamily)
+
+/-- Two genuine context-extension projections compose as substitution on the whole generic section. -/
+theorem nested_projection_substitution :
+    TwoFamily.Section.cast (TwoFamily.reindex_comp genericFamily firstProjection nextProjection)
+      ((TwoFamilySections.genericSection.reindex genericFamily firstProjection).reindex _ nextProjection) =
+      TwoFamilySections.genericSection.reindex genericFamily (nextProjection.comp firstProjection) :=
+  TwoFamily.Section.reindex_comp _ _ _ _
+
 end Examples.TwoFamilySectionSubstitution
