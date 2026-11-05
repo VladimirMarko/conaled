@@ -193,10 +193,19 @@ retain arbitrary locally groupoidal fiber 2-cells and that the comparison
 law uses the pasted endpoint cells, not equality of those cells.
 
 The earlier failed direct simplification is retained in orchestration evidence.
-Its mate and interchange obligations are now discharged; general horizontal
-transport composition, substitution and assembly into the full open identity
-family still remain. The focused 812-target identity build and focused proof
-audit pass after these additions, with only the three permitted axioms.
+Its mate and interchange obligations are now discharged; horizontal compatibility of the comparison with transport composition,
+substitution and assembly into the full open identity family still remain.
+`homTransport_comp` proves composition of the transport functors themselves,
+including their maps on genuine 2-cells; `homTransport_id` proves their unit
+law. The integer specialization applies the general functor composition law.
+
+`TwoFamilyEndpoints` constructs the product of each fiber with itself and its
+full higher action. It commutes with reindexing and preserves strict and local
+groupoid structure. The examples retain the selected base integer in both
+endpoints and retain two independent integer fiber 2-cells. Statement review
+checks that this is an endpoint context family, not yet its identity family or
+a proof of Sigma closure. The focused 857-target endpoint build and 568-root,
+15-module proof audit pass, with only the three permitted axioms.
 
 ## Remaining construction
 

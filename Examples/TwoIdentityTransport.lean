@@ -61,4 +61,18 @@ theorem inverse_mate_pasting (m n : ℤ) :
           (Multiplicative.ofAdd n) :=
   TwoIdentityTransport.inverseMate_comp _ _
 
+/-- Two successive integer hom transports agree as whole functors. -/
+theorem transport_composes :
+    TwoIdentityTransport.homTransport
+      ((StrictPseudofunctor.id B).comp (StrictPseudofunctor.id B))
+      (a := point) (a' := point) (b := point) (b' := point)
+      (arrow ≫ arrow) (arrow ≫ arrow) =
+    TwoIdentityTransport.homTransport (StrictPseudofunctor.id B)
+      (a := point) (a' := point) arrow arrow ⋙
+    TwoIdentityTransport.homTransport (StrictPseudofunctor.id B)
+      (a := point) (a' := point) arrow arrow :=
+  TwoIdentityTransport.homTransport_comp (StrictPseudofunctor.id B)
+    (StrictPseudofunctor.id B) (a := point) (a' := point)
+    (b := point) (b' := point) arrow arrow arrow arrow
+
 end Examples.TwoIdentityTransport

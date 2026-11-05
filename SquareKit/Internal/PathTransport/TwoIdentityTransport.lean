@@ -232,4 +232,72 @@ def locallyDiscreteEmbedding : StrictPseudofunctor Cat StrictTwoCategory :=
       simp
   }
 
+section TransportComposition
+universe u'' v'' w''
+variable {C : Type u''} [Bicategory.{w'',v''} C] [Bicategory.Strict C]
+
+/-- Strict higher functors preserve strict invertibility of 1-arrows. -/
+instance strictMapIsIso (G : StrictPseudofunctor B C) {a b : B}
+    (u : a ⟶ b) [IsIso u] : IsIso (G.map u) := by
+  change IsIso (G.toFunctor.map u)
+  infer_instance
+
+/-- Transport along successive fiber functors and endpoint arrows composes exactly. -/
+theorem homTransport_comp (F : StrictPseudofunctor A B) (G : StrictPseudofunctor B C)
+    {a a' : A} {b b' : B} {c c' : C}
+    (u : F.obj a ⟶ b) [IsIso u] (v : F.obj a' ⟶ b')
+    (u' : G.obj b ⟶ c) [IsIso u'] (v' : G.obj b' ⟶ c')
+    :
+    homTransport (F.comp G) (G.map u ≫ u') (G.map v ≫ v') =
+      homTransport F u v ⋙ homTransport G u' v' := by
+  have hi : G.map (inv u) = inv (G.map u) := G.toFunctor.map_inv u
+  refine Functor.ext (fun p => ?_) (fun p q α => ?_)
+  · change inv (G.map u ≫ u') ≫ (G.map (F.map p) ≫ (G.map v ≫ v')) =
+      inv u' ≫ (G.map (inv u ≫ (F.map p ≫ v)) ≫ v')
+    simp only [G.map_comp, Category.assoc, IsIso.inv_comp, hi]
+  · change inv (G.map u ≫ u') ◁ G.map₂ (F.map₂ α) ▷ (G.map v ≫ v') =
+      eqToHom _ ≫ inv u' ◁ G.map₂ (inv u ◁ F.map₂ α ▷ v) ▷ v' ≫ eqToHom _
+    simp only [Pseudofunctor.map₂_whisker_left, Pseudofunctor.map₂_whisker_right,
+      G.mapComp_eq_eqToIso, eqToIso.hom, eqToIso.inv,
+      whiskerLeft_comp, comp_whiskerRight, whiskerLeft_eqToHom, eqToHom_whiskerRight,
+      Category.assoc, eqToHom_trans_assoc, eqToHom_trans]
+    simp only [whiskerRight_comp, whisker_assoc,
+      Strict.associator_eqToIso, eqToIso.hom, eqToIso.inv, whiskerLeft_comp,
+      whiskerLeft_eqToHom, Category.assoc, eqToHom_trans_assoc, eqToHom_trans]
+    apply eq_of_heq
+    simp only [eqToHom_comp_heq_iff, comp_eqToHom_heq_iff,
+      heq_eqToHom_comp_iff, heq_comp_eqToHom_iff]
+    have hc {x y z : C} {f g : x ⟶ y} (e : f = g) {k l : y ⟶ z} (β : k ⟶ l) :
+        HEq (f ◁ β) (g ◁ β) := by cases e; rfl
+    have he : inv (G.map u ≫ u') = inv u' ≫ G.map (inv u) := by
+      simp only [IsIso.inv_comp, hi]
+    have h₁ := hc he (G.map₂ (F.map₂ α) ▷ G.map v ▷ v')
+    have h₂ := heq_of_eq (comp_whiskerLeft (inv u') (G.map (inv u))
+      (G.map₂ (F.map₂ α) ▷ G.map v ▷ v'))
+    simp only [Strict.associator_eqToIso, eqToIso.hom, eqToIso.inv,
+      heq_eqToHom_comp_iff, heq_comp_eqToHom_iff] at h₂
+    exact h₁.trans h₂
+/-- Identity functor and identity endpoints induce identity on the full hom-category. -/
+theorem homTransport_id (a a' : A) :
+    @homTransport A _ A _ _ (StrictPseudofunctor.id A) a a' a a'
+      (𝟙 a) (inferInstanceAs (IsIso (𝟙 a : a ⟶ a))) (𝟙 a') = 𝟭 (a ⟶ a') := by
+  refine Functor.ext (fun p => ?_) (fun p q α => ?_)
+  · change inv (𝟙 a) ≫ (p ≫ 𝟙 a') = p
+    simp
+  · change inv (𝟙 a) ◁ α ▷ 𝟙 a' = eqToHom _ ≫ α ≫ eqToHom _
+    simp only [whiskerRight_id, Strict.rightUnitor_eqToIso, eqToIso.hom, eqToIso.inv,
+      whiskerLeft_comp, whiskerLeft_eqToHom]
+    apply eq_of_heq
+    simp only [eqToHom_comp_heq_iff, comp_eqToHom_heq_iff,
+      heq_eqToHom_comp_iff, heq_comp_eqToHom_iff]
+    have hc {x y z : A} {f g : x ⟶ y} (e : f = g) {k l : y ⟶ z} (β : k ⟶ l) :
+        HEq (f ◁ β) (g ◁ β) := by cases e; rfl
+    have h₁ := hc (IsIso.inv_id (X := a)) α
+    have h₂ := heq_of_eq (id_whiskerLeft α)
+    simp only [Strict.leftUnitor_eqToIso, eqToIso.hom, eqToIso.inv,
+      heq_eqToHom_comp_iff, heq_comp_eqToHom_iff] at h₂
+    exact h₁.trans h₂
+
+end TransportComposition
+
 end SquareKit.Internal.PathTransport.TwoIdentityTransport
