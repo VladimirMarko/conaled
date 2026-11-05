@@ -1,3 +1,4 @@
+import Examples.GeneratedEmptySubstitutions
 import Examples.RepresentationExtension
 import Examples.ConstructorObserverExtension
 import Examples.ExactParserRewrites
