@@ -609,3 +609,57 @@ this source interface with the remaining selected transport/composition and
 strict identity rules is still required. M3–M6 retain all obligations listed
 above, including stable fibrancy, strict Id/J and the exact frozen memo with a
 dependent higher observer. This checkpoint does not complete #321.
+
+
+## M3 foundation: faces, systems and discrete filling
+
+The face construction follows CCHM §§4.1 and 8.1: paired endpoint generators
+are disjoint; finite meets and joins describe faces; cube substitutions act on
+them. [CCHM v1](https://arxiv.org/html/1611.02108v1)
+[Faces.lean](../../SquareKit/Internal/Cubical/Faces.lean) represents faces by
+upward-closed Boolean predicates on finite partial endpoint assignments.
+The unspecified value retains the interior: the interval boundary is not the
+full face. This auxiliary ternary evaluation does not change the free De Morgan
+dimension quotient or its four-valued rejection tests.
+[FaceFormulas.lean](../../SquareKit/Internal/Cubical/FaceFormulas.lean) constructs
+a finite endpoint formula for every such predicate and proves that its evaluation
+recovers the predicate. An abstract free-lattice universal property is not yet
+proved; the operational representation, generating formulas and substitution
+laws are checked.
+
+[FaceEndpoints.lean](../../SquareKit/Internal/Cubical/FaceEndpoints.lean) proves
+that a full endpoint face means literal equality to the corresponding dimension
+endpoint. The reflection proof returns a derivation in `Expr.Conv`; it does not
+infer dimension equality from arbitrary equality of ternary valuations.
+[FaceContexts.lean](../../SquareKit/Internal/Cubical/FaceContexts.lean) constructs
+the face presheaf, natural face maps, restricted contexts and their inclusions.
+[PartialSections.lean](../../SquareKit/Internal/Cubical/PartialSections.lean)
+identifies partial sections with actual sections of restricted families, glues
+two sections that agree on their overlap, and proves substitution stability.
+[The face examples](../../Examples/CubicalFaces.lean) retain the generic
+interior, both endpoint restrictions and their union, and reject conflicting
+values on a full overlap.
+
+The first filling instance is constructed for discrete coefficients, then for
+families `S(q)` selected by an arbitrary natural index section `q`.
+[IntervalExtension.lean](../../SquareKit/Internal/Cubical/IntervalExtension.lean)
+constructs a fresh dimension over each generalized base element and its
+specializations. Naturality along these maps proves that a section with discrete
+coefficients is constant along the added interval, including on arbitrary faces
+pulled back from the base. [DiscreteFilling.lean](../../SquareKit/Internal/Cubical/DiscreteFilling.lean)
+and [DiscreteFamilies.lean](../../SquareKit/Internal/Cubical/DiscreteFamilies.lean)
+use that result to construct a filler from the starting cap and prove agreement
+with the entire compatible tube. Its far endpoint supplies homogeneous
+composition; filling and composition commute with arbitrary substitution.
+[The dependent example](../../Examples/CubicalDiscreteFilling.lean) retains
+`Fin(n+1)` fibers, computes `5 : Fin 6` after two nonidentity substitutions, and
+rejects an incompatible starting cap. The fibers at zero and one are proved
+inequivalent.
+
+This is a partial M3 construction. It does not supply a general fibrant-family
+model or closure under Π, Σ and dependent Path, and it does not yet interpret
+the guarded source `transp`/`hcomp` rules. Generalized transport still needs the
+exact restricted-constancy side condition and its computation at `r=1`.
+The discrete filler is not the nonzero higher instance required by M5.
+Strict Id/J, the dependent higher parameter and the unchanged frozen memo in
+M4–M6 remain mandatory. No partial model is offered as completion of #321.

@@ -298,5 +298,7 @@ import Examples.CubicalSourceNaturals
 import Examples.CubicalSourceIntervals
 import Examples.CubicalSourcePaths
 import Examples.CubicalSourceContraction
+import Examples.CubicalFaces
+import Examples.CubicalDiscreteFilling
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
