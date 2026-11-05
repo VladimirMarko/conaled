@@ -6,11 +6,14 @@ import importlib.util
 import json
 import re
 import subprocess
+import sys
 
 repo = Path(__file__).resolve().parents[3]
 trial = repo / 'experiments/guarded-j-retest'
 roots = json.loads((trial / 'preparation/handoff-roots.json').read_text())
 freeze = json.loads((trial / 'freeze/source-interface-freeze.json').read_text())
+receipt = trial / 'preparation' / (sys.argv[1] if len(sys.argv) > 1 else 'handoff-validation.json')
+assert not receipt.exists(), 'Use a new receipt filename; preserve earlier handoff evidence'
 report = {'checked_utc': datetime.now(timezone.utc).isoformat(), 'arms': {}}
 for arm, saved in roots.items():
     root = Path(saved['root'])
@@ -75,7 +78,7 @@ for arm, saved in roots.items():
         'external_imports': sorted(external), 'compiled_modules': sorted(compiled),
         'compiled_artifacts_sha256': artifacts, 'dependencies': dependencies,
         'checks': 'Public hashes/import closure; exact compiled module set; clean fresh one-commit Git history; no remotes; empty attempts; clean pinned dependencies.'}
-(trial / 'preparation/handoff-validation.json').write_text(json.dumps(report, indent=2) + '\n')
+receipt.write_text(json.dumps(report, indent=2) + '\n')
 print(json.dumps({arm: {'source_modules': len(value['source_modules']),
                       'compiled_modules': len(value['compiled_modules'])}
                   for arm, value in report['arms'].items()}))

@@ -1,0 +1,64 @@
+{
+  "schema": 2,
+  "created_utc": "2026-11-05T05:33:26.083584+00:00",
+  "status": "Corrected concrete dispatch candidate pending independent handoff re-review and coordinator prospective approval; no authors dispatched",
+  "integrated_base": "e9953ca8c1ad7ed64e8e91cb2f1473c28ebfec56",
+  "interface_freeze": "e376ba585603ae8f2c174d5ceaab374242942cbd",
+  "interface_approval": "freeze/interface-approval.json",
+  "selection": "preparation/selection.json",
+  "task_order": [
+    "public one-level J-certificate calibration",
+    "nested selected J and root computation under dependent substitution"
+  ],
+  "public_handoffs": {
+    "baseline": {
+      "path": "preparation/handoffs/round1/baseline-public.tar.gz",
+      "sha256": "cf48ab1e46fafd25b77c3ed453ad40db88b86dc2e7f22f3b58116b23e2a1c3ee",
+      "manifest": "preparation/handoffs/round1/baseline-public-manifest.json",
+      "manifest_sha256": "9bc861cd4e91cc74092172cc2b2593adb759dea2c3fc9cd1e2f91a081c0ca21f",
+      "root": "/tmp/conaled-235-orchestration/authors-323/baseline",
+      "public_head": "1ce871ce311677d12cbf1c1d182aef51066a2ad3",
+      "prompt_sha256": "02365bec2234875aeb0cc19437feeb77928d24520c38d48885799398ae079816"
+    },
+    "candidate": {
+      "path": "preparation/handoffs/round1/candidate-public.tar.gz",
+      "sha256": "eec4ef45cd79c5a32ead64b02904696aa1d67b871ec4309621700245fcf44820",
+      "manifest": "preparation/handoffs/round1/candidate-public-manifest.json",
+      "manifest_sha256": "7b5efe706ef4aad079e61effd305e6125eb481fc0993c8bb7a62d445734d8088",
+      "root": "/tmp/conaled-235-orchestration/authors-323/candidate",
+      "public_head": "22aa8c46c28f059c7dceb585a5b1c21d5ce6bc37",
+      "prompt_sha256": "e0a899c081db993d345a516d43aacce50cf74e67ae28edc1e9156e4de52600a5"
+    }
+  },
+  "private_reference_check": "preparation/checks/Integrated01/result.json",
+  "private_reference_inputs": {
+    "experiments/guarded-j-retest/preparation/BaselineReference.lean": "2d4e31d4e14f0208c0e790c959ef58629da6098d7fb7623a2648c5e4e881286f",
+    "experiments/guarded-j-retest/preparation/CandidateReference.lean": "d5b9a0e4c5ffef55a853599325278582d0a26820d150bb16e697470dd1d8a7ee",
+    "experiments/guarded-j-retest/preparation/NativeCases.lean": "cc2e372b724307652c0ad613b846899ba7fce5b4504e465d500a733d8efd4099",
+    "Examples/GuardedJRetestValidation.lean": "83f8168673403e0c856c6b4fcd4009503e5e767927dc0894ee79697603360ec5",
+    "SquareApplications.lean": "5de60de3d5f230a0d2c21ada292637cd5fa8628c5e848ae49823f4a9de010b29",
+    "ProofAudit.lean": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd"
+  },
+  "wrapper_sha256": "ba47cd4232067230da4ab65bd6cb5f70f89a4b1f1a77152bfd1aefa2bd2cb6bc",
+  "wrapper_fixtures": "preparation/wrapper-fixtures.json",
+  "closure_validation": "preparation/handoff-validation.json",
+  "assistance_exposure_stopping": "protocol.md",
+  "authors": "Two fresh fork_turns=none sessions, one per arm, no crossover or author subagents; dispatch must record actual configured model/reasoning and available usage metadata. No author session allocated yet.",
+  "boundaries": "No #108 theorem selected or prepared; #107 paused; #260 inactive; no higher-model or causal productivity claim.",
+  "supersedes": {
+    "manifest": "dispatch-manifest.json",
+    "sha256": "588a237df7a8df0e0bcd8e35507fc4012e55f90eef7509568b3034d2eb86994e",
+    "reason": "STD323-001 / SPEC323-001: previous temporary-module check omitted private declarations from audit roots"
+  },
+  "private_audit_module": {
+    "name": "Examples.GuardedJRetestValidation",
+    "counts": {
+      "logical": 111,
+      "theorem": 33,
+      "unsafe_runtime": 0
+    },
+    "excluded_from_author_handoffs": true
+  },
+  "private_audit_negative_fixture": "preparation/checks/Negative01/result.json",
+  "closure_revalidation": "preparation/handoff-validation-v2.json"
+}

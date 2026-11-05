@@ -2,7 +2,7 @@
 
 The repair interface was frozen and prospectively approved at `e376ba5` before
 the held-out selection. The current concrete dispatch candidate is described in
-`dispatch-manifest.json`. It is pending independent handoff review and separate
+`dispatch-manifest-v2.json`. It is pending independent handoff review and separate
 coordinator approval. No measured authors have been dispatched.
 
 The public calibration discloses the one-level selected J certificate from
@@ -18,24 +18,48 @@ remain procedural on a shared machine.
 varying Fin(n+1) fibers. It constructs inhabitants of the full tail, its root
 pullback and the selected weakening context. It consumes both new references'
 comparisons and exact selected retention, with satisfied guarded assumptions.
-The case file is intentionally checked together with both private reference
-bodies, not imported by an author. Run from the repository's development shell:
+The case file is checked together with both private reference bodies in
+`Examples.GuardedJRetestValidation`, which is imported by the repository
+entrypoint for the ordinary exhaustive audit. The generated module hoists
+imports and concatenates the unchanged source bodies; the validator checks
+that transformation byte-for-byte and requires a nonzero audited declaration
+count for the module. Neither author handoff includes this module. Run from
+the repository's development shell:
 
 ```sh
 python3 experiments/guarded-j-retest/preparation/validate_references.py NewCheckName --audit
-python3 experiments/guarded-j-retest/preparation/validate_handoffs.py
+python3 experiments/guarded-j-retest/preparation/validate_handoffs.py NewHandoffReceipt.json
 ```
 
 Every reference check requires a fresh archive name and preserves its exact
-inputs, generated combined source, raw output, timestamps, hashes and exit.
-`checks/Native03/result.json` records the current successful reference/case
-check and exhaustive audit. `Native01` and `Native02` are failed preparation,
-including a nonzero Lean exit despite an allowed-axiom audit message in
-`Native02`; only the overall zero exit in `Native03` is accepted. Initial
-reference attempts and the initial generic checkpoint at `959ae39` are retained.
-The original helper preparation logs remain in `preparation/evidence`; exact
-source snapshots and per-command timestamps for those early helper iterations
-were not captured and are unavailable.
+inputs, generated module, raw output, timestamps, hashes and exit. The corrected
+check is `preparation/checks/Integrated01/result.json`; current coverage and
+receipts are recorded in `preparation/validation-v2.json`. The ordinary audit
+reports 111 logical declarations and 33 theorem declarations for
+`Examples.GuardedJRetestValidation`, with no unsafe runtime declarations.
+`preparation/checks/Negative01/result.json` records rejection of an unused
+forbidden axiom beside the exact copied validation bodies under an accepted
+`Examples.*` module origin. Its nonzero exit and specific forbidden-axiom
+diagnostic are required, so an imported-only PASS cannot satisfy the fixture.
+
+Independent review found that the earlier temporary `Combined` module did not
+pass the project audit's module-origin filter. Native03's zero exit therefore
+established compilation but did not audit the private reference/native
+declarations. The earlier generic `reference-audit` check had the same gap.
+Their exact sources, logs, receipts, original validation summary and first
+dispatch manifest remain unchanged as superseded evidence; their private-audit
+claims are not accepted. Native01 and Native02 remain failed checks, including
+Native02's nonzero exit despite the imported-module audit's success message.
+The normal 1092-module candidate check at the first dispatch checkpoint covered
+the integrated repair, not these isolated private declarations.
+
+The correction integrates the exact reference/native declarations in a module
+recognized by the unchanged audit. It changes neither mathematical statements
+nor the selected task, frozen public sources, compiled handoffs or prompts.
+The interface freeze and task selection remain valid. Initial reference
+attempts and the generic checkpoint at `959ae39` are retained. Early helper
+logs remain in `preparation/evidence`; their exact source snapshots and
+per-command timestamps were not captured and are unavailable.
 
 The unchanged #320 evidence wrapper passed nine fixtures, including success,
 proof failure, duplicate rejection, forbidden compiled import, source/public

@@ -52,6 +52,14 @@ a direct root-tail population proof. The successful construction instead uses
 the existing native telescope/root equivalence to transport the inhabited tail.
 `Native02` had a nonzero overall exit despite the audit command's allowed-axiom
 message: importing the full public entrypoint made two unqualified `Term.eval`
-names ambiguous. They were qualified. `Native03` returned exit zero with the
-full exhaustive audit. The exact inputs, diagnostics, status and hashes are
-retained separately for every check.
+names ambiguous. They were qualified. `Native03` returned exit zero, establishing compilation. Independent review
+subsequently found that its temporary `Combined` module was excluded by the
+audit's project-module filter. Thus its reported audit covers imported project
+roots only. The initial generic `reference-audit` has the same coverage gap.
+Both sets of raw evidence remain unchanged and are superseded for private audit
+acceptance. The correction copies the exact current reference/native bodies
+into the integrated `Examples.GuardedJRetestValidation` module, verifies their
+byte transformation, and checks its nonzero module declaration count through
+the unchanged ordinary audit. `checks/Integrated01/result.json` and
+`validation-v2.json` hold that corrected coverage. No source claim, premise,
+selected recipe or handoff content changes in this correction.
