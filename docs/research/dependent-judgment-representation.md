@@ -4,6 +4,13 @@ The experiment constructs model-independent source judgments for the frozen tran
 
 The reviewed decision is to **adopt this source boundary for the constructor and independent-author experiments**. The [component review](dependent-foundations-validation/reviews/315-review.md) records both independent axes and exact candidate validation. Retirement of the existing universally annotated `Typed` API is deferred. The replacement has a checked path-sensitive groupoid interpretation as well as native Type examples, but it does not discharge the separate higher-model gate or automatically translate every old client. This report states those recovery obligations below.
 
+The [finitary type-theory study](finitary-type-theories.md) examines an
+independent contextual calculus and annotated context-free presentation at
+arXiv:2112.00539v1. It records the exact translation hypotheses, their mismatch
+with unrestricted guarded equality, and architectural tests for #324–#328.
+It preserves the existing interfaces while proposing scoped correspondence
+investigations; it does not establish source adequacy or select a new framework.
+
 ## Mathematical contract and representation decision
 
 The [prospective mathematical freeze](dependent-judgment-freeze.md), commit `0624161`, precedes representation implementation. It uses the independently specified [external memo](dependent-coherence-discovery/292-external-memo.md) and the reviewed [structure audit](dependent-structure-audit.md). The representation addendum was approved on 2026-11-05 after a checked dependent pairing specialization. That approval selected guarded derivations for investigation; it did not retroactively change the mathematical freeze.
