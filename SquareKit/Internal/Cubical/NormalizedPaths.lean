@@ -89,49 +89,27 @@ theorem pathToLocal_substitution {Γ Δ : Context.{u}} (B : Family (total (inter
       (fun p => (toLocal_substitution (interval Γ) B σ x p.val).symm))).mpr
   exact (toLocal_substitution (interval Γ) B σ x p.val).symm
 
+/-- Endpoint constraints are retained by the pointwise equivalence. -/
+def localPathEquiv {Γ : Context.{u}} (B : Family (total (interval Γ)))
+    (a₀ : Term (reindex B (endpointSub Γ false)))
+    (a₁ : Term (reindex B (endpointSub Γ true))) (x : Γ.Elements) :
+    (path B a₀ a₁).obj x ≃ LocalPath B a₀ a₁ x where
+  toFun := PathElement.toLocal
+  invFun := LocalPath.fromLocal
+  left_inv := LocalPath.fromLocal_toLocal
+  right_inv := LocalPath.toLocal_fromLocal
+
 def normalizedPath {Γ : Context.{u}} (B : Family (total (interval Γ)))
     (a₀ : Term (reindex B (endpointSub Γ false)))
-    (a₁ : Term (reindex B (endpointSub Γ true))) : Family Γ where
-  obj x := LocalPath B a₀ a₁ x
-  map f := TypeCat.ofHom (fun s => ((path B a₀ a₁).map f s.fromLocal).toLocal)
-  map_id x := by
-    apply ConcreteCategory.hom_ext
-    intro s
-    change LocalPath B a₀ a₁ x at s
-    exact (congrArg PathElement.toLocal ((path B a₀ a₁).map_id_apply x s.fromLocal)).trans
-      s.toLocal_fromLocal
-  map_comp f g := by
-    apply ConcreteCategory.hom_ext
-    intro s
-    change LocalPath B a₀ a₁ _ at s
-    change ((path B a₀ a₁).map (f ≫ g) s.fromLocal).toLocal =
-      ((path B a₀ a₁).map g (((path B a₀ a₁).map f s.fromLocal).toLocal.fromLocal)).toLocal
-    exact (congrArg PathElement.toLocal ((path B a₀ a₁).map_comp_apply f g s.fromLocal)).trans
-      (congrArg (fun p => ((path B a₀ a₁).map g p).toLocal)
-        (LocalPath.fromLocal_toLocal ((path B a₀ a₁).map f s.fromLocal))).symm
+    (a₁ : Term (reindex B (endpointSub Γ true))) : Family Γ :=
+  (path B a₀ a₁).copyObj (LocalPath B a₀ a₁)
+    (fun x => (localPathEquiv B a₀ a₁ x).toIso)
 
 def normalizedPathIso {Γ : Context.{u}} (B : Family (total (interval Γ)))
     (a₀ : Term (reindex B (endpointSub Γ false)))
-    (a₁ : Term (reindex B (endpointSub Γ true))) : path B a₀ a₁ ≅ normalizedPath B a₀ a₁ where
-  hom := {
-    app _ := TypeCat.ofHom PathElement.toLocal
-    naturality x y f := by
-      apply ConcreteCategory.hom_ext
-      intro p
-      exact congrArg (fun p => ((path B a₀ a₁).map f p).toLocal)
-        (LocalPath.fromLocal_toLocal p).symm }
-  inv := {
-    app _ := TypeCat.ofHom LocalPath.fromLocal
-    naturality x y f := by
-      apply ConcreteCategory.hom_ext
-      intro s
-      exact LocalPath.fromLocal_toLocal ((path B a₀ a₁).map f s.fromLocal) }
-  hom_inv_id := by
-    ext x p
-    exact LocalPath.fromLocal_toLocal p
-  inv_hom_id := by
-    ext x s
-    exact LocalPath.toLocal_fromLocal s
+    (a₁ : Term (reindex B (endpointSub Γ true))) : path B a₀ a₁ ≅ normalizedPath B a₀ a₁ :=
+  (path B a₀ a₁).isoCopyObj (LocalPath B a₀ a₁)
+    (fun x => (localPathEquiv B a₀ a₁ x).toIso)
 
 theorem normalizedPath_reindex {Γ Δ : Context.{u}} (B : Family (total (interval Γ)))
     (a₀ : Term (reindex B (endpointSub Γ false)))

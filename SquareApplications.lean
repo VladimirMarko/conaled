@@ -295,6 +295,7 @@ import Examples.CubicalTypeFormers
 import Examples.CubicalContraction
 import Examples.CubicalConversion
 import Examples.CubicalPathConversion
+import Examples.CubicalPresentationTransport
 import Examples.CubicalSourceProducts
 import Examples.CubicalSourceSums
 import Examples.CubicalSourceNaturals

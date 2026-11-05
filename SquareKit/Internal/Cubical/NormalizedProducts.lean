@@ -5,53 +5,13 @@ namespace SquareKit.Cubical.Presheaf
 open CategoryTheory
 universe u
 
-def normalizedPi {Γ : Context.{u}} (A : Family Γ) (B : Family (total A)) : Family Γ where
-  obj x := LocalPi A B x
-  map f := TypeCat.ofHom (fun s => (s.fromLocal.restrict f).toLocal)
-  map_id x := by
-    apply ConcreteCategory.hom_ext
-    intro s
-    change LocalPi A B x at s
-    have h : s.fromLocal.restrict (𝟙 x) = s.fromLocal := by
-      apply PiElement.ext
-      intro y f a
-      simp [PiElement.restrict]
-    exact (congrArg PiElement.toLocal h).trans s.toLocal_fromLocal
-  map_comp f g := by
-    apply ConcreteCategory.hom_ext
-    intro s
-    change LocalPi A B _ at s
-    change (s.fromLocal.restrict (f ≫ g)).toLocal =
-      (((s.fromLocal.restrict f).toLocal.fromLocal).restrict g).toLocal
-    rw [LocalPi.fromLocal_toLocal]
-    apply congrArg PiElement.toLocal
-    apply PiElement.ext
-    intro z h a
-    simp [PiElement.restrict]
+def normalizedPi {Γ : Context.{u}} (A : Family Γ) (B : Family (total A)) : Family Γ :=
+  (pi A B).copyObj (LocalPi A B) (fun x => (localPiEquiv A B x).toIso)
 
-/-- Every old dependent function is retained, including all its restriction values. -/
+/-- Mathlib transports functor laws and supplies the natural isomorphism. -/
 def normalizedPiIso {Γ : Context.{u}} (A : Family Γ) (B : Family (total A)) :
-    pi A B ≅ normalizedPi A B where
-  hom := {
-    app _ := TypeCat.ofHom PiElement.toLocal
-    naturality x y f := by
-      apply ConcreteCategory.hom_ext
-      intro p
-      change PiElement A B x at p
-      change (p.restrict f).toLocal = (p.toLocal.fromLocal.restrict f).toLocal
-      rw [LocalPi.fromLocal_toLocal] }
-  inv := {
-    app _ := TypeCat.ofHom LocalPi.fromLocal
-    naturality x y f := by
-      apply ConcreteCategory.hom_ext
-      intro s
-      exact LocalPi.fromLocal_toLocal (s.fromLocal.restrict f) }
-  hom_inv_id := by
-    ext x p
-    exact LocalPi.fromLocal_toLocal p
-  inv_hom_id := by
-    ext x s
-    exact LocalPi.toLocal_fromLocal s
+    pi A B ≅ normalizedPi A B :=
+  (pi A B).isoCopyObj (LocalPi A B) (fun x => (localPiEquiv A B x).toIso)
 
 /-- Normalizing after the old substitution comparison agrees with equality transport
 of the local diagram. -/

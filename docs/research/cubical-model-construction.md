@@ -663,3 +663,43 @@ exact restricted-constancy side condition and its computation at `r=1`.
 The discrete filler is not the nonzero higher instance required by M5.
 Strict Id/J, the dependent higher parameter and the unchanged frozen memo in
 M4–M6 remain mandatory. No partial model is offered as completion of #321.
+
+## Representation-law transport (#334)
+
+The pinned Mathlib already supplies `Functor.copyObj` and `Functor.isoCopyObj`
+in `Mathlib/CategoryTheory/NatIso.lean`. Given an existing functor and a
+pointwise isomorphism to a new object presentation, these construct the new
+maps by conjugation and prove the functor laws and natural isomorphism.
+`normalizedPi` and `normalizedPath` now use these constructors directly.
+Products reuse the existing `localPiEquiv`; paths use `localPathEquiv`, whose
+maps retain the endpoint-constrained subtype and whose inverse laws reuse the
+existing round-trip results.
+
+Previously each presentation supplied identity and composition proofs, two
+naturality proofs, and two inverse proofs at the functor level. Both callers
+now supply only their pointwise equivalence. Its inverse laws remain necessary;
+no final functor law or additional adapter hypothesis has been moved into the
+caller interface. The original native facades and term operations remain.
+
+This transport does not prove strict substitution compatibility. The separate
+`toLocal_substitution` and `pathToLocal_substitution` proofs still establish
+compatibility of the chosen representations with the original substitution
+comparisons. `normalizedPi_reindex` and `normalizedPath_reindex` retain their
+original hypotheses and proofs. Their term conversion and source soundness
+consumers continue to use those literal equalities.
+
+`Examples/CubicalPresentationTransport.lean` checks identity and sequential
+presentation changes through the reused Mathlib constructor. A Boolean diagram
+on the ordered naturals supplies a nonidentity representation change: its map
+from 0 to 1 changes from identity to negation. The changed diagram does not
+agree with the old presentation even after the identity substitution. Thus
+arbitrary pointwise isomorphisms cannot justify a claim of strict substitution
+compatibility. Existing dependent Pi examples retain their two substitutions;
+the Path example checks a further arbitrary substitution after selecting the
+nonconstant line, while its existing endpoint and connection observations
+remain. Source dimension equality is unchanged, including the Boolean and
+Kleene counterexamples.
+
+These changes discharge representation-law duplication only. General fibrant
+closure, strict Id/J, the higher type, and the frozen dependent memo remain
+construction obligations under #321.
