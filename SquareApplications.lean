@@ -287,3 +287,4 @@ import Examples.GuardedJAuthoring
 import Examples.GuardedJRetestValidation
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
+import Examples.GuardedJAuthorEvaluation

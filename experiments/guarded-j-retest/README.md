@@ -1,9 +1,10 @@
-# Guarded J repair and retest preparation (#323)
+# Guarded J repair and retest (#323)
 
 The repair interface was frozen and prospectively approved at `e376ba5` before
-the held-out selection. The current concrete dispatch candidate is described in
-`dispatch-manifest-v2.json`. It is pending independent handoff review and separate
-coordinator approval. No measured authors have been dispatched.
+the held-out selection. The approved dispatch candidate is described in
+`dispatch-manifest-v2.json`. Both fresh authors have completed the trial.
+[Post-trial evaluation](trial/evaluation.md) records exact attempts, replay,
+statement review and remaining burden; final independent review is pending.
 
 The public calibration discloses the one-level selected J certificate from
 #320. The held-out contract composes it on its actual selected output and checks
@@ -78,9 +79,11 @@ conversion and semantic-code indices. Both references retain the selected outer
 J, not a replacement reflexivity section. Native cases supply lower-truncation
 evidence only.
 
-Remaining ownership: the coordinator owns prospective handoff approval and
-fresh author dispatch; authors own their independently recorded submissions;
-the coordinator owns exact replay, statement/axiom checks, comparison and
-repair/retest decision; the enclosing workflow owns independent Standards and
-Spec review. No author-effort improvement is claimed from these reference
-proofs. #323 remains open; #107 is paused, #108 unselected and #260 inactive.
+The coordinator approved dispatch after both independent handoff axes passed.
+The exact approval and author records are archived under `trial/`; author and
+coordinator attempts are separate. The integrated author modules preserve
+submission bytes, and `Examples.GuardedJAuthorEvaluation` consumes them in
+inhabited native cases and compares their selected commands with the private
+references. See `trial/evaluation.md` for scope and limitations. The enclosing
+workflow owns final independent Standards and Spec review. #323 remains open;
+#107 is paused, #108 unselected and #260 inactive.
