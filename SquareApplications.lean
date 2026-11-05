@@ -1,4 +1,5 @@
 import Examples.DependentClientMigration
+import Examples.GeneratedEmptySubstitutions
 import Examples.DependentCapabilities
 import Examples.RepresentationExtension
 import Examples.ConstructorObserverExtension

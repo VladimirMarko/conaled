@@ -151,3 +151,10 @@ Focused validation builds `Examples.DependentComprehension`, which imports every
 The [component acceptance record](dependent-foundations-validation/reviews/314-review.md)
 retains the exact reviewed candidate, both independent reports and matching
 validation evidence. Final orchestration acceptance is a separate gate.
+
+The [generated-empty follow-up](generated-empty-substitutions.md) now specifies
+a closed structural arrow grammar and proves uniqueness modulo source equality
+there. It also constructs a source-generated counterexample when a primitive
+substitution hypothesis is admitted. Its explicit policy boundary preserves
+the distinction above between ambient arrows and source-generated arrows;
+the wider source-adequacy comparison remains with #326.
