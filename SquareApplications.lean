@@ -298,8 +298,6 @@ import Applications.Sequences.LCA.WordTrace
 import Applications.Sequences.LCA.WordLCA
 import Examples.LCAWordQuery
 
-/-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
-
 import Applications.Sequences.LCA.Installation
 import Applications.Sequences.LCA.ResidentInstallation
 import Applications.Sequences.LCA.Materialize
@@ -309,3 +307,5 @@ import Applications.Sequences.LCA.TargetPreparation
 import Applications.Sequences.LCA.TargetBackend
 import Applications.Sequences.LCA.TargetSelection
 import Examples.LCATarget
+
+/-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
