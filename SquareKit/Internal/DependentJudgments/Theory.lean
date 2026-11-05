@@ -3,7 +3,11 @@ import SquareKit.Internal.DependentJudgments.ComprehensionMaps
 
 /-! One generated source theory and its interpretation in every contextual
 model. The interpretation is supplied by library builders, not by authors of
-individual derivations. -/
+individual derivations.
+
+This interface is experimental. See the
+[scope and migration report](../../../docs/research/dependent-judgment-representation.md)
+for its adoption boundaries and remaining obligations. -/
 namespace SquareKit.Internal.DependentJudgments.Contextual
 set_option backward.isDefEq.respectTransparency false
 open GuardedTheory PathTransport.Typed
