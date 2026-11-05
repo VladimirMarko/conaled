@@ -163,6 +163,14 @@ strict-functor equalities. They did not justify replacing fiber 2-cells by host
 equality. The finite groupoid restriction, general section/identity families
 and contextual J still need construction and closure proofs.
 
+`TwoFamilyReindex` additionally constructs the total reindexing functor and
+its exact projection equation. When base and fiber 1-arrows are strictly
+invertible, the total 1-arrows are strictly invertible, using Mathlib's actual
+Grothendieck isomorphism construction. Locally groupoidal bases and fibers
+also give groupoidal total hom-categories. The integer specialization applies
+the derived inverse and retains the selected arrow under identity substitution.
+These closure results concern extension only, not yet Sigma or open identity.
+
 ## Remaining construction
 
 1. Specify the general small strict 2-groupoids and higher family collection,
