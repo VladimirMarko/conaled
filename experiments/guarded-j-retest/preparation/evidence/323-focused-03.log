@@ -1,0 +1,26 @@
+warning: Git tree '/tmp/conaled-235-orchestration/issue-323' is dirty
+⚠ [511/693] Replayed SquareKit.FinitaryTerm
+warning: SquareKit/FinitaryTerm.lean: imports `Mathlib.Data.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [513/693] Replayed SquareKit.Internal.PathTransport.Syntax
+warning: SquareKit/Internal/PathTransport/Syntax.lean: imports `Mathlib.Data.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [517/693] Replayed SquareKit.Internal.PathTransport.Comprehension
+warning: SquareKit/Internal/PathTransport/Comprehension.lean: imports `Mathlib.Logic.Equiv.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [809/853] Replayed SquareKit.Internal.DependentJudgments.Comprehension
+warning: SquareKit/Internal/DependentJudgments/Comprehension.lean: imports `Mathlib.Data.Fin.VecNotation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SquareKit/Internal/DependentJudgments/Comprehension.lean: imports `Mathlib.Tactic.FinCases` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SquareKit/Internal/DependentJudgments/Comprehension.lean: imports `Mathlib.Data.Fintype.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [843/853] Replayed SquareKit.Internal.DependentJudgments.NativeTypeModel
+warning: SquareKit/Internal/DependentJudgments/NativeTypeModel.lean: imports `Mathlib.Logic.Equiv.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [846/853] Replayed SquareKit.Internal.DependentJudgments.CoherentTypePresentations
+warning: SquareKit/Internal/DependentJudgments/CoherentTypePresentations.lean: imports `Mathlib.Logic.Equiv.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [848/853] Built SquareKit.Internal.DependentJudgments.Authoring (1.4s)
+✔ [849/853] Built SquareKit.Internal.DependentJudgments.Templates (564ms)
+✔ [850/853] Built Examples.DependentAuthorCandidateReference (671ms)
+✔ [851/853] Built Examples.DependentAuthorCandidate (795ms)
+✔ [852/853] Built Examples.DependentAuthorTrialCases (1.9s)
+✖ [853/853] Building Examples.GuardedJAuthoring (551ms)
+trace: .> LEAN_PATH=/tmp/conaled-235-orchestration/issue-323/.lake/packages/Cli/.lake/build/lib/lean:/tmp/conaled-235-orchestration/issue-323/.lake/packages/batteries/.lake/build/lib/lean:/tmp/conaled-235-orchestration/issue-323/.lake/packages/Qq/.lake/build/lib/lean:/tmp/conaled-235-orchestration/issue-323/.lake/packages/aesop/.lake/build/lib/lean:/tmp/conaled-235-orchestration/issue-323/.lake/packages/proofwidgets/.lake/build/lib/lean:/tmp/conaled-235-orchestration/issue-323/.lake/packages/importGraph/.lake/build/lib/lean:/tmp/conaled-235-orchestration/issue-323/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/tmp/conaled-235-orchestration/issue-323/.lake/packages/plausible/.lake/build/lib/lean:/tmp/conaled-235-orchestration/issue-323/.lake/packages/mathlib/.lake/build/lib/lean:/tmp/conaled-235-orchestration/issue-323/.lake/build/lib/lean /home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /tmp/conaled-235-orchestration/issue-323/Examples/GuardedJAuthoring.lean -o /tmp/conaled-235-orchestration/issue-323/.lake/build/lib/lean/Examples/GuardedJAuthoring.olean -i /tmp/conaled-235-orchestration/issue-323/.lake/build/lib/lean/Examples/GuardedJAuthoring.ilean -c /tmp/conaled-235-orchestration/issue-323/.lake/build/ir/Examples/GuardedJAuthoring.c --setup /tmp/conaled-235-orchestration/issue-323/.lake/build/ir/Examples/GuardedJAuthoring.setup.json --json
+error: Examples/GuardedJAuthoring.lean:64:68: unexpected token 'include'; expected 'lemma'
+Some required targets logged failures:
+- Examples.GuardedJAuthoring
+error: build failed

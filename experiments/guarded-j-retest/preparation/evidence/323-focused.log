@@ -1,0 +1,24 @@
+warning: Git tree '/tmp/conaled-235-orchestration/issue-323' is dirty
+info: plausible: materializing new dependency
+info: plausible: fetching revision 'dfa4f38190d07c37e315953e08b90fe2d95b3c24' from https://github.com/leanprover-community/plausible
+info: plausible: checking out revision 'dfa4f38190d07c37e315953e08b90fe2d95b3c24'
+info: Cli: materializing new dependency
+info: Cli: fetching revision 'c24fe6078c630e89b489bffe59b3e20ac30d12c8' from https://github.com/leanprover/lean4-cli
+info: Cli: checking out revision 'c24fe6078c630e89b489bffe59b3e20ac30d12c8'
+✔ [684/854] Built Plausible.Attr (271ms)
+✔ [685/854] Built Plausible.Random (376ms)
+✔ [686/854] Built Plausible.Shrinkable (324ms)
+✔ [687/854] Built Plausible.Gen (419ms)
+✔ [688/854] Built Plausible.DeriveShrinkable (741ms)
+✔ [689/854] Built Plausible.Arbitrary (351ms)
+✔ [690/854] Built Plausible.ArbitraryFueled (124ms)
+✔ [691/854] Built Plausible.Sampleable (345ms)
+✔ [692/854] Built Plausible.Functions (330ms)
+✔ [693/854] Built Plausible.DeriveArbitrary (727ms)
+✔ [694/854] Built Plausible.Testable (725ms)
+✔ [695/854] Built Plausible.Tactic (311ms)
+✔ [696/854] Built Plausible (150ms)
+⚠ [699/854] Replayed SquareKit.Internal.PathTransport.Syntax
+warning: SquareKit/Internal/PathTransport/Syntax.lean: imports `Mathlib.Data.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [808/854] Built SquareKit.FinitaryTerm (906ms)
+warning: SquareKit/FinitaryTerm.lean: imports `Mathlib.Data.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file

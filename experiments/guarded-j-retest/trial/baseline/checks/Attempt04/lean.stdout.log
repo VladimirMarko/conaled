@@ -1,0 +1,136 @@
+@outerTerm : {Γ : RawCtx} →
+  {γ : CtxCode} →
+    {A x : Expr} →
+      {a : TyCode γ} →
+        {ξ : TmCode γ a} →
+          {n : ℕ} →
+            {Δ : RawCtx} →
+              {T : TelCode (pathCode a ξ) n} →
+                {Q p : Expr} →
+                  {q : TyCode (telTotal T)} →
+                    {π : TmCode (telTotal T) q} →
+                      (hΓ : CtxDeriv Γ γ) →
+                        (hA : TyDeriv Γ γ A a) →
+                          (hx : TmDeriv Γ γ A a x ξ) →
+                            (hT : TelDeriv (pathCtx Γ A x) (pathCode a ξ) n Δ T) →
+                              (hQ : TyDeriv (Δ ++ pathCtx Γ A x) (telTotal T) Q q) →
+                                (hp : TmDeriv (Δ ++ pathCtx Γ A x) (telTotal T) Q q p π) →
+                                  TmDeriv (Δ ++ pathCtx Γ A x) (telTotal T) (outer hΓ hA hx hT hQ hp).motive.raw
+                                    (outer hΓ hA hx hT hQ hp).motive.code
+                                    (genericJRaw n A x (outer hΓ hA hx hT hQ hp).motive.raw
+                                      (outer hΓ hA hx hT hQ hp).motive.branch)
+                                    (jCode a ξ T (outer hΓ hA hx hT hQ hp).motive.code
+                                      (outer hΓ hA hx hT hQ hp).motive.branchCode)
+@rootRight : {Γ : RawCtx} →
+  {γ : CtxCode} →
+    {A x : Expr} →
+      {a : TyCode γ} →
+        {ξ : TmCode γ a} →
+          {n : ℕ} →
+            {Δ : RawCtx} →
+              {T : TelCode (pathCode a ξ) n} →
+                {Q p : Expr} →
+                  {q : TyCode (telTotal T)} →
+                    {π : TmCode (telTotal T) q} →
+                      (hΓ : CtxDeriv Γ γ) →
+                        (hA : TyDeriv Γ γ A a) →
+                          (hx : TmDeriv Γ γ A a x ξ) →
+                            (hT : TelDeriv (pathCtx Γ A x) (pathCode a ξ) n Δ T) →
+                              (hQ : TyDeriv (Δ ++ pathCtx Γ A x) (telTotal T) Q q) →
+                                (hp : TmDeriv (Δ ++ pathCtx Γ A x) (telTotal T) Q q p π) →
+                                  TmDeriv (subTail (reflexiveSub x) Δ ++ Γ) (branchCode a ξ T)
+                                    (Expr.sub
+                                      (argsSub (genericArguments n)
+                                        (consSub (Expr.sub (fun i => Expr.var (i + n)) x).refl
+                                          (consSub (Expr.sub (fun i => Expr.var (i + n)) x) fun i => Expr.var (i + n))))
+                                      (outer hΓ hA hx hT hQ hp).motive.raw)
+                                    (subTyCode (outer hΓ hA hx hT hQ hp).motive.code
+                                      (compCode (rootTailCode a ξ T) (idCode (branchCode a ξ T))))
+                                    (Expr.sub (argsSub (genericArguments n) fun i => Expr.var (i + n))
+                                      (outer hΓ hA hx hT hQ hp).motive.branch)
+                                    (castCode ⋯
+                                      (subTmCode (outer hΓ hA hx hT hQ hp).motive.branchCode
+                                        (idCode (branchCode a ξ T))))
+@dependentWeakening : {Γ : RawCtx} →
+  {γ : CtxCode} →
+    {A x : Expr} →
+      {a : TyCode γ} →
+        {ξ : TmCode γ a} →
+          {n : ℕ} →
+            {Δ : RawCtx} →
+              {T : TelCode (pathCode a ξ) n} →
+                {Q p : Expr} →
+                  {q : TyCode (telTotal T)} →
+                    {π : TmCode (telTotal T) q} →
+                      (hΓ : CtxDeriv Γ γ) →
+                        (hA : TyDeriv Γ γ A a) →
+                          (hx : TmDeriv Γ γ A a x ξ) →
+                            (hT : TelDeriv (pathCtx Γ A x) (pathCode a ξ) n Δ T) →
+                              (hQ : TyDeriv (Δ ++ pathCtx Γ A x) (telTotal T) Q q) →
+                                (hp : TmDeriv (Δ ++ pathCtx Γ A x) (telTotal T) Q q p π) →
+                                  SubDeriv
+                                    (Expr.sub (Expr.liftSubN n (reflexiveSub x))
+                                        (calibration hΓ hA hx hT hQ hp).motive.raw ::
+                                      (subTail (reflexiveSub x) Δ ++ Γ))
+                                    (extendCode (branchCode a ξ T)
+                                      (subTyCode (calibration hΓ hA hx hT hQ hp).motive.code (rootTailCode a ξ T)))
+                                    (subTail (reflexiveSub x) Δ ++ Γ) (branchCode a ξ T) (Expr.var ∘ Nat.succ)
+                                    (weakenCode (branchCode a ξ T)
+                                      (subTyCode (calibration hΓ hA hx hT hQ hp).motive.code (rootTailCode a ξ T)))
+@substitutedBeta : {Γ : RawCtx} →
+  {γ : CtxCode} →
+    {A x : Expr} →
+      {a : TyCode γ} →
+        {ξ : TmCode γ a} →
+          {n : ℕ} →
+            {Δ : RawCtx} →
+              {T : TelCode (pathCode a ξ) n} →
+                {Q p : Expr} →
+                  {q : TyCode (telTotal T)} →
+                    {π : TmCode (telTotal T) q} →
+                      (hΓ : CtxDeriv Γ γ) →
+                        (hA : TyDeriv Γ γ A a) →
+                          (hx : TmDeriv Γ γ A a x ξ) →
+                            (hT : TelDeriv (pathCtx Γ A x) (pathCode a ξ) n Δ T) →
+                              (hQ : TyDeriv (Δ ++ pathCtx Γ A x) (telTotal T) Q q) →
+                                (hp : TmDeriv (Δ ++ pathCtx Γ A x) (telTotal T) Q q p π) →
+                                  {Ω : RawCtx} →
+                                    {ω : CtxCode} →
+                                      {σ : RawSub} →
+                                        {s : SubCode ω (branchCode a ξ T)} →
+                                          SubDeriv Ω ω (subTail (reflexiveSub x) Δ ++ Γ) (branchCode a ξ T) σ s →
+                                            TmEqDeriv Ω ω
+                                              (Expr.sub σ
+                                                (Expr.sub
+                                                  (argsSub (genericArguments n)
+                                                    (consSub (Expr.sub (fun i => Expr.var (i + n)) x).refl
+                                                      (consSub (Expr.sub (fun i => Expr.var (i + n)) x) fun i =>
+                                                        Expr.var (i + n))))
+                                                  (outer hΓ hA hx hT hQ hp).motive.raw))
+                                              (subTyCode
+                                                (subTyCode (outer hΓ hA hx hT hQ hp).motive.code
+                                                  (compCode (rootTailCode a ξ T) (idCode (branchCode a ξ T))))
+                                                s)
+                                              (Expr.sub σ
+                                                (Expr.pathInduction n (Expr.sub (fun i => Expr.var (i + n)) A)
+                                                  (Expr.sub (fun i => Expr.var (i + n)) x)
+                                                  (Expr.sub (Expr.liftSubN (n + 2) fun i => Expr.var (i + n))
+                                                    (outer hΓ hA hx hT hQ hp).motive.raw)
+                                                  (Expr.sub (Expr.liftSubN n fun i => Expr.var (i + n))
+                                                    (outer hΓ hA hx hT hQ hp).motive.branch)
+                                                  (Expr.sub (fun i => Expr.var (i + n)) x)
+                                                  (Expr.sub (fun i => Expr.var (i + n)) x).refl (genericArguments n)))
+                                              (subTmCode
+                                                (subTmCode
+                                                  (jCode a ξ T (outer hΓ hA hx hT hQ hp).motive.code
+                                                    (outer hΓ hA hx hT hQ hp).motive.branchCode)
+                                                  (compCode (rootTailCode a ξ T) (idCode (branchCode a ξ T))))
+                                                s)
+                                              (Expr.sub σ
+                                                (Expr.sub (argsSub (genericArguments n) fun i => Expr.var (i + n))
+                                                  (outer hΓ hA hx hT hQ hp).motive.branch))
+                                              (subTmCode
+                                                (castCode ⋯
+                                                  (subTmCode (outer hΓ hA hx hT hQ hp).motive.branchCode
+                                                    (idCode (branchCode a ξ T))))
+                                                s)

@@ -1,0 +1,501 @@
+@GuardedJRetest.Candidate.calibration : {V : Type} →
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)} →
+    {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+      {n : ℕ} →
+        SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x →
+          SquareKit.Internal.DependentJudgments.Contextual.Tel n
+              (SquareKit.Internal.DependentJudgments.Contextual.path A x) T →
+            SquareKit.Internal.DependentJudgments.Contextual.Tm
+                (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p →
+              SquareKit.Internal.DependentJudgments.Contextual.Command Ω Γ A x
+@GuardedJRetest.Candidate.inner : {V : Type} →
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)} →
+    {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+      {n : ℕ} →
+        (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x) →
+          (hT :
+              SquareKit.Internal.DependentJudgments.Contextual.Tel n
+                (SquareKit.Internal.DependentJudgments.Contextual.path A x) T) →
+            (hp :
+                SquareKit.Internal.DependentJudgments.Contextual.Tm
+                  (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p) →
+              SquareKit.Internal.DependentJudgments.Contextual.Tm
+                (SquareKit.Internal.DependentJudgments.Contextual.total T)
+                (SquareKit.Internal.DependentJudgments.Contextual.identity Q p p)
+                (GuardedJRetest.Candidate.calibration hx hT hp).expression
+@GuardedJRetest.Candidate.outer : {V : Type} →
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)} →
+    {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+      {n : ℕ} →
+        SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x →
+          SquareKit.Internal.DependentJudgments.Contextual.Tel n
+              (SquareKit.Internal.DependentJudgments.Contextual.path A x) T →
+            SquareKit.Internal.DependentJudgments.Contextual.Tm
+                (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p →
+              SquareKit.Internal.DependentJudgments.Contextual.Command Ω Γ A x
+@GuardedJRetest.Candidate.outerTyping : {V : Type} →
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)} →
+    {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+      {n : ℕ} →
+        (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x) →
+          (hT :
+              SquareKit.Internal.DependentJudgments.Contextual.Tel n
+                (SquareKit.Internal.DependentJudgments.Contextual.path A x) T) →
+            (hp :
+                SquareKit.Internal.DependentJudgments.Contextual.Tm
+                  (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p) →
+              SquareKit.Internal.DependentJudgments.Contextual.Tm
+                (SquareKit.Internal.DependentJudgments.Contextual.total T)
+                (SquareKit.Internal.DependentJudgments.Contextual.identity
+                  (SquareKit.Internal.DependentJudgments.Contextual.identity Q p p)
+                  (GuardedJRetest.Candidate.calibration hx hT hp).expression
+                  (GuardedJRetest.Candidate.calibration hx hT hp).expression)
+                (GuardedJRetest.Candidate.outer hx hT hp).expression
+@GuardedJRetest.Candidate.selectedRecipe : ∀ {V : Type}
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)}
+  {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} {n : ℕ}
+  (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x)
+  (hT :
+    SquareKit.Internal.DependentJudgments.Contextual.Tel n (SquareKit.Internal.DependentJudgments.Contextual.path A x)
+      T)
+  (hp :
+    SquareKit.Internal.DependentJudgments.Contextual.Tm (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p),
+  (GuardedJRetest.Candidate.outer hx hT hp).expression =
+    SquareKit.Internal.DependentJudgments.Contextual.j A x T
+      (SquareKit.Internal.DependentJudgments.Contextual.identity
+        (SquareKit.Internal.DependentJudgments.Contextual.identity Q p p)
+        (GuardedJRetest.Candidate.calibration hx hT hp).expression
+        (GuardedJRetest.Candidate.calibration hx hT hp).expression)
+      (SquareKit.Internal.DependentJudgments.Contextual.reflexivity
+        (SquareKit.Internal.DependentJudgments.Contextual.subTy
+          (SquareKit.Internal.DependentJudgments.Contextual.identity Q p p)
+          (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))
+        (SquareKit.Internal.DependentJudgments.Contextual.subTm
+          (GuardedJRetest.Candidate.calibration hx hT hp).expression
+          (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T)))
+@GuardedJRetest.Candidate.rootMap : {V : Type} →
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)} →
+    {Γ A x T : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+      {n : ℕ} →
+        SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x →
+          SquareKit.Internal.DependentJudgments.Contextual.Tel n
+              (SquareKit.Internal.DependentJudgments.Contextual.path A x) T →
+            SquareKit.Internal.DependentJudgments.Contextual.Sub
+              (SquareKit.Internal.DependentJudgments.Contextual.total
+                (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+                  (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+              (SquareKit.Internal.DependentJudgments.Contextual.total T)
+              (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T)
+@GuardedJRetest.Candidate.rootLeft : {V : Type} →
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)} →
+    {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+      {n : ℕ} →
+        (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x) →
+          (hT :
+              SquareKit.Internal.DependentJudgments.Contextual.Tel n
+                (SquareKit.Internal.DependentJudgments.Contextual.path A x) T) →
+            (hp :
+                SquareKit.Internal.DependentJudgments.Contextual.Tm
+                  (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p) →
+              SquareKit.Internal.DependentJudgments.Contextual.Tm
+                (SquareKit.Internal.DependentJudgments.Contextual.total
+                  (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+                    (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+                (SquareKit.Internal.DependentJudgments.Contextual.subTy (GuardedJRetest.Candidate.outer hx hT hp).motive
+                  (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))
+                (SquareKit.Internal.DependentJudgments.Contextual.subTm
+                  (GuardedJRetest.Candidate.outer hx hT hp).expression
+                  (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))
+@GuardedJRetest.Candidate.rootRight : {V : Type} →
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)} →
+    {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+      {n : ℕ} →
+        (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x) →
+          (hT :
+              SquareKit.Internal.DependentJudgments.Contextual.Tel n
+                (SquareKit.Internal.DependentJudgments.Contextual.path A x) T) →
+            (hp :
+                SquareKit.Internal.DependentJudgments.Contextual.Tm
+                  (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p) →
+              SquareKit.Internal.DependentJudgments.Contextual.Tm
+                (SquareKit.Internal.DependentJudgments.Contextual.total
+                  (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+                    (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+                (SquareKit.Internal.DependentJudgments.Contextual.subTy (GuardedJRetest.Candidate.outer hx hT hp).motive
+                  (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))
+                (GuardedJRetest.Candidate.outer hx hT hp).branch
+@GuardedJRetest.Candidate.rootBeta : {V : Type} →
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)} →
+    {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+      {n : ℕ} →
+        (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x) →
+          (hT :
+              SquareKit.Internal.DependentJudgments.Contextual.Tel n
+                (SquareKit.Internal.DependentJudgments.Contextual.path A x) T) →
+            (hp :
+                SquareKit.Internal.DependentJudgments.Contextual.Tm
+                  (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p) →
+              SquareKit.Internal.DependentJudgments.Contextual.Equal
+                (SquareKit.Internal.DependentJudgments.Contextual.subTm
+                  (GuardedJRetest.Candidate.outer hx hT hp).expression
+                  (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))
+                (GuardedJRetest.Candidate.outer hx hT hp).branch
+@GuardedJRetest.Candidate.substitutedLeft : {V : Type} →
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)} →
+    {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+      {n : ℕ} →
+        (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x) →
+          (hT :
+              SquareKit.Internal.DependentJudgments.Contextual.Tel n
+                (SquareKit.Internal.DependentJudgments.Contextual.path A x) T) →
+            (hp :
+                SquareKit.Internal.DependentJudgments.Contextual.Tm
+                  (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p) →
+              {Δ σ : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+                SquareKit.Internal.DependentJudgments.Contextual.Sub Δ
+                    (SquareKit.Internal.DependentJudgments.Contextual.total
+                      (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+                        (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+                    σ →
+                  SquareKit.Internal.DependentJudgments.Contextual.Tm Δ
+                    (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                      (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                        (GuardedJRetest.Candidate.outer hx hT hp).motive
+                        (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))
+                      σ)
+                    (SquareKit.Internal.DependentJudgments.Contextual.subTm
+                      (SquareKit.Internal.DependentJudgments.Contextual.subTm
+                        (GuardedJRetest.Candidate.outer hx hT hp).expression
+                        (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))
+                      σ)
+@GuardedJRetest.Candidate.substitutedRight : {V : Type} →
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)} →
+    {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+      {n : ℕ} →
+        (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x) →
+          (hT :
+              SquareKit.Internal.DependentJudgments.Contextual.Tel n
+                (SquareKit.Internal.DependentJudgments.Contextual.path A x) T) →
+            (hp :
+                SquareKit.Internal.DependentJudgments.Contextual.Tm
+                  (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p) →
+              {Δ σ : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+                SquareKit.Internal.DependentJudgments.Contextual.Sub Δ
+                    (SquareKit.Internal.DependentJudgments.Contextual.total
+                      (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+                        (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+                    σ →
+                  SquareKit.Internal.DependentJudgments.Contextual.Tm Δ
+                    (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                      (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                        (GuardedJRetest.Candidate.outer hx hT hp).motive
+                        (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))
+                      σ)
+                    (SquareKit.Internal.DependentJudgments.Contextual.subTm
+                      (GuardedJRetest.Candidate.outer hx hT hp).branch σ)
+@GuardedJRetest.Candidate.substitutedBeta : {V : Type} →
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)} →
+    {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+      {n : ℕ} →
+        (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x) →
+          (hT :
+              SquareKit.Internal.DependentJudgments.Contextual.Tel n
+                (SquareKit.Internal.DependentJudgments.Contextual.path A x) T) →
+            (hp :
+                SquareKit.Internal.DependentJudgments.Contextual.Tm
+                  (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p) →
+              {σ : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+                SquareKit.Internal.DependentJudgments.Contextual.Equal
+                  (SquareKit.Internal.DependentJudgments.Contextual.subTm
+                    (SquareKit.Internal.DependentJudgments.Contextual.subTm
+                      (GuardedJRetest.Candidate.outer hx hT hp).expression
+                      (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))
+                    σ)
+                  (SquareKit.Internal.DependentJudgments.Contextual.subTm
+                    (GuardedJRetest.Candidate.outer hx hT hp).branch σ)
+@GuardedJRetest.Candidate.dependentWeakening : {V : Type} →
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)} →
+    {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+      {n : ℕ} →
+        SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x →
+          SquareKit.Internal.DependentJudgments.Contextual.Tel n
+              (SquareKit.Internal.DependentJudgments.Contextual.path A x) T →
+            SquareKit.Internal.DependentJudgments.Contextual.Tm
+                (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p →
+              SquareKit.Internal.DependentJudgments.Contextual.Sub
+                (SquareKit.Internal.DependentJudgments.Contextual.extend
+                  (SquareKit.Internal.DependentJudgments.Contextual.total
+                    (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+                      (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+                  (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                    (SquareKit.Internal.DependentJudgments.Contextual.identity Q p p)
+                    (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T)))
+                (SquareKit.Internal.DependentJudgments.Contextual.total
+                  (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+                    (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+                (SquareKit.Internal.DependentJudgments.Contextual.weaken
+                  (SquareKit.Internal.DependentJudgments.Contextual.total
+                    (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+                      (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+                  (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                    (SquareKit.Internal.DependentJudgments.Contextual.identity Q p p)
+                    (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T)))
+@GuardedJRetest.Candidate.workedLeft : {V : Type} →
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)} →
+    {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+      {n : ℕ} →
+        (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x) →
+          (hT :
+              SquareKit.Internal.DependentJudgments.Contextual.Tel n
+                (SquareKit.Internal.DependentJudgments.Contextual.path A x) T) →
+            (hp :
+                SquareKit.Internal.DependentJudgments.Contextual.Tm
+                  (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p) →
+              SquareKit.Internal.DependentJudgments.Contextual.Tm
+                (SquareKit.Internal.DependentJudgments.Contextual.extend
+                  (SquareKit.Internal.DependentJudgments.Contextual.total
+                    (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+                      (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+                  (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                    (SquareKit.Internal.DependentJudgments.Contextual.identity Q p p)
+                    (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T)))
+                (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                  (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                    (GuardedJRetest.Candidate.outer hx hT hp).motive
+                    (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))
+                  (SquareKit.Internal.DependentJudgments.Contextual.weaken
+                    (SquareKit.Internal.DependentJudgments.Contextual.total
+                      (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+                        (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+                    (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                      (SquareKit.Internal.DependentJudgments.Contextual.identity Q p p)
+                      (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))))
+                (SquareKit.Internal.DependentJudgments.Contextual.subTm
+                  (SquareKit.Internal.DependentJudgments.Contextual.subTm
+                    (GuardedJRetest.Candidate.outer hx hT hp).expression
+                    (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))
+                  (SquareKit.Internal.DependentJudgments.Contextual.weaken
+                    (SquareKit.Internal.DependentJudgments.Contextual.total
+                      (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+                        (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+                    (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                      (SquareKit.Internal.DependentJudgments.Contextual.identity Q p p)
+                      (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))))
+@GuardedJRetest.Candidate.workedRight : {V : Type} →
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)} →
+    {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+      {n : ℕ} →
+        (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x) →
+          (hT :
+              SquareKit.Internal.DependentJudgments.Contextual.Tel n
+                (SquareKit.Internal.DependentJudgments.Contextual.path A x) T) →
+            (hp :
+                SquareKit.Internal.DependentJudgments.Contextual.Tm
+                  (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p) →
+              SquareKit.Internal.DependentJudgments.Contextual.Tm
+                (SquareKit.Internal.DependentJudgments.Contextual.extend
+                  (SquareKit.Internal.DependentJudgments.Contextual.total
+                    (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+                      (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+                  (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                    (SquareKit.Internal.DependentJudgments.Contextual.identity Q p p)
+                    (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T)))
+                (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                  (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                    (GuardedJRetest.Candidate.outer hx hT hp).motive
+                    (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))
+                  (SquareKit.Internal.DependentJudgments.Contextual.weaken
+                    (SquareKit.Internal.DependentJudgments.Contextual.total
+                      (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+                        (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+                    (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                      (SquareKit.Internal.DependentJudgments.Contextual.identity Q p p)
+                      (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))))
+                (SquareKit.Internal.DependentJudgments.Contextual.subTm (GuardedJRetest.Candidate.outer hx hT hp).branch
+                  (SquareKit.Internal.DependentJudgments.Contextual.weaken
+                    (SquareKit.Internal.DependentJudgments.Contextual.total
+                      (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+                        (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+                    (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                      (SquareKit.Internal.DependentJudgments.Contextual.identity Q p p)
+                      (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))))
+@GuardedJRetest.Candidate.workedBeta : {V : Type} →
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)} →
+    {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+      {n : ℕ} →
+        (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x) →
+          (hT :
+              SquareKit.Internal.DependentJudgments.Contextual.Tel n
+                (SquareKit.Internal.DependentJudgments.Contextual.path A x) T) →
+            (hp :
+                SquareKit.Internal.DependentJudgments.Contextual.Tm
+                  (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p) →
+              SquareKit.Internal.DependentJudgments.Contextual.Equal
+                (SquareKit.Internal.DependentJudgments.Contextual.subTm
+                  (SquareKit.Internal.DependentJudgments.Contextual.subTm
+                    (GuardedJRetest.Candidate.outer hx hT hp).expression
+                    (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))
+                  (SquareKit.Internal.DependentJudgments.Contextual.weaken
+                    (SquareKit.Internal.DependentJudgments.Contextual.total
+                      (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+                        (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+                    (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                      (SquareKit.Internal.DependentJudgments.Contextual.identity Q p p)
+                      (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))))
+                (SquareKit.Internal.DependentJudgments.Contextual.subTm (GuardedJRetest.Candidate.outer hx hT hp).branch
+                  (SquareKit.Internal.DependentJudgments.Contextual.weaken
+                    (SquareKit.Internal.DependentJudgments.Contextual.total
+                      (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+                        (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+                    (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                      (SquareKit.Internal.DependentJudgments.Contextual.identity Q p p)
+                      (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T))))
+@GuardedJRetest.Candidate.workedComparison : {V : Type} →
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)} →
+    {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+      {n : ℕ} →
+        (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x) →
+          (hT :
+              SquareKit.Internal.DependentJudgments.Contextual.Tel n
+                (SquareKit.Internal.DependentJudgments.Contextual.path A x) T) →
+            (hp :
+                SquareKit.Internal.DependentJudgments.Contextual.Tm
+                  (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p) →
+              SquareKit.Internal.DependentJudgments.Contextual.TypedEquality Ω
+                (SquareKit.Internal.DependentJudgments.Contextual.extend
+                  (SquareKit.Internal.DependentJudgments.Contextual.total
+                    (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+                      (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+                  (SquareKit.Internal.DependentJudgments.Contextual.subTy
+                    (SquareKit.Internal.DependentJudgments.Contextual.identity Q p p)
+                    (SquareKit.Internal.DependentJudgments.Contextual.rootTail A x T)))
+                (GuardedJRetest.Candidate.selectedFamily hx hT hp) (GuardedJRetest.Candidate.selectedLeft hx hT hp)
+                (GuardedJRetest.Candidate.selectedRight hx hT hp)
+@GuardedJRetest.Candidate.comparisonSound : ∀ {V : Type}
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)}
+  {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} {n : ℕ}
+  (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x)
+  (hT :
+    SquareKit.Internal.DependentJudgments.Contextual.Tel n (SquareKit.Internal.DependentJudgments.Contextual.path A x)
+      T)
+  (hp :
+    SquareKit.Internal.DependentJudgments.Contextual.Tm (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p)
+  {Δ σ : SquareKit.Internal.DependentJudgments.Contextual.Expression V}
+  (hσ :
+    SquareKit.Internal.DependentJudgments.Contextual.Sub Δ
+      (SquareKit.Internal.DependentJudgments.Contextual.total
+        (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+          (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+      σ)
+  (M : SquareKit.Internal.PathTransport.Typed.Model)
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel),
+  (∀ a ∈ Ω, SquareKit.GuardedTheory.Atom.eval (SquareKit.Internal.DependentJudgments.Contextual.algebra M) ρ a) →
+    SquareKit.GuardedTheory.Atom.eval (SquareKit.Internal.DependentJudgments.Contextual.algebra M) ρ
+        (SquareKit.Internal.DependentJudgments.Contextual.term Δ (GuardedJRetest.Candidate.selectedFamily hx hT hp)
+          (GuardedJRetest.Candidate.selectedLeft hx hT hp)) ∧
+      SquareKit.GuardedTheory.Atom.eval (SquareKit.Internal.DependentJudgments.Contextual.algebra M) ρ
+          (SquareKit.Internal.DependentJudgments.Contextual.term Δ (GuardedJRetest.Candidate.selectedFamily hx hT hp)
+            (GuardedJRetest.Candidate.selectedRight hx hT hp)) ∧
+        SquareKit.GuardedTheory.Term.eval (SquareKit.Internal.DependentJudgments.Contextual.algebra M) ρ
+            (GuardedJRetest.Candidate.selectedLeft hx hT hp) =
+          SquareKit.GuardedTheory.Term.eval (SquareKit.Internal.DependentJudgments.Contextual.algebra M) ρ
+            (GuardedJRetest.Candidate.selectedRight hx hT hp)
+@GuardedJRetest.Candidate.extensionLeft : {V : Type} →
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)} →
+    {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+      {n : ℕ} →
+        (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x) →
+          (hT :
+              SquareKit.Internal.DependentJudgments.Contextual.Tel n
+                (SquareKit.Internal.DependentJudgments.Contextual.path A x) T) →
+            (hp :
+                SquareKit.Internal.DependentJudgments.Contextual.Tm
+                  (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p) →
+              {Δ σ : SquareKit.Internal.DependentJudgments.Contextual.Expression V} →
+                SquareKit.Internal.DependentJudgments.Contextual.Sub Δ
+                    (SquareKit.Internal.DependentJudgments.Contextual.total
+                      (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+                        (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+                    σ →
+                  SquareKit.GuardedTheory.Derivation SquareKit.Internal.DependentJudgments.Sigma.theory
+                    (List.map
+                      (SquareKit.GuardedTheory.Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature) Ω)
+                    (SquareKit.GuardedTheory.Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature
+                      (SquareKit.Internal.DependentJudgments.Contextual.term Δ
+                        (GuardedJRetest.Candidate.selectedFamily hx hT hp)
+                        (GuardedJRetest.Candidate.selectedLeft hx hT hp)))
+@GuardedJRetest.Candidate.extensionSelected : ∀ {V : Type}
+  {Ω : List (SquareKit.Internal.DependentJudgments.Contextual.Judgment V)}
+  {Γ A x T Q p : SquareKit.Internal.DependentJudgments.Contextual.Expression V} {n : ℕ}
+  (hx : SquareKit.Internal.DependentJudgments.Contextual.Tm Γ A x)
+  (hT :
+    SquareKit.Internal.DependentJudgments.Contextual.Tel n (SquareKit.Internal.DependentJudgments.Contextual.path A x)
+      T)
+  (hp :
+    SquareKit.Internal.DependentJudgments.Contextual.Tm (SquareKit.Internal.DependentJudgments.Contextual.total T) Q p)
+  {Δ σ : SquareKit.Internal.DependentJudgments.Contextual.Expression V}
+  (hσ :
+    SquareKit.Internal.DependentJudgments.Contextual.Sub Δ
+      (SquareKit.Internal.DependentJudgments.Contextual.total
+        (SquareKit.Internal.DependentJudgments.Contextual.pullback T
+          (SquareKit.Internal.DependentJudgments.Contextual.root A x)))
+      σ)
+  (M : SquareKit.Internal.PathTransport.Typed.Model)
+  (S : SquareKit.Internal.DependentJudgments.Sigma.Stable M.toStructuralModel)
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel),
+  (∀ a ∈ Ω, SquareKit.GuardedTheory.Atom.eval (SquareKit.Internal.DependentJudgments.Contextual.algebra M) ρ a) →
+    SquareKit.GuardedTheory.Atom.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ
+        (SquareKit.GuardedTheory.Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature
+          (SquareKit.Internal.DependentJudgments.Contextual.term Δ (GuardedJRetest.Candidate.selectedFamily hx hT hp)
+            (GuardedJRetest.Candidate.selectedLeft hx hT hp))) ∧
+      SquareKit.GuardedTheory.Atom.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ
+          (SquareKit.GuardedTheory.Atom.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature
+            (SquareKit.Internal.DependentJudgments.Contextual.term Δ (GuardedJRetest.Candidate.selectedFamily hx hT hp)
+              (GuardedJRetest.Candidate.selectedRight hx hT hp))) ∧
+        SquareKit.GuardedTheory.Term.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ
+              (SquareKit.GuardedTheory.Term.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature
+                (GuardedJRetest.Candidate.selectedLeft hx hT hp)) =
+            SquareKit.GuardedTheory.Term.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ
+              (SquareKit.GuardedTheory.Term.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature
+                (GuardedJRetest.Candidate.selectedRight hx hT hp)) ∧
+          SquareKit.GuardedTheory.Term.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ
+                (SquareKit.GuardedTheory.Term.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature
+                  (GuardedJRetest.Candidate.selectedLeft hx hT hp)) =
+              SquareKit.GuardedTheory.Term.eval (SquareKit.Internal.DependentJudgments.Contextual.algebra M) ρ
+                (GuardedJRetest.Candidate.selectedLeft hx hT hp) ∧
+            SquareKit.GuardedTheory.Term.eval (SquareKit.Internal.DependentJudgments.Sigma.algebra M S.toCapability) ρ
+                  (SquareKit.GuardedTheory.Term.inl SquareKit.Internal.DependentJudgments.Sigma.extraSignature
+                    (GuardedJRetest.Candidate.selectedFamily hx hT hp)) =
+                SquareKit.GuardedTheory.Term.eval (SquareKit.Internal.DependentJudgments.Contextual.algebra M) ρ
+                  (GuardedJRetest.Candidate.selectedFamily hx hT hp) ∧
+              (SquareKit.Internal.DependentJudgments.Sigma.model M S.toCapability).restrictLeft =
+                SquareKit.Internal.DependentJudgments.Contextual.model M
+'GuardedJRetest.Candidate.calibration' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.inner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.rootMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.calibrationBranch' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.calibrationRecipe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.outer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.selectedRecipe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.outerTyping' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.rootLeft' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.rootRight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.rootBeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.substitutedLeft' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.substitutedRight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.substitutedBeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.dependentWeakening' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.workedLeft' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.workedRight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.workedBeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.selectedLeft' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.selectedRight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.selectedFamily' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.comparisonSound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.extensionLeft' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.extensionRight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.extensionBeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.extensionAssumptions' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.extensionSelected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GuardedJRetest.Candidate.workedComparison' depends on axioms: [propext, Classical.choice, Quot.sound]

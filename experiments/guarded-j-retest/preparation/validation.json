@@ -1,0 +1,36 @@
+{
+  "recorded_utc": "2026-11-05T05:05:35.053135+00:00",
+  "interface_commit": "e376ba585603ae8f2c174d5ceaab374242942cbd",
+  "status": "Generic references and inhabited native cases checked with exhaustive audit; public handoffs built/checked; prospective dispatch approval pending",
+  "audit": {
+    "method": "Concatenate both reference bodies and unchanged ProofAudit.lean body, collecting imports at the beginning; execute its exhaustive current-module and imported-project declaration audit. Generated exact source and raw output retained in evidence/.",
+    "command": "nix develop --command lake env lean /tmp/conaled-235-orchestration/323-reference-audit.lean",
+    "result": "PASS; transitive axiom union [propext, Classical.choice, Quot.sound]",
+    "source_sha256": "8152551447d81f7678bea4e8ef2c08f9628f6826e921faa7c0f45d72f900e23b"
+  },
+  "telemetry": "Exact timestamps/exit metadata were not captured for each early preparation command. Raw saved inputs and diagnostics are retained. Baseline03 and Candidate02 commands returned exit zero. No measured author work yet.",
+  "current_check": "checks/Native03/result.json",
+  "current_inputs": {
+    "experiments/guarded-j-retest/preparation/BaselineReference.lean": "2d4e31d4e14f0208c0e790c959ef58629da6098d7fb7623a2648c5e4e881286f",
+    "experiments/guarded-j-retest/preparation/CandidateReference.lean": "d5b9a0e4c5ffef55a853599325278582d0a26820d150bb16e697470dd1d8a7ee",
+    "experiments/guarded-j-retest/preparation/NativeCases.lean": "cc2e372b724307652c0ad613b846899ba7fce5b4504e465d500a733d8efd4099",
+    "ProofAudit.lean": "8099f95ca5886ced6b0f3be7793dce5e348a4a3a855732549446c645fb3fe6fd"
+  },
+  "initial_generic_checkpoint": "959ae3949d9749f56c5ad8e2d3b0695ac6fb1ddd",
+  "references_at_initial_generic_checkpoint": {
+    "baseline": {
+      "path": "experiments/guarded-j-retest/preparation/BaselineReference.lean",
+      "sha256": "fa1650c37702ff889591c424e836dceb8c6e38740d202cb669c1d43bfee6cbe5",
+      "successful_attempt": "Baseline03",
+      "command": "nix develop --command lake env lean experiments/guarded-j-retest/preparation/BaselineReference.lean",
+      "exit_code": 0
+    },
+    "candidate": {
+      "path": "experiments/guarded-j-retest/preparation/CandidateReference.lean",
+      "sha256": "8974c65f9a4b5ee4de184ca604b49d91a92b7c06b289f147b6d912ddb51e8246",
+      "successful_attempt": "Candidate02",
+      "command": "nix develop --command lake env lean experiments/guarded-j-retest/preparation/CandidateReference.lean",
+      "exit_code": 0
+    }
+  }
+}

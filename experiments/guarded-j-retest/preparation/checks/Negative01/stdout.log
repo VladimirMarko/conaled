@@ -1,0 +1,65 @@
+/tmp/nix-shell.xhHVL8/guarded-j-audit-negative-xjnc1ipl/Examples/GuardedJRetestValidationNegative.lean:192:0: warning: Definition `retainedSelected` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/nix-shell.xhHVL8/guarded-j-audit-negative-xjnc1ipl/Examples/GuardedJRetestValidationNegative.lean:319:0: warning: Definition `interpretedLeft` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/nix-shell.xhHVL8/guarded-j-audit-negative-xjnc1ipl/Examples/GuardedJRetestValidationNegative.lean:323:0: warning: Definition `interpretedRight` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/nix-shell.xhHVL8/guarded-j-audit-negative-xjnc1ipl/Examples/GuardedJRetestValidationNegative.lean:327:0: warning: Definition `comparisonSound` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/nix-shell.xhHVL8/guarded-j-audit-negative-xjnc1ipl/Examples/GuardedJRetestValidationNegative.lean:330:0: warning: Definition `retainedSelected` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+Proof audit: 4430 kernel-safe declarations, 2253 theorem declarations, 45 project modules.
+  Examples.GuardedJRetestValidationNegative: 151 logical declarations; 39 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.FinitaryTerm: 54 logical declarations; 23 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.GuardedTheory: 262 logical declarations; 81 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.GuardedTheory.Extension: 39 logical declarations; 22 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Authoring: 300 logical declarations; 245 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.CoherentTypePresentations: 246 logical declarations; 159 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Comprehension: 325 logical declarations; 143 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.ComprehensionEtaRule: 9 logical declarations; 6 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.ComprehensionMaps: 70 logical declarations; 43 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.ContextualOperations: 288 logical declarations; 100 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.ContextualRules: 50 logical declarations; 29 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.DerivedRules: 47 logical declarations; 31 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.NativeTypeModel: 38 logical declarations; 25 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.NilReindexRules: 21 logical declarations; 15 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PairComposition: 9 logical declarations; 6 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PathReindexRules: 11 logical declarations; 7 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.SourceSubstitution: 47 logical declarations; 47 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.StructuralRules: 51 logical declarations; 29 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Templates: 48 logical declarations; 7 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Theory: 201 logical declarations; 74 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.Authoring: 186 logical declarations; 42 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.Binding: 16 logical declarations; 12 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.Comprehension: 23 logical declarations; 20 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.ContextualModel: 117 logical declarations; 52 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.Derived: 23 logical declarations; 16 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.DerivedCoherence: 15 logical declarations; 13 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.Endpoints: 30 logical declarations; 19 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.InterpretationMaps: 162 logical declarations; 118 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.Model: 46 logical declarations; 17 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.Named: 53 logical declarations; 15 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.RawContext: 28 logical declarations; 14 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.Syntax: 127 logical declarations; 70 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.Typed: 883 logical declarations; 487 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Authoring: 67 logical declarations; 54 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Capability: 30 logical declarations; 14 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Maps: 40 logical declarations; 22 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Native: 56 logical declarations; 24 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Operations: 48 logical declarations; 20 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.PairStability: 5 logical declarations; 4 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Pairing: 20 logical declarations; 15 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Rules: 19 logical declarations; 15 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Stability: 36 logical declarations; 21 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Substitution: 17 logical declarations; 17 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Syntax: 61 logical declarations; 8 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Theory: 55 logical declarations; 13 theorem declarations; 0 unsafe runtime declarations
+Excluded from logical roots: 0 kernel-unsafe runtime declarations.
+Transitive axiom union: [propext, Classical.choice, Quot.sound, GuardedJRetest.AuditFixture.forbidden]
+/tmp/nix-shell.xhHVL8/guarded-j-audit-negative-xjnc1ipl/Examples/GuardedJRetestValidationNegative.lean:494:0: error: Forbidden transitive axioms in 'GuardedJRetest.AuditFixture.forbidden': [GuardedJRetest.AuditFixture.forbidden]
+/tmp/nix-shell.xhHVL8/guarded-j-audit-negative-xjnc1ipl/Examples/GuardedJRetestValidationNegative.lean:494:0: error: Proof audit FAILED: 1 declarations depend on forbidden axioms.
