@@ -372,15 +372,40 @@ naturality boundaries. The integer example proves that its second endpoint
 cell is `-k`, including a nonzero control. The first projection of the actual comparison is now proved to be the
 canonical equality cell between its projected composites. Local faithfulness
 then proves the strong-transformation identity and composition laws. Naturality
-with respect to arbitrary 2-cells, normalized restriction along reflexivity and
-full strong-transformation assembly remain missing. The first-endpoint projection is now proved locally faithful:
+with respect to arbitrary genuine 2-cells is now proved by the same projection,
+using the whole-functor retraction to retain the projected cell. The first-endpoint projection is proved locally faithful:
 for fixed parallel path-context arrows, equal projected 2-cells imply equal
 full 2-cells. The proof recovers the identity action from the total cell's
 boundary and cancels invertible whiskerings in the endpoint comparison. A
 checked integer application recovers the second boundary `a-b` from the first
 projection. The identity and composition proofs use this local faithfulness, and an
 integer specialization checks composition of arbitrary path-context integers.
-These cells do not yet assemble a strong contraction or J.
+`pathContraction` now assembles the actual components and comparisons into a
+Mathlib strong transformation, under the intended locally groupoidal base
+premise. At reflexivity its component is exactly the identity and its actual
+comparison is the canonical equality cell between the two unit composites.
+The assembled integer example retains `-k`, rejects the zero shortcut at one,
+and checks normalization in the same context.
+
+`pathJ` now constructs a full higher section for every arbitrary higher motive
+and every section of its restriction to reflexivity. It pulls the supplied
+section along the first projection, applies the proved reindexing composition
+equality, transports along the constructed strong contraction, and applies
+identity reindexing. It assumes no elimination law or new family restriction.
+Whole-section beta is proved for every supplied section, recovering its object,
+arrow, and genuine 2-cell action. The concrete generic-variable branch over the
+integer path context retains each integer in the constructed J action and
+rejects erasure of one to zero. Substitution, finite dependent tails, and exact
+frozen-memo interpretation remain pending.
+
+The current statement review distinguishes these completed constructions from
+those laws. The new arbitrary-cell proof uses the actual path-context 2-cell,
+not an equality-only replacement. Reflexivity normalization applies to the
+actual comparison, not just its first projection. Initial assembly checks
+failed because identity-functor action and reflexivity object reductions were
+not exposed to inference; explicit reductions and typed equality composition
+resolved them. The first J draft omitted the explicit reindexing-composition
+cast and failed; the retained definition uses the already proved exact law.
 
 The strict fiber inclusion `fiberInclusion F γ` now embeds each full higher
 fiber into `Total F`. It needs no groupoid premise. Restricting an arbitrary
@@ -409,9 +434,9 @@ or cells.
 2. Prove the remaining finite-dimensional closure, including Sigma and finite
    dependent context tails. Existing groupoid closure covers total extension
    and reindexing; it does not establish all type constructors.
-3. Construct reflexivity and the normalized coherent contraction in the actual
-   general path context. Preserve the strict-contraction counterexample and
-   genuine non-discrete fiber 2-cells.
+3. Preserve the constructed reflexivity and normalized strong contraction in
+   the actual general path context, including the strict-contraction
+   counterexample and genuine non-discrete fiber 2-cells.
 4. Construct contextual J for every admitted motive and finite dependent tail,
    with section coherence, reflexive computation and substitution. If Pi is
    used, construct its closure too. Object transport alone is insufficient.
@@ -437,3 +462,12 @@ and independent Standards/Spec review. Its exact receipt and review scope are
 recorded separately in orchestration evidence. Passing that milestone does not
 complete #322 or authorize integration of unfinished work. No new axioms or
 audit exceptions are introduced.
+
+## Coherence factoring assessment
+
+The [higher-cell coherence assessment](higher-cell-coherence-assessment.md)
+compares the unit, composition, and arbitrary-cell naturality consumers with
+Mathlib's faithful hom-functor and pseudofunctor interfaces for #336. It retains
+the native local-faithfulness proofs and defers a new transport wrapper because
+the caller's dependent boundary obligations would remain unchanged. This choice
+does not alter the pending J, Sigma, or frozen-memo requirements.

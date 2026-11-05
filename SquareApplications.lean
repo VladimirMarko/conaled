@@ -314,6 +314,9 @@ import Examples.TwoIdentityMateFunctoriality
 
 import Examples.TwoFamilyPathContraction
 import Examples.TwoFamilyPathContractionCoherence
+import Examples.TwoFamilyPathContractionStrong
+import Examples.TwoFamilyPathJ
+import Examples.TwoFamilyPathJBeta
 import Examples.TwoFamilySigmaAction
 import Examples.TwoFamilySigmaCells
 import Examples.TwoFamilySigmaNaturality

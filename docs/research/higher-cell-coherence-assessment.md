@@ -1,0 +1,79 @@
+# Faithful observations in higher coherence proofs
+
+For #336, retain the native reflection proofs used by #322 and defer a new
+higher law-transport abstraction. The current consumers already separate the
+constructed comparison cells from the laws proved about them. A wrapper around
+their reflection step would leave their dependent boundary work unchanged.
+This assessment does not discharge J beta, substitution, finite dependent tails,
+or the frozen memo adoption gate.
+
+## Existing consumers and caller obligations
+
+`TwoFamilyPathFaithful.pathFirst_cell_injective` proves that first projection
+reflects equations between parallel cells in the actual path context. Its proof
+uses the base cell, first endpoint cell, and the path-action equation to recover
+the second endpoint cell. The discrete fiber proof is used only after those
+actual cells have been recovered. There is no assumption that an arbitrary
+projection is faithful and no replacement of higher cells by equality proofs.
+
+The three contraction consumers have different normalization obligations:
+
+| Consumer | Reflection | Remaining work after reflection |
+|---|---|---|
+| `contractionNaturality_id` | One application of `pathFirst_cell_injective` | Normalize mapped unit comparisons, unitors, whiskering of equality boundaries, and the observed contraction cell. |
+| `contractionNaturality_comp` | The same application | Normalize mapped composition comparisons, associators, both whiskering directions, and the observed contraction cells. |
+| `contractionNaturality_naturality` | The same application | Normalize whiskering comparisons, retain the arbitrary observed 2-cell, and use `pathFirst_reflexivity_cell_heq` plus identity-whiskering boundary comparisons. |
+
+The unit and composition proofs each have one normalization block. The cell
+naturality proof needs two identity-whiskering lemmas and the exact reflexivity
+retraction on cells. Those lemmas express its particular dependent endpoints;
+they cannot be removed by giving the observation an injectivity instance.
+
+## Mathlib comparison
+
+At the pinned Mathlib revision in `lake-manifest.json`,
+`CategoryTheory/Bicategory/Functor/Prelax.lean` supplies
+`PrelaxFunctor.mapFunctor`: every fixed pair of objects gives an ordinary functor
+between hom-categories. `CategoryTheory/Functor/FullyFaithful.lean` supplies
+`Functor.Faithful`, `Functor.map_injective`, and faithful composition.
+A faithful instance for the first-projection hom-functor could be filled directly
+by `pathFirst_cell_injective`. Each consumer could then replace its existing
+reflection application with `map_injective`. This changes the spelling of the
+same obligation and adds an instance adapter; it removes no boundary proof.
+
+The existing proofs already use Mathlib's pseudofunctor preservation equations
+for vertical composition, whiskering, and equality boundaries. The assembled
+`pathContraction` is a `Pseudofunctor.StrongTrans`, with its unit, composition,
+and arbitrary-cell naturality laws proved from the constructed comparison.
+A new constructor requesting those three observed equations would require
+callers to supply the current normalization blocks unchanged. Requesting the
+unobserved equations would merely rename the desired laws.
+
+`RawMap.transportLaws` treats ordinary category operations. Its use here would
+still require a hom-category adapter and separate proofs about horizontal
+composition, whiskering, object boundaries, and arrow boundaries. It therefore
+does not replace the higher obligations.
+
+## Decision and retained evidence
+
+Retain the existing local-faithfulness theorem and native pseudofunctor laws.
+Reconsider a common boundary-normalization helper when another construction
+requires the same dependent boundary calculations. The present three consumers
+share injectivity and Mathlib normalization lemmas, but their residual equations
+are different. No sequential-observation API is introduced or claimed here;
+ordinary faithful hom-functor composition remains available when a caller needs
+it.
+
+`Examples.TwoFamilyPathContractionStrong.strong_comparison_retains_integer`
+connects the assembled transformation to the actual integer comparison `-k`.
+`strong_comparison_nonzero` rejects the strict zero shortcut at `k = 1`.
+`pathFirst_reflexivity_cell_heq` and `contractionNaturality_naturality` quantify
+over genuine path-context cells, with their endpoints retained. The existing
+higher-erasure observer remains part of #322's validation. This assessment
+changes none of those statements or their assumptions.
+
+The cost comparison is about caller obligations, not source-file length: both
+presentations require the same local-faithfulness proof and the same three
+normalization arguments. A new wrapper would additionally require packaging
+those arguments and adapting dependent boundaries to its parameters. No new
+formal claim or model capability follows from this assessment.
