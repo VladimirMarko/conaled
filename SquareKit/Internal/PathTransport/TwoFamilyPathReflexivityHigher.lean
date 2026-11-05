@@ -84,4 +84,3 @@ theorem pathReflexivity_endpoints :
     (pathReflexivity F).comp (pathEndpoints F) = diagonalTotal F :=
   StrictTwoTransformation.functor_ext rfl
 end SquareKit.Internal.PathTransport.TwoFamily
-

@@ -43,4 +43,3 @@ theorem homComparison_second_injective (ρ : u ⟶ η.app a ≫ u') (σ τ : v �
   simp only [cancel_mono] at h'
   exact iso_whiskerLeft_injective (F.map p) σ τ h'
 end SquareKit.Internal.PathTransport.TwoIdentityTransport
-
