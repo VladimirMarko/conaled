@@ -465,4 +465,60 @@ theorem convertState_cost (input : Input m)
     (convertState input h data valid).2 ≤ 4096*m :=
   (convertState_work input h data valid).trans (convertWork_le input.positive)
 
+/-- Count the actual converted payload vectors, pointer vectors, and the
+zero-seed vectors allocated by the nested conversion loops. -/
+def convertedSlots (input : Input m)
+    (h : MachineCapacity.Eligible m width capacity inputWords frameWords)
+    (data : Backend.State m) (valid : data = PackedBackend.state input) : Nat :=
+  let r := (convertState input h data valid).1
+  r.depths.toArray.size+r.classes.toArray.size+r.shared.toArray.size+
+    (∑ c : Fin (2^(blockSize m-1)), (r.shared[c.val].toArray.size+
+      ∑ i : Fin (blockSize m-1+1), r.shared[c.val][i.val].toArray.size))+
+    r.macroRows.toArray.size+(∑ i : Fin (levels m+1), r.macroRows[i.val].toArray.size)+
+    r.spans.toArray.size+r.logs.toArray.size+
+    2*(TableExecution.initStore (WordMachine.word width 0) (blockSize m-1+1)).1.toArray.size+
+    (∑ _c : Fin (2^(blockSize m-1)),
+      (TableExecution.initStore (WordMachine.word width 0) (blockSize m-1+1)).1.toArray.size)+
+    (TableExecution.initStore (WordMachine.word width 0) (blocks m)).1.toArray.size
+
+theorem convertedSlots_eq (input : Input m)
+    (h : MachineCapacity.Eligible m width capacity inputWords frameWords)
+    (data : Backend.State m) (valid : data = PackedBackend.state input) :
+    convertedSlots input h data valid = retainedSlots m+2*blockSize m+2^(blockSize m-1)*blockSize m := by
+  simp only [convertedSlots,Vector.size_toArray,Finset.sum_const,Finset.card_univ,Fintype.card_fin,
+    smul_eq_mul,dimension]
+  unfold retainedSlots paddedCapacity sharedSlots SparseExecution.retainedSlots
+  ring
+
+theorem convertedSlots_le (input : Input m)
+    (h : MachineCapacity.Eligible m width capacity inputWords frameWords)
+    (data : Backend.State m) (valid : data = PackedBackend.state input) :
+    convertedSlots input h data valid ≤ 128*m := by
+  rw [convertedSlots_eq]
+  have hr := retainedSlots_le h.positive
+  have hb := blockSize_le h.positive
+  have hs := sharedSlots_le h.positive
+  have hc : 2^(blockSize m-1)*blockSize m ≤ sharedSlots m := by
+    unfold sharedSlots
+    exact Nat.mul_le_mul_left _ (by omega)
+  omega
+
+/-- Decode a resident packed source word using quotient and remainder, then
+repack it. This is the finite-word interpretation of the two projections in
+`keyM`; it has exactly the same four scalar instructions. -/
+def repackM (stride : Nat) (source : WordMachine.Word width) :=
+  bind (WordMachine.scalar width (source.val/stride)) fun height =>
+  bind (WordMachine.scalar width (source.val%stride)) fun index =>
+  WordMachine.pack stride height index
+
+theorem repackM_keyM (offset : Int) (stride : Nat) (key : KeyBounds.Key)
+    (hi : (ofLex key).2 < stride)
+    (hw : WordKey.encode offset stride (ofLex key).1 (ofLex key).2 < 2^width) :
+    repackM stride (⟨WordKey.encode offset stride (ofLex key).1 (ofLex key).2,hw⟩ : WordMachine.Word width) =
+      keyM offset stride key := by
+  simp only [repackM,keyM,WordKey.encode,WordKey.pack_div hi,WordKey.pack_mod hi]
+
+theorem repackM_cost (stride : Nat) (source : WordMachine.Word width) :
+    (repackM stride source).2 = 4 := rfl
+
 end Sequences.LCA.ResidentInstallation
