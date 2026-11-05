@@ -7,7 +7,7 @@ FDSA p35: corrected deterministic minimum-pivot analysis.
 All executions use the actual measured linear minimum constructor. The exact
 path theorem assumes distinct occurrences and a valid zero-based rank. It
 separates active invocations, recursive edges, scan volume and source calls.
-Only the largest-rank specialization is uniformly quadratic. With a fixed rank
+The largest-rank specialization is uniformly quadratic. With a fixed rank
 the cost is linear; duplicates can stop at an entire equal block immediately.
 -/
 set_option autoImplicit false
