@@ -1,10 +1,16 @@
+import Examples.DependentAuthorBaseline
+import Examples.DependentAuthorCandidate
 import Examples.DependentAuthorBaselineReference
 import Examples.DependentAuthorCandidateReference
 import SquareKit.Internal.DependentJudgments.Sigma.Native
 
 /-! Private reference specializations for the dependent author trial. These
 cases establish inhabited inputs and retain selected J data; they are excluded
-from both public author handoffs. Native equality remains lower-truncated. -/
+from both public author handoffs. Post-trial cases also consume the exact author
+submissions imported above. Those modules are experimental, unmodified evidence
+artifacts; their missing headers are preserved to keep the measured bytes exact.
+Scope and unresolved questions: docs/research/dependent-author-interface-trial.md.
+Native equality remains lower-truncated. -/
 namespace Examples.DependentAuthorTrialCases
 open SquareKit.Internal SquareKit.Internal.PathTransport Typed Authoring
 open SquareKit.Internal.DependentJudgments SquareKit.GuardedTheory
@@ -52,6 +58,30 @@ weakening comparison, including the conversion to its composite result type. -/
 theorem comparison_sound : interpretTm native aligned = interpretTm native composite := by
   rw [interpretTm_agrees, interpretTm_agrees]
   exact congrFun (termSound comparison) native
+
+/-- The accepted baseline submission reuses its generic result at the actual
+three-binder tail and two certificate-dependent weakenings. -/
+theorem author_certificate_valid :
+    interpretTm native DependentAuthorTrial.Baseline.workedDependentWeakening =
+      selectedCode DependentAuthorTrial.Baseline.workedDependentWeakening :=
+  DependentAuthorTrial.Baseline.certificateValidity
+    earlier base x.deriv generalized qAtBType qAtB
+    (DependentAuthorTrial.Baseline.firstWeakening earlier base x.deriv generalized qAtBType qAtB)
+    (DependentAuthorTrial.Baseline.secondWeakening earlier base x.deriv generalized qAtBType qAtB)
+    native
+
+/-- The exact author comparison specializes to an inhabited full stable model. -/
+theorem author_comparison_sound :
+    interpretTm native
+      (DependentAuthorTrial.Baseline.certificateAligned earlier base x.deriv generalized qAtBType qAtB
+        (DependentAuthorTrial.Baseline.firstWeakening earlier base x.deriv generalized qAtBType qAtB)
+        (DependentAuthorTrial.Baseline.secondWeakening earlier base x.deriv generalized qAtBType qAtB)) =
+    interpretTm native
+      (DependentAuthorTrial.Baseline.certificateComposite earlier base x.deriv generalized qAtBType qAtB
+        (DependentAuthorTrial.Baseline.firstWeakening earlier base x.deriv generalized qAtBType qAtB)
+        (DependentAuthorTrial.Baseline.secondWeakening earlier base x.deriv generalized qAtBType qAtB)) :=
+  DependentAuthorTrial.Baseline.interpretedCertificateComparison
+    earlier base x.deriv generalized qAtBType qAtB _ _ native
 
 end Baseline
 
@@ -232,6 +262,60 @@ theorem extended_selected_certificate :
   rw [DependentAuthorReference.Candidate.extensionSelected point tail value
     (σ := firstArrow) (τ := secondArrow) native stable environment]
   have selected := selected_certificate
+  simp only [Term.eval, Contextual.algebra, environment] at selected
+  simp [Term.eval, Contextual.algebra, Contextual.operation,
+    DependentJudgments.operation, environment, selected,
+    nativeFirst, nativeSecond, nativeFinalContext, nativeFirstContext,
+    nativeSecondFamily, nativeWitness, nativeMotive]
+
+/-- The accepted source command has the same independently frozen recipe. -/
+theorem author_recipe : DependentAuthorTrial.Candidate.selected point tail value =
+    certificateExpression := rfl
+
+/-- Actual author validity under the inhabited three-binder environment. -/
+theorem author_certificate_valid : certificateJudgment.eval (Contextual.algebra native) environment :=
+  DependentAuthorTrial.Candidate.certificateValidity point tail value
+    (DependentAuthorTrial.Candidate.firstWeakening value)
+    (DependentAuthorTrial.Candidate.secondWeakening value) native environment assumptions_valid
+
+/-- This invokes the author's retained derivation and assumption transport. -/
+theorem author_extended_certificate_valid :
+    (certificateJudgment.inl Sigma.extraSignature).eval
+      (Sigma.algebra native stable.toCapability) environment :=
+  DependentAuthorTrial.Candidate.extendedTwiceValidity point tail value
+    (DependentAuthorTrial.Candidate.firstWeakening value)
+    (DependentAuthorTrial.Candidate.secondWeakening value)
+    native stable environment assumptions_valid
+
+/-- Source comparison is used at the constructed dependent substitutions. -/
+theorem author_comparison_valid :
+    (Atom.eq (subTm (subTm certificateExpression firstArrow) secondArrow)
+      (subTm certificateExpression (Contextual.comp firstArrow secondArrow))).eval
+        (Contextual.algebra native) environment :=
+  Contextual.interpret (DependentAuthorTrial.Candidate.dependentWeakeningComparison
+    point tail value) native environment assumptions_valid
+
+/-- The author's source recipe selects the same section and dependent family;
+no equality-reflection or uniqueness assumption enters this comparison. -/
+theorem author_selected_certificate :
+    (DependentAuthorTrial.Candidate.selected point tail value).eval
+      (Contextual.algebra native) environment =
+      .term inputs.tail.total nativeMotive nativeCertificate :=
+  selected_certificate
+
+/-- The author's extension theorem, combined with evaluation of the selected
+section, retains the exact twice-substituted J value in the concrete model. -/
+theorem author_extended_selected_certificate :
+    ((subTm (subTm (DependentAuthorTrial.Candidate.selected point tail value) firstArrow)
+      secondArrow).inl Sigma.extraSignature).eval
+        (Sigma.algebra native stable.toCapability) environment =
+    .term nativeFinalContext (native.subTy (native.subTy nativeMotive nativeFirst) nativeSecond)
+      (native.subTm (native.subTm nativeCertificate nativeFirst) nativeSecond) := by
+  rw [(DependentAuthorTrial.Candidate.extensionSelectedTwice point tail value
+    (DependentAuthorTrial.Candidate.firstWeakening value)
+    (DependentAuthorTrial.Candidate.secondWeakening value)
+    native stable environment assumptions_valid).2]
+  have selected := author_selected_certificate
   simp only [Term.eval, Contextual.algebra, environment] at selected
   simp [Term.eval, Contextual.algebra, Contextual.operation,
     DependentJudgments.operation, environment, selected,

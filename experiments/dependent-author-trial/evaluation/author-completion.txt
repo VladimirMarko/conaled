@@ -1,0 +1,22 @@
+Author completion messages received by root, recorded UTC 2026-11-05T03:02:54.396363+00:00
+
+/root/author320_baseline:
+Completed baseline submission, pending coordinator acceptance.
+
+- Source: `/tmp/conaled-314-320/authors/baseline/attempts/Submission.lean`
+- Coverage and findings: `attempts/outcome.md`
+- Calibration preserved in `Attempt01`.
+- Final wrapper check passed; declaration inspection reports only `propext` and `Quot.sound`.
+- One failed attempt preserved: Lean section-variable scoping, repaired without new assumptions.
+- No assistance, exposure incident, resource failure or interruption.
+
+SHA256: `2415929c8fdb7e2d5e4c6c5fa1664e2a0daf119b89009c0c8e9719009326dcf9`.
+
+/root/author320_candidate:
+Completed candidate submission at `attempts/Submission.lean`; wrapper passed.
+
+SHA256: `83b8e0996d27f7d215d177268d7d098adf6cbb0ec9592c156333475c4c4d5a51`
+
+Calibration, all required declarations, dependent weakenings, model validity, and Sigma embedding are covered. Attempt06 printed every authored declaration’s axioms: only `propext`, `Classical.choice`, and `Quot.sound`.
+
+Coverage, failures, interface observations, exposure, and stopping reason are recorded in `attempts/outcome.md`. All attempts and archives are preserved. No assistance or interface changes were needed. Coordinator replay and acceptance remain pending.

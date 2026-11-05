@@ -1,0 +1,19 @@
+[0mdirenv: loading /tmp/conaled-314-320/320/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+⚠ [511/840] Replayed SquareKit.Internal.PathTransport.Syntax
+warning: SquareKit/Internal/PathTransport/Syntax.lean: imports `Mathlib.Data.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [517/840] Replayed SquareKit.Internal.PathTransport.Comprehension
+warning: SquareKit/Internal/PathTransport/Comprehension.lean: imports `Mathlib.Logic.Equiv.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [522/840] Replayed SquareKit.FinitaryTerm
+warning: SquareKit/FinitaryTerm.lean: imports `Mathlib.Data.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [814/840] Replayed SquareKit.Internal.DependentJudgments.Comprehension
+warning: SquareKit/Internal/DependentJudgments/Comprehension.lean: imports `Mathlib.Data.Fin.VecNotation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SquareKit/Internal/DependentJudgments/Comprehension.lean: imports `Mathlib.Tactic.FinCases` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SquareKit/Internal/DependentJudgments/Comprehension.lean: imports `Mathlib.Data.Fintype.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [847/853] Replayed SquareKit.Internal.DependentJudgments.NativeTypeModel
+warning: SquareKit/Internal/DependentJudgments/NativeTypeModel.lean: imports `Mathlib.Logic.Equiv.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [850/853] Replayed SquareKit.Internal.DependentJudgments.CoherentTypePresentations
+warning: SquareKit/Internal/DependentJudgments/CoherentTypePresentations.lean: imports `Mathlib.Logic.Equiv.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [853/853] Built Examples.DependentAuthorTrialReplay (698ms)
+Build completed successfully (853 jobs).

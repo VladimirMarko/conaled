@@ -1,0 +1,174 @@
+import Examples.DependentAuthorTrialReplay
+set_option pp.universes true
+set_option pp.fullNames true
+set_option pp.width 120
+#check @DependentAuthorTrial.Baseline.calibration
+#print axioms DependentAuthorTrial.Baseline.calibration
+#check @DependentAuthorTrial.Baseline.calibrationLeft
+#print axioms DependentAuthorTrial.Baseline.calibrationLeft
+#check @DependentAuthorTrial.Baseline.calibrationRight
+#print axioms DependentAuthorTrial.Baseline.calibrationRight
+#check @DependentAuthorTrial.Baseline.certificateCommand
+#print axioms DependentAuthorTrial.Baseline.certificateCommand
+#check @DependentAuthorTrial.Baseline.certificate
+#print axioms DependentAuthorTrial.Baseline.certificate
+#check @DependentAuthorTrial.Baseline.certificateFamily
+#print axioms DependentAuthorTrial.Baseline.certificateFamily
+#check @DependentAuthorTrial.Baseline.totalContext
+#print axioms DependentAuthorTrial.Baseline.totalContext
+#check @DependentAuthorTrial.Baseline.valueTwice
+#print axioms DependentAuthorTrial.Baseline.valueTwice
+#check @DependentAuthorTrial.Baseline.certificateTwice
+#print axioms DependentAuthorTrial.Baseline.certificateTwice
+#check @DependentAuthorTrial.Baseline.valueTypeComparison
+#print axioms DependentAuthorTrial.Baseline.valueTypeComparison
+#check @DependentAuthorTrial.Baseline.certificateTypeComparison
+#print axioms DependentAuthorTrial.Baseline.certificateTypeComparison
+#check @DependentAuthorTrial.Baseline.valueComparison
+#print axioms DependentAuthorTrial.Baseline.valueComparison
+#check @DependentAuthorTrial.Baseline.certificateComparison
+#print axioms DependentAuthorTrial.Baseline.certificateComparison
+#check @DependentAuthorTrial.Baseline.certificateAligned
+#print axioms DependentAuthorTrial.Baseline.certificateAligned
+#check @DependentAuthorTrial.Baseline.firstWeakening
+#print axioms DependentAuthorTrial.Baseline.firstWeakening
+#check @DependentAuthorTrial.Baseline.firstContext
+#print axioms DependentAuthorTrial.Baseline.firstContext
+#check @DependentAuthorTrial.Baseline.witnessVariable
+#print axioms DependentAuthorTrial.Baseline.witnessVariable
+#check @DependentAuthorTrial.Baseline.secondFamily
+#print axioms DependentAuthorTrial.Baseline.secondFamily
+#check @DependentAuthorTrial.Baseline.secondWeakening
+#print axioms DependentAuthorTrial.Baseline.secondWeakening
+#check @DependentAuthorTrial.Baseline.dependentWeakeningCertificate
+#print axioms DependentAuthorTrial.Baseline.dependentWeakeningCertificate
+#check @DependentAuthorTrial.Baseline.dependentWeakeningComparison
+#print axioms DependentAuthorTrial.Baseline.dependentWeakeningComparison
+#check @DependentAuthorTrial.Baseline.valueValidity
+#print axioms DependentAuthorTrial.Baseline.valueValidity
+#check @DependentAuthorTrial.Baseline.certificateValidity
+#print axioms DependentAuthorTrial.Baseline.certificateValidity
+#check @DependentAuthorTrial.Baseline.certificateTypeValidity
+#print axioms DependentAuthorTrial.Baseline.certificateTypeValidity
+#check @DependentAuthorTrial.Baseline.extensionSelected
+#print axioms DependentAuthorTrial.Baseline.extensionSelected
+#check @DependentAuthorTrial.Baseline.extensionValue
+#print axioms DependentAuthorTrial.Baseline.extensionValue
+#check @DependentAuthorTrial.Baseline.extensionType
+#print axioms DependentAuthorTrial.Baseline.extensionType
+#check @DependentAuthorTrial.Baseline.extendedCertificate
+#print axioms DependentAuthorTrial.Baseline.extendedCertificate
+#check @DependentAuthorTrial.Baseline.extendedValidity
+#print axioms DependentAuthorTrial.Baseline.extendedValidity
+#check @DependentAuthorTrial.Baseline.valueComposite
+#print axioms DependentAuthorTrial.Baseline.valueComposite
+#check @DependentAuthorTrial.Baseline.certificateComposite
+#print axioms DependentAuthorTrial.Baseline.certificateComposite
+#check @DependentAuthorTrial.Baseline.interpretedCertificateComparison
+#print axioms DependentAuthorTrial.Baseline.interpretedCertificateComparison
+#check @DependentAuthorTrial.Baseline.interpretedCertificateTypeComparison
+#print axioms DependentAuthorTrial.Baseline.interpretedCertificateTypeComparison
+#check @DependentAuthorTrial.Baseline.workedCertificate
+#print axioms DependentAuthorTrial.Baseline.workedCertificate
+#check @DependentAuthorTrial.Baseline.workedDependentWeakening
+#print axioms DependentAuthorTrial.Baseline.workedDependentWeakening
+#check @DependentAuthorTrial.Baseline.workedDependentComparison
+#print axioms DependentAuthorTrial.Baseline.workedDependentComparison
+#check @DependentAuthorTrial.Candidate.calibration
+#print axioms DependentAuthorTrial.Candidate.calibration
+#check @DependentAuthorTrial.Candidate.applyExtra
+#print axioms DependentAuthorTrial.Candidate.applyExtra
+#check @DependentAuthorTrial.Candidate.rootTailTyping
+#print axioms DependentAuthorTrial.Candidate.rootTailTyping
+#check @DependentAuthorTrial.Candidate.certificateCommand
+#print axioms DependentAuthorTrial.Candidate.certificateCommand
+#check @DependentAuthorTrial.Candidate.selected
+#print axioms DependentAuthorTrial.Candidate.selected
+#check @DependentAuthorTrial.Candidate.certificate
+#print axioms DependentAuthorTrial.Candidate.certificate
+#check @DependentAuthorTrial.Candidate.valueTwice
+#print axioms DependentAuthorTrial.Candidate.valueTwice
+#check @DependentAuthorTrial.Candidate.certificateTwice
+#print axioms DependentAuthorTrial.Candidate.certificateTwice
+#check @DependentAuthorTrial.Candidate.valueTypeComparison
+#print axioms DependentAuthorTrial.Candidate.valueTypeComparison
+#check @DependentAuthorTrial.Candidate.certificateTypeComparison
+#print axioms DependentAuthorTrial.Candidate.certificateTypeComparison
+#check @DependentAuthorTrial.Candidate.valueComparison
+#print axioms DependentAuthorTrial.Candidate.valueComparison
+#check @DependentAuthorTrial.Candidate.certificateComparison
+#print axioms DependentAuthorTrial.Candidate.certificateComparison
+#check @DependentAuthorTrial.Candidate.certificateAligned
+#print axioms DependentAuthorTrial.Candidate.certificateAligned
+#check @DependentAuthorTrial.Candidate.firstContext
+#print axioms DependentAuthorTrial.Candidate.firstContext
+#check @DependentAuthorTrial.Candidate.firstMap
+#print axioms DependentAuthorTrial.Candidate.firstMap
+#check @DependentAuthorTrial.Candidate.witness
+#print axioms DependentAuthorTrial.Candidate.witness
+#check @DependentAuthorTrial.Candidate.secondFamily
+#print axioms DependentAuthorTrial.Candidate.secondFamily
+#check @DependentAuthorTrial.Candidate.secondContext
+#print axioms DependentAuthorTrial.Candidate.secondContext
+#check @DependentAuthorTrial.Candidate.secondMap
+#print axioms DependentAuthorTrial.Candidate.secondMap
+#check @DependentAuthorTrial.Candidate.firstWeakening
+#print axioms DependentAuthorTrial.Candidate.firstWeakening
+#check @DependentAuthorTrial.Candidate.witnessVariable
+#print axioms DependentAuthorTrial.Candidate.witnessVariable
+#check @DependentAuthorTrial.Candidate.secondWeakening
+#print axioms DependentAuthorTrial.Candidate.secondWeakening
+#check @DependentAuthorTrial.Candidate.dependentWeakeningCertificate
+#print axioms DependentAuthorTrial.Candidate.dependentWeakeningCertificate
+#check @DependentAuthorTrial.Candidate.dependentWeakeningComparison
+#print axioms DependentAuthorTrial.Candidate.dependentWeakeningComparison
+#check @DependentAuthorTrial.Candidate.selectedRecipe
+#print axioms DependentAuthorTrial.Candidate.selectedRecipe
+#check @DependentAuthorTrial.Candidate.selectedRootComparison
+#print axioms DependentAuthorTrial.Candidate.selectedRootComparison
+#check @DependentAuthorTrial.Candidate.valueComposite
+#print axioms DependentAuthorTrial.Candidate.valueComposite
+#check @DependentAuthorTrial.Candidate.certificateComposite
+#print axioms DependentAuthorTrial.Candidate.certificateComposite
+#check @DependentAuthorTrial.Candidate.dependentWeakeningAligned
+#print axioms DependentAuthorTrial.Candidate.dependentWeakeningAligned
+#check @DependentAuthorTrial.Candidate.originalValueValidity
+#print axioms DependentAuthorTrial.Candidate.originalValueValidity
+#check @DependentAuthorTrial.Candidate.originalCertificateValidity
+#print axioms DependentAuthorTrial.Candidate.originalCertificateValidity
+#check @DependentAuthorTrial.Candidate.valueValidity
+#print axioms DependentAuthorTrial.Candidate.valueValidity
+#check @DependentAuthorTrial.Candidate.certificateValidity
+#print axioms DependentAuthorTrial.Candidate.certificateValidity
+#check @DependentAuthorTrial.Candidate.certificateTypeValidity
+#print axioms DependentAuthorTrial.Candidate.certificateTypeValidity
+#check @DependentAuthorTrial.Candidate.certificateComparisonValidity
+#print axioms DependentAuthorTrial.Candidate.certificateComparisonValidity
+#check @DependentAuthorTrial.Candidate.extendedCertificate
+#print axioms DependentAuthorTrial.Candidate.extendedCertificate
+#check @DependentAuthorTrial.Candidate.extendedCertificateTwice
+#print axioms DependentAuthorTrial.Candidate.extendedCertificateTwice
+#check @DependentAuthorTrial.Candidate.extendedCertificateAligned
+#print axioms DependentAuthorTrial.Candidate.extendedCertificateAligned
+#check @DependentAuthorTrial.Candidate.extendedValue
+#print axioms DependentAuthorTrial.Candidate.extendedValue
+#check @DependentAuthorTrial.Candidate.extendedType
+#print axioms DependentAuthorTrial.Candidate.extendedType
+#check @DependentAuthorTrial.Candidate.extendedAssumptions
+#print axioms DependentAuthorTrial.Candidate.extendedAssumptions
+#check @DependentAuthorTrial.Candidate.extendedValidity
+#print axioms DependentAuthorTrial.Candidate.extendedValidity
+#check @DependentAuthorTrial.Candidate.extendedTwiceValidity
+#print axioms DependentAuthorTrial.Candidate.extendedTwiceValidity
+#check @DependentAuthorTrial.Candidate.extensionSelected
+#print axioms DependentAuthorTrial.Candidate.extensionSelected
+#check @DependentAuthorTrial.Candidate.extensionValue
+#print axioms DependentAuthorTrial.Candidate.extensionValue
+#check @DependentAuthorTrial.Candidate.extensionType
+#print axioms DependentAuthorTrial.Candidate.extensionType
+#check @DependentAuthorTrial.Candidate.extensionSelectedTwice
+#print axioms DependentAuthorTrial.Candidate.extensionSelectedTwice
+#check @DependentAuthorTrial.Candidate.extensionValueTwice
+#print axioms DependentAuthorTrial.Candidate.extensionValueTwice
+#check @DependentAuthorTrial.Candidate.extensionAlignedValidity
+#print axioms DependentAuthorTrial.Candidate.extensionAlignedValidity

@@ -15,8 +15,9 @@ measured authors.
   inventories and the checked inhabited specializations. These files were
   excluded from both public handoffs.
 - `evaluation/` retains dispatch, assistance, exact replay, coverage and outcome
-  records as they become available. Author source and attempt archives remain
-  separately attributed; coordinator repairs cannot overwrite them.
+  records. `authors/` retains the complete closed attempt directories, including
+  failures, activity, session metadata and outcomes. Coordinator replay and
+  probes remain separately attributed and cannot overwrite them.
 
 The handoffs use private dependency copies and build only their permitted
 project closures. The checker records exact attempted bytes and Lean diagnostics;
