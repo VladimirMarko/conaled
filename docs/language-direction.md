@@ -182,6 +182,10 @@ The [checked higher source test](research/dependent-higher-identity.md) retains
 the frozen memo's witness observations, but its corresponding Lean model and
 sound interpretation remain to be constructed. Keep that adoption condition
 separate from successful source checking or lower-truncation author trials.
+The [categorical assessment](research/concrete-dependent-coherence.md) keeps
+strictification conditional on a named model-construction benefit. Construct
+the required hypotheses for that consumer when strict stability is the missing
+capability or the transfer removes demonstrated recurring coherence work.
 
 The [theory-network comparison](research/theory-network-comparison.md) likewise
 keeps publication and view composition separate from encoding adequacy and

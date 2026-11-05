@@ -104,8 +104,13 @@ it does not internalize arbitrary semantic categories.
 
 [#317](https://github.com/VladimirMarko/conaled/issues/317) exercises constructor
 admission through an explicit judgment contract;
-[#318](https://github.com/VladimirMarko/conaled/issues/318) constructs categorical
-hypotheses when a named model-construction benefit warrants them.
+The reviewed [#318 assessment](concrete-dependent-coherence.md) defers a new
+strictification package. #289 promotes it when a selected weak model has the
+required dependent capability but lacks strict stability, or a matched
+construction demonstrates recurring coherence work that transfer removes.
+Its report specifies the categorical and whole-eliminator hypotheses to prove
+for that model; neither generic nonterminality nor a missing higher eliminator
+establishes a need for local universes.
 [#320](https://github.com/VladimirMarko/conaled/issues/320) owns comparative author
 trials after reviewed interface freezes. These issues are under #289, coordinated
 with #36/#235, #288's extension questions and #290's author evidence.

@@ -65,6 +65,14 @@ obligations belong to [#322](https://github.com/VladimirMarko/conaled/issues/322
 cubical model and source-compatibility programme. External source checking is
 partial evidence, not a Lean interpretation.
 
+The [categorical assessment](concrete-dependent-coherence.md) defers a new
+strictification package until a selected weak model has the needed capability
+and strict stability remains its missing step, or a matched construction shows
+recurring coherence work that transfer removes. #289 owns that promotion
+decision and its model-specific proofs. The current strict groupoid model needs
+no such repair; the proposed higher model still needs its families and
+eliminator. This does not establish that local universes are unsuitable.
+
 These results establish derived structure and bounded semantic constructions.
 They do not yet select a replacement author interface, prove constructor
 admission for that interface or measure its author benefit. Those decisions
