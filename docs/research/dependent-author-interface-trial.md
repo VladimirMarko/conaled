@@ -149,17 +149,23 @@ and [candidate outcome](../../experiments/dependent-author-trial/authors/candida
 explain each author's changes; activity and session metadata sit beside them.
 Baseline session timing begins after initial reading; candidate metadata records
 wrapper intervals rather than a full session duration. These are different
-measurement windows and do not support a speed ranking. Exact serving revisions,
-reasoning settings, token usage and full transcripts were unavailable. Root
-recorded fork-none dispatch with no explicit model or reasoning overrides; that
-is dispatch configuration, not inferred backend telemetry.
+measurement windows and do not support a speed ranking. The original records
+marked serving revisions and reasoning settings unavailable; token usage and
+full transcripts were not collected for the comparison. Root recorded fork-none
+dispatch with no explicit model or reasoning overrides. Those historical records
+remain unchanged.
 
 After both authors had completed and their submissions had replayed, the owner
 [reported a change from high to medium reasoning](../../experiments/dependent-author-trial/evaluation/user-reasoning-disclosure.json),
-with uncertainty about when high had first been selected. This later disclosure
-does not identify either author's actual serving configuration. Their settings
-remain unknown; the report does not infer a controlled reasoning-level
-comparison. The completed proof artifacts and replay results are unchanged.
+with uncertainty about when high had first been selected. A subsequent
+[inspection of the parent and both author logs](../../experiments/dependent-author-trial/evaluation/session-settings-evidence.json)
+resolves the recorded configuration: both author turns used the configured model
+`gpt-6-astra` and effort `high`. The parent setting events record high at
+2026-11-04 17:16:56.931 UTC and medium at 2026-11-05 03:21:13.363 UTC, after both
+authors had finished. The switch therefore introduced no recorded reasoning
+setting difference between the two author runs. These are configuration records,
+not hidden backend revisions or a controlled productivity comparison. The
+completed proof artifacts and replay results are unchanged.
 
 The coordinator verified the frozen public inputs and exact compiled closures
 again, archived both closed attempts directories, and replayed each final file

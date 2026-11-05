@@ -1,0 +1,131 @@
+{
+  "recorded_utc": "2026-11-05T03:33:09.645405+00:00",
+  "scope": "Post-trial extraction of configuration fields from local Codex session records. These filtered records are persisted so the findings do not depend on the original host paths. Unrelated instructions, conversation content and tool payloads are omitted.",
+  "provenance": "A separate user-directed session identified the two parent setting events. The orchestration coordinator independently read those exact records, located both author logs by session_meta.agent_path, and inspected every turn_context and thread_settings_applied record in each author log.",
+  "parent": {
+    "source_path_at_inspection": "/home/vlad/.codex/sessions/2026/10/30/rollout-2026-10-30T12-37-52-01a18c9a-1bfe-79a3-b131-c30b9045deff.jsonl",
+    "records": [
+      {
+        "line_number": 5253,
+        "raw_line_sha256": "513a499abf5906927989f71b0d6209e06ea2c28ed7dcc420c2d4c60dbe2dd588",
+        "timestamp": "2026-11-04T17:16:56.931Z",
+        "type": "event_msg",
+        "payload": {
+          "type": "thread_settings_applied",
+          "thread_id": "01a18c9a-1bfe-79a3-b131-c30b9045deff",
+          "thread_settings": {
+            "model": "gpt-6-astra",
+            "reasoning_effort": "high"
+          }
+        }
+      },
+      {
+        "line_number": 5256,
+        "raw_line_sha256": "0ecaf40258c16f73f92e1668de11a4cfe5af0d74227708b4e06f2ae1edb41a60",
+        "timestamp": "2026-11-04T17:17:39.009Z",
+        "type": "turn_context",
+        "payload": {
+          "turn_id": "01a1a790-e51a-7f90-8ce0-830bd0c2ff6d",
+          "model": "gpt-6-astra",
+          "effort": "high"
+        }
+      },
+      {
+        "line_number": 13875,
+        "raw_line_sha256": "4220218d757393b49a9c8ac48f510f9325231c6cfb8d576aee3e6affe5eacab8",
+        "timestamp": "2026-11-05T03:21:13.363Z",
+        "type": "event_msg",
+        "payload": {
+          "type": "thread_settings_applied",
+          "thread_id": "01a18c9a-1bfe-79a3-b131-c30b9045deff",
+          "thread_settings": {
+            "model": "gpt-6-astra",
+            "reasoning_effort": "medium"
+          }
+        }
+      }
+    ]
+  },
+  "authors": {
+    "baseline": {
+      "source_path_at_inspection": "/home/vlad/.codex/sessions/2026/11/05/rollout-2026-11-05T03-56-06-01a1a9a2-935a-74a0-9eba-d925aa775e09.jsonl",
+      "records": [
+        {
+          "line_number": 1,
+          "raw_line_sha256": "25d6dc56683329b893a2c2762b94f2549772807afbd1435f0824ad03dc83a1d6",
+          "timestamp": "2026-11-05T02:56:06.579Z",
+          "type": "session_meta",
+          "payload": {
+            "id": "01a1a9a2-935a-74a0-9eba-d925aa775e09",
+            "timestamp": "2026-11-05T02:56:06.504Z",
+            "agent_path": "/root/author320_baseline",
+            "source": {
+              "subagent": {
+                "thread_spawn": {
+                  "parent_thread_id": "01a18c9a-1bfe-79a3-b131-c30b9045deff",
+                  "depth": 1,
+                  "agent_path": "/root/author320_baseline",
+                  "agent_nickname": "Anscombe the 2nd",
+                  "agent_role": null
+                }
+              }
+            },
+            "model_provider": "openai"
+          }
+        },
+        {
+          "line_number": 8,
+          "raw_line_sha256": "168d7b0159ad52f6196f42291613d65f35dd838211da0a1fa8696b3fbc523c29",
+          "timestamp": "2026-11-05T02:56:07.323Z",
+          "type": "turn_context",
+          "payload": {
+            "turn_id": "01a1a9a2-93a0-7432-8a14-658cd9db1cfd",
+            "model": "gpt-6-astra",
+            "effort": "high"
+          }
+        }
+      ]
+    },
+    "candidate": {
+      "source_path_at_inspection": "/home/vlad/.codex/sessions/2026/11/05/rollout-2026-11-05T03-56-20-01a1a9a2-c880-7041-a896-cdc83cdc4b33.jsonl",
+      "records": [
+        {
+          "line_number": 1,
+          "raw_line_sha256": "5eb662f50f5e3ebf13acb4d815a8668664befc97641212c3a911004eb32b5179",
+          "timestamp": "2026-11-05T02:56:20.151Z",
+          "type": "session_meta",
+          "payload": {
+            "id": "01a1a9a2-c880-7041-a896-cdc83cdc4b33",
+            "timestamp": "2026-11-05T02:56:20.102Z",
+            "agent_path": "/root/author320_candidate",
+            "source": {
+              "subagent": {
+                "thread_spawn": {
+                  "parent_thread_id": "01a18c9a-1bfe-79a3-b131-c30b9045deff",
+                  "depth": 1,
+                  "agent_path": "/root/author320_candidate",
+                  "agent_nickname": "Pauli the 2nd",
+                  "agent_role": null
+                }
+              }
+            },
+            "model_provider": "openai"
+          }
+        },
+        {
+          "line_number": 8,
+          "raw_line_sha256": "dde9b4495bb88f3338c27b2e81a87b93d0c311a4a67a15020727cc4b0995bb29",
+          "timestamp": "2026-11-05T02:56:21.072Z",
+          "type": "turn_context",
+          "payload": {
+            "turn_id": "01a1a9a2-c8ad-72b0-9421-14bfb4c13d76",
+            "model": "gpt-6-astra",
+            "effort": "high"
+          }
+        }
+      ]
+    }
+  },
+  "finding": "Both author logs have one turn_context, each recording model gpt-6-astra and effort high, and no thread_settings_applied event. Their author turns began at 02:56:07.323Z and 02:56:21.072Z on 2026-11-05. Both completion messages were recorded by 03:02:54.396363Z; the parent switch to medium was recorded at 03:21:13.363Z. The reported switch did not introduce a recorded reasoning-setting difference between these two runs.",
+  "limits": "These records establish configured model names and reasoning effort, not hidden serving revisions or per-request backend execution. They do not identify the UI action causing a setting change, establish controlled comparative productivity, or reconstruct preparation telemetry. The historical dispatch and author metadata remain unchanged; this later evidence supplements them."
+}
