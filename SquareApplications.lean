@@ -307,6 +307,7 @@ import Examples.RandomSelectionMean
 import Examples.RandomSelectionRun
 import Examples.RandomSelectionTail
 import Examples.RandomSelectionTrace
+import Examples.RandomSelectionWorst
 import Examples.RoundedRecurrence
 import Examples.RoundedRecurrenceBounds
 import Examples.SelectionAuxiliary
