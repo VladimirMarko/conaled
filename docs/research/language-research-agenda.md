@@ -81,10 +81,16 @@ representability presentation. Generated empty substitutions exist by recursion;
 terminal uniqueness is a separate requirement. The Type-family correspondence
 is checked, while a groupoid shear rejects strict cleavage-preserving fullness.
 
-[#315](https://github.com/VladimirMarko/conaled/issues/315) compares dependent
-judgment representations using that diagnosis. Its interpretation and comparison
-contract must support reuse in newly admitted settings; compatibility over a
-fixed diagram alone does not establish that capability.
+The reviewed [#315 experiment](dependent-judgment-representation.md) constructs
+guarded source judgments without universal semantic annotation indices. Its
+interpretation and strict-map theorems cover arbitrary-tail Id/J and the frozen
+memo's selected value, dependent certificate and dependent action under both
+actual substitutions. Fresh reconstruction, unequal native Type presentations,
+path-sensitive groupoid behavior and nested internal settings have checked
+cases. Use this boundary for #317/#320; retain the old API until its migration
+obligations are met. The experiment establishes reusable interpretation rather
+than measured author benefit. Compatibility over a fixed model diagram alone
+did not establish interpretation in a newly admitted setting.
 
 The reviewed [#316 investigation](dependent-higher-identity.md) checks the
 frozen dependent argument in pinned Cubical Agda, including both substitutions,
@@ -103,7 +109,9 @@ Lean predicate data and metatheoretic slice formation have explicit boundaries;
 it does not internalize arbitrary semantic categories.
 
 [#317](https://github.com/VladimirMarko/conaled/issues/317) exercises constructor
-admission through an explicit judgment contract;
+admission through this reviewed judgment contract, which has contextual
+dependent packages but no object-language Sigma constructor.
+
 The reviewed [#318 assessment](concrete-dependent-coherence.md) defers a new
 strictification package. #289 promotes it when a selected weak model has the
 required dependent capability but lacks strict stability, or a matched

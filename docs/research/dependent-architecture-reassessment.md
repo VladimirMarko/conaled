@@ -73,10 +73,23 @@ decision and its model-specific proofs. The current strict groupoid model needs
 no such repair; the proposed higher model still needs its families and
 eliminator. This does not establish that local universes are unsuitable.
 
-These results establish derived structure and bounded semantic constructions.
-They do not yet select a replacement author interface, prove constructor
-admission for that interface or measure its author benefit. Those decisions
-remain with #315, #317 and #320.
+The [judgment experiment](dependent-judgment-representation.md) constructs
+guarded source derivations whose indices do not quantify over the whole
+semantic model. Interpretation validates the admitted structural and
+arbitrary-tail Id/J rules. The selected transport value, dependent certificate
+and dependent action inherit substitution, fresh reconstruction and strict-map
+preservation from those derivations. The actual frozen substitutions retain
+the path and witness binders. A groupoid interpretation preserves the
+path-sensitive value, while constructed native Type comparisons change
+dependent family presentations and compare the chosen J operation.
+
+Adopt this source boundary for the constructor and author experiments. This
+does not retire the old annotated API or select the final author interface.
+The new representation still exposes source typing and motive/branch formation
+to authors, consumes the existing semantic model interface, and owes explicit
+migration of old clients. Its native coherent comparisons use proof-irrelevant
+identity; they do not discharge the higher-model gate. Constructor admission
+and comparative author evidence remain with #317 and #320.
 
 ## What the earlier account understated
 
@@ -173,12 +186,11 @@ dependency and review gates.
 | [#318: concrete categorical hypotheses](https://github.com/VladimirMarko/conaled/issues/318) | Establish a model-construction benefit, then construct the exact categorical package it needs. |
 | [#320: frozen interface trial](https://github.com/VladimirMarko/conaled/issues/320) | Compare ordinary author obligations on the same mathematical requirements after reviewed interface freezes. |
 
-The structure audit should inform the judgment experiment's implementation.
-External representation discovery, higher-model feasibility and the internal
-setting test can proceed alongside that audit. Constructor admission uses an
-explicit reviewed judgment contract; author dispatch waits for reviewed frozen
-interfaces. The categorical-package task starts with a concrete-benefit decision
-and proceeds to construction when that benefit is established.
+The judgment experiment uses the structure audit and includes the nested
+internal-setting case. Constructor admission now uses that reviewed judgment
+contract; author dispatch waits for its reviewed extension and prospective
+interface freeze. The categorical-package task retains its concrete-benefit
+condition before constructing another model package.
 
 #297 keeps the broader modal/higher comparison, with separate questions for
 context restrictions and higher identities. #301 remains an external challenge

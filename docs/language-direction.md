@@ -177,7 +177,14 @@ the choice of morphisms remain explicit requirements where a construction
 needs them. The [nested internal-setting test](research/internal-setting-construction.md)
 also establishes a bounded positive case for context-varying presentations,
 including their selected dependent payloads under repeated substitution.
-Neither result selects the ordinary author's judgment representation.
+The [judgment experiment](research/dependent-judgment-representation.md) now
+supplies a source boundary without all-model annotation indices. Authors'
+derivations inherit interpretation, substitution and strict-map preservation;
+model builders prove the primitive operation laws once. Use it for the next
+constructor and author experiments, while keeping source-typing effort,
+coherent comparison scope and old-client migration explicit. The checked
+groupoid and native Type cases do not settle the final author interface or
+establish author-productivity gains.
 The [checked higher source test](research/dependent-higher-identity.md) retains
 the frozen memo's witness observations, but its corresponding Lean model and
 sound interpretation remain to be constructed. Keep that adoption condition
