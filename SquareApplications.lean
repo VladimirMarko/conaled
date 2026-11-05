@@ -316,5 +316,6 @@ import Examples.TwoFamilyPathContraction
 import Examples.TwoFamilySigmaAction
 import Examples.TwoFamilySigmaCells
 import Examples.TwoFamilySigmaNaturality
+import Examples.TwoFamilySigmaHigherNaturality
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

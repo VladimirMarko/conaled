@@ -388,9 +388,12 @@ total construction. The integer example retains two independent cell
 components and distinguishes a nonzero second component. For each base arrow, `sigmaMap` now constructs a strict higher map of these
 fibers. Cartesian comparison cells give an actual component for every base
 2-cell. Their naturality at arbitrary dependent arrows is proved and assembled
-as the ordinary `sigmaCellNaturalTransformation`. Higher naturality at genuine
-fiber 2-cells and the base-action coherence laws remain unproved, so this is
-not yet a full higher Sigma family. Substitution, total regrouping, pairing and
+as `sigmaCellNaturalTransformation`. Naturality at arbitrary genuine fiber
+2-cells is also proved, giving the full strict transformation `sigmaCell`.
+The three-integer example varies the base comparison and both independent
+fiber-cell components, including a nonzero second component. Base-action
+identity/composition and vertical/horizontal cell coherence remain unproved,
+so this is not yet a full higher Sigma family. Substitution, total regrouping, pairing and
 projections remain pending. `EqualityFiber` is used only for canonical
 cartesian comparison cells; the integer example proves that a nonzero genuine
 fiber cell does not satisfy it. It is not a restriction on admitted families
