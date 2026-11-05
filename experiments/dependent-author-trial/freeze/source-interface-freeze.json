@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "created_utc": "2026-11-05T02:30:53.682551+00:00",
+  "interface_commit": "7b8c00ae171c8a0b6de696e42aaf8470ff1e7c96",
+  "heldout_selected": false,
+  "new_support": false,
+  "arms": {
+    "baseline": {
+      "entry_modules": [
+        "SquareKit.Internal.PathTransport.Authoring",
+        "SquareKit.Internal.DependentJudgments.Sigma.Stability"
+      ],
+      "files": {
+        "SquareKit/Internal/DependentJudgments/Sigma/Capability.lean": "f737589432a2718bacf33b3d8346da75cd0f5b83de070994cf6d794862b4c438",
+        "SquareKit/Internal/DependentJudgments/Sigma/Stability.lean": "e8640f73f7f3f2856608ff756678bb1ded998a64565869a1b806c9d3fb8f8422",
+        "SquareKit/Internal/PathTransport/Authoring.lean": "da2d061750cb6cf1efce97d9cb9cc4d2d5122c6dd7fe4576a732efcaf3ec6ef2",
+        "SquareKit/Internal/PathTransport/Comprehension.lean": "1182ce0a1d3aab6b271e07ab6edda5d38428c6fe9dacbd0f1960e5dd50f719ca",
+        "SquareKit/Internal/PathTransport/ContextualModel.lean": "afd212bb38a10986ca4e059fe54bbdf347b2b8fe9a78d50fbdb0eb86021cea34",
+        "SquareKit/Internal/PathTransport/InterpretationMaps.lean": "07ab6d8ec0bd845bccf31e40637bd1795c169ad80fcea44242046bb595fa4243",
+        "SquareKit/Internal/PathTransport/Model.lean": "224da492660cc043951db24942d1e256fb5b3bab4a1751f7883184fc23b74253",
+        "SquareKit/Internal/PathTransport/RawContext.lean": "71f67a028b09974168ed09a3c14c304d127997a5ebf63c064e3b9d7b1cd98dfa",
+        "SquareKit/Internal/PathTransport/Syntax.lean": "30a34c9b8ed5288ba5d91a6302f0cba1eac35a0aeb7c4a2b91fdc625d81c237c",
+        "SquareKit/Internal/PathTransport/Typed.lean": "56b6633471d0350b0ef35fc22836d5b6919e81dd4741e18528464d7336d9b308"
+      },
+      "external_imports": [
+        "Mathlib.Data.Fin.Basic",
+        "Mathlib.Logic.Equiv.Defs"
+      ]
+    },
+    "candidate": {
+      "entry_modules": [
+        "SquareKit.Internal.DependentJudgments.Templates",
+        "SquareKit.Internal.DependentJudgments.Sigma.Authoring",
+        "SquareKit.Internal.DependentJudgments.Sigma.Stability"
+      ],
+      "files": {
+        "SquareKit/FinitaryTerm.lean": "5784b7884a762a44a2f664876f6db33a2e49fb15f02b7bd45ea9ef0a421eb910",
+        "SquareKit/GuardedTheory.lean": "f980cc7a962ae7484cc268dd3d8284d3b8bbb36da3c8c634b2b0457710eafee1",
+        "SquareKit/GuardedTheory/Extension.lean": "d3d1db9b7839a398f2420863f8cac44dcca5d8f6e9886eab4b5c70f72c2b2bca",
+        "SquareKit/Internal/DependentJudgments/Authoring.lean": "d3e98e9b9918a5d612b60542c68ac134c796a81468c07501008f344de45cca06",
+        "SquareKit/Internal/DependentJudgments/Comprehension.lean": "66e5098f2db90447a15d3053fea18f67e477f0069ec5b21bba88439377fc523e",
+        "SquareKit/Internal/DependentJudgments/ComprehensionEtaRule.lean": "d70f39fd5be166f3a3fbcc864c985955d7ef00bcd8b89a5c94aecb4ba151c07f",
+        "SquareKit/Internal/DependentJudgments/ComprehensionMaps.lean": "204b11280f440238aadee1ca631a5bd21090c949e8819bd7ebf0d1299bb43c3f",
+        "SquareKit/Internal/DependentJudgments/ContextualOperations.lean": "973d32f60270cb82d6e27b83a4a28f9c676f4579d7196e6580cb1899f3fe75b4",
+        "SquareKit/Internal/DependentJudgments/ContextualRules.lean": "fd378277cbdbe879345229de6e5cfc0f252f1b2347cae631f5a383998730c315",
+        "SquareKit/Internal/DependentJudgments/DerivedRules.lean": "a8e00e99c670c50339c60fc0e157772952a0fc034856639fdf3c6b688b2067fd",
+        "SquareKit/Internal/DependentJudgments/NilReindexRules.lean": "74da34755a6d9bbeb98bd5fa9709dacb0b53058b18ee65de94d48eaf75d2e178",
+        "SquareKit/Internal/DependentJudgments/PairComposition.lean": "20d948f82aab450edd7225e95df24279ab4b27044c2e6855000af13feb4ad0b8",
+        "SquareKit/Internal/DependentJudgments/PathReindexRules.lean": "4baeed8d08b7025be62dec27ddedafc2f1b13eface2f16bd9975b8991e00a3ec",
+        "SquareKit/Internal/DependentJudgments/Sigma/Authoring.lean": "5ba00150332e4d366ba00ce979d544ce12d4eac0aee62f44a172979d6d3338af",
+        "SquareKit/Internal/DependentJudgments/Sigma/Capability.lean": "f737589432a2718bacf33b3d8346da75cd0f5b83de070994cf6d794862b4c438",
+        "SquareKit/Internal/DependentJudgments/Sigma/Operations.lean": "bb2beef5eaa641e4c1eff75c101e86ecdd407fc3d5210f298fe05879540e681c",
+        "SquareKit/Internal/DependentJudgments/Sigma/Pairing.lean": "af11ca994e9e4975ab784aa27568dbfc6829a96752a8b16574b9a2b38786ce4f",
+        "SquareKit/Internal/DependentJudgments/Sigma/Rules.lean": "1af7e493740776c2c390c8b719c1efd47cffe377f15b84d52a3ee4de9fd0bae4",
+        "SquareKit/Internal/DependentJudgments/Sigma/Stability.lean": "e8640f73f7f3f2856608ff756678bb1ded998a64565869a1b806c9d3fb8f8422",
+        "SquareKit/Internal/DependentJudgments/Sigma/Substitution.lean": "eebea8cd054d2eb2090c4107f882e156c755163fdeef4377b8cda5addfb0c254",
+        "SquareKit/Internal/DependentJudgments/Sigma/Syntax.lean": "fa4e9a49fce71c05069dfa8996c90475e038fe222e62679bbf48b044f1aceeb2",
+        "SquareKit/Internal/DependentJudgments/Sigma/Theory.lean": "53ce2bf3bfc190f8c9e772c260b6058892d1ab68c88401854317f38e571ff7ab",
+        "SquareKit/Internal/DependentJudgments/SourceSubstitution.lean": "4f4940f67ceef44d59385c99be45fb3d3ff2c137077695b21d5c9f81be3baad4",
+        "SquareKit/Internal/DependentJudgments/StructuralRules.lean": "1fc02ee6c0ba418474c8afabfa95a79f2468a76b605363fb238522ab02823528",
+        "SquareKit/Internal/DependentJudgments/Templates.lean": "e996ebdd3807e8bbe4327a45b5fa5296418b28668ccfb6f7d16b3faaa292b721",
+        "SquareKit/Internal/DependentJudgments/Theory.lean": "85829ac74b4ede1438b107e71135e4d2002b6ee538af1469a0421773cf7db481",
+        "SquareKit/Internal/PathTransport/Comprehension.lean": "1182ce0a1d3aab6b271e07ab6edda5d38428c6fe9dacbd0f1960e5dd50f719ca",
+        "SquareKit/Internal/PathTransport/ContextualModel.lean": "afd212bb38a10986ca4e059fe54bbdf347b2b8fe9a78d50fbdb0eb86021cea34",
+        "SquareKit/Internal/PathTransport/InterpretationMaps.lean": "07ab6d8ec0bd845bccf31e40637bd1795c169ad80fcea44242046bb595fa4243",
+        "SquareKit/Internal/PathTransport/Model.lean": "224da492660cc043951db24942d1e256fb5b3bab4a1751f7883184fc23b74253",
+        "SquareKit/Internal/PathTransport/RawContext.lean": "71f67a028b09974168ed09a3c14c304d127997a5ebf63c064e3b9d7b1cd98dfa",
+        "SquareKit/Internal/PathTransport/Syntax.lean": "30a34c9b8ed5288ba5d91a6302f0cba1eac35a0aeb7c4a2b91fdc625d81c237c"
+      },
+      "external_imports": [
+        "Mathlib.Data.Fin.Basic",
+        "Mathlib.Data.Fin.VecNotation",
+        "Mathlib.Data.Fintype.Fin",
+        "Mathlib.Logic.Equiv.Defs",
+        "Mathlib.Tactic.FinCases"
+      ]
+    }
+  }
+}
