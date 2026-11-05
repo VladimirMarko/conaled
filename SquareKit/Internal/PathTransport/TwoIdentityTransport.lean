@@ -300,4 +300,19 @@ theorem homTransport_id (a a' : A) :
 
 end TransportComposition
 
+/-- Equality of fiber functors transports both endpoints without changing hom transport. -/
+theorem homTransport_congr {F G : StrictPseudofunctor A B} (e : F = G)
+    {a a' : A} {b b' : B} (u : G.obj a ⟶ b) [IsIso u] (v : G.obj a' ⟶ b') :
+    homTransport F (eqToHom (congrArg (fun H => H.obj a) e) ≫ u)
+      (eqToHom (congrArg (fun H => H.obj a') e) ≫ v) = homTransport G u v := by
+  subst G
+  simp only [eqToHom_refl, Category.id_comp]
+
+theorem homTransport_of_eq_id (F : StrictPseudofunctor A A)
+    (e : F = StrictPseudofunctor.id A) (a a' : A) :
+    homTransport F (eqToHom (congrArg (fun H => H.obj a) e))
+      (eqToHom (congrArg (fun H => H.obj a') e)) = 𝟭 (a ⟶ a') := by
+  subst F
+  exact homTransport_id a a'
+
 end SquareKit.Internal.PathTransport.TwoIdentityTransport

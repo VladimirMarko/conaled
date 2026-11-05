@@ -207,6 +207,19 @@ checks that this is an endpoint context family, not yet its identity family or
 a proof of Sigma closure. The focused 857-target endpoint build and 568-root,
 15-module proof audit pass, with only the three permitted axioms.
 
+The endpoint family also has diagonal and two projection transformations;
+composing the diagonal with either projection is the identity transformation.
+`TwoOpenIdentity` constructs the actual ordinary functor from the total
+endpoint context to hom-categories, with proved identity and composition
+laws. It assigns a natural hom comparison to every genuine total 2-cell.
+The integer example computes its action on the selected path `k` under
+endpoint arrows `m,n` as `-m + k + n`, through this general context functor.
+
+Statement review separates this constructed ordinary functor and its 2-cell
+operation from the still-pending full higher-family laws. It does not yet
+supply reflexivity, contraction or J. Focused validation passes 859 build
+targets and the 621-root, 17-module audit, with only the permitted axioms.
+
 ## Remaining construction
 
 1. Specify the general small strict 2-groupoids and higher family collection,

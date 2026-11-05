@@ -85,4 +85,65 @@ instance endpointFiberLocallyGroupoid (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ)
   intro a b
   change IsGroupoid ((a.1 ⟶ b.1) × (a.2 ⟶ b.2))
   infer_instance
+/-- Duplicate all three dimensions of a fiber. -/
+def diagonalFunctor (A : StrictTwoCategory.{u,v,w}) : StrictPseudofunctor A (A × A) :=
+  StrictPseudofunctor.mk' {
+    obj := fun a => (a,a)
+    map := fun f => (f,f)
+    map₂ := fun α => (α,α)
+  }
+
+/-- The coherent family map that duplicates an endpoint. -/
+def diagonalFamily (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ) :
+    StrictTwoTransformation.Trans F (endpointFamily F) where
+  app γ := diagonalFunctor (F.obj γ)
+  naturality f := StrictTwoTransformation.functor_ext rfl
+  naturality₂ α := by
+    apply StrictTwoTransformation.Trans.ext
+    intro a
+    repeat rw [StrictTwoTransformation.Trans.comp_app]
+    repeat rw [StrictTwoTransformation.Trans.eqToHom_app]
+    change _ ≫ 𝟙 _ = 𝟙 _ ≫ _
+    simp
+    rfl
+
+/-- First endpoint projection, including its higher action. -/
+def firstEndpoint (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ) :
+    StrictTwoTransformation.Trans (endpointFamily F) F where
+  app γ := Bicategory.Prod.fst _ _
+  naturality f := StrictTwoTransformation.functor_ext rfl
+  naturality₂ α := by
+    apply StrictTwoTransformation.Trans.ext
+    intro a
+    repeat rw [StrictTwoTransformation.Trans.comp_app]
+    repeat rw [StrictTwoTransformation.Trans.eqToHom_app]
+    change _ ≫ 𝟙 _ = 𝟙 _ ≫ _
+    simp
+    rfl
+
+/-- Second endpoint projection, including its higher action. -/
+def secondEndpoint (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ) :
+    StrictTwoTransformation.Trans (endpointFamily F) F where
+  app γ := Bicategory.Prod.snd _ _
+  naturality f := StrictTwoTransformation.functor_ext rfl
+  naturality₂ α := by
+    apply StrictTwoTransformation.Trans.ext
+    intro a
+    repeat rw [StrictTwoTransformation.Trans.comp_app]
+    repeat rw [StrictTwoTransformation.Trans.eqToHom_app]
+    change _ ≫ 𝟙 _ = 𝟙 _ ≫ _
+    simp
+    rfl
+theorem diagonal_first (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ) :
+    (diagonalFamily F).comp (firstEndpoint F) = StrictTwoTransformation.Trans.id F := by
+  apply StrictTwoTransformation.Trans.ext
+  intro γ
+  exact StrictTwoTransformation.functor_ext rfl
+
+theorem diagonal_second (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ) :
+    (diagonalFamily F).comp (secondEndpoint F) = StrictTwoTransformation.Trans.id F := by
+  apply StrictTwoTransformation.Trans.ext
+  intro γ
+  exact StrictTwoTransformation.functor_ext rfl
+
 end SquareKit.Internal.PathTransport.TwoFamily
