@@ -521,4 +521,139 @@ theorem repackM_keyM (offset : Int) (stride : Nat) (key : KeyBounds.Key)
 theorem repackM_cost (stride : Nat) (source : WordMachine.Word width) :
     (repackM stride source).2 = 4 := rfl
 
+/-- A conversion callback retains its arguments and the four actual arithmetic
+results. The packed source key occupies one reference slot. -/
+def keyControl (offset : Int) (stride : Nat) (key : KeyBounds.Key) :
+    Control.Run (WordMachine.Word width) :=
+  let height := (WordMachine.scalar width ((ofLex key).1+offset).toNat).1
+  let index := (WordMachine.scalar width (ofLex key).2).1
+  let product := (WordMachine.scalar width (height.val*stride)).1
+  let result := (WordMachine.scalar width (product.val+index.val)).1
+  Control.note result [.integer offset,.nat stride,.ref key,.ref height,.ref index,.ref product,.ref result]
+
+theorem keyControl_value : (keyControl (width := width) offset stride key).value =
+    (keyM offset stride key).1 := rfl
+
+theorem keyControl_peak : (keyControl (width := width) offset stride key).peak ≤ 7 := by rfl
+
+def scalarControl (width value : Nat) : Control.Run (WordMachine.Word width) :=
+  let result := (WordMachine.scalar width value).1
+  Control.note result [.nat value,.ref result]
+
+def mapControl (seed : β) (f : α → Control.Run β) (source : Vector α n) :=
+  Control.tabulate seed (fun i : Fin n =>
+    Control.scope [.ref source,.nat i.val] (Control.seq
+      (Control.note source[i.val] [.ref source[i.val]]) f))
+
+theorem mapControl_value (seed : β) (f : α → Control.Run β) (source : Vector α n) :
+    (mapControl seed f source).value = source.map (fun x => (f x).value) := by
+  simp only [mapControl,Control.tabulate_value,Control.scope,Control.seq,Control.note]
+  apply Vector.ext
+  intro i hi
+  simp
+
+theorem mapControl_peak (seed : β) (f : α → Control.Run β) (source : Vector α n)
+    (hc : ∀ x, (f x).peak ≤ c) : (mapControl seed f source).peak ≤ c+11 := by
+  have hh := Control.tabulate_peak seed
+    (fun i : Fin n => Control.scope [.ref source,.nat i.val]
+      (Control.seq (Control.note source[i.val] [.ref source[i.val]]) f))
+    (c := c+3) (fun i => by
+      simp only [Control.scope,Control.seq,Control.note,List.length_cons,List.length_nil]
+      have hh := hc source[i.val]
+      omega)
+  exact hh
+
+def rowControl (offset : Int) (stride : Nat) (source : Vector KeyBounds.Key n) :=
+  mapControl (WordMachine.word width 0) (keyControl offset stride) source
+
+theorem rowControl_value : (rowControl (width := width) offset stride source).value =
+    (rowM offset stride source).1 := by
+  simp only [rowControl,mapControl_value,keyControl_value,rowM,mapM_value]
+
+theorem rowControl_peak : (rowControl (width := width) offset stride source).peak ≤ 18 :=
+  mapControl_peak _ _ _ (fun _ => keyControl_peak)
+
+def matrixControl (offset : Int) (stride : Nat) (source : Vector (Vector KeyBounds.Key cols) rows) :=
+  Control.seq (Control.allocArray (WordMachine.word width 0) cols) fun seed =>
+  Control.scope [.ref seed] (mapControl seed (rowControl offset stride) source)
+
+theorem matrixControl_value : (matrixControl (width := width) offset stride source).value =
+    (matrixM offset stride source).1 := by
+  simp only [matrixControl,Control.seq,Control.scope,Control.allocArray,Control.note,
+    mapControl_value,rowControl_value,matrixM,Resources.bind,TableExecution.initStore_exact,mapM_value]
+
+theorem matrixControl_peak : (matrixControl (width := width) offset stride source).peak ≤ 30 := by
+  have hh := mapControl_peak (Vector.replicate _ (WordMachine.word width 0))
+    (rowControl offset stride) source (fun _ => rowControl_peak)
+  simpa only [matrixControl,Control.seq,Control.scope,Control.allocArray,Control.note,
+    List.length_cons,List.length_nil] using (max_le (show 4 ≤ 30 by omega) (show 1+_ ≤ 30 by omega))
+
+def tensorControl (offset : Int) (stride : Nat)
+    (source : Vector (Vector (Vector KeyBounds.Key cols) rows) classes) :=
+  Control.seq (Control.allocArray (WordMachine.word width 0) cols) fun rowSeed =>
+  Control.scope [.ref rowSeed] (Control.seq (Control.allocArray rowSeed rows) fun classSeed =>
+    Control.scope [.ref classSeed] (mapControl classSeed (matrixControl offset stride) source))
+
+theorem tensorControl_value : (tensorControl (width := width) offset stride source).value =
+    (tensorM offset stride source).1 := by
+  simp only [tensorControl,Control.seq,Control.scope,Control.allocArray,Control.note,
+    mapControl_value,matrixControl_value,tensorM,Resources.bind,TableExecution.initStore_exact,mapM_value]
+
+theorem tensorControl_peak : (tensorControl (width := width) offset stride source).peak ≤ 43 := by
+  have hh := mapControl_peak (Vector.replicate _ (Vector.replicate _ (WordMachine.word width 0)))
+    (matrixControl offset stride) source (fun _ => matrixControl_peak)
+  simp only [tensorControl,Control.seq,Control.scope,Control.allocArray,Control.note,
+    List.length_cons,List.length_nil]
+  omega
+
+def convertControl (data : Backend.State m) : Control.Run (Resident m width) :=
+  Control.scope [.ref data] (
+  Control.seq (mapControl (WordMachine.word width 0) (fun d : Int => scalarControl width d.toNat) data.micro.depths) fun depths =>
+  Control.scope [.ref depths] (
+  Control.seq (mapControl (WordMachine.word width 0) (fun c => scalarControl width c.val) data.micro.classes) fun classes =>
+  Control.scope [.ref classes] (
+  Control.seq (tensorControl ((blockSize m-1 : Nat) : Int) (2*(blockSize m-1+1)) data.micro.shared) fun shared =>
+  Control.scope [.ref shared] (
+  Control.seq (Control.allocArray (WordMachine.word width 0) (blocks m)) fun seed =>
+  Control.scope [.ref seed] (
+  Control.seq (mapControl seed (fun desc => rowControl 0 (blocks m*(blockSize m-1+1)) desc.1) data.macroRows) fun macroRows =>
+  Control.scope [.ref macroRows] (
+  Control.seq (mapControl (WordMachine.word width 0) (fun desc => scalarControl width desc.2) data.macroRows) fun spans =>
+  Control.scope [.ref spans] (
+  Control.seq (mapControl (WordMachine.word width 0) (scalarControl width) data.macroLogs) fun logs =>
+  Control.note ⟨depths,classes,shared,macroRows,spans,logs⟩ [.ref logs])))))))
+
+theorem convertControl_value (input : Input m)
+    (h : MachineCapacity.Eligible m width capacity inputWords frameWords)
+    (data : Backend.State m) (valid : data = PackedBackend.state input) :
+    (convertControl (width := width) data).value = (convertState input h data valid).1 := by
+  simp only [convertControl,Control.scope,Control.seq,Control.note,mapControl_value,
+    scalarControl,tensorControl_value,rowControl_value,Control.allocArray,
+    convertState,Resources.bind,Resources.pure,TableExecution.initStore_exact,mapM_value]
+
+theorem convertControl_peak (data : Backend.State m) :
+    (convertControl (width := width) data).peak ≤ 128 := by
+  have hd := mapControl_peak (WordMachine.word width 0) (fun d : Int => scalarControl width d.toNat)
+    data.micro.depths (c := 2) (fun _ => le_rfl)
+  have hc := mapControl_peak (WordMachine.word width 0) (fun c : Fin (2^(blockSize m-1)) => scalarControl width c.val)
+    data.micro.classes (c := 2) (fun _ => le_rfl)
+  have ht := tensorControl_peak (width := width) (offset := ((blockSize m-1 : Nat) : Int))
+    (stride := 2*(blockSize m-1+1)) (source := data.micro.shared)
+  have hm := mapControl_peak (Vector.replicate (blocks m) (WordMachine.word width 0))
+    (fun desc : Vector KeyBounds.Key (blocks m) × Nat => rowControl 0 (blocks m*(blockSize m-1+1)) desc.1)
+    data.macroRows (fun _ => rowControl_peak)
+  have hs := mapControl_peak (WordMachine.word width 0)
+    (fun desc : Vector KeyBounds.Key (blocks m) × Nat => scalarControl width desc.2)
+    data.macroRows (c := 2) (fun _ => le_rfl)
+  have hl := mapControl_peak (WordMachine.word width 0) (scalarControl width) data.macroLogs (c := 2) (fun _ => le_rfl)
+  simp only [convertControl,Control.scope,Control.seq,Control.note,Control.allocArray,
+    List.length_cons,List.length_nil]
+  simp only [KeyBounds.Key, BlockedRMQ.Key] at hm hs ⊢
+  omega
+
+
+
+example : (repackM 4 (⟨9,by decide⟩ : WordMachine.Word 4)).1.val = 9 := by decide
+example : (keyControl (width := 4) 2 4 (toLex (-1,1))).peak ≤ 7 := keyControl_peak
+
 end Sequences.LCA.ResidentInstallation
