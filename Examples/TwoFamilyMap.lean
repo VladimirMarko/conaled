@@ -24,4 +24,15 @@ theorem mapped_path_arrows_compose (m n : ℤ) :
       (TwoFamily.arrow n) :=
   Functor.map_comp _ _ _
 
+/-- Two nonzero path comparisons retain their composite under the general action. -/
+theorem mapped_path_cells_compose (m n k : ℤ) :
+    SquareKit.Internal.PathTransport.TwoFamily.StrongMap.map₂ identityTransformation
+      (TwoFamily.cell (TwoGroupoidPath.comparison m n) ≫
+        TwoFamily.cell (TwoGroupoidPath.comparison n k)) =
+    SquareKit.Internal.PathTransport.TwoFamily.StrongMap.map₂ identityTransformation
+      (TwoFamily.cell (TwoGroupoidPath.comparison m n)) ≫
+    SquareKit.Internal.PathTransport.TwoFamily.StrongMap.map₂ identityTransformation
+      (TwoFamily.cell (TwoGroupoidPath.comparison n k)) :=
+  SquareKit.Internal.PathTransport.TwoFamily.StrongMap.map₂_comp _ _ _
+
 end Examples.TwoFamilyMap

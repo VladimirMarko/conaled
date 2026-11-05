@@ -1,4 +1,4 @@
-import SquareKit.Internal.PathTransport.TwoFamily
+import SquareKit.Internal.PathTransport.TwoFamilyCoherence
 
 /-! Maps of total families induced by coherent family transformations. -/
 namespace SquareKit.Internal.PathTransport.TwoFamily
@@ -179,6 +179,45 @@ theorem map₂_id {x y : Total F} (p : Hom F x y) : map₂ η (𝟙 p) = 𝟙 (m
     _ = _ := congrArg (fun z => z ≫ eqToHom _) (whisker_map_eqToHom
       (η.app y.base) ((η.naturality p.base).inv.app x.fiber) _)
     _ = _ := by simp only [eqToHom_trans]
+
+private theorem conjugate_whiskerLeft {B : Type*} [Bicategory B]
+    {a b c : B} {f g : a ⟶ b} (h : f = g) {i j : b ⟶ c} (η : i ⟶ j)
+    {k l : a ⟶ c} (hi : k = f ≫ i) (hj : f ≫ j = l)
+    (hi' : k = g ≫ i) (hj' : g ≫ j = l) :
+    eqToHom hi ≫ f ◁ η ≫ eqToHom hj = eqToHom hi' ≫ g ◁ η ≫ eqToHom hj' := by
+  cases h
+  rfl
+
+omit [Bicategory.Strict Γ] in
+set_option maxHeartbeats 100000 in
+/-- Coherent transport preserves vertical pasting of total 2-cells. -/
+theorem map₂_comp {x y : Total F} {p q r : Hom F x y} (α : p ⟶ q) (β : q ⟶ r) :
+    map₂ η (α ≫ β) = map₂ η α ≫ map₂ η β := by
+  refine Pseudofunctor.CoGrothendieck.Hom.ext _ _ rfl ?_
+  simp only [map₂, fiber_comp]
+  change ((η.naturality p.base).inv.app x.fiber ◁
+    (η.app y.base).map₂ (α.fiber ≫ (F.map₂ α.base).app x.fiber ◁ β.fiber ≫ eqToHom _)) ≫ eqToHom _ =
+    (((η.naturality p.base).inv.app x.fiber ◁ (η.app y.base).map₂ α.fiber ≫ eqToHom _) ≫
+      (G.map₂ α.base).app ((η.app x.base).obj x.fiber) ◁
+        ((η.naturality q.base).inv.app x.fiber ◁ (η.app y.base).map₂ β.fiber ≫ eqToHom _) ≫
+      eqToHom _) ≫ eqToHom _
+  simp only [PrelaxFunctor.map₂_comp]
+  simp only [Pseudofunctor.map₂_whisker_left, (η.app y.base).mapComp_eq_eqToIso,
+    eqToIso.hom, eqToIso.inv, PrelaxFunctor.map₂_eqToHom, whiskerLeft_comp,
+    Bicategory.whiskerLeft_eqToHom, Category.assoc, eqToHom_trans]
+  simp only [nested_whiskerLeft, Category.assoc, eqToHom_trans_assoc, eqToHom_trans]
+  apply congrArg (fun z => ((η.naturality p.base).inv.app x.fiber ◁
+    (η.app y.base).map₂ α.fiber) ≫ z)
+  exact conjugate_whiskerLeft (comparison_naturality η α.base x.fiber)
+    ((η.app y.base).map₂ β.fiber) _ _ _ _
+
+
+/-- The complete hom-category action of a coherent family map. -/
+def homFunctor (x y : Total F) : Hom F x y ⥤ Hom G (obj η x) (obj η y) where
+  obj := map η
+  map := map₂ η
+  map_id := map₂_id η
+  map_comp := map₂_comp η
 
 end StrongMap
 end SquareKit.Internal.PathTransport.TwoFamily

@@ -230,9 +230,21 @@ and reindexed-fiber closure instances. The integrated focused audit passes
 
 `TwoFamilyMap` constructs the ordinary total functor induced by an arbitrary
 strong family transformation, its genuine 2-cell operation and identity law.
-The helper's vertical composition draft remains outside the committed source:
-its final cast proof requires further elaboration work. Thus no strict higher
-map or J construction is claimed from that checkpoint.
+The vertical composition law is now proved, yielding a functor on every
+complete hom-category. Its proof uses the naturality of the strong comparison,
+not subsingleton elimination of fiber 2-cells. The checked integer-path example
+specializes the law to two arbitrary consecutive comparisons. Statement review:
+`map₂_comp` quantifies over every strong transformation and every composable pair
+of total cells; no identity-comparison hypothesis restricts it. The auxiliary
+conjugation lemma changes only equal typed whiskering boundaries.
+
+The focused `Examples.TwoFamilyMap` build passes 852 targets. The corresponding
+focused audit passes 745 kernel-safe declarations (570 theorem declarations) in
+23 project modules, with only the three permitted foundational axioms. The
+failed cast-heavy draft remains in the orchestration evidence; replacing its
+implicit dependent boundaries with an explicit typed goal allowed the same
+mathematical pasting proof to check. Horizontal compatibility of coherent total
+maps, the complete open identity family and contextual J remain pending.
 
 ## Remaining construction
 
