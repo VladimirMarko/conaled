@@ -28,6 +28,13 @@ The original assessments are retained as research proposals, not checked
 theorems. The results section below records subsequent reviewed evidence;
 the individual assessments retain their historical wording.
 
+The [finitary type-theory study](finitary-type-theories.md) examines an
+independent contextual calculus and annotated context-free presentation at
+arXiv:2112.00539v1. It records the exact translation hypotheses, their mismatch
+with unrestricted guarded equality, and architectural tests for #324–#328.
+It preserves the existing interfaces while proposing scoped correspondence
+investigations; it does not establish source adequacy or select a new framework.
+
 ## Reviewed results from the follow-up investigations
 
 The [structure audit](dependent-structure-audit.md) derives pairing naturality,
