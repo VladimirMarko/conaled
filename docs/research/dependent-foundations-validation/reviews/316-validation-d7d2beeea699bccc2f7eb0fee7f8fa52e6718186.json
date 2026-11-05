@@ -1,0 +1,127 @@
+{
+  "result": "passed",
+  "completed_utc": "2026-11-04T23:53:53.476337+00:00",
+  "candidate": "d7d2beeea699bccc2f7eb0fee7f8fa52e6718186",
+  "tree": "a3baf0c1f6213e135371f9f1ee428fc144c6162c",
+  "review_base": "f0773fee8fa40214c67606c46ba8c41eed8e674b",
+  "validated_premerge_candidate": "ca54f31646bd60e1866efc39f257db5b27dc17fc",
+  "merge_conflicts": false,
+  "authored_files_unchanged": {
+    "docs/research/dependent-higher-identity.md": {
+      "git_blob": "a085c65bd7c9e35334bced07cc3d74195471aacc",
+      "sha256": "9811b115840db95acb7252b57dd274018e838d5309eca64d302ac92d6f3c1d40"
+    },
+    "experiments/dependent-higher-identity/.gitignore": {
+      "git_blob": "c0ca3873b635607749eaa7bab23339b31a809eea",
+      "sha256": "63ad7890e98c1592d4fa793cc61ad5c29ed6b4ce4460d9674622bc494ea42cd6"
+    },
+    "experiments/dependent-higher-identity/Everything.agda": {
+      "git_blob": "2e10c9be63f00ad9416fb41295f31520fb80cfd3",
+      "sha256": "d234914d03af7e9350a0adfa97e0c1e94d313cb9584169bbab00e53990991dd4"
+    },
+    "experiments/dependent-higher-identity/FrozenMemo.agda": {
+      "git_blob": "aa7d4c083bfe98b3a55b83b43371777e2b7c85df",
+      "sha256": "48ac4bcb111b63339678cdbb9cc3fa26afe77f8a3476715ebd76e9dfad73c00f"
+    },
+    "experiments/dependent-higher-identity/HigherWitness.agda": {
+      "git_blob": "f4abeacc2a3d18f119cddf742ed70145b7dbe98f",
+      "sha256": "52d362cbc0618b0aa2ec31a117e0b739c7aa8afce5fba8d106513bc52be28707"
+    },
+    "experiments/dependent-higher-identity/Monodromy.agda": {
+      "git_blob": "f525c1b62ea228dbb6d9a43a2e1f5b2fd542d43a",
+      "sha256": "bbca6eabc7d35040fd5bb1fcc84f49c12ddfcfb90ffc2edb6d922a8c6e622aa3"
+    },
+    "experiments/dependent-higher-identity/README.md": {
+      "git_blob": "27fde4639411774e6236ca74b0760c6e15df6a75",
+      "sha256": "223aae42b1a75546c0169783de609ee6ab2f62bed2e454a40b753ab366e8fb3b"
+    },
+    "experiments/dependent-higher-identity/attempts.json": {
+      "git_blob": "43dc38acb41c40d25e34aa7f1a58dd29ee2551ff",
+      "sha256": "ef2097ab764457787e1927f1e9515fcb5cf5150e5ff1c0f3e156d671ace3f911"
+    },
+    "experiments/dependent-higher-identity/check.log": {
+      "git_blob": "b058a374a25ea332da06abd54b530fc1daf08096",
+      "sha256": "dc57ddc7a1fa6b28c519b8614c31fe25d25017834ba6a1420a90f03e7833bd17"
+    },
+    "experiments/dependent-higher-identity/check.py": {
+      "git_blob": "ee7dcc48867291d35e70abe9723a035048beb004",
+      "sha256": "9ab13866b17352b826caab3ebe3d88b68a79e05455d567b37a01255981097dd6"
+    },
+    "experiments/dependent-higher-identity/imports.dot": {
+      "git_blob": "e8645ff7d08afe6d9710e026419722e72e2c01d2",
+      "sha256": "e130a6624482ff355399377b29221ef771e4aab47eb94c3681db8e42b56b5954"
+    },
+    "experiments/dependent-higher-identity/memo.agda-lib": {
+      "git_blob": "1414245e143332a063850c607877cbb9ecff7924",
+      "sha256": "1f58995484d730bcf22e841e86efa6e041e0628df6f72557ac68407c381a80e3"
+    },
+    "experiments/dependent-higher-identity/validation.json": {
+      "git_blob": "2d6b7f441b080c1aa0bf7b8885a248a198d1ca4c",
+      "sha256": "0c72284f3319cf11c0da195b7967b8dd425df6d358a75e0bb3b2c447739e3a2d"
+    }
+  },
+  "unchanged_input_paths": [
+    "docs/history",
+    "docs/research/dependent-coherence-discovery/292-external-memo.md",
+    "flake.nix",
+    "flake.lock",
+    ".envrc",
+    "lean-toolchain",
+    "lakefile.toml",
+    "lake-manifest.json"
+  ],
+  "reused_receipt_sha256": "0c72284f3319cf11c0da195b7967b8dd425df6d358a75e0bb3b2c447739e3a2d",
+  "reused_check_completed_utc": "2026-11-04T23:37:08.099585+00:00",
+  "rechecked_closure_modules": 235,
+  "checked_modules": 229,
+  "checkpoint_sha256": "19e6f70f5c86856ccd98b6ffb96817f6ee4a58938aa76e5aef1d91b670ba6a53",
+  "compiler_archive_sha256": "2bcf24bb561b1be859bba841e5d67962d1616b3251bc147f878e4f60a2fbd9f7",
+  "compiler_binary_sha256": "3fe070780fa370f5b74e5716ebe42fb60ec6b0ad90d13f8ab45d2903abf39b84",
+  "local_links_checked": [
+    {
+      "document": "docs/research/dependent-higher-identity.md",
+      "target": "dependent-coherence-discovery/292-external-memo.md"
+    },
+    {
+      "document": "docs/research/dependent-higher-identity.md",
+      "target": "../../SquareKit/Internal/PathTransport/SplitFamily.lean"
+    },
+    {
+      "document": "docs/research/dependent-higher-identity.md",
+      "target": "../../SquareKit/Internal/PathTransport/GroupoidSoundness.lean"
+    },
+    {
+      "document": "docs/research/dependent-higher-identity.md",
+      "target": "../../SquareKit/Internal/TwoLoop.lean"
+    },
+    {
+      "document": "docs/research/dependent-higher-identity.md",
+      "target": "dependent-architecture-reassessment.md"
+    },
+    {
+      "document": "docs/research/dependent-higher-identity.md",
+      "target": "dependent-coherence-comparison.md"
+    },
+    {
+      "document": "docs/research/dependent-higher-identity.md",
+      "target": "../history/orbifold/agda-checkpoints/README.md"
+    },
+    {
+      "document": "docs/research/dependent-higher-identity.md",
+      "target": "../../experiments/dependent-higher-identity/README.md"
+    },
+    {
+      "document": "experiments/dependent-higher-identity/README.md",
+      "target": "../../docs/research/dependent-higher-identity.md"
+    },
+    {
+      "document": "experiments/dependent-higher-identity/README.md",
+      "target": "../../docs/history/orbifold/agda-checkpoints/README.md"
+    }
+  ],
+  "diff_check": "passed",
+  "python_compile_and_help": "passed",
+  "clean_checkout": true,
+  "validation_script_sha256": "1d3da3fb103984f6321e761ab427fcc4ffdc0b8017da84a6cd3c102fd52235a1",
+  "scope": "Artifact identity supports reuse of the successful fresh Agda check; no new Agda or Lean build was run."
+}

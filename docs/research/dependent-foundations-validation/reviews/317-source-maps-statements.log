@@ -1,0 +1,92 @@
+[0mdirenv: loading /tmp/conaled-314-320/317/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+SquareKit.Internal.DependentJudgments.Sigma.SourceMap.{u, v} {M : SquareKit.Internal.PathTransport.Typed.Model}
+  {N : SquareKit.Internal.PathTransport.Typed.Model} (S : Capability M.toStructuralModel)
+  (T : Capability N.toStructuralModel) : Type (max u v)
+SquareKit.Internal.DependentJudgments.Sigma.SourceMap.toSigmaMap.{u, v}
+  {M : SquareKit.Internal.PathTransport.Typed.Model} {N : SquareKit.Internal.PathTransport.Typed.Model}
+  {S : Capability M.toStructuralModel} {T : Capability N.toStructuralModel} (F : SourceMap S T) : Map S T
+SquareKit.Internal.DependentJudgments.Sigma.interpret_map.{u, v} {M : SquareKit.Internal.PathTransport.Typed.Model}
+  {N : SquareKit.Internal.PathTransport.Typed.Model} {S : Capability M.toStructuralModel}
+  {T : Capability N.toStructuralModel} (F : SourceMap S T) {V : Type} (e : Expression V)
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel)
+  (h : SquareKit.GuardedTheory.Term.eval (algebra M S) ρ e ≠ SquareKit.Internal.DependentJudgments.Value.invalid) :
+  SquareKit.Internal.DependentJudgments.Value.map F.toStructuralMap
+      (SquareKit.GuardedTheory.Term.eval (algebra M S) ρ e) =
+    SquareKit.GuardedTheory.Term.eval (algebra N T)
+      (SquareKit.Internal.DependentJudgments.Value.map F.toStructuralMap ∘ ρ) e
+SquareKit.Internal.DependentJudgments.Sigma.interpret_term_map.{u, v} {M : SquareKit.Internal.PathTransport.Typed.Model}
+  {N : SquareKit.Internal.PathTransport.Typed.Model} {S : Capability M.toStructuralModel}
+  {T : Capability N.toStructuralModel} (F : SourceMap S T) {V : Type} {Γ A t : Expression V}
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel)
+  (ht : SquareKit.GuardedTheory.Atom.eval (algebra M S) ρ (term Γ A t)) :
+  SquareKit.Internal.DependentJudgments.Value.map F.toStructuralMap
+      (SquareKit.GuardedTheory.Term.eval (algebra M S) ρ t) =
+    SquareKit.GuardedTheory.Term.eval (algebra N T)
+      (SquareKit.Internal.DependentJudgments.Value.map F.toStructuralMap ∘ ρ) t
+SquareKit.Internal.DependentJudgments.Sigma.premises_map.{u, v} {V : Type} {Ω : List (Judgment V)}
+  {M : SquareKit.Internal.PathTransport.Typed.Model} {N : SquareKit.Internal.PathTransport.Typed.Model}
+  {S : Capability M.toStructuralModel} {T : Capability N.toStructuralModel} (F : SourceMap S T)
+  (typed : TypedAssumptions Ω) (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel)
+  (hΩ : ∀ p ∈ Ω, SquareKit.GuardedTheory.Atom.eval (algebra M S) ρ p) (p : Judgment V) :
+  p ∈ Ω →
+    SquareKit.GuardedTheory.Atom.eval (algebra N T)
+      (SquareKit.Internal.DependentJudgments.Value.map F.toStructuralMap ∘ ρ) p
+SquareKit.Internal.DependentJudgments.Sigma.interpret_target.{u, v} {V : Type} {Ω : List (Judgment V)} {a : Judgment V}
+  (d : SquareKit.GuardedTheory.Derivation theory Ω a) {M : SquareKit.Internal.PathTransport.Typed.Model}
+  {N : SquareKit.Internal.PathTransport.Typed.Model} {S : Capability M.toStructuralModel}
+  {T : Capability N.toStructuralModel} (F : SourceMap S T) (typed : TypedAssumptions Ω)
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel)
+  (hΩ : ∀ p ∈ Ω, SquareKit.GuardedTheory.Atom.eval (algebra M S) ρ p) :
+  SquareKit.GuardedTheory.Atom.eval (algebra N T)
+    (SquareKit.Internal.DependentJudgments.Value.map F.toStructuralMap ∘ ρ) a
+SquareKit.Internal.DependentJudgments.Sigma.Tm.interpret_map.{u, v} {V : Type} {Ω : List (Judgment V)}
+  {Γ A t : Expression V} (ht : Tm Γ A t) {M : SquareKit.Internal.PathTransport.Typed.Model}
+  {N : SquareKit.Internal.PathTransport.Typed.Model} {S : Capability M.toStructuralModel}
+  {T : Capability N.toStructuralModel} (F : SourceMap S T)
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel)
+  (hΩ : ∀ p ∈ Ω, SquareKit.GuardedTheory.Atom.eval (algebra M S) ρ p) :
+  SquareKit.Internal.DependentJudgments.Value.map F.toStructuralMap
+      (SquareKit.GuardedTheory.Term.eval (algebra M S) ρ t) =
+    SquareKit.GuardedTheory.Term.eval (algebra N T)
+      (SquareKit.Internal.DependentJudgments.Value.map F.toStructuralMap ∘ ρ) t
+SquareKit.Internal.DependentJudgments.Sigma.TypedEquality.map.{u, v} {V : Type} {Ω : List (Judgment V)}
+  {Γ A s t : Expression V} (comparison : TypedEquality Ω Γ A s t) {M : SquareKit.Internal.PathTransport.Typed.Model}
+  {N : SquareKit.Internal.PathTransport.Typed.Model} {S : Capability M.toStructuralModel}
+  {T : Capability N.toStructuralModel} (F : SourceMap S T)
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel)
+  (hΩ : ∀ p ∈ Ω, SquareKit.GuardedTheory.Atom.eval (algebra M S) ρ p) :
+  SquareKit.GuardedTheory.Term.eval (algebra N T)
+      (SquareKit.Internal.DependentJudgments.Value.map F.toStructuralMap ∘ ρ) s =
+    SquareKit.GuardedTheory.Term.eval (algebra N T)
+      (SquareKit.Internal.DependentJudgments.Value.map F.toStructuralMap ∘ ρ) t
+SquareKit.Internal.DependentJudgments.Sigma.Tm.split_map.{u, v} {V : Type} {Ω : List (Judgment V)}
+  {Γ A B C d : Expression V} (hA : Ty Γ A) (hB : Ty (extend Γ A) B) (hC : Ty (extend Γ (sigma A B)) C)
+  (hd : Tm (branchContext Γ A B) (subTy C (pack A B)) d) {M : SquareKit.Internal.PathTransport.Typed.Model}
+  {N : SquareKit.Internal.PathTransport.Typed.Model} {S : Capability M.toStructuralModel}
+  {T : Capability N.toStructuralModel} (F : SourceMap S T)
+  (ρ : V → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel)
+  (hΩ : ∀ p ∈ Ω, SquareKit.GuardedTheory.Atom.eval (algebra M S) ρ p) :
+  SquareKit.Internal.DependentJudgments.Value.map F.toStructuralMap
+      (SquareKit.GuardedTheory.Term.eval (algebra M S) ρ (split A B d)) =
+    SquareKit.GuardedTheory.Term.eval (algebra N T)
+      (SquareKit.Internal.DependentJudgments.Value.map F.toStructuralMap ∘ ρ) (split A B d)
+SquareKit.Internal.DependentJudgments.Sigma.splitDerivation_target.{u, v}
+  {M : SquareKit.Internal.PathTransport.Typed.Model} {N : SquareKit.Internal.PathTransport.Typed.Model}
+  {S : Capability M.toStructuralModel} {T : Capability N.toStructuralModel} (F : SourceMap S T)
+  (ρ : Fin 5 → SquareKit.Internal.DependentJudgments.Value M.toStructuralModel)
+  (hΩ : ∀ p ∈ List.ofFn splitRule.premise, SquareKit.GuardedTheory.Atom.eval (algebra M S) ρ p) :
+  SquareKit.GuardedTheory.Atom.eval (algebra N T)
+    (SquareKit.Internal.DependentJudgments.Value.map F.toStructuralMap ∘ ρ) splitRule.conclusion
+SourceMap.identityMap
+  (Native.capability ℕ fun n =>
+    Fin (n + 1)) : SourceMap (Native.capability ℕ fun n => Fin (n + 1)) (Native.capability ℕ fun n => Fin (n + 1))
+'SquareKit.Internal.DependentJudgments.Sigma.operation_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SquareKit.Internal.DependentJudgments.Sigma.interpret_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SquareKit.Internal.DependentJudgments.Sigma.interpret_target' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SquareKit.Internal.DependentJudgments.Sigma.splitDerivation_target' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

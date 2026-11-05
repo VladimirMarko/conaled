@@ -1,0 +1,97 @@
+{
+  "result": "passed",
+  "completed_utc": "2026-11-05T00:05:16.755053+00:00",
+  "candidate": "de2b1987e2f2caaad83ecddedb05c3ccded5bfff",
+  "review_base": "d7d2beeea699bccc2f7eb0fee7f8fa52e6718186",
+  "tree": "d38d7d450009a49f30c825dd3d1da07c1b5c0fb3",
+  "clean_checkout": true,
+  "only_changed_path": "docs/research/concrete-dependent-coherence.md",
+  "report_sha256": "6733f33320168ece9f27d08821ef4d6cd30a3d768048d94422ce7037471dc652",
+  "report_git_blob": "6b6c10e6cc6b0425cdb50335933d46b6e9ff3a56",
+  "local_links": [
+    "dependent-architecture-reassessment.md",
+    "dependent-coherence-comparison.md",
+    "dependent-coherence-discovery/292-external-memo.md",
+    "dependent-structure-audit.md",
+    "dependent-higher-identity.md",
+    "../../experiments/dependent-higher-identity/FrozenMemo.agda",
+    "../../experiments/dependent-higher-identity/HigherWitness.agda",
+    "../../experiments/dependent-higher-identity/Monodromy.agda",
+    "../../experiments/dependent-higher-identity/README.md",
+    "../../SquareKit/Internal/PathTransport/DisplayCategory.lean",
+    "../../SquareKit/FamilySquares.lean",
+    "../../Examples/GroupoidComprehensionBoundary.lean",
+    "dependent-coherence-fixture.md"
+  ],
+  "declaration_references_checked": {
+    "SquareKit/Internal/PathTransport/DisplayCategory.lean": [
+      "comprehensionFullyFaithful",
+      "displayPullback",
+      "display_cartesian"
+    ],
+    "SquareKit/FamilySquares.lean": [
+      "equivalence"
+    ],
+    "SquareKit/LocalUniverses.lean": [
+      "displayCurry",
+      "displayCurry_natural"
+    ],
+    "SquareKit/Internal/PathTransport/Comprehension.lean": [
+      "sectionsOver"
+    ],
+    "SquareKit/Internal/PathTransport/GroupoidSoundness.lean": [
+      "universeModel"
+    ],
+    "Examples/DependentStructureBoundary.lean": [
+      "ReachableLoops"
+    ],
+    "SquareKit/Internal/PathTransport/UniversalTransfer.lean": [
+      "proof"
+    ],
+    "Examples/DependentCongruence.lean": [
+      "dependentPair"
+    ],
+    "experiments/dependent-higher-identity/FrozenMemo.agda": [
+      "w-twice",
+      "apd-twice",
+      "observation"
+    ],
+    "experiments/dependent-higher-identity/HigherWitness.agda": [
+      "observation-detects-one",
+      "erasure-rejected"
+    ],
+    "experiments/dependent-higher-identity/Monodromy.agda": [
+      "transport-three",
+      "transport-two"
+    ]
+  },
+  "unchanged_incorporated_evidence_sha256": {
+    "docs/research/dependent-higher-identity.md": "9811b115840db95acb7252b57dd274018e838d5309eca64d302ac92d6f3c1d40",
+    "docs/research/dependent-structure-audit.md": "f00a699738f7b4d29cd7f144cc440a2a2d5b02af030dc94220d14185aa3716d0",
+    "experiments/dependent-higher-identity/.gitignore": "63ad7890e98c1592d4fa793cc61ad5c29ed6b4ce4460d9674622bc494ea42cd6",
+    "experiments/dependent-higher-identity/Everything.agda": "d234914d03af7e9350a0adfa97e0c1e94d313cb9584169bbab00e53990991dd4",
+    "experiments/dependent-higher-identity/FrozenMemo.agda": "48ac4bcb111b63339678cdbb9cc3fa26afe77f8a3476715ebd76e9dfad73c00f",
+    "experiments/dependent-higher-identity/HigherWitness.agda": "52d362cbc0618b0aa2ec31a117e0b739c7aa8afce5fba8d106513bc52be28707",
+    "experiments/dependent-higher-identity/Monodromy.agda": "bbca6eabc7d35040fd5bb1fcc84f49c12ddfcfb90ffc2edb6d922a8c6e622aa3",
+    "experiments/dependent-higher-identity/README.md": "223aae42b1a75546c0169783de609ee6ab2f62bed2e454a40b753ab366e8fb3b",
+    "experiments/dependent-higher-identity/attempts.json": "ef2097ab764457787e1927f1e9515fcb5cf5150e5ff1c0f3e156d671ace3f911",
+    "experiments/dependent-higher-identity/check.log": "dc57ddc7a1fa6b28c519b8614c31fe25d25017834ba6a1420a90f03e7833bd17",
+    "experiments/dependent-higher-identity/check.py": "9ab13866b17352b826caab3ebe3d88b68a79e05455d567b37a01255981097dd6",
+    "experiments/dependent-higher-identity/imports.dot": "e130a6624482ff355399377b29221ef771e4aab47eb94c3681db8e42b56b5954",
+    "experiments/dependent-higher-identity/memo.agda-lib": "1f58995484d730bcf22e841e86efa6e041e0628df6f72557ac68407c381a80e3",
+    "experiments/dependent-higher-identity/validation.json": "0c72284f3319cf11c0da195b7967b8dd425df6d358a75e0bb3b2c447739e3a2d"
+  },
+  "unchanged_frozen_discovery_sha256": {
+    "docs/research/dependent-coherence-discovery/292-external-freeze.sha256": "0c9cc4b7e9362c493e8a026ec667cd29aa69ec346b390f50b82b1bee809fb7ea",
+    "docs/research/dependent-coherence-discovery/292-external-memo.md": "cc62deb9aa985082f305882e2acdd3a1dacb5c20d352bd29775c1553ae10f6e8",
+    "docs/research/dependent-coherence-discovery/292-external-source-log.md": "e50199c3df17943d9a0cac67eb5bb0ddb3ccd1db29344b6acd51a7dafc46d3e5"
+  },
+  "spec_sha256": {
+    "318.json": "06c5d827cda75e0abd3626e42e77f7e5b147e88c7661f323b8aff6d05cd42a9b",
+    "orchestration.md": "031b14f6e7ef595d870d42445fff6dac71ede58b7b0e67fc0ac5b44d38b0f078",
+    "318-routing-notes.md": "6dfedb1847d6a8aeef31e20988ce03e74742baa95c2edb359f1e263f36b5d5ff"
+  },
+  "diff_check": "passed",
+  "validation_script_sha256": "39f8944745bb39d7efc0d05dda686bf8d3a83ccf7535c150d46446e8f8702208",
+  "scope": "Documentation artifact checks only; no Lean or Agda compilation or new mathematical proof claimed."
+}

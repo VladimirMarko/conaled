@@ -1,0 +1,55 @@
+# Issue 316 Standards review, round 1
+
+Outcome: **Passed**. Findings: **0**. Worst severity: **none**.
+
+Reviewer: `/root/review316/standards`. This is an independent Standards assessment of the fixed candidate. No prior Standards findings were supplied, and no finding IDs were issued. No source, tracker, or branch changes were made.
+
+## Scope and rules
+
+- Base and merge base: `f0773fee8fa40214c67606c46ba8c41eed8e674b`.
+- Candidate: `d7d2beeea699bccc2f7eb0fee7f8fa52e6718186`.
+- Candidate tree: `a3baf0c1f6213e135371f9f1ee428fc144c6162c`.
+- Checkout: `/tmp/conaled-314-320/316`, confirmed clean at the candidate.
+- Diff: `git diff f0773fee8fa40214c67606c46ba8c41eed8e674b...d7d2beeea699bccc2f7eb0fee7f8fa52e6718186`.
+- All 13 added files are in scope, with no exclusions.
+- Commits: `ca54f31 research: establish dependent higher source test and construction gap (#316)` and `d7d2bee chore(dependent): incorporate reviewed integration baseline (#316)`.
+
+Applicable guidance was read from the candidate: `AGENTS.md`, README development/build/audit and experimental boundaries, `docs/agents/architectural-quality.md`, `docs/agents/domain.md`, the glossary, the ADR index and ADRs 0001/0010, `docs/language-direction.md`, code-review and its heuristics, example-driven-development statement review, and no-ai-slop with its reference. No additional instructions apply in the changed subdirectories. The supplied issue 316 requirements, orchestration, issue 321 coordination, frozen memo, handoff, and exact-candidate validation record establish the intended scope. This review applies the permitted substantive-prerequisite outcome; it does not demand a completed Lean model where the requirement explicitly permits an owned construction successor.
+
+## Formal statements and checked applications
+
+`FrozenMemo.agda` preserves the generic mathematical argument. `A` and `B` range over arbitrary declared universe levels. The imported `Cubical.Data.Equality.Base` defines inductive identity and arbitrary-motive J, with the reflexive branch reducing to its supplied term. `j-beta` checks that computation for an arbitrary motive, rather than a transport-only specialization. Inspection of the pinned import confirms that this is inductive identity, distinct from the Path equality used elsewhere in the experiment.
+
+The three context records retain all components of the frozen memo. In particular, `h` has type `p ≡ p′`; it is not replaced by equality of first-level endpoints. `W` is a dependent pair whose second component refers to its first component. `apd-η` transports `η p q u` in the family `K q u` before comparing it with `η p′ q u`. The first and second substituted declarations state the resulting dependent types explicitly. The direct substitution `σ∘τ` is independently written as the context assignment, so the reflexivity proofs of `w-twice` and `apd-twice` check that the successive assignments yield that assignment with the full term types. These equations establish substitution for the selected source realization, not a general semantic interpretation theorem. The report states that limitation.
+
+`conjugation` has the required orientation and both endpoint comparisons: the inverse comparison at `p`, followed by `ap T h`, followed by the comparison at `p′`. Its reflexive case uses inverse cancellation. The path-family specialization defines `B(y)=Id_A(x,y)`, supplies its comparison by identity elimination, and retains the dependent witnesses through the generic substitutions.
+
+`HigherWitness.agda` supplies an inhabitant instead of assuming higher nontriviality. The two pinned pointed `Kn≃ΩKn+1∙` paths and the two Path-to-inductive-identity conversions produce the stated pointed double-identity parameter. Inspection of the pinned conversion source confirms the orientation of `PathIsoEq` and the reflexivity comparison used by `ua∙`. `decode-zero` uses the point component of the path; `encode-refl` therefore has a justified zero observation. The chosen `h=decode 1` satisfies `encode-h`, and `h-not-refl` derives the integer contradiction from a proposed inductive identity to reflexivity. The higher case consumes `Memo.w-twice`, `Memo.apd-twice`, and `PathFamily.observation`. Its detector is applied to the conjugated observation, and `erasure-rejected` rules out equality of that observation with reflexivity. It does not incorrectly require `apd-η(h)` itself to be nontrivial.
+
+`Monodromy.agda` is a second specialization of `Memo`, using the pinned circle integer cover. The library source supplies the inductive loop through Path conversion and the successor cover. The named single-loop computation is combined with the public transport-composition proof `Memo.η` to obtain two steps. The projected substituted pair then gives 3 for the selected first loop and 2 after replacing that loop by reflexivity. Both full repeated-substitution laws use the generic public results. Thus the applications demonstrate reuse and retain the dependent witnesses, rather than consisting only of independently computed integers.
+
+No circular nontriviality hypothesis, admitted local proof, vacuous instance, or mismatch between the reported equality notion and these statements was found. The `abstract` blocks hide proof reduction while retaining checked definitions and public statements; they do not postulate the desired laws.
+
+## Architecture, research, and provenance
+
+The general derivation is separated from the two source instances and from reproduction tooling. This is an appropriate experimental boundary under README and ADR 0001. It changes no integrated interpretation interface and leaves existing Lean specializations intact. The generic proof does not acquire univalence or HIT constructors as signature requirements merely because this particular external parameter construction uses them. The report keeps source checking, semantic model construction, judgment interpretation, and ordinary-author evidence distinct, as required by the language direction.
+
+The feasibility comparison is supported by the cited primary sources. Warren's Theorem 7.1 supplies a strict higher-groupoid existence route, while the candidate expressly leaves finite-dimensional closure unproved. [Warren](https://mawarren.net/papers/crmp1295.pdf). The local-universes discussion retains full comprehension, LF, and weak-stability obligations; the cited applications include Kan/Quillen simplicial sets. [Lumsdaine–Warren, Theorems 3.4.1 and 4.2.2, Examples 4.2.5](https://arxiv.org/pdf/1411.1736v2). The inaccessible-cardinal distinction matches the chosen-universe theorem and its additional internal-universe clause. [Kapulkin–Lumsdaine, Theorem 2.3.4](https://arxiv.org/pdf/1211.2851v5).
+
+The report correctly distinguishes Garner's discrete identity rules from the homotopy dimension needed by this consumer. [Garner, §2.3 and Table 2](https://arxiv.org/pdf/0808.2122v2). Its distinction between Path computation and strict identity computation is supported by CCHM §9.1. [CCHM](https://arxiv.org/pdf/1611.02108v1). The versioned Agda reference also supports the explicit experimental indexed-inductive transport limitation. [Agda 2.8.0.2](https://agda.readthedocs.io/en/v2.8.0.2/language/cubical.html#indexed-inductive-types). Direct inspection confirms that the pinned HoTTLean `IdObj` is discrete on the hom type; the candidate does not mistake its generic Hurewicz infrastructure for a higher concrete inhabitant. [Pinned Id implementation](https://github.com/sinhp/HoTTLean/blob/31133dd5b25226ea897f8aa5e2e43b61392459eb/HoTTLean/Groupoids/Id.lean).
+
+The proposed successor is substantive. The extension boundary `ρ : u ⇒ v ∘ F₂(α)_a` identifies missing higher family and section data. At the proposed `B²ℤ` parameter, this becomes `a=b+m`, and a strict natural contraction would require the impossible equation `c=a+c` for every integer `a`. These calculations explain why renaming existing groupoid carriers would fail. They are presented as calculations guiding an unconstructed Lean development, with closure, coherent contraction, arbitrary-motive contextual J, finite dependent tails, and judgment interpretation still assigned to issue 322. The source test is an independently specified consumer of that proposed work. There is no unsupported model-existence or higher-adoption claim.
+
+The authored prose uses concrete claims, pinned references, explicit hypotheses, and traceable receipt quantities. The interrupted attempts are retained in `attempts.json` with their disposition. The first timing is explicitly a transcription from an overwritten receipt, not presented as a still-preserved raw log. The report does not infer impossibility, ordinary-author cost, or comparative performance from those interruptions. No prose-standard violation or concrete heuristic defect was identified.
+
+## Validation assessment
+
+Validation status: **Established for the isolated Agda source-test scope**.
+
+The supplied exact-candidate record, `316-validation-d7d2beeea699bccc2f7eb0fee7f8fa52e6718186.json`, establishes that the incorporated candidate retains the checked sources, manifest, script, checkpoint/tooling inputs, log, graph, and receipt. It records rechecking all 235 source hashes against the retained source tree and compiler data. The successful fresh aggregate check completed at `2026-11-04T23:37:08Z`, with 229 checker progress entries and six separately pinned builtin imports. The candidate's `validation.json` records the safe-check command, zero exit status, compiler identity, closure hashes, and log/graph hashes. The candidate-specific record also supplies clean-checkout, local-link, Python compilation/help, and whitespace validation.
+
+Inspection of `check.py` and the preserved compiler launcher supports the reproduction claims. The script creates a new private work directory, verifies the preserved archive, extracts its pinned sources, verifies and diagnoses the compiler kit, selects an explicit library registry, requests fresh interfaces, records portable source-relative hashes, and checks agreement between the successful import graph and reported source modules. The launcher adds safe checking and rejection of unsolved metas/incomplete matches. Existing compiler state is an explicit option whose private writable-state requirement is documented. Source-level checker failures are logged and receive a failed receipt; interrupted earlier runs are separately described.
+
+This review did not repeat the successful full checker run: there was no concrete input or coverage concern requiring it. No integrated Lean source, Lake configuration, toolchain pin, or proof-audit policy changes, so an integrated Lean build/audit is neither required for this diff nor claimed as evidence. Safe Agda checking remains conditional on the compiler and primitive rules; the import graph is a whole-module closure, not a minimal logical proof audit. The candidate states both limits.
+
+Base: `f0773fee8fa40214c67606c46ba8c41eed8e674b`. Candidate: `d7d2beeea699bccc2f7eb0fee7f8fa52e6718186`. Standards: **Passed**, **0 findings**, worst severity **none**.

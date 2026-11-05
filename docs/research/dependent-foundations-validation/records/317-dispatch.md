@@ -1,0 +1,17 @@
+# Implementation assignment for #317
+
+Dispatch only after independently reviewed #315 is merged. This note is preparation, not permission to begin before that gate. The exact approved integration SHA and provisioned worktree/cache path must be supplied at dispatch.
+
+Implement the complete saved `specs/317.json` under `specs/orchestration.md`, using `reviews/317-framework-preparation.md` as primary-source preparation to verify. Continue the existing implement-spec loop; do not launch another implementation workflow or independently mutate the tracker. Root owns shared direction/reassessment/agenda docs. Own constructor modules, checked cases, the dedicated report and necessary entrypoint imports in the separate #317 checkout.
+
+The default experiment adds actual dependent sums to #315's admitted fragment, which has no object Sigma. Include genuinely dependent elimination. Make formation/introduction/elimination/beta and the selected eta contract explicit; distinguish object Id eta from judgmental eta. Establish semantic operation domains, rule premises/dependencies, chosen interpretation, substitution and comparisons. Existing generic signature extension/reduct results are reusable infrastructure, not the constructor result. Primitive model capability laws must accompany their operations; final client preservation must be derived, not requested as a caller field.
+
+Prove recovery of named old derivations and selected observations through reduct, extension composition where valid, and a rejecting rule/interpretation. State separately what is proved about interpreted preservation, all-model expansion, conservativity and witness recovery. The stronger claims are not automatic requirements to prove universally, but their status must be explicit. An ill-scoped example and a well-formed semantic rejection answer different questions. A type-equality rule needs semantic evidence even when syntax boundaries are valid.
+
+Assess BHL and the related finitary framework at their exact hypotheses. A local Horn derivation does not inherit their metatheorems without an adequacy bridge. Direct local proofs plus an explicit rejection of wholesale framework import may satisfy the task; do not formalize a universal framework before the example justifies it.
+
+Show an ordinary author consuming the generic admission/preservation theorem without repeating constructor coherence. Preserve the existing Id/J and selected-witness scope. Native Type success must be scoped; it does not pass the open higher-model gate. Do not resume #107, choose #108 work, activate #260 or implement future #322. Keep the held-out #320 task unselected until reviewed interfaces are frozen.
+
+Use EDD and statement review, focused checks during development, then exact clean candidate/full guarded build/exhaustive audit, four proof-audit regression fixtures, and immediate candidate verification under the shared acceptance lock. Record exact base/candidate and all evidence in reviews/317-handoff.md. Incorporate the latest approved integration before final candidate. Return for independent Standards/Spec review and remain available for fixes; no push or integration merge by the implementer.
+
+Root can supply helper capacity after a coherent operation/rule design and disjoint ownership are specified. Prefer reusing existing contextual/map constructions to creating parallel abstractions. Unlimited task budget does not waive concrete mathematical requirements or review gates.

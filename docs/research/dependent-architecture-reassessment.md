@@ -109,6 +109,11 @@ second-family guard show why a syntactically expressible extension still needs
 semantic admission. Use the checked extension in #320; keep its constructor
 capability distinct from the trial's comparison of ordinary author work.
 
+The [component validation records](dependent-foundations-validation/README.md)
+retain the exact reviewed candidates, independent findings, build/audit receipts
+and failed acceptance attempts. Final integration and author-trial acceptance
+remain separate gates.
+
 ## What the earlier account understated
 
 The current interface already pairs contextual identity elimination with its
