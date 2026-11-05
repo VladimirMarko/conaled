@@ -245,3 +245,20 @@ repair or preparing the independent retest. #288 coordinates extension claims;
 #290 coordinates author evidence; #36/#235 coordinate any resulting shared
 architecture. No universal framework, default local-universes model or general
 strictifier is adopted by this reassessment.
+
+## Bialgebraic comparison after the dependent experiments
+
+The [#329 reassessment](bialgebraic-dependent-reassessment.md) compares the
+reopened published constructions with the selected dependent memo and exact
+parser/weighted clients at `701023ce73ff297604fb21f2b6caada9e727c10c`. It retains
+local compatibility and proposes investigating dependent family/section
+comparisons with #325. That proposed construction is unproved; promotion must
+derive compatibility beyond the primitive laws already lifted by the guarded
+interpreter, and retain the chosen certificate and transported action source.
+
+Higher-order input variance and binding do not discharge dependent formation,
+conversion, contextual J or higher identity. The report distinguishes published
+theorem conclusions from missing local constructions, and retains the exact
+parser witness and strong-observation counterexamples. It recommends no shared
+API replacement or universal foundation. #326, #327 and #321/#322 keep their
+source-adequacy, weaker-Sigma and higher-model ownership.
