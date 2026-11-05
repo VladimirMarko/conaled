@@ -313,6 +313,7 @@ import Examples.TwoFamilyFiber
 import Examples.TwoIdentityMateFunctoriality
 
 import Examples.TwoFamilyPathContraction
+import Examples.TwoFamilyPathContractionCoherence
 import Examples.TwoFamilySigmaAction
 import Examples.TwoFamilySigmaCells
 import Examples.TwoFamilySigmaNaturality
