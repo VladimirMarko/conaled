@@ -168,10 +168,10 @@ contract and rejection cases.
 | Feature | First cube contraction | Frozen memo / witness | Construction obligation and current status |
 | --- | --- | --- | --- |
 | Dimension substitution, endpoints, connections, reversal | Connection and endpoints used | Required by chosen cubical semantics | Equational dimension presentation and cube category constructed in M1; semantic universal property/remaining rules are not claimed |
-| Face restrictions and compatible systems | No partial system in term | Needed for fibrancy | Construct face lattice/restriction semantics; pending |
+| Face restrictions and compatible systems | No partial system in term | Needed for fibrancy | Face lattice, endpoint reflection, restrictions and compatible gluing constructed in M3 foundation |
 | Dependent contexts, Π, Σ, substitution | Function parameter and Nat recursion | Both substitutions and genuinely varying families | Families/sections and comprehension constructed in M2a; Π/Σ/Nat operations and coherent substitution comparisons constructed in M2b |
 | Path abstraction/application and endpoints | Essential | Higher semantic observations | Dependent Path families, abstraction/application, endpoint rules and substitution isomorphisms constructed in M2b |
-| Generalized transport and homogeneous composition | Not used by this declaration | Needed for general dependent higher interpretation | Construct uniform operations with side conditions and boundaries; pending |
+| Generalized transport and homogeneous composition | Not used by this declaration | Needed for general dependent higher interpretation | Uniform semantic filling, Sigma closure and restricted-constancy transp constructed; Pi/Path closure and source rules pending |
 | Strict intensional Id, contextual J | Not used | Essential, arbitrary motives and finite tails | Construct strict Id and prove β/substitution, not native Lean Eq; pending |
 | Nontrivial higher parameter, nonconstant family | Not witnessed by contraction | Essential | Construct cubical parameter and detector; reuse exact memo after rule soundness |
 | Internal universes, Glue, univalence | Imported but not used by declaration slice | Used by external `HigherWitness` construction, not generic memo | Not advertised in selected fragment; broader source reuse requires classifier/Glue proofs |
@@ -703,3 +703,62 @@ Kleene counterexamples.
 These changes discharge representation-law duplication only. General fibrant
 closure, strict Id/J, the higher type, and the frozen dependent memo remain
 construction obligations under #321.
+
+
+## M3 dependent filling and restricted transport
+
+`Filling` separates chosen operations from their correctness and uniformity
+laws. It supplies a section filling an open box over each context path, with
+an arbitrary actual face and compatible starting cap. `Filling.Lawful` requires
+agreement with that cap and the entire tube, and commutation with arbitrary
+context substitutions. This uses whole fillers as primitive data. CCHM
+Definition 13 instead specifies far-face composition; the converse construction
+from composition to this filling interface is not claimed here.
+
+`discreteFilling` constructs an instance for every `S(q)`, with a natural
+constant-coefficient index `q`. Its proof now allows the index to be supplied
+over the entire interval extension. Interval rigidity identifies its values
+with those on the starting face; the filler transports the cap through that
+identification. The operation and its laws are proved, not supplied as new
+model fields. `Examples/CubicalDependentFilling.lean` recovers the earlier
+selected filler and the result `5 : Fin 6` after two substitutions.
+
+`sigmaFilling` constructs dependent sum closure. It first fills the first
+component, then fills the second family along that selected first filler.
+Partial second projections are sections over the actual restricted context;
+their types follow the first component. Both cap/tube agreement and uniformity
+are proved. The substitution argument transports the first filler together
+with its correctness proof before applying uniformity of the second filler.
+`Examples/CubicalSumFilling.lean` retains the selected pair
+`(6, 6 : Fin 7)` after two substitutions and rejects erasing its second
+component. The construction applies to arbitrary lawful input fillings, not
+just these discrete instances.
+
+`Filling.comp` observes the far endpoint, and `Filling.hcomp` specializes it
+to a family pulled back from the base. Their whole-face computation and
+substitution laws follow from the chosen filler. Generalized transport uses
+`RestrictedConstancy`: equality of the family and its starting-endpoint
+pullback over the face-restricted interval context. This equality constructs
+the constant tube used by `Filling.transp`. The full-face computation theorem
+identifies the endpoint fibers and proves equality after that explicit cast.
+Constancy, the tube, and transport all commute with substitution. A source
+parameter `r` selects the face `Cofibration.endpoint r true`; this is the
+semantic boundary corresponding to Agda's `r=1` side condition.
+
+The transport examples retain the varying finite result after two
+substitutions. A second family has an inhabitant at interval zero and none at
+interval one. Lean proves that this family cannot satisfy full-face
+constancy. This rejects omitting the transport side condition; it does not
+claim that the counterexample family is fibrant. Empty-face transport is not
+assumed to compute as identity in every constant family.
+
+These are semantic constructions. The guarded source interpretation still
+needs chosen filling data with stable substitution, Pi and Path filling
+closure, and the admitted primitive computation rules. Existence of some
+filler would not justify picking unrelated fillers after substitution. Strict
+Id and finite-tail J, the nonzero higher parameter, and the exact frozen memo
+remain required by M4–M6. The source Agda artifact is not reinterpreted merely
+by these semantic operations.
+
+Primary rule boundary: [Agda 2.8.0 transport documentation](https://agda.readthedocs.io/en/v2.8.0/language/cubical.html#transport)
+and [CCHM v1 Definition 13](https://arxiv.org/html/1611.02108v1).

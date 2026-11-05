@@ -304,5 +304,8 @@ import Examples.CubicalSourcePaths
 import Examples.CubicalSourceContraction
 import Examples.CubicalFaces
 import Examples.CubicalDiscreteFilling
+import Examples.CubicalDependentFilling
+import Examples.CubicalSumFilling
+import Examples.CubicalRestrictedTransport
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
