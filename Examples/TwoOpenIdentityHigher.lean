@@ -64,13 +64,31 @@ theorem endpoint_pasting (m n r s : ℤ) :
 
 /-- The locally discrete embedding still observes both integer endpoint cells. -/
 theorem embedded_endpoint_difference (m n : ℤ) :
-    (((TwoFamily.openIdHigherPrelax integerFamily).map₂ (endpointCell m n)).app
+    (((TwoFamily.openIdHigher integerFamily).map₂ (endpointCell m n)).app
       ⟨arrow⟩).as = Multiplicative.ofAdd (n - m) := endpoint_difference m n
 
 /-- Original fiber 2-cells remain arrows in the embedded identity fiber. -/
 theorem embedded_fiber_cell (k : ℤ) :
-    (((TwoFamily.openIdHigherPrelax integerFamily).map endpointArrow).map
+    (((TwoFamily.openIdHigher integerFamily).map endpointArrow).map
       (show (LocallyDiscrete.mk arrow) ⟶ LocallyDiscrete.mk arrow from
         Discrete.mk (Multiplicative.ofAdd k))).as = Multiplicative.ofAdd k := rfl
+
+/-- Right endpoint whiskering satisfies the full higher family's horizontal law. -/
+example (m n : ℤ) :
+    TwoFamily.openIdCell integerFamily (endpointCell m n ▷ endpointArrow) =
+      eqToHom (TwoFamily.openIdMap_comp integerFamily endpointArrow endpointArrow) ≫
+        Functor.whiskerRight (TwoFamily.openIdCell integerFamily (endpointCell m n))
+          (TwoFamily.openIdMap integerFamily endpointArrow) ≫
+        eqToHom (TwoFamily.openIdMap_comp integerFamily endpointArrow endpointArrow).symm :=
+  TwoFamily.openIdCell_whiskerRight integerFamily _ _
+
+/-- Left endpoint whiskering satisfies the full higher family's horizontal law. -/
+example (m n : ℤ) :
+    TwoFamily.openIdCell integerFamily (endpointArrow ◁ endpointCell m n) =
+      eqToHom (TwoFamily.openIdMap_comp integerFamily endpointArrow endpointArrow) ≫
+        Functor.whiskerLeft (TwoFamily.openIdMap integerFamily endpointArrow)
+          (TwoFamily.openIdCell integerFamily (endpointCell m n)) ≫
+        eqToHom (TwoFamily.openIdMap_comp integerFamily endpointArrow endpointArrow).symm :=
+  TwoFamily.openIdCell_whiskerLeft integerFamily _ _
 
 end Examples.TwoOpenIdentityHigher
