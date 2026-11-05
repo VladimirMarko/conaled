@@ -1,4 +1,4 @@
-import SquareKit.Internal.DependentJudgments.DerivedRules
+import SquareKit.Internal.DependentJudgments.NilReindexRules
 import SquareKit.Internal.DependentJudgments.ComprehensionMaps
 
 /-! One generated source theory and its interpretation in every contextual
@@ -10,7 +10,8 @@ open GuardedTheory PathTransport.Typed
 universe u
 
 inductive Axiom where
-  | pathDef | rootDef | rootProjection | rootTailNil | totalNil | pullbackNil
+  | pathTailNil | pathTailMapNil | reindexBranchNil
+  | pairComp | pathDef | rootDef | rootProjection | rootTailNil | totalNil | pullbackNil
   | subTy | subTm | comp | compIdLeft | compIdRight | compAssoc
   | subTyId | subTmId | subTyComp | subTmComp | termFamily | familyContext
   | identity | identitySub | reflexivity | reflSub | path | root | pathSub
@@ -20,6 +21,10 @@ inductive Axiom where
   | reindexBranch (n : Nat) | j (n : Nat) | jBeta (n : Nat) | jSub (n : Nat)
 
 def rule : Axiom → Rule signature
+  | .pathTailNil => pathTailNilRule
+  | .pathTailMapNil => pathTailMapNilRule
+  | .reindexBranchNil => reindexBranchNilRule
+  | .pairComp => pairCompRule
   | .pathDef => pathDefRule
   | .rootDef => rootDefRule
   | .rootProjection => rootProjectionRule
@@ -63,6 +68,10 @@ def rule : Axiom → Rule signature
 abbrev theory := comprehensionTheory.extend extraSignature Axiom rule
 
 theorem rule_valid (M : PathTransport.Typed.Model.{u}) : ∀ a, Satisfies (algebra M) (rule a)
+  | .pathTailNil => pathTailNil_valid M
+  | .pathTailMapNil => pathTailMapNil_valid M
+  | .reindexBranchNil => reindexBranchNil_valid M
+  | .pairComp => pairComp_valid M
   | .pathDef => pathDef_valid M
   | .rootDef => rootDef_valid M
   | .rootProjection => rootProjection_valid M

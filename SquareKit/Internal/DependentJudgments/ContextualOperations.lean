@@ -124,7 +124,7 @@ noncomputable def operation (M : PathTransport.Typed.Model.{u}) :
     let some ⟨n, T⟩ := (args 0).telescopeAt Γ | return .invalid
     return .telescope Δ n (Telescope.pullback M.toStructuralModel T σ)
   | .tailMap, args => Id.run do
-    let .substitution Δ Γ σ := args 1 | return .invalid
+    let .substitution _Δ Γ σ := args 1 | return .invalid
     let some ⟨_, T⟩ := (args 0).telescopeAt Γ | return .invalid
     return .substitution (Telescope.pullback M.toStructuralModel T σ).total T.total (Telescope.liftSub M.toStructuralModel T σ)
   | .rootTail, args => Id.run do

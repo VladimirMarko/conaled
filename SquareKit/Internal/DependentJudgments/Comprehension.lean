@@ -279,9 +279,9 @@ theorem pairing_valid (M : StructuralModel.{u}) : Satisfies (algebra M) pairingR
   rcases pairing_inputs M ρ h with ⟨Γ, Δ, A, σ, t, rfl⟩
   refine ⟨Δ, M.extend Γ A, M.pairSub A σ t, rfl, ?_, ?_⟩
   · simp [pairingRule, substitution, extend, apply2, pairingEnvironment,
-      Atom.eval, Term.eval, algebra, operation]
+      Term.eval, algebra, operation]
   · simp [pairingRule, substitution, pair, apply3, pairingEnvironment,
-      Atom.eval, Term.eval, algebra, operation]
+      Term.eval, algebra, operation]
 
 theorem weakenPair_valid (M : StructuralModel.{u}) : Satisfies (algebra M) weakenPairRule := by
   intro ρ h
@@ -327,22 +327,22 @@ theorem extension_valid (M : StructuralModel.{u}) : Satisfies (algebra M) extens
   apply familySchema_valid
   intro Γ A
   refine ⟨M.extend Γ A, ?_⟩
-  simp [context, extend, apply2, Term.eval, algebra, operation]
+  simp [extend, apply2, Term.eval, algebra, operation]
 
 theorem weakening_valid (M : StructuralModel.{u}) : Satisfies (algebra M) weakeningRule := by
   apply familySchema_valid
   intro Γ A
   refine ⟨M.extend Γ A, Γ, M.weaken Γ A, ?_, rfl, ?_⟩
-  · simp [substitution, extend, apply2, Term.eval, algebra, operation]
-  · simp [substitution, weaken, apply2, Term.eval, algebra, operation]
+  · simp [extend, apply2, Term.eval, algebra, operation]
+  · simp [weaken, apply2, Term.eval, algebra, operation]
 
 theorem generic_valid (M : StructuralModel.{u}) : Satisfies (algebra M) genericRule := by
   apply familySchema_valid
   intro Γ A
   refine ⟨M.extend Γ A, M.subTy A (M.weaken Γ A), M.genericVariable Γ A, ?_, ?_, ?_⟩
-  · simp [term, extend, apply2, Term.eval, algebra, operation]
-  · simp [term, subTy, weaken, apply2, Term.eval, algebra, operation]
-  · simp [term, generic, apply2, Term.eval, algebra, operation]
+  · simp [extend, apply2, Term.eval, algebra, operation]
+  · simp [subTy, weaken, apply2, Term.eval, algebra, operation]
+  · simp [generic, apply2, Term.eval, algebra, operation]
 
 abbrev emptyRule : Rule signature where
   parameterCount := 0

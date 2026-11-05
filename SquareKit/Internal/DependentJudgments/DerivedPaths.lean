@@ -29,6 +29,12 @@ def Equal.identity {a a' : Expression V} {b b' : Expression V} {c c' : Expressio
     Equal (Ω := Ω) (Contextual.identity a b c) (Contextual.identity a' b' c') :=
   Derivation.congruence (T := theory) (Sum.inr Operation.identity) (Fin.cases h0 (Fin.cases h1 (Fin.cases h2 (fun i => nomatch i))))
 
+def Equal.pair {a a' b b' c c' : Expression V}
+    (hA : Equal (Ω := Ω) a a') (hσ : Equal (Ω := Ω) b b') (ht : Equal (Ω := Ω) c c') :
+    Equal (Ω := Ω) (Contextual.pair a b c) (Contextual.pair a' b' c') :=
+  Derivation.congruence (T := theory) (Sum.inl DependentJudgments.Operation.pair)
+    (Fin.cases hA (Fin.cases hσ (Fin.cases ht (fun i => nomatch i))))
+
 def Ty.recontext (hA : Ty (Ω := Ω) Γ A) (e : Equal (Ω := Ω) Γ Δ) : Ty (Ω := Ω) Δ A :=
   Derivation.conversion (T := theory) (Sum.inl DependentJudgments.Predicate.family)
     (Fin.cases e (Fin.cases (.reflexive A) (fun i => nomatch i))) hA
