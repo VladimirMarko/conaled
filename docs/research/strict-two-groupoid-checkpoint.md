@@ -29,10 +29,9 @@ orientation is available without claiming strict naturality. A strict
 contraction with any component `c` would require `c = a + c` for every integer
 `a`. `no_strict_contraction` refutes this using `a = 1`.
 
-This checkpoint constructs the concrete total bicategory directly. It has not
-yet constructed a general higher-family interface or a Grothendieck operation
-whose specialization produces that bicategory. The fiber action and boundary
-connection constrain that next construction; they do not replace it.
+The initial discriminator constructs its concrete total bicategory directly.
+The general family and Grothendieck constructions below now recover its arrow
+and cell boundaries. This connection does not yet interpret the frozen memo.
 
 ## General hom-categories and reindexing
 
@@ -126,9 +125,8 @@ construction assumes no commutativity. Earlier proof-elaboration failures
 needed expansion of Mathlib's strong-transformation constructors and strict
 unitors. They did not change the mathematical statements.
 
-This supplies the transformation category and evaluation needed for the next
-family layer. It does not yet impose or construct horizontal family action,
-assemble total 1-arrow composition, or establish contextual elimination.
+This transformation category and evaluation support the general family layer
+below. Contextual elimination remains a separate construction obligation.
 
 ## General higher-family target and extension operations
 
@@ -147,7 +145,7 @@ its laws reuse Mathlib's ordinary Grothendieck construction by an injective
 map on arrows. This reuse is limited to laws of total 1-arrows. The extension
 hom-categories still retain their genuine fiber 2-cells. Both total whiskering
 operations are constructed with explicit object boundaries and naturality.
-Their complete bicategory coherence laws remain to be proved.
+Their complete bicategory coherence laws are supplied by `TwoFamilyCoherence`.
 
 `Examples.TwoFamily.pathFamily` supplies the integer path family with all
 horizontal action laws. Its cells retain the original boundary, general
@@ -160,8 +158,8 @@ Statement review checked that the generic target admits non-discrete fiber
 both total whiskerings use the supplied fiber 2-cell with its typed boundary.
 Proof-elaboration failures required explicit component rewrites for transported
 strict-functor equalities. They did not justify replacing fiber 2-cells by host
-equality. The finite groupoid restriction, general section/identity families
-and contextual J still need construction and closure proofs.
+equality. The full finite interpretation, identity-family closure and contextual
+J still need construction and closure proofs.
 
 `TwoFamilyReindex` additionally constructs the total reindexing functor and
 its exact projection equation. When base and fiber 1-arrows are strictly
@@ -260,35 +258,70 @@ its two-dimensional component is the supplied fiber cell itself. The checked
 integer example distinguishes cells 1 and 0 through this section.
 Statement review: the section record defines structural data, while the generic
 section and the total-map/reindex laws are constructed. No field assumes J,
-contraction, or interpretation of the frozen memo. General section substitution,
-the complete open identity family and contextual J remain pending.
+contraction, or interpretation of the frozen memo. The complete open identity
+family and contextual J remain pending.
 The integrated focused audit passes 816 kernel-safe declarations (615 theorem
 declarations) in 27 project modules, with only the three permitted axioms.
 
+## Structural milestone for independent review
+
+This milestone is partial work on #322. It does not open the adoption gate or
+supply a model satisfying the frozen memo.
+
+`TwoFamilySectionSubstitution` factors every higher lift `h : Δ → Total F`
+through the family pulled back along its projected base. The factorization
+is a strict higher functor, retains the supplied fiber cells, and recomposes
+with `reindexHigher` to recover `h` exactly. `sectionOfLift` and `Section.reindex`
+construct substitution for arbitrary admitted sections. The checked example
+retains integer fiber cells through factorization and checks the projection
+equation of a substituted generic section.
+
+Statement review distinguishes this operation from its unfinished coherence
+laws. The standalone corollary asserting fiber-cell retention through the
+final family-equality cast repeatedly exceeded Lean's elaboration budget.
+The draft is preserved in orchestration evidence and is not a checked theorem.
+Neither that corollary nor identity/composition coherence of section substitution
+is claimed by this milestone. The checked generic `Section.cast_cell_fiber`
+lemma concerns transport along an arbitrary family equality; combining it with
+the specific substitution still requires an elaboration proof.
+
+`TwoOpenIdentityHigher` constructs identity and vertical composition of the
+endpoint-cell action, actual hom functors and a `PrelaxFunctor` into the
+higher-family target. Its arrow identity/composition equations also hold.
+The examples compute endpoint comparison `n - m` and retain original integer
+fiber cells as arrows in the identity fiber. Both horizontal compatibility
+laws and the full strict identity-family functor remain unconstructed.
+
+`TwoIdentityMateFunctoriality` proves the two generic mate compatibility laws
+needed there: invertible endpoint postcomposition and strict-functor images.
+Both are exact equalities with typed boundary casts and arbitrary input
+2-cells. The examples apply them to integer cells and projection from a product.
+These lemmas do not themselves establish the missing horizontal family laws.
+
+All these are explicit structures and proved structural laws. No record field
+assumes the desired eliminator, interpretation or finite soundness result.
+The original integer contraction remains a discriminator, not the missing
+general contraction. The frozen memo is unchanged.
+
 ## Remaining construction
 
-1. Specify the general small strict 2-groupoids and higher family collection,
-   reusing Mathlib bicategories and strict functors where appropriate. Families
-   must retain transformation action on base 2-cells; sections need their own
-   coherent 2-cell data. Construct reindexing and Grothendieck extension,
-   then connect this concrete example to that operation. The hom-category,
-   its strict reindexing and vertical inverses are constructed. What remains
-   is the admitted higher-family collection with its horizontal action laws,
-   coherent sections and substitution of the complete extension. The general
-   total horizontal composition and all bicategory laws are now constructed. The cell correspondence above
-   does not supply those missing constructions.
-2. Prove closure of the proposed dimension restriction under extension,
-   reindexing, Sigma and open identity. Construct reflexivity and contraction
-   in general. Do not replace non-discrete fiber 2-cells by host equality.
-   Preserve a counterexample if the chosen restriction fails.
-3. Construct J for every admitted motive and finite dependent tail. Prove
-   section coherence, reflexive computation and substitution. If Pi is used,
-   construct its closure too. Transporting objects alone does not meet this
-   obligation.
-4. Interpret the specified judgments and retained generic argument, including
-   both substitutions of the dependent pair and transported `apd` source.
-   Construct the endpoint conjugation and integer observer in that same
-   interpretation. Retain nonconstant transport and lower-truncated clients.
+1. Finish the standalone section-substitution cell-retention corollary and
+   identity/composition coherence. Construct section transport along coherent
+   base homotopies; do not restrict sections to terminal-family transformations.
+2. Assemble and prove both horizontal laws of the open identity family.
+   Prove the remaining finite-dimensional closure, including Sigma and finite
+   dependent context tails. Existing groupoid closure covers total extension
+   and reindexing; it does not establish all type constructors.
+3. Construct reflexivity and the normalized coherent contraction in the actual
+   general path context. Preserve the strict-contraction counterexample and
+   genuine non-discrete fiber 2-cells.
+4. Construct contextual J for every admitted motive and finite dependent tail,
+   with section coherence, reflexive computation and substitution. If Pi is
+   used, construct its closure too. Object transport alone is insufficient.
+5. Interpret every specified frozen-memo judgment and retained generic argument,
+   including both substitutions of the dependent pair and transported `apd`
+   source. Construct endpoint conjugation and the integer observer in that same
+   interpretation, with nonconstant transport and lower-truncated clients.
 
 [Warren's primary source](https://mawarren.net/papers/crmp1295.pdf), especially
 the transformation definitions, Grothendieck cell boundaries, elimination
@@ -301,7 +334,9 @@ The separate #321 cubical programme is unchanged.
 The focused Lake builds check both construction layers and their retained examples.
 The repository audit implementation, with its entrypoint replaced by that
 focused import, checks all declarations in their project import closure.
-This is development evidence. Full candidate acceptance, the integrated
-exhaustive audit and independent Standards/Spec review remain pending before
-integration or any issue-completion claim. No new axioms or audit exceptions
-are introduced.
+These focused results are development evidence. The structural milestone also
+requires a committed full candidate build/audit, immediate receipt verification,
+and independent Standards/Spec review. Its exact receipt and review scope are
+recorded separately in orchestration evidence. Passing that milestone does not
+complete #322 or authorize integration of unfinished work. No new axioms or
+audit exceptions are introduced.

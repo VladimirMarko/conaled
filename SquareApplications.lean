@@ -297,3 +297,15 @@ import Examples.TwoFamily
 import Examples.TwoFamilyReindex
 
 import Examples.TwoIdentityTransport
+
+import Examples.TwoFamilyCoherence
+import Examples.TwoFamilyEndpoints
+import Examples.TwoFamilyHigher
+import Examples.TwoFamilyHigherReindex
+import Examples.TwoFamilyMap
+import Examples.TwoFamilySections
+import Examples.TwoFamilySectionSubstitution
+import Examples.TwoOpenIdentity
+import Examples.TwoOpenIdentityHigher
+
+import Examples.TwoIdentityMateFunctoriality
