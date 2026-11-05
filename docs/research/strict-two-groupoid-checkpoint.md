@@ -220,6 +220,20 @@ operation from the still-pending full higher-family laws. It does not yet
 supply reflexivity, contraction or J. Focused validation passes 859 build
 targets and the 621-root, 17-module audit, with only the permitted axioms.
 
+The independent construction of `TwoFamilyCoherence` now supplies actual
+`Bicategory` and `Strict` instances for every total family. All unit,
+associativity and interchange laws are proved from the input family. The
+non-discrete integer-fiber example applies interchange through that instance.
+`TwoFamilyHigher` supplies the strict higher projection and the local groupoid
+and reindexed-fiber closure instances. The integrated focused audit passes
+740 declarations in 23 modules.
+
+`TwoFamilyMap` constructs the ordinary total functor induced by an arbitrary
+strong family transformation, its genuine 2-cell operation and identity law.
+The helper's vertical composition draft remains outside the committed source:
+its final cast proof requires further elaboration work. Thus no strict higher
+map or J construction is claimed from that checkpoint.
+
 ## Remaining construction
 
 1. Specify the general small strict 2-groupoids and higher family collection,
@@ -229,8 +243,8 @@ targets and the 621-root, 17-module audit, with only the permitted axioms.
    then connect this concrete example to that operation. The hom-category,
    its strict reindexing and vertical inverses are constructed. What remains
    is the admitted higher-family collection with its horizontal action laws,
-   horizontal composition of these hom-categories, coherent sections and
-   substitution of the complete extension. The cell correspondence above
+   coherent sections and substitution of the complete extension. The general
+   total horizontal composition and all bicategory laws are now constructed. The cell correspondence above
    does not supply those missing constructions.
 2. Prove closure of the proposed dimension restriction under extension,
    reindexing, Sigma and open identity. Construct reflexivity and contraction
