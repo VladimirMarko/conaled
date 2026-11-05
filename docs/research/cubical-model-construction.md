@@ -428,9 +428,9 @@ isomorphisms; this checkpoint does not claim they are definitional equalities
 of family representations or supply a separate strictification theorem for an
 uninterpreted source syntax.
 
-### Conversion contract and remaining M2 rule soundness
+### M2b conversion contract and remaining rule soundness
 
-The checked conversion contract has two distinct parts. For terms already in
+The M2b conversion contract has two distinct parts. For terms already in
 the same semantic family, the Π/Σ/Path β/η and Nat computation theorems prove
 Lean equality of the constructed sections. For type formation under context
 substitution, Π and Path use the chosen natural isomorphisms
@@ -457,3 +457,75 @@ connected to the admitted source judgments. Metatheoretic equality of existing
 sections cannot replace the required interpreted Id/J data or discharge the
 frozen memo's strict identity rules. M6 still requires that source-rule bridge
 alongside its constructed higher parameter and dependent observation.
+
+
+## M2 normalization checkpoint: literal family conversion
+
+This increment constructs equalities for Π/Path formation under arbitrary
+context substitution. It preserves the existing guarded theory's interpretation
+of equality as literal equality. It does not reinterpret that judgment as an
+arbitrary isomorphism.
+
+[Localization.lean](../../SquareKit/Internal/Cubical/Localization.lean) restricts
+an element `x : Γ.Elements` along the category `Under x.obj` of arrows from its
+underlying cube. This indexing category does not depend on the context values.
+`localize_substitution` proves equality of the localized element diagrams after
+substitution. `localize_forget` proves that forgetting an element arrow and
+lifting its underlying cube arrow recovers its target diagram.
+
+[LocalProducts.lean](../../SquareKit/Internal/Cubical/LocalProducts.lean)
+represents a dependent function as a natural section of the localized display
+map `Σ A B → A`. The base, total diagram, and projection commute with
+substitution by equality, so their section types are equal. `localPiEquiv`
+constructs both directions to the existing `PiElement` and proves both inverse
+laws. Its reconstruction proves naturality for arbitrary dependent fibers;
+it does not retain only closed values or endpoint samples.
+
+[NormalizedProducts.lean](../../SquareKit/Internal/Cubical/NormalizedProducts.lean)
+constructs the whole family, including its restriction action.
+`normalizedPiIso` retains the old family in both directions, while
+`normalizedPi_reindex` proves **equality of families**, including maps, under
+arbitrary context substitution. These are different claims: the isomorphism
+compares the old and new representations; the equality establishes stability
+of the new representation.
+
+[NormalizedPaths.lean](../../SquareKit/Internal/Cubical/NormalizedPaths.lean)
+restricts the normalized product to the image of endpoint-constrained old Path
+elements. Membership contains only a proposition. Reconstruction uses the
+underlying product and proves its endpoints from membership; it does not choose
+an arbitrary witness. `normalizedPathIso` proves both inverse laws, and
+`normalizedPath_reindex` proves whole-family equality under substitution.
+Thus all old paths, their restriction values, and endpoint constraints survive.
+
+[Conversion.lean](../../SquareKit/Internal/Cubical/Conversion.lean) transports
+sections along family equality. It proves identity, composition, independence
+from the proof of that equality, and compatibility with context substitution.
+Normalized Π abstraction/application retain β/η and commute with substitution
+using this equality transport.
+[PathConversion.lean](../../SquareKit/Internal/Cubical/PathConversion.lean)
+provides the corresponding Path β/η, endpoint, and substitution laws. The old
+Σ and Nat representations already have literal formation/substitution laws;
+they need no replacement in this increment.
+
+[The dependent example](../../Examples/CubicalConversion.lean) has domain
+`Fin(n+1)` and result `Fin(a.val+1)`. Successor substitution changes the context
+index; literal conversion followed by application at `n=2, a=2` gives the last
+element of `Fin 3`. A second, doubling substitution consumes the conversion
+transport law. [The Path example](../../Examples/CubicalPathConversion.lean)
+selects the represented line in the already interpreted recursive contraction.
+After literal family conversion, application still computes the two-variable
+connection. Its endpoints are proved distinct through the earlier finite
+De Morgan discriminator, excluding replacement by a constant path.
+
+Statement review distinguishes proof independence for **semantic equality
+transport** from independence of arbitrary **source conversion derivations**.
+The former is now proved; the latter requires the general source-derivation
+interpreter, which is still absent. This is therefore another partial M2
+checkpoint. It supplies strictly stable Π/Path representations and checked
+rules for their semantic operations, not a theorem interpreting every source
+typing/substitution/conversion derivation. The successor cube comparison and
+fixed-external-`X` recursion bridge retain their previously stated scope.
+The #321 implementation owner still owes that general interpreter and its rule
+soundness before M2 acceptance. M3 uniform fibrancy and exact primitive side
+conditions, M4 strict Id/J, and M5/M6's higher parameter and exact frozen memo
+consumer remain required in dependency order. No checkpoint closes #321.
