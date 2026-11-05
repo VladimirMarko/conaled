@@ -48,7 +48,7 @@ theorem expand_bind {F : Unit → Type d} (g : Y → Term (signature Op arity) F
     expand g (CompositionalCoalgebra.Term.bind f t) = expand (fun x => expand g (f x)) t := by
   induction t with
   | leaf => rfl
-  | node op ts ih => simp only [CompositionalCoalgebra.Term.bind, expand]; congr 1; funext k; exact ih k
+  | node op ts ih => simp only [CompositionalCoalgebra.Term.bind, FinitaryTerm.bind, expand]; congr 1; funext k; exact ih k
 
 /-- Substitution retains the old variable and constructor structure. -/
 theorem embed_bind (f : X → CompositionalCoalgebra.Term Op arity Y) (t : CompositionalCoalgebra.Term Op arity X) :

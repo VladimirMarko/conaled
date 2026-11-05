@@ -266,6 +266,14 @@ import Examples.EquationComposition
 import Examples.DerivativeNormalization
 import Examples.LocalUniversesBoundary
 import Examples.DependentComprehension
+import Examples.DependentJudgments
+import Examples.GuardedContextualJudgments
+import Examples.CoherentGuardedJudgments
+import Examples.GuardedCommandComparisons
+import Examples.GuardedJudgmentBoundaries
+import Examples.GuardedInternalSetting
+import Examples.GuardedNativeMemo
+import Examples.GuardedGroupoidMemo
 
 import Examples.ProofRequirementReference
 import Examples.ProofRequirementComparison

@@ -4,27 +4,6 @@ namespace SquareKit.Internal.PathTransport.Typed
 set_option backward.isDefEq.respectTransparency false
 set_option backward.defeqAttrib.useBackward true
 
-namespace Model
-variable (M : Model)
-theorem j_heq {Γ Γ' : M.Context} (hΓ : Γ = Γ')
-    {A : M.Family Γ} {A' : M.Family Γ'} (hA : HEq A A')
-    {x : M.Section Γ A} {x' : M.Section Γ' A'} (hx : HEq x x')
-    {n} {T : StructuralModel.Telescope M.toStructuralModel (M.toStructuralModel.pathContext A x) n}
-    {T' : StructuralModel.Telescope M.toStructuralModel (M.toStructuralModel.pathContext A' x') n}
-    (hT : HEq T T')
-    {D : M.Family (StructuralModel.Telescope.total M.toStructuralModel T)}
-    {D' : M.Family (StructuralModel.Telescope.total M.toStructuralModel T')} (hD : HEq D D')
-    {d : M.Section _ (M.subTy D (M.toStructuralModel.rootTail A x T))}
-    {d' : M.Section _ (M.subTy D' (M.toStructuralModel.rootTail A' x' T'))} (hd : HEq d d') :
-    HEq (M.j A x T D d) (M.j A' x' T' D' d') := by
-  cases hΓ
-  cases eq_of_heq hA
-  cases eq_of_heq hx
-  cases eq_of_heq hT
-  cases eq_of_heq hD
-  cases eq_of_heq hd
-  rfl
-end Model
 
 namespace StructuralModel
 variable (M : StructuralModel)
