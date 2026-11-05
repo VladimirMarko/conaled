@@ -4,10 +4,17 @@
 
 This original XT01 draft is received onto accepted Chapter 3 commit
 `298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2`. Chapters 1–3 and the recorded
-shared predecessors retain their acceptance. The four XT01 formal modules
-are exact additions from `64c6b777d828ecfe83234fc2aed94600a1f24297`; all 22
+shared predecessors retain their acceptance. The first receiving candidate
+`f0fd3faa84d57ab7583f877039da2c703431f0ce` added the four XT01 formal modules
+byte-exactly from `64c6b777d828ecfe83234fc2aed94600a1f24297`; all 22
 pre-existing local inputs in their recorded closure match this accepted base.
 No unrelated shared draft is incorporated.
+
+The first focused build passed the observations and cached-fold modules, then
+failed on two proof obligations in `Resources.TreeCache`. The receiving
+correction unfolds the existing smart constructor and normalizes the natural
+number cost equation. The declarations, hypotheses, callback and tariff remain
+unchanged. This failed attempt supplies no complete unit validation.
 
 Both independent XT01 source assessments cover the complete original seven-path
 scope and all 115 public names with zero concrete findings. Their overall

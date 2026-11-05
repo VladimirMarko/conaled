@@ -711,7 +711,7 @@ candidate identity and later validation/review evidence.
 
 ## Shared binary-tree observations and cached folds (FDSA-XT01)
 
-This bounded cross-cutting **uncompiled draft** supports common observations
+This bounded cross-cutting unit supplies common observations
 and cache mathematics used by Chapters 4, 5 and 9, with a later representation
 bridge for Chapter 15. It activates or accepts none of those chapters. Exact
 source distinctions, examples and statement assessment are in

@@ -47,15 +47,15 @@ theorem nodeRun_value (empty : β) (combine : β → α → β → β)
   change BinaryTree.node
     (a, (combineRun (Trees.Cached.read empty l) a (Trees.Cached.read empty r)).1)
     l r = Trees.Cached.smartNode empty combine l a r
-  rw [hvalue]
+  rw [hvalue, Trees.Cached.smartNode]
 
 /-- Work is separate from callback value correctness and child validity. -/
 theorem nodeRun_cost (empty : β) (combineRun : β → α → β → Measured β Nat)
     (l : BinaryTree (α × β)) (a : α) (r : BinaryTree (α × β)) :
     (nodeRun empty combineRun l a r).2 =
       (combineRun (Trees.Cached.read empty l) a (Trees.Cached.read empty r)).2 + 3 := by
-  simp [nodeRun, readRun, bind, pure, CallCount.tick,
-    Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
+  simp only [nodeRun, readRun, bind, pure, CallCount.tick]
+  omega
 
 theorem nodeRun_le (empty : β) (combineRun : β → α → β → Measured β Nat)
     (l : BinaryTree (α × β)) (a : α) (r : BinaryTree (α × β)) (K : Nat)
