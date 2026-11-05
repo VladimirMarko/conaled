@@ -130,6 +130,39 @@ This supplies the transformation category and evaluation needed for the next
 family layer. It does not yet impose or construct horizontal family action,
 assemble total 1-arrow composition, or establish contextual elimination.
 
+## General higher-family target and extension operations
+
+`StrictTwoCategory` constructs the strict 2-category of strict 2-categories,
+strict higher functors and strict transformations. Left and right whiskering
+retain the 2-cell naturality equation; interchange uses transformation
+naturality, and the pentagon and triangle are proved. The coherence
+isomorphisms of a strict higher functor are determined by its underlying
+action. No elimination or model law is introduced as a field.
+
+`TwoFamily.Family` is a strict functor into this constructed target. Its
+base 2-cell action therefore has vertical and horizontal laws. Evaluation
+constructs each extension hom-category from the previous Grothendieck layer.
+The extension objects, identity and composition form an ordinary category;
+its laws reuse Mathlib's ordinary Grothendieck construction by an injective
+map on arrows. This reuse is limited to laws of total 1-arrows. The extension
+hom-categories still retain their genuine fiber 2-cells. Both total whiskering
+operations are constructed with explicit object boundaries and naturality.
+Their complete bicategory coherence laws remain to be proved.
+
+`Examples.TwoFamily.pathFamily` supplies the integer path family with all
+horizontal action laws. Its cells retain the original boundary, general
+extension composition adds integers, and both whiskerings preserve the
+integer-one base component. This connects the original discriminator to the
+general family interface, without claiming that the whole memo is interpreted.
+
+Statement review checked that the generic target admits non-discrete fiber
+2-cells, that transport composition acts on the earlier fiber arrow, and that
+both total whiskerings use the supplied fiber 2-cell with its typed boundary.
+Proof-elaboration failures required explicit component rewrites for transported
+strict-functor equalities. They did not justify replacing fiber 2-cells by host
+equality. The finite groupoid restriction, general section/identity families
+and contextual J still need construction and closure proofs.
+
 ## Remaining construction
 
 1. Specify the general small strict 2-groupoids and higher family collection,

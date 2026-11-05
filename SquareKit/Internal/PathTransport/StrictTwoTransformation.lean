@@ -9,7 +9,7 @@ namespace SquareKit.Internal.PathTransport.StrictTwoTransformation
 open CategoryTheory Bicategory
 set_option backward.isDefEq.respectTransparency false
 set_option backward.defeqAttrib.useBackward true
-universe u v w u' v' w'
+universe u v w u' v' w' u'' v'' w''
 variable {A : Type u} [Bicategory.{w,v} A] [Bicategory.Strict A]
 variable {B : Type u'} [Bicategory.{w',v'} B] [Bicategory.Strict B]
 
@@ -65,13 +65,19 @@ def Trans.comp {F G H : StrictPseudofunctor A B} (η : Trans F G) (θ : Trans G 
 
 /-- The ordinary category retains strict higher functors and their strict
 transformations. It does not identify the target's genuine 2-cells. -/
-instance : Category (StrictPseudofunctor A B) where
+instance transformationCategory : Category (StrictPseudofunctor A B) where
   Hom := Trans
   id := Trans.id
   comp := Trans.comp
   id_comp _ := Trans.ext (fun _ => Category.id_comp _)
   comp_id _ := Trans.ext (fun _ => Category.comp_id _)
   assoc _ _ _ := Trans.ext (fun _ => Category.assoc _ _ _)
+
+@[simp] theorem Trans.comp_app {F G H : StrictPseudofunctor A B}
+    (η : F ⟶ G) (θ : G ⟶ H) (a : A) : (η ≫ θ).app a = η.app a ≫ θ.app a := rfl
+
+@[simp] theorem Trans.id_app (F : StrictPseudofunctor A B) (a : A) :
+    (𝟙 F : F ⟶ F).app a = 𝟙 (F.obj a) := rfl
 
 /-- Evaluating transport at a fixed fiber object produces the functor needed
 by the general Grothendieck hom-category. -/
@@ -83,5 +89,58 @@ def evaluation (a : A) : StrictPseudofunctor A B ⥤ B where
 def evaluationMap {a b : A} (f : a ⟶ b) : evaluation (B := B) a ⟶ evaluation b where
   app F := F.map f
   naturality _ _ η := (η.naturality f).symm
+
+variable {C : Type u''} [Bicategory.{w'',v''} C] [Bicategory.Strict C]
+
+/-- Precomposition retains the entire 2-cell naturality equation. -/
+def Trans.whiskerLeft (F : StrictPseudofunctor A B)
+    {G H : StrictPseudofunctor B C} (η : Trans G H) : Trans (F.comp G) (F.comp H) where
+  app a := η.app (F.obj a)
+  naturality f := η.naturality (F.map f)
+  naturality₂ α := η.naturality₂ (F.map₂ α)
+
+/-- Postcomposition maps both components and their genuine 2-cell equations. -/
+def Trans.whiskerRight {F G : StrictPseudofunctor A B} (η : Trans F G)
+    (H : StrictPseudofunctor B C) : Trans (F.comp H) (G.comp H) where
+  app a := H.map (η.app a)
+  naturality f := by
+    change H.map (F.map f) ≫ H.map (η.app _) = H.map (η.app _) ≫ H.map (G.map f)
+    rw [← H.map_comp, η.naturality, H.map_comp]
+  naturality₂ {a b} {f g} α := by
+    have h := congrArg H.map₂ (η.naturality₂ α)
+    simp only [PrelaxFunctor.map₂_comp, PrelaxFunctor.map₂_eqToHom,
+      Pseudofunctor.map₂_whisker_left, Pseudofunctor.map₂_whisker_right,
+      H.mapComp_eq_eqToIso, eqToIso.hom, eqToIso.inv] at h
+    have k := congrArg (fun p =>
+      eqToHom (H.map_comp (F.map f) (η.app b)).symm ≫ p ≫
+        eqToHom (H.map_comp (η.app a) (G.map g))) h
+    simpa using k
+
+omit [Bicategory.Strict A] [Bicategory.Strict B] in
+/-- The coherence isomorphisms of a strict functor are forced by its action. -/
+theorem functor_ext {F G : StrictPseudofunctor A B}
+    (h : F.toPrelaxFunctor = G.toPrelaxFunctor) : F = G := by
+  rcases F with ⟨⟨⟨F, Fi, Fc, _, _, _, _, _⟩, _, Fi_eq⟩, _, Fc_eq⟩
+  rcases G with ⟨⟨⟨G, Gi, Gc, _, _, _, _, _⟩, _, Gi_eq⟩, _, Gc_eq⟩
+  change F = G at h
+  subst G
+  have hi : Fi = Gi := funext (fun a => (Fi_eq a).trans (Gi_eq a).symm)
+  have hc : @Fc = @Gc := by
+    funext a b c f g
+    exact (Fc_eq f g).trans (Gc_eq f g).symm
+  subst Gi
+  subst Gc
+  rfl
+
+theorem functor_id_comp (F : StrictPseudofunctor A B) :
+    (StrictPseudofunctor.id A).comp F = F := functor_ext rfl
+
+theorem functor_comp_id (F : StrictPseudofunctor A B) :
+    F.comp (StrictPseudofunctor.id B) = F := functor_ext rfl
+
+@[simp] theorem Trans.eqToHom_app {F G : StrictPseudofunctor A B} (h : F = G) (a : A) :
+    (eqToHom h : F ⟶ G).app a = eqToHom (congrArg (fun K => K.obj a) h) := by
+  cases h
+  rfl
 
 end SquareKit.Internal.PathTransport.StrictTwoTransformation
