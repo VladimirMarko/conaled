@@ -243,8 +243,27 @@ focused audit passes 745 kernel-safe declarations (570 theorem declarations) in
 23 project modules, with only the three permitted foundational axioms. The
 failed cast-heavy draft remains in the orchestration evidence; replacing its
 implicit dependent boundaries with an explicit typed goal allowed the same
-mathematical pasting proof to check. Horizontal compatibility of coherent total
-maps, the complete open identity family and contextual J remain pending.
+mathematical pasting proof to check. Both horizontal compatibility laws are now proved. `StrongMap.toHigher` is an
+actual strict pseudofunctor, constructed from the arbitrary strong comparison;
+right whiskering uses its full 2-cell naturality. The universal-family example
+checks that this higher map preserves every selected integer fiber cell.
+
+`reindexHigher` now supplies the complete strict substitution functor, with an
+exact projection equation. Its nested-extension example uses projection as the
+substitution and preserves distinct integer cells and both whiskerings.
+
+`Section` uses a strict higher lift into the total context over identity. It is
+not restricted to a transformation out of a terminal family: that shortcut
+would force equality in place of a general section's genuine fiber 2-cell.
+`variableSection` constructs the generic variable in the projected family;
+its two-dimensional component is the supplied fiber cell itself. The checked
+integer example distinguishes cells 1 and 0 through this section.
+Statement review: the section record defines structural data, while the generic
+section and the total-map/reindex laws are constructed. No field assumes J,
+contraction, or interpretation of the frozen memo. General section substitution,
+the complete open identity family and contextual J remain pending.
+The integrated focused audit passes 816 kernel-safe declarations (615 theorem
+declarations) in 27 project modules, with only the three permitted axioms.
 
 ## Remaining construction
 

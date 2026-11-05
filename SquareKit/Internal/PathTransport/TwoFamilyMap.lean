@@ -219,5 +219,145 @@ def homFunctor (x y : Total F) : Hom F x y ⥤ Hom G (obj η x) (obj η y) where
   map_id := map₂_id η
   map_comp := map₂_comp η
 
+private theorem conjugation_fiber_heq {C B : Type*} [Category C] [Bicategory B]
+    [Bicategory.Strict B] {E : C ⥤ B} {b : B}
+    {p p' q q' : TwoGroupoidHom.Total E b} (hp : p = p') (hq : q = q') (α : p' ⟶ q) :
+    HEq ((eqToHom hp ≫ α ≫ eqToHom hq).fiber) α.fiber := by
+  cases hp
+  cases hq
+  simp only [eqToHom_refl]
+  rw [Category.comp_id α, Category.id_comp α]
+
+private theorem whiskerLeft_heq {B : Type*} [Bicategory B]
+    {a b c : B} {f g : a ⟶ b} (h : f = g) {i j : b ⟶ c} (α : i ⟶ j) :
+    HEq (f ◁ α) (g ◁ α) := by
+  cases h
+  rfl
+
+omit [Bicategory.Strict Γ] in
+theorem comparison_prefix {x y z : Total F} (p : Hom F x y) (q : Hom F y z) :
+    (η.naturality (p.base ≫ q.base)).inv.app x.fiber ≫
+      (η.app z.base).map (compBoundary F p.base q.base x.fiber) ≫
+      (η.app z.base).map ((F.map q.base).map p.fiber) =
+    compBoundary G p.base q.base ((η.app x.base).obj x.fiber) ≫
+      (G.map q.base).map ((η.naturality p.base).inv.app x.fiber ≫
+        (η.app y.base).map p.fiber) ≫ (η.naturality q.base).inv.app y.fiber := by
+  rw [comparison_comp]
+  simp only [compBoundary, (G.map q.base).map_comp, map_eqToHom,
+    Category.assoc, eqToHom_trans_assoc, eqToHom_refl, Category.id_comp]
+  have h := (η.naturality q.base).inv.naturality p.fiber
+  change (G.map q.base).map ((η.app y.base).map p.fiber) ≫
+    (η.naturality q.base).inv.app y.fiber =
+    (η.naturality q.base).inv.app ((F.map p.base).obj x.fiber) ≫
+      (η.app z.base).map ((F.map q.base).map p.fiber) at h
+  rw [h]
+
+set_option maxHeartbeats 100000 in
+theorem map₂_whisker_left {x y z : Total F} (p : Hom F x y)
+    {q q' : Hom F y z} (β : q ⟶ q') :
+    map₂ η (TwoFamily.whiskerLeft F p β) =
+      eqToHom (map_compose η p q) ≫ TwoFamily.whiskerLeft G (map η p) (map₂ η β) ≫
+        eqToHom (map_compose η p q').symm := by
+  refine Pseudofunctor.CoGrothendieck.Hom.ext _ _ ?_ ?_
+  · simp [total_eqToHom_base, TwoFamily.whiskerLeft, TwoGroupoidHom.cell]
+  · apply eq_of_heq
+    refine HEq.trans ?_ ((HEq.trans (comp_eqToHom_heq _ _)
+      (conjugation_fiber_heq (map_compose η p q) (map_compose η p q').symm
+        (TwoFamily.whiskerLeft G (map η p) (map₂ η β)))).symm)
+    simp only [map₂, TwoFamily.whiskerLeft, TwoGroupoidHom.cell]
+    change ((η.naturality (p.base ≫ q.base)).inv.app x.fiber ◁
+      (η.app z.base).map₂ (compBoundary F p.base q.base x.fiber ◁
+        (F.map q.base).map p.fiber ◁ β.fiber ≫ eqToHom _)) ≫ eqToHom _ ≍
+      (compBoundary G p.base q.base ((η.app x.base).obj x.fiber) ◁
+        (G.map q.base).map ((η.naturality p.base).inv.app x.fiber ≫ (η.app y.base).map p.fiber) ◁
+          ((η.naturality q.base).inv.app y.fiber ◁ (η.app z.base).map₂ β.fiber ≫ eqToHom _)) ≫ eqToHom _
+    simp only [PrelaxFunctor.map₂_comp, Pseudofunctor.map₂_whisker_left,
+      (η.app z.base).mapComp_eq_eqToIso, eqToIso.hom, eqToIso.inv,
+      PrelaxFunctor.map₂_eqToHom, Bicategory.whiskerLeft_comp,
+      Bicategory.whiskerLeft_eqToHom, Category.assoc, eqToHom_trans]
+    simp only [TwoFamily.nested_whiskerLeft, Bicategory.whiskerLeft_comp,
+      Bicategory.whiskerLeft_eqToHom, Category.assoc, eqToHom_trans_assoc, eqToHom_trans]
+    refine HEq.trans (eqToHom_comp_heq _ _) (HEq.trans (comp_eqToHom_heq _ _) ?_)
+    refine HEq.trans ?_ ((HEq.trans (eqToHom_comp_heq _ _) (comp_eqToHom_heq _ _)).symm)
+    exact whiskerLeft_heq (comparison_prefix η p q) ((η.app z.base).map₂ β.fiber)
+
+private theorem naturality_whisker_heq {A B : Type*} [Bicategory A] [Bicategory B]
+    [Bicategory.Strict A] [Bicategory.Strict B]
+    {H K : StrictPseudofunctor A B} (τ : Trans H K)
+    {a b : A} {u v : a ⟶ b} (α : u ⟶ v)
+    {c d : B} (f : c ⟶ H.obj a) (h : K.obj b ⟶ d) :
+    HEq ((f ≫ τ.app a) ◁ K.map₂ α ▷ h)
+      (f ◁ H.map₂ α ▷ τ.app b ▷ h) := by
+  have e := congrArg (fun z => f ◁ z ▷ h) (τ.naturality₂ α)
+  simp only [Bicategory.whiskerLeft_comp, Bicategory.comp_whiskerRight,
+    Bicategory.whiskerLeft_eqToHom, Bicategory.eqToHom_whiskerRight,
+    Bicategory.whisker_assoc, TwoFamily.nested_whiskerLeft,
+    Bicategory.Strict.associator_eqToIso, eqToIso.hom, eqToIso.inv,
+    Category.assoc, eqToHom_trans_assoc, eqToHom_trans] at e
+  exact (HEq.trans (comp_eqToHom_heq _ _).symm
+    (HEq.trans (heq_of_eq e)
+      (HEq.trans (eqToHom_comp_heq _ _) (comp_eqToHom_heq _ _)))).symm
+
+set_option maxHeartbeats 100000 in
+theorem map₂_whisker_right {x y z : Total F} {p p' : Hom F x y}
+    (α : p ⟶ p') (q : Hom F y z) :
+    map₂ η (TwoFamily.whiskerRight F α q) =
+      eqToHom (map_compose η p q) ≫ TwoFamily.whiskerRight G (map₂ η α) (map η q) ≫
+        eqToHom (map_compose η p' q).symm := by
+  refine Pseudofunctor.CoGrothendieck.Hom.ext _ _ ?_ ?_
+  · simp [total_eqToHom_base, TwoFamily.whiskerRight, TwoGroupoidHom.cell]
+  · apply eq_of_heq
+    refine HEq.trans ?_ ((HEq.trans (comp_eqToHom_heq _ _)
+      (conjugation_fiber_heq (map_compose η p q) (map_compose η p' q).symm
+        (TwoFamily.whiskerRight G (map₂ η α) (map η q)))).symm)
+    simp only [map₂, TwoFamily.whiskerRight, TwoGroupoidHom.cell]
+    change ((η.naturality (p.base ≫ q.base)).inv.app x.fiber ◁
+      (η.app z.base).map₂ (eqToHom _ ≫
+        (compBoundary F p.base q.base x.fiber ◁ (F.map q.base).map₂ α.fiber) ▷ q.fiber ≫ eqToHom _)) ≫ eqToHom _ ≍
+      eqToHom _ ≫ (compBoundary G p.base q.base ((η.app x.base).obj x.fiber) ◁
+        (G.map q.base).map₂ ((η.naturality p.base).inv.app x.fiber ◁
+          (η.app y.base).map₂ α.fiber ≫ eqToHom _)) ▷
+            ((η.naturality q.base).inv.app y.fiber ≫ (η.app z.base).map q.fiber) ≫ eqToHom _
+    simp only [PrelaxFunctor.map₂_comp, Pseudofunctor.map₂_whisker_left,
+      Pseudofunctor.map₂_whisker_right,
+      (η.app z.base).mapComp_eq_eqToIso, (G.map q.base).mapComp_eq_eqToIso,
+      eqToIso.hom, eqToIso.inv, PrelaxFunctor.map₂_eqToHom,
+      Bicategory.whiskerLeft_comp, Bicategory.whiskerRight_comp, Bicategory.comp_whiskerRight,
+      Bicategory.whiskerLeft_eqToHom, Bicategory.eqToHom_whiskerRight,
+      Category.assoc, eqToHom_trans]
+    simp only [Bicategory.Strict.associator_eqToIso, eqToIso.hom, eqToIso.inv,
+      Bicategory.whiskerLeft_comp, Bicategory.comp_whiskerRight,
+      Bicategory.whiskerLeft_eqToHom, Bicategory.eqToHom_whiskerRight,
+      Bicategory.whisker_assoc, TwoFamily.nested_whiskerLeft,
+      Category.assoc, eqToHom_trans_assoc, eqToHom_trans]
+    refine HEq.trans (eqToHom_comp_heq _ _) (HEq.trans (comp_eqToHom_heq _ _) ?_)
+    refine HEq.trans ?_ ((HEq.trans (eqToHom_comp_heq _ _) (comp_eqToHom_heq _ _)).symm)
+    have hp : (η.naturality (p.base ≫ q.base)).inv.app x.fiber ≫
+        (η.app z.base).map (compBoundary F p.base q.base x.fiber) =
+      (compBoundary G p.base q.base ((η.app x.base).obj x.fiber) ≫
+        (G.map q.base).map ((η.naturality p.base).inv.app x.fiber)) ≫
+          (η.naturality q.base).inv.app ((F.map p.base).obj x.fiber) := by
+      rw [comparison_comp]
+      simp only [compBoundary, map_eqToHom, Category.assoc, eqToHom_trans,
+        eqToHom_refl, Category.comp_id]
+    rw [hp]
+    exact naturality_whisker_heq (η.naturality q.base).inv α.fiber
+      (compBoundary G p.base q.base ((η.app x.base).obj x.fiber) ≫
+        (G.map q.base).map ((η.naturality p.base).inv.app x.fiber))
+      ((η.app z.base).map q.fiber)
+
+/-- A coherent transformation induces a strict higher functor on total contexts. -/
+def toHigher : StrictPseudofunctor (Total F) (Total G) := StrictPseudofunctor.mk'' {
+  obj := obj η
+  map := map η
+  map₂ := map₂ η
+  map₂_id := map₂_id η
+  map₂_comp := map₂_comp η
+  map_id := map_identity η
+  map_comp := map_compose η
+  map₂_whisker_left := map₂_whisker_left η
+  map₂_whisker_right := map₂_whisker_right η
+}
+
 end StrongMap
 end SquareKit.Internal.PathTransport.TwoFamily

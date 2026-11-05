@@ -1,5 +1,6 @@
 import SquareKit.Internal.PathTransport.TwoFamilyMap
 import Examples.TwoFamily
+import Examples.TwoFamilyCoherence
 
 /-! Coherent total maps retain the nonzero base action of the path family. -/
 namespace Examples.TwoFamilyMap
@@ -34,5 +35,16 @@ theorem mapped_path_cells_compose (m n k : ℤ) :
     SquareKit.Internal.PathTransport.TwoFamily.StrongMap.map₂ identityTransformation
       (TwoFamily.cell (TwoGroupoidPath.comparison n k)) :=
   SquareKit.Internal.PathTransport.TwoFamily.StrongMap.map₂_comp _ _ _
+
+abbrev higherUniversal := SquareKit.Internal.PathTransport.TwoFamily.StrongMap.toHigher
+  (Pseudofunctor.StrongTrans.id TwoFamilyCoherence.universal.toPseudofunctor)
+
+/-- The constructed higher map keeps the selected nonzero fiber cell. -/
+theorem higher_retains_fiber (n : ℤ) :
+    (higherUniversal.map₂ (TwoFamilyCoherence.cell n)).fiber = Multiplicative.ofAdd n := by
+  dsimp [higherUniversal, SquareKit.Internal.PathTransport.TwoFamily.StrongMap.toHigher,
+    SquareKit.Internal.PathTransport.TwoFamily.StrongMap.map₂, TwoFamilyCoherence.cell]
+  simp only [Category.comp_id]
+  rfl
 
 end Examples.TwoFamilyMap
