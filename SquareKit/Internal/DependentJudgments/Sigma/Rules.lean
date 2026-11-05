@@ -120,8 +120,8 @@ theorem split_valid : Satisfies (algebra M S) splitRule := by
   · eval_simp
   · simp only [Term.eval, FinitaryTerm.fold, algebra, Contextual.algebra,
       DependentJudgments.operation, operation, Matrix.cons_val_zero, Matrix.cons_val_one,
-      Matrix.cons_val_two, Matrix.cons_val_three, Matrix.cons_val_four,
-      Matrix.head_cons, Matrix.tail_cons, Matrix.cons_val_succ, inputs_values,
+      Matrix.cons_val_two, Matrix.cons_val_four,
+      Matrix.head_cons, Matrix.tail_cons, inputs_values,
       Value.termIn_term]
     exact Value.term_eq (S.split_type A B C) (S.split_heq A B C d).symm
 
@@ -131,8 +131,8 @@ theorem splitBeta_valid : Satisfies (algebra M S) splitBetaRule := by
   change (subTm (split (.var 1) (.var 2) (.var 4)) (pack (.var 1) (.var 2))).eval _ _ = _
   simp only [Term.eval, FinitaryTerm.fold, algebra, Contextual.algebra,
     DependentJudgments.operation, operation, Matrix.cons_val_zero, Matrix.cons_val_one,
-    Matrix.cons_val_two, Matrix.cons_val_three, Matrix.cons_val_four,
-    Matrix.head_cons, Matrix.tail_cons, Matrix.cons_val_succ, inputs_values,
+    Matrix.cons_val_two, Matrix.cons_val_four,
+    Matrix.head_cons, Matrix.tail_cons, inputs_values,
     Value.termIn_term]
   apply Value.term_eq
   · rw [M.subTy_comp, S.unpack_pack, M.subTy_id]
