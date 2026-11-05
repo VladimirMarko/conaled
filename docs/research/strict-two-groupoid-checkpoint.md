@@ -351,6 +351,8 @@ cell. The cell-law proofs retain the endpoint cell and use subsingleton
 fiber 2-homs only in the locally discrete identity fiber. They do not identify
 the original family's genuine 2-cells. Ordinary `with_reducible exact` at the
 two assembly fields avoids an elaboration timeout without changing the laws.
+`pathReflexivity_first` proves exact whole-functor retraction to the first
+endpoint, including the retained cell action.
 
 `contractionComponent` is an arrow in this same general path context, from the
 reflexive first endpoint to the supplied path. Its endpoint transport satisfies
@@ -362,6 +364,16 @@ identifies canonical casts, and does not identify genuine original 2-cells.
 The integer specialization exercises normalization in the same context that
 retains those cells. Strong naturality and its laws are still missing, so these
 components do not yet constitute a coherent contraction or establish J.
+
+The strict fiber inclusion `fiberInclusion F γ` now embeds each full higher
+fiber into `Total F`. It needs no groupoid premise. Restricting an arbitrary
+`B : Family (Total F)` along this inclusion gives an actual family and the
+constructed `sigmaFiber F γ B`. Its universe levels are the maxima of the two
+input fiber levels; groupoid and local-groupoid closure follow from the proved
+total construction. The integer example retains two independent cell
+components and distinguishes a nonzero second component. This establishes
+Sigma fibers only. Base transport and its higher action, substitution,
+total regrouping, pairing and projections are not yet constructed.
 
 ## Remaining construction
 

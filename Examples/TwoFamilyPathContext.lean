@@ -1,5 +1,5 @@
 import SquareKit.Internal.PathTransport.TwoFamilyPathContraction
-import SquareKit.Internal.PathTransport.TwoFamilyPathReflexivityHigher
+import SquareKit.Internal.PathTransport.TwoFamilyPathRetraction
 import Examples.TwoOpenIdentityHigher
 
 /-! The full path context retains the integer boundary relating path arrows. -/
@@ -85,5 +85,11 @@ example (k : ℤ) :
 example : (TwoFamily.pathReflexivity integerFamily).comp
     (TwoFamily.pathEndpoints integerFamily) = TwoFamily.diagonalTotal integerFamily :=
   TwoFamily.pathReflexivity_endpoints integerFamily
+
+/-- Retraction is equality of the whole functor, not just its object map. -/
+example : (TwoFamily.pathReflexivity integerFamily).comp
+    (TwoFamily.pathFirst integerFamily) =
+    StrictPseudofunctor.id (TwoFamily.Total integerFamily) :=
+  TwoFamily.pathReflexivity_first integerFamily
 
 end Examples.TwoFamilyPathContext
