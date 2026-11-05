@@ -65,7 +65,7 @@ theorem endpointTrace_empty_input (k : Nat) (trace : Trace) :
       simp at hi
 
 theorem endpointTrace_singleton (x : α) : EndpointTrace 0 [x] [(1, 0)] := by
-  have hs : (stepRun 0 [x] 0).1 = Sum.inr x := by
+  have hs : (stepRun 0 [x] ⟨0, by simp⟩).1 = Sum.inr x := by
     simp [stepRun_eq, partition3_eq_filters]
   rw [EndpointTrace]
   refine ⟨by simp, rfl, ?_, ?_⟩
