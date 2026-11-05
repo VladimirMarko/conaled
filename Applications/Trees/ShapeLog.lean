@@ -57,13 +57,17 @@ theorem height_eq_logb_numLeaves (t : BinaryTree α) (ht : Complete t) :
 theorem minHeight_eq_floor_logb_numLeaves (t : BinaryTree α)
     (ht : AlmostComplete t) :
     minHeight t = ⌊Real.logb 2 (t.numLeaves : Real)⌋₊ := by
-  rw [Real.natFloor_logb_natCast 2 t.numLeaves]
-  exact minHeight_eq_log_numLeaves t ht
+  calc
+    minHeight t = Nat.log 2 t.numLeaves := minHeight_eq_log_numLeaves t ht
+    _ = ⌊Real.logb 2 (t.numLeaves : Real)⌋₊ := by
+      simpa only [Nat.cast_ofNat] using (Real.natFloor_logb_natCast 2 t.numLeaves).symm
 
 theorem height_eq_ceil_logb_numLeaves (t : BinaryTree α)
     (ht : AlmostComplete t) :
     t.height = ⌈Real.logb 2 (t.numLeaves : Real)⌉₊ := by
-  rw [Real.natCeil_logb_natCast 2 t.numLeaves]
-  exact height_eq_clog_numLeaves t ht
+  calc
+    t.height = Nat.clog 2 t.numLeaves := height_eq_clog_numLeaves t ht
+    _ = ⌈Real.logb 2 (t.numLeaves : Real)⌉₊ := by
+      simpa only [Nat.cast_ofNat] using (Real.natCeil_logb_natCast 2 t.numLeaves).symm
 
 end Trees
