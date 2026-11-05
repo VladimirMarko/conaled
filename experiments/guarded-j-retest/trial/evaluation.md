@@ -139,3 +139,32 @@ usability claim. Congruence authoring remains a specific follow-up candidate;
 no silent helper repair was made after freeze. #320 artifacts remain immutable;
 #107 stays paused, #108 unselected and #260 inactive. Final independent review
 and candidate validation govern acceptance; no issue has been closed here.
+
+## Remaining ownership
+
+[#235](https://github.com/VladimirMarko/conaled/issues/235) owns the decision
+whether the observed equation-substitution congruence burden warrants another
+shared author-interface change. Any such proposal must preserve typed operands,
+exact selected terms and the source/semantic equality distinction. This trial
+identifies a candidate obligation; it does not approve a new helper or interface
+expansion. [#290](https://github.com/VladimirMarko/conaled/issues/290) coordinates
+any further author evidence, including task selection, exposure controls and
+claims about remaining host work. A further fresh trial needs its own prospective
+protocol; the present attempt counts do not select a productivity winner.
+
+[#326](https://github.com/VladimirMarko/conaled/issues/326) retains conventional
+source-adequacy ownership, including presuppositions and correspondence between
+guarded equations and conventional dependent judgments. The separate typed
+operands checked here do not establish that general correspondence.
+[#328](https://github.com/VladimirMarko/conaled/issues/328) retains migration
+assessment; completion of this caller does not authorize replacement or
+retirement of the annotated Typed API.
+
+[#321](https://github.com/VladimirMarko/conaled/issues/321) owns the separate
+cubical model and source-compatibility programme, and
+[#322](https://github.com/VladimirMarko/conaled/issues/322) owns the direct higher
+semantics construction and its contextual families, sections, J and interpretation
+obligations. Neither the native cases nor the generic conditional interpretation
+here discharge those model-building tasks or approve higher-model adoption.
+The enclosing #235 implementation/review loop owns final independent review of
+#323 and acceptance of this bounded repair and retest decision.
