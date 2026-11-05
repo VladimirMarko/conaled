@@ -255,16 +255,16 @@ theorem identity_valid : Satisfies algebra.{u} identityRule := by
 
 noncomputable def comprehensionModel :
     GuardedTheory.Model.{0,u+1} comprehensionTheory where
-  toAlgebra := algebra.{u} 
+  toAlgebra := algebra.{u}
   rules
-    | .variablePair => variablePair_valid 
-    | .pairing => pairing_valid 
-    | .weakenPair => weakenPair_valid 
-    | .extension => extension_valid 
-    | .weakening => weakening_valid 
-    | .generic => generic_valid 
-    | .empty => empty_valid 
-    | .identity => identity_valid 
+    | .variablePair => variablePair_valid
+    | .pairing => pairing_valid
+    | .weakenPair => weakenPair_valid
+    | .extension => extension_valid
+    | .weakening => weakening_valid
+    | .generic => generic_valid
+    | .empty => empty_valid
+    | .identity => identity_valid
 
 
 theorem Value.term_input (Γ : Semantics.Context.{u}) (A : Semantics.Family Γ) (v : Value.{u})
