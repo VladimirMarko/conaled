@@ -20,14 +20,20 @@ def heightStep (l : Nat) (_ : α) (r : Nat) : Nat := max l r + 1
 theorem size_reader (t : BinaryTree (α × Nat))
     (ht : Trees.Cached.Valid 0 sizeStep t) :
     Trees.Cached.read 0 t = t.numNodes := by
-  simpa only [sizeStep, Trees.fold_numNodes, Trees.Cached.numNodes_erase] using
-    Trees.Cached.read_eq_fold 0 sizeStep t ht
+  calc
+    Trees.Cached.read 0 t = Trees.fold 0 sizeStep (Trees.Cached.erase t) :=
+      Trees.Cached.read_eq_fold 0 sizeStep t ht
+    _ = (Trees.Cached.erase t).numNodes := Trees.fold_numNodes _
+    _ = t.numNodes := Trees.Cached.numNodes_erase t
 
 theorem height_reader (t : BinaryTree (α × Nat))
     (ht : Trees.Cached.Valid 0 heightStep t) :
     Trees.Cached.read 0 t = t.height := by
-  simpa only [heightStep, Trees.fold_height, Trees.Cached.height_erase] using
-    Trees.Cached.read_eq_fold 0 heightStep t ht
+  calc
+    Trees.Cached.read 0 t = Trees.fold 0 heightStep (Trees.Cached.erase t) :=
+      Trees.Cached.read_eq_fold 0 heightStep t ht
+    _ = (Trees.Cached.erase t).height := Trees.fold_height _
+    _ = t.height := Trees.Cached.height_erase t
 
 /-- The asymmetric source-independent fixture has four nodes and height three. -/
 def sample : BinaryTree Nat :=
@@ -146,6 +152,7 @@ theorem sample_word :
         ([0] ++ ([1] ++ ([2] ++ [3]))) = _
       simp only [Sequences.OrderedSummary.summary_append,
         Sequences.OrderedSummary.summary_singleton]
+      rfl
 
 def balancedThree : BinaryTree Nat := .node 1 (.node 1 .nil .nil) (.node 1 .nil .nil)
 def leftThree : BinaryTree Nat := .node 1 (.node 1 (.node 1 .nil .nil) .nil) .nil
@@ -172,7 +179,7 @@ theorem empty_tree (t : BinaryTree Empty) : t = .nil := by
 
 theorem empty_fold {β : Type v} (empty : β) (combine : β → Empty → β → β)
     (t : BinaryTree Empty) : Trees.fold empty combine t = empty := by
-  rw [empty_tree t]
+  rw [empty_tree t, Trees.fold_nil]
 
 theorem empty_observations (t : BinaryTree Empty) :
     t.numNodes = 0 ∧ t.height = 0 ∧ Trees.inorder t = [] := by
@@ -344,7 +351,8 @@ theorem chain_node_cost (n : Nat) :
 theorem chain_node_value (n : Nat) :
     (Resources.TreeCache.nodeRun [] appendStepRun (chainCache n) () .nil).1 =
       chainCache (n + 1) := by
-  rw [append_node_value] <;> rfl
+  rw [append_node_value]
+  rfl
 
 theorem chain_node_valid (n : Nat) :
     Trees.Cached.Valid [] listStep
