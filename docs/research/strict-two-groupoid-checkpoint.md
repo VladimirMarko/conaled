@@ -171,6 +171,23 @@ also give groupoidal total hom-categories. The integer specialization applies
 the derived inverse and retains the selected arrow under identity substitution.
 These closure results concern extension only, not yet Sigma or open identity.
 
+`TwoIdentityTransport` constructs the hom-groupoid transport functor,
+inverse endpoint mates, and the natural transformation obtained from two
+endpoint comparison cells and a strict higher transformation. Naturality at
+every original fiber 2-cell follows from that transformation's 2-cell law
+and Mathlib's whiskering/associator natural transformations. Its identity law
+is proved. A strict 2-functor embeds ordinary categories in the higher-family
+target using locally discrete 2-categories, preserving all ordinary arrows.
+
+The double-delooping examples retain an arbitrary integer fiber cell through
+hom transport and compute the endpoint comparison as `n - m`. The embedded
+identity fiber retains the same integer arrow. Statement review distinguishes
+this locally discrete identity fiber from erasure of the original fiber's
+2-cells: those 2-cells become its 1-arrows. The generic endpoint-action
+composition and substitution laws remain pending. An attempted direct
+simplification of composition leaves a real interchange/inverse-mate
+coherence obligation; a passing identity law does not discharge it.
+
 ## Remaining construction
 
 1. Specify the general small strict 2-groupoids and higher family collection,
