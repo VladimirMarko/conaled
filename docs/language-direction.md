@@ -169,6 +169,20 @@ types, terms and dependent witnesses. A setting constructed from presentation
 data varying within a context needs its own reindexing contract; externally
 selected models do not establish that capability. These are research criteria,
 not a decision to adopt a particular structural core or framework.
+
+The [structure audit](research/dependent-structure-audit.md) now derives
+comprehension and generated empty substitutions from existing laws. Reuse
+those results before introducing stronger assumptions. Terminal uniqueness and
+the choice of morphisms remain explicit requirements where a construction
+needs them. The [nested internal-setting test](research/internal-setting-construction.md)
+also establishes a bounded positive case for context-varying presentations,
+including their selected dependent payloads under repeated substitution.
+Neither result selects the ordinary author's judgment representation.
+The [checked higher source test](research/dependent-higher-identity.md) retains
+the frozen memo's witness observations, but its corresponding Lean model and
+sound interpretation remain to be constructed. Keep that adoption condition
+separate from successful source checking or lower-truncation author trials.
+
 The [theory-network comparison](research/theory-network-comparison.md) likewise
 keeps publication and view composition separate from encoding adequacy and
 changes of logic. A total assignment of declarations must preserve their laws

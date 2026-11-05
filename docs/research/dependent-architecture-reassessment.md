@@ -24,9 +24,51 @@ assessment without reading the other drafts:
   role coordinating the completed integration review; it was independent of the
   other assessments, not unexposed to the project.
 
-These are research assessments. No new Lean theorem, model construction or
-author trial is delivered by this reassessment. The follow-up claims below
-remain hypotheses until the specified experiments establish them.
+The original assessments are retained as research proposals, not checked
+theorems. The results section below records subsequent reviewed evidence;
+the individual assessments retain their historical wording.
+
+## Reviewed results from the follow-up investigations
+
+The [structure audit](dependent-structure-audit.md) derives pairing naturality,
+lift coherence and display pullbacks from the existing laws. It constructs
+full comprehension for the category of all display-map squares and gives an
+independent representability presentation. These results support reusing the
+derived operations without adding model fields. Fullness depends on the chosen
+morphisms: the Type-family correspondence is checked, while an actual groupoid
+shear refutes identification with strict cleavage-preserving family maps.
+
+The audit also corrects an earlier inference about empty substitutions.
+Every generated context admits one by recursion on its derivation. The absence
+of a named primitive did not establish missing existence. Terminal uniqueness
+is a different requirement: a complete model refutes it even in the full
+subcategory of reachable objects. That result does not refute uniqueness in
+a category restricted to source-generated arrows. No such uniqueness theorem
+is assumed here.
+
+The [internal-setting construction](internal-setting-construction.md) supplies
+two nested settings with a second presentation depending on the first generic
+model. Their slice interpretations and selected dependent payloads commute
+coherently with repeated substitution. This establishes the bounded internal
+presentation case: finite geometric syntax with Lean-hosted predicate data,
+interpreted by a metatheoretic slice construction. It does not supply an
+object-language term returning an arbitrary category.
+
+The [higher-identity investigation](dependent-higher-identity.md) checks the
+frozen argument in pinned Cubical Agda, including both dependent substitutions,
+a nontrivial second-identity observation and nonconstant monodromy. Its Lean
+adoption condition remains unmet. The direct higher-groupoid route still needs
+constructed families, sections, contextual J for arbitrary admitted motives,
+dimension closure and a sound interpretation of that argument. Those exact
+obligations belong to [#322](https://github.com/VladimirMarko/conaled/issues/322);
+[#321](https://github.com/VladimirMarko/conaled/issues/321) owns the separate
+cubical model and source-compatibility programme. External source checking is
+partial evidence, not a Lean interpretation.
+
+These results establish derived structure and bounded semantic constructions.
+They do not yet select a replacement author interface, prove constructor
+admission for that interface or measure its author benefit. Those decisions
+remain with #315, #317 and #320.
 
 ## What the earlier account understated
 
@@ -49,8 +91,8 @@ into an undifferentiated verdict against the model.
 
 | Question | Current evidence | Consequence for investigation |
 | --- | --- | --- |
-| Are more comprehension laws needed as assumptions? | Pairing beta/eta and substitution already support a proposed reconstruction using display-map squares. The complete construction is not yet checked. | Attempt the derivation and compare the intended morphism categories before adding fields. |
-| Is the distinguished `empty` terminal? | The complete Bool countermodel refutes this for arbitrary current models; the admitted source fragment lacks a general empty-substitution constructor. | Determine the intended fragment and generated-context behavior before requiring terminality. |
+| Are more comprehension laws needed as assumptions? | The subsequent audit derives display pullbacks and full comprehension for all display-map squares from pairing beta/eta and substitution. | Reuse the construction; establish any claimed correspondence with a different category of family maps separately. |
+| Is the distinguished `empty` terminal? | Complete countermodels refute global existence and full-reachable uniqueness. Generated empty substitutions nevertheless exist by a checked recursion. | Specify the objects and arrows of the intended category before requiring terminality; generated-arrow uniqueness remains a separate question. |
 | Does the concrete groupoid setting satisfy LF? | No failure was proved. The categorical package remains unconstructed. | Prove the exact hypotheses if a selected construction needs them; direct models need not all provide LF. |
 | Is the structural interface sufficiently general? | `base`, `fiber`, Id and reflexivity are bundled with context structure; semantic-code indices quantify over the entire J-equipped model. | Compare a signature-independent core and constructor capabilities with a replacement foundation. |
 | Is the requested pair already an object-language term? | Context extension exists, but the current generated fragment has no Sigma constructor. | Specify object-language Sigma versus a contextual package explicitly; neither can silently stand in for the other. |
@@ -64,13 +106,11 @@ capabilities need explicit scope and witnesses; they need not introduce new
 operations. The goal is to expose the actual requirements of an argument, not
 minimize or maximize the number of fields.
 
-The display-map reconstruction is especially worth testing. Fullness can be
-built into a category whose arrows are all appropriate commuting squares, but
-that does not automatically identify it with a chosen category of concrete
-family morphisms. The [mathematical assessment](dependent-architecture-review/mathematical-structure.md)
-states the proposed construction and the remaining correspondence obligation.
-This sharpens #292's “not packaged” finding without claiming that its proof gap
-has already been closed.
+The [mathematical assessment](dependent-architecture-review/mathematical-structure.md)
+proposed the display-map reconstruction now supplied by the audit. Its warning
+about the choice of concrete family morphisms remains necessary: constructing
+all-square fullness does not identify that category with every proposed
+category of family maps.
 
 ## Revise the proposed separation
 
@@ -110,9 +150,10 @@ explicit mathematical recovery and migration evidence.
 
 ## Follow-up graph
 
-The linked issues own live scope and completion status. These specifications
-permit substantial work; their scope bounds the questions, not the research
-effort. They do not start the formalizations or author trials in this delivery.
+The linked issues own live scope and completion status. Their scope bounds
+the questions, not the research effort. The reviewed results above are from
+the ongoing implementation of this graph; later experiments retain their
+dependency and review gates.
 
 | Issue | Discriminating outcome |
 | --- | --- |

@@ -74,14 +74,34 @@ distinguish derivable laws, independent requirements, specialized signature
 choices and alternative foundations. The four proposed responsibilities remain
 mutually constrained research hypotheses. They are not fixed module boundaries.
 
-[#314](https://github.com/VladimirMarko/conaled/issues/314) audits the structural
-contract and attempts its proposed reconstructions before strengthening it.
+The reviewed [#314 audit](dependent-structure-audit.md) derives pairing
+naturality, lift coherence, display pullbacks and full comprehension for
+all-square morphisms. It also constructs a signature-independent
+representability presentation. Generated empty substitutions exist by recursion;
+terminal uniqueness is a separate requirement. The Type-family correspondence
+is checked, while a groupoid shear rejects strict cleavage-preserving fullness.
+
 [#315](https://github.com/VladimirMarko/conaled/issues/315) compares dependent
-judgment representations, using that diagnosis. In parallel,
-[#316](https://github.com/VladimirMarko/conaled/issues/316) investigates the
-concrete dependent higher model and
-[#319](https://github.com/VladimirMarko/conaled/issues/319) tests setting
-construction from context-varying internal presentations.
+judgment representations using that diagnosis. Its interpretation and comparison
+contract must support reuse in newly admitted settings; compatibility over a
+fixed diagram alone does not establish that capability.
+
+The reviewed [#316 investigation](dependent-higher-identity.md) checks the
+frozen dependent argument in pinned Cubical Agda, including both substitutions,
+its second-identity observation and nonconstant monodromy. The Lean model and
+sound interpretation remain unconstructed. The exact direct higher-groupoid
+successor is [#322](https://github.com/VladimirMarko/conaled/issues/322), distinct
+from [#321](https://github.com/VladimirMarko/conaled/issues/321)'s cubical and
+source-compatibility programme. Source checking does not satisfy the higher
+adoption condition.
+
+The reviewed [#319 construction](internal-setting-construction.md) supplies
+two nested internal finite settings, with the second presentation depending
+on the first generic model. It proves coherent repeated reindexing of selected
+dependent payloads and their slice interpretations. Its finite geometric syntax,
+Lean predicate data and metatheoretic slice formation have explicit boundaries;
+it does not internalize arbitrary semantic categories.
+
 [#317](https://github.com/VladimirMarko/conaled/issues/317) exercises constructor
 admission through an explicit judgment contract;
 [#318](https://github.com/VladimirMarko/conaled/issues/318) constructs categorical
@@ -95,8 +115,8 @@ with #36/#235, #288's extension questions and #290's author evidence.
 setting construction. #301 continues to challenge the assumptions of the entire
 agenda from outside its current candidates. The investigations may recommend
 repair, structural factoring or replacement foundations. They preserve #107's
-pause and #108's independent-theorem gate. Creating this follow-up graph does
-not start its formalizations or trials.
+pause and #108's independent-theorem gate. Author dispatch still requires the
+reviewed interface and extension results followed by a prospective trial freeze.
 
 ## Construction and observation as an implemented comparison baseline
 
