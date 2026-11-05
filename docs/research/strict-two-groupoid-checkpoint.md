@@ -276,27 +276,44 @@ construct substitution for arbitrary admitted sections. The checked example
 retains integer fiber cells through factorization and checks the projection
 equation of a substituted generic section.
 
-Statement review distinguishes this operation from its unfinished coherence
-laws. The standalone corollary asserting fiber-cell retention through the
-final family-equality cast repeatedly exceeded Lean's elaboration budget.
-The draft is preserved in orchestration evidence and is not a checked theorem.
-Neither that corollary nor identity/composition coherence of section substitution
-is claimed by this milestone. The checked generic `Section.cast_cell_fiber`
-lemma concerns transport along an arbitrary family equality; combining it with
-the specific substitution still requires an elaboration proof.
+The reviewed structural milestone at `870420b` left substitution retention,
+identity/composition coherence, and open identity's horizontal laws unfinished.
+Subsequent construction proves `Section.reindex_cell_fiber` through the final
+family-equality cast. A local elaboration budget discharges the original
+statement; the integer specialization consumes that theorem. Object and arrow
+retention, section extensionality from all three fiber actions, and the exact
+identity-substitution law also check. The identity law includes the explicit
+family equality cast and concludes equality of the whole section.
 
-`TwoOpenIdentityHigher` constructs identity and vertical composition of the
-endpoint-cell action, actual hom functors and a `PrelaxFunctor` into the
-higher-family target. Its arrow identity/composition equations also hold.
-The examples compute endpoint comparison `n - m` and retain original integer
-fiber cells as arrows in the identity fiber. Both horizontal compatibility
-laws and the full strict identity-family functor remain unconstructed.
+Composition substitution remains unfinished. Its proof reduces to the same
+retention lemmas, but elaborating transitivity through nested family casts
+exceeded the local budgets. The intermediate terms and their types compare
+syntactically equal in the preserved diagnostic. This is an elaboration
+obstruction, not a proved composition law.
+
+`TwoOpenIdentityHigher` now proves both horizontal endpoint-cell laws and
+assembles `openIdCat` and `openIdHigher` as full strict higher functors.
+The generic hom-comparison laws in `TwoIdentityHomFunctoriality` pass through
+actual endpoint-total composition and whiskering boundaries. Integer examples
+check endpoint difference, original fiber-cell retention and both whiskerings.
+No restriction to identity endpoint cells is used.
+
+`TwoFamilySectionMap` transports arbitrary sections through coherent family
+transformations using the constructed higher total map and its projection law.
+`TwoStrongTransport` maps arbitrary strong transformations through strict
+higher functors, proving naturality, unit and composition equations, and uses
+that construction for section transport along coherent base homotopies. Its
+integer specialization accepts the existing non-strict contraction and retains
+the nonzero naturality comparison. This does not supply the missing general
+path-context contraction; it supplies the transport operation that will consume
+such a contraction. Section and homotopy composition laws remain separate
+obligations.
 
 `TwoIdentityMateFunctoriality` proves the two generic mate compatibility laws
 needed there: invertible endpoint postcomposition and strict-functor images.
 Both are exact equalities with typed boundary casts and arbitrary input
 2-cells. The examples apply them to integer cells and projection from a product.
-These lemmas do not themselves establish the missing horizontal family laws.
+These lemmas are used by the constructed horizontal family laws.
 
 All these are explicit structures and proved structural laws. No record field
 assumes the desired eliminator, interpretation or finite soundness result.
@@ -305,11 +322,9 @@ general contraction. The frozen memo is unchanged.
 
 ## Remaining construction
 
-1. Finish the standalone section-substitution cell-retention corollary and
-   identity/composition coherence. Construct section transport along coherent
-   base homotopies; do not restrict sections to terminal-family transformations.
-2. Assemble and prove both horizontal laws of the open identity family.
-   Prove the remaining finite-dimensional closure, including Sigma and finite
+1. Finish composition coherence of section substitution and the laws for
+   coherent section transport. Keep arbitrary higher sections admitted.
+2. Prove the remaining finite-dimensional closure, including Sigma and finite
    dependent context tails. Existing groupoid closure covers total extension
    and reindexing; it does not establish all type constructors.
 3. Construct reflexivity and the normalized coherent contraction in the actual

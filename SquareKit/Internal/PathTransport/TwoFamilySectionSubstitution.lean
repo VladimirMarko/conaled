@@ -153,4 +153,21 @@ theorem Section.cast_cell_fiber {F G : Family.{u,v,w,u',v',w'} Γ} (e : F = G)
   cases e
   rfl
 
+set_option maxHeartbeats 1000000 in
+/-- Substituting a section keeps the original transported fiber 2-cell. -/
+theorem Section.reindex_cell_fiber (s : Section F) (σ : StrictPseudofunctor Δ Γ)
+    {x y : Δ} {p q : x ⟶ y} (α : p ⟶ q) :
+    HEq (((s.reindex F σ).lift.map₂ α).fiber) ((s.lift.map₂ (σ.map₂ α)).fiber) := by
+  have hc := Section.cast_cell_fiber
+    (F := TwoFamily.reindex (factorBase F (σ.comp s.lift)) F)
+    (G := TwoFamily.reindex σ F) (x := x) (y := y) (p := p) (q := q)
+    (congrArg (fun k => TwoFamily.reindex k F) (s.reindex_base F σ))
+    (sectionOfLift F (σ.comp s.lift)) α
+  have hf : HEq (((sectionOfLift F (σ.comp s.lift)).lift.map₂ α).fiber)
+      ((s.lift.map₂ (σ.map₂ α)).fiber) := HEq.rfl
+  have hh := HEq.trans hc hf
+  dsimp +instances only [Section.reindex] at hh ⊢
+  set_option backward.isDefEq.respectTransparency true in
+    set_option backward.isDefEq.respectTransparency.types true in
+      exact hh
 end SquareKit.Internal.PathTransport.TwoFamily

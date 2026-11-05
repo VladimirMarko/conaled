@@ -303,6 +303,8 @@ import Examples.TwoFamilyHigherReindex
 import Examples.TwoFamilyMap
 import Examples.TwoFamilySections
 import Examples.TwoFamilySectionSubstitution
+import Examples.TwoFamilySectionMap
+import Examples.TwoStrongTransport
 import Examples.TwoOpenIdentity
 import Examples.TwoOpenIdentityHigher
 

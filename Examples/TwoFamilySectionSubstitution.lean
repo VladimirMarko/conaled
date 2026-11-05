@@ -1,4 +1,4 @@
-import SquareKit.Internal.PathTransport.TwoFamilySectionSubstitution
+import SquareKit.Internal.PathTransport.TwoFamilySectionLaws
 import Examples.TwoFamilySections
 
 /-! Factoring and substituting sections retains the original integer fiber cells. -/
@@ -20,5 +20,19 @@ abbrev substituted := TwoFamily.Section.reindex _ TwoFamilySections.genericSecti
 theorem substitution_projects :
     substituted.lift.comp (TwoFamily.projectionHigher _) = StrictPseudofunctor.id _ :=
   substituted.over
+
+set_option maxHeartbeats 1000000 in
+/-- Identity substitution retains the chosen integer, including nonzero cells. -/
+theorem substitution_retains_fiber (n : ℤ) :
+    HEq ((substituted.lift.map₂ (TwoFamilyCoherence.cell n)).fiber)
+      (Multiplicative.ofAdd n) := by
+  exact TwoFamily.Section.reindex_cell_fiber _ TwoFamilySections.genericSection
+    (StrictPseudofunctor.id _) (TwoFamilyCoherence.cell n)
+
+/-- The identity law recovers the whole section, including its higher action. -/
+theorem substitution_is_identity :
+    TwoFamily.Section.cast (TwoFamily.reindex_id _) substituted =
+      TwoFamilySections.genericSection :=
+  TwoFamily.Section.reindex_id _ _
 
 end Examples.TwoFamilySectionSubstitution
