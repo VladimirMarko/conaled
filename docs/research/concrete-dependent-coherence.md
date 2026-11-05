@@ -15,15 +15,16 @@ The evidence begins with the [architecture reassessment](dependent-architecture-
 its three independent assessments, [#292](dependent-coherence-comparison.md),
 and the unchanged [external memo](dependent-coherence-discovery/292-external-memo.md).
 The [#314 reconstruction](dependent-structure-audit.md) supplies new structural
-proofs; the [#316 investigation](https://github.com/VladimirMarko/conaled/issues/316) supplies a checked
+proofs; the [#316 investigation](dependent-higher-identity.md) supplies a checked
 external dependent higher test and an exact remaining Lean construction.
-The inspected revisions are #314's independently approved
-`3484ce523bf23524f715a3a2029c290a2d43c4c0` and #316's supplied candidate
-`ca54f31646bd60e1866efc39f257db5b27dc17fc`, pending independent review at this
-assessment. The latter's report is `docs/research/dependent-higher-identity.md`
-at that revision; its validation receipt is external source evidence, not a
-Lean interpretation. No new Lean definition, assumed-law record, or
-replacement source judgment is introduced by this assessment.
+The inspected revisions are the independently approved #314 commit
+`3484ce523bf23524f715a3a2029c290a2d43c4c0` and #316 commit
+`d7d2beeea699bccc2f7eb0fee7f8fa52e6718186`, both incorporated here.
+#316 was accepted under its precise-prerequisite outcome: retain the checked
+external source test and assign the unconstructed higher interpretation to
+#322. Its approval does not pass the higher adoption gate. No new Lean
+definition, assumed-law record, or replacement source judgment is introduced
+by this assessment.
 
 ## The consumer and the possible gain
 
@@ -54,6 +55,20 @@ identity. #316's direct higher route is a proposed construction with a precise
 remaining theorem, while Kan and chosen-universe models have external existence
 results. A lack of an adapter to current annotations is not a reason to reject
 either alternative.
+
+The incorporated source evidence makes that boundary concrete.
+[FrozenMemo.agda](../../experiments/dependent-higher-identity/FrozenMemo.agda)
+checks `w-twice`, `apd-twice` and `PathFamily.observation` in inductive identity.
+[HigherWitness.agda](../../experiments/dependent-higher-identity/HigherWitness.agda)
+constructs the selected second identity in `K(ℤ,2)`, applies those generic
+substitution laws, and proves `observation-detects-one` and `erasure-rejected`
+for the conjugate observation.
+[Monodromy.agda](../../experiments/dependent-higher-identity/Monodromy.agda)
+proves `transport-three` and `transport-two` for the circle's integer cover.
+The [reproduction record](../../experiments/dependent-higher-identity/README.md)
+identifies the pinned compiler, checked closure and primitive trust boundary.
+These results establish the external dependent consumer; they do not construct
+Lean higher families or a sound interpretation of that consumer.
 
 In particular, #316's failure of a strict-natural contraction on the `B²ℤ`
 path family does not identify a substitution-strictification problem. The
