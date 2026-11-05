@@ -650,28 +650,6 @@ structure ModelMap (M : Model.{u}) (N : Model.{v}) extends
       (N.j (family A) (mapTm x) (toStructuralMap.pathTelescope A x T)
         (toStructuralMap.jMotive A x T C) (toStructuralMap.jBranch A x T C d))
 
-namespace Model
-open StructuralModel
-variable (M : Model.{u})
-
-theorem j_heq {Γ Δ : M.Context} {n} {A : M.Family Γ} {B : M.Family Δ}
-    {x : M.Section Γ A} {y : M.Section Δ B}
-    {T : Telescope M.toStructuralModel (M.toStructuralModel.pathContext A x) n}
-    {U : Telescope M.toStructuralModel (M.toStructuralModel.pathContext B y) n}
-    {C : M.Family T.total} {D : M.Family U.total}
-    {d : M.Section (Telescope.total M.toStructuralModel
-      (Telescope.pullback M.toStructuralModel T (M.toStructuralModel.rootSub A x)))
-      (M.subTy C (M.toStructuralModel.rootTail A x T))}
-    {e : M.Section (Telescope.total M.toStructuralModel
-      (Telescope.pullback M.toStructuralModel U (M.toStructuralModel.rootSub B y)))
-      (M.subTy D (M.toStructuralModel.rootTail B y U))}
-    (hΓ : Γ = Δ) (hA : HEq A B) (hx : HEq x y) (hT : HEq T U)
-    (hC : HEq C D) (hd : HEq d e) :
-    HEq (M.j A x T C d) (M.j B y U D e) := by
-  cases hΓ; cases eq_of_heq hA; cases eq_of_heq hx; cases eq_of_heq hT
-  cases eq_of_heq hC; cases eq_of_heq hd; rfl
-
-end Model
 
 namespace ModelMap
 open StructuralModel
