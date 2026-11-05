@@ -371,7 +371,13 @@ composites. `contractionNaturalityCell` consequently has the required strong
 naturality boundaries. The integer example proves that its second endpoint
 cell is `-k`, including a nonzero control. Naturality with respect to 2-cells,
 identity/composition coherence and normalized restriction along reflexivity
-remain missing. These cells do not yet assemble a strong contraction or J.
+remain missing. The first-endpoint projection is now proved locally faithful:
+for fixed parallel path-context arrows, equal projected 2-cells imply equal
+full 2-cells. The proof recovers the identity action from the total cell's
+boundary and cancels invertible whiskerings in the endpoint comparison. A
+checked integer application recovers the second boundary `a-b` from the first
+projection. This supplies a coherence proof tool, not the coherence laws
+themselves. These cells do not yet assemble a strong contraction or J.
 
 The strict fiber inclusion `fiberInclusion F γ` now embeds each full higher
 fiber into `Total F`. It needs no groupoid premise. Restricting an arbitrary

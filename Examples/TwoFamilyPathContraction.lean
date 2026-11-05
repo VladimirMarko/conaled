@@ -1,4 +1,5 @@
 import SquareKit.Internal.PathTransport.TwoFamilyPathContractionArrows
+import SquareKit.Internal.PathTransport.TwoFamilyPathFaithful
 import Examples.TwoFamilyPathContext
 noncomputable section
 namespace Examples.TwoFamilyPathContraction
@@ -52,4 +53,12 @@ theorem actual_naturality_retains_integer (k : ℤ) :
       Multiplicative.ofAdd (-k) := by
   have h := eq_of_heq (TwoFamily.contractionNaturalityCell_endpoint_heq integerFamily (pathArrow k))
   exact (congrArg Prod.snd h).trans (square_retains_integer k)
+/-- Fixing the first projection determines the second integer boundary of any path cell. -/
+theorem first_projection_determines_boundary (a b : ℤ) (α : pathArrow a ⟶ pathArrow b)
+    (h : (TwoFamily.pathFirst integerFamily).map₂ α =
+      (TwoFamily.pathFirst integerFamily).map₂ (pathCell a b)) :
+    α.base.fiber.2 = Multiplicative.ofAdd (a-b) := by
+  have e := TwoFamily.pathFirst_cell_injective integerFamily α (pathCell a b) h
+  rw [e]
+  exact retained_boundary a b
 end Examples.TwoFamilyPathContraction
