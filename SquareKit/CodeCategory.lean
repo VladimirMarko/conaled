@@ -3,6 +3,8 @@ import SquareKit.CartesianMap
 import Compiler
 import SquareKit.ClosedMap
 import SquareKit.FunctionOptional
+import SquareKit.DistributionMap
+import SquareKit.FunctionOptionalLaws
 
 set_option backward.isDefEq.respectTransparency false
 set_option backward.isDefEq.respectTransparency.types false
@@ -25,6 +27,15 @@ def products : ProductOps (ops Prim) where
   fst := .fst
   snd := .snd
   pair := .pair
+
+def coproducts : CoproductOps (ops Prim) where
+  sum := .sum
+  inl := .inl
+  inr := .inr
+  copair := .copair
+
+def distribution : DistributionOps (ops Prim) (products Prim) (coproducts Prim) where
+  distribute := .dist
 
 def closed : ClosedOps (ops Prim) (products Prim) where
   exp := .arr
@@ -96,6 +107,45 @@ theorem productLaws : ProductLaws (equiv meaning) (products Prim) :=
   ProductMap.transportLaws (evaluationLaws meaning) (evaluationReflects meaning)
     (equalityCongr _) FunctionCategory.laws (productComparisonLaws meaning)
     (evaluationProducts meaning) FunctionCategory.productCongr FunctionCategory.productLaws
+
+/-- Evaluation compares sum values without identifying raw syntax trees. -/
+def coproductComparison : CoproductMap (evaluation meaning) (coproducts Prim)
+    FunctionCategory.coproducts := fun _ _ => ⟨id, id⟩
+
+theorem coproductComparisonLaws (a b : Ty) :
+    ComparisonLaws (equality _) (coproductComparison meaning a b) := ⟨rfl, rfl⟩
+
+theorem evaluationCoproducts : CoproductMapLaws (equality _) (coproductComparison meaning) where
+  inl := rfl
+  inr := rfl
+  copair _ _ := rfl
+
+theorem coproductCongr : CoproductCongr (ops Prim) (equiv meaning) (coproducts Prim) :=
+  CoproductMap.transportCongr (evaluationLaws meaning) (evaluationReflects meaning)
+    (equalityCongr _) (evaluationCoproducts meaning) FunctionCategory.coproductCongr
+
+theorem coproductLaws : CoproductLaws (ops Prim) (equiv meaning) (coproducts Prim) :=
+  CoproductMap.transportLaws (evaluationLaws meaning) (evaluationReflects meaning)
+    (equalityCongr _) FunctionCategory.laws (coproductComparisonLaws meaning)
+    (evaluationCoproducts meaning) FunctionCategory.coproductCongr FunctionCategory.coproductLaws
+
+theorem evaluationDistribution : DistributionMapLaws (equality _)
+    (productComparison meaning) (coproductComparison meaning)
+    (distribution Prim) FunctionCategory.distribution where
+  distribute := by
+    intro a b c
+    funext x
+    rcases x with ⟨x, y | y⟩ <;> rfl
+
+theorem distributionLaws : DistributionLaws (ops Prim) (equiv meaning)
+    (products Prim) (coproducts Prim) (distribution Prim) :=
+  DistributionMap.transportLaws (equalityCongr _) FunctionCategory.laws
+    FunctionCategory.productCongr FunctionCategory.productLaws
+    FunctionCategory.coproductCongr FunctionCategory.coproductLaws
+    (evaluationLaws meaning) (evaluationReflects meaning)
+    (evaluationProducts meaning) (evaluationCoproducts meaning)
+    (productComparisonLaws meaning) (coproductComparisonLaws meaning)
+    (evaluationDistribution meaning) FunctionCategory.distributionLaws
 
 /-- Raw closures are interpreted as functions; comparison arrows are explicit. -/
 def closedComparison : ClosedMap (evaluation meaning) (closed Prim) FunctionCategory.closed :=
