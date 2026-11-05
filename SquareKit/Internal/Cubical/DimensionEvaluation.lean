@@ -111,5 +111,24 @@ theorem intervalDimension_subst {Γ : Context.{u}} {m n : ℕ} (e : Expr (Fin m)
   intro x
   exact congrArg ULift.up (Cube.evalDimension_subst e σ _)
 
+@[simp] theorem intervalDimension_zero {Γ : Context.{u}} {n : ℕ}
+    (r : Fin n → Term (interval Γ)) : intervalDimension .zero r = endpoint Γ false := by
+  apply Term.ext
+  intro x
+  exact congrArg ULift.up (Cube.evalDimension_zero _)
+
+@[simp] theorem intervalDimension_one {Γ : Context.{u}} {n : ℕ}
+    (r : Fin n → Term (interval Γ)) : intervalDimension .one r = endpoint Γ true := by
+  apply Term.ext
+  intro x
+  exact congrArg ULift.up (Cube.evalDimension_one _)
+
+theorem intervalDimension_meet {Γ : Context.{u}} {n : ℕ} (a b : Expr (Fin n))
+    (r : Fin n → Term (interval Γ)) :
+    intervalDimension (.meet a b) r = intervalMeet (intervalDimension a r) (intervalDimension b r) := by
+  apply Term.ext
+  intro x
+  exact congrArg ULift.up (Cube.evalDimension_meet a b _)
+
 end Presheaf
 end SquareKit.Cubical

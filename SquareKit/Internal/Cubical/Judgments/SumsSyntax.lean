@@ -84,4 +84,20 @@ abbrev eliminationRule := eliminationSchema
 abbrev eliminationBetaRule := eliminationSchema
   (.eq (subTm (subTm (.var 4) (unpack (.var 1) (.var 2))) (pack (.var 1) (.var 2))) (.var 4))
 
+abbrev weaken (Γ A : Expression V) : Expression V := .app (.inl (.inl .weaken)) ![Γ,A]
+abbrev generic (Γ A : Expression V) : Expression V := .app (.inl (.inl .generic)) ![Γ,A]
+abbrev pair (A σ t : Expression V) : Expression V := .app (.inl (.inl .pair)) ![A,σ,t]
+abbrev lift (Δ A σ : Expression V) :=
+  pair A (comp σ (weaken Δ (subTy A σ))) (generic Δ (subTy A σ))
+
+abbrev packSubRule := substitutionSchema
+  (.eq (comp (lift (.var 1) (sigma (.var 2) (.var 3)) (.var 4))
+      (pack (subTy (.var 2) (.var 4)) (subTy (.var 3) (lift (.var 1) (.var 2) (.var 4)))))
+    (comp (pack (.var 2) (.var 3))
+      (lift (extend (.var 1) (subTy (.var 2) (.var 4))) (.var 3) (lift (.var 1) (.var 2) (.var 4)))))
+abbrev unpackSubRule := substitutionSchema
+  (.eq (comp (lift (extend (.var 1) (subTy (.var 2) (.var 4))) (.var 3) (lift (.var 1) (.var 2) (.var 4)))
+      (unpack (subTy (.var 2) (.var 4)) (subTy (.var 3) (lift (.var 1) (.var 2) (.var 4)))))
+    (comp (unpack (.var 2) (.var 3)) (lift (.var 1) (sigma (.var 2) (.var 3)) (.var 4))))
+
 end SquareKit.Cubical.Source.Sums

@@ -563,7 +563,7 @@ The semantic eliminator accepts an arbitrary motive over the sum context.
 [Its example](../../Examples/CubicalSourceSums.lean) derives cancellation in
 the source theory and uses an interpreted elimination β derivation to recover
 a body in a motive whose fiber depends on the second component.
-Packing/substitution coherence remains to be connected. The Nat extension
+Packing and unpacking now have validated source substitution rules. The Nat extension
 validates formation, zero, successor, arbitrary-motive elimination, and both
 computation rules. Its successor method is a typed section in `Γ,n,b` with
 result `B(n+1)`. [The finite-motive example](../../Examples/CubicalSourceNaturals.lean)
@@ -573,10 +573,39 @@ binders in the successor method. The interval extension evaluates arbitrary
 De Morgan expressions by actual cube substitutions and validates typing,
 syntactic conversion, dimension composition, and context substitution.
 [Its source example](../../Examples/CubicalSourceIntervals.lean) interprets
-double reversal at the generic interval variable. Path source rules and
-their combined connection to the archived recursive
-contraction remain open. The earlier fixed-`X` recursive characterization has
-not yet been derived in this combined raw source theory. M2 acceptance still
-requires those extensions and that connection; M3–M6 retain all obligations
-listed above. Focused Lean checks do not constitute a full candidate audit or
-independent milestone approval.
+double reversal at the generic interval variable. The dependent Path extension validates formation, abstraction with both
+endpoint equations, generic application, β/η, endpoints, and all constructor
+substitution rules using literal family equality.
+[The source endpoint example](../../Examples/CubicalSourcePaths.lean) interprets
+a source derivation on the nonconstant contraction path and retains distinct
+selected endpoints.
+
+[The recursive source example](../../Examples/CubicalSourceContraction.lean)
+now interprets guarded Nat zero/successor derivations at `methodFamily X`.
+The typing premises are proved for the constructed zero and successor sections.
+Their interpreted computation equations imply the unique recursive operation
+`contractCube X n` for every `n`.
+[The binding interface](../../SquareKit/Internal/Cubical/SourceBinding.lean)
+checks the successor body through normalized Π application and abstraction:
+`c(i ∧ j)` uses the De Morgan expression evaluator and a paired context
+substitution; the recursive parameter takes that cube argument, then `j`.
+The first application uses literal Π substitution conversion before the second.
+`sourceStep_normalized` identifies the resulting abstraction over `i` with
+the successor operation through the proved cube curry/uncurry comparison.
+This gives a checked recursive-characterization bridge, including the first
+interval body, rather than assigning an unexplained successor operation to the
+Nat rule.
+
+The boundary is fixed external `X`, with recursion in a family of global natural
+operations. The guarded source judgment interpreter covers the independently
+specified structural, Π, Σ, Nat, De Morgan, and dependent Path schemas above.
+It interprets schematic derivation substitution and the explicit object-context
+substitution rules separately. It interprets conversion by literal tagged
+semantic equality and transports sections independently of the equality proof.
+The archived binding expression is compared with these constructed operations;
+there is no Agda parser, internal universe interpretation, or claim that cube
+representation isomorphisms themselves are source judgmental equality. Extending
+this source interface with the remaining selected transport/composition and
+strict identity rules is still required. M3–M6 retain all obligations listed
+above, including stable fibrancy, strict Id/J and the exact frozen memo with a
+dependent higher observer. This checkpoint does not complete #321.

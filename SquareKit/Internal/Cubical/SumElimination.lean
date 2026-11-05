@@ -44,4 +44,9 @@ theorem sigmaPack_reindex {Γ Δ : Context.{u}} (A : Family Γ)
     sigmaPack (reindex A σ) (reindex B (liftSub A σ)) ≫ liftSub (sigma A B) σ =
       liftSub B (liftSub A σ) ≫ sigmaPack A B := rfl
 
+theorem sigmaUnpack_reindex {Γ Δ : Context.{u}} (A : Family Γ)
+    (B : Family (total A)) (σ : Δ ⟶ Γ) :
+    sigmaUnpack (reindex A σ) (reindex B (liftSub A σ)) ≫ liftSub B (liftSub A σ) =
+      liftSub (sigma A B) σ ≫ sigmaUnpack A B := rfl
+
 end SquareKit.Cubical.Presheaf
