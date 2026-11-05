@@ -292,6 +292,6 @@ import Examples.GuardedJRetestValidation
 import Examples.GuardedJAuthorEvaluation
 
 import Examples.PrimitiveDependentSums
+import Examples.FiniteKernelEquality
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
-
