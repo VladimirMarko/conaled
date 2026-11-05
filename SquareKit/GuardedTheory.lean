@@ -1,4 +1,4 @@
-import Mathlib.Data.Fin.Basic
+import SquareKit.FinitaryTerm
 
 /-! Annotation-free terms and guarded equational derivations. Object-language
 identity, when supplied by a signature, is an operation of that signature.
@@ -13,27 +13,24 @@ structure Signature where
   Predicate : Type u
   arguments : Predicate → Nat
 
-inductive Term (S : Signature.{u}) (V : Type v) : Type (max u v) where
-  | var : V → Term S V
-  | app : (op : S.Operation) → (Fin (S.arity op) → Term S V) → Term S V
+abbrev Term (S : Signature.{u}) (V : Type v) := FinitaryTerm S.Operation S.arity V
 
-def Term.subst {S : Signature.{u}} {V : Type v} {W : Type w}
-    (σ : V → Term S W) : Term S V → Term S W
-  | .var x => σ x
-  | .app op args => .app op (fun i => (args i).subst σ)
+@[match_pattern] abbrev Term.var {S : Signature.{u}} {V : Type v} (x : V) : Term S V :=
+  FinitaryTerm.leaf x
+@[match_pattern] abbrev Term.app {S : Signature.{u}} {V : Type v}
+    (op : S.Operation) (args : Fin (S.arity op) → Term S V) : Term S V :=
+  FinitaryTerm.node op args
+
+abbrev Term.subst {S : Signature.{u}} {V : Type v} {W : Type w}
+    (σ : V → Term S W) : Term S V → Term S W := FinitaryTerm.bind σ
 
 @[simp] theorem Term.subst_id {S : Signature} {V : Type} (t : Term S V) :
-    t.subst .var = t := by
-  induction t with
-  | var => rfl
-  | app op args ih => simp only [subst, ih]
+    t.subst .var = t := FinitaryTerm.bind_leaf t
 
 theorem Term.subst_comp {S : Signature} {V W X : Type} (t : Term S V)
     (σ : V → Term S W) (τ : W → Term S X) :
-    (t.subst σ).subst τ = t.subst (fun x => (σ x).subst τ) := by
-  induction t with
-  | var => rfl
-  | app op args ih => simp only [subst, ih]
+    (t.subst σ).subst τ = t.subst (fun x => (σ x).subst τ) :=
+  FinitaryTerm.bind_assoc t σ τ
 
 inductive Atom (S : Signature.{u}) (V : Type v) : Type (max u v) where
   | eq : Term S V → Term S V → Atom S V
@@ -68,10 +65,8 @@ structure Algebra (S : Signature.{u}) where
   operation : (op : S.Operation) → (Fin (S.arity op) → Carrier) → Carrier
   predicate : (p : S.Predicate) → (Fin (S.arguments p) → Carrier) → Prop
 
-def Term.eval {S : Signature.{u}} {V : Type w} (M : Algebra.{u,v} S)
-    (ρ : V → M.Carrier) : Term S V → M.Carrier
-  | .var x => ρ x
-  | .app op args => M.operation op (fun i => (args i).eval M ρ)
+abbrev Term.eval {S : Signature.{u}} {V : Type w} (M : Algebra.{u,v} S)
+    (ρ : V → M.Carrier) : Term S V → M.Carrier := FinitaryTerm.fold M.operation ρ
 
 def Atom.eval {S : Signature.{u}} {V : Type w} (M : Algebra.{u,v} S)
     (ρ : V → M.Carrier) : Atom S V → Prop
@@ -80,10 +75,8 @@ def Atom.eval {S : Signature.{u}} {V : Type w} (M : Algebra.{u,v} S)
 
 theorem Term.eval_subst {S : Signature} {V W : Type} (M : Algebra S)
     (ρ : W → M.Carrier) (σ : V → Term S W) (t : Term S V) :
-    (t.subst σ).eval M ρ = t.eval M (fun x => (σ x).eval M ρ) := by
-  induction t with
-  | var => rfl
-  | app op args ih => simp only [subst, eval, ih]
+    (t.subst σ).eval M ρ = t.eval M (fun x => (σ x).eval M ρ) :=
+  FinitaryTerm.fold_bind M.operation σ ρ t
 
 theorem Atom.eval_subst {S : Signature} {V W : Type} (M : Algebra S)
     (ρ : W → M.Carrier) (σ : V → Term S W) (a : Atom S V) :
@@ -161,9 +154,9 @@ theorem Hom.eval {S : Signature} {M N : Algebra S} (F : Hom M N)
     {V : Type} (t : Term S V) (ρ : V → M.Carrier) :
     F.map (t.eval M ρ) = t.eval N (F.map ∘ ρ) := by
   induction t with
-  | var => rfl
-  | app op args ih =>
-    rw [Term.eval, F.operation]
+  | leaf => rfl
+  | node op args ih =>
+    rw [Term.eval, FinitaryTerm.fold, F.operation]
     congr 1
     exact funext ih
 
@@ -199,9 +192,9 @@ theorem PartialHom.eval {S : Signature} {M N : PartialAlgebra S} (F : PartialHom
     (ht : t.eval M.toAlgebra ρ ≠ M.invalid) :
     F.map (t.eval M.toAlgebra ρ) = t.eval N.toAlgebra (F.map ∘ ρ) := by
   induction t with
-  | var => rfl
-  | app op args ih =>
-    rw [Term.eval, F.operation op _ ht]
+  | leaf => rfl
+  | node op args ih =>
+    rw [Term.eval, FinitaryTerm.fold, F.operation op _ ht]
     congr 1
     exact funext (fun i => ih i (M.strict op _ ht i))
 

@@ -33,8 +33,8 @@ theorem Term.inl_subst {S R : Signature} {V W : Type} (t : Term S V)
     (σ : V → Term S W) :
     (t.subst σ).inl R = (t.inl R).subst (fun x => (σ x).inl R) := by
   induction t with
-  | var => rfl
-  | app op args ih => simp only [subst, inl, ih]
+  | leaf => rfl
+  | node op args ih => simp only [subst, FinitaryTerm.bind, inl, ih]
 
 theorem Atom.inl_subst {S R : Signature} {V W : Type} (a : Atom S V)
     (σ : V → Term S W) :
@@ -57,13 +57,14 @@ theorem Term.eval_inl {S R : Signature} (M : Algebra (S.sum R)) {V : Type}
     (t : Term S V) (ρ : V → M.Carrier) :
     (t.inl R).eval M ρ = t.eval M.restrictLeft ρ := by
   induction t with
-  | var => rfl
-  | app op args ih => simp only [inl, eval, Algebra.restrictLeft, ih]; rfl
+  | leaf => rfl
+  | node op args ih => simp only [inl, eval, FinitaryTerm.fold, Algebra.restrictLeft, ih]; rfl
 
 theorem Atom.eval_inl {S R : Signature} (M : Algebra (S.sum R)) {V : Type}
     (a : Atom S V) (ρ : V → M.Carrier) :
     (a.inl R).eval M ρ = a.eval M.restrictLeft ρ := by
-  cases a <;> simp only [inl, eval, Term.eval_inl, Algebra.restrictLeft] <;> rfl
+  cases a <;> simp only [inl, eval, Term.eval_inl, Algebra.restrictLeft]
+  rfl
 
 /-- Model restriction forgets new operations and laws. Its soundness field is
 constructed from the old-rule branch of the supplied extended model. -/

@@ -268,6 +268,9 @@ import Examples.LocalUniversesBoundary
 import Examples.DependentComprehension
 import Examples.DependentJudgments
 import Examples.GuardedContextualJudgments
+import Examples.CoherentGuardedJudgments
+import Examples.GuardedJudgmentBoundaries
+import Examples.GuardedInternalSetting
 
 import Examples.ProofRequirementReference
 import Examples.ProofRequirementComparison

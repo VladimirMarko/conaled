@@ -65,6 +65,27 @@ def Sub.pair (hA : Ty (Ω := Ω) Γ A) (hσ : Sub (Ω := Ω) Δ Γ σ) (ht : Tm 
     (Fin.cases (by simpa [rule, comprehensionTheory] using hA) (Fin.cases (by simpa [rule, comprehensionTheory] using hσ) (Fin.cases (by simpa [rule, comprehensionTheory] using ht) (fun i => nomatch i))))
   simpa [rule, comprehensionTheory] using e
 
+def Ty.variablePair (hA : Ty (Ω := Ω) Γ A) (hσ : Sub (Ω := Ω) Δ Γ σ)
+    (ht : Tm (Ω := Ω) Δ (subTy A σ) t) :
+    Equal (Ω := Ω) (subTm (Contextual.generic Γ A) (Contextual.pair A σ t)) t := by
+  have e := structural (Ω := Ω) .variablePair ![Γ, Δ, A, σ, t]
+    (Fin.cases (by simpa [rule, comprehensionTheory] using hA) (Fin.cases (by simpa [rule, comprehensionTheory] using hσ) (Fin.cases (by simpa [rule, comprehensionTheory] using ht) (fun i => nomatch i))))
+  simpa [rule, comprehensionTheory, Atom.inl, Atom.subst] using e
+
+def Ty.weakenPair (hA : Ty (Ω := Ω) Γ A) (hσ : Sub (Ω := Ω) Δ Γ σ)
+    (ht : Tm (Ω := Ω) Δ (subTy A σ) t) :
+    Equal (Ω := Ω) (Contextual.comp (Contextual.weaken Γ A) (Contextual.pair A σ t)) σ := by
+  have e := structural (Ω := Ω) .weakenPair ![Γ, Δ, A, σ, t]
+    (Fin.cases (by simpa [rule, comprehensionTheory] using hA) (Fin.cases (by simpa [rule, comprehensionTheory] using hσ) (Fin.cases (by simpa [rule, comprehensionTheory] using ht) (fun i => nomatch i))))
+  simpa [rule, comprehensionTheory, Atom.inl, Atom.subst] using e
+
+def Tm.subComp (ht : Tm (Ω := Ω) Γ A t) (hσ : Sub (Ω := Ω) Δ Γ σ)
+    (hτ : Sub (Ω := Ω) Θ Δ τ) :
+    Equal (Ω := Ω) (subTm (subTm t σ) τ) (subTm t (Contextual.comp σ τ)) := by
+  have e := extra (Ω := Ω) .subTmComp ![Γ, Δ, Θ, A, t, σ, τ]
+    (Fin.cases (by simpa [rule] using ht) (Fin.cases (by simpa [rule] using hσ) (Fin.cases (by simpa [rule] using hτ) (fun i => nomatch i))))
+  simpa [rule] using e
+
 /-- Conversion changes a source type along a derived judgmental equation.
 Object identity is not accepted as such an equation. -/
 def Tm.convert (ht : Tm (Ω := Ω) Γ A t) (e : Equal (Ω := Ω) A B) : Tm (Ω := Ω) Γ B t :=
@@ -159,5 +180,45 @@ def Tm.reindexBranch (hx : Tm (Ω := Ω) Γ A x) (hT : Tel (Ω := Ω) n (Context
           (Fin.cases (by simpa [rule] using hd)
             (Fin.cases (by simpa [rule] using hσ) (fun i => nomatch i))))))
   simpa [rule] using e
+
+def Ty.subId (hA : Ty (Ω := Ω) Γ A) : Equal (Ω := Ω) (subTy A (identitySub Γ)) A := by
+  have e := extra (Ω := Ω) .subTyId ![Γ, A] (Fin.cases (by simpa [rule] using hA) (fun i => nomatch i))
+  simpa [rule, sectionSub, pathFamily] using e
+
+def Tm.subId (ht : Tm (Ω := Ω) Γ A t) : Equal (Ω := Ω) (subTm t (identitySub Γ)) t := by
+  have e := extra (Ω := Ω) .subTmId ![Γ, A, t] (Fin.cases (by simpa [rule] using ht) (fun i => nomatch i))
+  simpa [rule, sectionSub, pathFamily] using e
+
+def Ty.subComp (hA : Ty (Ω := Ω) Γ A) (hσ : Sub (Ω := Ω) Δ Γ σ) (hτ : Sub (Ω := Ω) Θ Δ τ) : Equal (Ω := Ω) (subTy (subTy A σ) τ) (subTy A (Contextual.comp σ τ)) := by
+  have e := extra (Ω := Ω) .subTyComp ![Γ, Δ, Θ, A, σ, τ] (Fin.cases (by simpa [rule] using hA) (Fin.cases (by simpa [rule] using hσ) (Fin.cases (by simpa [rule] using hτ) (fun i => nomatch i))))
+  simpa [rule, sectionSub, pathFamily] using e
+
+def Tm.identitySub (hx : Tm (Ω := Ω) Γ A x) (hy : Tm (Ω := Ω) Γ A y) (hσ : Sub (Ω := Ω) Δ Γ σ) : Equal (Ω := Ω) (subTy (Contextual.identity A x y) σ) (Contextual.identity (subTy A σ) (subTm x σ) (subTm y σ)) := by
+  have e := extra (Ω := Ω) .identitySub ![Γ, A, x, y, Δ, σ] (Fin.cases (by simpa [rule] using hx) (Fin.cases (by simpa [rule] using hy) (Fin.cases (by simpa [rule] using hσ) (fun i => nomatch i))))
+  simpa [rule, sectionSub, pathFamily] using e
+
+def Tm.pathDef (hx : Tm (Ω := Ω) Γ A x) : Equal (Ω := Ω) (Contextual.path A x) (Contextual.extend (Contextual.extend Γ A) (pathFamily Γ A x)) := by
+  have e := extra (Ω := Ω) .pathDef ![Γ, A, x] (Fin.cases (by simpa [rule] using hx) (fun i => nomatch i))
+  simpa [rule, sectionSub, pathFamily] using e
+
+def Tm.rootDef (hx : Tm (Ω := Ω) Γ A x) : Equal (Ω := Ω) (Contextual.root A x) (Contextual.pair (pathFamily Γ A x) (sectionSub Γ A x) (Contextual.reflexivity A x)) := by
+  have e := extra (Ω := Ω) .rootDef ![Γ, A, x] (Fin.cases (by simpa [rule] using hx) (fun i => nomatch i))
+  simpa [rule, sectionSub, pathFamily] using e
+
+def Tm.rootProjection (hx : Tm (Ω := Ω) Γ A x) : Equal (Ω := Ω) (Contextual.comp (Contextual.weaken (Contextual.extend Γ A) (pathFamily Γ A x)) (Contextual.root A x)) (sectionSub Γ A x) := by
+  have e := extra (Ω := Ω) .rootProjection ![Γ, A, x] (Fin.cases (by simpa [rule] using hx) (fun i => nomatch i))
+  simpa [rule, sectionSub, pathFamily] using e
+
+def Tm.rootTailNil (hx : Tm (Ω := Ω) Γ A x) : Equal (Ω := Ω) (rootTail A x (telNil (Contextual.path A x))) (Contextual.root A x) := by
+  have e := extra (Ω := Ω) .rootTailNil ![Γ, A, x] (Fin.cases (by simpa [rule] using hx) (fun i => nomatch i))
+  simpa [rule, sectionSub, pathFamily] using e
+
+def Ctx.totalNil (hΓ : Ctx (Ω := Ω) Γ) : Equal (Ω := Ω) (Contextual.total (telNil Γ)) Γ := by
+  have e := extra (Ω := Ω) .totalNil ![Γ] (Fin.cases (by simpa [rule] using hΓ) (fun i => nomatch i))
+  simpa [rule, sectionSub, pathFamily] using e
+
+def Sub.pullbackNil (hσ : Sub (Ω := Ω) Δ Γ σ) : Equal (Ω := Ω) (Contextual.pullback (telNil Γ) σ) (telNil Δ) := by
+  have e := extra (Ω := Ω) .pullbackNil ![Γ, Δ, σ] (Fin.cases (by simpa [rule] using hσ) (fun i => nomatch i))
+  simpa [rule, sectionSub, pathFamily] using e
 
 end SquareKit.Internal.DependentJudgments.Contextual
