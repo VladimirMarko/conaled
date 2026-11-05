@@ -1,10 +1,11 @@
 # Dependent foundations validation records
 
-These records retain the reviewed component candidates for #314–#319 under
+These records retain the reviewed component candidates for #314–#320 under
 [#289](https://github.com/VladimirMarko/conaled/issues/289). They accompany the
 [architecture reassessment](../dependent-architecture-reassessment.md).
-#320 and final integration acceptance are still pending. A component approval
-covers its recorded commit, not later source changes.
+All seven components have passed review; final integration acceptance is
+recorded separately. A component approval covers its recorded commit, not
+later source changes.
 
 | Issue | Accepted candidate | Review record |
 | --- | --- | --- |
@@ -14,6 +15,7 @@ covers its recorded commit, not later source changes.
 | #318 | `de2b1987e2f2caaad83ecddedb05c3ccded5bfff` | [Both axes and validation](reviews/318-review.md) |
 | #315 | `bb77d67171e6cb610e43149394c8a9b9a0deab3f` | [All rounds and finding disposition](reviews/315-review.md) |
 | #317 | `7b8c00ae171c8a0b6de696e42aaf8470ff1e7c96` | [Both axes and validation](reviews/317-review.md) |
+| #320 | `c32057aac5bb1da88b110e99db50093a23f783f4` | [Both axes and validation](reviews/320-review.md) |
 
 The reports, receipts, acceptance logs, substantive statement-review notes and
 failed full candidate checks are copied without modification. The

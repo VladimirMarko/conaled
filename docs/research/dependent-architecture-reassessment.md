@@ -83,13 +83,12 @@ the path and witness binders. A groupoid interpretation preserves the
 path-sensitive value, while constructed native Type comparisons change
 dependent family presentations and compare the chosen J operation.
 
-Adopt this source boundary for the constructor and author experiments. This
+Adopt this source boundary for the tested dependent arguments and extensions. This
 does not retire the old annotated API or select the final author interface.
 The new representation still exposes source typing and motive/branch formation
 to authors, consumes the existing semantic model interface, and owes explicit
 migration of old clients. Its native coherent comparisons use proof-irrelevant
-identity; they do not discharge the higher-model gate. Comparative author
-evidence remains with #320.
+identity; they do not discharge the higher-model gate.
 
 The [constructor experiment](dependent-constructor-admission.md) now admits
 object-language dependent sums through that boundary. Its capability supplies
@@ -106,13 +105,31 @@ requirements explicit. Conditional expansion from a supplied sum capability
 does not establish expansion of every old model or conservativity of the
 extended theory. The rejected singleton/Boolean type equation and missing
 second-family guard show why a syntactically expressible extension still needs
-semantic admission. Use the checked extension in #320; keep its constructor
-capability distinct from the trial's comparison of ordinary author work.
+semantic admission. Its constructor capability remains distinct from the
+comparison of ordinary author work.
+
+The [frozen author trial](dependent-author-interface-trial.md) supplies a matched
+comparison after those constructions. Both fresh authors completed the selected
+J-certificate argument, repeated dependent substitutions and exact reduct reuse
+after extension without assistance. Exact submissions passed replay and
+statement checks; concrete cases consume their generic results. Candidate source
+authoring uses derivations without semantic-code indices. The baseline retains
+those indices, but its existing motive helper already supplies branch alignment;
+it did not require a new caller semantic equality for this task.
+
+The candidate author independently encountered the missing root-tail typing
+helper also found during preparation. [#323](https://github.com/VladimirMarko/conaled/issues/323)
+owns that facade and documentation repair, followed by a new prospectively
+frozen task and fresh authors. Keep the existing trial unchanged. This supports
+adopting the judgment boundary for its tested preservation contract while
+revising its author API. It does not establish lower total author effort, human
+usability or broad migration: there is one agent per arm, uneven helper support,
+a fixed task order and incomplete timing data.
 
 The [component validation records](dependent-foundations-validation/README.md)
 retain the exact reviewed candidates, independent findings, build/audit receipts
-and failed acceptance attempts. Final integration and author-trial acceptance
-remain separate gates.
+and failed acceptance attempts. Component approval and final integration
+acceptance cover different snapshots and remain separately recorded.
 
 ## What the earlier account understated
 
@@ -211,10 +228,10 @@ dependency and review gates.
 
 The judgment experiment uses the structure audit and includes the nested
 internal-setting case. Constructor admission now uses that reviewed judgment
-contract and has passed review. Author dispatch requires the prospective
-interface and task freezes after those reviewed results. The categorical-package
-task retains its concrete-benefit condition before constructing another model
-package.
+contract. The author trial froze interfaces before selecting its held-out task
+and froze complete handoffs before fresh dispatch. Its facade repair and new
+trial belong to #323. The categorical-package task retains its concrete-benefit
+condition before constructing another model package.
 
 #297 keeps the broader modal/higher comparison, with separate questions for
 context restrictions and higher identities. #301 remains an external challenge

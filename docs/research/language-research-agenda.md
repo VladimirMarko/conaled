@@ -87,9 +87,9 @@ interpretation and strict-map theorems cover arbitrary-tail Id/J and the frozen
 memo's selected value, dependent certificate and dependent action under both
 actual substitutions. Fresh reconstruction, unequal native Type presentations,
 path-sensitive groupoid behavior and nested internal settings have checked
-cases. Use this boundary for #317/#320; retain the old API until its migration
-obligations are met. The experiment establishes reusable interpretation rather
-than measured author benefit. Compatibility over a fixed model diagram alone
+cases. The constructor and author experiments now use this boundary; retain
+the old API until its migration obligations are met. The representation
+experiment establishes reusable interpretation; author observations are separate. Compatibility over a fixed model diagram alone
 did not establish interpretation in a newly admitted setting.
 
 The reviewed [#316 investigation](dependent-higher-identity.md) checks the
@@ -114,9 +114,9 @@ isomorphism. Its inverse laws include judgmental eta; dependent elimination,
 stability and model-map preservation are derived. Source cases cover repeated
 substitution with dependent motives and branches. Exact reduct recovery retains
 the old selected data, including through a second, law-only extension. Rejected
-rules distinguish formation requirements from valid type equations. Use this
-admission mechanism in #320; all-model expansion, conservativity and the higher
-interpretation remain separate obligations.
+rules distinguish formation requirements from valid type equations. The author
+trial uses this admission mechanism; all-model expansion, conservativity and
+the higher interpretation remain separate obligations.
 
 The reviewed [#318 assessment](concrete-dependent-coherence.md) defers a new
 strictification package. #289 promotes it when a selected weak model has the
@@ -125,17 +125,25 @@ construction demonstrates recurring coherence work that transfer removes.
 Its report specifies the categorical and whole-eliminator hypotheses to prove
 for that model; neither generic nonterminality nor a missing higher eliminator
 establishes a need for local universes.
-[#320](https://github.com/VladimirMarko/conaled/issues/320) owns comparative author
-trials after reviewed interface freezes. These issues are under #289, coordinated
-with #36/#235, #288's extension questions and #290's author evidence.
+The [#320 author trial](dependent-author-interface-trial.md) compares the same
+selected J argument, repeated substitution and extension reuse through frozen
+interfaces. Both fresh authors completed it without assistance. The guarded
+source removes semantic-code indices; the retained baseline's existing motive
+helper already handles branch alignment. The candidate requires a local helper
+for an admitted root-tail rule. [#323](https://github.com/VladimirMarko/conaled/issues/323)
+owns the facade/documentation repair and a newly frozen trial. Adopt the source
+boundary for the tested contract and retain the baseline; these observations do
+not establish productivity gains, human usability, higher-model capability or
+broad migration. These issues are under #289, coordinated with #36/#235, #288's
+extension questions and #290's author evidence.
 
 #297 retains its broader modal/higher comparison; its higher inquiry supplies
 #316, while modal context restrictions remain distinct from #319's internal
 setting construction. #301 continues to challenge the assumptions of the entire
 agenda from outside its current candidates. The investigations may recommend
 repair, structural factoring or replacement foundations. They preserve #107's
-pause and #108's independent-theorem gate. Author dispatch still requires the
-reviewed interface and extension results followed by a prospective trial freeze.
+pause and #108's independent-theorem gate. Any later author dispatch still
+requires reviewed interfaces and a new prospective trial freeze; the completed #320 task is now public evidence.
 
 ## Construction and observation as an implemented comparison baseline
 

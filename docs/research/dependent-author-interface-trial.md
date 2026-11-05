@@ -229,8 +229,8 @@ named rootTail typing construction with the admitted rule's existing premises,
 and document the reflexive branch conversion. Keep this round's interface and
 all failed attempts frozen. A claim that the repair improves author work needs
 a new source snapshot, independent handoff review and a new held-out task;
-retrospectively replacing the local helper would corrupt this comparison. Root
-owns successor tracking, and this trial does not implement that repair.
+retrospectively replacing the local helper would corrupt this comparison. [#323](https://github.com/VladimirMarko/conaled/issues/323) owns the repair and
+new trial; this experiment does not implement them.
 
 Defer comparative productivity, human-usability and broad migration claims.
 There is one agent per arm, public calibration, a fixed task order, uneven
@@ -240,3 +240,7 @@ adoption claim until the separate concrete dependent interpretation gate is
 met. The generic theorem remains model-parametric, while the concrete checked
 interpretation here is native and lower-truncated. This decision neither
 resumes #107 nor selects or prepares #108's independent theorem.
+
+The [component acceptance record](dependent-foundations-validation/reviews/320-review.md)
+retains both independent reviews, exact candidate validation and the integration
+record. Final full-spec acceptance is recorded separately.

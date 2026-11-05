@@ -1,0 +1,47 @@
+{
+  "candidate": "c32057aac5bb1da88b110e99db50093a23f783f4",
+  "lock": "/tmp/conaled-314-320/build.lock",
+  "environment": "direnv exec .",
+  "commands": [
+    {
+      "command": [
+        "./check.sh",
+        "--candidate",
+        "HEAD"
+      ],
+      "cwd": "/tmp/conaled-314-320/320",
+      "start": "2026-11-05T03:11:50.254326+00:00",
+      "finish": "2026-11-05T03:12:15.840693+00:00",
+      "elapsed_seconds": 25.586368620999565,
+      "exit": 0,
+      "log": "/tmp/conaled-314-320/records/320-c32057a-candidate.txt"
+    },
+    {
+      "command": [
+        "lake",
+        "env",
+        "python3",
+        "scripts/test-proof-audit.py"
+      ],
+      "cwd": "/tmp/conaled-314-320/320",
+      "start": "2026-11-05T03:12:15.840822+00:00",
+      "finish": "2026-11-05T03:13:24.931978+00:00",
+      "elapsed_seconds": 69.09117031300048,
+      "exit": 0,
+      "log": "/tmp/conaled-314-320/records/320-c32057a-audit-fixtures.txt"
+    },
+    {
+      "command": [
+        "./check.sh",
+        "--verify-candidate",
+        "HEAD"
+      ],
+      "cwd": "/tmp/conaled-314-320/320",
+      "start": "2026-11-05T03:13:24.932204+00:00",
+      "finish": "2026-11-05T03:13:25.507842+00:00",
+      "elapsed_seconds": 0.5756474310001067,
+      "exit": 0,
+      "log": "/tmp/conaled-314-320/records/320-c32057a-verify.txt"
+    }
+  ]
+}

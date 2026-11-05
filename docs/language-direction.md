@@ -180,11 +180,16 @@ including their selected dependent payloads under repeated substitution.
 The [judgment experiment](research/dependent-judgment-representation.md) now
 supplies a source boundary without all-model annotation indices. Authors'
 derivations inherit interpretation, substitution and strict-map preservation;
-model builders prove the primitive operation laws once. Use it for the author
-experiment, while keeping source-typing effort, coherent comparison scope and
-old-client migration explicit. The checked
-groupoid and native Type cases do not settle the final author interface or
-establish author-productivity gains.
+model builders prove the primitive operation laws once. Keep source-typing
+effort, coherent comparison scope and old-client migration explicit.
+The [frozen author trial](research/dependent-author-interface-trial.md) establishes
+completion of the same selected J argument through both interfaces. Candidate
+authoring avoids semantic-code indices, while the baseline's motive helper
+already handles its branch alignment. A missing candidate root-tail helper
+requires further facade work, tracked with a new trial in
+[#323](https://github.com/VladimirMarko/conaled/issues/323). Adopt the guarded
+boundary for the tested contract; retain the baseline and do not infer lower
+total author effort or broad migration from this small comparison.
 The [constructor experiment](research/dependent-constructor-admission.md)
 checks this discipline for object-language dependent sums. Its operations and
 inverse laws derive dependent elimination and compatibility, while exact

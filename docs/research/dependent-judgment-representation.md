@@ -102,7 +102,7 @@ Migration obligations before retiring the old API are explicit:
 - Translate existing annotated derivations with their erasures preserved, or replace named clients individually with checked generated recipes. No universal translator is claimed.
 - Recover the existing full structural, conversion, Id/J and arbitrary-tail capabilities. This experiment constructs those in the new source and interprets them in the existing full models.
 - Preserve named selected observations, including path-sensitive groupoid behavior. Equality between different selected recipes requires its own comparison; endpoint inhabitation is insufficient.
-- Use the [admitted dependent constructor](dependent-constructor-admission.md) from #317 and complete independent ordinary-author observations in #320 before treating this as an established author interface.
+- The [admitted dependent constructor](dependent-constructor-admission.md) and [author trial](dependent-author-interface-trial.md) now supply bounded evidence. Complete the facade repair and fresh trial in #323 before broader author-API adoption; migration of old clients remains a separate obligation.
 - Keep the higher-model gate and its selected second-identity observation open until a concrete interpretation passes it. Native Type comparisons do not authorize retiring that requirement.
 
 ## Statement review and validation boundary
