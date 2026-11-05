@@ -154,6 +154,13 @@ reasoning settings, token usage and full transcripts were unavailable. Root
 recorded fork-none dispatch with no explicit model or reasoning overrides; that
 is dispatch configuration, not inferred backend telemetry.
 
+After both authors had completed and their submissions had replayed, the owner
+[reported a change from high to medium reasoning](../../experiments/dependent-author-trial/evaluation/user-reasoning-disclosure.json),
+with uncertainty about when high had first been selected. This later disclosure
+does not identify either author's actual serving configuration. Their settings
+remain unknown; the report does not infer a controlled reasoning-level
+comparison. The completed proof artifacts and replay results are unchanged.
+
 The coordinator verified the frozen public inputs and exact compiled closures
 again, archived both closed attempts directories, and replayed each final file
 in its original handoff under a new coordinator attempt name. The
