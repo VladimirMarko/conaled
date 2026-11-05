@@ -72,7 +72,7 @@ theorem layer_natural (f : X → Y) (op : Op) (xs : Fin (arity op) → X × B A 
   apply Prod.ext
   · rfl
   · funext a
-    simp only [layer, Term.map, FinitaryTerm.map, FinitaryTerm.bind, FinitaryTerm.bind_assoc, Function.comp_def, Term.bind]
+    simp only [layer, Term.map, FinitaryTerm.map, FinitaryTerm.bind, FinitaryTerm.bind_assoc, Function.comp_def]
     congr 1
     funext s; cases s <;> rfl
 
