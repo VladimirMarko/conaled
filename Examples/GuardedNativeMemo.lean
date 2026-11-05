@@ -1,4 +1,4 @@
-import SquareKit.Internal.DependentJudgments.MemoNormalization
+import SquareKit.Internal.DependentJudgments.MemoUniformity
 import SquareKit.Internal.DependentJudgments.NativeDerivedComparisons
 
 /-! A generated memo specialization with unequal dependent Type presentations.

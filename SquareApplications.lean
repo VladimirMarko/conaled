@@ -272,6 +272,8 @@ import Examples.CoherentGuardedJudgments
 import Examples.GuardedCommandComparisons
 import Examples.GuardedJudgmentBoundaries
 import Examples.GuardedInternalSetting
+import Examples.GuardedNativeMemo
+import Examples.GuardedGroupoidMemo
 
 import Examples.ProofRequirementReference
 import Examples.ProofRequirementComparison
