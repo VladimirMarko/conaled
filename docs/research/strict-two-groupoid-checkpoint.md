@@ -98,6 +98,38 @@ integer fiber case witnesses that distinction. Encoding and decoding recover
 the complete concrete cells, including their base components; equality of
 decoded labels alone is not used as a claim of a general extension equivalence.
 
+## Strict transformation composition and evaluation
+
+`StrictTwoTransformation` now constructs identity and composition of strict
+transformations and derives the category laws from equality of components.
+Composition's 2-cell naturality follows by pasting Mathlib strong
+transformations and reducing the strict associators. The category retains
+arbitrary target 2-cells through the naturality equation; it does not require
+a locally discrete target. Evaluation at a fiber object is a functor into the
+target fiber, and a fiber arrow induces a natural transformation between the
+two evaluation functors.
+
+`integerAction` supplies a functor from the integer base hom-groupoid into
+this category of strict higher functors. `integerTrans_comp` proves that
+composition adds the integer components. `integerAction_evaluation` identifies
+its evaluated functor with the independently defined path evaluation used
+by the general hom construction. Thus the nonzero base action comes from
+higher transformations, not just a separately supplied ordinary functor.
+
+Statement review checked arbitrary strict source and target bicategories,
+component equality versus equality of target 2-cells, and the direction of
+evaluation naturality. The integer case proves the action laws without an
+assumed eliminator or model law. An initial specialization failed because
+`SingleObj` composition reverses multiplication order. The corrected proof
+uses commutativity of integer addition explicitly; the general composition
+construction assumes no commutativity. Earlier proof-elaboration failures
+needed expansion of Mathlib's strong-transformation constructors and strict
+unitors. They did not change the mathematical statements.
+
+This supplies the transformation category and evaluation needed for the next
+family layer. It does not yet impose or construct horizontal family action,
+assemble total 1-arrow composition, or establish contextual elimination.
+
 ## Remaining construction
 
 1. Specify the general small strict 2-groupoids and higher family collection,

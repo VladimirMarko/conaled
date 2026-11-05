@@ -94,4 +94,34 @@ theorem fiber_inverse_cancel (n : ℤ) :
     TwoGroupoidHom.inverse (fiberLoop n) ≫ fiberLoop n = 𝟙 a :=
   TwoGroupoidHom.inverse_comp _
 
+/-- Vertical composition of base 2-cells must add the retained integer action. -/
+theorem integerTrans_comp (m n : ℤ) :
+    StrictTwoTransformation.Trans.comp (integerTrans m) (integerTrans n) =
+      integerTrans (m + n) := by
+  apply StrictTwoTransformation.Trans.ext
+  intro a
+  apply Discrete.ext
+  change Multiplicative.ofAdd n * Multiplicative.ofAdd m = Multiplicative.ofAdd (m + n)
+  exact congrArg Multiplicative.ofAdd (add_comm n m)
+
+/-- The base hom-groupoid acts through actual strict higher transformations. -/
+def integerAction : TwoGroupoidPath.Fiber ⥤
+    StrictPseudofunctor (LocallyDiscrete TwoGroupoidPath.Fiber)
+      (LocallyDiscrete TwoGroupoidPath.Fiber) where
+  obj _ := StrictPseudofunctor.id _
+  map n := integerTrans (Multiplicative.toAdd n)
+  map_id _ := by
+    apply StrictTwoTransformation.Trans.ext
+    intro a
+    rfl
+  map_comp m n := by
+    change integerTrans (Multiplicative.toAdd n + Multiplicative.toAdd m) = _
+    rw [add_comm]
+    exact (integerTrans_comp (Multiplicative.toAdd m) (Multiplicative.toAdd n)).symm
+
+/-- Evaluation recovers the independently defined integer path action,
+including its action on nonzero base 2-cells. -/
+theorem integerAction_evaluation :
+    integerAction ⋙ StrictTwoTransformation.evaluation pathTarget = pathEvaluation := rfl
+
 end Examples.TwoGroupoidHom

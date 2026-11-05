@@ -35,4 +35,53 @@ def Trans.toStrong {F G : StrictPseudofunctor A B} (η : Trans F G) :
     simp [F.mapComp_eq_eqToIso, G.mapComp_eq_eqToIso, whiskerLeft_eqToHom,
       eqToHom_whiskerRight, Strict.associator_eqToIso]
 
+omit [Bicategory.Strict A] [Bicategory.Strict B] in
+/-- Strict transformations are determined by their components. -/
+@[ext] theorem Trans.ext {F G : StrictPseudofunctor A B} {η θ : Trans F G}
+    (h : ∀ a, η.app a = θ.app a) : η = θ := by
+  cases η; cases θ
+  simp_all [mk.injEq, funext_iff]
+
+/-- Identity preserves strict naturality, including its 2-cell equation. -/
+def Trans.id (F : StrictPseudofunctor A B) : Trans F F where
+  app a := 𝟙 (F.obj a)
+  naturality f := by simp
+  naturality₂ _ := by simp [Strict.leftUnitor_eqToIso, Strict.rightUnitor_eqToIso]
+
+
+/-- Composition pastes the strict components; its 2-cell law follows from
+pasting strong transformations and strict associativity. -/
+def Trans.comp {F G H : StrictPseudofunctor A B} (η : Trans F G) (θ : Trans G H) :
+    Trans F H where
+  app a := η.app a ≫ θ.app a
+  naturality f := by rw [← Category.assoc, η.naturality, Category.assoc,
+    θ.naturality, Category.assoc]
+  naturality₂ α := by
+    simpa [Pseudofunctor.StrongTrans.vcomp, Pseudofunctor.StrongTrans.mkOfOplax,
+      Pseudofunctor.StrongTrans.toOplax, Oplax.StrongTrans.vcomp, Oplax.StrongTrans.mkOfOplax,
+      Oplax.OplaxTrans.vcomp, Trans.toStrong,
+      Strict.associator_eqToIso, whiskerLeft_eqToHom, eqToHom_whiskerRight] using
+      (Pseudofunctor.StrongTrans.vcomp η.toStrong θ.toStrong).naturality_naturality α
+
+/-- The ordinary category retains strict higher functors and their strict
+transformations. It does not identify the target's genuine 2-cells. -/
+instance : Category (StrictPseudofunctor A B) where
+  Hom := Trans
+  id := Trans.id
+  comp := Trans.comp
+  id_comp _ := Trans.ext (fun _ => Category.id_comp _)
+  comp_id _ := Trans.ext (fun _ => Category.comp_id _)
+  assoc _ _ _ := Trans.ext (fun _ => Category.assoc _ _ _)
+
+/-- Evaluating transport at a fixed fiber object produces the functor needed
+by the general Grothendieck hom-category. -/
+def evaluation (a : A) : StrictPseudofunctor A B ⥤ B where
+  obj F := F.obj a
+  map η := η.app a
+
+/-- Moving the evaluated fiber object is natural in the transport functor. -/
+def evaluationMap {a b : A} (f : a ⟶ b) : evaluation (B := B) a ⟶ evaluation b where
+  app F := F.map f
+  naturality _ _ η := (η.naturality f).symm
+
 end SquareKit.Internal.PathTransport.StrictTwoTransformation
