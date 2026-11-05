@@ -708,3 +708,32 @@ conditional-mean and cost recurrence clients are mapped in
 [fdsa-sorting.md](fdsa-sorting.md). Complete history and Chapter 3 algorithm,
 sampling-coupling and cost obligations remain separate. The source note retains the 4 November 2026 development validation history; full immutable-candidate acceptance gates remain required. Local FDSA-XU03 retains the frozen scope, exact expectations,
 candidate identity and later validation/review evidence.
+
+## Shared binary-tree observations and cached folds (FDSA-XT01)
+
+This bounded cross-cutting **uncompiled draft** supports common observations
+and cache mathematics used by Chapters 4, 5 and 9, with a later representation
+bridge for Chapter 15. It activates or accepts none of those chapters. Exact
+source distinctions, examples and statement assessment are in
+[fdsa-tree-cache.md](fdsa-tree-cache.md).
+
+| Common source obligation | Draft declarations / intended connection |
+| --- | --- |
+| Ordinary explicit-zero, ternary branching fold | `Trees.fold`, constructor equations, `fold_map`, `fold_fusion`; no new carrier or algebra class. |
+| Canonical size/height and node-labelled inorder observations | `fold_numNodes`, `fold_height`, `inorder`, `inorder_length`, `inorder_map` and the three shape-map laws. |
+| Generic cached fold and all-node validity, C04-062–072 common mathematics | `Trees.Cached.read`, `smartNode`, `Valid`, `smartNode_valid_iff`, `read_eq_fold`; independent erasure/inorder/shape laws. |
+| Actual bottom-up annotation | `annotate`, `annotate_valid`, `erase_annotate`, `read_annotate`, as an ordinary fold client. |
+| Conditional local overhead component of C04-073 | `Resources.TreeCache.readRun`, `nodeRun`, reached-argument value refinement, exact callback-cost-plus-three equation and local bound. This is a separately declared tariff. |
+| Reuse and composition | General size/height and pair-fusion clients, existing ordered-summary composition, noncommutative word, empty/repeated labels, malformed descendants and actual measured-append callback in `TreeCacheExamples`. |
+
+The source leftist helper tariff is zero; it has not been equated with the
+positive local-access observation. The actual append callback gives growing
+work even on valid cached trees, so no constant bound is attributed to an
+arbitrary fold operation. Full traversal costs, balance/search algorithms,
+maximum representation issues and the existing-leftist adapter remain in
+their chapter inventories. The original XT01 source now has complete independent
+Standards and Spec source assessments with zero findings, both overall Blocked
+pending actual receiving-candidate compilation, types, full check/audit and final
+review. The current receiving base is accepted Chapter 3 commit
+`298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2`; all unit and chapter acceptance
+gates remain. This shared entry does not close the Chapter 4 coverage ledger.

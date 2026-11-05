@@ -321,6 +321,7 @@ import Examples.SelectionGenericBounds
 import Examples.SelectionGenericEnvelope
 import Examples.SelectionMedians
 import Examples.SelectionRecurrence
+import Examples.TreeCache
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
