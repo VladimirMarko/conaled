@@ -285,4 +285,184 @@ theorem packControl_peak (cells : Vector (Vector (WordMachine.Word width) cols) 
   Control.tabulate_peak _ _ (cellControl_peak cells fit wide)
 end InstallationControl
 
+/-- Radix conversion executes the shifted height and index materialization,
+then multiplication and addition. All four scalar instructions are charged. -/
+def keyM (offset : Int) (stride : Nat) (key : KeyBounds.Key) : Measured (WordMachine.Word width) Nat :=
+  bind (WordMachine.scalar width ((ofLex key).1+offset).toNat) fun height =>
+  bind (WordMachine.scalar width (ofLex key).2) fun index =>
+  WordMachine.pack stride height index
+
+theorem keyM_value (hs : 0 < stride)
+    (hw : WordKey.encode offset stride (ofLex key).1 (ofLex key).2 < 2^width) :
+    (keyM (width := width) offset stride key).1.val =
+      WordKey.encode offset stride (ofLex key).1 (ofLex key).2 := by
+  have hm := Nat.le_mul_of_pos_right ((ofLex key).1+offset).toNat hs
+  have hheight : ((ofLex key).1+offset).toNat < 2^width := by unfold WordKey.encode WordKey.pack at hw; omega
+  have hindex : (ofLex key).2 < 2^width := by unfold WordKey.encode WordKey.pack at hw; omega
+  have hp : ((ofLex key).1+offset).toNat*stride < 2^width := by unfold WordKey.encode WordKey.pack at hw; omega
+  simp only [keyM,Resources.bind,WordMachine.pack,WordMachine.scalar]
+  rw [WordMachine.word_of_lt hheight,WordMachine.word_of_lt hindex,
+    WordMachine.word_of_lt hp]
+  exact WordMachine.word_of_lt hw
+
+def mapM (seed : β) (f : α → Measured β Nat) (source : Vector α n) :=
+  TableExecution.tabulate seed (fun i : Fin n => bind (TableExecution.read source i) f)
+
+theorem mapM_value (seed : β) (f : α → Measured β Nat) (source : Vector α n) :
+    (mapM seed f source).1 = source.map (fun x => (f x).1) := by
+  rw [mapM,TableExecution.tabulate_value]
+  apply Vector.ext
+  intro i hi
+  simp only [Vector.getElem_ofFn,Vector.getElem_map,Resources.bind,TableExecution.read,Dijkstra.Store.lookup]
+
+theorem mapM_cost (seed : β) (f : α → Measured β Nat) (source : Vector α n)
+    (hc : ∀ x, (f x).2 ≤ c) : (mapM seed f source).2 ≤ n*(c+7) := by
+  have hh := TableExecution.tabulate_cost seed
+    (fun i : Fin n => bind (TableExecution.read source i) f) (c+1)
+    (fun i => by simp only [Resources.bind,TableExecution.read]; have hh := hc (Dijkstra.Store.lookup source i); omega)
+  simpa [mapM,Nat.add_assoc] using hh
+
+def rowM (offset : Int) (stride : Nat) (source : Vector KeyBounds.Key n) :=
+  mapM (WordMachine.word width 0) (keyM offset stride) source
+
+def matrixM (offset : Int) (stride : Nat) (source : Vector (Vector KeyBounds.Key cols) rows) :=
+  bind (TableExecution.initStore (WordMachine.word width 0) cols) fun seed =>
+  mapM seed (rowM offset stride) source
+
+def tensorM (offset : Int) (stride : Nat)
+    (source : Vector (Vector (Vector KeyBounds.Key cols) rows) classes) :=
+  bind (TableExecution.initStore (WordMachine.word width 0) cols) fun rowSeed =>
+  bind (TableExecution.initStore rowSeed rows) fun classSeed =>
+  mapM classSeed (matrixM offset stride) source
+
+def convertState (input : Input m)
+    (h : MachineCapacity.Eligible m width capacity inputWords frameWords)
+    (data : Backend.State m) (_valid : data = PackedBackend.state input) : Measured (Resident m width) Nat :=
+  bind (mapM (WordMachine.word width 0) (fun d : Int => WordMachine.scalar width d.toNat) data.micro.depths) fun depths =>
+  bind (mapM (WordMachine.word width 0) (fun c : Fin (2^(blockSize m-1)) => WordMachine.scalar width c.val) data.micro.classes) fun classes =>
+  bind (tensorM ((blockSize m-1 : Nat) : Int) (2*(blockSize m-1+1)) data.micro.shared) fun shared =>
+  bind (TableExecution.initStore (WordMachine.word width 0) (blocks m)) fun seed =>
+  bind (mapM seed (fun desc : Vector KeyBounds.Key (blocks m) × Nat => rowM 0 (blocks m*(blockSize m-1+1)) desc.1) data.macroRows) fun macroRows =>
+  bind (mapM (WordMachine.word width 0) (fun desc : Vector KeyBounds.Key (blocks m) × Nat => WordMachine.scalar width desc.2) data.macroRows) fun spans =>
+  bind (mapM (WordMachine.word width 0) (WordMachine.scalar width) data.macroLogs) fun logs =>
+  pure ⟨depths,classes,shared,macroRows,spans,logs⟩
+
+theorem convertState_value (input : Input m)
+    (h : MachineCapacity.Eligible m width capacity inputWords frameWords)
+    (data : Backend.State m) (valid : data = PackedBackend.state input) :
+    (convertState input h data valid).1 = ofState input h data valid := by
+  simp only [convertState,Resources.bind,Resources.pure,tensorM,matrixM,rowM,mapM_value,
+    TableExecution.initStore_exact,ofState]
+  congr 1
+  · apply Vector.ext
+    intro i hi
+    apply Fin.ext
+    simp only [Vector.getElem_map,Vector.getElem_ofFn]
+    exact WordMachine.word_of_lt (by simpa only [ofState,Vector.getElem_ofFn,Vector.getElem_map] using ((ofState input h data valid).depths[i]).isLt)
+  · apply Vector.ext
+    intro i hi
+    apply Fin.ext
+    simp only [Vector.getElem_map]
+    exact WordMachine.word_of_lt (by simpa only [ofState,Vector.getElem_ofFn,Vector.getElem_map] using ((ofState input h data valid).classes[i]).isLt)
+  · apply Vector.ext
+    intro code hc
+    apply Vector.ext
+    intro start hs
+    apply Vector.ext
+    intro len hl
+    apply Fin.ext
+    simp only [Vector.getElem_map,Vector.getElem_ofFn]
+    exact keyM_value (by have := blockSize_pos m; omega)
+      (by simpa only [ofState,Vector.getElem_ofFn,Vector.getElem_map] using ((ofState input h data valid).shared[code][start][len]).isLt)
+  · apply Vector.ext
+    intro level hl
+    apply Vector.ext
+    intro i hi
+    apply Fin.ext
+    simp only [Vector.getElem_map,Vector.getElem_ofFn]
+    exact keyM_value (Nat.mul_pos (blocks_pos m) (by omega))
+      (by simpa only [ofState,Vector.getElem_ofFn,Vector.getElem_map] using ((ofState input h data valid).macroRows[level][i]).isLt)
+  · apply Vector.ext
+    intro i hi
+    apply Fin.ext
+    simp only [Vector.getElem_map,Vector.getElem_ofFn]
+    exact WordMachine.word_of_lt (by simpa only [ofState,Vector.getElem_ofFn,Vector.getElem_map] using ((ofState input h data valid).spans[i]).isLt)
+  · apply Vector.ext
+    intro i hi
+    apply Fin.ext
+    simp only [Vector.getElem_map,Vector.getElem_ofFn]
+    exact WordMachine.word_of_lt (by simpa only [ofState,Vector.getElem_ofFn,Vector.getElem_map] using ((ofState input h data valid).logs[i]).isLt)
+
+theorem rowM_cost (offset : Int) (stride : Nat) (source : Vector KeyBounds.Key n) :
+    (rowM (width := width) offset stride source).2 ≤ 11*n := by
+  simpa [rowM,Nat.mul_comm] using mapM_cost (WordMachine.word width 0) (keyM offset stride) source (c := 4) (fun _ => le_rfl)
+
+theorem matrixM_cost (offset : Int) (stride : Nat) (source : Vector (Vector KeyBounds.Key cols) rows) :
+    (matrixM (width := width) offset stride source).2 ≤ 3*cols+rows*(11*cols+7) := by
+  have hh := mapM_cost (TableExecution.initStore (WordMachine.word width 0) cols).1
+    (rowM offset stride) source (rowM_cost offset stride)
+  simp only [matrixM,Resources.bind,TableExecution.initStore_exact]
+  simp only [TableExecution.initStore_exact] at hh
+  omega
+
+theorem tensorM_cost (offset : Int) (stride : Nat)
+    (source : Vector (Vector (Vector KeyBounds.Key cols) rows) classes) :
+    (tensorM (width := width) offset stride source).2 ≤
+      3*cols+3*rows+classes*(3*cols+rows*(11*cols+7)+7) := by
+  have hh := mapM_cost
+    (TableExecution.initStore (TableExecution.initStore (WordMachine.word width 0) cols).1 rows).1
+    (matrixM offset stride) source (matrixM_cost offset stride)
+  simp only [tensorM,Resources.bind,TableExecution.initStore_exact]
+  simp only [TableExecution.initStore_exact] at hh
+  omega
+
+def convertWork (m : Nat) :=
+  8*paddedCapacity m+8*blocks m+
+  (6*blockSize m+2^(blockSize m-1)*(3*blockSize m+blockSize m*(11*blockSize m+7)+7))+
+  3*blocks m+(levels m+1)*(11*blocks m+7)+8*(levels m+1)+8*(blocks m+1)
+
+theorem convertState_work (input : Input m)
+    (h : MachineCapacity.Eligible m width capacity inputWords frameWords)
+    (data : Backend.State m) (valid : data = PackedBackend.state input) :
+    (convertState input h data valid).2 ≤ convertWork m := by
+  have hd := mapM_cost (WordMachine.word width 0) (fun d : Int => WordMachine.scalar width d.toNat)
+    data.micro.depths (c := 1) (fun _ => le_rfl)
+  have hc := mapM_cost (WordMachine.word width 0) (fun c : Fin (2^(blockSize m-1)) => WordMachine.scalar width c.val)
+    data.micro.classes (c := 1) (fun _ => le_rfl)
+  have ht := tensorM_cost (width := width) ((blockSize m-1 : Nat) : Int) (2*(blockSize m-1+1)) data.micro.shared
+  have hm := mapM_cost (TableExecution.initStore (WordMachine.word width 0) (blocks m)).1
+    (fun desc : Vector KeyBounds.Key (blocks m) × Nat => rowM 0 (blocks m*(blockSize m-1+1)) desc.1)
+    data.macroRows (fun desc => rowM_cost 0 _ desc.1)
+  have hs := mapM_cost (WordMachine.word width 0)
+    (fun desc : Vector KeyBounds.Key (blocks m) × Nat => WordMachine.scalar width desc.2)
+    data.macroRows (c := 1) (fun _ => le_rfl)
+  have hl := mapM_cost (WordMachine.word width 0) (WordMachine.scalar width) data.macroLogs (c := 1) (fun _ => le_rfl)
+  simp only [convertState,Resources.bind,Resources.pure,TableExecution.initStore_exact]
+  simp only [dimension,TableExecution.initStore_exact] at hd ht hm ⊢
+  unfold convertWork paddedCapacity
+  omega
+
+theorem convertWork_le (hn : 0 < m) : convertWork m ≤ 4096*m := by
+  have hp := paddedCapacity_le hn
+  have hk := blocks_le hn
+  have hb := blockSize_le hn
+  have hs := sharedSlots_le hn
+  have hsp := sparseSlots_le hn
+  have ht : 2^(blockSize m-1)*(3*blockSize m+blockSize m*(11*blockSize m+7)+7) ≤ 11*sharedSlots m := by
+    have he : 2^(blockSize m-1)*(3*blockSize m+blockSize m*(11*blockSize m+7)+7)+
+        2^(blockSize m-1)*(blockSize m+4)=11*sharedSlots m := by unfold sharedSlots; ring
+    omega
+  have hmacro : (levels m+1)*(11*blocks m+7)+8*(levels m+1) ≤
+      26*SparseExecution.retainedSlots (blocks m) (levels m) := by
+    unfold SparseExecution.retainedSlots
+    nlinarith
+  unfold convertWork
+  omega
+
+theorem convertState_cost (input : Input m)
+    (h : MachineCapacity.Eligible m width capacity inputWords frameWords)
+    (data : Backend.State m) (valid : data = PackedBackend.state input) :
+    (convertState input h data valid).2 ≤ 4096*m :=
+  (convertState_work input h data valid).trans (convertWork_le input.positive)
+
 end Sequences.LCA.ResidentInstallation
