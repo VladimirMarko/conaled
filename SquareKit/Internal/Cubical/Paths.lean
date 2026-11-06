@@ -87,6 +87,19 @@ theorem pathLam_app {Γ : Context.{u}} {B : Family (total (interval Γ))}
     (lam_app (Term.map (pathInclusion B a₀ a₁) p))
   exact h
 
+theorem pathApp_injective {Γ : Context.{u}} {B : Family (total (interval Γ))}
+    {a₀ : Term (reindex B (endpointSub Γ false))}
+    {a₁ : Term (reindex B (endpointSub Γ true))} :
+    Function.Injective (pathApp (B := B) (a₀ := a₀) (a₁ := a₁)) := by
+  intro s t h
+  apply Term.ext
+  intro x
+  have hs := congrArg (fun p => p.val x) (pathLam_app s)
+  have ht := congrArg (fun p => p.val x) (pathLam_app t)
+  apply Subtype.ext
+  have hv := congrArg (fun q => (lam q).val x) h
+  exact (congrArg Subtype.val hs).symm.trans (hv.trans (congrArg Subtype.val ht))
+
 def pathReindex {Γ Δ : Context.{u}} (B : Family (total (interval Γ)))
     (a₀ : Term (reindex B (endpointSub Γ false)))
     (a₁ : Term (reindex B (endpointSub Γ true))) (σ : Δ ⟶ Γ) :
@@ -105,5 +118,11 @@ theorem pathLam_reindex {Γ Δ : Context.{u}} {B : Family (total (interval Γ))}
       pathLam (Term.reindex b (liftSub (interval Γ) σ))
         (congrArg (fun t => Term.reindex t σ) h₀)
         (congrArg (fun t => Term.reindex t σ) h₁) := rfl
+
+theorem pathApp_reindex {Γ Δ : Context.{u}} {B : Family (total (interval Γ))}
+    {a₀ : Term (reindex B (endpointSub Γ false))}
+    {a₁ : Term (reindex B (endpointSub Γ true))} (t : Term (path B a₀ a₁)) (σ : Δ ⟶ Γ) :
+    pathApp (Term.map (pathReindex B a₀ a₁ σ) (t.reindex σ)) =
+      (pathApp t).reindex (liftSub (interval Γ) σ) := rfl
 
 end SquareKit.Cubical.Presheaf

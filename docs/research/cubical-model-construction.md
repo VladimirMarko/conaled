@@ -171,7 +171,7 @@ contract and rejection cases.
 | Face restrictions and compatible systems | No partial system in term | Needed for fibrancy | Face lattice, endpoint reflection, restrictions and compatible gluing constructed in M3 foundation |
 | Dependent contexts, Π, Σ, substitution | Function parameter and Nat recursion | Both substitutions and genuinely varying families | Families/sections and comprehension constructed in M2a; Π/Σ/Nat operations and coherent substitution comparisons constructed in M2b |
 | Path abstraction/application and endpoints | Essential | Higher semantic observations | Dependent Path families, abstraction/application, endpoint rules and substitution isomorphisms constructed in M2b |
-| Generalized transport and homogeneous composition | Not used by this declaration | Needed for general dependent higher interpretation | Uniform semantic filling, Sigma closure and restricted-constancy transp constructed; Pi/Path closure and source rules pending |
+| Generalized transport and homogeneous composition | Not used by this declaration | Needed for general dependent higher interpretation | Uniform semantic filling, Sigma/Path closure and restricted-constancy transp constructed; Pi closure and source rules pending |
 | Strict intensional Id, contextual J | Not used | Essential, arbitrary motives and finite tails | Construct strict Id and prove β/substitution, not native Lean Eq; pending |
 | Nontrivial higher parameter, nonconstant family | Not witnessed by contraction | Essential | Construct cubical parameter and detector; reuse exact memo after rule soundness |
 | Internal universes, Glue, univalence | Imported but not used by declaration slice | Used by external `HigherWitness` construction, not generic memo | Not advertised in selected fragment; broader source reuse requires classifier/Glue proofs |
@@ -762,3 +762,36 @@ by these semantic operations.
 
 Primary rule boundary: [Agda 2.8.0 transport documentation](https://agda.readthedocs.io/en/v2.8.0/language/cubical.html#transport)
 and [CCHM v1 Definition 13](https://arxiv.org/html/1611.02108v1).
+
+
+## M3 dependent Path filling
+
+`pathFilling` constructs lawful filling of `path B a₀ a₁` from lawful filling
+of `B`. It exchanges the filling and path coordinates, evaluates the original
+partial paths, and adjoins both path endpoint faces to the tube. The endpoint
+sections are actual sections of the restricted family. Compatibility follows
+from the original path endpoint equations; the two opposing endpoint faces
+are disjoint. Gluing, endpoint restriction, and coordinate exchange commute
+with substitution.
+
+The body filler therefore keeps both path endpoints throughout the filling
+dimension. Path abstraction returns its result through the full
+`pathReindexIso`; no restriction values are omitted. The starting-cap law,
+agreement with the original tube, and uniformity under arbitrary substitutions
+are proved. The callers supply only the existing lawful body filler and the
+two endpoint terms. The closure does not request the resulting path laws as
+additional inputs.
+
+`Examples/CubicalPathFilling.lean` uses the constructed discrete dependent
+body family `Fin(n+1)`. Even with an empty original tube, the added endpoint
+faces retain the selected path. The checked instance commutes with two
+substitutions, yields `5 : Fin 6` at a free interval coordinate, and rejects
+erasure to zero. This is a dependent discrete specialization of the general
+closure theorem, not the nontrivial higher witness required by M5.
+
+The construction follows the Path case of
+[CCHM v1 section 4.5](https://arxiv.org/html/1611.02108v1). Pi filling, the
+stable chosen-filling source interpretation, strict Id/J, and the exact higher
+memo remain pending. A reusable derivation of whole filling from far-face
+composition is also being developed to share the connection argument needed
+by Pi closure.

@@ -192,4 +192,10 @@ theorem Term.map_iso_roundtrip {Γ : Context.{u}} {A B : Family Γ} (e : A ≅ B
   intro x
   exact congrArg (fun f => f.app x (t.val x)) e.hom_inv_id
 
+theorem Term.map_injective_of_iso {Γ : Context.{u}} {A B : Family Γ} (e : A ≅ B) :
+    Function.Injective (Term.map e.hom) := by
+  intro s t h
+  exact (Term.map_iso_roundtrip e s).symm.trans
+    ((congrArg (Term.map e.inv) h).trans (Term.map_iso_roundtrip e t))
+
 end SquareKit.Cubical.Presheaf

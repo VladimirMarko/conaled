@@ -19,11 +19,6 @@ theorem RestrictedConstancy.reindex {Γ Δ : Context.{u}} {A : Family (total (in
   congrArg (fun C => Presheaf.reindex C
     (restrictSubstitution (φ.reindex (projection (interval Γ))) (liftSub (interval Γ) σ))) h
 
-private theorem convert_val_heq {Γ : Context.{u}} {A B : Family Γ} (h : A = B)
-    (a : Term A) (x : Γ.Elements) : HEq ((a.convert h).val x) (a.val x) := by
-  cases h
-  rfl
-
 def RestrictedConstancy.tube {Γ : Context.{u}} {A : Family (total (interval Γ))}
     {φ : Cofibration Γ} (h : RestrictedConstancy A φ)
     (a : Term (Presheaf.reindex A (endpointSub Γ false))) :
@@ -36,7 +31,7 @@ theorem RestrictedConstancy.tube_val {Γ : Context.{u}} {A : Family (total (inte
     (a : Term (Presheaf.reindex A (endpointSub Γ false)))
     (x : (total (interval Γ)).Elements) (p : (φ.reindex (projection (interval Γ))).full x) :
     HEq ((h.tube a).val x p) (a.val ((projection (interval Γ)).mapElements.obj x)) :=
-  convert_val_heq h.symm _ ((restrictContext (φ.reindex (projection (interval Γ)))).elementsMk
+  Term.convert_val_heq h.symm _ ((restrictContext (φ.reindex (projection (interval Γ)))).elementsMk
     x.obj ⟨x.val,p⟩)
 
 def RestrictedConstancy.box {Γ : Context.{u}} {A : Family (total (interval Γ))}

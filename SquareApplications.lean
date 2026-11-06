@@ -307,6 +307,7 @@ import Examples.CubicalDiscreteFilling
 import Examples.CubicalDependentFilling
 import Examples.CubicalSumFilling
 import Examples.CubicalRestrictedTransport
+import Examples.CubicalPathFilling
 import Examples.FiniteKernelEquality
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

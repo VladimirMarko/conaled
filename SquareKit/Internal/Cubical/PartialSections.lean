@@ -79,6 +79,14 @@ noncomputable def PartialSection.glue {Γ : Context.{u}} {A : Family Γ} {φ ψ 
     · rw [glueValue_right a b c x p h,glueValue_right a b c y _ (ψ.full_natural f h)]
       exact b.property f h
 
+theorem PartialSection.glue_congr {Γ : Context.{u}} {A : Family Γ} {φ ψ : Cofibration Γ}
+    {a a' : PartialSection A φ} {b b' : PartialSection A ψ}
+    (ha : a = a') (hb : b = b') (c : a.Compatible b) (c' : a'.Compatible b') :
+    a.glue b c = a'.glue b' c' := by
+  cases ha
+  cases hb
+  rfl
+
 theorem PartialSection.Compatible.reindex {Γ Δ : Context.{u}} {A : Family Γ} {φ ψ : Cofibration Γ}
     {a : PartialSection A φ} {b : PartialSection A ψ} (c : a.Compatible b) (σ : Δ ⟶ Γ) :
     (a.reindex σ).Compatible (b.reindex σ) := fun x p q => c (σ.mapElements.obj x) p q

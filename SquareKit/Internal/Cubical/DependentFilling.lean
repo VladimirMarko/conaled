@@ -10,6 +10,14 @@ structure OpenBox {Γ : Context.{u}} (A : Family (total (interval Γ))) (φ : Co
   base : Term (reindex A (endpointSub Γ false))
   boundary : ∀ x h, tube.val (extendObj (interval Γ) x ((endpoint Γ false).val x)) h = base.val x
 
+def OpenBox.empty {Γ : Context.{u}} (A : Family (total (interval Γ)))
+    (a : Term (reindex A (endpointSub Γ false))) : OpenBox A (Cofibration.bot Γ) where
+  tube := {
+    val := fun _ h => (Bool.false_ne_true h).elim
+    property := fun _ h => (Bool.false_ne_true h).elim }
+  base := a
+  boundary _ h := (Bool.false_ne_true h).elim
+
 @[ext] theorem OpenBox.ext {Γ : Context.{u}} {A : Family (total (interval Γ))}
     {φ : Cofibration Γ} {b c : OpenBox A φ} (ht : b.tube = c.tube) (hb : b.base = c.base) : b = c := by
   cases b
