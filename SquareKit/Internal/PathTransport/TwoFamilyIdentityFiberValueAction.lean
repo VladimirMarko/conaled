@@ -1,3 +1,7 @@
+import SquareKit.Internal.PathTransport.TwoFamilyVerticalValueAt
+import SquareKit.Internal.PathTransport.TwoFamilySectionValueFormula
+import SquareKit.Internal.PathTransport.TwoFamilyIdentityValueFormula
+import SquareKit.Internal.PathTransport.TwoFamilyIdentitySectionCell
 import SquareKit.Internal.PathTransport.TwoFamilyEndpointFiberAction
 /-! A retained vertical source value agrees with the corresponding identity-fiber action. -/
 namespace SquareKit.Internal.PathTransport.HigherInterpretation
@@ -10,18 +14,17 @@ variable {Γ : Context.{u}}
 def VerticalValueAction (F : Family Γ) (p q : TwoFamily.Section F.data)
  (s : TwoFamily.Section (reindex (projectionHigher F.data) F.data))
  (k : TwoFamily.Section (closedId F.data p q) → StrictPseudofunctor Γ (Total (rootedPathFamily F.data p)))
- (G : Family Γ) (v : TwoFamily.Section (closedId F.data p q) → TwoFamily.Section G.data) : Prop := ∀ h γ,
- HEq ((v h).normalObj G.data γ).fiber
- (LocallyDiscrete.mk (s.lift.map ((fiberInclusion F.data ((k h).obj γ).base.base).map ((k h).obj γ).fiber.as)).fiber)
+ (G : Family Γ) (v : TwoFamily.Section (closedId F.data p q) → TwoFamily.Section G.data) : Prop := ∀ h,
+ VerticalValueAt F p s (k h) G (v h)
 variable {Γ : Context.{u}} (A : Family Γ) (x y : TwoFamily.Section A.data)
 local notation "I" => A.identity x y
 def IdentityFiberValueFormula
  (p q : TwoFamily.Section (I).data)
  (s : TwoFamily.Section (reindex (projectionHigher (I).data) (I).data))
  (G : Family Γ) (v : TwoFamily.Section (closedId (I).data p q) → TwoFamily.Section G.data) : Prop := ∀ h γ,
- HEq ((v h).normalObj G.data γ).fiber
- (LocallyDiscrete.mk (Discrete.mk ((identityFiberFunctor A x y γ s).map
-  (h.normalObj (closedId (I).data p q) γ).fiber.as.as)))
+ IdentityValueAction ((v h).normalObj G.data γ).fiber
+ ((identityFiberFunctor A x y γ s).map
+  (identitySectionCell A x y p q h γ))
 private theorem ld_mk_heq {X Y : Type u} {a : X} {b : Y} (h : HEq a b) :
  HEq (LocallyDiscrete.mk a) (LocallyDiscrete.mk b) := by
  cases type_eq_of_heq h

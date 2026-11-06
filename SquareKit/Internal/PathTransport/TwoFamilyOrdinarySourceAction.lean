@@ -1,3 +1,5 @@
+import SquareKit.Internal.PathTransport.TwoFamilyVerticalValueAt
+import SquareKit.Internal.PathTransport.TwoFamilySectionValueFormula
 import SquareKit.NaturalConjugation
 import SquareKit.Internal.PathTransport.TwoFamilyRootedRightSectionAction
 import SquareKit.Internal.PathTransport.TwoFamilyOrdinarySourceReduction
@@ -18,7 +20,6 @@ variable {Γ Δ Θ : Context.{u}} {i : StrictPseudofunctor Δ Γ} (c : SourceCon
  (F : Family Γ) (t : TwoFamily.Section F.data)
  (σ : StrictPseudofunctor Θ Γ) (G : Family Θ) (p : TwoFamily.Section G.data)
  (V : Γ → Type u) (v : ∀ z, V z)
-def RightEndpointValueFormula : Prop := ∀ γ, HEq (p.normalObj G.data γ).fiber (LocallyDiscrete.mk (v (σ.obj γ)))
 theorem rightEndpointValue_action (hr : c.ReducedIdentityEndpointAction F t σ G p)
  (ht : ∀ z, HEq (t.normalMap F.data (c.homotopy.app z)).fiber (v z)) :
  RightEndpointValueFormula σ G p V v := by
@@ -42,12 +43,10 @@ theorem ordinaryApRight_action : OrdinaryApRightFormula C D A t x := by
   Lean.Elab.Tactic.replaceMainGoal []
 variable (y : ULift.{u+1} (TwoFamily.Section A.data))
  (p : ULift.{u+1} (TwoFamily.Section (closedId A.data x.down y.down)))
-def OrdinaryApVerticalAction : Prop := ∀ γ, HEq
- ((ordinaryApValue M A A t x y p).down.normalObj
-  ((M).identity A (ordinaryApply M A A t x) (ordinaryApply M A A t y)).data γ).fiber
- (LocallyDiscrete.mk (t.down.lift.map
-   ((fiberInclusion A.data (((M).endpointSub A x y p).down.obj γ).base.base).map
-    (((M).endpointSub A x y p).down.obj γ).fiber.as)).fiber)
+def OrdinaryApVerticalAction : Prop :=
+ VerticalValueAt A x.down t.down ((M).endpointSub A x y p).down
+  ((M).identity A (ordinaryApply M A A t x) (ordinaryApply M A A t y))
+  (ordinaryApValue M A A t x y p).down
 set_option linter.defProp false
 theorem ordinaryApValue_vertical_action [∀γ, Subsingleton (A.data.obj γ)] :
  OrdinaryApVerticalAction C D A t x y p := by
