@@ -1,5 +1,6 @@
 import SquareKit.Internal.PathTransport.TwoFamilySigmaHigherNaturality
 import SquareKit.Internal.PathTransport.TwoFunctorData
+import SquareKit.Internal.PathTransport.TwoFamilyData
 /-! Identity and composition of actual dependent Sigma transports. The proofs
 retain both cell components and reuse equality of higher functor data. -/
 namespace SquareKit.Internal.PathTransport.TwoFamily
@@ -12,15 +13,6 @@ universe u v w uΓ vΓ wΓ uB vB wB
 variable {Γ : Type uΓ} [Bicategory.{wΓ,vΓ} Γ] [Bicategory.Strict Γ]
 variable (F : Family.{uΓ,vΓ,wΓ,u,v,w} Γ)
 variable (B : Family.{max uΓ u,max vΓ v,max wΓ w,uB,vB,wB} (Total F))
-
-omit [Strict Γ] in
-private theorem total_hom_hext {x x' y y' : Total F} (hx : x = x') (hy : y = y')
-    (p : Hom F x y) (q : Hom F x' y') (hb : HEq p.base q.base)
-    (hf : HEq p.fiber q.fiber) : HEq p q := by
-  subst x'
-  subst y'
-  apply heq_of_eq
-  exact Pseudofunctor.CoGrothendieck.ext (eq_of_heq hb) hf
 
 private theorem identity_heq_eqToHom {C : Type*} [Category C] {x y : C}
     (h : x = y) : HEq (𝟙 x) (eqToHom h) := by cases h; rfl
@@ -41,15 +33,6 @@ private theorem family_map_obj_heq {C : Type*} [Bicategory C] [Strict C]
     (hp : HEq p q) (a : H.obj x) : HEq ((H.map p).obj a) ((H.map q).obj a) := by
   subst y'
   cases eq_of_heq hp
-  rfl
-
-private theorem total_obj_hext {C : Type*} [Bicategory C] [Strict C] (H : Family C)
-    {x y : Total H} (hb : x.base = y.base) (hf : HEq x.fiber y.fiber) : x = y := by
-  rcases x with ⟨x,a⟩
-  rcases y with ⟨y,b⟩
-  dsimp only at hb hf
-  subst y
-  cases eq_of_heq hf
   rfl
 
 /-- Identity transport fixes both dependent pair objects. -/
@@ -112,19 +95,6 @@ private theorem family_map_cell_heq {C : Type*} [Bicategory C] [Strict C]
 private theorem functor_cell_heq {C D : Type*} [Bicategory C] [Bicategory D]
     (H K : StrictPseudofunctor C D) (h : H = K) {a b : C} {r t : a ⟶ b} (α : r ⟶ t) :
     HEq (H.map₂ α) (K.map₂ α) := by cases h; rfl
-
-omit [Strict Γ] in
-private theorem total_cell_hext {x x' y y' : Total F} (hx : x = x') (hy : y = y')
-    {p q : Hom F x y} {p' q' : Hom F x' y'} (hp : HEq p p') (hq : HEq q q')
-    (α : p ⟶ q) (β : p' ⟶ q') (hb : HEq α.base β.base)
-    (hf : HEq α.fiber β.fiber) : HEq α β := by
-  subst x'
-  subst y'
-  cases eq_of_heq hp
-  cases eq_of_heq hq
-  apply heq_of_eq
-  apply Pseudofunctor.CoGrothendieck.Hom.ext _ _ (eq_of_heq hb)
-  exact eq_of_heq (HEq.trans hf (comp_eqToHom_heq _ _).symm)
 
 /-- Identity transport retains both genuine cell components. -/
 theorem sigmaMap_cell_id_heq (γ : Γ) {x y : sigmaFiber F γ B} {p q : x ⟶ y}

@@ -1,4 +1,4 @@
-import SquareKit.Internal.PathTransport.TwoFamilySigmaLaws
+import SquareKit.Internal.PathTransport.TwoFamilySigmaFamily
 import Examples.TwoFamilySigmaHigherNaturality
 
 /-! Whole Sigma laws specialized to pairs with independent integer cells. -/
@@ -40,5 +40,30 @@ example : (TwoFamily.sigmaMap integerFamily laterFamily (𝟙 point)).map₂ (pa
 example : TwoFamily.sigmaCell integerFamily laterFamily (𝟙 arrow) =
     StrictTwoTransformation.Trans.id (TwoFamily.sigmaMap integerFamily laterFamily arrow) :=
   TwoFamily.sigmaCell_id integerFamily laterFamily arrow
+
+/-- Two selected integer cells compose through the constructed Sigma transformation. -/
+example (m n : ℤ) :
+    TwoFamily.sigmaCell integerFamily laterFamily
+      ((show arrow ⟶ arrow from Multiplicative.ofAdd m) ≫ Multiplicative.ofAdd n) =
+    StrictTwoTransformation.Trans.comp
+      (TwoFamily.sigmaCell integerFamily laterFamily
+        (show arrow ⟶ arrow from Multiplicative.ofAdd m))
+      (TwoFamily.sigmaCell integerFamily laterFamily
+        (show arrow ⟶ arrow from Multiplicative.ofAdd n)) :=
+  TwoFamily.sigmaCell_comp integerFamily laterFamily _ _
+
+
+/-- The assembled family transports the selected genuine pair cell. -/
+example (m n : ℤ) :
+    HEq (((TwoFamily.sigmaFamily integerFamily laterFamily).map (𝟙 point)).map₂ (pairCell m n))
+      (pairCell m n) := identity_retains_integers m n
+
+example (m : ℤ) :
+    HEq (TwoFamily.sigmaCellComponent integerFamily laterFamily
+      (arrow ◁ (show arrow ⟶ arrow from Multiplicative.ofAdd m)) pairPoint)
+      (TwoFamily.sigmaCellComponent integerFamily laterFamily
+        (show arrow ⟶ arrow from Multiplicative.ofAdd m)
+        ((TwoFamily.sigmaMap integerFamily laterFamily arrow).obj pairPoint)) :=
+  TwoFamily.sigmaCellComponent_left_heq integerFamily laterFamily arrow _ pairPoint
 
 end Examples.TwoFamilySigmaLaws
