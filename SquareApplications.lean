@@ -371,3 +371,5 @@ import Examples.TwoFamilyModelRooted
 import Examples.FrozenMemoRealizationExamples
 import Examples.FrozenMemoSignature
 import Examples.FrozenMemoPair
+import Examples.TwoFamilyFullModel
+import Examples.TwoFamilyFrozenMemo
