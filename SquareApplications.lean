@@ -1,3 +1,6 @@
+import Examples.DependentClientMigration
+import Examples.GeneratedEmptySubstitutions
+import Examples.DependentCapabilities
 import Examples.RepresentationExtension
 import Examples.ConstructorObserverExtension
 import Examples.ExactParserRewrites
@@ -289,6 +292,16 @@ import Examples.TwoGroupoidHom
 import Examples.GuardedJAuthoring
 import Examples.GuardedJRetestValidation
 import Examples.GuardedJAuthorEvaluation
+import Examples.OptionalTransport
+
+import Examples.PrimitiveDependentSums
+import Examples.FiniteKernelEquality
+
+import Examples.CoherentGroupoidPresentations
+
+import Examples.ReferenceDependentCalculus
+import Examples.ReferenceClient
+import Examples.ReferenceCongruence
 
 import Examples.TwoFamily
 
