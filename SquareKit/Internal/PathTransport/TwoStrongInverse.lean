@@ -77,11 +77,11 @@ theorem inverseComparison_comp {a b c : A} (f : a ⟶ b) (g : b ⟶ c) :
     inv_whiskerLeft, inv_whiskerRight, Category.assoc,
     eqToHom_comp_heq_iff]
   have hi' := heq_of_eq hi
-  simp only [eqToHom_comp_heq_iff, 
+  simp only [eqToHom_comp_heq_iff,
     heq_eqToHom_comp_iff] at hi'
   simpa only [whiskerLeft_comp, comp_whiskerRight, whiskerLeft_eqToHom,
     eqToHom_whiskerRight, Category.assoc, eqToHom_trans_assoc, eqToHom_trans,
-    eqToHom_comp_heq_iff, heq_eqToHom_comp_iff] using hi' 
+    eqToHom_comp_heq_iff, heq_eqToHom_comp_iff] using hi'
 
 private theorem cast_composite_heq {C : Type*} [Category* C]
     {a b c d a' b' c' d' : C} (ha : a = a') (hb : b = b')
