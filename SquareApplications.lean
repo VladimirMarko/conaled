@@ -298,6 +298,38 @@ import Examples.GuardedJRetestValidation
 import Examples.GuardedJAuthorEvaluation
 import Examples.OptionalTransport
 
+import Examples.CubicalTypeFormers
+import Examples.CubicalContraction
+import Examples.CubicalConversion
+import Examples.CubicalPathConversion
+import Examples.CubicalPresentationTransport
+import Examples.CubicalSourceProducts
+import Examples.CubicalSourceSums
+import Examples.CubicalSourceNaturals
+import Examples.CubicalSourceIntervals
+import Examples.CubicalSourcePaths
+import Examples.CubicalSourceContraction
+import Examples.CubicalFaces
+import Examples.CubicalDiscreteFilling
+import Examples.CubicalDependentFilling
+import Examples.CubicalSumFilling
+import Examples.CubicalRestrictedTransport
+import Examples.CubicalPathFilling
+import Examples.CubicalCompositionFilling
+import Examples.CubicalFunctionFilling
+import Examples.CubicalIdentity
+import Examples.CubicalIdentityElimination
+import Examples.CubicalIdentityFilling
+import Examples.CubicalDependentFaces
+import Examples.CubicalTelescopeIdentity
+import Examples.CubicalTelescopeSubstitution
+import Examples.CubicalSourceFillings
+import Examples.CubicalSourceHcomp
+import Examples.CubicalNormalizedIdentity
+import Examples.CubicalNormalizedTelescopeSubstitution
+import Examples.CubicalSourceIdentity
+import SquareKit.Internal.Cubical.NormalizedPathFilling
+import SquareKit.Internal.Cubical.SumFillingSubstitution
 import Examples.PrimitiveDependentSums
 import Examples.FiniteKernelEquality
 
@@ -396,5 +428,12 @@ import SquareKit.Internal.PathTransport.TwoFamilyRootedFamilyAction
 import Examples.FrozenOrdinaryActionEvaluation
 import SquareKit.Internal.DependentJudgments.FixedPathBetaSemantics
 import SquareKit.Internal.DependentJudgments.OrdinaryActionSubstitution
+import Examples.CubicalFrozenMemo
+
+import Examples.CubicalFrozenOutputs
+import SquareKit.Internal.Cubical.SliceFreshening
+import SquareKit.Internal.Cubical.SlicePrism
+
+import Examples.CubicalFrozenOrdinaryAction
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
