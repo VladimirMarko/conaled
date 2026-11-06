@@ -339,4 +339,28 @@ import Examples.TwoFamilySigmaHigherNaturality
 
 import Examples.TwoStrongInverse
 
+import Examples.TwoFamilySigmaLaws
+import Examples.TwoFamilySigmaProjection
+import Examples.TwoFamilySigmaReindex
+import Examples.TwoFamilySigmaRegroup
+import Examples.TwoFamilyComprehension
+import Examples.TwoFamilySectionNormalization
+import Examples.TwoFamilyHigherReindexLaws
+import Examples.TwoFamilyModelData
+import Examples.TwoFamilyEndpointSections
+import Examples.TwoFamilyClosedIdentity
+import Examples.TwoFamilyClosedIdentitySubstitution
+import Examples.TwoFamilyStructuralModel
+import Examples.TwoFamilySigmaCapability
+import Examples.TwoFamilyFiniteDependentTail
+import Examples.TwoFamilyFiniteDependentTailSubstitution
+
+import Examples.TwoFamilyRootedPath
+
+import Examples.TwoFamilySourceContraction
+
+import Examples.TwoFamilySigmaSubstitution
+import Examples.TwoFamilyModelComparisons
+import Examples.TwoFamilySigmaStable
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
