@@ -37,4 +37,3 @@ theorem JValueFormula.reindex_cast
   (rootContraction C D A x).val E d.down s.down h σ.down F e
  exact (congrArg ((rootContraction C D A x).val.ReindexedValueFormula E d.down σ.down F) hc).mpr r
 end SquareKit.Internal.PathTransport.HigherInterpretation
-

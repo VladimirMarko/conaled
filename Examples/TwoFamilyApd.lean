@@ -1,3 +1,4 @@
+import SquareKit.Internal.PathTransport.TwoFamilyModelApdAction
 import Examples.TwoFamilyFullModel
 import SquareKit.Internal.PathTransport.TwoFamilyModelApdRoot
 namespace Examples.TwoFamilyApd
@@ -24,4 +25,6 @@ example : SectionRootIdentity
  (completeModel.subTy copyFamily (completeModel.toStructuralModel.sectionSub display chosen))
  (completeModel.subTm copy (completeModel.toStructuralModel.sectionSub display chosen)) :=
  apdSection_root_identity integerContext integerContext display copyFamily chosen copy
+example : ApdSectionActionFormula integerContext integerContext display copyFamily chosen copy :=
+ apdSection_action integerContext integerContext display copyFamily chosen copy
 end Examples.TwoFamilyApd
