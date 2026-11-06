@@ -1,4 +1,4 @@
-import SquareKit.Internal.PathTransport.TwoFamilyClosedIdentitySubstitution
+import SquareKit.Internal.PathTransport.TwoFamilyClosedReflexivitySubstitution
 import SquareKit.Internal.PathTransport.TwoFamilyEndpointSubstitution
 import Examples.TwoFamilyClosedIdentity
 /-! Closed identity substitution along two actual context projections. -/
@@ -36,4 +36,8 @@ example : (endpointPair (reindex σ displayed)
     (selected.reindex displayed σ) (selected.reindex displayed σ)).lift.comp
       (endpointReindex displayed σ) = σ.comp (endpointPair displayed selected selected).lift :=
   endpointPair_lift_reindex displayed σ selected selected
+example : HEq ((closedReflexivity displayed selected).reindex _ σ)
+    (closedReflexivity (reindex σ displayed) (selected.reindex displayed σ)) :=
+  closedReflexivity_reindex_heq displayed σ selected
+
 end Examples.TwoFamilyClosedIdentitySubstitution
