@@ -7,6 +7,11 @@ universe u
 
 def Term.convert {Γ : Context.{u}} {A B : Family Γ} (h : A = B) (t : Term A) : Term B := h ▸ t
 
+theorem Term.convert_heq {Γ : Context.{u}} {A B : Family Γ} (h : A = B)
+    (t : Term A) : HEq (t.convert h) t := by
+  cases h
+  rfl
+
 theorem Term.convert_val_heq {Γ : Context.{u}} {A B : Family Γ} (h : A = B)
     (a : Term A) (x : Γ.Elements) : HEq ((a.convert h).val x) (a.val x) := by
   cases h
@@ -20,6 +25,11 @@ theorem Term.convert_trans {Γ : Context.{u}} {A B C : Family Γ}
     (t.convert h).convert k = t.convert (h.trans k) := by
   cases h
   cases k
+  rfl
+
+theorem Term.convert_symm {Γ : Context.{u}} {A B : Family Γ} (h : A = B) (t : Term A) :
+    (t.convert h).convert h.symm = t := by
+  cases h
   rfl
 
 theorem Term.convert_independent {Γ : Context.{u}} {A B : Family Γ}

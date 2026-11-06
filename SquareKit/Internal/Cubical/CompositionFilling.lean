@@ -7,13 +7,13 @@ open CategoryTheory
 universe u
 
 noncomputable def Composition.fill {Γ Δ : Context.{u}} {A : Family Γ} (C : Composition A)
-    (p : total (interval Δ) ⟶ Γ) (φ : Cofibration Δ) (b : OpenBox (reindex A p) φ) :
-    Term (reindex A p) :=
+    (p : total (interval Δ) ⟶ Γ) (φ : Cofibration Δ) (b : OpenBox (Presheaf.reindex A p) φ) :
+    Term (Presheaf.reindex A p) :=
   (C.comp (scaleInterval Δ ≫ p) (scaledFace φ) (scaledBox b)).convert
-    (congrArg (fun q => reindex A (q ≫ p)) (scaleInterval_one Δ))
+    (congrArg (fun q => Presheaf.reindex A (q ≫ p)) (scaleInterval_one Δ))
 
 theorem Composition.fill_val_heq {Γ Δ : Context.{u}} {A : Family Γ} (C : Composition A)
-    (p : total (interval Δ) ⟶ Γ) (φ : Cofibration Δ) (b : OpenBox (reindex A p) φ)
+    (p : total (interval Δ) ⟶ Γ) (φ : Cofibration Δ) (b : OpenBox (Presheaf.reindex A p) φ)
     (x : (total (interval Δ)).Elements) :
     HEq ((C.fill p φ b).val x)
       ((C.comp (scaleInterval Δ ≫ p) (scaledFace φ) (scaledBox b)).val x) :=
@@ -21,7 +21,7 @@ theorem Composition.fill_val_heq {Γ Δ : Context.{u}} {A : Family Γ} (C : Comp
 
 theorem Composition.fill_fills {Γ Δ : Context.{u}} {A : Family Γ} {C : Composition A}
     (h : C.Lawful) (p : total (interval Δ) ⟶ Γ) (φ : Cofibration Δ)
-    (b : OpenBox (reindex A p) φ) : b.Fills (C.fill p φ b) := by
+    (b : OpenBox (Presheaf.reindex A p) φ) : b.Fills (C.fill p φ b) := by
   constructor
   · apply Term.ext
     intro x
@@ -36,7 +36,7 @@ theorem Composition.fill_fills {Γ Δ : Context.{u}} {A : Family Γ} {C : Compos
       ((endpointSub (total (interval Δ)) true).mapElements.obj y) hf hz
     apply eq_of_heq
     exact (C.fill_val_heq p φ b y).trans ((heq_of_eq (hc.trans hv)).trans
-      (endpointSection_val (reindex A p) false b.base _ _))
+      (endpointSection_val (Presheaf.reindex A p) false b.base _ _))
   · intro x hx
     have hf : (scaledFace φ).full x := (Cofibration.full_join _ _ x).mpr (Or.inl hx)
     have hc := h.boundary (scaleInterval Δ ≫ p) (scaledFace φ) (scaledBox b) x hf
@@ -51,7 +51,7 @@ theorem Composition.fill_fills {Γ Δ : Context.{u}} {A : Family Γ} {C : Compos
 
 theorem Composition.fill_reindex {Γ Δ Θ : Context.{u}} {A : Family Γ} {C : Composition A}
     (h : C.Lawful) (p : total (interval Δ) ⟶ Γ) (φ : Cofibration Δ)
-    (b : OpenBox (reindex A p) φ) (σ : Θ ⟶ Δ) :
+    (b : OpenBox (Presheaf.reindex A p) φ) (σ : Θ ⟶ Δ) :
     C.fill (liftSub (interval Δ) σ ≫ p) (φ.reindex σ) (b.reindex σ) =
       (C.fill p φ b).reindex (liftSub (interval Δ) σ) := by
   have hu := h.uniform (scaleInterval Δ ≫ p) (scaledFace φ) (scaledBox b)

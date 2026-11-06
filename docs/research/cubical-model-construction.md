@@ -172,7 +172,7 @@ contract and rejection cases.
 | Dependent contexts, Π, Σ, substitution | Function parameter and Nat recursion | Both substitutions and genuinely varying families | Families/sections and comprehension constructed in M2a; Π/Σ/Nat operations and coherent substitution comparisons constructed in M2b |
 | Path abstraction/application and endpoints | Essential | Higher semantic observations | Dependent Path families, abstraction/application, endpoint rules and substitution isomorphisms constructed in M2b |
 | Generalized transport and homogeneous composition | Not used by this declaration | Needed for general dependent higher interpretation | Uniform semantic filling, Sigma/Path/Pi closure and restricted-constancy transp constructed; source rules pending |
-| Strict intensional Id, contextual J | Not used | Essential, arbitrary motives and finite tails | Construct strict Id and prove β/substitution, not native Lean Eq; pending |
+| Strict intensional Id, contextual J | Not used | Essential, arbitrary motives and finite tails | Marked Id, arbitrary-motive J β/substitution and finite-tail J β constructed; Id filling and source interpretation pending |
 | Nontrivial higher parameter, nonconstant family | Not witnessed by contraction | Essential | Construct cubical parameter and detector; reuse exact memo after rule soundness |
 | Internal universes, Glue, univalence | Imported but not used by declaration slice | Used by external `HigherWitness` construction, not generic memo | Not advertised in selected fragment; broader source reuse requires classifier/Glue proofs |
 | HITs, truncations, circle/EM construction | Imported but not used by declaration slice | External chosen witness/monodromy use them | Not advertised; interpreting those artifacts unchanged remains a separate coverage obligation |
@@ -844,3 +844,51 @@ rejects erasing that result. Statement review checks the universal boundary and
 substitution quantifiers, the genuinely dependent result family, and the
 constructed lawful inputs. This completes the Pi closure obligation, while
 source `hcomp`/`transp`, strict Id/J, and the higher memo remain open.
+
+
+## Marked identities and dependent elimination
+
+`Identity` represents an identity by an actual path and a face on which the
+path is constant after every restriction. Reflexivity uses the full face.
+`IdentitySubstitution` constructs the full family substitution isomorphism,
+retaining both fields. The identity witness is not native Lean equality.
+
+`IdentityContraction` contracts the path with the interval connection and
+adjoins its zero face to the constancy marker. The zero endpoint is strict
+reflexivity; the one endpoint recovers the original selected witness.
+`IdentitySingleton` turns this construction into a context substitution with
+those endpoint equations. Its marked face restricts the contraction to the
+reflexivity inclusion. The identity and composition laws for substitution of
+these contexts are proved, as are preservation of the contraction and face.
+
+`IdentityElimination` composes an arbitrary motive along that contraction.
+The branch supplies the cap and the tube on the marked face. The resulting
+eliminator computes literally to the branch at reflexivity.
+`IdentityEliminationSubstitution` derives its arbitrary-context substitution
+law from the constructed singleton map and composition uniformity. It assumes
+no final elimination-preservation law. The motive needs an actual lawful
+composition operation; the theorem does not assert that every presheaf family
+has one.
+
+`Telescopes` constructs finite dependent tails, their substitutions, and
+iterated normalized products. Abstraction/application satisfy beta and eta,
+and commute with substitution using the proved family equalities.
+`TelescopeFilling` keeps the selected fillers separate from their law
+predicate and derives iterated product filling from `piFilling` and family
+isomorphism transport. `TelescopeIdentityElimination` uses this construction
+to eliminate under any finite tail and proves its strict branch equation.
+The substitution theorem for this canonical assembled tail eliminator remains
+to be established.
+
+The examples retain distinct constancy markers without calling them a nonzero
+higher type. The dependent motive `Fin(endpoint+1)` retains `6 : Fin 7` after
+two substitutions. A two-entry tail contains a natural and then `Fin(n+1)`;
+its branch returns the selected second variable, retaining `5 : Fin 7` and
+rejecting erasure. These instantiate the actual constructors and laws.
+Statement review distinguishes face data from proof-irrelevant equality,
+arbitrary motive composition from a postulated eliminator, and the finite-tail
+beta result from the remaining substitution obligation.
+
+Id filling closure, guarded source interpretation of the remaining operations,
+the genuine higher model and nonconstant family, and the unchanged frozen memo
+remain required. This construction does not complete M4 or the programme.

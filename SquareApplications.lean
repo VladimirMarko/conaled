@@ -311,6 +311,9 @@ import Examples.CubicalRestrictedTransport
 import Examples.CubicalPathFilling
 import Examples.CubicalCompositionFilling
 import Examples.CubicalFunctionFilling
+import Examples.CubicalIdentity
+import Examples.CubicalIdentityElimination
+import Examples.CubicalTelescopeIdentity
 import Examples.PrimitiveDependentSums
 import Examples.FiniteKernelEquality
 
