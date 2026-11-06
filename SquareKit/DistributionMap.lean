@@ -156,5 +156,110 @@ theorem id_laws (d : DistributionOps D T U) :
     apply H.trans (DC.comp (H.refl _) (T.rightMap_id DC DL TC TL _ _))
     exact DL.comp_id _
 
+section Composition
+universe r s
+variable {R : Type r} {K : CategoryOps.{r,s} R} {V : HomEquiv K}
+variable {G : RawMap D K} {W : ProductOps K} {X : CoproductOps K}
+variable (LG : MapLaws G H V) (KC : CategoryCongr K V) (KL : CategoryLaws K V)
+variable (WC : ProductCongr V W) (WL : ProductLaws V W)
+variable (XC : CoproductCongr K V X) (XL : CoproductLaws K V X)
+variable {k : ProductMap G T W} {l : CoproductMap G U X}
+variable (M : ProductMapLaws V k) (N : CoproductMapLaws V l)
+variable (I : ∀ a b, V.Rel (K.comp (k a b).hom (k a b).inv) K.ident)
+variable (J : ∀ a b, V.Rel (K.comp (l a b).hom (l a b).inv) K.ident)
+
+include LG KC KL WC WL M in
+/-- The derived map on the second product component is preserved. -/
+theorem rightMap_preserved {a b c : Q} (f : D.Hom b c) :
+    V.Rel (G.map (T.rightMap (a := a) f))
+      (K.comp (k a c).inv (K.comp (W.rightMap (G.map f)) (k a b).hom)) := by
+  apply V.trans (M.pair _ _)
+  apply V.trans (KC.comp (V.refl _) (WC.pair M.fst
+    (V.trans (LG.comp _ _) (V.trans (KC.comp (V.refl _) M.snd) (V.symm (KL.assoc _ _ _))))))
+  exact KC.comp (V.refl _) (V.symm (WL.pair_comp KC KL WC _ _ _))
+
+include LG KC KL XC XL N in
+/-- The derived coproduct map is preserved. -/
+theorem sumMap_preserved {a b c d : Q} (f : D.Hom a c) (g : D.Hom b d) :
+    V.Rel (G.map (U.map f g))
+      (K.comp (l c d).inv (K.comp (X.map (G.map f) (G.map g)) (l a b).hom)) := by
+  apply V.trans (N.copair _ _)
+  apply V.trans (KC.comp (XC.copair
+    (V.trans (LG.comp _ _) (V.trans (KC.comp N.inl (V.refl _)) (KL.assoc _ _ _)))
+    (V.trans (LG.comp _ _) (V.trans (KC.comp N.inr (V.refl _)) (KL.assoc _ _ _)))) (V.refl _))
+  apply V.trans (KC.comp (V.symm (XL.comp_copair KC KL XC _ _ _)) (V.refl _))
+  exact KL.assoc _ _ _
+
+include LG KC KL WC WL M I in
+theorem rightMap_natural {a b c : Q} (f : D.Hom b c) :
+    V.Rel (K.comp (k a c).hom (G.map (T.rightMap (a := a) f)))
+      (K.comp (W.rightMap (G.map f)) (k a b).hom) :=
+  V.trans (KC.comp (V.refl _) (rightMap_preserved LG KC KL WC WL M f))
+    (KL.cancel_left KC (I a c) _)
+
+include LG KC KL XC XL N J in
+theorem sumMap_natural_inv {a b c d : Q} (f : D.Hom a c) (g : D.Hom b d) :
+    V.Rel (K.comp (G.map (U.map f g)) (l a b).inv)
+      (K.comp (l c d).inv (X.map (G.map f) (G.map g))) := by
+  apply V.trans (KC.comp (sumMap_preserved LG KC KL XC XL N f g) (V.refl _))
+  apply V.trans (KL.assoc _ _ _)
+  apply KC.comp (V.refl _)
+  exact V.trans (KL.assoc _ _ _) (V.trans (KC.comp (V.refl _) (J a b)) (KL.comp_id _))
+
+include LG KC KL WC WL M I in
+/-- The induced domain comparison agrees with composing the two induced comparisons. -/
+theorem domainComparison_comp_hom (a b c : O) :
+    V.Rel (K.comp (domainComparison k l (F.obj a) (F.obj b) (F.obj c)).hom
+      (G.map (domainComparison i j a b c).hom))
+      (domainComparison (i.comp k) (j.comp l) a b c).hom := by
+  change V.Rel (K.comp (K.comp _ _) (G.map (D.comp _ _))) _
+  apply V.trans (KC.comp (V.refl _) (LG.comp _ _))
+  apply V.trans (KL.assoc _ _ _)
+  apply V.trans (KC.comp (V.refl _) (V.symm (KL.assoc _ _ _)))
+  apply V.trans (KC.comp (V.refl _) (KC.comp (rightMap_natural LG KC KL WC WL M I _) (V.refl _)))
+  apply V.trans (KC.comp (V.refl _) (KL.assoc _ _ _))
+  apply V.trans (V.symm (KL.assoc _ _ _))
+  exact KC.comp (W.rightMap_comp KC KL WC WL _ _) (V.refl _)
+
+include LG KC KL XC XL N J in
+/-- The inverse codomain comparison agrees with composing the two induced comparisons. -/
+theorem codomainComparison_comp_inv (a b c : O) :
+    V.Rel (K.comp (G.map (codomainComparison i j a b c).inv)
+      (codomainComparison k l (F.obj a) (F.obj b) (F.obj c)).inv)
+      (codomainComparison (i.comp k) (j.comp l) a b c).inv := by
+  change V.Rel (K.comp (G.map (D.comp _ _)) (K.comp _ _)) _
+  apply V.trans (KC.comp (LG.comp _ _) (V.refl _))
+  apply V.trans (KL.assoc _ _ _)
+  apply V.trans (KC.comp (V.refl _) (V.symm (KL.assoc _ _ _)))
+  apply V.trans (KC.comp (V.refl _) (KC.comp (sumMap_natural_inv LG KC KL XC XL N J _ _) (V.refl _)))
+  apply V.trans (KC.comp (V.refl _) (KL.assoc _ _ _))
+  apply V.trans (V.symm (KL.assoc _ _ _))
+  exact KC.comp (V.refl _) (X.map_comp KC KL XC XL _ _ _ _)
+
+include LG KC KL WC WL XC XL M N I J in
+/-- Forward distribution preservation composes without source inverse laws or reflection. -/
+theorem comp_laws {d : DistributionOps C P S} {e : DistributionOps D T U}
+    {f : DistributionOps K W X}
+    (A : DistributionMapLaws H i j d e) (B : DistributionMapLaws V k l e f) :
+    DistributionMapLaws V (i.comp k) (j.comp l) d f where
+  distribute := by
+    intro a b c
+    apply V.trans (LG.congr A.distribute)
+    apply V.trans (LG.comp _ _)
+    apply V.trans (KC.comp (V.refl _) (LG.comp _ _))
+    apply V.trans (V.symm (KL.assoc _ _ _))
+    apply V.trans (KC.comp (V.symm (LG.comp _ _)) (V.refl _))
+    apply V.trans (KC.comp (V.refl _) (LG.comp _ _))
+    apply V.trans (KC.comp (V.refl _) (KC.comp (distribute_preserved KL B _ _ _) (V.refl _)))
+    apply V.trans (KC.comp (V.refl _) (KL.assoc _ _ _))
+    apply V.trans (V.symm (KL.assoc _ _ _))
+    apply V.trans (KC.comp (codomainComparison_comp_inv LG KC KL XC XL N J a b c)
+      (V.refl _))
+    apply V.trans (KC.comp (V.refl _) (KL.assoc _ _ _))
+    apply V.trans (KC.comp (V.refl _) (KC.comp (V.refl _)
+      (domainComparison_comp_hom LG KC KL WC WL M I a b c)))
+    exact KL.assoc _ _ _
+end Composition
+
 end DistributionMap
 end SquareKit

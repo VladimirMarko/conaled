@@ -70,6 +70,13 @@ theorem wrapPreservesCoproducts : CoproductMapLaws (equality _) wrapCoproducts w
   inr := rfl
   copair _ _ := rfl
 
+theorem wrapPreservesDistribution : DistributionMapLaws (equality ops.{u}) wrapProducts
+    wrapCoproducts FunctionCategory.distribution distribution where
+  distribute := by
+    intro a b c
+    funext x
+    rcases x with ⟨x, y | y⟩ <;> rfl
+
 /-- A selected right branch survives both changes of carrier. -/
 example (x z : Nat) : distribution.distribute (a := Nat) (b := Bool) (c := Nat)
     ⟨(x, ⟨.inr z⟩)⟩ = ⟨.inr ⟨(x, z)⟩⟩ := rfl
@@ -112,16 +119,34 @@ theorem composedPreservesCoproducts : CoproductMapLaws (equality _) (composedCop
   CoproductMap.comp_laws (RawMap.id_laws _) (equalityCongr _) FunctionCategory.laws
     (CodeCategory.evaluationCoproducts meaning) Wrapped.wrapPreservesCoproducts
 
-/-- Composition needs no new distribution equation once both chosen inverses
-are lawful: uniqueness derives it from the composed structural preservation. -/
+/-- Compose the two operation-preservation contracts before transporting source laws. -/
 theorem composedPreservesDistribution : DistributionMapLaws (equality _)
     (composedProducts meaning) (composedCoproducts meaning)
     (CodeCategory.distribution Prim) Wrapped.distribution :=
-  DistributionMap.of_laws (equalityCongr _) FunctionCategory.laws
+  DistributionMap.comp_laws (RawMap.id_laws _) (equalityCongr _) FunctionCategory.laws
     Wrapped.productCongr Wrapped.productLaws Wrapped.coproductCongr Wrapped.coproductLaws
-    (composedMapLaws meaning) (composedPreservesProducts meaning) (composedPreservesCoproducts meaning)
-    (composedProductInverse meaning) (composedCoproductInverse meaning)
-    (CodeCategory.distributionLaws meaning).distribute_collect Wrapped.distributionLaws.collect_distribute
+    Wrapped.wrapPreservesProducts Wrapped.wrapPreservesCoproducts
+    (fun a b => (Wrapped.wrapProductInverse a b).hom_inv)
+    (fun a b => (Wrapped.wrapCoproductInverse a b).hom_inv)
+    (CodeCategory.evaluationDistribution meaning) Wrapped.wrapPreservesDistribution
+
+/-- Forward preservation remains available with raw constructor equality as the
+source relation, although the source distribution inverse laws fail there. -/
+theorem rawPreservationWithoutInverseLaws :
+    MapLaws (composed meaning) (equality _) (equality _) ∧
+    DistributionMapLaws (equality _) (composedProducts meaning) (composedCoproducts meaning)
+      (CodeCategory.distribution Prim) Wrapped.distribution ∧
+    ¬ DistributionLaws (CodeCategory.ops Prim) (equality _)
+      (CodeCategory.products Prim) (CodeCategory.coproducts Prim)
+      (CodeCategory.distribution Prim) := by
+  refine ⟨?_, composedPreservesDistribution meaning, ?_⟩
+  · exact RawMap.comp_laws
+      (show MapLaws (CodeCategory.evaluation meaning) (equality _) (equality _) from
+        { congr := fun h => congrArg _ h, ident := rfl, comp := fun _ _ => rfl })
+      (RawMap.id_laws _)
+  · intro h
+    have bad := h.distribute_collect .base .base .base
+    cases bad
 
 /-- The separately chosen source relation is retained after two interpretations. -/
 theorem composedDistributionLaws : DistributionLaws (CodeCategory.ops Prim)

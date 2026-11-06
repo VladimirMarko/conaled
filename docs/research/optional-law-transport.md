@@ -42,20 +42,36 @@ through `CoproductMap.comp`, `comp_inverse`, and `comp_laws`. Identity
 preservation is `id_laws`. These reuse `RawMap` and `Comparison` composition.
 
 `DistributionMap.id_laws` preserves arbitrary distribution choices without
-requiring distribution inverse laws. For composition between lawful choices, `DistributionMap.of_laws`
-derives preservation from structural preservation and uniqueness of inverses.
-It uses only `distribute ∘ collect = id` in the source and
-`collect ∘ distribute = id` in the target. It requires no reflection or
-injectivity. Composed product/coproduct contracts can therefore be used directly
-without proving a new equation for the composite distribution arrow.
+requiring distribution inverse laws. `DistributionMap.comp_laws` composes two
+existing distribution-preservation contracts using the existing product and
+coproduct comparison composition. It needs category laws in the final
+target, the second interpretation's map and structural preservation
+laws, final product/coproduct laws, and only the `hom_inv` equations of the
+second comparison families. It requires neither source distribution laws nor
+reflection, and it does not require distribution laws in either target.
 
-This is a lawful-choice composition route. It is not a theorem composing two
-arbitrary distribution preservation fields in the absence of inverse laws.
-The law-transport theorem itself has no source inverse-law premise. The
-composition example first transports code laws from ordinary functions, then
-uses those established laws to obtain preservation into wrapped functions.
-Its last transport application checks compatibility with the original source
-relation; it is not an independent proof of the source laws.
+The proof derives preservation of the product map on the second factor and the
+coproduct map from their constituent operation fields. Their naturality gives
+the forward domain and inverse codomain comparison equations needed to compose
+the two distribution fields. First-stage comparison inverses and first-stage
+product/coproduct preservation fields are not extra premises of this theorem;
+composing their own contracts remains a separate use of `comp_laws` in those
+namespaces.
+
+`DistributionMap.of_laws` supplies a separate route for lawful choices. It
+derives preservation from structural preservation and uniqueness of inverses,
+using only `distribute ∘ collect = id` in the source and
+`collect ∘ distribute = id` in the target. It requires no reflection or
+injectivity. This route is useful when the chosen inverse laws are already
+available; it is not needed by the sequential preservation example.
+
+The sequential example first composes evaluation and the wrapped interpretation's
+preservation contracts. Its forward preservation proof remains valid when the
+source relation is raw constructor equality. The same checked example shows
+that distribution inverse laws fail for this source relation: a composite code
+constructor is not an identity constructor. This rules out relying on source
+inverse laws to obtain the forward contract. Backward law transport uses the
+separately chosen semantic relation and its reflection proof.
 
 ## Checked clients and caller work
 
@@ -77,9 +93,10 @@ lines than direct proofs of these function equations.
   by `Box (a × b)` and sums by `Box (Sum a b)`.
 - Raw code evaluation followed by a second interpretation into those wrapped
   operations. Product and coproduct preservation and inverse proofs use shared
-  composition; distribution preservation uses inverse uniqueness.
+  composition; distribution preservation composes the two existing contracts.
 - Identity preservation for the wrapped choices, the induced source relation,
-  and the failure to reflect raw syntax equality.
+  the failure to reflect raw syntax equality, and forward preservation with raw
+  equality despite the failure of source distribution inverse laws.
 
 The exact optional client in
 [`CommaOptionalExact`](../../SquareKit/CommaOptionalExact.lean) retains its direct
@@ -106,7 +123,10 @@ raw syntax. All arrow theorems quantify over arbitrary arrows of the stated
 hom types. Reflection is an assumption of backward law transport and is not
 inferred from preservation. The nonidentity comparisons are actual functions
 between different carrier types, with both inverse equations checked.
-`collect` is the existing canonical copairing of product branches; no new
+`comp_laws` consumes both input distribution fields and assumes no source
+or intermediate category law, or any distribution law. The raw-equality case establishes that its
+forward-preservation conclusion is useful even when source inverse laws are
+false. `collect` is the existing canonical copairing of product branches; no new
 primitive changes its meaning. `DistributionMap.of_laws` exposes its source
 inverse premise and must not be used as evidence for establishing that premise.
 

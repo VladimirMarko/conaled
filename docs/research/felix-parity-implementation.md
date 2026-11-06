@@ -416,9 +416,11 @@ comparisons, with no source distribution-law premise.
 semantic equivalence. `Examples.OptionalTransport` checks arbitrary arrows,
 nonidentity wrapped carriers, sequential interpretations, identity preservation,
 and a negative control for reflection of raw constructor equality. Composition
-of coproduct contracts is direct; composition of distribution preservation
-between lawful choices uses `DistributionMap.of_laws` and inverse uniqueness.
-The [implementation record](optional-law-transport.md) states that distinction,
+of coproduct and distribution contracts consumes the two preservation proofs
+directly. `DistributionMap.comp_laws` needs no distribution inverse laws or
+source reflection; the raw-constructor-equality example checks that boundary.
+`DistributionMap.of_laws` separately provides preservation between lawful
+choices by inverse uniqueness. The [implementation record](optional-law-transport.md) states
 the source/target hypotheses, and the caller-work comparison that retains the
 short direct exact-comma proofs. These are local extensions of the pinned
 Felix MakeLawful mechanism, not claims of additional upstream implementations.
