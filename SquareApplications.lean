@@ -297,4 +297,7 @@ import Examples.FiniteKernelEquality
 
 import Examples.CoherentGroupoidPresentations
 
+import Examples.ReferenceDependentCalculus
+import Examples.ReferenceClient
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
