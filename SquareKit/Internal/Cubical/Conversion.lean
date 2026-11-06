@@ -93,4 +93,12 @@ theorem normalizedApp_reindex {Γ Δ : Context.{u}} {A : Family Γ} {B : Family 
     (normalizedLam_reindex (normalizedApp p) σ)).trans
       (normalizedApp_lam ((normalizedApp p).reindex (liftSub A σ))))
 
+theorem Term.val_heq_of_heq {Δ : Context.{u}} {A B : Family Δ}
+    (e : A = B) {a : Term A} {b : Term B} (h : HEq a b)
+    {x y : Δ.Elements} (hxy : x = y) : HEq (a.val x) (b.val y) := by
+  cases e
+  cases h
+  cases hxy
+  rfl
+
 end SquareKit.Cubical.Presheaf

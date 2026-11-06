@@ -1,4 +1,5 @@
 import SquareKit.Internal.Cubical.Conversion
+import SquareKit.Internal.Cubical.RangeSubtype
 
 /-! Path families as the endpoint-constrained part of normalized products. -/
 namespace SquareKit.Cubical.Presheaf
@@ -36,26 +37,6 @@ theorem LocalPath.toLocal_fromLocal {Γ : Context.{u}} {B : Family (total (inter
     {a₁ : Term (reindex B (endpointSub Γ true))} {x : Γ.Elements}
     (s : LocalPath B a₀ a₁ x) : s.fromLocal.toLocal = s :=
   Subtype.ext (LocalPi.toLocal_fromLocal s.val)
-
-private theorem rangePredicate_heq {X Y A B : Type u} (e : X ≃ Y) (h : A = B)
-    (f : X → A) (g : Y → B) (he : ∀ x, HEq (f x) (g (e x))) :
-    HEq (fun a => ∃ x, f x = a) (fun b => ∃ y, g y = b) := by
-  cases h
-  apply heq_of_eq
-  funext a
-  apply propext
-  constructor
-  · rintro ⟨x,rfl⟩
-    exact ⟨e x,(eq_of_heq (he x)).symm⟩
-  · rintro ⟨y,rfl⟩
-    obtain ⟨x,rfl⟩ := e.surjective y
-    exact ⟨x,eq_of_heq (he x)⟩
-
-private theorem rangeSubtype_eq {X Y A B : Type u} (e : X ≃ Y) (h : A = B)
-    (f : X → A) (g : Y → B) (he : ∀ x, HEq (f x) (g (e x))) :
-    {a : A // ∃ x, f x = a} = {b : B // ∃ y, g y = b} := by
-  cases h
-  exact congrArg Subtype (eq_of_heq (rangePredicate_heq e rfl f g he))
 
 private def pathSubstitutionEquiv {Γ Δ : Context.{u}} (B : Family (total (interval Γ)))
     (a₀ : Term (reindex B (endpointSub Γ false)))

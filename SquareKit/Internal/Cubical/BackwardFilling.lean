@@ -17,14 +17,6 @@ theorem OpenBox.hext {Δ : Context.{u}} {A B : Family (total (interval Δ))}
   · exact PartialSection.ext (fun x h => eq_of_heq (ht x h))
   · exact Term.ext (fun x => eq_of_heq (hb x))
 
-theorem Term.val_heq_of_heq {Δ : Context.{u}} {A B : Family Δ}
-    (e : A = B) {a : Term A} {b : Term B} (h : HEq a b)
-    {x y : Δ.Elements} (hxy : x = y) : HEq (a.val x) (b.val y) := by
-  cases e
-  cases h
-  cases hxy
-  rfl
-
 namespace Filling
 variable {Γ Δ : Context.{u}} {A : Family Γ}
 

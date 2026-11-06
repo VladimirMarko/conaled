@@ -16,6 +16,9 @@ def branchReindex (σ : Δ ⟶ Γ) :
     Term (reindex (reindex C (reindexMap A a σ)) (reflexivity (reindex A σ) (a.reindex σ))) :=
   (d.reindex σ).convert (congrArg (fun τ => reindex C τ) (reindexMap_reflexivity A a σ).symm)
 
+theorem branchReindex_heq (σ : Δ ⟶ Γ) :
+    HEq (branchReindex A a C d σ) (d.reindex σ) := Term.convert_heq _ _
+
 theorem box_reindex (σ : Δ ⟶ Γ) :
     HEq (box (reindex A σ) (a.reindex σ) (reindex C (reindexMap A a σ)) (branchReindex A a C d σ))
       ((box A a C d).reindex (reindexMap A a σ)) := by
