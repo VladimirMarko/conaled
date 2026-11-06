@@ -365,7 +365,6 @@ import Examples.TwoFamilySigmaStable
 
 import Examples.TwoFamilySourceContractionSubstitution
 
-/-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 import Examples.TwoFamilyRootedContraction
 import Examples.TwoFamilyModelRooted
 import Examples.FrozenMemoRealizationExamples
@@ -373,3 +372,22 @@ import Examples.FrozenMemoSignature
 import Examples.FrozenMemoPair
 import Examples.TwoFamilyFullModel
 import Examples.TwoFamilyFrozenMemo
+import Examples.FrozenMemoHigherObservation
+import Examples.FrozenMemoStageEvaluation
+import Examples.TwoFamilyFrozenReflexivity
+import Examples.TwoFamilyPathConjugation
+import Examples.FrozenMemoDisplayVariable
+import Examples.TwoFamilyApd
+import Examples.TwoFamilyFrozenSubstitutionPoints
+import Examples.TwoFamilyLowerClosed
+import SquareKit.Internal.PathTransport.TwoFamilyConstantJFunctor
+import SquareKit.Internal.PathTransport.TwoFamilyModelEndpointRetraction
+import SquareKit.Internal.PathTransport.TwoFamilyModelTransportValueObjects
+import SquareKit.Internal.PathTransport.TwoFamilyOrdinarySections
+import SquareKit.Internal.PathTransport.TwoFamilyModelTransportSections
+import Examples.FrozenMemoSelectedPaths
+import SquareKit.Internal.DependentJudgments.FixedPathTransportSemantics
+import SquareKit.Internal.DependentJudgments.OrdinaryActionEvaluation
+import SquareKit.Internal.PathTransport.TwoFamilyRootedFamilyAction
+
+/-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

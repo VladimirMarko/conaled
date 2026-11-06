@@ -131,13 +131,29 @@ and `TwoFamilyModelApdObjects` retain the actual source recipes.
 `TwoFamilyConstantJFunctor` identifies constant-target elimination with branch
 precomposition, including its arrow action.
 
-The remaining client comparison identifies actual source dependent action
-with the functor action in that conjugation theorem. The ordinary C4 client
-uses the same `fullModel` with a locally discrete semantic parameter; its final
-nonconstant source transport calculation is also pending. Its typed source
-inputs, selected pair and original substitutions are checked in
-`TwoFamilyLowerPath` and `TwoFamilyLowerClosed`. No translation of the older
-all-model annotations is claimed.
+`OrdinaryActionSource` derives ordinary action using source J.
+`OrdinaryActionEvaluation` identifies that source expression with the selected
+semantic J term. This ordinary action of transport is distinct from the
+certificate's dependent action. `FixedPathTransportSemantics` restricts the
+original transport section to fixed endpoints and proves that evaluating it
+recovers the original transport value. `FrozenMemoSelectedPaths` supplies the
+original eight-binder path operands and their source evaluations.
+
+The remaining comparison identifies this ordinary source action with the
+functor action in the conjugation theorem. No completed comparison is claimed
+from the source dependent-action formula alone.
+
+The nonconstant lower observation reuses
+`Examples.FrozenMemoRealizationExamples.selected_value`: the actual interpreted
+source value in the translation groupoid is `q + (p + b)`. Varying `p` with
+`q` and `b` fixed distinguishes transport results. The frozen lower client is
+also checked in `TwoFamilyLowerPath` using `fullModel` with a locally discrete
+semantic parameter. This follows the test's explicit allowance for distinct
+models for its nonconstant lower and nontrivial higher observations.
+`TwoFamilyLowerClosed` supplies additional C4 source inputs and an actual
+transport output; its numerical output calculation remains unproved and is
+not used as evidence. No translation of the older all-model annotations is
+claimed.
 
 ## Author, model-builder and host costs
 
