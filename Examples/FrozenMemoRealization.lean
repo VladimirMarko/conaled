@@ -64,6 +64,18 @@ theorem value_eval : (F.parameters.value F.p).eval (Contextual.algebra M) ρ =
     R.fiber R.y R.z R.q _ R.context_eval R.family_eval R.fiber_eval R.y_eval R.z_eval R.q_eval hp
 
 include hΩ in
+theorem composite_eval : (F.parameters.compositeValue F.p).eval (Contextual.algebra M) ρ =
+    .term R.context _ R.selectedComposite := by
+  have e := Contextual.interpret (F.parameters.compositeValue_atPath F.hp) M ρ hΩ
+  change (F.parameters.compositeValue F.p).eval (Contextual.algebra M) ρ = _ at e
+  rw [e]
+  have hpq := concat_eval M ρ F.Γ F.A F.x F.y F.z F.p F.q R.context R.family
+    R.x R.y R.z R.p R.q R.context_eval R.family_eval R.x_eval R.y_eval R.z_eval R.p_eval R.q_eval
+  exact transport_eval M ρ F.Γ F.A F.B F.x F.z _ F.u R.context R.family R.fiber
+    R.x R.z _ R.element R.context_eval R.family_eval R.fiber_eval
+    R.x_eval R.z_eval hpq R.element_eval
+
+include hΩ in
 theorem certificate_eval : (F.parameters.certificate F.p).eval (Contextual.algebra M) ρ =
     .term R.context _ R.selectedCertificate := by
   have e := Contextual.interpret (F.parameters.certificate_atPath F.hp) M ρ hΩ
