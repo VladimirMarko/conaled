@@ -1,3 +1,4 @@
+import SquareKit.Internal.PathTransport.TwoFamilyFiniteDependentTailBeta
 import SquareKit.Internal.PathTransport.TwoFamilyPathContractionReflexive
 import SquareKit.Internal.PathTransport.TwoFamilyFiniteDependentTail
 import Examples.TwoStrongInverse
@@ -45,4 +46,23 @@ example : (retractionJ initial.inclusion initial.retraction initial.homotopy mot
     TwoFamilyPathJBeta.branch).reindex motive initial.inclusion = TwoFamilyPathJBeta.branch :=
   retractionJ_beta _ _ _ (pathReflexivity_first integerFamily)
     (pathContraction_reflexive integerFamily) motive TwoFamilyPathJBeta.branch
+theorem initial_normalized : initial.Normalized :=
+  ⟨pathReflexivity_first integerFamily, pathContraction_reflexive integerFamily⟩
+
+/-- Every chosen branch returns unchanged after both genuinely dependent extensions. -/
+theorem recovered_branch (E : Family.{0,0,0,uM,vM,wM} (PathContext motive))
+    (d : Section (reindex (dependentTail.liftSplit initial).inclusion E)) :
+    (eliminate E d).reindex E (dependentTail.liftSplit initial).inclusion = d :=
+  dependentTail.eliminate_beta initial initial_normalized E d
+
+abbrev selectedMotive := reindex (pathFirst motive) (reindex (projectionHigher motive) motive)
+def selectedSection : Section selectedMotive :=
+  (variableSection motive).reindex (reindex (projectionHigher motive) motive) (pathFirst motive)
+def selectedBranch : Section (reindex (dependentTail.liftSplit initial).inclusion selectedMotive) :=
+  selectedSection.reindex selectedMotive (dependentTail.liftSplit initial).inclusion
+
+/-- A concrete higher generic-variable section is recovered as selected data, not mere existence. -/
+example : (eliminate selectedMotive selectedBranch).reindex selectedMotive
+    (dependentTail.liftSplit initial).inclusion = selectedBranch :=
+  recovered_branch selectedMotive selectedBranch
 end Examples.TwoFamilyFiniteDependentTail

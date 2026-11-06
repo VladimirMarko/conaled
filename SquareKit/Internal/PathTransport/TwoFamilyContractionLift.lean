@@ -76,4 +76,13 @@ noncomputable def liftedContraction :
     (strongPrecomp (coherentLift η E) (contractionBack R η E))
 
 
+private theorem castStrongFunctorTarget_heq {A B : Type*} [Bicategory A] [Bicategory B]
+    {F G G' : StrictPseudofunctor A B} (e : G = G')
+    (θ : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor) :
+    HEq (castStrongFunctorTarget e θ) θ := by cases e; rfl
+theorem liftedContraction_heq : HEq (liftedContraction E R η)
+    (strongPrecomp (coherentLift η E) (contractionBack R η E)) :=
+  castStrongFunctorTarget_heq (contractionLift_target E R η)
+    (strongPrecomp (coherentLift η E) (contractionBack R η E))
+
 end SquareKit.Internal.PathTransport.TwoFamily

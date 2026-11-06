@@ -41,4 +41,13 @@ noncomputable def contractionRetractionHomotopy :
   castStrongSource (contractionRetraction_inclusion i r η E)
     (liftedContraction E (r.comp i) η)
 
+private theorem castStrongSource_heq {X Y : Type*} [Bicategory X] [Bicategory Y]
+    {F F' G : StrictPseudofunctor X Y} (e : F = F')
+    (θ : Pseudofunctor.StrongTrans F'.toPseudofunctor G.toPseudofunctor) :
+    HEq (castStrongSource e θ) θ := by cases e; rfl
+
+theorem contractionRetractionHomotopy_heq :
+    HEq (contractionRetractionHomotopy i r η E) (liftedContraction E (r.comp i) η) :=
+  castStrongSource_heq (contractionRetraction_inclusion i r η E)
+    (liftedContraction E (r.comp i) η)
 end SquareKit.Internal.PathTransport.TwoFamily
