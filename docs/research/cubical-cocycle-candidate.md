@@ -1,8 +1,8 @@
 # A two-cocycle candidate for the cubical higher witness
 
 This note assesses a construction for the remaining higher-object obligation in
-#321. It does not assert that a fibrant `K(ℤ,2)` or the required observer has
-already been constructed. The full cubical contextual model and the unchanged
+#321. The presheaf now has a constructed lawful uniform filling operation. Its
+identification with `K(ℤ,2)` and the required coherent observer remain unproved. The full cubical contextual model and the unchanged
 frozen-client interpretation are separate, checked results.
 
 ## What the sources establish
@@ -82,29 +82,32 @@ It is not an assumption that vertex membership detects a face.
 
 ## Checks and remaining proof obligations
 
-`CategoryCocycles.lean` checks the low-degree integer coboundary equations and
-the prism identity for an arbitrary natural transformation. The prism theorem
-uses the three relevant cocycle equations and naturality; it assumes no desired
-endpoint equation. These are prerequisites, not a fibrancy result.
+The following construction steps are now kernel-checked:
 
-The implementation still must establish all of the following:
+- The section/cochain correspondence on the opposite category of elements,
+  including reconstruction of the selected section and reindexing.
+- The relative fresh-coordinate prism, vanishing at the cap, and its exact
+  parameter substitution law.
+- Extension by zero on the actual face sieve, including restriction and
+  pullback laws.
+- `boxFill_fills`, `boxFill_reindex`, and the assembled `lawfulCocycleFamily`.
+- A specific boundary cocycle whose restrictions to all four formal square
+  faces are zero.
 
-- The section/cochain correspondence, with the correct opposite category.
-- The relative fresh-coordinate prism and strict parameter naturality.
-- The zero-extension restriction and pullback laws on the actual face sieve.
-- A constructed `Filling` and `Filling.Lawful` for this presheaf.
-- An explicit square, with all four zero boundaries, detected by a nonzero
-  integer observer.
-- Observer invariance under genuine three-cube homotopy, together with the
-  coherence needed by the unchanged client's selected identity witnesses.
-- The corresponding nonconstant family and concrete frozen substitutions in
-  this same cubical model.
+`observeSquare_witness` computes the observation as one.
+`observeSquare_stokes` proves the signed six-face identity for every three-cube,
+and `SquareHomotopy.observation` applies it to homotopies relative to the four
+zero sides. Thus the selected square admits no such homotopy to zero.
+The remaining obligations are the connection to the contextual model's actual
+normalized identity terms and the coherence needed by the unchanged client's
+selected identity witnesses. The nonconstant family
+and concrete frozen substitutions must use this same cubical model.
 
 The candidate observer is an oriented sum over the flags
-`corner → edge → square`. Its invariance should follow by evaluating the
-cocycle equation on the flags of a three-cube. An explicit square must then
-have observer value one. Neither statement is established merely by calling
-the object an Eilenberg–Mac Lane space.
+`corner → edge → square`. Its checked invariance evaluates the
+cocycle equation on the forty-eight flags of a three-cube. The explicit square
+has observer value one. These computations do not identify the entire homotopy
+type with an Eilenberg–Mac Lane space.
 
 ## Approaches not accepted as substitutes
 
@@ -129,7 +132,9 @@ Mathlib's actual `Over.map` functor. `CubeCocycle.closed_eval` and
 The fresh-coordinate functor on each cube slice and both graph natural
 transformations have also been constructed. Their difference gives the checked
 identity `capPrimitive_boundary`: the coboundary of the selected primitive is
-the original cocycle minus its cap restriction. These results do not yet supply
-the relative filler: restriction to a partial tube, vanishing on the cap, and
-strict naturality of the assembled filler still need proofs. Neither the
-nonzero class nor its coherent observer is claimed by these prerequisites.
+the original cocycle minus its cap restriction. `ElementPartialPrism` extends
+this construction to the actual partial tube. `CocycleBoxFilling` proves both
+boundaries, and `CocycleFillingSubstitution` proves strict naturality of the
+assembled filler. `CocycleFilling` packages these results as `Filling.Lawful`.
+This is a constructed uniform filling operation, without an assumed filler.
+The nonzero class and coherent observer remain separate proof obligations.
