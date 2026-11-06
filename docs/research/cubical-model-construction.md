@@ -1169,13 +1169,35 @@ The root `SquareApplications` entrypoint imports the final consumer, bringing
 the construction and all its selected source evidence into exhaustive audit.
 
 
-Review boundary for the two actions: `CubicalFrozenConjugation` uses pointwise
-cubical path action of the actual J-defined transport section. The separate
-`Client.dependentAction_twice` field interprets source apd of the selected memo
-certificate. The candidate does not identify these two different actions, or
-claim strict equality between a normalized-Id eliminator output and pointwise
-path action. Spec review must assess the six-face comparison against the
-original endpoint-conjugation requirement with this distinction explicit.
-`CubicalFrozenOutputs.retainedOutputs` retains the complete checked Client
-contract; its fields are used directly instead of expanding the large concrete
-model into duplicate proof declarations.
+The source-action comparison is explicit. `OrdinaryActionSource` derives ordinary
+`ap` by the existing source J rule, and `OrdinaryActionEvaluation` interprets
+that recipe as the selected `ordinaryApValue`. `FrozenOrdinaryActionEvaluation`
+instantiates it at the original frozen `input.pathAction`. The original sigma
+and tau evaluations are retained in `FrozenOrdinaryActionSubstitution`.
+`FrozenOrdinaryActionReindex` reindexes this same transport and its J-derived
+beta, with the selected action preserved by `ordinaryApValue_sub`.
+
+`ContextualActionComparison` constructs an actual normalized identity between
+the selected ordinary action and pointwise action. Both sections have the same
+selected reflexive branch; J applied to their identity family supplies the
+comparison. `OrdinaryActionBridge` retains the whole identity witness, including
+its marked face, through the endpoint conversions. It does not infer equality
+of chosen fillers from equality of endpoints or numerical observations.
+
+`CubicalFrozenActionInputs`, `CubicalFrozenActionParallel` and
+`CubicalFrozenActionHomotopy` retain the original p, p-prime and h under the
+complete eight-binder assignment. `CubicalFrozenActionSource.assigned_action`
+identifies the original interpreted action after that assignment with the
+converted action used in `CubicalFrozenOrdinaryAction`. Its conjugation cube
+pastes the typed action comparison with the actual beta comparison. The common
+face is subtracted as a degenerate cocycle. Its six faces are the actual source
+action, the original selected h, both beta endpoint faces, and two zero faces.
+Stokes then proves observation one for the source-action face and rejects its
+erasure. The cube supplies cubical coherence; no strict equality of independent
+filler choices is claimed.
+
+The separate `Client.dependentAction_twice` field interprets source apd of the
+selected memo certificate. It is not used as the source transport action.
+`CubicalFrozenOutputs.retainedOutputs` retains that complete checked Client
+contract, including the selected certificate and its behavior under both
+original substitutions.
