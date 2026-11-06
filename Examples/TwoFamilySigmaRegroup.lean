@@ -1,3 +1,4 @@
+import SquareKit.Internal.PathTransport.TwoFamilySigmaRegroupVertical
 import SquareKit.Internal.PathTransport.TwoFamilySigmaRegroupCells
 import SquareKit.Internal.PathTransport.TwoFamilySigmaRegroupMapLaws
 import SquareKit.Internal.PathTransport.TwoFamilyCartesianFactorization
@@ -58,4 +59,10 @@ example : TwoFamily.sigmaRegroupMap integerFamily laterFamily (totalArrow ≫ to
     TwoFamily.sigmaRegroupMap integerFamily laterFamily totalArrow ≫
       TwoFamily.sigmaRegroupMap integerFamily laterFamily totalArrow :=
   TwoFamily.sigmaRegroupMap_comp _ _ _ _
+example (a b c d e f : ℤ) :
+    TwoFamily.sigmaRegroupCell integerFamily laterFamily
+      (totalCell a b c ≫ totalCell d e f) =
+        TwoFamily.sigmaRegroupCell integerFamily laterFamily (totalCell a b c) ≫
+          TwoFamily.sigmaRegroupCell integerFamily laterFamily (totalCell d e f) :=
+  TwoFamily.sigmaRegroupCell_comp _ _ _ _
 end Examples.TwoFamilySigmaRegroup
