@@ -324,4 +324,6 @@ import Examples.TwoFamilySigmaCells
 import Examples.TwoFamilySigmaNaturality
 import Examples.TwoFamilySigmaHigherNaturality
 
+import Examples.TwoStrongInverse
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
