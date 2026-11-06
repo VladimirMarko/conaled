@@ -290,6 +290,7 @@ import Examples.DependentAuthorTrialReplay
 import Examples.GuardedJAuthoring
 import Examples.GuardedJRetestValidation
 import Examples.GuardedJAuthorEvaluation
+import Examples.OptionalTransport
 
 import Examples.PrimitiveDependentSums
 import Examples.FiniteKernelEquality
