@@ -313,6 +313,8 @@ import Examples.CubicalCompositionFilling
 import Examples.CubicalFunctionFilling
 import Examples.CubicalIdentity
 import Examples.CubicalIdentityElimination
+import Examples.CubicalIdentityFilling
+import Examples.CubicalDependentFaces
 import Examples.CubicalTelescopeIdentity
 import Examples.PrimitiveDependentSums
 import Examples.FiniteKernelEquality

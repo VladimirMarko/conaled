@@ -889,6 +889,33 @@ Statement review distinguishes face data from proof-irrelevant equality,
 arbitrary motive composition from a postulated eliminator, and the finite-tail
 beta result from the remaining substitution obligation.
 
-Id filling closure, guarded source interpretation of the remaining operations,
+Guarded source interpretation of the remaining operations,
 the genuine higher model and nonconstant family, and the unchanged frozen memo
 remain required. This construction does not complete M4 or the programme.
+
+
+## Marked identity filling
+
+`FaceRestriction` constructs the cube restriction represented by a partial
+assignment. `RestrictedFaces` lifts these restrictions to the actual context
+on which a cofibration holds. `DependentFaces` then constructs composition
+of a cofibration with a face over its restricted context. Its restriction
+recovers that selected face exactly, and the construction commutes with
+arbitrary context substitution. This preserves a proper face even when that
+face is not full on the ambient cube; testing only global fullness would lose
+that data.
+
+`IdentityComposition` composes the underlying Path and retains the endpoint
+constancy face of the original tube through this dependent face operation.
+It derives the constancy condition, boundary equation, and substitution law.
+`IdentityFilling` supplies whole fillers through composition-to-filling. Its
+only input is the actual lawful filler of the underlying family. No identity
+filler, face extension operation, or final composition law is assumed.
+
+The examples instantiate this construction in the varying `Fin(n+1)` family.
+A full tube of the selected unmarked identity is preserved, and replacement
+by reflexivity is rejected. A separate example checks that extending the full
+face of a restricted context recovers its original support. Statement review
+checks arbitrary contexts, faces, open boxes, and substitutions in the closure
+proofs. These tests concern constancy markers; the required nonzero second
+identity model remains a separate obligation.
