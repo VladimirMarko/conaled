@@ -2,7 +2,8 @@
 
 This note assesses a construction for the remaining higher-object obligation in
 #321. The presheaf now has a constructed lawful uniform filling operation. Its
-identification with `K(ℤ,2)` and the required coherent observer remain unproved. The full cubical contextual model and the unchanged
+identification with `K(ℤ,2)` remains unproved. A constructed second identity now
+has integer observation one, invariant under actual third identities. The full cubical contextual model and the unchanged
 frozen-client interpretation are separate, checked results.
 
 ## What the sources establish
@@ -98,9 +99,12 @@ The following construction steps are now kernel-checked:
 `observeSquare_stokes` proves the signed six-face identity for every three-cube,
 and `SquareHomotopy.observation` applies it to homotopies relative to the four
 zero sides. Thus the selected square admits no such homotopy to zero.
-The remaining obligations are the connection to the contextual model's actual
-normalized identity terms and the coherence needed by the unchanged client's
-selected identity witnesses. The nonconstant family
+`secondIdentity` inhabits the contextual model's actual normalized second
+identity between reflexivity terms. `secondObservation_selected` reads one from
+that term. `secondObservation_identity` constructs a three-cube from any actual
+third identity and applies Stokes; `secondIdentity_no_erasure` therefore rules
+out a third identity to reflexivity. The remaining consumer obligation is the
+unchanged client's concrete assignments and selected-witness behavior. The nonconstant family
 and concrete frozen substitutions must use this same cubical model.
 
 The candidate observer is an oriented sum over the flags
@@ -137,4 +141,7 @@ this construction to the actual partial tube. `CocycleBoxFilling` proves both
 boundaries, and `CocycleFillingSubstitution` proves strict naturality of the
 assembled filler. `CocycleFilling` packages these results as `Filling.Lawful`.
 This is a constructed uniform filling operation, without an assumed filler.
-The nonzero class and coherent observer remain separate proof obligations.
+`CocycleHigherNonzero` completes the nonzero-class and third-identity observer
+checks. `CocycleRootedFamily` supplies a lawful family whose endpoint is the
+generic cocycle, within the same full contextual model. Concrete frozen-client
+assignments remain a separate acceptance step.
