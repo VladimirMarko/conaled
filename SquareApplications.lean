@@ -295,4 +295,6 @@ import Examples.OptionalTransport
 import Examples.PrimitiveDependentSums
 import Examples.FiniteKernelEquality
 
+import Examples.CoherentGroupoidPresentations
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
