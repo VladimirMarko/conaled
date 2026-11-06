@@ -1,5 +1,8 @@
+import SquareKit.Internal.PathTransport.TwoFamilyContractionRetraction
+import SquareKit.Internal.PathTransport.TwoFamilyRetractionJ
 import SquareKit.Internal.PathTransport.TwoFamilyMapComposition
 import SquareKit.Internal.PathTransport.TwoFamilyCoherentLift
+import SquareKit.Internal.PathTransport.TwoStrongInverseIdentity
 import SquareKit.Internal.PathTransport.TwoStrongInverseCancellation
 import SquareKit.Internal.PathTransport.TwoStrongInverseSubstitution
 import SquareKit.Internal.PathTransport.TwoFamilyContractionInverse
@@ -72,6 +75,13 @@ example :
     (TwoFamily.StrongMap.toHigher _) = _
   rw [TwoFamily.StrongMap.toHigher_vcomp, strongInverse_vcomp, TwoFamily.StrongMap.toHigher_id]
 
+/-- Identity normalization does not change the higher path context. -/
+example : strongInverse (Pseudofunctor.StrongTrans.id
+    (StrictPseudofunctor.id (TwoFamily.PathContext integerFamily)).toPseudofunctor) =
+      Pseudofunctor.StrongTrans.id
+        (StrictPseudofunctor.id (TwoFamily.PathContext integerFamily)).toPseudofunctor :=
+  strongInverse_id
+
 /-- Adding a dependent element preserves the selected integer comparison in the base. -/
 theorem lifted_comparison_retains_integer (k : ℤ)
     (a : TwoFamilyPathJBeta.motive.obj
@@ -81,5 +91,19 @@ theorem lifted_comparison_retains_integer (k : ℤ)
         (TwoFamily.reindex (TwoFamily.contractionRetract integerFamily) TwoFamilyPathJBeta.motive)
         (pathArrow k) a)).hom.base.base.fiber.2 = Multiplicative.ofAdd (-k) :=
   Examples.TwoFamilyPathContraction.actual_naturality_retains_integer k
+
+/-- The reflexive extended context retracts through the constructed backwards transport. -/
+example :
+    (TwoFamily.contractionRetraction (TwoFamily.pathReflexivity integerFamily)
+      (TwoFamily.pathFirst integerFamily) contraction TwoFamilyPathJBeta.motive).comp
+      (TwoFamily.reindexHigher TwoFamilyPathJBeta.motive (TwoFamily.pathReflexivity integerFamily)) =
+        TwoFamily.contractionLift (TwoFamily.contractionRetract integerFamily)
+          contraction TwoFamilyPathJBeta.motive :=
+  TwoFamily.contractionRetraction_inclusion _ _ _ _
+
+/-- Generic contraction elimination recovers the checked higher path eliminator. -/
+example : TwoFamily.retractionJ (TwoFamily.pathReflexivity integerFamily)
+    (TwoFamily.pathFirst integerFamily) contraction TwoFamilyPathJBeta.motive TwoFamilyPathJBeta.branch =
+      TwoFamily.pathJ integerFamily TwoFamilyPathJBeta.motive TwoFamilyPathJBeta.branch := rfl
 
 end Examples.TwoStrongInverse

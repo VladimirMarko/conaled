@@ -25,10 +25,20 @@ private theorem castStrongTarget_app {F G G' : Family.{u,v,w,uE,vE,wE} Γ}
   cases e
   rfl
 
+private theorem castStrongTarget_heq {F G G' : Family.{u,v,w,uE,vE,wE} Γ}
+    (e : G = G') (θ : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor) :
+    HEq (castStrongTarget e θ) θ := by
+  cases e
+  rfl
+
 /-- Forward action of a contraction with its strict identity target normalized. -/
 noncomputable def forwardFamilyContraction :
     Pseudofunctor.StrongTrans (reindex R E).toPseudofunctor E.toPseudofunctor :=
   castStrongTarget (StrictTwoTransformation.functor_id_comp E) (strongPostcomp η E)
+
+theorem forwardFamilyContraction_heq :
+    HEq (forwardFamilyContraction R η E) (strongPostcomp η E) :=
+  castStrongTarget_heq (StrictTwoTransformation.functor_id_comp E) (strongPostcomp η E)
 
 theorem forwardFamilyContraction_app (x : Γ) :
     (forwardFamilyContraction R η E).app x = E.map (η.app x) :=
