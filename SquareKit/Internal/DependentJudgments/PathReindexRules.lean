@@ -8,7 +8,7 @@ universe u
 abbrev liftSyntax (Δ A σ : Expression V) : Expression V :=
   pair A (comp σ (weaken Δ (subTy A σ))) (generic Δ (subTy A σ))
 
-private theorem liftSyntax_eval (M : PathTransport.Typed.Model.{u}) {V : Type}
+theorem liftSyntax_eval (M : PathTransport.Typed.Model.{u}) {V : Type}
     (ρ : V → Value M.toStructuralModel) (g a s : Expression V)
     (Γ Δ : M.Context) (A : M.Family Γ) (σ : M.Substitution Δ Γ)
     (hg : g.eval (algebra M) ρ = .context Δ)
