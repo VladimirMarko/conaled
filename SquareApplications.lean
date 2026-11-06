@@ -318,6 +318,7 @@ import Examples.TwoFamilyPathContractionStrong
 import Examples.TwoFamilyPathJ
 import Examples.TwoFamilyPathJBeta
 import Examples.TwoFamilyPathSubstitution
+import Examples.TwoFamilyPathJSubstitution
 import Examples.TwoFamilySigmaAction
 import Examples.TwoFamilySigmaCells
 import Examples.TwoFamilySigmaNaturality
