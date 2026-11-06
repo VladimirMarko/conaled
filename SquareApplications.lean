@@ -1,3 +1,4 @@
+import Examples.TwoFamilyFrozenPathObjects
 import Examples.FrozenOrdinaryActionSubstitution
 import Examples.TwoFamilyFrozenSelectedConjugation
 import Examples.DependentClientMigration
