@@ -1,3 +1,4 @@
+import Examples.TwoFamilyFrozenSourceConjugation
 import SquareKit.Internal.PathTransport.TwoFamilySourceEndpointFiberAction
 import Examples.TwoFamilySelectedVerticalAction
 import Examples.TwoFamilyFrozenVerticalAction

@@ -3,9 +3,9 @@
 This record describes the construction for
 [#322](https://github.com/VladimirMarko/conaled/issues/322) and its relationship
 to the coherence assessment in
-[#336](https://github.com/VladimirMarko/conaled/issues/336). The complete client
-comparison and independent candidate reviews remain pending. Development
-checkpoints are not acceptance of the higher adoption gate.
+[#336](https://github.com/VladimirMarko/conaled/issues/336). The source-action comparison is constructed below. Independent candidate
+reviews and the complete acceptance check remain required before accepting the
+higher adoption gate.
 
 ## Admitted data and constructed laws
 
@@ -152,9 +152,19 @@ fiber conjugation law to that transport and beta.
 input; `TwoFamilyFrozenSelectedConjugation` specializes it at the concrete
 eight-binder assignment.
 
-The remaining comparison identifies this ordinary source action with the
-functor action in the conjugation theorem. No completed comparison is claimed
-from the source dependent-action formula alone.
+`TwoFamilySourceIdentityFiberAction.sourceIdentityFiberAction` identifies the
+actual ordinary source action with the identity-fiber functor action. It
+composes the source J reduction, the rooted vertical action, and the actual
+endpoint substitution. The required uniqueness concerns fiber objects only;
+the integer-labelled higher arrows remain distinct.
+`TwoFamilySelectedSourceConjugation` applies this agreement to the original
+transport, beta section, and selected homotopy.
+`TwoFamilyFrozenSourceConjugation.source_conjugation` discharges the object
+hypothesis for the unchanged eight-binder input. Its conclusion uses the
+actual source action value; the generic conjugation theorem transports that
+value along its proved endpoint-type equality. The selected-cell accessor
+retains the original normalized witness, with `identitySectionCell_heq`
+providing its comparison to the existing raw observation.
 
 The nonconstant lower observation reuses
 `Examples.FrozenMemoRealizationExamples.selected_value`: the actual interpreted
