@@ -1,4 +1,5 @@
 import SquareKit.Internal.PathTransport.TwoFamilyCoherentLift
+import SquareKit.Internal.PathTransport.TwoStrongInverseCancellation
 import SquareKit.Internal.PathTransport.TwoStrongInverseSubstitution
 import SquareKit.Internal.PathTransport.TwoFamilyContractionInverse
 import Examples.TwoFamilyPathJBeta
@@ -52,6 +53,12 @@ example (x : TwoFamily.Total TwoFamilyPathJBeta.motive) :
     (TwoFamilyPathJBeta.motive.map (contraction.app x.base)).obj
       ((TwoFamilyPathJBeta.motive.map (inv (contraction.app x.base))).obj x.fiber) = x.fiber :=
   TwoFamily.contractionLiftBoundary _ contraction TwoFamilyPathJBeta.motive x
+
+/-- The actual higher path contraction cancels with its constructed inverse. -/
+example : Pseudofunctor.StrongTrans.vcomp (strongInverse contraction) contraction =
+    Pseudofunctor.StrongTrans.id (StrictPseudofunctor.id
+      (TwoFamily.PathContext integerFamily)).toPseudofunctor :=
+  strongInverse_vcomp contraction
 
 /-- Adding a dependent element preserves the selected integer comparison in the base. -/
 theorem lifted_comparison_retains_integer (k : ℤ)
