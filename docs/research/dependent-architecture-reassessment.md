@@ -61,24 +61,44 @@ presentation case: finite geometric syntax with Lean-hosted predicate data,
 interpreted by a metatheoretic slice construction. It does not supply an
 object-language term returning an arbitrary category.
 
-The [higher-identity investigation](dependent-higher-identity.md) checks the
-frozen argument in pinned Cubical Agda, including both dependent substitutions,
-a nontrivial second-identity observation and nonconstant monodromy. Its Lean
-adoption condition remains unmet. The direct higher-groupoid route still needs
-constructed families, sections, contextual J for arbitrary admitted motives,
-dimension closure and a sound interpretation of that argument. Those exact
-obligations belong to [#322](https://github.com/VladimirMarko/conaled/issues/322);
-[#321](https://github.com/VladimirMarko/conaled/issues/321) owns the separate
-cubical model and source-compatibility programme. External source checking is
-partial evidence, not a Lean interpretation.
+The [higher-identity investigation](dependent-higher-identity.md) first checked
+the frozen argument in pinned Cubical Agda. The accepted
+[#321 cubical construction](cubical-model-construction.md#final-construction-and-acceptance-mapping)
+now interprets the same frozen dependent client in Lean. Its admitted families
+carry selected lawful fillers; the constructed marked identities support
+arbitrary admitted motives and finite dependent tails, with strict J beta and
+substitution. The selected higher witness, genuine dependent pair, certificate
+and dependent action survive the original substitutions. An actual typed
+comparison connects source ordinary `ap_T` to the cubical action, and the
+six-face conjugation cube retains observation one. The existing groupoid source
+interpretation supplies the permitted nonconstant lower transport case.
+
+This passes the bounded Lean higher-consumer gate through #321. It does not
+establish an unchanged Agda importer, internal universes, Glue/univalence, HIT
+elimination or geometric semantics.
+
+The separate [#322/#336 construction](strict-two-groupoid-checkpoint.md) now
+supplies strict two-groupoid dependent families and sections, Grothendieck
+extension, open identity, coherent rooted contraction, arbitrary-motive
+finite-tail J and stable dependent sums. Its source ordinary action is connected
+to the identity-fiber action using the actual endpoint substitution. That
+comparison requires uniqueness of fiber objects, which the frozen B²ℤ path
+instance supplies; it does not identify the integer-labelled higher arrows.
+The selected-source conjugation uses the original transport, beta and h, with
+the necessary endpoint-type conversion. Candidate
+`574bfa2af3d5c31cc831749d056ff4b102ff1b31` passed the full build, exhaustive
+proof audit and independent Standards and Spec review for this bounded route.
+Neither route changes historical author-trial submissions or establishes
+comparative author effort.
 
 The [categorical assessment](concrete-dependent-coherence.md) defers a new
 strictification package until a selected weak model has the needed capability
 and strict stability remains its missing step, or a matched construction shows
 recurring coherence work that transfer removes. #289 owns that promotion
-decision and its model-specific proofs. The current strict groupoid model needs
-no such repair; the proposed higher model still needs its families and
-eliminator. This does not establish that local universes are unsuitable.
+decision and its model-specific proofs. The strict groupoid model and accepted
+cubical and strict two-groupoid constructions provide their selected strict
+operations directly. These results do not establish that local
+universes are unsuitable for a different selected weak model.
 
 The [judgment experiment](dependent-judgment-representation.md) constructs
 guarded source derivations whose indices do not quantify over the whole
@@ -95,7 +115,8 @@ does not retire the old annotated API or select the final author interface.
 The new representation still exposes source typing and motive/branch formation
 to authors, consumes the existing semantic model interface, and owes explicit
 migration of old clients. Its native coherent comparisons use proof-irrelevant
-identity; they do not discharge the higher-model gate.
+identity; they do not themselves supply the higher witness. The accepted
+cubical interpretation supplies that separate evidence for the frozen client.
 
 The [constructor experiment](dependent-constructor-admission.md) now admits
 object-language dependent sums through that boundary. Its capability supplies

@@ -3,9 +3,10 @@
 This record describes the construction for
 [#322](https://github.com/VladimirMarko/conaled/issues/322) and its relationship
 to the coherence assessment in
-[#336](https://github.com/VladimirMarko/conaled/issues/336). The source-action comparison is constructed below. Independent candidate
-reviews and the complete acceptance check remain required before accepting the
-higher adoption gate.
+[#336](https://github.com/VladimirMarko/conaled/issues/336). The construction below passed full validation and independent Standards and
+Spec review at candidate `574bfa2af3d5c31cc831749d056ff4b102ff1b31`. This accepts
+the bounded higher-client interpretation; final #235 integration review is a
+separate gate.
 
 ## Admitted data and constructed laws
 
