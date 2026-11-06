@@ -42,4 +42,16 @@ theorem CubeCocycle.pullback_eval {M N I J K : Cube} (z : CubeCocycle N)
     CostructuredArrow.homMk,Category.assoc]
   all_goals apply overHom_heq <;> simp [Over.mk,CostructuredArrow.mk,Category.assoc]
 
+/-- Evaluating the underlying flag of actual slice arrows recovers their cochain value. -/
+theorem CubeCocycle.eval_arrows {N : Cube} (z : CubeCocycle N)
+    {X Y Z : Over N} (f : X ⟶ Y) (g : Y ⟶ Z) :
+    z.eval f.left g.left Z.hom = z.cochain f g := by
+  have hx : Over.mk (f.left ≫ (g.left ≫ Z.hom)) = X := by rw [Over.w g,Over.w f]; rfl
+  have hy : Over.mk (g.left ≫ Z.hom) = Y := by rw [Over.w g]; rfl
+  have hz : Over.mk Z.hom = Z := rfl
+  unfold eval
+  congr 1
+  all_goals first | exact hx | exact hy | exact hz |
+    exact overHom_heq hx hy _ _ HEq.rfl | exact overHom_heq hy hz _ _ HEq.rfl
+
 end SquareKit.Cubical.CategoryCocycles
