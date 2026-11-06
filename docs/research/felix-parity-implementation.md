@@ -403,3 +403,24 @@ passing integration candidate, exclude the unrelated user documentation, and
 report Standards and Spec independently. Until that review passes on the actual
 integration tip, implementation coverage and builds do not establish milestone
 completion.
+
+## Coproduct and distribution law transport (#333)
+
+`CoproductMap.transportCongr` and `transportLaws` extend backward transport to
+sums without requiring products or closure. `DistributionMap.collect_preserved`
+derives the canonical collecting arrow's preservation from the existing local
+fields. `transportLaws` reflects distribution inverse laws through product/sum
+comparisons, with no source distribution-law premise.
+
+`CodeCategory` now supplies both optional law packages under its existing
+semantic equivalence. `Examples.OptionalTransport` checks arbitrary arrows,
+nonidentity wrapped carriers, sequential interpretations, identity preservation,
+and a negative control for reflection of raw constructor equality. Composition
+of coproduct and distribution contracts consumes the two preservation proofs
+directly. `DistributionMap.comp_laws` needs no distribution inverse laws or
+source reflection; the raw-constructor-equality example checks that boundary.
+`DistributionMap.of_laws` separately provides preservation between lawful
+choices by inverse uniqueness. The [implementation record](optional-law-transport.md) states
+the source/target hypotheses, and the caller-work comparison that retains the
+short direct exact-comma proofs. These are local extensions of the pinned
+Felix MakeLawful mechanism, not claims of additional upstream implementations.

@@ -290,6 +290,7 @@ import Examples.DependentAuthorTrialReplay
 import Examples.GuardedJAuthoring
 import Examples.GuardedJRetestValidation
 import Examples.GuardedJAuthorEvaluation
+import Examples.OptionalTransport
 
 import Examples.CubicalTypeFormers
 import Examples.CubicalContraction
@@ -308,6 +309,7 @@ import Examples.CubicalDependentFilling
 import Examples.CubicalSumFilling
 import Examples.CubicalRestrictedTransport
 import Examples.CubicalPathFilling
+import Examples.PrimitiveDependentSums
 import Examples.FiniteKernelEquality
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
