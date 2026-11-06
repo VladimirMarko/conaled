@@ -363,4 +363,6 @@ import Examples.TwoFamilySigmaSubstitution
 import Examples.TwoFamilyModelComparisons
 import Examples.TwoFamilySigmaStable
 
+import Examples.TwoFamilySourceContractionSubstitution
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
