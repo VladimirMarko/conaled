@@ -337,3 +337,5 @@ import Examples.ReferenceCongruence
 import Examples.FrozenMemoRealizationExamples
 import Examples.FrozenMemoSignature
 import Examples.CubicalFrozenMemo
+
+import Examples.CubicalFrozenOutputs

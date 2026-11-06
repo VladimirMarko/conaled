@@ -103,9 +103,9 @@ zero sides. Thus the selected square admits no such homotopy to zero.
 identity between reflexivity terms. `secondObservation_selected` reads one from
 that term. `secondObservation_identity` constructs a three-cube from any actual
 third identity and applies Stokes; `secondIdentity_no_erasure` therefore rules
-out a third identity to reflexivity. The remaining consumer obligation is the
-unchanged client's concrete assignments and selected-witness behavior. The nonconstant family
-and concrete frozen substitutions must use this same cubical model.
+out a third identity to reflexivity. The unchanged client now uses this same model: `CubicalFrozenAssignment`
+constructs its concrete inputs, and `CubicalFrozenHigherObservation` retains
+the actual interpreted higher binder.
 
 The candidate observer is an oriented sum over the flags
 `corner → edge → square`. Its checked invariance evaluates the
@@ -143,5 +143,8 @@ assembled filler. `CocycleFilling` packages these results as `Filling.Lawful`.
 This is a constructed uniform filling operation, without an assumed filler.
 `CocycleHigherNonzero` completes the nonzero-class and third-identity observer
 checks. `CocycleRootedFamily` supplies a lawful family whose endpoint is the
-generic cocycle, within the same full contextual model. Concrete frozen-client
-assignments remain a separate acceptance step.
+generic cocycle, within the same full contextual model. `CubicalFrozenConjugation` evaluates the actual J-defined endpoint comparison
+along that binder. Its six boundary equations connect transport action to the
+original witness with explicit endpoint comparisons; Stokes retains observation
+one. `CubicalFrozenOutputs` specializes the selected pair, eta, and dependent
+action equations under the original two frozen substitutions.

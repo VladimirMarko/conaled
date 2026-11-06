@@ -1,24 +1,14 @@
 import SquareKit.Internal.Cubical.CocycleIdentityRestriction
+import SquareKit.Internal.Cubical.CocycleClosedCubeFaces
 
 /-! Actual third identities preserve the integer observation of normalized second identities. -/
 noncomputable section
 namespace SquareKit.Cubical.CategoryCocycles
 open CategoryTheory Presheaf
 
-def cubeAxis (k : Fin 3) : (⟨3⟩ : Cube) ⟶ (⟨1⟩ : Cube) := Cube.ofRaw (fun _ => Expr.var k)
-
 def thirdCube {a b : Term (SecondIdentityFamily terminal.{0})}
     (h : Term (normalizedIdentity (SecondIdentityFamily terminal.{0}) a b)) : CubeCocycle (⟨3⟩ : Cube) :=
   thirdValue h (terminalPoint ⟨3⟩) ⟨cubeAxis 0⟩ ⟨cubeAxis 1⟩ ⟨cubeAxis 2⟩
-
-private def faceRestriction (j : Fin 3) (e : Bool) : terminalPoint ⟨3⟩ ⟶ terminalPoint ⟨2⟩ :=
-  Functor.Elements.homMk (face3 j e).op rfl
-
-private def faceAxis (j : Fin 3) (e : Bool) (k : Fin 3) :
-    (interval terminal.{0}).obj (terminalPoint ⟨2⟩) := ⟨Cube.ofRaw (fun _ => rawFace3 j e k)⟩
-
-private theorem map_faceAxis (j : Fin 3) (e : Bool) (k : Fin 3) :
-    (interval terminal.{0}).map (faceRestriction j e) ⟨cubeAxis k⟩ = faceAxis j e k := rfl
 
 private theorem thirdCube_face {a b : Term (SecondIdentityFamily terminal.{0})}
     (h : Term (normalizedIdentity (SecondIdentityFamily terminal.{0}) a b)) (j : Fin 3) (e : Bool) :
@@ -38,24 +28,6 @@ private theorem thirdCube_face {a b : Term (SecondIdentityFamily terminal.{0})}
     (← Lean.Elab.Tactic.getMainGoal).assign
       (Lean.mkAppN (Lean.mkConst ``Eq.trans levels) #[α,a,b,c,l.toExpr,r.toExpr])
     Lean.Elab.Tactic.replaceMainGoal []
-
-private theorem faceAxis00 (e : Bool) : faceAxis 0 e 0 = (endpoint terminal e).val (terminalPoint ⟨2⟩) := by cases e <;> rfl
-
-private theorem faceAxis01 (e : Bool) : faceAxis 0 e 1 = ⟨squareAxis 0⟩ := by cases e <;> rfl
-
-private theorem faceAxis02 (e : Bool) : faceAxis 0 e 2 = ⟨squareAxis 1⟩ := by cases e <;> rfl
-
-private theorem faceAxis10 (e : Bool) : faceAxis 1 e 0 = ⟨squareAxis 0⟩ := by cases e <;> rfl
-
-private theorem faceAxis11 (e : Bool) : faceAxis 1 e 1 = (endpoint terminal e).val (terminalPoint ⟨2⟩) := by cases e <;> rfl
-
-private theorem faceAxis12 (e : Bool) : faceAxis 1 e 2 = ⟨squareAxis 1⟩ := by cases e <;> rfl
-
-private theorem faceAxis20 (e : Bool) : faceAxis 2 e 0 = ⟨squareAxis 0⟩ := by cases e <;> rfl
-
-private theorem faceAxis21 (e : Bool) : faceAxis 2 e 1 = ⟨squareAxis 1⟩ := by cases e <;> rfl
-
-private theorem faceAxis22 (e : Bool) : faceAxis 2 e 2 = (endpoint terminal e).val (terminalPoint ⟨2⟩) := by cases e <;> rfl
 
 theorem thirdCube_start {a b : Term (SecondIdentityFamily terminal.{0})}
     (h : Term (normalizedIdentity (SecondIdentityFamily terminal.{0}) a b)) :

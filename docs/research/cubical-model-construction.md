@@ -1,11 +1,17 @@
 # Cubical model construction: source selection and milestones
 
-[#321](https://github.com/VladimirMarko/conaled/issues/321) is an active
-construction programme. This selection checkpoint chooses De Morgan cubical
-presheaves, followed by constructed fibrant dependent families, for a specified
-universe-free cubical fragment. It does **not** claim that the model or sound
-interpretation is already constructed. Source checking, a constructed model,
-and interpretation of an external derivation are separate obligations.
+[#321](https://github.com/VladimirMarko/conaled/issues/321) constructs a
+universe-free, provider-annotated cubical fragment on the formal De Morgan cube
+category. The implementation now includes uniform filling, dependent product,
+sum and path closure, strict marked identity with contextual J, and the
+unchanged frozen dependent higher client in a concrete cocycle model. Final
+candidate validation and independent review determine acceptance.
+
+The chronological construction entries below retain the obligations open at
+each checkpoint. The final acceptance mapping at the end gives the current
+state. This is a model and interpretation of the declared fragment; unchanged
+external Agda artifact reuse still requires a judgment-preserving translation.
+Universes, Glue, HITs and cohesive geometry are outside the advertised fragment.
 
 ## Source evidence and first consumers
 
@@ -171,8 +177,8 @@ contract and rejection cases.
 | Face restrictions and compatible systems | No partial system in term | Needed for fibrancy | Face lattice, endpoint reflection, restrictions and compatible gluing constructed in M3 foundation |
 | Dependent contexts, Π, Σ, substitution | Function parameter and Nat recursion | Both substitutions and genuinely varying families | Families/sections and comprehension constructed in M2a; Π/Σ/Nat operations and coherent substitution comparisons constructed in M2b |
 | Path abstraction/application and endpoints | Essential | Higher semantic observations | Dependent Path families, abstraction/application, endpoint rules and substitution isomorphisms constructed in M2b |
-| Generalized transport and homogeneous composition | Not used by this declaration | Needed for general dependent higher interpretation | Uniform semantic filling, Sigma/Path/Pi closure and restricted-constancy transp constructed; source rules pending |
-| Strict intensional Id, contextual J | Not used | Essential, arbitrary motives and finite tails | Marked Id, arbitrary-motive J β/substitution and finite-tail J β constructed; Id filling and source interpretation pending |
+| Generalized transport and homogeneous composition | Not used by this declaration | Needed for general dependent higher interpretation | Uniform semantic filling, Sigma/Path/Pi closure and restricted-constancy transp constructed; provider-annotated transport/composition source rules interpreted |
+| Strict intensional Id, contextual J | Not used | Essential, arbitrary motives and finite tails | Normalized marked Id filling and actual contextual source Model constructed; arbitrary-motive finite-tail J β and substitution proved |
 | Nontrivial higher parameter, nonconstant family | Not witnessed by contraction | Essential | Construct cubical parameter and detector; reuse exact memo after rule soundness |
 | Internal universes, Glue, univalence | Imported but not used by declaration slice | Used by external `HigherWitness` construction, not generic memo | Not advertised in selected fragment; broader source reuse requires classifier/Glue proofs |
 | HITs, truncations, circle/EM construction | Imported but not used by declaration slice | External chosen witness/monodromy use them | Not advertised; interpreting those artifacts unchanged remains a separate coverage obligation |
@@ -1077,3 +1083,99 @@ checks the selected value `q + (p + b)` and rejects erasing its value to zero.
 This ordinary groupoid specialization checks the shared API; it supplies no
 nonzero second identity for the cubical acceptance gate. Dependent pair
 packaging and the endpoint-conjugation connection remain separate work.
+
+
+## Final construction and acceptance mapping
+
+The final selected theory remains the provider-annotated fragment specified
+above. Its types carry selected lawful uniform fillers; reindexing retains those
+operations, not merely evidence that some filler exists. The full source model
+is `Contextual.model`; the guarded cubical operation interpreters are
+`Judgments.TransportEnvironment` and `Judgments.HcompEnvironment`. Neither construction assigns a filler to an
+arbitrary unannotated raw family. The contextual source model supplies actual
+all-motive J under arbitrary finite dependent source telescopes, with strict
+beta and substitution proved from the constructed eliminator.
+
+| Milestone | Concrete evidence |
+| --- | --- |
+| M1 | Formal De Morgan dimensions/cubes; `dimension_not_boolean` and `dimensions_not_kleene` reject the evaluator quotients. |
+| M2 | Presheaf dependent families, sections, comprehension and normalized product/path operations; the selected source contraction derivation and guarded judgment interpretation. |
+| M3 | Constructed uniform filling, product/sum/path closure and exact selected transport/composition; `CubicalSourceFillings` and `CubicalSourceHcomp` exercise the source boundary and two substitutions. |
+| M4 | `ContextualModel`, `ContextualTelescopeIdentity`, and `CubicalSourceIdentity` connect the actual source tails and strict J, including a retained dependent finite witness. |
+| M5 | `CocycleFilling` constructs the lawful cocycle filler; `CocycleHigherNonzero` supplies an actual normalized second identity observed as one and proves there is no third identity erasing it. `CocycleRootedFamily` uses the varying endpoint in the same model. |
+| M6 | `CubicalFrozenAssignment`, `CubicalFrozenHigherObservation`, `CubicalFrozenConjugation` and `CubicalFrozenOutputs` interpret the unchanged frozen client, retain the selected higher binder, and connect its transport action to the actual J endpoint comparison. |
+
+### Concrete higher model and frozen consumer
+
+The [cocycle construction note](cubical-cocycle-candidate.md) records the primary
+sources, unsuccessful shortcuts, and checked construction. Cubes are integer
+2-cocycles on the nerve of the slice category. Relative cochain extension and
+the categorical prism supply a selected uniform filler; its naturality is
+proved for every formal De Morgan substitution. The nonzero witness is a
+section of the model's actual normalized second identity family. Its integer
+observation is invariant under every actual third identity, by the cubical
+Stokes equation. This establishes more than inequality of raw square data.
+
+`CubicalFrozenAssignment.assignInput` supplies all eight original input
+binders. `retainedHomotopy` compares the entire interpreted selected source
+section with the constructed second identity, including its dependent family
+transport. `frozenHigherObservation` reads one; `frozenHigher_no_erasure` rejects
+reflexivity. The original displayed `sigmaHomotopy` and `tauHomotopy` equations
+retain this binder under the actual frozen substitutions. No replacement maps
+or rewritten source client are used.
+
+`CubicalFrozenOutputs` specializes the shared source interpretation to this
+same model. It retains the selected eta certificate and its dependent action
+under both frozen substitutions, with their transported types. The genuine
+sum object packages the selected value with its certificate. Source pair
+typing, evaluation and both-substitution evaluation use the original frozen
+derivations. `MemoPairReindex` retains the selected dependent certificate when
+reconstructing the substituted pair. These results are stronger than existence
+of a certificate or equality of just the first projection.
+
+`CubicalPathComparison` reindexes the actual J-defined `pathTransportSection`
+and `pathBetaSection` to the loop context. `CubicalFrozenConjugation` evaluates
+that beta along the interpreted higher binder. Its six checked faces are the
+transport action, the original higher witness, the two actual endpoint
+comparisons, and the two zero endpoint faces. Thus the commuting cube supplies
+the cubical endpoint-conjugation comparison. The endpoint faces have opposite
+orientations; Stokes proves that the transport action still has observation
+one. This is cubical coherence with explicit beta faces, not strict host
+equality of independently chosen filling operations.
+
+Statement review: the higher observation is defined on actual normalized
+identity sections, and its invariance theorem quantifies over actual third
+identities. The rooted family depends on its generic endpoint and uses the same
+lawful cocycle base as the higher witness. The comparison uses actual J output,
+not an assumed natural comparison. Frozen output equations retain the source
+expressions, selected certificates, and dependent casts. No universes, Glue,
+HIT eliminators, complete K(Z,2) classification, or geometric realization are
+inferred from these results.
+
+### Presentation transport and shared infrastructure
+
+For #334, normalized product and path presentations reuse Mathlib
+`Functor.copyObj` and `isoCopyObj`; their pointwise equivalences retain all
+section and endpoint data. Strict substitution is proved separately. The
+existing identity, sequential, nonidentity and incompatible-substitution
+examples remain in the acceptance import closure. Model builders supply the
+representation equivalence and its substitution compatibility; they no longer
+reprove functor and natural-isomorphism laws for each presentation.
+
+The generic frozen stage, display, pair and endpoint-comparison modules are
+shared with #322. Their copies preserve that workstream's definitions, while
+the cocycle assignment and its higher comparison are specific to this model.
+The root `SquareApplications` entrypoint imports the final consumer, bringing
+the construction and all its selected source evidence into exhaustive audit.
+
+
+Review boundary for the two actions: `CubicalFrozenConjugation` uses pointwise
+cubical path action of the actual J-defined transport section. The separate
+`Client.dependentAction_twice` field interprets source apd of the selected memo
+certificate. The candidate does not identify these two different actions, or
+claim strict equality between a normalized-Id eliminator output and pointwise
+path action. Spec review must assess the six-face comparison against the
+original endpoint-conjugation requirement with this distinction explicit.
+`CubicalFrozenOutputs.retainedOutputs` retains the complete checked Client
+contract; its fields are used directly instead of expanding the large concrete
+model into duplicate proof declarations.
