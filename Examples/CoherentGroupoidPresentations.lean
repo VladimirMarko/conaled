@@ -193,6 +193,30 @@ example {Ξ : Grpd} (σ : Ξ ⥤ WrappedContext) :
           (isoWhiskerRight (coherentWrap.termComparison diagonal) contextChange.total)) :=
   DisplayMap.termCompose_substitution coherentWrap contextChange diagonal σ
 
+def contextBack : DisplayMap wrappedContextFamily B :=
+  DisplayMap.changeBase CategoryTheory.ULift.equivalence.symm B
+
+/-- Three actual maps, changing carriers twice, satisfy the selected associativity law. -/
+example :
+    contextBack.mapComparison (coherentWrap.termCompose contextChange diagonal) ≪≫
+      (coherentWrap.compose contextChange).termCompose contextBack diagonal ≪≫
+        DisplayMap.termAssociator coherentWrap contextChange contextBack diagonal =
+    contextChange.termCompose contextBack (coherentWrap.term diagonal) ≪≫
+      coherentWrap.termCompose (contextChange.compose contextBack) diagonal :=
+  DisplayMap.termCompose_assoc coherentWrap contextChange contextBack diagonal
+
+example :
+    (DisplayMap.identity A).termCompose coherentWrap diagonal ≪≫
+      DisplayMap.termLeftUnit coherentWrap diagonal =
+    coherentWrap.mapComparison (DisplayMap.termIdentity diagonal) :=
+  DisplayMap.termCompose_leftUnit coherentWrap diagonal
+
+example :
+    coherentWrap.termCompose (DisplayMap.identity B) diagonal ≪≫
+      DisplayMap.termRightUnit coherentWrap diagonal =
+    DisplayMap.termIdentity (coherentWrap.term diagonal) :=
+  DisplayMap.termCompose_rightUnit coherentWrap diagonal
+
 abbrev PathBase := @Grpd.of (PathComparison.PathCtx A diagonal) Groupoid.ofIsGroupoid
 
 def root : ContextualElimination.NormalizedEquivalence (Cat.of LoopContext)

@@ -219,5 +219,50 @@ def naturalEliminationComparison {R : Grpd.{u,u}} {A B : Γ ⥤ Grpd.{u,u}}
   rw [ofNatural_term_lift]
   rfl
 
+/-- Reassociate the same raw image using its two normalization comparisons. -/
+def termAssociator (f : DisplayMap A B) (g : DisplayMap B C) {Ξ : Grpd.{u,u}} {D : Ξ ⥤ Grpd.{u,u}} (h : DisplayMap C D)
+    (s : Section A) :
+    (((f.compose g).compose h).term s).lift ≅ ((f.compose (g.compose h)).term s).lift :=
+  ((f.compose g).compose h).termComparison s ≪≫
+    ((f.compose (g.compose h)).termComparison s).symm
+
+/-- The two orders of composing three term comparisons agree. -/
+theorem termCompose_assoc (f : DisplayMap A B) (g : DisplayMap B C) {Ξ : Grpd.{u,u}} {D : Ξ ⥤ Grpd.{u,u}} (h : DisplayMap C D)
+    (s : Section A) :
+    h.mapComparison (f.termCompose g s) ≪≫ (f.compose g).termCompose h s ≪≫
+      termAssociator f g h s =
+        g.termCompose h (f.term s) ≪≫ f.termCompose (g.compose h) s := by
+  ext x
+  simp [mapComparison, termCompose, termAssociator, compose]
+/-- The chosen unitor retains the identity map's normalization comparison. -/
+def termIdentity (s : Section A) : ((identity A).term s).lift ≅ s.lift :=
+  (identity A).termComparison s
+
+/-- Remove an identity source display map through the common raw image. -/
+def termLeftUnit (f : DisplayMap A B) (s : Section A) :
+    (((identity A).compose f).term s).lift ≅ (f.term s).lift :=
+  ((identity A).compose f).termComparison s ≪≫ (f.termComparison s).symm
+
+/-- Remove an identity target display map through the common raw image. -/
+def termRightUnit (f : DisplayMap A B) (s : Section A) :
+    ((f.compose (identity B)).term s).lift ≅ (f.term s).lift :=
+  (f.compose (identity B)).termComparison s ≪≫ (f.termComparison s).symm
+
+/-- Left unit compatibility for the chosen composition and unit comparisons. -/
+theorem termCompose_leftUnit (f : DisplayMap A B) (s : Section A) :
+    (identity A).termCompose f s ≪≫ termLeftUnit f s =
+      f.mapComparison (termIdentity s) := by
+  ext x
+  simp [termCompose, termLeftUnit, mapComparison, termIdentity]
+
+/-- Right unit compatibility for the chosen composition and unit comparisons. -/
+theorem termCompose_rightUnit (f : DisplayMap A B) (s : Section A) :
+    f.termCompose (identity B) s ≪≫ termRightUnit f s =
+      termIdentity (f.term s) := by
+  ext x
+  simp [termCompose, termRightUnit, termIdentity, identity]
+  exact Category.comp_id _
+
+
 end DisplayMap
 end SquareKit.Internal.DependentJudgments.CoherentGroupoidMaps

@@ -53,9 +53,17 @@ transport with transport through a composite display map. Its triangle law
 relates it to the original normalization comparisons, and
 `termCompose_substitution` preserves that triangle under substitution.
 `mapComparison` transports natural isomorphisms of section functors and
-preserves identity and composition. These results use Mathlib's natural
-isomorphism composition and whiskering. They do not introduce a new bicategory
-of models or claim a separate pentagon theorem for such a bicategory.
+preserves identity and composition. `termAssociator` compares the two
+parenthesizations of a composite through their common raw image;
+`termCompose_assoc` proves that the two orders of composing three selected
+term comparisons agree. `termIdentity` is the identity map's retained
+normalization isomorphism. `termCompose_leftUnit` and
+`termCompose_rightUnit` compare insertion and removal of identity maps with
+that selected unitor. These unit equations concern natural isomorphisms; an
+additional equality of `termIdentity` with `eqToIso term_identity` is not
+claimed. The proofs use Mathlib's natural isomorphism composition and
+whiskering. They do not introduce a new bicategory of models or claim a
+separate pentagon theorem for such a bicategory.
 
 ## Chosen contextual J
 
@@ -103,6 +111,10 @@ the existing interpreted source label. In particular labels two and zero
 remain distinguishable. `different_context_loop` changes both the context
 and fiber carriers and retains the same label. `sequentialComparison` and the
 substituted composition triangle exercise the public composition machinery.
+The three-map specialization composes the nontrivial `coherentWrap` with a
+context change and its inverse presentation change. It checks the selected
+associativity equation; both unit equations are also specialized to
+`coherentWrap` and its diagonal section.
 
 The shear case rejects an over-strong restriction on the allowed maps. The
 binary and groupoid cases reject erasure of the selected comparison or path
