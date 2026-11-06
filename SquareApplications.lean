@@ -1,3 +1,4 @@
+import Examples.TwoFamilySelectedPathObservation
 import Examples.TwoFamilyFrozenOrdinaryReduction
 import Examples.TwoFamilyFrozenPathObjects
 import Examples.FrozenOrdinaryActionSubstitution
