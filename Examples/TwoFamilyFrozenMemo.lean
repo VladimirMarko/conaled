@@ -1,5 +1,5 @@
 import Examples.FrozenMemoClient
-import Examples.FrozenMemoPair
+import Examples.FrozenMemoPairReindex
 import SquareKit.Internal.PathTransport.TwoFamilyFullModel
 
 /-! The unchanged frozen client in the constructed strict 2-groupoid model.
