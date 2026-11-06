@@ -1,7 +1,42 @@
 # Strict two-groupoid construction checkpoint
 
 These are construction checkpoints for [#322](https://github.com/VladimirMarko/conaled/issues/322).
-The dependent higher adoption gate remains closed. The
+The dependent higher adoption gate remains closed pending the complete client
+comparison and candidate review. The sections below retain the construction
+sequence; statements about unfinished work describe their respective checkpoints.
+
+The current source model is `HigherInterpretation.fullModel`, assembled in
+`TwoFamilyFullModel` from the constructed rooted contractions and source
+substitution squares. `fullSigma` supplies the stable dependent-pair capability.
+`Examples.TwoFamilyFullModel` checks arbitrary finite-tail elimination and its
+reflexive computation in that model. No Pi capability is used to obtain J.
+
+`Examples.TwoFamilyFrozenMemo` interprets the unchanged frozen source client and
+its selected dependent pair. The shared `FrozenMemoClient` and
+`FrozenMemoSubstitutions` retain the selected certificate and dependent action,
+including the transported source family, through both original substitutions.
+`FrozenMemoDisplayRealization` constructs those displayed substitution maps;
+`FrozenMemoDisplayVariable` identifies their retained homotopy variables.
+`TwoFamilyFrozenPoint` and `TwoFamilyFrozenReflexivity` give the selected integer
+observation and distinguish the actual model reflexivity from the witness at 1.
+The family used there is the varying path family from a fixed point.
+
+`TwoFamilyPathConjugation` constructs the path transport functor and the selected
+J-derived beta comparison, then proves its endpoint conjugation equation.
+`TwoFamilyModelTransportValueObjects` and `TwoFamilyModelApdObjects` identify the
+object actions of the actual source transport and dependent-action recipes.
+The remaining client comparison identifies that dependent action with the
+functor action used in conjugation. The ordinary C4 client uses the same model
+with a locally discrete semantic parameter; its final source transport action
+comparison is also pending. Its typed source inputs, selected pair and original
+substitutions are checked in `TwoFamilyLowerPath` and `TwoFamilyLowerClosed`.
+
+The generic `TwoFamilyConstantJ` lemmas retain the branch's object and arrow
+fibers through J in a constant family. The output is the branch action
+precomposed with the constructed retraction. These are action calculations,
+with no normalization hypothesis added to the definition of J.
+
+The
 [frozen test](dependent-higher-identity.md) and its memo are unchanged.
 
 `SquareKit.Internal.PathTransport.TwoGroupoidPath` constructs the concrete
