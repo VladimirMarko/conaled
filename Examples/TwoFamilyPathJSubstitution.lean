@@ -1,4 +1,4 @@
-import SquareKit.Internal.PathTransport.TwoFamilyPathContractionSubstitutionNaturality
+import SquareKit.Internal.PathTransport.TwoFamilyPathJReindex
 import SquareKit.Internal.PathTransport.TwoFamilySectionMapReindex
 import SquareKit.Internal.PathTransport.TwoFamilyPathJSubstitution
 import Examples.TwoFamilyPathJBeta
@@ -57,4 +57,26 @@ example (k : ℤ) : HEq
     (contractionNaturalityCell integerFamily
       ((pathReindex integerFamily substitution).map (liftedPathArrow k))) :=
   contractionNaturalityCell_reindex integerFamily substitution (liftedPathArrow k)
+/-- The constructed eliminator itself commutes with the nonidentity context projection. -/
+theorem j_reindexes :
+    (pathJ integerFamily TwoFamilyPathJBeta.motive TwoFamilyPathJBeta.branch).reindex _
+      (pathReindex integerFamily substitution) =
+    pathJ pulledFamily (reindex (pathReindex integerFamily substitution) TwoFamilyPathJBeta.motive) branch :=
+  pathJ_reindex integerFamily substitution TwoFamilyPathJBeta.motive TwoFamilyPathJBeta.branch
+
+/-- J after substitution still retains every selected integer in its higher action. -/
+theorem substituted_j_retains_integer (k : ℤ) :
+    HEq ((pathJ pulledFamily (reindex (pathReindex integerFamily substitution) TwoFamilyPathJBeta.motive)
+      branch).lift.map₂ ((pathReflexivity pulledFamily).map₂ (liftedSourceCell k))).fiber
+      (Multiplicative.ofAdd k) := by
+  exact (pathJ_cell_beta pulledFamily _ branch (liftedSourceCell k)).trans (branch_retains_integer k)
+
+/-- The same substituted eliminator rejects higher erasure. -/
+theorem substituted_j_erasure_rejected :
+    ¬ HEq ((pathJ pulledFamily (reindex (pathReindex integerFamily substitution) TwoFamilyPathJBeta.motive)
+      branch).lift.map₂ ((pathReflexivity pulledFamily).map₂ (liftedSourceCell 1))).fiber
+      (Multiplicative.ofAdd (0 : ℤ)) := by
+  intro h
+  have h10 := eq_of_heq ((substituted_j_retains_integer 1).symm.trans h)
+  exact Int.one_ne_zero (congrArg Multiplicative.toAdd h10)
 end Examples.TwoFamilyPathJSubstitution
