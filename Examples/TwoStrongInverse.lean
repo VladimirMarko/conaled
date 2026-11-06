@@ -1,3 +1,4 @@
+import SquareKit.Internal.PathTransport.TwoFamilyMapComposition
 import SquareKit.Internal.PathTransport.TwoFamilyCoherentLift
 import SquareKit.Internal.PathTransport.TwoStrongInverseCancellation
 import SquareKit.Internal.PathTransport.TwoStrongInverseSubstitution
@@ -59,6 +60,17 @@ example : Pseudofunctor.StrongTrans.vcomp (strongInverse contraction) contractio
     Pseudofunctor.StrongTrans.id (StrictPseudofunctor.id
       (TwoFamily.PathContext integerFamily)).toPseudofunctor :=
   strongInverse_vcomp contraction
+
+/-- Backward then forward motive transport fixes the entire total higher context. -/
+example :
+    (TwoFamily.contractionBack (TwoFamily.contractionRetract integerFamily) contraction
+      TwoFamilyPathJBeta.motive).comp
+        (TwoFamily.StrongMap.toHigher (TwoFamily.forwardFamilyContraction
+          (TwoFamily.contractionRetract integerFamily) contraction TwoFamilyPathJBeta.motive)) =
+      StrictPseudofunctor.id (TwoFamily.Total TwoFamilyPathJBeta.motive) := by
+  change (TwoFamily.StrongMap.toHigher (strongInverse _)).comp
+    (TwoFamily.StrongMap.toHigher _) = _
+  rw [TwoFamily.StrongMap.toHigher_vcomp, strongInverse_vcomp, TwoFamily.StrongMap.toHigher_id]
 
 /-- Adding a dependent element preserves the selected integer comparison in the base. -/
 theorem lifted_comparison_retains_integer (k : ℤ)

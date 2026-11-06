@@ -8,7 +8,7 @@ set_option backward.defeqAttrib.useBackward true
 set_option maxHeartbeats 1000000
 universe u v w u' v' w'
 variable {A : Type u} [Bicategory.{w,v} A] [Strict A]
-variable {B : Type u'} [Bicategory.{w',v'} B] [Strict B] [IsLocallyGroupoid B]
+variable {B : Type u'} [Bicategory.{w',v'} B] [Strict B]
 variable {F G : StrictPseudofunctor A B}
 variable (η : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
 variable [∀ x, IsIso (η.app x)]

@@ -13,29 +13,45 @@ variable (η : Pseudofunctor.StrongTrans R.toPseudofunctor
   (StrictPseudofunctor.id Γ).toPseudofunctor) [∀ x, IsIso (η.app x)]
 variable (E : Family.{u,v,w,uE,vE,wE} Γ)
 
-private def castStrongSource {F F' G : Family.{u,v,w,uE,vE,wE} Γ}
-    (e : F = F') (θ : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor) :
-    Pseudofunctor.StrongTrans F'.toPseudofunctor G.toPseudofunctor := by
+private def castStrongTarget {F G G' : Family.{u,v,w,uE,vE,wE} Γ}
+    (e : G = G') (θ : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor) :
+    Pseudofunctor.StrongTrans F.toPseudofunctor G'.toPseudofunctor := by
   cases e
   exact θ
 
-private theorem castStrongSource_app {F F' G : Family.{u,v,w,uE,vE,wE} Γ}
-    (e : F = F') (θ : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
-    (x : Γ) : HEq ((castStrongSource e θ).app x) (θ.app x) := by
+private theorem castStrongTarget_app {F G G' : Family.{u,v,w,uE,vE,wE} Γ}
+    (e : G = G') (θ : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
+    (x : Γ) : HEq ((castStrongTarget e θ).app x) (θ.app x) := by
   cases e
   rfl
 
-/-- Backward action of a coherent contraction on an arbitrary dependent family.
-The strict identity boundary is changed by equality transport of all laws. -/
+/-- Forward action of a contraction with its strict identity target normalized. -/
+noncomputable def forwardFamilyContraction :
+    Pseudofunctor.StrongTrans (reindex R E).toPseudofunctor E.toPseudofunctor :=
+  castStrongTarget (StrictTwoTransformation.functor_id_comp E) (strongPostcomp η E)
+
+theorem forwardFamilyContraction_app (x : Γ) :
+    (forwardFamilyContraction R η E).app x = E.map (η.app x) :=
+  eq_of_heq (castStrongTarget_app (StrictTwoTransformation.functor_id_comp E)
+    (strongPostcomp η E) x)
+
+instance forwardFamilyContraction_isIso (x : Γ) :
+    IsIso ((forwardFamilyContraction R η E).app x) := by
+  rw [forwardFamilyContraction_app]
+  change IsIso (E.toFunctor.map (η.app x))
+  infer_instance
+
+/-- Backward transport is the constructed coherent inverse of forward action. -/
 noncomputable def inverseFamilyContraction :
     Pseudofunctor.StrongTrans E.toPseudofunctor (reindex R E).toPseudofunctor :=
-  castStrongSource (StrictTwoTransformation.functor_id_comp E)
-    (strongPostcomp (strongInverse η) E)
+  strongInverse (forwardFamilyContraction R η E)
 
 theorem inverseFamilyContraction_app (x : Γ) :
-    (inverseFamilyContraction R η E).app x = E.map (inv (η.app x)) :=
-  eq_of_heq (castStrongSource_app (StrictTwoTransformation.functor_id_comp E)
-    (strongPostcomp (strongInverse η) E) x)
+    (inverseFamilyContraction R η E).app x = E.map (inv (η.app x)) := by
+  change inv ((forwardFamilyContraction R η E).app x) = _
+  apply IsIso.inv_eq_of_hom_inv_id
+  rw [forwardFamilyContraction_app, ← E.map_comp, IsIso.hom_inv_id, E.map_id]
+  rfl
 
 /-- Pull every tail element back along the inverse contraction component. -/
 noncomputable def contractionBack : StrictPseudofunctor (Total E) (Total (reindex R E)) :=

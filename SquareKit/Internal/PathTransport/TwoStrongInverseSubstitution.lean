@@ -7,7 +7,7 @@ set_option backward.isDefEq.respectTransparency false
 set_option backward.defeqAttrib.useBackward true
 universe u v w u' v' w' u'' v'' w''
 variable {A : Type u} [Bicategory.{w,v} A] [Strict A]
-variable {B : Type u'} [Bicategory.{w',v'} B] [Strict B] [IsLocallyGroupoid B]
+variable {B : Type u'} [Bicategory.{w',v'} B] [Strict B]
 variable {C : Type u''} [Bicategory.{w'',v''} C] [Strict C]
 variable {F G : StrictPseudofunctor A B}
 variable (η : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)

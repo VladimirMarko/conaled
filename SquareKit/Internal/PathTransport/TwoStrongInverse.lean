@@ -7,15 +7,27 @@ set_option backward.isDefEq.respectTransparency false
 set_option backward.defeqAttrib.useBackward true
 universe u v w u' v' w'
 variable {A : Type u} [Bicategory.{w,v} A] [Bicategory.Strict A]
-variable {B : Type u'} [Bicategory.{w',v'} B] [Bicategory.Strict B] [IsLocallyGroupoid B]
+variable {B : Type u'} [Bicategory.{w',v'} B] [Bicategory.Strict B]
 variable {F G : StrictPseudofunctor A B}
 variable (η : Pseudofunctor.StrongTrans F.toPseudofunctor G.toPseudofunctor)
 variable [∀ x, IsIso (η.app x)]
+instance inverseMate_isIso {a b : A} {f : F.obj a ⟶ F.obj b} {g : G.obj a ⟶ G.obj b}
+    (α : f ≫ η.app b ⟶ η.app a ≫ g) [IsIso α] :
+    IsIso (mateEquiv (TwoIdentityTransport.inverseAdjunction (η.app a))
+      (TwoIdentityTransport.inverseAdjunction (η.app b)) α) := by
+  simp only [mateEquiv_apply, Adjunction.homEquiv₁_apply, Adjunction.homEquiv₂_apply,
+    TwoIdentityTransport.inverseAdjunction]
+  infer_instance
+
 /-- Inverting the mate reverses a coherent naturality square. -/
 noncomputable def inverseComparison {a b : A} (f : a ⟶ b) :
     G.map f ≫ inv (η.app b) ⟶ inv (η.app a) ≫ F.map f :=
   inv (mateEquiv (TwoIdentityTransport.inverseAdjunction (η.app a))
     (TwoIdentityTransport.inverseAdjunction (η.app b)) (η.naturality f).hom)
+
+instance inverseComparison_isIso {a b : A} (f : a ⟶ b) : IsIso (inverseComparison η f) := by
+  unfold inverseComparison
+  infer_instance
 
 /-- The reverse comparison retains the original coherent square exactly. -/
 theorem inverseComparison_recover {a b : A} (f : a ⟶ b) :
@@ -56,8 +68,8 @@ theorem inverseComparison_comp {a b c : A} (f : a ⟶ b) (g : b ⟶ c) :
     Strict.leftUnitor_eqToIso, Strict.rightUnitor_eqToIso, eqToIso.hom, eqToIso.inv,
     whiskerLeft_comp, comp_whiskerRight, whiskerLeft_eqToHom, eqToHom_whiskerRight,
     Category.assoc, eqToHom_trans_assoc, eqToHom_trans] at hp ⊢
-  have hi := congrArg (fun z => inv z) hp
-  simp only [IsIso.inv_comp, inv_eqToHom, inv_whiskerLeft, inv_whiskerRight,
+  have hi := congrArg Iso.inv (Iso.ext hp : asIso _ = asIso _)
+  simp only [asIso_inv, IsIso.inv_comp, inv_eqToHom, inv_whiskerLeft, inv_whiskerRight,
     Category.assoc] at hi
   apply eq_of_heq
   simp only [F.mapComp_eq_eqToIso, G.mapComp_eq_eqToIso, eqToIso.hom,
