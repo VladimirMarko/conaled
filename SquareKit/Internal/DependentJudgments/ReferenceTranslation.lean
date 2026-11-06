@@ -13,6 +13,7 @@ def Boundary.encode : Boundary V → Expression V → Judgment V
   | .ty Γ, A => family Γ A
   | .tm Γ A, t => term Γ A t
   | .sub Δ Γ, σ => substitution Δ Γ σ
+  | .tel n Γ, T => telescope n Γ T
 
 def Declaration.encode : Declaration V → Judgment V
   | .family Γ A => Contextual.family Γ A
@@ -68,6 +69,10 @@ noncomputable def translate {c : Claim V} (h : Derives Ξ c) : Realizes Ξ c := 
     exact Tm.pathSub (.hypothesis List.mem_cons_self) (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))
   case nil _ ih => exact Presented.nil ih
   case cons _ _ ihA ihT => exact Presented.cons ihA ihT
+  case tailCode _ ih => exact ih.typing
+  case contextConvertTel _ _ ih ie =>
+    exact Derivation.conversion (T := TelescopePresentation.theory) (.inr (.telescope _))
+      (Fin.cases ie (Fin.cases (.reflexive _) (fun i => nomatch i))) ih
   case tailTotal _ ih =>
     have ht := unary (Tel.total (.hypothesis List.mem_cons_self)) ih.typing
     exact Derivation.conversion (T := TelescopePresentation.theory) (.inl .context)

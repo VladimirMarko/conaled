@@ -18,10 +18,11 @@ independently specified calculi can later be compared at the same boundary.
 
 [ReferenceCalculus](../../SquareKit/Internal/DependentJudgments/ReferenceCalculus.lean)
 defines `Boundary`, `Claim`, `Declaration` and the inductive relation `Derives`.
-A boundary is a context, a family over a context, a term of a family, or a
-substitution between two contexts. An equality judgment has one boundary for
+A boundary is a context, a family over a context, a term of a family, a
+substitution between two contexts, or a telescope of a specified finite length
+over a context. An equality judgment has one boundary for
 both operands. The separate tail judgment checks a finite list of dependent
-families. `Derives` is not defined by translating a guarded proof or by testing
+families; `tailCode` forms its code at the telescope boundary. `Derives` is not defined by translating a guarded proof or by testing
 semantic validity.
 
 This is a contextual explicit-substitution presentation. Its raw constructor
@@ -58,9 +59,21 @@ boundary. General congruence requires typed equalities of the inputs **and**
 formations of both outputs at their common boundary. It cannot manufacture a
 typed equality from arbitrary raw congruence.
 
+[ReferenceCongruence](../../SquareKit/Internal/DependentJudgments/ReferenceCongruence.lean)
+provides J and branch-map congruence in every argument, including telescope
+codes. The generic rule checks equal inputs at common boundaries and formed
+outputs at their common boundary. When dependent data changes, callers must
+convert those boundaries using derived context and family equalities.
+`jBranchCongruence` derives both results from a branch equality;
+`jMotiveCongruence` derives the changed branch type by substituting the motive
+equality and converts the left result to the new motive. `nilCongruence` and
+`consCongruence` compare telescope codes under dependent binders; changing a
+binder requires the remainder equality at a common extended context. These
+helpers add no source raw-equality judgment or semantic equality premise.
+
 [ReferencePresuppositions](../../SquareKit/Internal/DependentJudgments/ReferencePresuppositions.lean)
 recovers both typed operands of every equality and both contexts of every
-substitution. Type-context and term-family judgments are explicit admissible
+substitution, as well as the base context of every formed telescope or tail. Type-context and term-family judgments are explicit admissible
 presupposition rules in this presentation. Some computation constructors expose
 endpoint formation premises; public helpers in
 [ReferenceDerived](../../SquareKit/Internal/DependentJudgments/ReferenceDerived.lean)
@@ -141,6 +154,14 @@ target extension. An equality's `Claim.Valid` contains both operand guards and
 their evaluated equality. Soundness assumes the selected model validates the
 declarations; it does not infer that from syntactic well-formedness alone.
 
+The initial implementation omitted telescope boundaries from typed congruence.
+That omission prevented even the fixed-tail branch congruence of J: reflexivity
+of an unchanged telescope code still needed a boundary absent from the source.
+The correction adds telescope formation and context conversion to the source,
+with translation by existing target telescope typing and predicate conversion.
+It changes no target rule table. Instantiation and operand/context
+presuppositions cover the new constructors.
+
 ## The generated category and empty context
 
 [ReferenceGenerated](../../SquareKit/Internal/DependentJudgments/ReferenceGenerated.lean)
@@ -187,6 +208,17 @@ The native model satisfies these declarations with `B = Nat` and
 the proved declaration interpretation. `substitutedTwice` checks object
 substitution composition through two extensions. A generated point followed by
 weakening exercises typed empty uniqueness through a nonempty context.
+
+[ReferenceCongruence](../../Examples/ReferenceCongruence.lean) reuses that
+well-formed, concretely satisfied signature. It lifts the non-reflexive branch
+equation `d[id] = d` through J, changes its motive from `D` to `D[id]` while
+converting the branch and result, and changes the final dependent tail family
+from `C` to `C[id]`. The last comparison converts the empty remainder between
+the two different extended context expressions before applying binder
+congruence. These cases consume the public source helpers, forward translation
+and guarded semantic soundness; the branch and motive expressions are proved
+syntactically distinct. Schematic instantiation also exercises the new
+telescope equality boundary.
 
 The malformed example has a raw variable with a guarded reflexive equation but
 no typed reference reflexive equation at the proposed term boundary. The proof

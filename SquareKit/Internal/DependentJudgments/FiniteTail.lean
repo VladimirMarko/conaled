@@ -58,6 +58,12 @@ def instantiate {W : Type} (θ : V → Expression W) : Tail V → Tail W
   | .nil => .nil
   | .cons A rest => .cons (A.subst θ) (rest.instantiate θ)
 
+@[simp] theorem instantiate_length {W : Type} (θ : V → Expression W) (T : Tail V) :
+    (T.instantiate θ).length = T.length := by
+  induction T with
+  | nil => rfl
+  | cons A T ih => simp [instantiate, length, ih]
+
 @[simp] theorem instantiate_total {W : Type} (θ : V → Expression W)
     (Γ : Expression V) (T : Tail V) :
     (T.instantiate θ).total (Γ.subst θ) = (T.total Γ).subst θ := by

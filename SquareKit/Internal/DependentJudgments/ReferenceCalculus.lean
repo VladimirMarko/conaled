@@ -13,6 +13,7 @@ inductive Boundary (V : Type) where
   | ty (Γ : Expression V)
   | tm (Γ A : Expression V)
   | sub (Δ Γ : Expression V)
+  | tel (length : Nat) (Γ : Expression V)
 
 inductive Claim (V : Type) where
   | has (boundary : Boundary V) (expression : Expression V)
@@ -61,6 +62,10 @@ inductive Derives (Ξ : List (Declaration V)) : Claim V → Type where
   | nil : Derives Ξ (.has .ctx Γ) → Derives Ξ (.tail Γ .nil)
   | cons : Derives Ξ (.has (.ty Γ) A) → Derives Ξ (.tail (extend Γ A) T) →
       Derives Ξ (.tail Γ (.cons A T))
+  | tailCode : Derives Ξ (.tail Γ T) →
+      Derives Ξ (.has (.tel T.length Γ) (T.code Γ))
+  | contextConvertTel : Derives Ξ (.has (.tel n Γ) t) → Derives Ξ (.eq .ctx Γ Δ) →
+      Derives Ξ (.has (.tel n Δ) t)
   | tailTotal : Derives Ξ (.tail Γ T) → Derives Ξ (.has .ctx (T.total Γ))
   | branchMap : Derives Ξ (.has (.tm Γ A) x) → Derives Ξ (.tail (path A x) T) →
       Derives Ξ (.has (.sub Δ Γ) σ) →

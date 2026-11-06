@@ -15,10 +15,16 @@ def pathFamilyType {Γ A x : Expression V} (hx : Derives Ξ (.has (.tm Γ A) x))
 private def Presupposition : Claim V → Type
   | .has (.sub Δ Γ) _ => Derives Ξ (.has .ctx Δ) × Derives Ξ (.has .ctx Γ)
   | .eq b s t => Derives Ξ (.has b s) × Derives Ξ (.has b t)
+  | .has (.tel _ Γ) _ => Derives Ξ (.has .ctx Γ)
+  | .tail Γ _ => Derives Ξ (.has .ctx Γ)
   | _ => PUnit
 
 private def presupposition {c : Claim V} (h : Derives Ξ c) : Presupposition (Ξ := Ξ) c := by
   induction h <;> try exact PUnit.unit
+  case nil hΓ _ => exact hΓ
+  case cons hA _ _ _ => exact .typeContext hA
+  case tailCode _ ih => exact ih
+  case contextConvertTel _ _ _ ih => exact ih.2
   case identitySub hΓ _ => exact ⟨hΓ, hΓ⟩
   case comp hσ hτ ihσ ihτ => exact ⟨ihτ.1, ihσ.2⟩
   case weaken hA _ => exact ⟨.extend hA, .typeContext hA⟩
@@ -57,6 +63,12 @@ private def presupposition {c : Claim V} (h : Derives Ξ c) : Presupposition (Ξ
       .identity (.subTm hx hσ) (.subTm hy hσ)⟩
   case reflexivitySubLaw hx hσ _ _ => exact ⟨.convert (.subTm (.reflexivity hx) hσ)
       (.identitySubLaw hx hx hσ), .reflexivity (.subTm hx hσ)⟩
+
+def telescopeContext {n : Nat} {Γ T : Expression V}
+    (h : Derives Ξ (.has (.tel n Γ) T)) : Derives Ξ (.has .ctx Γ) := presupposition h
+
+def tailContext {Γ : Expression V} {T : Tail V}
+    (h : Derives Ξ (.tail Γ T)) : Derives Ξ (.has .ctx Γ) := presupposition h
 
 def subContexts {Δ Γ σ : Expression V} (h : Derives Ξ (.has (.sub Δ Γ) σ)) :
     Derives Ξ (.has .ctx Δ) × Derives Ξ (.has .ctx Γ) := presupposition h

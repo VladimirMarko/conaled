@@ -31,6 +31,7 @@ def Boundary.instantiate (θ : V → Expression W) : Boundary V → Boundary W
   | .ty Γ => .ty (Γ.subst θ)
   | .tm Γ A => .tm (Γ.subst θ) (A.subst θ)
   | .sub Δ Γ => .sub (Δ.subst θ) (Γ.subst θ)
+  | .tel n Γ => .tel n (Γ.subst θ)
 
 def Claim.instantiate (θ : V → Expression W) : Claim V → Claim W
   | .has b t => .has (b.instantiate θ) (t.subst θ)
@@ -67,6 +68,10 @@ noncomputable def Derives.instantiate {Ξ : List (Declaration V)} {c : Claim V}
   case pathSub _ _ ih ih' => simpa using Derives.pathSub ih ih'
   case nil _ ih => exact .nil ih
   case cons _ _ ih ih' => simpa [Tail.instantiate] using Derives.cons ih (by simpa [Claim.instantiate, Boundary.instantiate] using ih')
+  case tailCode _ ih =>
+    simpa [Claim.instantiate, Boundary.instantiate, ← Tail.instantiate_code,
+      Tail.instantiate_length] using Derives.tailCode ih
+  case contextConvertTel _ _ ih ie => exact .contextConvertTel ih ie
   case tailTotal _ ih0 =>
     simpa [Claim.instantiate, Boundary.instantiate, Tail.alongPath, Tail.alongPathMap, Tail.rootDomain, ← Tail.instantiate_total, ← Tail.instantiate_code] using
       Derives.tailTotal (by simpa [Claim.instantiate, Boundary.instantiate, Tail.alongPath, Tail.alongPathMap, Tail.rootDomain, ← Tail.instantiate_total, ← Tail.instantiate_code] using ih0)
