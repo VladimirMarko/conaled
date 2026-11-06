@@ -3,6 +3,7 @@ import Examples.TwoFamilyModelData
 import Examples.TwoFamilyFrozenMemo
 import SquareKit.Internal.PathTransport.TwoFamilyFullModel
 import SquareKit.Internal.PathTransport.TwoIdentityTransport
+import SquareKit.Internal.PathTransport.TwoFamilyClosedIdentityObjects
 /-! The ordinary C4 path action is retained by the same full model used for
 the nonzero higher witness. An explicit fiber equivalence commutes with the
 existing faithful action, and the unchanged frozen client retains its pair
@@ -77,6 +78,8 @@ theorem fixed_inverse_normal (n : ZMod 4) :
 theorem faithful_transport (n k : ZMod 4) :
     ((emptyB.data.map (baseArrow n)).obj (pathPoint k)).as.as =
       label (faithful.map (label n) k) := by
+  have action := TwoFamily.closedId_map_obj fiberA.data fixedOver variableOver (baseArrow n) (pathPoint k)
+  apply (congrArg Discrete.as action).trans
   change ((inv ((fixedOver.normalMap fiberA.data (baseArrow n)).fiber)) ≫
     (show (⟨point⟩ : LocallyDiscrete C4) ⟶ ⟨point⟩ from ⟨label k⟩) ≫
     (variableOver.normalMap fiberA.data (baseArrow n)).fiber).as = _
