@@ -1,3 +1,4 @@
+import SquareKit.Internal.PathTransport.TwoFamilyPathContractionSubstitutionNaturality
 import SquareKit.Internal.PathTransport.TwoFamilySectionMapReindex
 import SquareKit.Internal.PathTransport.TwoFamilyPathJSubstitution
 import Examples.TwoFamilyPathJBeta
@@ -49,4 +50,11 @@ example :
       (strongPrecomp (strongPostcomp (pathContraction integerFamily) TwoFamilyPathJBeta.motive)
         (pathReindex integerFamily substitution)) :=
   Section.map_reindex _ _ pulledBranch
+/-- The actual contraction comparison for any integer arrow is preserved by substitution. -/
+example (k : ℤ) : HEq
+    ((pathReindex integerFamily substitution).map₂
+      (contractionNaturalityCell pulledFamily (liftedPathArrow k)))
+    (contractionNaturalityCell integerFamily
+      ((pathReindex integerFamily substitution).map (liftedPathArrow k))) :=
+  contractionNaturalityCell_reindex integerFamily substitution (liftedPathArrow k)
 end Examples.TwoFamilyPathJSubstitution
