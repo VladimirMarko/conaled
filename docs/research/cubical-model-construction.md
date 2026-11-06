@@ -877,8 +877,8 @@ and commute with substitution using the proved family equalities.
 predicate and derives iterated product filling from `piFilling` and family
 isomorphism transport. `TelescopeIdentityElimination` uses this construction
 to eliminate under any finite tail and proves its strict branch equation.
-The substitution theorem for this canonical assembled tail eliminator remains
-to be established.
+`TelescopeIdentitySubstitution` now proves substitution for this canonical
+assembled tail eliminator, using the chosen fillers throughout.
 
 The examples retain distinct constancy markers without calling them a nonzero
 higher type. The dependent motive `Fin(endpoint+1)` retains `6 : Fin 7` after
@@ -887,7 +887,7 @@ its branch returns the selected second variable, retaining `5 : Fin 7` and
 rejecting erasure. These instantiate the actual constructors and laws.
 Statement review distinguishes face data from proof-irrelevant equality,
 arbitrary motive composition from a postulated eliminator, and the finite-tail
-beta result from the remaining substitution obligation.
+beta result from its separately proved substitution law.
 
 Guarded source interpretation of the remaining operations,
 the genuine higher model and nonconstant family, and the unchanged frozen memo
@@ -937,3 +937,51 @@ and rejects replacing it by zero. The example uses the constructed eliminator;
 its evaluation proof first treats the section abstractly to avoid expanding
 the filler during kernel conversion. These finite witnesses do not establish
 the nonzero higher identity or the frozen memo acceptance gates.
+
+## Guarded primitive interpretation
+
+`Judgments/FillingTheory` extends the existing guarded source theory with
+cofibrations, restricted contexts, selected filling providers, homogeneous
+composition and generalized transport. A provider value contains actual
+filling data. The provider judgment separately requires its `Lawful` proof.
+The original family values still admit arbitrary presheaf families; such a
+value alone supplies no filling provider.
+
+The `hcomp` premises require a term on the actual restricted interval context,
+a cap in the ambient family, and equality of their zero-end restrictions.
+The `transp` premises require equality of the family and its constant
+zero-end restriction on the specified face. `HcompInputs` and
+`TransportInputs` recover those semantic conditions from the source judgments.
+The resulting rules prove typing and computation as equalities of restricted
+terms. For transport, the endpoint families need agree only on that face.
+`RestrictedOperationBoundaries` proves that restricted family equality and the
+corresponding heterogeneous equality of terms. This is a strict computation
+statement in the restricted context, not an added path witness.
+
+`HcompSubstitutionRule` and `TransportSubstitutionRule` prove arbitrary-context
+substitution. The syntax carries `subProvider` explicitly, and its
+interpretation is reindexing of the supplied filler. The proofs do not replace
+the provider with a chosen inhabitant of a fibrancy proposition. Face and
+restricted-context substitutions are interpreted by their constructed maps.
+`FillingTheory.model` validates these rules and every rule of the preceding
+source theory; `interpret` applies that model to source derivations.
+
+`Examples/CubicalSourceFillings.lean` interprets an actual transport-boundary
+derivation. At the full face it yields the ordinary endpoint equality and
+retains `5 : Fin 6` after two substitutions. Erasure to zero fails. A family
+whose endpoint fibers disagree is rejected when it lacks the required
+restricted constancy equation, regardless of a supplied filler value.
+`Examples/CubicalSourceHcomp.lean` interprets the homogeneous-boundary
+derivation on a constructed dependent pair filler. Its full-face result
+retains both components after two substitutions. The cap/tube guard rejects
+incompatible Boolean data.
+
+Statement review checks the restricted context on each side of computation,
+the distinction between a supplied filler and its law, and the exact provider
+used after substitution. These provider-annotated rules are the declared
+source boundary. Translating an external unannotated Agda derivation still
+requires supplying the compatible providers and translating its judgments;
+this model theorem is not an Agda importer. Universe, Glue, HIT and geometric
+coverage remains as stated in the selection matrix. The strict identity/J
+construction is semantic at this stage. The genuine higher model and the
+unchanged frozen memo remain acceptance obligations.

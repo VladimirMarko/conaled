@@ -1,4 +1,5 @@
 import SquareKit.Internal.Cubical.Judgments.Semantics
+import SquareKit.Internal.Cubical.Filling
 
 /-! A constructed interpretation of the existing annotation-free comprehension
 signature. Typing guards recover dependent operands from the tagged carrier. -/
@@ -12,6 +13,8 @@ inductive Value : Type (u+1) where
   | family : (Γ : Semantics.Context.{u}) → Semantics.Family Γ → Value
   | term : (Γ : Semantics.Context.{u}) → (A : Semantics.Family Γ) → Semantics.Section Γ A → Value
   | substitution : (Δ Γ : Semantics.Context.{u}) → Semantics.Substitution Δ Γ → Value
+  | filling : (Γ : Semantics.Context.{u}) → (A : Semantics.Family Γ) → Presheaf.Filling A → Value
+  | cofibration : (Γ : Semantics.Context.{u}) → Presheaf.Cofibration Γ → Value
   | invalid : Value
 
 namespace Value

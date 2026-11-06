@@ -317,6 +317,8 @@ import Examples.CubicalIdentityFilling
 import Examples.CubicalDependentFaces
 import Examples.CubicalTelescopeIdentity
 import Examples.CubicalTelescopeSubstitution
+import Examples.CubicalSourceFillings
+import Examples.CubicalSourceHcomp
 import SquareKit.Internal.Cubical.NormalizedPathFilling
 import SquareKit.Internal.Cubical.SumFillingSubstitution
 import Examples.PrimitiveDependentSums
