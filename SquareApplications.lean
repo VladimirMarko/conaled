@@ -339,3 +339,5 @@ import Examples.FrozenMemoSignature
 import Examples.CubicalFrozenMemo
 
 import Examples.CubicalFrozenOutputs
+import SquareKit.Internal.Cubical.SliceFreshening
+import SquareKit.Internal.Cubical.SlicePrism
