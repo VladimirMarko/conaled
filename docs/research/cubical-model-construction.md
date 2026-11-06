@@ -1023,3 +1023,33 @@ explicit context-equality transports. The full source `Model` eliminator and
 its substitution law are still being connected to this comparison. A genuine
 nonzero higher model and interpretation of the unchanged FrozenMemo client
 remain required before completing the programme.
+
+### Full contextual source model
+
+`ContextualModel.model` now constructs the existing `PathTransport.Typed.Model`.
+Its J operation comes from the normalized cubical eliminator under the actual
+finite dependent source tail. Strict beta and arbitrary base substitution are
+proved; they are not fields supplied by a client. The adapter requires selected
+lawful fillers for its primitive families and retains the selected fillers
+under every family substitution.
+
+The substitution proof uses the checked source `pathSub` comparison and the
+telescope total-context square. Internally, `Generated` records that a specified
+section is the output of the constructed eliminator. Reindexing preserves this
+property. Strict beta then identifies its branch through the existing source
+`branchMap` commuting square, and reconstruction proves equality of the actual
+selected sections. This existential property does not replace the result with
+an existence proof or discard its witness.
+
+`CubicalSourceIdentity` instantiates the full model's J on the existing source
+telescope with a natural variable followed by a `Fin (n+1)` variable. It recovers
+`5 : Fin 7` and rejects erasure. `CubicalNormalizedTelescopeSubstitution` exercises
+the constructed normalized J under two substitutions and retains that same
+dependent witness. Explicit proof-term assembly in the normalized substitution
+proof avoids repeated elaboration of large context expressions; Lean's kernel
+checks the resulting ordinary equality proofs.
+
+The original FrozenMemo source and its generic interpretation infrastructure
+can now use this model. Its concrete higher instantiation, including a genuine
+nonzero second-identity class and a nonconstant family in this same cubical
+model, remains required. The finite witnesses above do not satisfy that gate.
