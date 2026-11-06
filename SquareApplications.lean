@@ -309,6 +309,7 @@ import Examples.CubicalDependentFilling
 import Examples.CubicalSumFilling
 import Examples.CubicalRestrictedTransport
 import Examples.CubicalPathFilling
+import Examples.CubicalCompositionFilling
 import Examples.PrimitiveDependentSums
 import Examples.FiniteKernelEquality
 

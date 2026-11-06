@@ -712,8 +712,8 @@ laws. It supplies a section filling an open box over each context path, with
 an arbitrary actual face and compatible starting cap. `Filling.Lawful` requires
 agreement with that cap and the entire tube, and commutation with arbitrary
 context substitutions. This uses whole fillers as primitive data. CCHM
-Definition 13 instead specifies far-face composition; the converse construction
-from composition to this filling interface is not claimed here.
+Definition 13 instead specifies far-face composition; the connection
+construction below now derives whole filling from it.
 
 `discreteFilling` constructs an instance for every `S(q)`, with a natural
 constant-coefficient index `q`. Its proof now allows the index to be supplied
@@ -792,6 +792,29 @@ closure theorem, not the nontrivial higher witness required by M5.
 The construction follows the Path case of
 [CCHM v1 section 4.5](https://arxiv.org/html/1611.02108v1). Pi filling, the
 stable chosen-filling source interpretation, strict Id/J, and the exact higher
-memo remain pending. A reusable derivation of whole filling from far-face
-composition is also being developed to share the connection argument needed
-by Pi closure.
+memo remain pending. The following construction supplies the shared
+connection argument for Pi closure.
+
+
+## M3 composition supplies whole filling
+
+`Composition` stores only far-face composition, with boundary agreement and
+substitution uniformity in a separate `Lawful` proposition. `Filling.toComposition`
+observes the far face. Conversely, `Composition.toFilling` implements the
+connection construction of [CCHM v1 section 4.4](https://arxiv.org/html/1611.02108v1):
+replace the filling coordinate `i` by `i ∧ j`, add the face `i = 0`, and compose
+in `j`. The added face carries the original cap. `ScaledBox` proves agreement
+on overlaps and retains the dependent fibers through endpoint sections.
+
+`Composition.toFilling_lawful` proves the original cap equation, agreement with
+the entire original tube, and uniformity under arbitrary context substitution.
+Both directions therefore construct lawful operations. This does not claim
+that the conversions are inverse on selected operations: an arbitrary filler
+may contain choices beyond its far face, and no such round-trip law is used.
+
+`Examples.CubicalCompositionFilling` reconstructs a filler for `Fin(n+1)` from
+its endpoint composition. With an empty original tube, the resulting section
+retains the selected cap, commutes with two substitutions, and yields
+`5 : Fin 6` at a free interval coordinate. Erasure to zero is rejected. This
+checks a satisfiable instance of the construction; Pi closure and the remaining
+source and higher-client obligations are still pending.
