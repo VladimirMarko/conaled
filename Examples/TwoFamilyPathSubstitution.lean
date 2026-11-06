@@ -1,4 +1,5 @@
-import SquareKit.Internal.PathTransport.TwoFamilyPathSubstitution
+import SquareKit.Internal.PathTransport.TwoFamilyPathSubstitutionLaws
+import SquareKit.Internal.PathTransport.TwoFamilyPathContractionSubstitution
 import Examples.TwoFamilyPathContraction
 import SquareKit.Internal.PathTransport.TwoFamilyPathFaithful
 import Examples.TwoFamilyPathContext
@@ -49,4 +50,20 @@ theorem higher_cell_retained (k : ℤ) :
 example : openIdHigher pulledFamily =
     reindex (endpointReindex integerFamily substitution) (openIdHigher integerFamily) :=
   openIdHigher_reindex integerFamily substitution
+/-- The nonidentity projection preserves the whole reflexivity functor. -/
+example : (pathReflexivity pulledFamily).comp (pathReindex integerFamily substitution) =
+    (reindexHigher integerFamily substitution).comp (pathReflexivity integerFamily) :=
+  pathReindex_reflexivity integerFamily substitution
+
+/-- The same substitution retains the first-endpoint functor in all dimensions. -/
+example : (pathReindex integerFamily substitution).comp (pathFirst integerFamily) =
+    (pathFirst pulledFamily).comp (reindexHigher integerFamily substitution) :=
+  pathReindex_first integerFamily substitution
+
+/-- The actual contraction component is preserved, rather than supplied as a new premise. -/
+example : (pathReindex integerFamily substitution).map
+    (contractionComponent pulledFamily liftedPathPoint) =
+      contractionComponent integerFamily
+        ((pathReindex integerFamily substitution).obj liftedPathPoint) :=
+  contractionComponent_reindex integerFamily substitution liftedPathPoint
 end Examples.TwoFamilyPathSubstitution
