@@ -919,3 +919,21 @@ face of a restricted context recovers its original support. Statement review
 checks arbitrary contexts, faces, open boxes, and substitutions in the closure
 proofs. These tests concern constancy markers; the required nonzero second
 identity model remains a separate obligation.
+
+## Selected filling and finite-tail substitution
+
+`FunctionCompositionSubstitution`, `CompositionMap` and
+`FunctionFillingSubstitution` prove substitution for the constructed Pi
+composition and filler. `NormalizedFillingSubstitution` and
+`NormalizedPathFilling` transport the selected fillers through the existing
+presentation isomorphisms and prove their literal family reindexing laws.
+`TelescopeFillingSubstitution` lifts these results through arbitrary finite
+tails. `TelescopeIdentitySubstitution` then proves substitution of the actual
+finite-tail J construction, including the substituted branch.
+
+`Examples/CubicalTelescopeSubstitution.lean` checks two base substitutions
+in the dependent two-variable example. It retains the selected `5 : Fin 7`
+and rejects replacing it by zero. The example uses the constructed eliminator;
+its evaluation proof first treats the section abstractly to avoid expanding
+the filler during kernel conversion. These finite witnesses do not establish
+the nonzero higher identity or the frozen memo acceptance gates.

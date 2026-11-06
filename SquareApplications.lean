@@ -316,6 +316,9 @@ import Examples.CubicalIdentityElimination
 import Examples.CubicalIdentityFilling
 import Examples.CubicalDependentFaces
 import Examples.CubicalTelescopeIdentity
+import Examples.CubicalTelescopeSubstitution
+import SquareKit.Internal.Cubical.NormalizedPathFilling
+import SquareKit.Internal.Cubical.SumFillingSubstitution
 import Examples.PrimitiveDependentSums
 import Examples.FiniteKernelEquality
 
