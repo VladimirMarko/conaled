@@ -1,3 +1,4 @@
+import SquareKit.Internal.PathTransport.TwoFamilyCoherentLift
 import SquareKit.Internal.PathTransport.TwoStrongInverseSubstitution
 import SquareKit.Internal.PathTransport.TwoFamilyContractionInverse
 import Examples.TwoFamilyPathJBeta
@@ -51,5 +52,15 @@ example (x : TwoFamily.Total TwoFamilyPathJBeta.motive) :
     (TwoFamilyPathJBeta.motive.map (contraction.app x.base)).obj
       ((TwoFamilyPathJBeta.motive.map (inv (contraction.app x.base))).obj x.fiber) = x.fiber :=
   TwoFamily.contractionLiftBoundary _ contraction TwoFamilyPathJBeta.motive x
+
+/-- Adding a dependent element preserves the selected integer comparison in the base. -/
+theorem lifted_comparison_retains_integer (k : ℤ)
+    (a : TwoFamilyPathJBeta.motive.obj
+      ((TwoFamily.contractionRetract integerFamily).obj pathPoint)) :
+    ((TwoFamily.coherentLift contraction TwoFamilyPathJBeta.motive).naturality
+      (TwoFamily.cartesianLift
+        (TwoFamily.reindex (TwoFamily.contractionRetract integerFamily) TwoFamilyPathJBeta.motive)
+        (pathArrow k) a)).hom.base.base.fiber.2 = Multiplicative.ofAdd (-k) :=
+  Examples.TwoFamilyPathContraction.actual_naturality_retains_integer k
 
 end Examples.TwoStrongInverse
