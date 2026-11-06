@@ -1,12 +1,16 @@
 # Faithful observations in higher coherence proofs
 
-For #336, retain the native reflection proofs used by #322 and defer a new
-faithful-observation coherence API. Use the bounded substitution data-normalization
-builder described below for its two concrete consumers. The contraction consumers separate the
-constructed comparison cells from the laws proved about them. A wrapper around
-their reflection step would leave their dependent boundary work unchanged.
-This assessment does not discharge J beta, substitution, finite dependent tails,
-or the frozen memo adoption gate.
+For #336, retain the native reflection proofs for the original path contraction.
+Two later constructions justify bounded shared helpers: substitution data
+normalization and reconstruction of a rooted contraction from a coherent image.
+The latter now uses `TwoStrongReflect` and `TwoFamilyReindexStrong`. The earlier
+recommendation to defer a new coherence API applied to the original three
+normalization proofs; it does not describe this additional consumer.
+
+The checked rooted contraction has whole-transformation reflexive normalization
+and substitution laws. The arbitrary finite-tail construction also has beta and
+substitution laws. The frozen-memo adoption gate still requires its specified
+source interpretation and clients, together with final candidate acceptance.
 
 ## Existing consumers and caller obligations
 
@@ -55,12 +59,10 @@ still require a hom-category adapter and separate proofs about horizontal
 composition, whiskering, object boundaries, and arrow boundaries. It therefore
 does not replace the higher obligations.
 
-## Decision and retained evidence
+## Native path contraction decision
 
 Retain the existing local-faithfulness theorem and native pseudofunctor laws.
-Reconsider a common boundary-normalization helper when another construction
-requires the same dependent boundary calculations. The present three consumers
-share injectivity and Mathlib normalization lemmas, but their residual equations
+The original three consumers share injectivity and Mathlib normalization lemmas, but their residual equations
 are different. No sequential-observation API is introduced or claimed here;
 ordinary faithful hom-functor composition remains available when a caller needs
 it.
@@ -76,7 +78,9 @@ changes none of those statements or their assumptions.
 The cost comparison is about caller obligations, not source-file length: both
 presentations require the same local-faithfulness proof and the same three
 normalization arguments. A new wrapper would additionally require packaging
-those arguments and adapting dependent boundaries to its parameters. The retained contraction interfaces gain no new model capability from this assessment.
+those arguments and adapting dependent boundaries to its parameters. This
+comparison concerns the original contraction proofs. The rooted construction
+below supplies a different reuse case.
 
 ## Substitution data normalization
 
@@ -102,3 +106,54 @@ coherence proofs and their cast bookkeeping from two actual consumers. It does
 not replace the contraction unit/composition/cell-naturality normalization
 arguments, claim faithfulness of a projection, or provide the more general
 non-strict interpretation comparison owned by #325.
+
+## Rooted contraction law reconstruction
+
+The fixed-endpoint context contains `y : A` and `p : Id(x,y)` for an arbitrary
+chosen section `x`. Its embedding into the two-endpoint path context retains
+all path cells. `rootedContractionMapped` restricts the existing coherent
+`pathContraction` along this embedding. `rootedBaseContraction` takes its
+second-endpoint image. Their whole-transformation compatibility is proved by
+both endpoint observations in `TwoFamilyRootedCompatibility`.
+
+The shared constructors separate the chosen operations from the laws they
+recover:
+
+| Constructor | Caller supplies | Constructor proves |
+|---|---|---|
+| `strongReflect` | Components, invertible comparison cells, a strict observer injective on parallel 2-cells, an existing coherent image, and matching component/comparison images with their boundaries. | Identity, composition, and arbitrary-cell naturality for the supplied operations; exact recovery of the coherent image. |
+| `reindexStrongLift` | A higher family and reindexing functor, coherent base and image transformations, their whole compatibility equation, local groupoid structure, and injectivity of the reindexing functor on parallel 2-cells. | Lifted components and comparisons, their required image equations, and all three strong-transformation laws through `strongReflect`. |
+
+For the rooted consumer, the base functor is `rootedEndpoint`. Its second
+projection is the identity, which proves the required injectivity. The pullback
+construction supplies the lifted arrows and cells through `reindexLiftHom` and
+`reindexLiftCell`. Local groupoid structure makes the lifted comparison cells
+invertible. These premises already hold for every admitted higher family and
+chosen section; they add no restriction on J motives.
+
+This saves a second proof of the three coherence laws for the rooted
+contraction. The caller proves a commuting geometric pair of transformations
+and their dependent boundaries, rather than supplying those three final laws
+as fields. `strongReflect` still performs the generic whiskering, associator,
+unitor, and equality-boundary calculations. The native construction of the
+original `pathContraction` remains the source of the coherent image.
+
+`strongPostcomp_heq_reflect` in `TwoStrongFaithful` then reflects equalities of
+whole strong transformations. It requires injectivity on both arrows and parallel
+2-cells, explicit source/target functor equalities, and the mapped equality.
+`rootedContraction_reflexive` and `rootedContraction_reindex` use it to recover
+normalization and substitution from the existing path laws. Whole-functor
+cancellation in `TwoFunctorFaithful` additionally requires object injectivity;
+it supplies the rooted inclusion's substitution square. These are explicit
+higher-dimensional obligations. Ordinary faithfulness on one-dimensional
+arrows alone would not justify either reconstruction or cell-law reflection.
+
+No general sequential-observation interface is claimed. The adopted helpers
+serve the checked rooted pullback, while the two-endpoint contraction retains
+its original proofs. `Examples.TwoFamilyRootedContraction` checks a selected
+variable branch over the integer-cell family, recovers that whole branch by
+beta, and applies contraction naturality to two successive substitutions.
+At checkpoint `18a1c14`, its focused build passed 984 jobs; the imported audit
+checked 2,188 kernel-safe declarations in 139 project modules, with only
+`propext`, `Classical.choice`, and `Quot.sound`. Final repository acceptance
+remains separate from this focused evidence.

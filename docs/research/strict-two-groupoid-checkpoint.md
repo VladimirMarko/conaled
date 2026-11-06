@@ -427,7 +427,40 @@ cartesian comparison cells; the integer example proves that a nonzero genuine
 fiber cell does not satisfy it. It is not a restriction on admitted families
 or cells.
 
-## Remaining construction
+## Rooted contraction and finite dependent tails
+
+`TwoFamilyFiniteDependentTail` constructs the branch context and coherent
+contraction by induction over arbitrary finite dependent tails.
+`TwoFamilyFiniteDependentTailBeta` proves `FiniteDependentTail.eliminate_beta`,
+recovering the whole supplied branch. `TwoFamilyFiniteDependentTailSubstitution`
+proves `FiniteDependentTail.eliminate_reindex`, using the constructed tail substitution and
+its inclusion, retraction, and homotopy equations. The checked two-entry
+example has a second family depending on the first extension and exercises
+two successive substitutions.
+
+`TwoFamilyRootedContraction` now constructs the contraction for an arbitrary
+fixed section in the actual rooted path family. `TwoFamilyRootedNormalization`
+proves its whole-transformation reflexive normalization.
+`TwoFamilyRootedNaturality` proves whole-transformation substitution stability;
+the inclusion and retraction squares are proved as well. The construction
+lifts a compatible base/image pair through reindexing, reconstructs its three
+strong-transformation laws using `TwoStrongReflect`, and reflects beta and
+substitution through the faithful rooted embedding. No motive extension to
+the two-endpoint context or Pi closure is assumed.
+
+The [coherence assessment](higher-cell-coherence-assessment.md#rooted-contraction-law-reconstruction)
+records the new constructor's caller obligations and the coherence proofs it
+reuses. The original path-contraction laws remain native proofs. The rooted
+integer-family example constructs elimination for the selected variable
+branch, checks beta, and applies the generic substitution law twice. Its
+focused build and imported exhaustive audit pass at `18a1c14`.
+
+## Construction obligations from the preceding checkpoint
+
+The list below records the obligations before the finite-tail and rooted
+milestones above. Those milestones discharge the generic J beta, finite-tail,
+and substitution obligations. Source-model assembly and the specified frozen
+memo clients still require their own acceptance evidence.
 
 1. Establish the remaining laws for coherent section transport. Keep arbitrary
    higher sections admitted.
@@ -468,6 +501,9 @@ audit exceptions are introduced.
 The [higher-cell coherence assessment](higher-cell-coherence-assessment.md)
 compares the unit, composition, and arbitrary-cell naturality consumers with
 Mathlib's faithful hom-functor and pseudofunctor interfaces for #336. It retains
-the native local-faithfulness proofs and defers a new transport wrapper because
-the caller's dependent boundary obligations would remain unchanged. This choice
-does not alter the pending J, Sigma, or frozen-memo requirements.
+the original contraction's native local-faithfulness proofs. The later rooted
+pullback uses `TwoStrongReflect` and `TwoFamilyReindexStrong` to derive its
+coherence laws from constructed operations and an existing coherent image.
+The assessment distinguishes those caller obligations from the unchanged
+native normalization proofs and records the checked consumers. It does not
+substitute focused helper validation for the frozen-memo adoption gate.
