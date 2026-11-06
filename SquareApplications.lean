@@ -389,5 +389,8 @@ import Examples.FrozenMemoSelectedPaths
 import SquareKit.Internal.DependentJudgments.FixedPathTransportSemantics
 import SquareKit.Internal.DependentJudgments.OrdinaryActionEvaluation
 import SquareKit.Internal.PathTransport.TwoFamilyRootedFamilyAction
+import Examples.FrozenOrdinaryActionEvaluation
+import SquareKit.Internal.DependentJudgments.FixedPathBetaSemantics
+import SquareKit.Internal.DependentJudgments.OrdinaryActionSubstitution
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
