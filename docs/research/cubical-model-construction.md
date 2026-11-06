@@ -171,7 +171,7 @@ contract and rejection cases.
 | Face restrictions and compatible systems | No partial system in term | Needed for fibrancy | Face lattice, endpoint reflection, restrictions and compatible gluing constructed in M3 foundation |
 | Dependent contexts, Π, Σ, substitution | Function parameter and Nat recursion | Both substitutions and genuinely varying families | Families/sections and comprehension constructed in M2a; Π/Σ/Nat operations and coherent substitution comparisons constructed in M2b |
 | Path abstraction/application and endpoints | Essential | Higher semantic observations | Dependent Path families, abstraction/application, endpoint rules and substitution isomorphisms constructed in M2b |
-| Generalized transport and homogeneous composition | Not used by this declaration | Needed for general dependent higher interpretation | Uniform semantic filling, Sigma/Path closure and restricted-constancy transp constructed; Pi closure and source rules pending |
+| Generalized transport and homogeneous composition | Not used by this declaration | Needed for general dependent higher interpretation | Uniform semantic filling, Sigma/Path/Pi closure and restricted-constancy transp constructed; source rules pending |
 | Strict intensional Id, contextual J | Not used | Essential, arbitrary motives and finite tails | Construct strict Id and prove β/substitution, not native Lean Eq; pending |
 | Nontrivial higher parameter, nonconstant family | Not witnessed by contraction | Essential | Construct cubical parameter and detector; reuse exact memo after rule soundness |
 | Internal universes, Glue, univalence | Imported but not used by declaration slice | Used by external `HigherWitness` construction, not generic memo | Not advertised in selected fragment; broader source reuse requires classifier/Glue proofs |
@@ -818,3 +818,29 @@ retains the selected cap, commutes with two substitutions, and yields
 `5 : Fin 6` at a free interval coordinate. Erasure to zero is rejected. This
 checks a satisfiable instance of the construction; Pi closure and the remaining
 source and higher-client obligations are still pending.
+
+
+## M3 dependent function filling
+
+`FunctionComposition` constructs composition for dependent functions. It uses
+`Filling.backwards` to extend the generic far-endpoint argument, applies the
+original function tube and cap along that extension, and composes the dependent
+result. Interval reversal preserves dimension substitution and interchanges
+endpoints. The argument at the far endpoint is exactly the supplied argument;
+no regularity assumption on empty-face transport is needed. This follows the
+function construction in [CCHM v1 section 4.5](https://arxiv.org/html/1611.02108v1).
+
+`piComposition_lawful` proves agreement with the original tube and arbitrary
+substitution uniformity. `piFilling` then uses the already constructed
+composition-to-filling operation. Its callers provide lawful fillers for the
+domain and dependent result family; the resulting function laws are derived.
+The proof retains the generic arguments at every cube restriction through the
+full dependent-product substitution isomorphism.
+
+`Examples.CubicalFunctionFilling` instantiates the construction with a natural
+argument and result `Fin(argument+1)`. The filled function retains its selected
+last element, including `6 : Fin 7`, after two substitutions. The negative case
+rejects erasing that result. Statement review checks the universal boundary and
+substitution quantifiers, the genuinely dependent result family, and the
+constructed lawful inputs. This completes the Pi closure obligation, while
+source `hcomp`/`transp`, strict Id/J, and the higher memo remain open.
