@@ -1,3 +1,6 @@
+import SquareKit.Internal.PathTransport.TwoFamilySigmaRegroupHigher
+import SquareKit.Internal.PathTransport.TwoFamilySigmaRegroupData
+import SquareKit.Internal.PathTransport.TwoFunctorInverseData
 import SquareKit.Internal.PathTransport.TwoFamilySigmaRegroupVertical
 import SquareKit.Internal.PathTransport.TwoFamilySigmaRegroupCells
 import SquareKit.Internal.PathTransport.TwoFamilySigmaRegroupMapLaws
@@ -65,4 +68,37 @@ example (a b c d e f : ℤ) :
         TwoFamily.sigmaRegroupCell integerFamily laterFamily (totalCell a b c) ≫
           TwoFamily.sigmaRegroupCell integerFamily laterFamily (totalCell d e f) :=
   TwoFamily.sigmaRegroupCell_comp _ _ _ _
+example (k m n : ℤ) :
+    HEq (TwoFamily.sigmaUngroupCell integerFamily laterFamily
+      (TwoFamily.sigmaRegroupCell integerFamily laterFamily (totalCell k m n)))
+      (totalCell k m n) := TwoFamily.sigmaUngroupCell_regroup_heq _ _ _
+
+example (k m n : ℤ) :
+    TwoFamily.sigmaRegroupCell integerFamily laterFamily (totalArrow ◁ totalCell k m n) =
+      eqToHom (TwoFamily.sigmaRegroupMap_comp integerFamily laterFamily totalArrow totalArrow) ≫
+        TwoFamily.sigmaRegroupMap integerFamily laterFamily totalArrow ◁
+          TwoFamily.sigmaRegroupCell integerFamily laterFamily (totalCell k m n) ≫
+      eqToHom (TwoFamily.sigmaRegroupMap_comp integerFamily laterFamily totalArrow totalArrow).symm :=
+  TwoFamily.sigmaRegroupCell_whiskerLeft _ _ _ _
+
+example :
+    strictFunctorOfInverseData
+      (StrictPseudofunctor.id (TwoFamily.Total (TwoFamily.sigmaFamily integerFamily laterFamily)))
+      (PrelaxFunctorStruct.id (TwoFamily.Total (TwoFamily.sigmaFamily integerFamily laterFamily)))
+      rfl rfl = StrictPseudofunctor.id _ := strictFunctorData_ext rfl
+example (k m n : ℤ) :
+    TwoFamily.sigmaRegroupCell integerFamily laterFamily (totalCell k m n ▷ totalArrow) =
+      eqToHom (TwoFamily.sigmaRegroupMap_comp integerFamily laterFamily totalArrow totalArrow) ≫
+        TwoFamily.sigmaRegroupCell integerFamily laterFamily (totalCell k m n) ▷
+          TwoFamily.sigmaRegroupMap integerFamily laterFamily totalArrow ≫
+      eqToHom (TwoFamily.sigmaRegroupMap_comp integerFamily laterFamily totalArrow totalArrow).symm :=
+  TwoFamily.sigmaRegroupCell_whiskerRight _ _ _ _
+
+example : (TwoFamily.sigmaRegroup integerFamily laterFamily).comp
+    (TwoFamily.sigmaUngroup integerFamily laterFamily) = StrictPseudofunctor.id _ :=
+  TwoFamily.sigmaRegroup_ungroup _ _
+
+example : (TwoFamily.sigmaUngroup integerFamily laterFamily).comp
+    (TwoFamily.sigmaRegroup integerFamily laterFamily) = StrictPseudofunctor.id _ :=
+  TwoFamily.sigmaUngroup_regroup _ _
 end Examples.TwoFamilySigmaRegroup
