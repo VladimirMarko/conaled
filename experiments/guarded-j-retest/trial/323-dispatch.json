@@ -1,0 +1,24 @@
+{
+  "recorded_at": "2026-11-05T05:37:50.705715+00:00",
+  "approval": "323-dispatch-approval.json",
+  "candidate": "9677e0c83074d6af4bce3f8f8d0a54126981c15b",
+  "authors": {
+    "baseline": {
+      "agent": "/root/author323_baseline",
+      "fork_turns": "none",
+      "model_override": null,
+      "reasoning_effort_override": null,
+      "prompt_sha256": "02365bec2234875aeb0cc19437feeb77928d24520c38d48885799398ae079816",
+      "handoff": "/tmp/conaled-235-orchestration/authors-323/baseline"
+    },
+    "candidate": {
+      "agent": "/root/author323_candidate",
+      "fork_turns": "none",
+      "model_override": null,
+      "reasoning_effort_override": null,
+      "prompt_sha256": "e0a899c081db993d345a516d43aacce50cf74e67ae28edc1e9156e4de52600a5",
+      "handoff": "/tmp/conaled-235-orchestration/authors-323/candidate"
+    }
+  },
+  "note": "Prompt contents dispatched verbatim except trailing newline serialization; no proof hints or extra context. Actual configuration/usage to be recorded only from available evidence."
+}

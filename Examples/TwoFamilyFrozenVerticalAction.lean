@@ -1,0 +1,12 @@
+import Examples.TwoFamilySelectedVerticalAction
+import Examples.TwoFamilyFrozenPathObjects
+namespace Examples.TwoFamilyFrozenOrdinaryAction
+open SquareKit.Internal.PathTransport HigherInterpretation
+open Examples.TwoFamilyModelData
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option backward.defeqAttrib.useBackward true
+set_option maxRecDepth 3000
+theorem source_vertical : TwoFamilySelectedOrdinaryAction.SelectedVerticalAction integerContext integerContext paths :=
+ @TwoFamilySelectedOrdinaryAction.source_vertical_action integerContext integerContext paths pathType_subsingleton
+end Examples.TwoFamilyFrozenOrdinaryAction

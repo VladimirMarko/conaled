@@ -1,0 +1,12 @@
+import Examples.TwoFamilyFrozenPathObjects
+import Examples.TwoFamilySelectedOrdinaryReduction
+namespace Examples.TwoFamilyFrozenOrdinaryAction
+open SquareKit.Internal.PathTransport HigherInterpretation
+open Examples.TwoFamilyModelData
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option backward.defeqAttrib.useBackward true
+set_option maxRecDepth 3000
+set_option linter.defProp false
+def source_reduced := @TwoFamilySelectedOrdinaryReduction.reduced _ _ paths pathType_subsingleton
+end Examples.TwoFamilyFrozenOrdinaryAction

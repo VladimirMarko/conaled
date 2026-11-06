@@ -1,22 +1,95 @@
 # The frozen dependent higher-identity test
 
 Investigation for [#316](https://github.com/VladimirMarko/conaled/issues/316),
-under #289. **The dependent higher adoption gate has not passed.** The result
-is a concrete Cubical Agda source test and an identified Lean construction
-prerequisite. It is not a Lean model, a verified translation, or permission to
-advertise the higher observation in the author trial. The frozen
-[external memo](dependent-coherence-discovery/292-external-memo.md) is unchanged.
+under #289, with the current successor status recorded below. The frozen
+[external memo](dependent-coherence-discovery/292-external-memo.md), Agda source
+artifacts and historical author-trial submissions are unchanged.
 
-The generic argument now has a source derivation using inductive identity with
+## Current Lean result and remaining scope
+
+The accepted #321/#334 candidate
+`45e12129182e170202a3febbc512396e2e71f0d7` supplies the bounded Lean higher
+interpretation that was missing from the original #316 investigation. The
+[cubical construction record](cubical-model-construction.md#final-construction-and-acceptance-mapping)
+links the constructed dependent presheaf model, selected lawful fillers,
+constructor closure and marked-identity eliminator. Contextual J covers
+arbitrary admitted motives and finite dependent source tails, with strict
+beta and substitution.
+
+The [frozen consumer](../../Examples/CubicalFrozenOrdinaryAction.lean) uses an
+actual selected higher identity in that model. Its interpretation retains the
+original eight-binder input, both frozen substitutions, the selected dependent
+pair and certificate, and the certificate's dependent action. The
+[source-action connection](../../Examples/CubicalFrozenActionSource.lean)
+identifies the original ordinary `ap_T` after assignment. A typed identity
+joins that selected action to pointwise cubical action; the resulting
+conjugation cube has the source action, selected h and actual beta endpoint
+faces. Its action face has observation one and cannot be erased. The
+certificate action `apd_η(h)` remains a separate preserved output.
+
+The nonconstant lower observation uses the existing
+[groupoid source interpretation](../../Examples/FrozenMemoRealizationExamples.lean),
+with value `q + (p + b)`. The contract permits that observation and the higher
+observation to use different models. No new cubical monodromy or complete
+classification of the cocycle model as `K(ℤ,2)` is inferred.
+
+The Lean higher-consumer gate has therefore passed through the selected #321
+fragment. Its types require selected lawful providers, and its universe levels
+are metatheoretic. Unchanged external Agda reuse still requires a
+judgment-preserving translation. Internal universes, Glue/univalence, HIT
+eliminators and cohesive or smooth geometry remain outside the advertised
+fragment.
+
+The separate [strict two-groupoid construction](strict-two-groupoid-checkpoint.md)
+for #322/#336 supplies higher families and sections with their cell data,
+Grothendieck extension, open identity, coherent rooted contraction and stable
+Sigma. Its contextual J is constructed for every admitted motive and finite
+dependent tail, with whole-section beta and substitution; it does not assume
+Pi closure to derive J. The #336 coherence helper uses the proved faithful
+observation to reconstruct laws from constructed operations and a coherent image, retaining the dependent
+boundaries.
+
+[`sourceIdentityFiberAction`](../../SquareKit/Internal/PathTransport/TwoFamilySourceIdentityFiberAction.lean)
+connects actual ordinary source J-action to identity-fiber action. Its
+singleton-object hypothesis concerns objects of the path fiber, not its
+arrows. The original B²ℤ frozen input discharges that hypothesis while keeping
+its integer-labelled higher arrows. The
+[selected-source conjugation](../../Examples/TwoFamilySelectedSourceConjugation.lean)
+uses the original fixed transport, beta section and selected h; the
+[frozen specialization](../../Examples/TwoFamilyFrozenSourceConjugation.lean)
+retains the actual source action value through its proved endpoint-type
+conversion. The normalized witness observation retains the original h and
+computes its integer label. These constructions use the same source action and
+original substitution evaluations as the cubical route; `apd_η(h)` remains a
+separate output.
+
+Candidate `574bfa2af3d5c31cc831749d056ff4b102ff1b31` passed all 1,786 modules,
+the exhaustive proof audit, immediate candidate verification, and independent
+Standards and Spec review for #322/#336. This supplies a second constructed
+interpretation of the bounded frozen higher client. It does not
+extend the admitted source language to universes or higher inductive types.
+Final #235 integration acceptance is a separate gate. None of these results
+retroactively adds a higher arm to the frozen #320 trial or establishes human
+usability or comparative productivity.
+
+## Original investigation and source test
+
+The remainder records the #316 study at baseline
+`9b0a0fe143c6f97f399632d4bb34a179db012181`. Its construction proposals and
+statements about missing Lean infrastructure describe that baseline. The
+successor status above supersedes those historical adoption conditions.
+
+The generic argument has a source derivation using inductive identity with
 judgmental J computation. Its two dependent substitutions include `w` and
 `apd_η(h)`, with the transported source of the latter. A separate instance
 connects the same derivation to a nontrivial second identity in `K(ℤ,2)`;
 an integer observer distinguishes the selected identity from reflexivity.
 The circle's integer cover supplies the nonconstant transport case. These
-are source-theory results, checked by Agda. The missing Lean prerequisite is
-specified below, together with a smaller alternative to the cubical programme.
+are source-theory results, checked by Agda. The original Lean construction
+prerequisite is specified below, together with the direct higher-groupoid
+alternative to the cubical programme.
 
-## Feasibility before representation
+## Feasibility assessment at the original baseline
 
 The required fragment has a terminal context, dependent context extension,
 simultaneous substitutions, Σ, intensional identity, reflexivity, and J with
@@ -62,7 +135,7 @@ This is based on the required operations and computation rules, not an attempt
 to keep existing source annotations. It is not a claim that the direct route
 has been constructed or that its host encoding cost has been measured.
 
-## Inspected artifacts and their actual boundaries
+## Artifacts inspected at the original baseline
 
 The baseline is `9b0a0fe143c6f97f399632d4bb34a179db012181`.
 `lake-manifest.json` pins Mathlib and its tooling; it does not declare an
@@ -191,7 +264,7 @@ and their repeated-substitution comparisons. This realizes the memo's
 integer action in an external dependent theory. The existing Lean groupoid
 results remain valid evidence at their weaker truncation level.
 
-## Exact smaller construction prerequisite
+## Original direct-construction prerequisite
 
 The following is a proposed Lean construction, with a calculable first test.
 It is not a record of assumed model laws. Call its required theorem
@@ -262,7 +335,7 @@ consumer independently of that representation, so implementing only the
 numerical calculation cannot pass it. A full Lean reconstruction is not
 claimed justified by the inspected code or by external checking.
 
-## Owned continuation and adoption conditions
+## Original continuation and adoption conditions
 
 [#322](https://github.com/VladimirMarko/conaled/issues/322), under #289, owns the following
 strict higher-groupoid milestones. #321 owns the separate cubical-calculus
@@ -298,15 +371,18 @@ higher full-comprehension/LF/weak-stability hypotheses must first be
 constructed. Chosen-universe closure is a different obligation. For #315,
 the source pair and transported `apd` types are the interpretation contract;
 annotation equality across unrelated presentations is not required. For
-#319, nothing here constructs a context-varying internal setting. For #320,
-only the declared lower-truncation observations are presently available in
-Lean; the higher gate stays closed until milestone 3 is checked there.
+#319, nothing here constructs a context-varying internal setting. For the
+original #320 freeze, only the declared lower-truncation observations were
+available in Lean. The accepted #321 result supplies later higher evidence
+without changing that frozen trial or its declared comparison.
 
-Adopt the external source test and its reproduction record as partial
-evidence. Investigate the direct-construction successor and the #321 cubical route.
-Reject the discrete-identity, strict-contraction and Path-computation
-shortcuts. Defer higher adoption and any ordinary-author cost claim. This
-investigation does not resume #107, select #108's theorem, or activate #260.
+The original recommendation was to retain the external source test as partial
+evidence and investigate both successor constructions. Its rejection of the
+discrete-identity, strict-contraction and Path-computation shortcuts remains.
+The accepted #321 and #322 constructions above discharge the selected
+higher-consumer gate in their respective fragments. Ordinary-author cost claims
+remain separate. This work
+does not resume #107, select #108's theorem, or activate #260.
 
 ## Statement review and validation
 

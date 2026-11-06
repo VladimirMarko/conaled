@@ -1,0 +1,68 @@
+SquareKit.Internal.PathTransport.Typed.Authoring.Motive.reflexivity.{u_1} {Γ : SquareKit.Internal.PathTransport.RawCtx}
+  {γ : SquareKit.Internal.PathTransport.Typed.CtxCode} {A : SquareKit.Internal.PathTransport.Expr}
+  {a : SquareKit.Internal.PathTransport.Typed.TyCode γ} {x : SquareKit.Internal.PathTransport.Expr}
+  {ξ : SquareKit.Internal.PathTransport.Typed.TmCode γ a} {n : ℕ} {Δ : SquareKit.Internal.PathTransport.RawCtx}
+  {T : SquareKit.Internal.PathTransport.Typed.TelCode (SquareKit.Internal.PathTransport.Typed.pathCode a ξ) n}
+  {Q : SquareKit.Internal.PathTransport.Expr}
+  {q : SquareKit.Internal.PathTransport.Typed.TyCode (SquareKit.Internal.PathTransport.Typed.telTotal T)}
+  {p : SquareKit.Internal.PathTransport.Expr}
+  {π : SquareKit.Internal.PathTransport.Typed.TmCode (SquareKit.Internal.PathTransport.Typed.telTotal T) q}
+  (hΓ : SquareKit.Internal.PathTransport.Typed.CtxDeriv Γ γ)
+  (hA : SquareKit.Internal.PathTransport.Typed.TyDeriv Γ γ A a)
+  (hx : SquareKit.Internal.PathTransport.Typed.TmDeriv Γ γ A a x ξ)
+  (hT :
+    SquareKit.Internal.PathTransport.Typed.TelDeriv (SquareKit.Internal.PathTransport.pathCtx Γ A x)
+      (SquareKit.Internal.PathTransport.Typed.pathCode a ξ) n Δ T)
+  (hQ :
+    SquareKit.Internal.PathTransport.Typed.TyDeriv (Δ ++ SquareKit.Internal.PathTransport.pathCtx Γ A x)
+      (SquareKit.Internal.PathTransport.Typed.telTotal T) Q q)
+  (hp :
+    SquareKit.Internal.PathTransport.Typed.TmDeriv (Δ ++ SquareKit.Internal.PathTransport.pathCtx Γ A x)
+      (SquareKit.Internal.PathTransport.Typed.telTotal T) Q q p π) :
+  SquareKit.Internal.PathTransport.Typed.Authoring.Motive T
+SquareKit.Internal.PathTransport.Typed.Authoring.PathCommand.reflexiveBeta.{u_1}
+  {Γ : SquareKit.Internal.PathTransport.RawCtx} {γ : SquareKit.Internal.PathTransport.Typed.CtxCode}
+  {A x : SquareKit.Internal.PathTransport.Expr} {a : SquareKit.Internal.PathTransport.Typed.TyCode γ}
+  {ξ : SquareKit.Internal.PathTransport.Typed.TmCode γ a} {n : ℕ} {Δ : SquareKit.Internal.PathTransport.RawCtx}
+  {T : SquareKit.Internal.PathTransport.Typed.TelCode (SquareKit.Internal.PathTransport.Typed.pathCode a ξ) n}
+  (cmd : SquareKit.Internal.PathTransport.Typed.Authoring.PathCommand T) :
+  SquareKit.Internal.PathTransport.Typed.TmEqDeriv
+    (SquareKit.Internal.PathTransport.subTail (SquareKit.Internal.PathTransport.reflexiveSub x) Δ ++ Γ)
+    (SquareKit.Internal.PathTransport.Typed.telTotal
+      (SquareKit.Internal.PathTransport.Typed.telPullback T (SquareKit.Internal.PathTransport.Typed.rootCode a ξ)))
+    (SquareKit.Internal.PathTransport.Expr.sub
+      (SquareKit.Internal.PathTransport.argsSub (SquareKit.Internal.PathTransport.Typed.Authoring.genericArguments n)
+        (SquareKit.Internal.PathTransport.consSub
+          (SquareKit.Internal.PathTransport.Expr.sub (fun i => SquareKit.Internal.PathTransport.Expr.var (i + n))
+              x).refl
+          (SquareKit.Internal.PathTransport.consSub
+            (SquareKit.Internal.PathTransport.Expr.sub (fun i => SquareKit.Internal.PathTransport.Expr.var (i + n)) x)
+            fun i => SquareKit.Internal.PathTransport.Expr.var (i + n))))
+      cmd.motive.raw)
+    (SquareKit.Internal.PathTransport.Typed.subTyCode cmd.motive.code
+      (SquareKit.Internal.PathTransport.Typed.compCode (SquareKit.Internal.PathTransport.Typed.rootTailCode a ξ T)
+        (SquareKit.Internal.PathTransport.Typed.idCode (SquareKit.Internal.PathTransport.Typed.branchCode a ξ T))))
+    (SquareKit.Internal.PathTransport.Expr.pathInduction n
+      (SquareKit.Internal.PathTransport.Expr.sub (fun i => SquareKit.Internal.PathTransport.Expr.var (i + n)) A)
+      (SquareKit.Internal.PathTransport.Expr.sub (fun i => SquareKit.Internal.PathTransport.Expr.var (i + n)) x)
+      (SquareKit.Internal.PathTransport.Expr.sub
+        (SquareKit.Internal.PathTransport.Expr.liftSubN (n + 2) fun i =>
+          SquareKit.Internal.PathTransport.Expr.var (i + n))
+        cmd.motive.raw)
+      (SquareKit.Internal.PathTransport.Expr.sub
+        (SquareKit.Internal.PathTransport.Expr.liftSubN n fun i => SquareKit.Internal.PathTransport.Expr.var (i + n))
+        cmd.motive.branch)
+      (SquareKit.Internal.PathTransport.Expr.sub (fun i => SquareKit.Internal.PathTransport.Expr.var (i + n)) x)
+      (SquareKit.Internal.PathTransport.Expr.sub (fun i => SquareKit.Internal.PathTransport.Expr.var (i + n)) x).refl
+      (SquareKit.Internal.PathTransport.Typed.Authoring.genericArguments n))
+    (SquareKit.Internal.PathTransport.Typed.subTmCode
+      (SquareKit.Internal.PathTransport.Typed.jCode a ξ T cmd.motive.code cmd.motive.branchCode)
+      (SquareKit.Internal.PathTransport.Typed.compCode (SquareKit.Internal.PathTransport.Typed.rootTailCode a ξ T)
+        (SquareKit.Internal.PathTransport.Typed.idCode (SquareKit.Internal.PathTransport.Typed.branchCode a ξ T))))
+    (SquareKit.Internal.PathTransport.Expr.sub
+      (SquareKit.Internal.PathTransport.argsSub (SquareKit.Internal.PathTransport.Typed.Authoring.genericArguments n)
+        fun i => SquareKit.Internal.PathTransport.Expr.var (i + n))
+      cmd.motive.branch)
+    (SquareKit.Internal.PathTransport.Typed.castCode ⋯
+      (SquareKit.Internal.PathTransport.Typed.subTmCode cmd.motive.branchCode
+        (SquareKit.Internal.PathTransport.Typed.idCode (SquareKit.Internal.PathTransport.Typed.branchCode a ξ T))))

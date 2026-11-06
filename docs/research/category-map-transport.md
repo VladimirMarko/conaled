@@ -96,7 +96,10 @@ target; `LawfulCartesianᶠ` additionally requires strong product comparisons an
 cartesian preservation. The Lean transport theorems expose those obligations
 and also allow an explicitly reflected source relation.
 
-Generic closed-law transport remains outside #10, matching the explicit TODO
-in the pinned `MakeLawful.agda`; optional structures and compiler preservation
-belong to successor tickets. This work does not claim that arbitrary comma
-categories have exponentials or that many-valued analyses are exact decoders.
+Generic closed-law transport was outside the original #10 scope, matching the
+explicit TODO in the pinned `MakeLawful.agda`. The #37 implementation now supplies
+`ClosedMap.transportLaws` and checked raw-code and nonidentity-comparison clients;
+see the [current parity record](felix-parity-implementation.md#closed-law-transport-37).
+The #333 extension adds [coproduct and distribution transport](optional-law-transport.md).
+These extensions do not claim that arbitrary comma categories have exponentials
+or that many-valued analyses are exact decoders.
