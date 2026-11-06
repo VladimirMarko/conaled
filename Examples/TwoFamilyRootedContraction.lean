@@ -1,3 +1,4 @@
+import SquareKit.Internal.PathTransport.TwoFamilyRootedComponent
 import SquareKit.Internal.PathTransport.TwoFamilyRootedNaturality
 import Examples.TwoFamilyRootedPath
 namespace Examples.TwoFamilyRootedContraction
