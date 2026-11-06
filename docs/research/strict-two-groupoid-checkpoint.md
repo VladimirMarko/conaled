@@ -138,6 +138,15 @@ certificate's dependent action. `FixedPathTransportSemantics` restricts the
 original transport section to fixed endpoints and proves that evaluating it
 recovers the original transport value. `FrozenMemoSelectedPaths` supplies the
 original eight-binder path operands and their source evaluations.
+`FrozenOrdinaryActionEvaluation.source_action` identifies the ordinary action
+expression on those exact operands with its semantic J construction.
+
+`FixedPathBetaSemantics` restricts the original beta section along the same
+map as fixed-endpoint transport. `TwoFamilyFixedPathConjugation` applies the
+fiber conjugation law to that transport and beta.
+`TwoFamilySelectedConjugation` uses the selected homotopy from the original
+input; `TwoFamilyFrozenSelectedConjugation` specializes it at the concrete
+eight-binder assignment.
 
 The remaining comparison identifies this ordinary source action with the
 functor action in the conjugation theorem. No completed comparison is claimed
