@@ -1053,3 +1053,27 @@ The original FrozenMemo source and its generic interpretation infrastructure
 can now use this model. Its concrete higher instantiation, including a genuine
 nonzero second-identity class and a nonconstant family in this same cubical
 model, remains required. The finite witnesses above do not satisfy that gate.
+
+### Shared frozen-client interpretation
+
+`Examples.FrozenMemoRealization` interprets the unchanged frozen client's input
+binders in an arbitrary contextual model, with an arbitrary family `A` and a
+family `B` over its comprehension. Its output is the selected transport and
+composition certificate computed by that model's J. `FrozenMemoDependentAction`
+constructs the varying certificate family and its selected dependent action;
+the source endpoint is transported in that family. `FrozenMemoReindex` retains
+the dependent input types under arbitrary substitution, including the second
+identity's endpoint conversions. `FrozenMemoSubstitutions` interprets the
+original frozen substitutions individually and together, retaining the selected
+certificate, action, and transported source type.
+
+Statement review: the realization record assumes evaluations only for input
+binders. It does not assume output equations or certificate inhabitants.
+`FrozenMemoInput.ofTyping` recovers those input binders from source typing and
+validated premises; its use of choice does not choose output certificates.
+`FrozenMemoSignature` validates the original two type-declaration premises and
+instantiates this interface. The concrete integer translation specialization
+checks the selected value `q + (p + b)` and rejects erasing its value to zero.
+This ordinary groupoid specialization checks the shared API; it supplies no
+nonzero second identity for the cubical acceptance gate. Dependent pair
+packaging and the endpoint-conjugation connection remain separate work.

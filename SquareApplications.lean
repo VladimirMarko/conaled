@@ -334,3 +334,5 @@ import Examples.ReferenceClient
 import Examples.ReferenceCongruence
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
+import Examples.FrozenMemoRealizationExamples
+import Examples.FrozenMemoSignature
