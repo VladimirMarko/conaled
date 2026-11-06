@@ -1,5 +1,6 @@
 import Examples.FrozenMemoClient
-import SquareKit.Internal.Cubical.ContextualModel
+import SquareKit.Internal.Cubical.ContextualSums
+import Examples.FrozenMemoPair
 
 /-! The unchanged frozen signature and both source substitutions in the
 constructed cubical model. Its selected certificates use cubical finite-tail J.
@@ -18,5 +19,8 @@ def environment := FrozenMemoSignature.environment CM Base Fiber
 def client : FrozenMemoRealization.Client CM (environment Base Fiber) signature :=
   FrozenMemoRealization.Client.ofTyping CM (environment Base Fiber)
     (FrozenMemoSignature.inputs CM Base Fiber) signature
+
+noncomputable def selectedPair :=
+  (client Base Fiber).input.selectedPair (sumCapability Base Fiber)
 
 end Examples.CubicalFrozenMemo
