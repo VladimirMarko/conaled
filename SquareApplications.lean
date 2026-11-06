@@ -366,3 +366,8 @@ import Examples.TwoFamilySigmaStable
 import Examples.TwoFamilySourceContractionSubstitution
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
+import Examples.TwoFamilyRootedContraction
+import Examples.TwoFamilyModelRooted
+import Examples.FrozenMemoRealizationExamples
+import Examples.FrozenMemoSignature
+import Examples.FrozenMemoPair
