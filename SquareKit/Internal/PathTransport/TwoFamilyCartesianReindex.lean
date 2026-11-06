@@ -13,7 +13,7 @@ private theorem total_comp_base {x y : Total E} {p q r : x ⟶ y}
 theorem equalityHomFiber_reindex {x y : Total (reindex σ E)} (p : x ⟶ y)
     (h : EqualityHomFiber (reindex σ E) p) : EqualityHomFiber E ((reindexHigher E σ).map p) := h
 
-theorem equalityFiber_reindex {x y : Total (reindex σ E)} {p q : x ⟶ y} (α : p ⟶ q)
+theorem equalityFiber_reindex_map {x y : Total (reindex σ E)} {p q : x ⟶ y} (α : p ⟶ q)
     (h : EqualityFiber (reindex σ E) α) : EqualityFiber E ((reindexHigher E σ).map₂ α) := h
 
 variable {X : Type*} [Bicategory X] [Strict X]
@@ -25,7 +25,7 @@ theorem postcompReindex_equalityFiber {x y : X} (p : x ⟶ y)
   simp only [strongPostcomp, Iso.trans_hom, Iso.symm_hom, Functor.mapIso_hom,
     StrictPseudofunctor.mapComp_eq_eqToIso, eqToIso.hom, eqToIso.inv]
   exact equalityFiber_comp E (equalityFiber_cast E _)
-    (equalityFiber_comp E (equalityFiber_reindex E σ _ h) (equalityFiber_cast E _))
+    (equalityFiber_comp E (equalityFiber_reindex_map E σ _ h) (equalityFiber_cast E _))
 
 theorem postcompReindex_comparison_base {x y : X} (p : x ⟶ y) :
     HEq (((strongPostcomp η (reindexHigher E σ)).naturality p).hom).base
