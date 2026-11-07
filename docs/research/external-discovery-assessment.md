@@ -13,6 +13,16 @@ a reusable argument from an existing proof more directly tests the language's
 promise to help an author discover the abstraction. Effectful realizers remain
 a separate useful question when the selected argument actually changes effects.
 
+## Current scheduling
+
+This report records the discovery decisions at its original baseline. The
+bounded studies #295–#301 and #337–#342 are now complete. The
+[#350 coverage map](semantic-traditions-coverage.md) distinguishes their paper
+results, checked implementations and unresolved variants, with current open
+owners and promotion conditions. Historical study numbers below are evidence
+links rather than active owners of all residual research.
+
+
 ## Results of the selected follow-ups
 
 The bounded paper comparisons are complete; their frozen fixtures preceded

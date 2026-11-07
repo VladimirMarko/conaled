@@ -137,9 +137,9 @@ not establish productivity gains, human usability, higher-model capability or
 broad migration. These issues are under #289, coordinated with #36/#235, #288's
 extension questions and #290's author evidence.
 
-#297 retains its broader modal/higher comparison; its higher inquiry supplies
+#297 records its completed modal/higher comparison; its higher inquiry supplied
 #316, while modal context restrictions remain distinct from #319's internal
-setting construction. #301 continues to challenge the assumptions of the entire
+setting construction. #350 continues to challenge the assumptions of the entire
 agenda from outside its current candidates. The investigations may recommend
 repair, structural factoring or replacement foundations. They preserve #107's
 pause and #108's independent-theorem gate. Any later author dispatch still
@@ -164,30 +164,21 @@ covers these consequences; no new umbrella or automatic framework migration
 is needed. The lower-priority studies remain open to architectures that do not
 look like the current implementation.
 
-## Lower-priority investigations
+## Completed discovery studies and current residual work
 
-These bounded studies make the deferred leads actionable. Their priority is
-provisional; it does not mean their mathematics has been rejected. New
-sustained programmes can follow evidence from these studies without duplicating
-existing owners now.
+#295–#301 completed their bounded comparisons. Their findings and remaining
+questions are reconciled in the [#350 coverage map](semantic-traditions-coverage.md),
+which links each paper construction, existing checked evidence and untested
+variant to an open owner or concrete deferred trigger. #337–#342 are likewise
+complete at the scopes recorded in the [settings synthesis](settings-interface-orchestration.md).
 
-| Study | Coordination | Reason to promote |
-| --- | --- | --- |
-| [#295: relational proof transfer](https://github.com/VladimirMarko/conaled/issues/295) | #290; reuse #210 | A client needs argument reuse across a relation that is not an isomorphism. |
-| [#296: effectful proof realizers](https://github.com/VladimirMarko/conaled/issues/296) | #235/#196/#200 | Changing effects must retain a returned witness and explicit interaction laws. |
-| [#297: modal contexts and higher identity](https://github.com/VladimirMarko/conaled/issues/297) | #289/#36/#102/#107 | Context access or identity data exposes an interface mismatch. |
-| [#298: higher-order probability models](https://github.com/VladimirMarko/conaled/issues/298) | #235/#36; reuse #199/#285 | Arbitrary admitted random functions are required beyond a fixed closure representation. |
-| [#299: quantitative and ordered observations](https://github.com/VladimirMarko/conaled/issues/299) | #235/#174/#193 | Error or precision must compose under an explicit order or metric. |
-| [#300: open-system wiring](https://github.com/VladimirMarko/conaled/issues/300) | #235/#27/#36 | Permitted wiring, feedback or hierarchical decomposition needs a richer composition contract. |
-| [#301: omitted semantic traditions](https://github.com/VladimirMarko/conaled/issues/301) | #235 | A competing foundation could overturn assumptions used to rank the current candidates. |
-
-#301 covers synthetic domain theory, nominal binding, proof-theoretic semantics,
-classical realizability, rewriting-based logical frameworks and broader
-categorical systems theory. It must inspect primary technical sources and
-propose at most two deeper follow-ups, retaining explicit reasons to defer
-other leads. It does not declare the literature search exhaustive. #298 and
-#299 keep probability and approximation separate; #297 keeps context access
-and higher identity as separate comparisons.
+Current successors #343–#348 cover institutions, generic theory maps, conversion,
+partial computation, an SDT provider and richer semantic boundaries. #349 audits
+reuse of existing machinery. #351/#352 record the two adjoint experiments:
+indexed witnesses and quantification, and mode-based compilation. They are
+separate from #297's modal-lock assessment and do not require a maximal
+interface for ordinary clients. Other traditions remain eligible through the
+coverage map's promotion tests; no exhaustive literature search is claimed.
 
 The source assessments and their limits remain in the
 [external discovery report](external-discovery-assessment.md),

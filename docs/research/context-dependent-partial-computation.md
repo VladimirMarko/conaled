@@ -8,11 +8,39 @@ construction has the same property under explicit completeness and base-change
 hypotheses. Fixed-point existence alone supplies neither result selection nor
 base-change coherence.
 
-**Recommendation:** adopt the external construction as the next bounded
-formalization target; investigate a concrete SDT model before adopting its
-slice infrastructure. This report contains paper proofs and source results,
-not new Lean theorems or a productivity measurement. Local comparisons refer
-to `b8731310f05efdac29f994706fbc1f32eb77de20`.
+The original #337 assessment below contains paper proofs and source results;
+its local comparisons refer to `b8731310f05efdac29f994706fbc1f32eb77de20`.
+[#346](https://github.com/VladimirMarko/conaled/issues/346) now formalizes the
+external construction. The SDT provider remains a separate investigation in
+[#347](https://github.com/VladimirMarko/conaled/issues/347).
+
+## Checked external construction
+
+[SelectedFixedPoint](../../SquareKit/SelectedFixedPoint.lean) uses Mathlib's
+`OmegaCompletePartialOrder`, `ContinuousHom`, and supremum of the iteration
+chain. `solution_fixed` and `solution_le` recover fixedness and leastness;
+`map_approximants` and `map_solution` derive transport from strictness and
+continuous intertwining. Neither selected-solution preservation nor a
+whole-client theorem is an input field.
+
+[IndexedPartialComputation](../../Examples/IndexedPartialComputation.lean)
+specifies `Cert` and `meaning` independently of that construction.
+`approximants_eq_bounded` computes the finite approximants;
+`solution_eq_meaning` identifies their supremum with the specified enabled
+countdown, including the disabled bottom case. `reindex_solution` applies the
+generic transport theorem, and `two_reindexings` uses it twice to retain
+4 : Fin 5 and [2,1,0]. `observe_solution` applies the same theorem to forget
+only the trace. The examples retain the non-strict constant-map failure and
+Boolean-negation obstruction. A successful result beyond current fuel shows
+why finite exhaustion is unknown rather than divergence evidence.
+
+The checked statements concern mathematical partial denotation and successful
+finite traces. They do not prove adequacy for an external evaluator, provide
+an SDT model, or measure productivity. The abstract solver is noncomputable.
+The bounded formula is identified with its approximant; its bottom outcome
+has no divergence certificate. The intended claims were checked against the
+independent value/trace contract, including the direction of both substitutions
+and retention of the entire certificate before observation.
 
 ## Contract fixed before either construction
 
@@ -227,13 +255,10 @@ the SDT route replaces it with initial iteration and unique extension. Both
 fit the project's practice of deriving a global comparison from local laws,
 but their premises differ.
 
-A bounded implementation proposal under #289/#235 is to formalize flat indexed
-partial certificates, the approximant construction, and strict continuous
-intertwining transport. Check the enabled/disabled examples and two nonidentity
-substitutions above, plus the non-strict constant-map control. Recover an
-ordinary partial-result observation by forgetting the trace through a strict
-continuous map. Do not require the full SDT framework or modify the guarded
-stream API as a prerequisite.
+The bounded external implementation in #346 supplies the partial certificates,
+approximants and transport above. It reuses Mathlib's order infrastructure and
+leaves the guarded-stream API unchanged. Remaining SDT provider work belongs
+to #347.
 
 The external cost is explicit order/continuity infrastructure and proofs that
 chosen operations preserve approximants. SDT could move these obligations into

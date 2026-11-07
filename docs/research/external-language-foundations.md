@@ -21,6 +21,15 @@ This completed first-pass note is retained evidence for
 #286/#287 and records deferred comparisons under #235. This first-pass note's
 proposed comparisons remain evidence, not completed experiments.
 
+## Current coverage
+
+The [#350 coverage map](semantic-traditions-coverage.md) reconciles these
+first-pass leads with completed #295–#301 and #337–#342 results. #343/#344 own
+current institution and generic-calculus experiments; #351/#352 own the distinct
+adjoint quantifier and mode-based compiler successors. Local-universes and
+modal/higher variants retain explicit applicability conditions there.
+
+
 ## Institutions: change the logic while retaining theory structure
 
 **Source result.** Goguen and Burstall's institution consists of signatures,
