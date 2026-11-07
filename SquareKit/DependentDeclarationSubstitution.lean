@@ -59,6 +59,33 @@ variable (D : OperationMap signature S)
   change Fin 1 at i
   fin_cases i
   exact Elimination.subst_zero σ m
+
+@[simp] theorem rename_N (ρ : V → W) : Expr.rename ρ (N (V := V) D) = N D := by
+  rw [← Expr.subst_vars, subst_N]
+@[simp] theorem rename_B (ρ : V → W) (n : Expr S V) :
+    Expr.rename ρ (B D n) = B D (Expr.rename ρ n) := by
+  rw [← Expr.subst_vars, subst_B]
+  simp only [Expr.subst_vars]
+@[simp] theorem rename_C (ρ : V → W) (n y : Expr S V) :
+    Expr.rename ρ (C D n y) = C D (Expr.rename ρ n) (Expr.rename ρ y) := by
+  rw [← Expr.subst_vars, subst_C]
+  simp only [Expr.subst_vars]
+@[simp] theorem rename_s (ρ : V → W) (m : Expr S V) :
+    Expr.rename ρ (s D m) = s D (Expr.rename ρ m) := by
+  rw [← Expr.subst_vars, subst_s]
+  simp only [Expr.subst_vars]
+@[simp] theorem rename_d (ρ : V → W) (m : Expr S V) :
+    Expr.rename ρ (d D m) = d D (Expr.rename ρ m) := by
+  rw [← Expr.subst_vars, subst_d]
+  simp only [Expr.subst_vars]
+@[simp] theorem rename_t (ρ : V → W) (m : Expr S V) :
+    Expr.rename ρ (t D m) = t D (Expr.rename ρ m) := by
+  rw [← Expr.subst_vars, subst_t]
+  simp only [Expr.subst_vars]
+@[simp] theorem rename_u (ρ : V → W) (m : Expr S V) :
+    Expr.rename ρ (u D m) = u D (Expr.rename ρ m) := by
+  rw [← Expr.subst_vars, subst_u]
+  simp only [Expr.subst_vars]
 end Terms
 
 open DependentPairJudgments.TypedSubstitution
