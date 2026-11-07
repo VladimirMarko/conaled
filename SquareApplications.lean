@@ -1,4 +1,6 @@
 import Examples.InstitutionCapabilities
+import Examples.RelationalSemanticBoundary
+import Examples.SelectedPathBoundary
 import Examples.CertifiedIndexConversion
 import Examples.IndexedPartialComputation
 import Examples.SemanticClientBoundary

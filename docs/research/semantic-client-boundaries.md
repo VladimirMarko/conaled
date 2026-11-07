@@ -114,8 +114,10 @@ those paths have the same endpoints. Selected parses survive because they are
 values *inside* the semantic type, and the equivalence identifies only equal
 values. Replacing `P w` with `Nonempty (P w)` would change that contract.
 General dependent or higher interfaces must retain their specified path and
-transport data explicitly; #340 and #342 own the broader comparison. There is
-no claim that every setting admits this quotient boundary.
+transport data explicitly. The [#348 follow-up](relational-and-selected-path-boundaries.md)
+checks distinct full-fiber and selected-witness boundaries, selected groupoid
+action, and retention of an existing higher cell. #343/#344 continue the broader
+comparison. There is no claim that every setting admits this quotient boundary.
 
 Raw `A.R` and square implementations remain accessible for compiler work.
 A compiler pass may inspect or change a flag, choose an algorithm or normalize
