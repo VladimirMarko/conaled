@@ -174,4 +174,3 @@ def selectedAfterF : Derivation (projectionPresentation true) (fun _ => Empty)
   projectionInclusion.transport (fun _ h => Empty.elim h) selectedTwice
 
 end SquareKit.DependentPairTypedClient
-

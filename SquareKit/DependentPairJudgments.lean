@@ -284,5 +284,3 @@ def secondBetaLeftEarlier {H : Judgment projectionSignature → Type}
 end ProjectionBoundary
 
 end SquareKit.DependentPairJudgments
-
-
