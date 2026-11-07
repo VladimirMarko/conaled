@@ -162,8 +162,10 @@ whose constructor/observer induction derives all-term behavior from local
 compatibility. The new interface does not take that final result as a field.
 Examples retain the left tag of an ambiguous empty-word parse through two
 swaps and retain the rejection of a nonempty word. A constructor-context
-example uses the same selected decision, and the pre-existing context with
-star, concatenation and depth restriction remains checked. Finite trie
+example uses the same selected decision. `parser_contextual_fusion` feeds the
+capability-derived local transport law into the existing contextual induction;
+the pre-existing context with star, concatenation and depth restriction is
+checked through that result. Finite trie
 observations still require the word-length bound; there is no parser for every
 arbitrary type-valued language.
 

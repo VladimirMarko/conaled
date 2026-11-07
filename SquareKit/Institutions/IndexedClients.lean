@@ -47,6 +47,21 @@ theorem parser_context {α : Type} [DecidableEq α] {P Q R : Language α}
       LanguageWitnesses.IndexedCompositional.unfold t).lookup w hw).map ((e w).trans (f w)) := by
   rw [parser_pasting, LanguageWitnesses.IndexedCompositional.recovered]
 
+/-- Local capability composition also justifies fusion at holes underneath
+arbitrary supported constructors, through the existing contextual induction. -/
+theorem parser_contextual_fusion {α : Type} [DecidableEq α] {P : Language α} {n}
+    (context : IndexedCompositional.Term LanguageWitnesses.IndexedCompositional.signature
+      LanguageWitnesses.IndexedCompositional.TransportPair (P,n))
+    (w : List α) (hw : w.length ≤ n) :
+    (IndexedCompositional.Term.fold LanguageWitnesses.IndexedCompositional.sourceAlgebra
+      (fun _ p => p) (context.bind LanguageWitnesses.IndexedCompositional.TransportPair.expanded)).parse w =
+    (IndexedCompositional.Term.fold LanguageWitnesses.IndexedCompositional.sourceAlgebra
+      (fun _ p => p) (context.bind LanguageWitnesses.IndexedCompositional.TransportPair.fused)).parse w := by
+  apply LanguageWitnesses.IndexedCompositional.contextual_exact _ _ _ context w hw
+  intro j site word _
+  exact (parser_pasting site.first site.second site.parser word).trans
+    (parse_transport (fun word => (site.first word).trans (site.second word)) site.parser word).symm
+
 /-- A dependent family is a small capability with no proof syntax or compiler. -/
 def familySetting {Γ : Type} (P : Γ → Type) : Setting.{0,0,0} :=
   ⟨Unit, Γ, fun γ _ => P γ⟩

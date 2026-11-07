@@ -123,7 +123,7 @@ example : (Term.fold sourceAlgebra (fun _ p => p)
     (ExactParserRewrites.surrounding.bind TransportPair.expanded)).parse [()] =
     (Term.fold sourceAlgebra (fun _ p => p)
       (ExactParserRewrites.surrounding.bind TransportPair.fused)).parse [()] :=
-  contextual_transport_trans _ _ (by decide)
+  parser_contextual_fusion _ _ (by decide)
 
 namespace Dependent
 open Examples.CompositionalSpecifications

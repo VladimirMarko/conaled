@@ -1,3 +1,4 @@
+import Examples.InstitutionCapabilities
 import Examples.CertifiedIndexConversion
 import Examples.IndexedPartialComputation
 import Examples.SemanticClientBoundary
@@ -446,4 +447,3 @@ import SquareKit.Internal.Cubical.SlicePrism
 import Examples.CubicalFrozenOrdinaryAction
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
-import Examples.InstitutionCapabilities
