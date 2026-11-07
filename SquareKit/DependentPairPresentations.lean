@@ -216,6 +216,11 @@ theorem G_two_substitutions (e : PExpr V) (σ : V → PExpr W) (τ : W → PExpr
   rw [G.substitution, Expr.subst_comp, G.substitution]
   simp only [G.substitution]
 
+@[simp] theorem G_P (A : PExpr V) (B : PExpr (Fin 1 ⊕ V)) :
+    G.act (Projection.P A B) = Elimination.S (G.act A) (G.act B) := by
+  change Elimination.S (unzero (G.act (zero A))) (G.act B) = _
+  simp [zero, G.rename, unzero]
+
 @[simp] theorem G_pair (A : PExpr V) (B : PExpr (Fin 1 ⊕ V)) (a b : PExpr V) :
     G.act (Projection.pair A B a b) =
       Elimination.pack (G.act A) (G.act B) (G.act a) (G.act b) := by
