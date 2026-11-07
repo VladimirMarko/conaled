@@ -5,18 +5,6 @@ import SquareKit.DependentPairEliminationJudgments
 namespace SquareKit.DependentPairJudgments
 open DependentTheoryMaps DependentPairPresentations Elimination Judgment
 
-namespace MetavariableCertificate
-variable {S : Signature} {R : Rules.{1,1} (Judgment S)} {I : Type}
-  {premise : I → Judgment S} {H : Judgment S → Type}
-
-/-- Replay an ordinary proof tree, replacing its leaves by typed certificates. -/
-def ofDerivation (hypotheses : ∀ j, H j → MetavariableCertificate R premise j) :
-    {j : Judgment S} → Derivation R H j → MetavariableCertificate R premise j
-  | _, .hyp h => hypotheses _ h
-  | _, .rule r children => .rule r (fun i => ofDerivation hypotheses (children i))
-
-end MetavariableCertificate
-
 @[simp] theorem secondMotive_rename (ρ : V → W) (A : EExpr V) (B : EExpr (Fin 1 ⊕ V)) :
     Expr.rename (Sum.map id ρ) (secondMotive A B) =
       secondMotive (Expr.rename ρ A) (Expr.rename (Sum.map id ρ) B) := by
@@ -77,7 +65,7 @@ private def fromSchema (schema : Schema eliminationSignature)
       schema.conclusion)
     (ps : ∀ i : Fin schema.premises.length, Cert (premise := premise) (schema.premises.get i)) :
     Cert (premise := premise) schema.conclusion :=
-  MetavariableCertificate.ofDerivation (fun _ h => h.property ▸ ps h.val) d
+  CertificateEnvironment.replay (fun _ h => h.property ▸ ps h.val) d
 
 def first (hΓ : Cert (premise := premise) (ctx Γ)) (hA : Cert (premise := premise) (type Γ A))
     (hB : Cert (premise := premise) (type (Γ.extend A) B)) (p : EExpr V)
