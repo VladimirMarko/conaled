@@ -114,5 +114,39 @@ theorem comp_transport (F : TheoryMap R Q f) (G : TheoryMap Q P g)
     cases hi
     exact (ih i).symm
 
+/-- Compression is associative as local certificate data, before interpreting
+or erasing any administrative node. -/
+theorem comp_assoc {M : Type u} {N : Rules.{u,v} M} {h : L → M}
+    (F : TheoryMap R Q f) (G : TheoryMap Q P g) (H : TheoryMap P N h) :
+    (F.comp G).comp H = F.comp (G.comp H) := by
+  apply congrArg TheoryMap.mk
+  funext r
+  exact (comp_transport G H
+    (B := fun l => {i : R.Arity r // g (f (R.premise r i)) = l})
+    (C := fun m => {i : R.Arity r // h (g (f (R.premise r i))) = m})
+    (fun _ p => ⟨p.val, congrArg g p.property⟩)
+    (fun _ p => ⟨p.val, congrArg h p.property⟩) (F.certificate r)).symm
+
+theorem comp_identity (F : TheoryMap R Q f) : F.comp (identity Q) = F := by
+  apply congrArg TheoryMap.mk
+  funext r
+  exact identity_transport (F.certificate r)
+
+theorem identity_comp (F : TheoryMap R Q f) : (identity R).comp F = F := by
+  apply congrArg TheoryMap.mk
+  funext r
+  change Derivation.graft _ (F.certificate r) = F.certificate r
+  have heq : (fun j (p : {i : R.Arity r // f (R.premise r i) = j}) =>
+      p.property ▸ Derivation.hyp (R := Q)
+        (H := fun k => {i : R.Arity r // f (R.premise r i) = k}) ⟨p.val, rfl⟩) =
+      (fun j p => Derivation.hyp (R := Q) (H := fun k => {i : R.Arity r // f (R.premise r i) = k}) (j := j) p) := by
+    funext j p
+    rcases p with ⟨i, hi⟩
+    cases hi
+    rfl
+  simp only [transport]
+  rw [heq]
+  exact Derivation.graft_identity _
+
 end TheoryMap
 end SquareKit.DependentBranchTheoryMaps
