@@ -7,6 +7,17 @@ other four traditions remain eligible when the promotion conditions below hold.
 This extends [#280's discovery](external-discovery-assessment.md); it does not
 reopen its completed comparisons or exhaust the alternatives.
 
+## Current coverage and successors
+
+This is the frozen #301 assessment. Its proposed #337/#338 paper studies are
+complete; #346/#347 and #345 own their implementation/provider successors.
+The [#350 coverage map](semantic-traditions-coverage.md) replaces the residual
+ownership table below for current scheduling. In particular #296 and #300 are
+closed bounded comparisons, not active owners of classical-pole or relational
+hiding work. Their remaining questions now have open programme owners and
+explicit promotion tests. #351/#352 own the two promoted adjoint experiments.
+
+
 ## Capability brief and exposure
 
 The starting requirements were those of the [language direction](../language-direction.md):

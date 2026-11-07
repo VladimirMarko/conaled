@@ -22,6 +22,15 @@ This completed first-pass note is retained evidence for
 #286/#287 and records deferred comparisons under #235. This first-pass note's
 proposed comparisons remain evidence, not completed experiments.
 
+## Current coverage
+
+The [#350 coverage map](semantic-traditions-coverage.md) records which leads
+below became worked paper comparisons or checked results and which remain
+conditional. #296/#298/#299/#300 are closed bounded studies. Their remaining
+handler, higher-order probability, quantitative and hiding questions have open
+programme owners there; closure does not mean those traditions are exhausted.
+
+
 ## Algebraic effects and call-by-push-value
 
 Plotkin and Pretnar's *Handling Algebraic Effects*, LMCS 9(4:23), 2013,
