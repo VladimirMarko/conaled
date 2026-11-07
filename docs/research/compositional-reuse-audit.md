@@ -217,15 +217,16 @@ completion of that evaluation.
 
 | Priority and owner | Concrete next acceptance test | What would justify rejection or deferral |
 |---|---|---|
-| First: #343, coordinated with #350 | Where adjunction hypotheses fit, derive curry/evaluation/mate compatibility from existing results; compare a shared-meaning wrapper with separate capabilities. Include an actual logic change and a selected-witness consumer. | Packaging final preservation as fields with no derived reuse; imposing an adjunction on arbitrary interpretation maps. |
-| First: #235, scoped reuse successor proposed below | Recover parser word observations through typed paths and FIFO state erasure through existing fusion; include a second non-parser observation client and one FRP factorization comparison. | Adapters exceed recurring work without exposing new capability; keep short native facades rather than force migration. |
+| First: #343, coordinated with [#351](https://github.com/VladimirMarko/conaled/issues/351) | Where adjunction hypotheses fit, derive curry/evaluation/mate compatibility from existing results; compare a shared-meaning wrapper with separate capabilities. Include an actual logic change and a selected-witness consumer. | Packaging final preservation as fields with no derived reuse; imposing an adjunction on arbitrary interpretation maps. |
+| First: [#353](https://github.com/VladimirMarko/conaled/issues/353), under #235 | Recover parser word observations through typed paths and FIFO state erasure through existing fusion; include a second non-parser observation client and one FRP factorization comparison. | Adapters exceed recurring work without exposing new capability; keep short native facades rather than force migration. |
 | In parallel: #344 | Compare signature-changing dependent theory maps with the existing same-signature `RuleInterpretation` specialization. | A fixed indexed AST alone is not a substitute for the required dependent substitution result. |
 | In parallel: #348 | Retain relational and higher-identity observations through an appropriate semantic boundary. | Graphifying a many-valued relation by arbitrarily choosing a point, or truncating selected higher data. |
 | Existing owner: #25/#8 | Reproduce the three matched Felix tasks and record complete caller obligations. | Import counts or this audit's source reading are not the requested comparison. |
-| Existing owner: #350 | Test adjoint categorical and mode-based approaches on independent clients; coordinate the mate capability with #343. | Adjoint uniqueness is not evidence that arbitrary compiler or institution arrows form an adjunction. |
+| Follow-ups: [#351](https://github.com/VladimirMarko/conaled/issues/351) and [#352](https://github.com/VladimirMarko/conaled/issues/352), from #350 | Test adjoint categorical and mode-based approaches on independent clients; coordinate the mate capability with #343. | Adjoint uniqueness is not evidence that arbitrary compiler or institution arrows form an adjunction. |
 
-Proposed successor under #235: **Exercise shared finite observation and execution
-adapters across parser, FIFO and FRP clients.** Freeze the existing public
+Successor [#353](https://github.com/VladimirMarko/conaled/issues/353), under #235:
+**Exercise shared finite observation and execution adapters across parser, FIFO
+and FRP clients.** Freeze the existing public
 statements and native implementations above. Implement the word-path adapter
 and the native-run/fold identification, recover the selected-decision and
 state-erasure theorems, and compare one FRP factorization through the same
@@ -233,5 +234,5 @@ finite-execution machinery. Require exact silent/tagged outputs, a redundant
 queue representation, arbitrary finite inputs, and the cost countercase.
 Record setup versus recurring obligations and preserve native APIs. The result
 may reject an adapter after the checked comparison; no universal runner or
-repository-wide migration is prescribed. #235 owns this proposal until a
-successor ticket is assigned during orchestration.
+repository-wide migration is prescribed. #353 owns the bounded experiment;
+#235 retains coordination of broader architectural reuse.
