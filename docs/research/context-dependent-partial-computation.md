@@ -11,8 +11,9 @@ base-change coherence.
 The original #337 assessment below contains paper proofs and source results;
 its local comparisons refer to `b8731310f05efdac29f994706fbc1f32eb77de20`.
 [#346](https://github.com/VladimirMarko/conaled/issues/346) now formalizes the
-external construction. The SDT provider remains a separate investigation in
-[#347](https://github.com/VladimirMarko/conaled/issues/347).
+external construction. [#347's concrete effective-topos assessment](effective-topos-selected-solutions.md)
+now discharges the SDT package for this certificate family on paper, including
+slice comparisons and two substitutions. It does not add a Lean SDT provider.
 
 ## Checked external construction
 
@@ -208,10 +209,12 @@ uniquely by completeness. Thus the selected solution is bottom there. The
 Boolean case split proves the independent graph in the original slice.
 The base-change package must include these two restrictions as well as σ, τ.
 
-This is a conditional solution to exactly the same client, without assuming
-a least-fixed-point order internally. It does **not** construct a concrete
-SDT topos or discharge completeness of this XΓ. That is the remaining model
-obligation, and the reason to investigate rather than adopt the whole route.
+This #337 argument is a conditional solution to exactly the same client,
+without assuming a least-fixed-point order internally. It does **not** itself
+construct a concrete SDT topos or discharge completeness of this XΓ.
+The [#347 follow-up](effective-topos-selected-solutions.md) discharges that
+model obligation on paper in Eff for this family; it also states the narrower
+internal-morphism substitution boundary and the cost of formalizing a provider.
 The external family construction already supplies an unconditional classical
 set-based instance; it is not evidence that classical Set satisfies the SDT
 package for arbitrary objects and maps.
