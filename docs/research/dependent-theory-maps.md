@@ -70,8 +70,33 @@ this obligation.
 | Ordinary `TheoryMap` | Local certificates derive whole-proof transport; identity and compressed composition preserve actual Lean derivation trees. | This does not imply semantic reflection or equivalence of calculi. |
 | Typed certificate maps | Local typed premise applications are discharged into ordinary derivations by substitution admissibility. | Arbitrary open assumptions are not automatically stable under substitution. |
 | `CertificatePipeline` | Staged maps compose; running identity, composition and reassociation gives equal resulting derivation trees. | Staging alone is not compression of local certificates. |
+| Administrative certificate maps | Arbitrary local maps compose by substituting their certificates, including typed-substitution instructions. Identity, associativity and composition preserve whole administrative proof trees; actual F/G erases to the retained compiler exactly. | This does not identify trees produced by arbitrary independent ordinary substitution algorithms. |
 | `RuleReplay` composition | Precomposition of any typed map by a rule replay produces one local certificate map. The actual F/G composite `fullFG` has exactly the same transported proof tree as executing F then G. | This does not establish arbitrary typed-map fusion without a compatible substitution action. |
 | Selected declaration meaning | Independent quotations of the selected source and target expressions have the same dependent tuple, including the chosen `6 : Fin 7`. | This is not a semantic interpretation of every raw expression or a soundness theorem for all model rules. |
+
+`DependentBranchTheoryMaps` supplies generic maps for rule tables with indexed
+premise families. `Administrative.rules` extends the proof representation with a
+typed-substitution instruction whose children are the source proof, destination
+context proof and every typed argument proof. These are administrative proof
+instructions, not additional rules of the object calculus. `erase` removes them
+using the already checked substitution theorem; `erase_embed` recovers every
+original derivation.
+
+`Administrative.lift` turns any syntax-induced `MetavariableTheoryMap` into a
+map of these trees. The substitution instruction's local certificate follows
+from syntax substitution and context-lookup naturality, with no assumed global
+transport law. Generic `TheoryMap.comp` substitutes complete certificates into
+one another, including nested administrative instructions. Its identity,
+associativity and action laws use literal Lean equality of the retained trees.
+The representation permits arbitrary expansion followed by expansion, rather
+than restricting the first map to rule replay. `erase_lift` connects the lifted
+action on ordinary input proofs to the old translator by equality of complete
+ordinary proof trees. The actual `pairF`, `pairG` and `pairFG` instantiate this
+construction; `pair_erases` and the selected client's
+`administrative_afterBoth` recover the existing compiled derivation exactly.
+Erasure after administrative composition is therefore a specified compilation
+route. It is not a claim that all independently selected ordinary substitution
+reconstruction algorithms yield identical intermediate trees.
 
 Derivation trees live in `Type`, retain premise occurrence and rule choices, and
 are compared with Lean propositional equality. The ordinary identity/composition

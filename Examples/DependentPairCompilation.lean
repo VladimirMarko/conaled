@@ -1,5 +1,5 @@
 import Examples.DependentPairSelectedMeaning
-import SquareKit.DependentPairTheoryMap
+import SquareKit.DependentPairAdministrativeCompilation
 import SquareKit.DependentProjectionBoundaries
 import SquareKit.DependentEliminationBoundaries
 
@@ -30,6 +30,16 @@ theorem staged_afterBoth : pairPipeline.run selectedTwice = afterBoth :=
 theorem compressed_afterBoth :
     fullFG.transportClosed (TypedSubstitution.fullEliminationLocal _) selectedTwice = afterBoth :=
   compressed_compiles selectedTwice
+
+/-- The general administrative composition retains every proof instruction,
+including typed substitutions introduced by local certificates. -/
+def administrativeAfterBoth := Administrative.pairFG.transport (H' := fun _ => Empty)
+  (fun _ h => Empty.elim h) (Administrative.embed selectedTwice)
+
+/-- Erasure recovers the previously checked selected derivation exactly. -/
+theorem administrative_afterBoth :
+    Administrative.erase (TypedSubstitution.fullEliminationLocal _) (fun _ h => Empty.elim h)
+      administrativeAfterBoth = afterBoth := Administrative.pair_erases selectedTwice
 
 /-- The target expression is the independently declared target section at d(k). -/
 theorem target_expression : G.act (u (d (.var m))) =
