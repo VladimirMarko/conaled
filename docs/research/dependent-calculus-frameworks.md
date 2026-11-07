@@ -2,7 +2,8 @@
 
 Issue [#342](https://github.com/VladimirMarko/conaled/issues/342), under #289 and
 #290. This report recommends **investigating a boundary-checked presentation
-layer**, using the finitary framework as the first formalization candidate.
+layer**, using BHL's existing syntax-changing theory maps together with an HB-style
+contextual boundary discipline as the first formalization candidate.
 Retain #339 for its present clients. The evidence does not yet justify replacing
 the guarded engine, but an adapter to that engine is not a prerequisite for
 investigating a replacement.
@@ -34,9 +35,13 @@ empty conclusion contexts, and congruence closure for acceptability. Definition
 6.20 additionally organizes boundary evidence over predecessor rules. Theorem
 5.15 needs weak presuppositivity; 5.22 needs substitutivity and congruity.
 For uniqueness/inversion (5.23/5.27), use the sufficient acceptable-theory
-hypotheses here. These are syntactic metatheorems, not a theorem that every theory
-has a model. Appendix A distinguishes paper results from partial Coq coverage;
-it lists uniqueness and inversion as unformalized in that version.
+hypotheses here. Section 6.5 assumes sequential contexts, rules and boundaries. Definitions
+6.22/6.24 give expression-template syntax maps and theory maps carrying
+primitive-rule derivations. Propositions 6.23/6.25 give categories and functorial
+actions on expressions and derivations. This needs raw theory maps, not
+acceptability. These are syntactic results, not model-existence theorems.
+Appendix A distinguishes partial Coq coverage; it lists uniqueness and inversion
+as unformalized in that version.
 [BHL, §§3–6 and Appendix A](https://arxiv.org/html/2009.05539v1).
 
 **Haselwarter and Bauer (HB), v1.** Definition 2.18 requires a well-founded rule
@@ -180,7 +185,9 @@ the two projection beta equations. Its eta equation is preserved by those
 same computations and Pη eta. Thus the stronger projection contract supplies
 full dependent elimination in this paper test; the weaker one does not.
 We do not claim that G/H return identical raw terms or identical proof trees,
-or prove a general round-trip theorem here.
+or prove a general round-trip theorem here. This is distinct from functoriality
+of translation along a composite map, which BHL Proposition 6.25 supplies in its
+own derivation representation.
 
 ## Two substitutions and selected semantic data
 
@@ -273,7 +280,8 @@ current Lean declarations already inhabit the authors' definitions.
 | Well-founded rule order | The finite order just listed, with the client declarations in their displayed dependency order. More precisely, rule-boundary checking may assume its premise metavariables; it cannot assume the new conclusion or an unintroduced symbol. This is the predecessor discipline in BHL 6.20 / HB 2.18. |
 | Structural reuse | HB raw closure already supports weakening, typed substitution and metavariable instantiation. Boundary evidence permits economic application; BHL's admissible elimination of explicit substitution applies after its substitutive/congruous checks. Neither result gives normalization. |
 | Presuppositions and typing | HB's well-formed variable/metavariable contexts must be carried with each derivation before using 3.18. Standardness then applies to these explicit-argument terms. In BHL use the acceptable package, not just an arbitrary rule list. |
-| Local interpretation certificates | F replays rules; G uses split beta and the specified eta equation; H uses projection beta and eta conversion. These certificates are additional input. Acceptability alone cannot invent them or make the rejected map exist. |
+| Local interpretation certificates | BHL 6.22/6.24: F uses generic symbol applications and replayed rules; G uses the displayed first/second templates and split-beta/eta derivations; H uses projection templates and eta conversion. Images of constructor congruence rules follow by target congruence induction on the templates. The maps fix variables and preserve syntactic classes and argument binding scopes. These are additional input certificates; acceptability cannot invent them. |
+| Generic map composition | BHL 6.23/6.25 applies after encoding these sequential presentations and certificates. It derives the full expression/derivation action, identity, composition and functoriality. No semantic model, normalization or acceptability hypothesis is required for this raw-map result. |
 | Semantic interpretation | Set-family operations and validity of each primitive rule, including congruence and substitution compatibility. This is a separately supplied model construction. Neither syntactic framework supplies all-model existence, selected representatives, or an arbitrary CwF soundness theorem merely from finitarity. |
 
 There is a concrete subtlety in the rule order: the dependent second beta's
@@ -282,40 +290,66 @@ second needs beta to type its branch. A generic presentation layer must allow
 boundary derivations using preceding **equations**, rather than restricting all
 equations to a final phase after every object boundary has been fixed.
 
-## What local-to-global transport would derive
+## Existing local-to-global transport and remaining work
 
-For this test define an interpretation by (i) expression templates for symbols,
-with their scoped arguments; (ii) typing and rule derivations at translated
-boundaries. Preserve variables and binders, and translate every declaration
-boundary as well. Recursive expression translation derives commutation with
-substitution. Derivation induction then proves judgment preservation:
-structural cases use target structural rules, and primitive cases instantiate
-the selected local rule certificate and cut in translated premise derivations.
-Dependent boundary conversion is handled by the typed equality/congruence
-cases, not by an untyped congruence shortcut.
+BHL already provides the syntax-changing generalization of #339's proof pattern.
+In Definition 6.22, a symbol S maps to an expression of its result class over the
+target signature extended by S's argument metavariables, at empty external
+scope. Recursion instantiates this template with translated arguments, preserving
+variables and extending trivially over metavariables. Definition 6.24 additionally
+supplies a derivation of each translated specific rule. The section's sequential
+context/rule/boundary convention applies; acceptability and well-presentation
+are not additional hypotheses of this raw-map construction.
 
-Identity uses each primitive rule's own derivation. To compose I and J, translate
-I's symbol templates and its certificates through J. Expression induction
-proves identity and associativity of the resulting expression maps modulo
-alpha; it also proves the substitution equation used above. Proof certificates
-compose, but equality of proof trees needs a separate quotient/coherence policy.
-A target semantic model can be reduced by evaluating the translated templates;
-soundness of the local certificates establishes source rule validity. In the
-set-family instance, the semantics of a composite translation agrees with two
-successive reducts by expression evaluation induction and substitution.
+For F, the templates are generic applications of the unchanged symbols. For G,
+they are S/pack and the displayed first/second expansions. For H, the split
+template is the substituted branch `e(fst(p),snd(p))`. Their rule certificates
+were calculated above; target congruence applied recursively to each template
+handles the images of the associated constructor congruence rules. Thus these
+are proposed instances of the **existing** raw theory map definition, once the
+paper presentations are encoded in BHL's syntax. Their semantic validity is not
+being substituted for the required syntactic derivations.
 
-This is our proposed generalization of the #339 proof pattern to binding syntax
-and changing signatures. It is a worked paper argument, **not** an attributed
-BHL/HB theorem that automatically provides a category of arbitrary semantic
-interpretations. Their metatheorems supply structural steps after the stated
-hypotheses are checked. The additional translation and model interface still
-needs design and proof. [#340](https://github.com/VladimirMarko/conaled/issues/340)
+Proposition 6.23 gives identity and composition of syntax maps and functorial
+expression action. Proposition 6.25 derives the action on whole derivations:
+structural rules translate structurally; a specific-rule instance uses the
+translated local certificate, instantiates it, and grafts in translated premise
+derivations. Its proof uses compatibility of syntax-map action with instantiation,
+the property needed for this report's dependent substitution calculation. The
+composite sends each rule certificate through the second map. The proposition
+also states `(J ∘ I)₊ D = J₊(I₊ D)` for derivations, not merely equality of final
+judgments. Identity and associativity come with its category `RawTh`.
+[BHL §6.5, Definitions 6.22/6.24 and Propositions 6.23/6.25](https://arxiv.org/html/2009.05539v1#S6.SS5).
+
+Accordingly, arbitrary proof-tree coherence is not an unspecified missing
+mathematical ingredient of that source construction. A Lean port must establish
+the stated functoriality for its chosen representation, or relate that
+representation to the source's. It cannot infer equality of existing guarded
+Lean derivation trees from the paper. Nor does functorial composition establish
+G/H inverse maps or a round-trip theorem for all source terms.
+
+What remains additional is semantic interpretation. A target set-family model
+can be reduced by evaluating the translated templates; soundness of the local
+certificates establishes source rule validity. Expression evaluation induction
+and substitution prove agreement between the semantics of a composite and two
+successive reducts. This is our paper construction, not a semantic-model theorem
+asserted by Propositions 6.23/6.25. The selected values calculated above are
+retained because these particular evaluations preserve the chosen terms. A
+comparison of arbitrary dependent models must separately supply its action on
+types, terms and witnesses, substitution compatibility, and required coherence.
+Raw theory maps alone do not construct such comparisons or selected sections.
+
+The new infrastructure work is therefore a **port or adaptation of existing
+syntactic machinery**, plus the semantic connection required by our clients.
+Using HB's presentation rather than BHL's requires a proved adaptation of the
+map construction and its structural cases; HB's context-free correspondence is
+not that bridge. [#340](https://github.com/VladimirMarko/conaled/issues/340)
 owns changes of underlying logic and the broader satisfaction/computation
 interface; this test keeps its judgmental logic fixed.
 
 | Claim | Established scope in this report |
 |---|---|
-| Judgment preservation | Paper derivation induction for F, G and H, including common dependent boundaries. |
+| Judgment preservation | F/G/H certificates are paper calculations. BHL 6.25 provides generic derivation transport once they are encoded as its raw theory maps. No Lean instantiation is supplied here. |
 | Semantic soundness | Paper set-family interpretation, exact selected client evaluation, and flag countermodel. |
 | Reconstruction | No general engine-to-calculus reconstruction. HB's annotated-presentation reconstruction has its own hypotheses. |
 | Conservativity/reflection | No general claim. The syntax-fixing Pη-to-Pβ map is disproved. Nothing here rules out other encodings. |
@@ -336,22 +370,27 @@ No syntactic identification with the binding calculus above is assumed.
 | Cost or capability | Current checked approach | Proposed framework experiment |
 |---|---|---|
 | Adding a dependent constructor | Extend reference judgments/rules and their constructor inductions where required; discharge guarded validation. | Supply explicit binding arity, ordered boundary evidence and primitive laws; instantiate generic structural results. |
-| Reusing source proofs | #339 derives transport/cut from per-rule certificates over one signature. | Same pattern, with derived traversal of binding syntax and changing signatures; new proof obligation at infrastructure level. |
+| Reusing source proofs | #339 derives transport/cut from per-rule certificates over one signature. | BHL 6.22–6.25 already derives syntax-changing transport and functorial composition from templates/certificates. Port that construction, or prove its HB adaptation, once at infrastructure level. |
 | Typing presuppositions | Reference constructors and dedicated presupposition lemmas; source equality formation can require explicit endpoint work. | Generic theorem and economic rule forms after boundary certificates; no removal of legitimate formation obligations. |
 | Changing equality/pair requirements | Existing separate capabilities and adapters. | Separate presentations and equations; failed interpretation still requires an obstruction. Neither framework makes incompatible contracts equivalent. |
 | Semantic models and witnesses | Existing Type-family, restricted separators and higher providers; concrete selected clients checked. | Not supplied by finitarity. Rebuild/relate required interpretations and preserve actual term/witness data. |
-| First-use cost | Existing code can be reused now. | Implement binding syntax, boundary judgments, generic metatheory and syntax-changing interpretations. |
+| First-use cost | Existing code can be reused now. | Implement binding syntax and boundary judgments; port generic metatheory and BHL theory maps, proving any presentation adaptation. |
 | Repeated-use cost | Some constructor-specific induction and conversion work remains. | Boundary evidence persists, but generic structural inductions should disappear from each new fragment. This is a testable prediction, not measured productivity. |
 
 **Adopt now:** keep independent source specifications and explicit pair-law
 requirements; use #339 for existing same-signature proof reuse. Record the
 projection-only/eliminator distinction whenever reusing this report's model.
 
-**Investigate:** a bounded HB-style contextual presentation layer. It directly
-exposes the predecessor-boundary certificates used by this test. BHL remains the
-comparison for acceptable versus well-presented theories and for more general
-scope systems. The choice is for the first experiment, not a conclusion that
-BHL is less expressive or that HB is the final architecture.
+**Investigate:** reuse BHL's raw syntax/theory map construction as the transport
+foundation, paired with a bounded contextual boundary discipline. HB remains a
+candidate for that discipline because its explicit predecessor-boundary
+certificates directly match the test and support economic rule application.
+This revises the initial HB-first recommendation: BHL is a source of the desired
+generic transport and composition, not just an acceptability comparison. Before
+choosing an HB adaptation, compare its bridge obligations with a direct BHL
+sequential/well-presented encoding of Pβ/Pη/Eη. Prefer the direct encoding if
+adaptation adds duplicate structural proofs. The first experiment should settle
+that choice; no claim of HB superiority or final architecture follows.
 
 **Defer:** the context-free frontend and its annotation/assumption-set machinery
 until an authoring consumer needs it. Also defer an executable translator as
@@ -360,14 +399,18 @@ claim. **Reject as a premise:** one strongest calculus, a presumed lattice, or
 a general reverse compiler. None is needed to derive the reusable operations
 shown here.
 
-The next formalization should implement the contextual binding/typing layer and
-its generic substitution/presupposition results, then independently instantiate
-Pβ and Pη, followed by Eη and F/G. Its acceptance tests are the displayed
+The next formalization should first encode the displayed rule boundaries in
+BHL's sequential syntax and compare them with the HB encoding. Record any
+additional bridge lemmas before choosing the implementation presentation. Port
+BHL 6.22–6.25 directly or prove the chosen adaptation, including functoriality on
+derivations, alongside generic substitution/presupposition results. Then
+independently instantiate Pβ and Pη, followed by Eη and F/G. Its acceptance tests are the displayed
 selected client under σ and τ, the full set-family flag separator, and an
 extension whose second beta cannot be admitted before first beta. Derive
 whole-proof transport from local templates/certificates; do not accept a record
-whose principal field is that final transport theorem. Check composition on
-judgments and selected terms before choosing any proof-tree coherence contract.
+whose principal field is that final transport theorem. Check the source's functorial derivation-action law for the chosen Lean
+representation, as well as composition on judgments and selected terms. Keep
+semantic-model coherence and G/H round trips separate from this syntactic law.
 
 Compare setup effort separately from adding Eη after Pβ/Pη: count newly authored
 structural induction proofs, explicit boundary certificates, repairs, and agent
