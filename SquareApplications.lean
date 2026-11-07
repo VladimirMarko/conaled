@@ -2,6 +2,7 @@ import Examples.InstitutionCapabilities
 import Examples.RelationalSemanticBoundary
 import Examples.SelectedPathBoundary
 import Examples.DependentPairCompilation
+import Examples.DependentPairTemplateComposition
 import SquareKit.DependentPairTemplates
 import SquareKit.DependentSequentialOrder
 import Examples.CertifiedIndexConversion

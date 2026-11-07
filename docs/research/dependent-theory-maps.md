@@ -26,7 +26,15 @@ A `TemplateMap` supplies one closed expression over argument metavariables per
 source symbol. Its interpretation derives substitution compatibility from the
 generic instantiation lemmas. The concrete `Gtemplate` expands projections to
 split expressions; `Gtemplate_act` proves agreement with the independently
-written raw translation. Identity templates are checked as well.
+written raw translation. `TemplateMap.comp` constructs actual finite closed
+composite bodies by lifting the second map through the first symbol's argument
+metavariables. Nested instantiation fusion proves `comp_act`: interpreting the
+composite agrees with successive interpretation on every scoped expression.
+Identity and associativity laws hold as equality of those expression actions;
+we do not claim literal equality of raw template-body records. This syntax-level
+construction is separate from proof-certificate composition below. The concrete
+`FGtemplate` composes identity with G and maps the selected twice-substituted
+client to the independently written target `u(d(k))`.
 
 This is a bounded contextual adaptation, not a literal transcription of every
 BHL judgment form. The raw expression carrier is unclassified; contextual
