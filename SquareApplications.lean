@@ -1,3 +1,4 @@
+import Examples.SemanticClientBoundary
 import Examples.TwoFamilyFrozenSourceConjugation
 import SquareKit.Internal.PathTransport.TwoFamilySourceEndpointFiberAction
 import Examples.TwoFamilySelectedVerticalAction
@@ -444,4 +445,3 @@ import Examples.CubicalFrozenOrdinaryAction
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
-import Examples.SemanticClientBoundary
