@@ -217,6 +217,23 @@ by the source symbol's argument metavariables, with empty external scope. -/
 abbrev TemplateMap (S T : Signature) :=
   (s : S.Symbol) → Expr (extend T (symbolMetavariables S s)) Empty
 
+/-- The generic application of an argument metavariable to its bound variables. -/
+def metaApplication {S : Signature} {M : Metavariables} (m : Fin M.count) :
+    Expr (extend S M) (Fin (M.arguments m) ⊕ Empty) :=
+  .app (.inr m) (fun i => Expr.rename Sum.inr (.var (.inl i)))
+
+@[simp] theorem instantiate_metaApplication {S : Signature} {M : Metavariables}
+    (a : Assignment S M V) (m : Fin M.count) :
+    instantiate (Expr.lift (n := M.arguments m) Empty.elim)
+      (a.weaken (M.arguments m)) (metaApplication m) = a m := by
+  simp only [metaApplication, instantiate, instantiate_rename, Assignment.weaken]
+  have h : Sum.elim (fun i => Expr.var (S := S) (Sum.inl i)) Expr.var ∘ Sum.map id Sum.inr =
+      (Expr.var : Fin (M.arguments m) ⊕ V → Expr S _) := by
+    funext v; cases v <;> rfl
+  change Expr.subst (Sum.elim (fun i => Expr.var (Sum.inl i)) Expr.var)
+    (Expr.rename (Sum.map id Sum.inr) (a m)) = _
+  rw [Expr.subst_rename, h, Expr.subst_id]
+
 namespace TemplateMap
 variable {S T : Signature}
 
@@ -236,6 +253,28 @@ explicit template instantiation, with no client theorem supplied as a field. -/
 theorem substitution (F : TemplateMap S T) (f : V → Expr S W) (e : Expr S V) :
     (toSyntax F).act (Expr.subst f e) =
       Expr.subst (fun v => (toSyntax F).act (f v)) ((toSyntax F).act e) := (toSyntax F).substitution f e
+def identity (S : Signature) : TemplateMap S S :=
+  fun s => .app (.inl s) (fun i => metaApplication (M := symbolMetavariables S s) i)
+
+@[simp] theorem identity_operation (s : S.Symbol)
+    (a : Assignment S (symbolMetavariables S s) V) :
+    (operations (identity S)).operation s a = Expr.app s a := by
+  change Expr.app s (fun i => instantiate (Expr.lift Empty.elim)
+    (a.weaken (S.binds s i)) (metaApplication (M := symbolMetavariables S s) i)) = Expr.app s a
+  congr 1
+  funext i
+  exact instantiate_metaApplication a i
+
+@[simp] theorem identity_act (e : Expr S V) : (toSyntax (identity S)).act e = e := by
+  induction e with
+  | var => rfl
+  | app s es ih =>
+    change (operations (identity S)).operation s
+      (fun i => (toSyntax (identity S)).act (es i)) = Expr.app s es
+    rw [identity_operation]
+    congr 1
+    funext i
+    exact ih i
 end TemplateMap
 
 end SquareKit.DependentTheoryMaps
