@@ -1,5 +1,6 @@
 import SquareKit.DependentPairEliminationJudgments
 import SquareKit.DependentTypedSubstitution
+import SquareKit.DependentPairEliminationCongruence
 
 /-! Rule-local typed substitution reconstruction for the eliminator presentation. -/
 namespace SquareKit.DependentPairJudgments
@@ -152,6 +153,129 @@ def eliminationStep (r : EliminationRule)
     exact eliminationRule primitive (.eta Δ (Expr.subst σ A) (Expr.subst (Expr.lift σ) B) (Expr.subst σ p))
       (Fin.cases s.context (Fin.cases pa (Fin.cases pb
         (Fin.cases (by simpa [EliminationRule.schema, EliminationRule.family, EliminationRule.motiveBranch, Judgment.type, Judgment.term, branchContext, Form.subst, subst_S] using pp) (fun i => nomatch i)))))
+
+def eliminationCongruenceStep
+    (congruence : TheoryMap (rulesOf EliminationCongruence.schema) R id)
+    (r : EliminationCongruence)
+    (rec : ∀ i : Fin (EliminationCongruence.schema r).premises.length,
+      Reindexed (R := R) (H := H) ((EliminationCongruence.schema r).premises.get i)) :
+    Reindexed (R := R) (H := H) (EliminationCongruence.schema r).conclusion := by
+  have app (r : EliminationCongruence)
+      (ps : ∀ i : Fin (EliminationCongruence.schema r).premises.length,
+        Derivation R H ((EliminationCongruence.schema r).premises.get i)) :
+      Derivation R H (EliminationCongruence.schema r).conclusion :=
+    (congruence.certificate r).graft (fun _ h => h.property ▸ ps h.val)
+  cases r with
+  | formation Γ A A' B B' =>
+    dsimp [EliminationCongruence.schema, EliminationCongruence.families,
+      EliminationCongruence.endpoints, Judgment.typeEq, Judgment.termEq] at rec ⊢
+    intro W Δ σ s
+    have pa := rec 1 Δ σ s
+    have pa' := rec 2 Δ σ s
+    have sa := lift structural s A pa
+    have sa' := lift structural s A' pa'
+    have pb := rec 3 _ (Expr.lift σ) sa
+    have pb' := rec 4 _ (Expr.lift σ) sa'
+    have hab := rec 5 Δ σ s
+    have hbb := rec 6 _ (Expr.lift σ) sa
+    have result := app (.formation Δ (Expr.subst σ A) (Expr.subst σ A') (Expr.subst (Expr.lift σ) B) (Expr.subst (Expr.lift σ) B'))
+      (by
+        refine (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (fun i => nomatch i))))))))
+        · exact s.context
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using pa
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using pa'
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using pb
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using pb'
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using hab
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using hbb
+      )
+    simpa [EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using result
+  | pack Γ A A' B B' a a' b b' =>
+    dsimp [EliminationCongruence.schema, EliminationCongruence.families,
+      EliminationCongruence.endpoints, Judgment.typeEq, Judgment.termEq] at rec ⊢
+    intro W Δ σ s
+    have pa := rec 1 Δ σ s
+    have pa' := rec 2 Δ σ s
+    have sa := lift structural s A pa
+    have sa' := lift structural s A' pa'
+    have pb := rec 3 _ (Expr.lift σ) sa
+    have pb' := rec 4 _ (Expr.lift σ) sa'
+    have hab := rec 5 Δ σ s
+    have hbb := rec 6 _ (Expr.lift σ) sa
+    have h7 := rec 7 Δ σ s
+    have h8 := rec 8 Δ σ s
+    have h9 := rec 9 Δ σ s
+    have h10 := rec 10 Δ σ s
+    have result := app (.pack Δ (Expr.subst σ A) (Expr.subst σ A') (Expr.subst (Expr.lift σ) B) (Expr.subst (Expr.lift σ) B') (Expr.subst σ a) (Expr.subst σ a') (Expr.subst σ b) (Expr.subst σ b'))
+      (by
+        refine (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (fun i => nomatch i))))))))))))
+        · exact s.context
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using pa
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using pa'
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using pb
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using pb'
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using hab
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using hbb
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using h7
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using h8
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using h9
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using h10
+      )
+    simpa [EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using result
+  | split Γ A A' B B' D D' e e' p p' =>
+    dsimp [EliminationCongruence.schema, EliminationCongruence.families,
+      EliminationCongruence.endpoints, Judgment.typeEq, Judgment.termEq] at rec ⊢
+    intro W Δ σ s
+    have pa := rec 1 Δ σ s
+    have pa' := rec 2 Δ σ s
+    have sa := lift structural s A pa
+    have sa' := lift structural s A' pa'
+    have pb := rec 3 _ (Expr.lift σ) sa
+    have pb' := rec 4 _ (Expr.lift σ) sa'
+    have hab := rec 5 Δ σ s
+    have hbb := rec 6 _ (Expr.lift σ) sa
+    have pS := eliminationRule primitive (.formation Δ (Expr.subst σ A) (Expr.subst (Expr.lift σ) B))
+      (Fin.cases s.context (Fin.cases pa (Fin.cases pb (fun i => nomatch i))))
+    have tyS : Proof (R := R) (H := H) Δ (.type (Expr.subst σ (S A B))) := by
+      simpa [EliminationRule.schema, Judgment.type, Form.subst, subst_S] using pS
+    have ss := lift structural s (S A B) tyS
+    have sab := lift structural sa B pb
+    have pS' := eliminationRule primitive (.formation Δ (Expr.subst σ A') (Expr.subst (Expr.lift σ) B'))
+      (Fin.cases s.context (Fin.cases pa' (Fin.cases pb' (fun i => nomatch i))))
+    have tyS' : Proof (R := R) (H := H) Δ (.type (Expr.subst σ (S A' B'))) := by
+      simpa [EliminationRule.schema, Judgment.type, Form.subst, subst_S] using pS'
+    have ss' := lift structural s (S A' B') tyS'
+    have sab' := lift structural sa' B' pb'
+    have h7 := rec 7 _ (Expr.lift σ) ss
+    have h8 := rec 8 _ (Expr.lift σ) ss'
+    have h9 := rec 9 _ (Expr.lift σ) ss
+    have h10 := rec 10 _ (Expr.lift (Expr.lift σ)) sab
+    have h11 := rec 11 _ (Expr.lift (Expr.lift σ)) sab'
+    have h12 := rec 12 _ (Expr.lift (Expr.lift σ)) sab
+    have h13 := rec 13 Δ σ s
+    have h14 := rec 14 Δ σ s
+    have h15 := rec 15 Δ σ s
+    have result := app (.split Δ (Expr.subst σ A) (Expr.subst σ A') (Expr.subst (Expr.lift σ) B) (Expr.subst (Expr.lift σ) B') (Expr.subst (Expr.lift σ) D) (Expr.subst (Expr.lift σ) D') (Expr.subst (Expr.lift σ) e) (Expr.subst (Expr.lift σ) e') (Expr.subst σ p) (Expr.subst σ p'))
+      (by
+        refine (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (Fin.cases ?_ (fun i => nomatch i)))))))))))))))))
+        · exact s.context
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using pa
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using pa'
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using pb
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using pb'
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using hab
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using hbb
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using h7
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using h8
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using h9
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using h10
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using h11
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using h12
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using h13
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using h14
+        · simpa [Proof, Judgment.ctx, Fin.succ, List.get, EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using h15
+      )
+    simpa [EliminationCongruence.schema, EliminationCongruence.families, EliminationCongruence.endpoints, Judgment.type, Judgment.typeEq, Judgment.term, Judgment.termEq, branchContext, Form.subst, subst_S, subst_pack, subst_split, subst_instantiate, -Expr.subst_rename, -Expr.rename_subst, ← flatten_subst, branchType_subst] using result
 end TypedSubstitution
 
 end SquareKit.DependentPairJudgments
