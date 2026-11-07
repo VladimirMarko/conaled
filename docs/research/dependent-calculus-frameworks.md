@@ -8,11 +8,13 @@ Retain #339 for its present clients. The evidence does not yet justify replacing
 the guarded engine, but an adapter to that engine is not a prerequisite for
 investigating a replacement.
 
-The new contribution is a worked paper comparison: independently specified
+The contribution at #342 was a worked paper comparison: independently specified
 pair fragments, a dependent client, two successive interpretation steps, and a
-countermodel. None of these new constructions is Lean-checked. Existing checked
-results are identified separately. This is a research recommendation, not an ADR
-or an adoption of one universal calculus.
+countermodel. Those proposed constructions were not Lean-checked at that
+research baseline. The subsequent [#344 implementation report](dependent-theory-maps.md)
+records checked constructions and their limits. The specification below remains
+the independent acceptance case; it is not an ADR or an adoption of one
+universal calculus.
 
 ## Starting point and primary-source results
 
