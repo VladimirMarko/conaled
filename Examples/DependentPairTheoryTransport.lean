@@ -1,4 +1,5 @@
 import SquareKit.DependentPairTemplates
+import SquareKit.DependentPairDeclarations
 import Examples.DependentPairTheoryModels
 
 /-! The frozen pair client, its two raw substitutions, and its independent
@@ -14,19 +15,13 @@ def y : ClientV := .inr (.inl 0)
 def z : ClientV := .inl 0
 def m : SingleV := .inl 0
 
-def N : PExpr V := .app (.declaration .N) (fun i => nomatch i)
-def B (n : PExpr V) : PExpr V :=
-  .app (.declaration .B) (Fin.cases (zero n) (fun i => nomatch i))
-def C (n y : PExpr V) : PExpr V :=
-  .app (.declaration .C) (Fin.cases (zero n) (Fin.cases (zero y) (fun i => nomatch i)))
-def s (m : PExpr V) : PExpr V :=
-  .app (.declaration .s) (Fin.cases (zero m) (fun i => nomatch i))
-def d (k : PExpr V) : PExpr V :=
-  .app (.declaration .d) (Fin.cases (zero k) (fun i => nomatch i))
-def t (m : PExpr V) : PExpr V :=
-  .app (.declaration .t) (Fin.cases (zero m) (fun i => nomatch i))
-def u (m : PExpr V) : PExpr V :=
-  .app (.declaration .u) (Fin.cases (zero m) (fun i => nomatch i))
+abbrev N : PExpr V := DependentPairDeclarations.Projection.N
+abbrev B (n : PExpr V) := DependentPairDeclarations.Projection.B n
+abbrev C (n y : PExpr V) := DependentPairDeclarations.Projection.C n y
+abbrev s (m : PExpr V) := DependentPairDeclarations.Projection.s m
+abbrev d (m : PExpr V) := DependentPairDeclarations.Projection.d m
+abbrev t (m : PExpr V) := DependentPairDeclarations.Projection.t m
+abbrev u (m : PExpr V) := DependentPairDeclarations.Projection.u m
 
 def familyB : PExpr (Fin 1 ⊕ V) := B (.var (.inl 0))
 def q : PExpr ClientV := Projection.pair N familyB (.var n) (.var y)
@@ -45,7 +40,8 @@ def tauRaw : SingleV → PExpr SingleV
 
 @[simp] theorem subst_u (σ : V → PExpr W) (e : PExpr V) :
     Expr.subst σ (u e) = u (Expr.subst σ e) := by
-  simp only [u, Expr.subst]
+  simp only [u, DependentPairDeclarations.Projection.u, DependentPairDeclarations.Terms.u,
+    DependentPairDeclarations.projection, Expr.subst]
   congr 1
   funext i
   change Fin 1 at i
