@@ -26,6 +26,11 @@ def afterBoth : Derivation eliminationPresentation (fun _ => Empty)
 theorem staged_afterBoth : pairPipeline.run selectedTwice = afterBoth :=
   pipeline_compiles selectedTwice
 
+/-- Compression to one certificate map also retains the selected proof tree. -/
+theorem compressed_afterBoth :
+    fullFG.transportClosed (TypedSubstitution.fullEliminationLocal _) selectedTwice = afterBoth :=
+  compressed_compiles selectedTwice
+
 /-- The target expression is the independently declared target section at d(k). -/
 theorem target_expression : G.act (u (d (.var m))) =
     DependentPairDeclarations.Elimination.u (DependentPairDeclarations.Elimination.d (.var m)) := by

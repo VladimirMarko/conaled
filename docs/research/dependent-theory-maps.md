@@ -31,9 +31,14 @@ written raw translation. Identity templates are checked as well.
 This is a bounded contextual adaptation, not a literal transcription of every
 BHL judgment form. The raw expression carrier is unclassified; contextual
 judgments distinguish types, terms and both forms of equality. Contexts are
-actual finite telescopes. Rule schemas carry lists of contextual premise
-judgments, and each premise retains its occurrence index. They do not discard
-context dependencies or identify repeated premises by proposition equality.
+actual finite telescopes. The closed `DependentSequentialRules.Rule` representation carries ordered
+relative telescopes for abstracted premises and a conclusion in the empty
+variable context. Its instantiation supplies an arbitrary ambient Γ. Concrete
+projection and eliminator raw templates instantiate to exactly the independent
+contextual schemas, including the two-variable branch and common fiber of
+second beta. Contextual premise occurrences retain their indices; neither
+dependencies nor repeated premises are erased. Γ is restored by instantiation,
+not encoded as an unexplained context metavariable.
 The implementation does not introduce a second HB syntax and claim an unproved
 bridge to it. Nor does it claim full BHL acceptability, HB context-free
 correspondence, inversion or uniqueness of typing.
@@ -54,7 +59,8 @@ this obligation.
 | Raw expressions and templates | Renaming, substitution and template instantiation commute; concrete G expands under the motive and both branch binders. | Well-scoped syntax alone is not well typed. |
 | Ordinary `TheoryMap` | Local certificates derive whole-proof transport; identity and compressed composition preserve actual Lean derivation trees. | This does not imply semantic reflection or equivalence of calculi. |
 | Typed certificate maps | Local typed premise applications are discharged into ordinary derivations by substitution admissibility. | Arbitrary open assumptions are not automatically stable under substitution. |
-| `CertificatePipeline` | Staged maps compose; running identity, composition and reassociation gives equal resulting derivation trees. | This is not compression or fusion of arbitrary typed certificate trees into one certificate map. |
+| `CertificatePipeline` | Staged maps compose; running identity, composition and reassociation gives equal resulting derivation trees. | Staging alone is not compression of local certificates. |
+| `RuleReplay` composition | Precomposition of any typed map by a rule replay produces one local certificate map. The actual F/G composite `fullFG` has exactly the same transported proof tree as executing F then G. | This does not establish arbitrary typed-map fusion without a compatible substitution action. |
 | Selected declaration meaning | Independent quotations of the selected source and target expressions have the same dependent tuple, including the chosen `6 : Fin 7`. | This is not a semantic interpretation of every raw expression or a soundness theorem for all model rules. |
 
 Derivation trees live in `Type`, retain premise occurrence and rule choices, and
@@ -71,12 +77,21 @@ congruence, ordered client declarations and their congruence. Closed derivations
 need no hypothesis-closure assumption. For open derivations, the required
 instantiation action on assumptions is explicit.
 
+`projectionPresuppositions` and `eliminationPresuppositions` derive the actual
+contextual boundaries of every closed derivation in the full tables. Context
+boundaries retain each variable's type; term equalities retain both endpoints
+at their common type. The eliminator's split-beta endpoint uses typed branch
+substitution. These results instantiate a generic boundary recursion with
+checked local cases; they are not merely records awaiting the relevant laws.
+
 ## Independent tests of the construction
 
 The projection beta and beta/eta presentations share structural machinery but
 are separate rule tables. The eliminator presentation independently declares
 formation, pack, dependent split, split beta and eta, with its own constructor
-congruence. `GPrimitiveCertificate` checks every projection primitive. First
+congruence. `GPrimitiveCertificate` checks every projection primitive. `fullG` supplies every certificate, including the constructor congruence cases,
+with no remaining law parameters. `fullFG` compresses the actual F/G pair;
+`compressed_compiles` proves equality of the resulting ordinary proof trees. First
 uses a constant motive and variable branch. Second's motive applies the family
 premise to a typed first projection; its branch uses first beta and family
 congruence to convert the second variable. Its beta certificate uses split beta
@@ -92,7 +107,9 @@ not imply that beta is necessary merely to state eta.
 `DependentPairTypedClient` derives the selected variable at the type containing
 the second projection of a constructed pair. Both nonidentity substitutions
 are typed environments and use the general substitution theorem. The resulting
-term is exactly `u(d(k))`. `DependentPairSelectedMeaning` interprets the selected
+term is exactly `u(d(k))`. `DependentPairCompilation` compiles the original
+client and its instances after each substitution, and checks the staged and
+compressed routes against the same proof tree. `DependentPairSelectedMeaning` interprets the selected
 declaration fragment independently, connecting it to the complete tuple
 `(5, 5 : Fin 7, 6 : Fin 7)`. The zero certificate is rejected. The choice is not
 replaced by a theorem that some inhabitant exists.

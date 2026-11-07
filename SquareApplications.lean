@@ -1,6 +1,11 @@
 import Examples.InstitutionCapabilities
 import Examples.RelationalSemanticBoundary
 import Examples.SelectedPathBoundary
+import Examples.DependentPairCompilation
+import SquareKit.DependentPairTemplates
+import SquareKit.DependentProjectionSequentialRules
+import SquareKit.DependentDeclarationSequentialRules
+import SquareKit.DependentEliminationSequentialRules
 import Examples.CertifiedIndexConversion
 import Examples.IndexedPartialComputation
 import Examples.SemanticClientBoundary

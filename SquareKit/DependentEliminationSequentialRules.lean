@@ -266,4 +266,19 @@ theorem eta_instance (Γ : Context eliminationSignature V) (A : EExpr V) (B : EE
   simp only [eval_S, eval_pack, eval_first, eval_second, h0, h1, h2]
   rfl
 
+/-- Every contextual eliminator primitive is an instance of an empty-context rule. -/
+structure Encoding (r : EliminationRule) where
+  metas : Metavariables
+  rule : Rule eliminationSignature metas
+  values : Assignment eliminationSignature metas (EliminationRule.schema r).conclusion.Scope
+  instance_eq : rule.instantiate (EliminationRule.schema r).conclusion.context values = EliminationRule.schema r
+
+def encode (r : EliminationRule) : Encoding r := by
+  cases r with
+  | formation Γ A B => exact ⟨formationMetavariables, formationRule, formationAssignment A B, formation_instance Γ A B⟩
+  | pack Γ A B a b => exact ⟨packMetavariables, packRule, packAssignment A B a b, pack_instance Γ A B a b⟩
+  | split Γ A B D e p => exact ⟨splitMetavariables, splitRule, splitAssignment A B D e p, split_instance Γ A B D e p⟩
+  | splitBeta Γ A B D e a b => exact ⟨betaMetavariables, betaRule, betaAssignment A B D e a b, beta_instance Γ A B D e a b⟩
+  | eta Γ A B p => exact ⟨etaMetavariables, etaRule, etaAssignment A B p, eta_instance Γ A B p⟩
+
 end SquareKit.DependentEliminationSequentialRules

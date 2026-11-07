@@ -5,8 +5,8 @@ This is the boundary analysis for
 fixed rule tables, declarations and selected client are in the
 [framework assessment](dependent-calculus-frameworks.md). The calculations
 below compare presentations; they do not import a source metatheorem into Lean
-merely by citing it. Implementation coverage must be read from the checked
-construction and its acceptance record.
+merely by citing it. Implementation coverage is recorded in the [checked construction report](dependent-theory-maps.md)
+and its acceptance record.
 
 ## Source contracts
 

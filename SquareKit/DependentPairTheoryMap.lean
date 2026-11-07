@@ -1,3 +1,4 @@
+import SquareKit.DependentProjectionComposition
 import SquareKit.DependentPairMapAssembly
 import SquareKit.DependentPairFirstCongruenceMap
 import SquareKit.DependentPairSecondCongruenceMap
@@ -36,5 +37,21 @@ theorem pipeline_compiles {j : Judgment projectionSignature}
   simp only [CertificatePipeline.run, MetavariableTheoryMap.transportClosed]
   rw [MetavariableTheoryMap.transport_ofTheoryMap]
   rfl
+
+/-- A single local certificate per beta rule, obtained by composing F with G. -/
+def fullFG : MetavariableTheoryMap (projectionPresentation false) eliminationPresentation (map G ∘ id) :=
+  fullG.precompReplay projectionReplay
+
+theorem compressed_compiles {j : Judgment projectionSignature}
+    (d : Derivation (projectionPresentation false) (fun _ => Empty) j) :
+    fullFG.transportClosed (fullEliminationLocal _) d = compile d := by
+  unfold fullFG MetavariableTheoryMap.transportClosed compile
+  have empty_comp : (fun (_ : Judgment projectionSignature) (h : Empty) => (Empty.elim (Empty.elim h) : Empty)) =
+      (fun (_ : Judgment projectionSignature) (h : Empty) => (Empty.elim h : Empty)) := by
+    funext j h
+    exact Empty.elim h
+  simpa only [empty_comp, MetavariableTheoryMap.transportClosed] using
+    projectionReplay_composition fullG (fullEliminationLocal _) (fun _ h => Empty.elim h)
+      (fun _ h => Empty.elim h) (fun _ h => Empty.elim h) d
 
 end SquareKit.DependentPairJudgments
