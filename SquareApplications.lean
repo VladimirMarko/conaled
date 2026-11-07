@@ -1,3 +1,5 @@
+import Examples.CertifiedIndexConversion
+import Examples.IndexedPartialComputation
 import Examples.SemanticClientBoundary
 import Examples.TwoFamilyFrozenSourceConjugation
 import SquareKit.Internal.PathTransport.TwoFamilySourceEndpointFiberAction

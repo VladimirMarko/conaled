@@ -26,6 +26,8 @@ now supply scoped family/section comparisons and composition laws;
 translation; [#327/#331](primitive-dependent-sums.md) compare pair contracts;
 and [#321](cubical-model-construction.md) and
 [#322/#336](strict-two-groupoid-checkpoint.md) supply the bounded higher models.
+The [#350 coverage map](semantic-traditions-coverage.md) now owns residual
+research scheduling; #301 and #295–#300 are closed bounded studies.
 The missing-work entries below describe the original assessment, not the
 current absence of those results. No generic bialgebraic replacement follows
 from their completion. A successor must first identify which proposed

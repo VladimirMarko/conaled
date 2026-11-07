@@ -7,12 +7,63 @@ indexed value. Their union has a terminating, confluent conversion procedure
 on the frozen first-order index language. A separate union control shows why
 individual admission is insufficient.
 
-**Recommendation:** investigate a small proof-producing conversion frontend
-against the existing explicit derivation boundary. Adopt joint semantic and
-rewrite checks as acceptance obligations for that experiment. Do not adopt a
-global rewrite policy or claim a total checker for arbitrary settings. These
-are paper results, not new Lean-checked results. Repository comparisons use
-`b8731310f05efdac29f994706fbc1f32eb77de20`.
+The original #338 paper assessment below uses repository baseline
+`b8731310f05efdac29f994706fbc1f32eb77de20`. The bounded formalization in
+[#345](https://github.com/VladimirMarko/conaled/issues/345) now supplies the
+following checked results. Higher-order source results remain literature
+comparisons, not claims about this first-order implementation.
+
+## Checked conversion and elaboration
+
+[CertifiedIndexConversion](../../SquareKit/CertifiedIndexConversion.lean)
+defines independent arithmetic `meaning`, substitution, the context-closed
+three-rule `Step`, and its generated equivalence `Converts`. All index
+expressions are single-sorted Nat expressions; dependent uses are explicit
+`Fin (meaning ρ index + 1)` fibers. This does not encode unrestricted dependent
+contexts or lambda terms.
+
+`step_subst` and `meaning_subst` establish the substitution boundary.
+`step_meaning` admits all three rules simultaneously in the arithmetic model.
+`terminating` proves well-foundedness of the reverse step relation with the
+paper's natural measure; `reduces_normalize` constructs reduction to the
+normalizer's output, and `normalize_normal` proves irreducibility.
+`step_normalize` proves invariance under every contextual step, yielding
+`confluence` and `conversion_iff`. These theorems cover open expressions,
+including double's duplication of an argument, rather than only numerals.
+
+`produce` returns a finite certificate containing a common normal form.
+`check` independently recomputes both normal forms and compares them with the
+certificate. It is a normalization certificate, not a serialized rewrite tree
+or a faster checker that trusts cached normalization. `check_sound`,
+`produce_checked`, and `produce_complete` establish its bounded contract.
+`elaborate` obtains an explicit equality transport from an accepted certificate;
+`elaborate_value` proves that it keeps the original finite value. No equality
+oracle or arbitrary-theory search is involved.
+
+The [checked examples](../../Examples/CertifiedIndexConversion.lean) retain the
+explicit A₀-then-B proof recipe and prove it agrees with the conversion route.
+They check the selected value after both substitutions, the open duplicated
+peak, commutativity valid semantically but absent from generated conversion,
+and rejection of the old zero-add model. The separate P/Q control proves the
+union's nonjoinable peak and distinguishes distinct-meaning rejection from a
+collapsed common model. The paper argument for individual P/Q confluence
+below is not a separate formalization of those two packages.
+
+Kernel-checked cases and executable `#eval` calls exercise producer success,
+checker success, forged-certificate rejection, and a semantic equation outside
+conversion. Rejecting a pair here means absence of *generated conversion*;
+it does not refute arithmetic equality. Outside this grammar the implementation
+has no decision-procedure claim. Finite checking, evaluation of an expression,
+and general proof search remain separate operations.
+
+The explicit author route supplies a conversion derivation and casts the
+selected section. The admitted route supplies a normalization certificate and
+its check, then uses the same interpretation to derive that cast. Recurring
+arithmetic proof steps disappear for this grammar, at the setup cost of syntax,
+normalization, well-foundedness, and soundness/completeness proofs. Adding a
+rule requires revisiting semantic admission, normalization invariance and
+termination; the existing theorem does not certify a new union. No measured
+productivity comparison is claimed.
 
 ## Frozen packages, client and meaning
 
@@ -181,8 +232,9 @@ checking rule. A proof-producing frontend can recover q by recording each
 rewrite and lifting it through its index context, then translating the
 conversion step into the explicit route. In this fragment it needs the three
 primitive equality proofs and the substitution/congruence rules, not a new
-semantic proof of the final client. This is a bounded implementation proposal,
-not an executable translator delivered by this report.
+semantic proof of the final client. The #345 implementation above supplies this bounded conversion-to-explicit-transport
+route using common-normal-form certificates. A serialized rule-by-rule proof
+translator remains outside its delivery.
 
 The shared client requires preservation of its typing judgment, meaning and
 selected dependent value. Its requirements do not include all-model expansion
