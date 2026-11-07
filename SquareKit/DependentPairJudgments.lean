@@ -227,5 +227,38 @@ def F : TheoryMap Pβ Pη id where
       | secondBeta Γ A B a b => exact Derivation.rule (R := Pη) (.inr (.secondBeta Γ A B a b)) (fun i => .hyp ⟨i, rfl⟩)
       | eta h => contradiction
 
+namespace ProjectionBoundary
+open Judgment Projection
+
+/-- This boundary proof uses first beta to convert the natural type of snd.
+It does not use the second beta equation whose left endpoint is being checked. -/
+def secondBetaLeft {H : Judgment projectionSignature → Type}
+    (Γ : Context projectionSignature V) (A : PExpr V) (B : PExpr (Fin 1 ⊕ V))
+    (a b : PExpr V)
+    (hΓ : Derivation Pβ H (ctx Γ)) (hA : Derivation Pβ H (type Γ A))
+    (hB : Derivation Pβ H (type (.extend Γ A) B))
+    (ha : Derivation Pβ H (term Γ a A))
+    (hb : Derivation Pβ H (term Γ b (instantiate B a))) :
+    Derivation Pβ H (term Γ (snd A B (pair A B a b)) (instantiate B a)) := by
+  have hp : Derivation Pβ H (term Γ (pair A B a b) (P A B)) := by
+    apply Derivation.rule (R := Pβ) (.inr (.pair Γ A B a b))
+    exact Fin.cases hΓ (Fin.cases hA (Fin.cases hB (Fin.cases ha (Fin.cases hb (fun i => Fin.elim0 i)))))
+  have hs : Derivation Pβ H
+      (term Γ (snd A B (pair A B a b)) (instantiate B (fst A B (pair A B a b)))) := by
+    apply Derivation.rule (R := Pβ) (.inr (.second Γ A B (pair A B a b)))
+    exact Fin.cases hΓ (Fin.cases hA (Fin.cases hB (Fin.cases hp (fun i => Fin.elim0 i))))
+  have hfst : Derivation Pβ H (termEq Γ (fst A B (pair A B a b)) a A) := by
+    apply Derivation.rule (R := Pβ) (.inr (.firstBeta Γ A B a b))
+    exact Fin.cases hΓ (Fin.cases hA (Fin.cases hB (Fin.cases ha (Fin.cases hb (fun i => Fin.elim0 i)))))
+  have hfamily : Derivation Pβ H
+      (typeEq Γ (instantiate B (fst A B (pair A B a b))) (instantiate B a)) := by
+    apply Derivation.rule (R := Pβ) (.inl (.familyCong Γ A B (fst A B (pair A B a b)) a))
+    exact Fin.cases hΓ (Fin.cases hA (Fin.cases hB (Fin.cases hfst (fun i => Fin.elim0 i))))
+  apply Derivation.rule (R := Pβ) (.inl (.convert Γ (snd A B (pair A B a b))
+    (instantiate B (fst A B (pair A B a b))) (instantiate B a)))
+  exact Fin.cases hs (Fin.cases hfamily (fun i => Fin.elim0 i))
+end ProjectionBoundary
+
 end SquareKit.DependentPairJudgments
+
 
