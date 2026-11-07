@@ -231,8 +231,8 @@ The local formulas above derive the selected-solution law; it is not a field
 that each client is asked to prove in advance. They reveal a reusable
 parameterized extension argument, but no measured agent-authoring advantage.
 
-**Investigate next under #289:** a result family with multiple genuinely
-observable certificates, for which reconstruction from a proposition is
+**Next experiment, [#354](https://github.com/VladimirMarko/conaled/issues/354)
+under #289:** a result family with multiple observable certificates, for which reconstruction from a proposition is
 impossible. Fix the chosen data independently, exhibit a complete lifted
 family and its slice comparisons, then calculate the selected extension and
 two substitutions. Preserve the present client as a specialization. Promote

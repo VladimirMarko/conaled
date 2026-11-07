@@ -8,6 +8,10 @@ GitHub issues own acceptance criteria and live status. The existing programme
 [#235](https://github.com/VladimirMarko/conaled/issues/235) coordinates these
 children with #36 and #200.
 
+The [combined #343–#350 results](shared-meaning-experiment-results.md) connect
+the later institution, dependent-translation and semantic-boundary experiments
+and record their follow-up ownership.
+
 ## Three sustained directions
 
 | Parent | Initial evidence | Boundary |
