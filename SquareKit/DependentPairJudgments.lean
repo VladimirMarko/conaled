@@ -80,7 +80,7 @@ structure Schema (S : Signature) where
   premises : List (Judgment S)
   conclusion : Judgment S
 
-def rulesOf {S : Signature} {L : Type 1} (schema : L → Schema S) : Rules (Judgment S) where
+abbrev rulesOf {S : Signature} {L : Type 1} (schema : L → Schema S) : Rules (Judgment S) where
   Label := L
   count := fun l => (schema l).premises.length
   premise := fun l i => (schema l).premises.get i
@@ -206,7 +206,7 @@ def schema : StructuralRule S → Schema S
 end StructuralRule
 
 /-- Structural closure is shared machinery; the primitive rule tables stay independent. -/
-def closedRules {S : Signature} {L : Type 1} (primitive : L → Schema S) : Rules (Judgment S) :=
+abbrev closedRules {S : Signature} {L : Type 1} (primitive : L → Schema S) : Rules (Judgment S) :=
   rulesOf (Sum.elim StructuralRule.schema primitive)
 
 def Pβ := closedRules (ProjectionRule.schema (hasEta := false))
@@ -230,31 +230,55 @@ def F : TheoryMap Pβ Pη id where
 namespace ProjectionBoundary
 open Judgment Projection
 
+/-- Primitive predecessor order: first beta is admitted before second beta. -/
+def rank : Pβ.Label → Nat
+  | .inl _ => 0
+  | .inr (.formation ..) => 1
+  | .inr (.pair ..) => 2
+  | .inr (.first ..) => 3
+  | .inr (.second ..) => 4
+  | .inr (.firstBeta ..) => 5
+  | .inr (.secondBeta ..) => 6
+  | .inr (.eta h ..) => Bool.noConfusion h
+
+def beforeSecond := Pβ.before rank 6
+
+def structuralBefore (r : StructuralRule projectionSignature) : beforeSecond.Label :=
+  ⟨.inl r, by simp [rank]⟩
+def pairBefore (Γ : Context projectionSignature V) (A : PExpr V)
+    (B : PExpr (Fin 1 ⊕ V)) (a b : PExpr V) : beforeSecond.Label :=
+  ⟨.inr (.pair Γ A B a b), by simp [rank]⟩
+def secondBefore (Γ : Context projectionSignature V) (A : PExpr V)
+    (B : PExpr (Fin 1 ⊕ V)) (p : PExpr V) : beforeSecond.Label :=
+  ⟨.inr (.second Γ A B p), by simp [rank]⟩
+def firstBetaBefore (Γ : Context projectionSignature V) (A : PExpr V)
+    (B : PExpr (Fin 1 ⊕ V)) (a b : PExpr V) : beforeSecond.Label :=
+  ⟨.inr (.firstBeta Γ A B a b), by simp [rank]⟩
 /-- This boundary proof uses first beta to convert the natural type of snd.
 It does not use the second beta equation whose left endpoint is being checked. -/
-def secondBetaLeft {H : Judgment projectionSignature → Type}
+def secondBetaLeftEarlier {H : Judgment projectionSignature → Type}
     (Γ : Context projectionSignature V) (A : PExpr V) (B : PExpr (Fin 1 ⊕ V))
     (a b : PExpr V)
-    (hΓ : Derivation Pβ H (ctx Γ)) (hA : Derivation Pβ H (type Γ A))
-    (hB : Derivation Pβ H (type (.extend Γ A) B))
-    (ha : Derivation Pβ H (term Γ a A))
-    (hb : Derivation Pβ H (term Γ b (instantiate B a))) :
-    Derivation Pβ H (term Γ (snd A B (pair A B a b)) (instantiate B a)) := by
-  have hp : Derivation Pβ H (term Γ (pair A B a b) (P A B)) := by
-    apply Derivation.rule (R := Pβ) (.inr (.pair Γ A B a b))
+    (hΓ : Derivation beforeSecond H (ctx Γ)) (hA : Derivation beforeSecond H (type Γ A))
+    (hB : Derivation beforeSecond H (type (.extend Γ A) B))
+    (ha : Derivation beforeSecond H (term Γ a A))
+    (hb : Derivation beforeSecond H (term Γ b (instantiate B a))) :
+    Derivation beforeSecond H (term Γ (snd A B (pair A B a b)) (instantiate B a)) := by
+  have hp : Derivation beforeSecond H (term Γ (pair A B a b) (P A B)) := by
+    apply Derivation.rule (R := beforeSecond) (pairBefore Γ A B a b)
     exact Fin.cases hΓ (Fin.cases hA (Fin.cases hB (Fin.cases ha (Fin.cases hb (fun i => Fin.elim0 i)))))
-  have hs : Derivation Pβ H
+  have hs : Derivation beforeSecond H
       (term Γ (snd A B (pair A B a b)) (instantiate B (fst A B (pair A B a b)))) := by
-    apply Derivation.rule (R := Pβ) (.inr (.second Γ A B (pair A B a b)))
+    apply Derivation.rule (R := beforeSecond) (secondBefore Γ A B (pair A B a b))
     exact Fin.cases hΓ (Fin.cases hA (Fin.cases hB (Fin.cases hp (fun i => Fin.elim0 i))))
-  have hfst : Derivation Pβ H (termEq Γ (fst A B (pair A B a b)) a A) := by
-    apply Derivation.rule (R := Pβ) (.inr (.firstBeta Γ A B a b))
+  have hfst : Derivation beforeSecond H (termEq Γ (fst A B (pair A B a b)) a A) := by
+    apply Derivation.rule (R := beforeSecond) (firstBetaBefore Γ A B a b)
     exact Fin.cases hΓ (Fin.cases hA (Fin.cases hB (Fin.cases ha (Fin.cases hb (fun i => Fin.elim0 i)))))
-  have hfamily : Derivation Pβ H
+  have hfamily : Derivation beforeSecond H
       (typeEq Γ (instantiate B (fst A B (pair A B a b))) (instantiate B a)) := by
-    apply Derivation.rule (R := Pβ) (.inl (.familyCong Γ A B (fst A B (pair A B a b)) a))
+    apply Derivation.rule (R := beforeSecond) (structuralBefore (.familyCong Γ A B (fst A B (pair A B a b)) a))
     exact Fin.cases hΓ (Fin.cases hA (Fin.cases hB (Fin.cases hfst (fun i => Fin.elim0 i))))
-  apply Derivation.rule (R := Pβ) (.inl (.convert Γ (snd A B (pair A B a b))
+  apply Derivation.rule (R := beforeSecond) (structuralBefore (.convert Γ (snd A B (pair A B a b))
     (instantiate B (fst A B (pair A B a b))) (instantiate B a)))
   exact Fin.cases hs (Fin.cases hfamily (fun i => Fin.elim0 i))
 end ProjectionBoundary
