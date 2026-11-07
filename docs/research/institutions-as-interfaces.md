@@ -14,6 +14,14 @@ inspected, not rebuilt. The assessment extends the
 [theory-network comparison](theory-network-comparison.md): its same-logic
 algebraic view is insufficient for the change-of-logic question here.
 
+The successor [#343 experiment](progressive-institution-capabilities.md) now
+checks a bounded implementation of the shared-evidence capabilities, a linear
+to cartesian combinator translation, model restriction and contraction control,
+selected parser transport, and dependent reindexing. Its report states the
+remaining signature/model-category and higher-coherence boundaries. The
+proposal below remains the historical paper plan, not a claim that all those
+broader structures were implemented.
+
 ## The literature includes proof-sensitive institutions
 
 Ordinary institutions specify signatures, sentences, models and satisfaction,

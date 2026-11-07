@@ -1,4 +1,4 @@
-import SquareKit.Institutions.LinearCartesian
+import SquareKit.Institutions.LinearModels
 import SquareKit.Institutions.IndexedClients
 import Examples.CompositionalSpecifications
 import Examples.ExactParserRewrites
@@ -14,9 +14,9 @@ def swap : Linear.Proof (.tensor (.atom false) (.atom true)) (.tensor (.atom tru
 
 def tagged : Bool × Unit → Type := fun a => if a.1 then Fin 3 else Fin 2
 
-def first : Compatible (linearConnection Bool) (linearProofs Bool) (cartesianProofs Bool)
-    (linearProofs Bool).realization (cartesianProofs Bool).realization :=
-  ⟨linearProofMap Bool, (linearProofMap Bool).realization⟩
+def first : Compatible (modelConnection Bool) (modelProofs Bool) (cartesianProofs Bool)
+    (modelProofs Bool).realization (cartesianProofs Bool).realization :=
+  ⟨modelProofMap Bool, (modelProofMap Bool).realization⟩
 def second : Compatible (renameConnection (fun b : Bool => (b, ())))
     (cartesianProofs Bool) (cartesianProofs (Bool × Unit))
     (cartesianProofs Bool).realization (cartesianProofs (Bool × Unit)).realization :=
@@ -31,12 +31,25 @@ example : ((second.comp first).proof.map (input,input) (.comp .swap swap)).denot
   have h := (second.comp first).proof.commutes tagged (input,input) (.comp .swap swap)
   exact congrFun h ((1 : Fin 2),(2 : Fin 3))
 
+/-- The closed lambda presentation is represented by currying the context arrow.
+The selected function still comes from the recursive source translator. -/
+def closedSwap : Linear.Proof .unit (.hom input output) := .curry (.comp swap .unit)
+
+example : ((second.comp first).proof.map (.unit,.hom input output) closedSwap).denote tagged ()
+    ((1 : Fin 2),(2 : Fin 3)) = ((2 : Fin 3),(1 : Fin 2)) := by
+  have h := (second.comp first).proof.commutes tagged (.unit,.hom input output) closedSwap
+  exact congrFun (congrFun h ()) ((1 : Fin 2),(2 : Fin 3))
+
+example : (modelConnection Bool).Reflects := modelConnection_reflects Bool
+example : ((renameConnection (fun b : Bool => (b, ()))).comp (modelConnection Bool)).Reflects :=
+  (renameConnection_reflects _).comp (modelConnection_reflects Bool)
+
 /-- Cartesian contraction is admitted and evaluated independently. -/
 def contraction : Cartesian.Proof (.atom () : Cartesian.Formula Unit) (.product (.atom ()) (.atom ())) :=
   .pair .id .id
 example : contraction.denote (fun _ => Nat) (7 : Nat) = ((7 : Nat),(7 : Nat)) := rfl
 example : ¬ Nonempty (Linear.Proof (.atom () : Linear.Formula Unit) (.tensor (.atom ()) (.atom ()))) :=
-  Linear.no_contraction
+  no_reverse_contraction
 
 /-- Two valid ordinary squares have different bottom arrows. The additional
 compatibility required by ofSquares rejects the attempted combination. -/
@@ -61,7 +74,7 @@ def identityConnection : Connection boolSetting boolSetting := Connection.identi
 example : identityConnection.satisfactionSquare () = flipConnection.satisfactionSquare () := rfl
 example : identityConnection.evidence () () false ≠ flipConnection.evidence () () false := by intro h; cases h
 
-/-- A genuinely many-valued relation: both endpoint values are admitted. -/
+/-- A many-valued relation: both endpoint values are admitted. -/
 def enclosure : RelRealization boolSetting := ⟨fun _ _ => Unit, fun _ _ _ _ => True⟩
 def flipEnclosure : RelRealizationMap flipConnection enclosure enclosure :=
   ⟨fun _ _ => id, fun _ _ _ _ _ => True.intro⟩

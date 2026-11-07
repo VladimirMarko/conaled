@@ -166,3 +166,68 @@ def ProofMap.realization {f : Connection A B} {P : Proofs A} {Q : Proofs B}
   ⟨fun _ => p.map, p.commutes⟩
 
 end SquareKit.Institutions
+
+namespace SquareKit.Institutions
+universe u v w
+variable {A B C : Setting.{u,v,w}}
+
+theorem ProofMap.identity_comp {f : Connection A B} {P : Proofs A} {Q : Proofs B}
+    (p : ProofMap f P Q) : (ProofMap.identity Q).comp p = p := by cases p; rfl
+theorem ProofMap.comp_identity {f : Connection A B} {P : Proofs A} {Q : Proofs B}
+    (p : ProofMap f P Q) : p.comp (ProofMap.identity P) = p := by cases p; rfl
+theorem RealizationMap.identity_comp {f : Connection A B} {R : Realization A} {S : Realization B}
+    (c : RealizationMap f R S) : (RealizationMap.identity S).comp c = c := by cases c; rfl
+theorem RealizationMap.comp_identity {f : Connection A B} {R : Realization A} {S : Realization B}
+    (c : RealizationMap f R S) : c.comp (RealizationMap.identity R) = c := by cases c; rfl
+
+/-- Forgetting a combined package commutes with composition. -/
+theorem Compatible.forget_proof {f : Connection A B} {g : Connection B C}
+    {P : Proofs A} {Q : Proofs B} {U : Proofs C}
+    {R : Realization A} {S : Realization B} {T : Realization C}
+    (b : Compatible g Q U S T) (a : Compatible f P Q R S) :
+    (b.comp a).proof = b.proof.comp a.proof := rfl
+
+theorem Compatible.forget_realization {f : Connection A B} {g : Connection B C}
+    {P : Proofs A} {Q : Proofs B} {U : Proofs C}
+    {R : Realization A} {S : Realization B} {T : Realization C}
+    (b : Compatible g Q U S T) (a : Compatible f P Q R S) :
+    (b.comp a).realization = b.realization.comp a.realization := rfl
+
+def RelRealizationMap.square {f : Connection A B} {R : RelRealization A} {S : RelRealization B}
+    (c : RelRealizationMap f R S) (m) (p) :
+    Relational.RelSquare ⟨_,_, R.relates (f.reduct m) p⟩ ⟨_,_,S.relates m (f.sentence p)⟩ :=
+  ⟨c.map m p, f.evidence m p, fun h => c.preserves m p _ _ h⟩
+
+theorem RealizationMap.square_comp {f : Connection A B} {g : Connection B C}
+    {R : Realization A} {S : Realization B} {T : Realization C}
+    (b : RealizationMap g S T) (a : RealizationMap f R S) (m) (p) :
+    (b.comp a).square m p = Squares.compose (b.square m (f.sentence p)) (a.square (g.reduct m) p) := rfl
+
+theorem RelRealizationMap.square_comp {f : Connection A B} {g : Connection B C}
+    {R : RelRealization A} {S : RelRealization B} {T : RelRealization C}
+    (b : RelRealizationMap g S T) (a : RelRealizationMap f R S) (m) (p) :
+    (b.comp a).square m p = Relational.compose (b.square m (f.sentence p)) (a.square (g.reduct m) p) := rfl
+
+end SquareKit.Institutions
+
+namespace SquareKit.Institutions
+universe u
+
+/-- A plain meaning map enters the capability family without supplying a model
+class, proof language or executable evaluator. The unit indices are internal. -/
+def Setting.fiber (E : Type u) : Setting.{0,0,u} := ⟨Unit,Unit,fun _ _ => E⟩
+def Connection.ofMap {E F : Type u} (f : E → F) : Connection (Setting.fiber E) (Setting.fiber F) :=
+  ⟨id,id,fun _ _ => f⟩
+def Realization.ofRep (R : Squares.Rep.{u}) : Realization (Setting.fiber R.S) :=
+  ⟨fun _ _ => R.R,fun _ _ => R.decode⟩
+def RealizationMap.ofSquare {R S : Squares.Rep.{u}} (c : Squares.Square R S) :
+    RealizationMap (Connection.ofMap c.spec) (Realization.ofRep R) (Realization.ofRep S) :=
+  ⟨fun _ _ => c.impl,fun _ _ => c.commutes⟩
+
+theorem RealizationMap.ofSquare_square {R S : Squares.Rep.{u}} (c : Squares.Square R S) :
+    (RealizationMap.ofSquare c).square () () = c := by cases c; rfl
+
+theorem Connection.ofMap_comp {E F G : Type u} (g : F → G) (f : E → F) :
+    (Connection.ofMap g).comp (Connection.ofMap f) = Connection.ofMap (g ∘ f) := rfl
+
+end SquareKit.Institutions
