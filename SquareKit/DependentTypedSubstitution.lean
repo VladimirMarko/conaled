@@ -107,6 +107,23 @@ def single (Γ : Context S V) (A a : Expr S V)
         (Fin.cases ctx (fun i => Fin.elim0 i))
       simpa only [Expr.subst_rename, Function.comp_def, Sum.elim_inr, Expr.subst_id, StructuralRule.schema, Judgment.term] using p
 
+/-- Extend the source telescope by a component checked at its dependent image. -/
+def extendSource {Γ : Context S V} {Δ : Context S W} {σ : V → Expr S W}
+    (env : Typed (R := R) (H := H) Γ Δ σ) (A : Expr S V) (a : Expr S W)
+    (term : Proof (R := R) (H := H) Δ (.term a (Expr.subst σ A))) :
+    Typed (R := R) (H := H) (.extend Γ A) Δ (Sum.elim (fun _ => a) σ) where
+  context := env.context
+  component v := by
+    cases v with
+    | inl i =>
+      change Proof Δ (.term a (Expr.subst _ (Expr.rename Sum.inr A)))
+      rw [Expr.subst_rename]
+      exact term
+    | inr v =>
+      change Proof Δ (.term (σ v) (Expr.subst _ (Expr.rename Sum.inr (Γ.lookup v))))
+      rw [Expr.subst_rename]
+      exact env.component v
+
 /-- The induction predicate retains typed arguments of every open telescope. -/
 abbrev Reindexed (j : Judgment S) := ∀ {W : Type} (Δ : Context S W)
   (σ : j.Scope → Expr S W), Typed (R := R) (H := H) j.context Δ σ →
