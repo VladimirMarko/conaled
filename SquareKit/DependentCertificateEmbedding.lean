@@ -1,4 +1,5 @@
 import SquareKit.DependentMetavariableCertificates
+import SquareKit.DependentCertificateEnvironments
 
 namespace SquareKit.DependentPairJudgments
 open DependentTheoryMaps TypedSubstitution
@@ -28,6 +29,15 @@ theorem graft_ofPlainDerivation {H : Judgment S → Type}
       congr 1
       funext i
       exact ih i
+/-- A same-judgment rule interpretation replays a certificate while retaining
+its typed metavariable applications and selected argument certificates. -/
+def mapRules {Q : Rules.{1,1} (Judgment S)} (F : TheoryMap R Q id) :
+    {j : Judgment S} → MetavariableCertificate R premise j → MetavariableCertificate Q premise j
+  | _, .hyp i => .hyp i
+  | _, .rule r children => CertificateEnvironment.replay
+      (fun _ h => h.property ▸ mapRules F (children h.val)) (F.certificate r)
+  | _, .apply i Δ σ ctx args => .apply i Δ σ (mapRules F ctx) (fun v => mapRules F (args v))
+
 end MetavariableCertificate
 
 namespace MetavariableTheoryMap
