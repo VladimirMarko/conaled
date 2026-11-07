@@ -36,7 +36,17 @@ relative telescopes for abstracted premises and a conclusion in the empty
 variable context. Its instantiation supplies an arbitrary ambient Γ. Concrete
 projection and eliminator raw templates instantiate to exactly the independent
 contextual schemas, including the two-variable branch and common fiber of
-second beta. Contextual premise occurrences retain their indices; neither
+second beta. The shared N/B/C/s/d/t/u declaration templates have the same exact instantiation
+bridges in both languages. `Rule.Ordered` checks that each premise telescope
+mentions only earlier metavariables, each premise form may additionally mention
+its own metavariable, and the conclusion mentions only declared metavariables.
+All these primitive and declaration templates satisfy the check; reversing the
+formation premises fails it. This syntactic dependency check is separate from
+predecessor-rule derivability and full BHL acceptability. Constructor congruence
+remains an independently checked contextual table, rather than a claimed
+instance of BHL's complete acceptable-theory package.
+
+Contextual premise occurrences retain their indices; neither
 dependencies nor repeated premises are erased. Γ is restored by instantiation,
 not encoded as an unexplained context metavariable.
 The implementation does not introduce a second HB syntax and claim an unproved
