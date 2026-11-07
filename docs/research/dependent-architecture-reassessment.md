@@ -35,6 +35,33 @@ with unrestricted guarded equality, and architectural tests for #324–#328.
 It preserves the existing interfaces while proposing scoped correspondence
 investigations; it does not establish source adequacy or select a new framework.
 
+## Current follow-up results
+
+The proposals below retain the reasoning that led to the investigations.
+Subsequent bounded results are now available:
+
+- [Structural capability consumer](dependent-capability-consumer.md), #324:
+  a consumer independent of identity/J structure, with exact adapters.
+- [Coherent groupoid comparisons](coherent-groupoid-comparisons.md), #325:
+  comparisons of unequal presentations, selected sections and J compatibility,
+  with unit and composition results for the specified maps.
+- [Reference calculus](reference-dependent-calculus.md), #326/#332:
+  independently specified typed judgments and a forward translation into a
+  named guarded extension. General reverse translation and reflection remain
+  unproved; equality with the entire rule engine is not an adoption requirement.
+- [Primitive dependent sums](primitive-dependent-sums.md), #327/#331:
+  a sibling eliminator contract with internal eta, a checked separation from
+  host eta, and specialization of the retained strong contract.
+- [Client migration](dependent-client-migration.md), #328: the selected
+  reflexive-J pair client and its substitution behavior, with the old API kept.
+- [Generated empty substitutions](generated-empty-substitutions.md), #330:
+  uniqueness for the stated grammar and a counterexample when primitive typed
+  substitution assumptions are admitted.
+
+The higher-model results are recorded below. The original assessment files and
+frozen author records remain historical evidence; their proposed tasks are not
+an assertion that these bounded results are still missing.
+
 ## Reviewed results from the follow-up investigations
 
 The [structure audit](dependent-structure-audit.md) derives pairing naturality,
@@ -50,8 +77,9 @@ Every generated context admits one by recursion on its derivation. The absence
 of a named primitive did not establish missing existence. Terminal uniqueness
 is a different requirement: a complete model refutes it even in the full
 subcategory of reachable objects. That result does not refute uniqueness in
-a category restricted to source-generated arrows. No such uniqueness theorem
-is assumed here.
+a category restricted to source-generated arrows. The subsequent #330 result
+proves uniqueness for an explicit generated grammar; it does not cover every
+typed substitution derivation.
 
 The [internal-setting construction](internal-setting-construction.md) supplies
 two nested settings with a second presentation depending on the first generic
@@ -147,12 +175,16 @@ it did not require a new caller semantic equality for this task.
 
 The candidate author independently encountered the missing root-tail typing
 helper also found during preparation. [#323](https://github.com/VladimirMarko/conaled/issues/323)
-owns that facade and documentation repair, followed by a new prospectively
-frozen task and fresh authors. Keep the existing trial unchanged. This supports
+repaired that facade and ran a new prospectively frozen task with fresh authors.
+The [successor evaluation](../../experiments/guarded-j-retest/trial/evaluation.md)
+records both completions and exact replay without proof assistance or interface
+changes. The original trial remains unchanged. This supports
 adopting the judgment boundary for its tested preservation contract while
 revising its author API. It does not establish lower total author effort, human
-usability or broad migration: there is one agent per arm, uneven helper support,
-a fixed task order and incomplete timing data.
+usability or broad migration. Both trials have one agent per arm and a fixed
+task order; the original trial also had uneven helper support and incomplete
+timing data. The successor evaluation separately records its limitations,
+including unavailable full transcript/token accounting.
 
 The [component validation records](dependent-foundations-validation/README.md)
 retain the exact reviewed candidates, independent findings, build/audit receipts
@@ -181,7 +213,7 @@ into an undifferentiated verdict against the model.
 | Question | Current evidence | Consequence for investigation |
 | --- | --- | --- |
 | Are more comprehension laws needed as assumptions? | The subsequent audit derives display pullbacks and full comprehension for all display-map squares from pairing beta/eta and substitution. | Reuse the construction; establish any claimed correspondence with a different category of family maps separately. |
-| Is the distinguished `empty` terminal? | Complete countermodels refute global existence and full-reachable uniqueness. Generated empty substitutions nevertheless exist by a checked recursion. | Specify the objects and arrows of the intended category before requiring terminality; generated-arrow uniqueness remains a separate question. |
+| Is the distinguished `empty` terminal? | Complete countermodels refute global existence and full-reachable uniqueness. Generated empty substitutions nevertheless exist by a checked recursion. | Specify the objects and arrows of the intended category before requiring terminality; the later #330 theorem proves uniqueness for its specified generated grammar. |
 | Does the concrete groupoid setting satisfy LF? | No failure was proved. The categorical package remains unconstructed. | Prove the exact hypotheses if a selected construction needs them; direct models need not all provide LF. |
 | Is the structural interface sufficiently general? | `base`, `fiber`, Id and reflexivity are bundled with context structure; semantic-code indices quantify over the entire J-equipped model. | Compare a signature-independent core and constructor capabilities with a replacement foundation. |
 | Is the requested pair already an object-language term? | Context extension was already present; #317 now adds an object-language Sigma constructor through an explicit capability. | Specify object-language Sigma versus a contextual package explicitly; neither can silently stand in for the other. |
@@ -240,9 +272,10 @@ explicit mathematical recovery and migration evidence.
 ## Follow-up graph
 
 The linked issues own live scope and completion status. Their scope bounds
-the questions, not the research effort. The reviewed results above are from
-the ongoing implementation of this graph; later experiments retain their
-dependency and review gates.
+the questions, not the research effort. This table preserves the original
+investigation graph. The reviewed results above and linked successor reports
+record its completed bounded outcomes; broader architectural questions remain
+with #235/#289.
 
 | Issue | Discriminating outcome |
 | --- | --- |
@@ -258,7 +291,7 @@ The judgment experiment uses the structure audit and includes the nested
 internal-setting case. Constructor admission now uses that reviewed judgment
 contract. The author trial froze interfaces before selecting its held-out task
 and froze complete handoffs before fresh dispatch. Its facade repair and new
-trial belong to #323. The categorical-package task retains its concrete-benefit
+trial were completed in #323, as recorded above. The categorical-package task retains its concrete-benefit
 condition before constructing another model package.
 
 #297 keeps the broader modal/higher comparison, with separate questions for
@@ -279,10 +312,13 @@ strictifier is adopted by this reassessment.
 The [#329 reassessment](bialgebraic-dependent-reassessment.md) compares the
 reopened published constructions with the selected dependent memo and exact
 parser/weighted clients at `701023ce73ff297604fb21f2b6caada9e727c10c`. It retains
-local compatibility and proposes investigating dependent family/section
-comparisons with #325. That proposed construction is unproved; promotion must
-derive compatibility beyond the primitive laws already lifted by the guarded
-interpreter, and retain the chosen certificate and transported action source.
+local compatibility and proposed investigating dependent family/section
+comparisons with #325. The later coherent-groupoid comparison supplies scoped
+comparison, unit and composition results. It does not establish a general
+bialgebraic dependent presentation. Any successor must identify what remains
+beyond those constructions, derive compatibility beyond the primitive laws
+already lifted by the guarded interpreter, and retain the chosen certificate
+and transported action source.
 
 Higher-order input variance and binding do not discharge dependent formation,
 conversion, contextual J or higher identity. The report distinguishes published

@@ -34,6 +34,16 @@ argument. Semantic differences must remain expressible. Higher identity,
 constructive existence and crisp-context restrictions cannot be erased merely
 to make every setting look alike.
 
+Equality and pair laws belong to the specification of the mathematical setting.
+A representation can use a different equality when its interpretation validates
+that specification. Clients at the semantic interface must respect the
+specified equivalence; compiler clients inspecting representations have a
+different contract. Interpretations may be relations or retain witnesses rather
+than be functions into a single carrier. The representation must retain enough
+data for the chosen specification, including relevant identity witnesses.
+Individual developments should state the preservation obligations they use;
+this does not require an exhaustive equality taxonomy in every issue.
+
 ## Compilation and proof share this requirement
 
 | Categorical compilation | Internal reasoning |
@@ -95,6 +105,14 @@ to build a universal language before delivering useful mathematics. Record what
 each development teaches us about the language and revise proposed interfaces
 accordingly. A small working fragment can be valuable while its author interface
 remains below the long-term goal.
+
+For the MVP, the project owner accepts an agent-productivity advantage as
+sufficient (2026-11-07). Human-productivity evidence is not an acceptance gate.
+Compare agents under matched mathematical contracts and record completion,
+repair effort and resource use where available. Separate infrastructure setup
+from repeated authoring costs. The completed bounded author trials establish
+feasibility; their small samples and incomplete effort records do not establish
+a general productivity advantage.
 
 ## Selecting research by semantic requirements
 
@@ -186,10 +204,13 @@ The [frozen author trial](research/dependent-author-interface-trial.md) establis
 completion of the same selected J argument through both interfaces. Candidate
 authoring avoids semantic-code indices, while the baseline's motive helper
 already handles its branch alignment. A missing candidate root-tail helper
-requires further facade work, tracked with a new trial in
-[#323](https://github.com/VladimirMarko/conaled/issues/323). Adopt the guarded
-boundary for the tested contract; retain the baseline and do not infer lower
-total author effort or broad migration from this small comparison.
+was repaired in [#323](https://github.com/VladimirMarko/conaled/issues/323).
+The [successor trial](../experiments/guarded-j-retest/trial/evaluation.md)
+records both fresh authors completing the nested-J contract without assistance
+or interface changes, with exact submission replay. The original trial remains
+unchanged. Adopt the guarded boundary for the tested contract; retain the
+baseline and do not infer lower total author effort or broad migration from
+these small comparisons.
 The [constructor experiment](research/dependent-constructor-admission.md)
 checks this discipline for object-language dependent sums. Its operations and
 inverse laws derive dependent elimination and compatibility, while exact
@@ -199,9 +220,13 @@ can also constrain existing operations. Admit each extension against its
 semantic contract; forward inclusion and reduct recovery alone do not prove
 conservativity or expansion of every old model.
 The [checked higher source test](research/dependent-higher-identity.md) retains
-the frozen memo's witness observations, but its corresponding Lean model and
-sound interpretation remain to be constructed. Keep that adoption condition
-separate from successful source checking or lower-truncation author trials.
+the frozen memo's witness observations. The subsequent
+[cubical construction](research/cubical-model-construction.md) and
+[strict 2-groupoid construction](research/strict-two-groupoid-checkpoint.md)
+now supply bounded Lean interpretations with nontrivial higher observations.
+Those constructions discharge the specified higher-consumer gate; they do not
+establish an arbitrary higher-type-theory importer or universal model framework.
+Keep their model evidence separate from source checking and author trials.
 The [categorical assessment](research/concrete-dependent-coherence.md) keeps
 strictification conditional on a named model-construction benefit. Construct
 the required hypotheses for that consumer when strict stability is the missing

@@ -15,6 +15,23 @@ without deriving any of them would add obligations without an established gain.
 A competing presentation remains eligible even if it replaces the current
 syntax; promotion requires mathematical recovery, not an adapter as an entry fee.
 
+## Status after the dependent follow-ups
+
+This assessment records the inspected baseline `701023ce` and the proposals
+made against it. Subsequent results are collected in the
+[current dependent assessment](dependent-architecture-reassessment.md#current-follow-up-results).
+In particular, [#325's groupoid comparisons](coherent-groupoid-comparisons.md)
+now supply scoped family/section comparisons and composition laws;
+[#326](reference-dependent-calculus.md) supplies a bounded forward reference
+translation; [#327/#331](primitive-dependent-sums.md) compare pair contracts;
+and [#321](cubical-model-construction.md) and
+[#322/#336](strict-two-groupoid-checkpoint.md) supply the bounded higher models.
+The missing-work entries below describe the original assessment, not the
+current absence of those results. No generic bialgebraic replacement follows
+from their completion. A successor must first identify which proposed
+compatibility results remain beyond the completed comparisons and which
+consumer needs them.
+
 ## Required capability, independent of representation
 
 Use the already selected [dependent memo](dependent-coherence-discovery/292-external-memo.md),

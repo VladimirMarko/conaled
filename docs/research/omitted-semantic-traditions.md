@@ -277,12 +277,15 @@ No tradition is rejected wholesale. Reject the overbroad contracts identified
 by the six tasks. No immediate library adoption follows from the existence of
 an external theorem.
 
-### Two proposed follow-ups
+### Two follow-up investigations
 
-These are concrete uncovered work proposals for the coordinator, not newly
-created or started tracker tasks.
+The original assessment proposed these two investigations. The owner approved
+their creation on 2026-11-07: [#337](https://github.com/VladimirMarko/conaled/issues/337)
+is a child of #289, and [#338](https://github.com/VladimirMarko/conaled/issues/338)
+is a child of #288. Their tracker bodies now own acceptance and scheduling;
+the descriptions below retain the mathematical motivation of this assessment.
 
-1. **Context-varying partial settings and selected fixed points.** Proposed owner:
+1. **Context-varying partial settings and selected fixed points (#337).** Owner:
    #289, coordinated with #36/#235 and #288. Freeze a small independently defined
    partial computation and an indexed selected correctness certificate. Compare
    an SDT construction in slices with an external domain route. State the exact
@@ -294,7 +297,7 @@ created or started tracker tasks.
    adoption if only pointwise existence can be established. This extends #319's
    finite internal-setting evidence rather than repeating #314/#315's structural
    and representation comparisons.
-2. **Joint admission of conversion-changing extensions.** Proposed owner: #288,
+2. **Joint admission of conversion-changing extensions (#338).** Owner: #288,
    coordinated with #290/#289. Freeze the dependent-family/selected-section
    contract above. Compare explicit equality transport with a λΠ-modulo
    presentation for two composable equation packages. Supply the joint typing,

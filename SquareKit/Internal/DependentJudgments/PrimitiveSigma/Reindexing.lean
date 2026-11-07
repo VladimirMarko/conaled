@@ -1,3 +1,4 @@
+import SquareKit.GuardedRuleInterpretation
 import SquareKit.Internal.DependentJudgments.PrimitiveSigma.Theory
 import SquareKit.Internal.DependentJudgments.PrimitiveSigma.Stability
 
@@ -332,15 +333,9 @@ variable {V : Type} {Ω : List (Judgment V)}
 
 /-- Inclusion of the Capability-only fragment preserves exact source data. -/
 noncomputable def retain {a : Judgment V} (d : Derivation PrimitiveSigma.theory Ω a) :
-    Derivation theory Ω a := by
-  induction d with
-  | hypothesis h => exact .hypothesis h
-  | rule a σ _ ih => exact .rule (T := theory) (Sum.inl a) σ ih
-  | reflexive t => exact .reflexive t
-  | symmetric _ ih => exact .symmetric ih
-  | transitive _ _ ih ih' => exact .transitive ih ih'
-  | congruence op _ ih => exact .congruence op ih
-  | conversion p _ _ ih hp => exact .conversion p ih hp
+    Derivation theory Ω a :=
+  (RuleInterpretation.ofRuleMap (T := PrimitiveSigma.theory) (U := theory)
+    Sum.inl (fun _ => rfl)).transport d
 
 /-- The final interpreter requires one model-side stability instance. Authors
 supply source derivations and assumptions, including for dependent elimination. -/

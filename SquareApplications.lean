@@ -336,6 +336,7 @@ import Examples.CubicalSourceIdentity
 import SquareKit.Internal.Cubical.NormalizedPathFilling
 import SquareKit.Internal.Cubical.SumFillingSubstitution
 import Examples.PrimitiveDependentSums
+import Examples.CompositionalSpecifications
 import Examples.FiniteKernelEquality
 
 import Examples.CoherentGroupoidPresentations
