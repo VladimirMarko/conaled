@@ -1,4 +1,4 @@
-import SquareKit.Institutions.LinearModels
+import SquareKit.Institutions.LinearMonoidal
 import SquareKit.Institutions.IndexedClients
 import Examples.CompositionalSpecifications
 import Examples.ExactParserRewrites
@@ -50,6 +50,52 @@ def contraction : Cartesian.Proof (.atom () : Cartesian.Formula Unit) (.product 
 example : contraction.denote (fun _ => Nat) (7 : Nat) = ((7 : Nat),(7 : Nat)) := rfl
 example : ¬ Nonempty (Linear.Proof (.atom () : Linear.Formula Unit) (.tensor (.atom ()) (.atom ()))) :=
   no_reverse_contraction
+
+namespace Coherence
+open Linear
+
+/-- The two ordinary reassociation paths agree in every admitted model. -/
+theorem pentagon_in_model (M : Linear.Model α) (A B C D : Formula α) :
+    M.toAlgebra.interpret (Proof.pentagonShort A B C D) =
+      M.toAlgebra.interpret (Proof.pentagonLong A B C D) :=
+  M.equation (.pentagon A B C D)
+
+theorem translated_pentagon (A B C D : Formula α) :
+    Cartesian.Equation (linearProof (Proof.pentagonShort A B C D))
+      (linearProof (Proof.pentagonLong A B C D)) :=
+  translate_equation (.pentagon A B C D)
+
+abbrev A : Formula Unit := .atom ()
+
+example : (linearProof (Proof.pentagonShort A A A A)).denote (fun _ => Nat)
+    ((((1 : Nat),(2 : Nat)),(3 : Nat)),(4 : Nat)) = ((1 : Nat),((2 : Nat),((3 : Nat),(4 : Nat)))) := by
+  rw [translated_pentagon A A A A (fun _ => Nat)]
+  rfl
+
+/-- The review counterexample is a raw algebra, but cannot be a lawful model:
+its associator contributes one integer on each traversal. -/
+def twisted : Linear.Algebra Unit where
+  Hom _ _ := Int
+  identity _ := 0
+  compose g f := g + f
+  tensor f g := f + g
+  swap _ _ := 0
+  assoc _ _ _ := 1
+  unassoc _ _ _ := -1
+  unit _ := 0
+  ununit _ := 0
+  curry f := f
+  uncurry f := f
+
+theorem twisted_rejected : ¬ Linear.Lawful twisted := by
+  intro h
+  have bad := h.pentagon A A A A
+  change (2 : Int) = 3 at bad
+  omega
+
+example : twisted.interpret (Proof.pentagonShort A A A A) = (2 : Int) := rfl
+example : twisted.interpret (Proof.pentagonLong A A A A) = (3 : Int) := rfl
+end Coherence
 
 /-- Two valid ordinary squares have different bottom arrows. The additional
 compatibility required by ofSquares rejects the attempted combination. -/

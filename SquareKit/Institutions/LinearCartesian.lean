@@ -25,6 +25,17 @@ inductive Proof {α : Type} : Formula α → Formula α → Type
   | curry {A B C} : Proof (.tensor A B) C → Proof A (.hom B C)
   | uncurry {A B C} : Proof A (.hom B C) → Proof (.tensor A B) C
 
+/-- The right unitor is derived using symmetry and the left unitor. -/
+def Proof.rightUnit (A : Formula α) : Proof (.tensor A .unit) A := .comp .unit .swap
+
+def Proof.pentagonShort (A B C D : Formula α) :
+    Proof (.tensor (.tensor (.tensor A B) C) D) (.tensor A (.tensor B (.tensor C D))) :=
+  .comp .assoc .assoc
+
+def Proof.pentagonLong (A B C D : Formula α) :
+    Proof (.tensor (.tensor (.tensor A B) C) D) (.tensor A (.tensor B (.tensor C D))) :=
+  .comp (.tensor .id .assoc) (.comp .assoc (.tensor .assoc .id))
+
 /-- The integer resource interpretation is independent of translation. -/
 def resource (v : α → Int) : Formula α → Int
   | .atom a => v a
@@ -59,6 +70,24 @@ inductive Equation {α : Type} : {A B : Formula α} → Proof A B → Proof A B 
   | ununit_unit (A : Formula α) : Equation (.comp (.ununit (A := A)) .unit) .id
   | curry_natural (f : Proof (.tensor B C) D) (g : Proof A B) :
       Equation (.curry (.comp f (.tensor g .id))) (.comp (.curry f) g)
+  | assoc_natural (f : Proof A B) (g : Proof C D) (h : Proof E F) :
+      Equation (.comp .assoc (.tensor (.tensor f g) h)) (.comp (.tensor f (.tensor g h)) .assoc)
+  | unit_natural (f : Proof A B) :
+      Equation (.comp .unit (.tensor .id f)) (.comp f .unit)
+  | right_unit_natural (f : Proof A B) :
+      Equation (.comp (Proof.rightUnit B) (.tensor f .id)) (.comp f (Proof.rightUnit A))
+  | pentagon (A B C D : Formula α) : Equation (Proof.pentagonShort A B C D) (Proof.pentagonLong A B C D)
+  | triangle (A B : Formula α) :
+      Equation (.comp (.tensor .id (.unit (A := B))) (.assoc (A := A)))
+        (.tensor (Proof.rightUnit A) .id)
+  | hexagon_forward (A B C : Formula α) :
+      Equation (.comp (.assoc (A := B) (B := C) (C := A)) (.comp .swap .assoc))
+        (.comp (.tensor .id (.swap (A := A) (B := C)))
+          (.comp .assoc (.tensor (.swap (A := A) (B := B)) .id)))
+  | hexagon_reverse (A B C : Formula α) :
+      Equation (.comp (.unassoc (A := C) (B := A) (C := B)) (.comp .swap .unassoc))
+        (.comp (.tensor (.swap (A := A) (B := C)) .id)
+          (.comp .unassoc (.tensor .id (.swap (A := B) (B := C)))))
 end Linear
 
 namespace Cartesian
@@ -151,7 +180,7 @@ theorem translate_equation {A B : Linear.Formula α} {f g : Linear.Proof A B}
   | id_left => intro _; rfl
   | id_right => intro _; rfl
   | assoc => intro _; rfl
-  | tensor_id | tensor_comp | swap_swap | swap_natural | assoc_unassoc | unassoc_assoc | unit_ununit | ununit_unit | curry_natural => intro _; rfl
+  | tensor_id | tensor_comp | swap_swap | swap_natural | assoc_unassoc | unassoc_assoc | unit_ununit | ununit_unit | curry_natural | assoc_natural | unit_natural | right_unit_natural | pentagon | triangle | hexagon_forward | hexagon_reverse => intro _; rfl
 
 /-- Context substitution is categorical composition in this presentation. -/
 theorem translate_substitution {A B C : Linear.Formula α}

@@ -101,16 +101,33 @@ closed function. There is no separately claimed adequacy theorem relating
 these datatypes to a named-variable lambda calculus or its capture-avoiding
 substitution implementation.
 
-The source equation fragment contains category laws, congruence, closed
-beta/eta and curry naturality, tensor functor laws, symmetry naturality and
-involution, and inverse associator/unit equations. The target equation
-specification is equality of the independently defined function interpretations
-at every valuation. `translate_equation` proves the whole source equation
-induction. This is sound preservation of the stated fragment; it is not a
-completeness theorem for symmetric monoidal closed coherence, or reflection
-of target equations. Additional coherence generators could be added with
-primitive model checks; no universal completeness result is inferred from
-this finite presentation.
+The source equations contain category laws, congruence, closed beta/eta and
+curry naturality, tensor functor laws, symmetry naturality and involution,
+associator and unitor naturality and inverse laws, the pentagon and triangle,
+and both braiding hexagons. The right unitor is derived from symmetry and the
+left unitor. The target equation specification is equality of the independently
+defined function interpretations at every valuation. `translate_equation`
+proves the whole source equation induction, including every structural law.
+
+[`LinearMonoidal.lean`](../../SquareKit/Institutions/LinearMonoidal.lean)
+constructs Mathlib's `MonoidalCategory` and `SymmetricCategory` from each admitted
+source model. This checks structural coverage against an independent interface;
+it supplies no extra law hypothesis. The two pentagon routes agree in every
+model and after translation. A concrete tuple evaluates to `(1,(2,(3,4)))`
+through the checked translated equality.
+
+Review found that the initial implementation omitted structural coherence,
+which was required by the ordinary linear fixture. The correction adds the
+laws above, rather than treating them as optional future scope. The review's
+counterexample is retained as the checked raw algebra `Coherence.twisted`:
+all arrow carriers are integers, associators add 1, and inverse associators
+add -1. Its short and long pentagon routes evaluate to 2 and 3, so
+`twisted_rejected` proves that it cannot inhabit the corrected `Lawful` model
+interface. The function and resource models satisfy the full corrected laws.
+
+No universal syntactic coherence completeness theorem, equality reflection or
+named-variable adequacy theorem is claimed. Those are further metatheorems,
+not missing structural equations in the admitted model contract.
 
 [`LinearModels.lean`](../../SquareKit/Institutions/LinearModels.lean) separates
 primitive semantic operations from their local laws. Recursive interpretation
@@ -217,7 +234,7 @@ an arbitrary mate is invertible.
 
 ## Statement review and validation
 
-Checked claims are in the four library modules and
+Checked claims are in the five library modules and
 [`InstitutionCapabilities.lean`](../../Examples/InstitutionCapabilities.lean).
 Statement review checked the following boundaries:
 
@@ -225,7 +242,9 @@ Statement review checked the following boundaries:
   the intermediate evidence fiber. Identity and associativity observe maps,
   not an erased existential statement.
 - Model interpretation is derived from primitive operations. Equation soundness
-  uses justified local laws in both concrete models. The contraction premise
+  uses justified local laws in both concrete models. The Mathlib symmetric-monoidal bridge checks the structural contract, and
+  the twisted-associator negative control rejects the review counterexample.
+  The contraction premise
   is impossible in the resource model, while source swap and target contraction
   are inhabited and computed in the positive controls.
 - Translation equality is target semantic equality at all type valuations.
@@ -252,7 +271,12 @@ Definition 1, and Rabe, Mossakowski, de Paiva, Schröder and Goguen,
 [*An Institutional View on Categorical Logic*](https://kwarc.info/people/frabe/Research/GMPRS_catlog_07.pdf),
 Definitions 2.1, 2.4, 2.6 and 4.1. The latter supplies a proof-sensitive
 institutional account; this experiment is not a Lean port of its general
-construction. Those sources were re-opened for this implementation.
+construction. Those sources were re-opened for this implementation. Structural laws were
+also checked against the pinned Mathlib revision
+`56a005855ea17e0b0958f73ec801ae140b0a1679`, specifically
+[`MonoidalCategory.ofTensorHom`](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/CategoryTheory/Monoidal/Category.lean)
+and [`BraidedCategory`/`SymmetricCategory`](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean).
+The new bridge inhabits those interfaces using the model's primitive laws.
 
 The independent combinator datatypes, resource countermodel and capability
 specializations here are new checked constructions motivated by #340's worked

@@ -43,6 +43,30 @@ structure Lawful (M : Algebra α) : Prop where
   curry_natural : ∀ {A B C D} (f : M.Hom (.tensor B C) D) (g : M.Hom A B),
     M.curry (M.compose f (M.tensor g (M.identity C))) = M.compose (M.curry f) g
 
+  assoc_natural : ∀ {A B C D E F} (f : M.Hom A B) (g : M.Hom C D) (h : M.Hom E F),
+    M.compose (M.assoc B D F) (M.tensor (M.tensor f g) h) =
+      M.compose (M.tensor f (M.tensor g h)) (M.assoc A C E)
+  unit_natural : ∀ {A B} (f : M.Hom A B),
+    M.compose (M.unit B) (M.tensor (M.identity .unit) f) = M.compose f (M.unit A)
+  right_unit_natural : ∀ {A B} (f : M.Hom A B),
+    M.compose (M.compose (M.unit B) (M.swap B .unit)) (M.tensor f (M.identity .unit)) =
+      M.compose f (M.compose (M.unit A) (M.swap A .unit))
+  pentagon : ∀ A B C D,
+    M.compose (M.assoc A B (.tensor C D)) (M.assoc (.tensor A B) C D) =
+      M.compose (M.tensor (M.identity A) (M.assoc B C D))
+        (M.compose (M.assoc A (.tensor B C) D) (M.tensor (M.assoc A B C) (M.identity D)))
+  triangle : ∀ A B,
+    M.compose (M.tensor (M.identity A) (M.unit B)) (M.assoc A .unit B) =
+      M.tensor (M.compose (M.unit A) (M.swap A .unit)) (M.identity B)
+  hexagon_forward : ∀ A B C,
+    M.compose (M.assoc B C A) (M.compose (M.swap A (.tensor B C)) (M.assoc A B C)) =
+      M.compose (M.tensor (M.identity B) (M.swap A C))
+        (M.compose (M.assoc B A C) (M.tensor (M.swap A B) (M.identity C)))
+  hexagon_reverse : ∀ A B C,
+    M.compose (M.unassoc C A B) (M.compose (M.swap (.tensor A B) C) (M.unassoc A B C)) =
+      M.compose (M.tensor (M.swap A C) (M.identity B))
+        (M.compose (M.unassoc A C B) (M.tensor (M.identity A) (M.swap B C)))
+
 structure Model (α : Type) extends Algebra α where
   laws : Lawful toAlgebra
 
@@ -82,6 +106,13 @@ theorem Model.equation (M : Model α) {A B} {f g : Proof A B} (h : Equation f g)
   | unit_ununit => exact M.laws.unit_ununit _
   | ununit_unit => exact M.laws.ununit_unit _
   | curry_natural => exact M.laws.curry_natural _ _
+  | assoc_natural => exact M.laws.assoc_natural _ _ _
+  | unit_natural => exact M.laws.unit_natural _
+  | right_unit_natural => exact M.laws.right_unit_natural _
+  | pentagon => exact M.laws.pentagon _ _ _ _
+  | triangle => exact M.laws.triangle _ _
+  | hexagon_forward => exact M.laws.hexagon_forward _ _ _
+  | hexagon_reverse => exact M.laws.hexagon_reverse _ _ _
 
 /-- Finite-resource arrows. The order proof is lifted into Type, so this model
 has the same evidence interface as data-bearing models. -/
