@@ -157,4 +157,75 @@ def Fprimitive : TheoryMap projectionBetaRules projectionEtaRules id where
     | secondBeta Γ A B a b => exact Derivation.rule (R := projectionEtaRules) (ProjectionRule.secondBeta Γ A B a b) (fun i => .hyp ⟨i, rfl⟩)
     | eta h => contradiction
 
+namespace Form
+def rename (f : V → W) : Form S V → Form S W
+  | .ctx => .ctx
+  | .type A => .type (Expr.rename f A)
+  | .term a A => .term (Expr.rename f a) (Expr.rename f A)
+  | .typeEq A B => .typeEq (Expr.rename f A) (Expr.rename f B)
+  | .termEq a b A => .termEq (Expr.rename f a) (Expr.rename f b) (Expr.rename f A)
+end Form
+
+/-- Structural rules retain the common type of an equation. Family congruence
+substitutes equal typed terms in a separately formed dependent family. -/
+inductive StructuralRule (S : Signature) where
+  | empty
+  | extend {V} (Γ : Context S V) (A : Expr S V)
+  | variable {V} (Γ : Context S V) (v : V)
+  | weaken {V} (Γ : Context S V) (A : Expr S V) (φ : Form S V)
+  | typeRefl {V} (Γ : Context S V) (A : Expr S V)
+  | typeSymm {V} (Γ : Context S V) (A B : Expr S V)
+  | typeTrans {V} (Γ : Context S V) (A B C : Expr S V)
+  | termRefl {V} (Γ : Context S V) (a A : Expr S V)
+  | termSymm {V} (Γ : Context S V) (a b A : Expr S V)
+  | termTrans {V} (Γ : Context S V) (a b c A : Expr S V)
+  | convert {V} (Γ : Context S V) (a A B : Expr S V)
+  | convertEq {V} (Γ : Context S V) (a b A B : Expr S V)
+  | familyCong {V} (Γ : Context S V) (A : Expr S V)
+      (B : Expr S (Fin 1 ⊕ V)) (a b : Expr S V)
+
+namespace StructuralRule
+open Judgment
+def schema : StructuralRule S → Schema S
+  | .empty => ⟨[], ctx .empty⟩
+  | .extend Γ A => ⟨[ctx Γ, type Γ A], ctx (.extend Γ A)⟩
+  | .variable Γ v => ⟨[ctx Γ], term Γ (.var v) (Γ.lookup v)⟩
+  | .weaken Γ A φ => ⟨[ctx Γ, type Γ A, ⟨_, Γ, φ⟩],
+      ⟨_, .extend Γ A, φ.rename Sum.inr⟩⟩
+  | .typeRefl Γ A => ⟨[type Γ A], typeEq Γ A A⟩
+  | .typeSymm Γ A B => ⟨[typeEq Γ A B], typeEq Γ B A⟩
+  | .typeTrans Γ A B C => ⟨[typeEq Γ A B, typeEq Γ B C], typeEq Γ A C⟩
+  | .termRefl Γ a A => ⟨[term Γ a A], termEq Γ a a A⟩
+  | .termSymm Γ a b A => ⟨[termEq Γ a b A], termEq Γ b a A⟩
+  | .termTrans Γ a b c A => ⟨[termEq Γ a b A, termEq Γ b c A], termEq Γ a c A⟩
+  | .convert Γ a A B => ⟨[term Γ a A, typeEq Γ A B], term Γ a B⟩
+  | .convertEq Γ a b A B => ⟨[termEq Γ a b A, typeEq Γ A B], termEq Γ a b B⟩
+  | .familyCong Γ A B a b =>
+      ⟨[ctx Γ, type Γ A, type (.extend Γ A) B, termEq Γ a b A],
+        typeEq Γ (instantiate B a) (instantiate B b)⟩
+end StructuralRule
+
+/-- Structural closure is shared machinery; the primitive rule tables stay independent. -/
+def closedRules {S : Signature} {L : Type 1} (primitive : L → Schema S) : Rules (Judgment S) :=
+  rulesOf (Sum.elim StructuralRule.schema primitive)
+
+def Pβ := closedRules (ProjectionRule.schema (hasEta := false))
+def Pη := closedRules (ProjectionRule.schema (hasEta := true))
+
+/-- Replay structural rules and the independently specified source table. -/
+def F : TheoryMap Pβ Pη id where
+  certificate r := by
+    cases r with
+    | inl s => exact Derivation.rule (R := Pη) (.inl s) (fun i => .hyp ⟨i, rfl⟩)
+    | inr r =>
+      cases r with
+      | formation Γ A B => exact Derivation.rule (R := Pη) (.inr (.formation Γ A B)) (fun i => .hyp ⟨i, rfl⟩)
+      | pair Γ A B a b => exact Derivation.rule (R := Pη) (.inr (.pair Γ A B a b)) (fun i => .hyp ⟨i, rfl⟩)
+      | first Γ A B p => exact Derivation.rule (R := Pη) (.inr (.first Γ A B p)) (fun i => .hyp ⟨i, rfl⟩)
+      | second Γ A B p => exact Derivation.rule (R := Pη) (.inr (.second Γ A B p)) (fun i => .hyp ⟨i, rfl⟩)
+      | firstBeta Γ A B a b => exact Derivation.rule (R := Pη) (.inr (.firstBeta Γ A B a b)) (fun i => .hyp ⟨i, rfl⟩)
+      | secondBeta Γ A B a b => exact Derivation.rule (R := Pη) (.inr (.secondBeta Γ A B a b)) (fun i => .hyp ⟨i, rfl⟩)
+      | eta h => contradiction
+
 end SquareKit.DependentPairJudgments
+
