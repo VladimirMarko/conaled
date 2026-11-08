@@ -1,5 +1,9 @@
 # Architectural assessment after the external orbifold report
 
+The [completed comparison results](results.md) record the executed successors,
+the finite author trial and current residual owners. The planning and interim
+statements below retain their historical scope.
+
 The [final disposition](disposition.md) supersedes this report’s pending #362
 scheduling and assigns the bounded follow-ups. This report retains the evidence
 and recommendations at its publication checkpoint; the original independent

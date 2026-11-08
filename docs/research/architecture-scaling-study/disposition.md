@@ -1,5 +1,9 @@
 # Architecture disposition and bounded execution after #362
 
+The [completed comparison results](results.md) record the executed successors,
+the finite author trial and current residual owners. The planning and interim
+statements below retain their historical scope.
+
 This disposition completes the scoping deliverable of
 [#362](https://github.com/VladimirMarko/conaled/issues/362), against baseline
 `b761a21dbaef5b326fb7f498d9abd5574d36762f`. It incorporates the [initial
