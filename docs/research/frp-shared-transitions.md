@@ -182,3 +182,12 @@ passed with only `propext`, `Classical.choice`, and `Quot.sound`. The new proofs
 build without warnings; existing module-system migration warnings remain.
 Local documentation links and whitespace checks passed. Proof infrastructure
 is unchanged; audit regression tests are not needed for this refactor.
+
+## Measured finite source windows (#193)
+
+[Measured source-window execution](measured-frp-numerical-execution.md) now
+uses `Resources.run` for actual `advance` attempts. Its erasure agrees with
+`process` and `sourcePrefix`; rejection continues processing and retains a
+separate rejection count. Existing validity, refinement and path-specific
+honesty contracts are preserved. These attempt counts do not bound validator
+traversal, stored history, identifier bits or indefinite-service work.

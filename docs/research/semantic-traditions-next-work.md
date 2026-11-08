@@ -20,11 +20,13 @@ Horn support (#379). The [fourth-wave synthesis](semantic-traditions-fourth-wave
 records checked classical control (#380), newly produced retained events (#381),
 varying bodies (#382), indexed transfer (#383), modal context extension (#384),
 and the assembly partial-map classifier (#385). Combined integration acceptance
-is recorded separately by the orchestration. #371's full internal provider
-remains open. The [fifth-wave synthesis](semantic-traditions-fifth-wave.md) records
-accepted lifting monads (#386) and finite interaction strategies (#390). Continue
-#387–#389 under the
-[uniform iteration/completeness contract](internal-sdt-iteration-roadmap.md). The
+is recorded separately by the orchestration. The [fifth-wave synthesis](semantic-traditions-fifth-wave.md)
+records accepted lifting monads (#386) and finite interaction strategies (#390).
+The accepted [P5 comparison](internal-selected-certificate-solver.md) completes
+#371's bounded assembly provider through #387–#389, delivered to master at
+[758d072](https://github.com/VladimirMarko/conaled/commit/758d0720dfc6388a9cbb586abfa030b6dac43c55).
+The [iteration roadmap](internal-sdt-iteration-roadmap.md) records the
+uniform iteration/completeness contract implemented by that chain. The
 original ordering below records the starting plan, not a dependency barrier or
 a claim that subsequent checked results are absent.
 

@@ -133,8 +133,11 @@ topos into assemblies by renaming its hypotheses.
 | Boolean restriction | `InternalIteration.boolean_not_complete_strict`: impossible combined complete-plus-strict-algebra hypotheses admitting negation; no blanket Boolean-incompleteness claim |
 | Selected erasure and finite-fuel boundary | Equal-domain/distinct-record and unknown-versus-defined controls above |
 
-This supplies the bounded assembly provider requested by #371, subject to
-independent acceptance of P5 with its prerequisite evidence. It does not claim
+Independent Standards and Spec reviews accepted P5 and the full bounded #371
+provider chain. The result was delivered to master at
+[758d072](https://github.com/VladimirMarko/conaled/commit/758d0720dfc6388a9cbb586abfa030b6dac43c55),
+with the complete candidate build, exhaustive proof audit and exact verification
+passed. It does not claim
 a full effective-topos implementation, completeness of all assemblies, or a
 selected solver for nonuniform external states.
 
