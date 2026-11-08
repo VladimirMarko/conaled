@@ -1,5 +1,9 @@
 # Architecture disposition and bounded execution after #362
 
+The [schedulable successor map](../semantic-traditions-next-work.md) records the
+subsequent promotion of conditional tasks and replaces their passive deferral
+where explicitly stated. The original disposition below remains the scope history.
+
 The [completed comparison results](results.md) record the executed successors,
 the finite author trial and current residual owners. The planning and interim
 statements below retain their historical scope.
