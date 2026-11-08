@@ -1,9 +1,11 @@
 import Applications.Orbifold.RationalMotion
+import SquareKit.Numerical.Error
 
 /-! Checked rational steps carry their error budget across command boundaries.
 Rejection means that the conservative domain test did not certify this step. -/
 namespace Orbifold.DiskTransport.Numerical
 open Set
+open scoped NNReal
 
 def budget (d e : ℚ) : ℚ := (1+13*d)*e+39*d^2
 
@@ -106,24 +108,26 @@ theorem advance_correct {c : Tick} {q : Packet} {p : Pose}
       Domain (coordinates (c.control.decode.trajectory p t)) :=
     fun t ht => trajectory_domain c.control.decode p hv hmargin ht
   have hpd : Domain (coordinates p) := by simpa using hdom 0 ⟨le_rfl, hd⟩
-  have hs := euler_stability hd hv ho (admissible_domain hc).1 hpd
+  have hs : LipschitzOnWith ⟨1 + 13 * (c.duration : ℝ), by positivity⟩
+      (fun z => z + (c.duration : ℝ) •
+        motionField c.control.decode.velocity c.control.decode.angularVelocity z)
+      {z | Domain z} := LipschitzOnWith.of_dist_le_mul fun z hz w hw => by
+    rw [dist_eq_norm, dist_eq_norm]
+    exact euler_stability hd hv ho hz hw
   have hl := local_error c.control.decode p (a := 0) hd hv ho (by simpa using hdom)
   simp only [zero_add, Control.initial] at hl
+  have h := NumericalError.propagate hs (admissible_domain hc).1 hpd
+    (y := coordinates (c.control.decode.trajectory p c.duration))
+    (d := 39 * (c.duration : ℝ)^2)
+    (by simpa only [dist_eq_norm] using he)
+    (by rw [dist_eq_norm, norm_sub_rev]; exact hl)
   unfold Approx advance
   dsimp only
   rw [step_decode]
-  have ht := dist_triangle
-    (q.state.decode+(c.duration : ℝ) • motionField c.control.decode.velocity
-      c.control.decode.angularVelocity q.state.decode)
-    (coordinates p+(c.duration : ℝ) • motionField c.control.decode.velocity
-      c.control.decode.angularVelocity (coordinates p))
-    (coordinates (c.control.decode.trajectory p c.duration))
-  simp only [dist_eq_norm] at ht
-  rw [norm_sub_rev (coordinates p+_)] at ht
+  simp only [dist_eq_norm] at h
   unfold budget
   push_cast
-  dsimp [Tick.decode, Command.finish]
-  nlinarith
+  exact h
 
 theorem checkedStep_correct {c : Tick} {q r : Packet} {p : Pose}
     (h : checkedStep c q = some r) (hp : Approx q p) :

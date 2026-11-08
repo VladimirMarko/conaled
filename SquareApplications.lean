@@ -476,6 +476,7 @@ import Examples.SelectedIdJTail
 import Examples.HigherSharedObservation
 
 import Examples.NominalTelescope
+import Examples.NumericalError
 import Examples.StateException
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
