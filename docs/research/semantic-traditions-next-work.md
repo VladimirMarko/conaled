@@ -10,11 +10,14 @@ is `c19a9ab31d0764d68752f4825554fac8e44a5e24`; the open tracker was inspected on
 ## First-wave results and continuing order
 
 The [first-wave synthesis](semantic-traditions-first-wave.md) records the bounded
-results of #369/#372/#373/#377/#378 and successors #379–#382. Relational transfer
-(#374) continues alongside the concrete higher-order probability model milestone
-(#370), to test model assembly as well as reuse of existing interfaces. #375–#376,
-#371 and the external-consumer improvements #367–#368 remain scheduled. The
-original ordering below records the starting plan, not a dependency barrier.
+results of #369/#372/#373/#377/#378 and successors #379–#382. The
+[second-wave synthesis](semantic-traditions-second-wave.md) records constructed
+higher-order probability (#370), reuse of existing relational compiler
+registrations (#374), and explicit geometric-data boundaries (#367). #383 owns
+the next indexed-output transfer comparison. #371 and #375 are in implementation;
+#376 and the external proper-etale comparison #368 remain scheduled alongside
+#379–#383. The original ordering below records the starting plan, not a dependency
+barrier or a claim that subsequent checked results are absent.
 
 ## Decision criteria and present evidence
 

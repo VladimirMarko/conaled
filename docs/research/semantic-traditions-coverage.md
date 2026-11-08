@@ -4,8 +4,11 @@ For subsequent bounded implementations and research, see the
 [first-wave synthesis](semantic-traditions-first-wave.md): numerical composition,
 state/exception policies and the nominal telescope now have checked results at
 their stated scopes. The support and classical-control studies have bounded
-formalization successors #379/#380. The historical comparison below is not a
-claim that those later results are absent.
+formalization successors #379/#380. The [second wave](semantic-traditions-second-wave.md) adds a constructed
+random-function model, selected FIFO/interval transfer through existing compilers,
+and explicit geometric-data comparison. #383 owns the varying-fiber transfer
+successor. The historical comparison below is not a claim that those later
+results are absent.
 
 [#350](https://github.com/VladimirMarko/conaled/issues/350) reconciles the
 previous discovery programme with baseline
