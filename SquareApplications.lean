@@ -1,3 +1,5 @@
+import Examples.AdjointModes
+import Examples.IndexedWitnessAdjunctions
 import Examples.InstitutionCapabilities
 import Examples.RelationalSemanticBoundary
 import Examples.SelectedPathBoundary
@@ -353,6 +355,7 @@ import Examples.CoherentGroupoidPresentations
 
 import Examples.ReferenceDependentCalculus
 import Examples.ReferenceClient
+import Examples.ReferenceHigherTheoryMaps
 import Examples.ReferenceCongruence
 
 import Examples.TwoFamily
@@ -452,5 +455,7 @@ import SquareKit.Internal.Cubical.SlicePrism
 
 import Examples.CubicalFrozenOrdinaryAction
 import Examples.DependentPairSharedClient
+
+import Examples.FiniteExecutionAdapters
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
