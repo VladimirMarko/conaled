@@ -14,9 +14,12 @@ classical control, retained measurements, varying nominal bodies, indexed cursor
 transport, modal comprehension and the assembly partial-map classifier. Combined
 integration acceptance is external to this report. The
 [fifth-wave synthesis](semantic-traditions-fifth-wave.md) records accepted lifting
-monads (#386) and finite interaction strategies (#390). #387–#389 retain the remaining
-internal SDT obligations; the [iteration roadmap](internal-sdt-iteration-roadmap.md)
-requires all-context completeness and its tracked exponential equivalence. The
+monads (#386) and finite interaction strategies (#390). The accepted
+[P5 comparison](internal-selected-certificate-solver.md) completes #371's bounded
+assembly provider through #387–#389, delivered to master at
+[758d072](https://github.com/VladimirMarko/conaled/commit/758d0720dfc6388a9cbb586abfa030b6dac43c55).
+The [iteration roadmap](internal-sdt-iteration-roadmap.md) records its all-context
+completeness contract and tracked exponential equivalence. The
 historical comparison below is not a claim that these bounded results are absent.
 
 [#350](https://github.com/VladimirMarko/conaled/issues/350) reconciles the
