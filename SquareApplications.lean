@@ -1,3 +1,4 @@
+import Examples.AdjointModes
 import Examples.InstitutionCapabilities
 import Examples.RelationalSemanticBoundary
 import Examples.SelectedPathBoundary
