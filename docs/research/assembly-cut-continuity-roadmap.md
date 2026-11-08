@@ -1,11 +1,12 @@
-# Cut-observer continuity and uniform extension: proof proposal
+# Cut-observer continuity and uniform extension: historical proof proposal
 
 This source-checked proof proposal refines the missing continuity obligation in
 the [iteration roadmap](internal-sdt-iteration-roadmap.md) for
 [#388](https://github.com/VladimirMarko/conaled/issues/388). It was prepared against
 accepted P0/P1 code at `7a4bddcff3741741efda1dcb518ef86b81697c18`. The derivations
-below have not been implemented or checked in Lean. They supply no new accepted
-completeness theorem and assume no results from pending iteration work.
+below were unformalized at that point. [P4 now implements them](internal-complete-certificate-family.md),
+including concrete all-context N/LN completeness and the uniform extension compiler.
+The proposal is retained to explain the proof choices and source boundary.
 
 A direct recursion-theorem argument appears to supply both required semantic lemmas. A separate explicit search supplies the uniform extension tracker. The proof below uses the concrete finite/full cut realizers; it does not import an internal Eff theorem or assume continuity for arbitrary assemblies.
 
@@ -17,7 +18,7 @@ Source locators: p.266 describes F by finite/full r.e. cuts; p.268 identifies I 
 
 Actual P0: `SquareKit/Assembly.lean` defines trackers on every realizer, products by pairing, `Hom.has_code`, and `encoded Nat`. `SquareKit/AssemblyLift.lean` defines `run e = (ofNat Code e).eval 0`; an LN realizer is a program diverging for `none` and returning the encoded value for `some v`. P1 `SquareKit/AssemblyPartialMap.lean` has saturated admissibility on every realizer. Its classifier is compatible with this lift; classification alone proves none of the continuity claims here.
 
-Write `W(e)={k | eval (ofNat Code e) k is defined}` and `Cut(e,n)` for `W(e)=[0,n)`. Write `Full(e)` for `W(e)=N`. The #387 objects must realize n by **all** cut indices, with arbitrary returned values, and infinity by all full indices. Adding known finite bounds, restricting to canonical indices, or changing saturation would require rechecking these proofs. Construct a computable canonical index C(n) with domain `[0,n)` and output zero. [The #387 implementation](internal-cut-iteration.md) now constructs these cut objects, the computable canonical indices and their universal properties. This roadmap still supplies no checked continuity or concrete completeness theorem.
+Write `W(e)={k | eval (ofNat Code e) k is defined}` and `Cut(e,n)` for `W(e)=[0,n)`. Write `Full(e)` for `W(e)=N`. The #387 objects must realize n by **all** cut indices, with arbitrary returned values, and infinity by all full indices. Adding known finite bounds, restricting to canonical indices, or changing saturation would require rechecking these proofs. Construct a computable canonical index C(n) with domain `[0,n)` and output zero. [The #387 implementation](internal-cut-iteration.md) now constructs these cut objects, the computable canonical indices and their universal properties. P4 now supplies checked continuity and concrete completeness; the derivation below records its original proof plan.
 
 ## Observer interface
 
@@ -103,4 +104,9 @@ Suggested implementation order: observer flattening; canonical cuts; Lemma A; Le
 
 No unresolved mathematical contradiction was found in this derivation. Its status is an author-checked proof plan, not kernel validation. The two self-reference programs, the exact search graph, and the computable compiler are still substantive formal work. Preserve the all-realizer contracts and never treat bounded simulation as a decision procedure for divergence. P1 saturation is compatible with these arguments but does not replace them.
 
-This establishes a proposed route only for the concrete cut objects and N/LN. Exponential/retract closure, uniform bound filtering, fixed subassemblies, certificate identification, and reassembly remain #388 obligations. #387's initiality and finality have separate checked proofs; this proposed continuity argument uses their realizer presentation. They establish neither every slice's completeness nor general complete-implies-well-complete, and do not complete #371. The derivation does not depend on #386 monad laws or #390 interaction results. No change of model is indicated by this evidence; the next step is checked implementation against the constructed cut objects.
+The specialized route is now [implemented in P4](internal-complete-certificate-family.md),
+along with exponential/retract closure, uniform bound filtering, the fixed
+subassemblies and certificate comparison. P3 has separate checked initiality
+and finality proofs. These constructions establish neither every slice's
+completeness nor general complete-implies-well-complete, and they do not complete
+#371. P5 still owns the concrete state algebra and selected client comparison.

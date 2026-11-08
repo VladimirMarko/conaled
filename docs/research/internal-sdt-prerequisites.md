@@ -2,11 +2,12 @@
 
 [#371](https://github.com/VladimirMarko/conaled/issues/371) now has a constructed
 assembly category and program-index lifting infrastructure. This report records
-that P0 milestone, the P1 classifier, the P2 lifting monads and P3 iteration. **The internal SDT provider and its selected-solution
-comparison are not complete.** P3 supplies a conditional selected-fixed-point theorem, but concrete
-completeness for the intended family remains unproved. The remaining obligations below belong
-to #371 under #289. P1 / #385, P2 / #386 and P3 / #387 are now checked; P4–P5 remain scheduled as
-#388–#389. #371 remains open until the selected-solution comparison is complete.
+that P0 milestone, the P1 classifier, P2 lifting monads, P3 iteration and
+[P4 complete certificate family](internal-complete-certificate-family.md).
+**The internal SDT provider and its selected-solution comparison are not complete.**
+P4 now constructs concrete completeness and the uniformly realizable state family.
+P5 / #389 still owns its algebra, countdown arrow and selected-solution comparison.
+#371 remains open until that comparison is complete.
 
 ## Model and source boundary
 
@@ -92,7 +93,7 @@ to be assumed by a future client. `P0` is the checked milestone above.
 | [P1 / #385](https://github.com/VladimirMarko/conaled/issues/385): admissible partial maps, checked | P0 | [Constructed](assembly-partial-map-classifier.md): pullbacks, saturated recursively enumerable inherited-realizer domains, classification and round trips for their partial maps, reindexing stability, and tracked equivalences between zero-input and diagonal-input presentations. Arbitrary subobjects are not classified. |
 | [P2 / #386](https://github.com/VladimirMarko/conaled/issues/386): lifting monad | P1 | Construct generic lift multiplication with a tracker and prove the monad laws. Prove lift comparisons for the admitted slice maps using P1's pullback and classifier constructions; this node does not construct the certificate state family or its algebra. |
 | [P3 / #387](https://github.com/VladimirMarko/conaled/issues/387): iteration and extension | P2 | Construct I, F, inclusion, successor and infinity with their trackers. First prove initiality as an endofunctor algebra, then derive the strict-algebra-with-successor property using P2. Prove final-coalgebra uniqueness and conditional extension-selected fixed points using all-context completeness; preserve uniform tracker parameters in any parameterized claim. |
-| [P4 / #388](https://github.com/VladimirMarko/conaled/issues/388): complete certificate family | P1, P3 | Construct tracked function assemblies and prove equivalence of P3's all-context completeness with the exponential restriction isomorphism. Prove completeness of N, completeness of its lift under the halting hypotheses, and closure under exponentials and retracts. Build the context-dependent bound filter on `L(N)^N`, prove its tracking/idempotence, identify its fixed subobject with the certificate state family, and prove extension uniqueness over arbitrary admitted contexts. |
+| [P4 / #388](https://github.com/VladimirMarko/conaled/issues/388): complete certificate family | P1, P3 | Checked in [the P4 report](internal-complete-certificate-family.md): tracked function assemblies and equivalence of P3's all-context completeness with the exponential restriction isomorphism; completeness of N and its lift under the concrete halting semantics, and closure under exponentials and retracts; a tracked idempotent bound filter on `L(N)^N`, identification with uniformly realizable certificate states, and relative extension uniqueness over arbitrary admitted contexts. |
 | [P5 / #389](https://github.com/VladimirMarko/conaled/issues/389): selected client comparison | P2, P3, P4 | On P4's constructed certificate state family, construct the coordinatewise union algebra with tracked evaluation/reassembly and prove its algebra laws using P2. Then construct the countdown functional as an internal arrow. Derive its selected solution from extension at infinity, prove equality with the independently specified partial graph, and derive both parameter-change laws from local algebra and extension laws. Recover the unique-certificate client and keep disabled bottom, unequal selections with equal domains, and finite-fuel controls. |
 
 The graph is `P0 → P1 → P2 → P3`, with `(P1,P3) → P4` and
@@ -101,9 +102,9 @@ supplies its object and evaluation/reassembly infrastructure; P2 supplies the
 generic monad laws independently of that family. [P1 is implemented](assembly-partial-map-classifier.md), and
 [P2 supplies the tracked ordinary and slice monads](assembly-lifting-monad.md).
 [P3 constructs cut iteration, uniform tracking and conditional selection](internal-cut-iteration.md).
-P4 remains the next obligation. The P0 certificate examples
-construct each fixed finite fiber and its maps; they do not establish a
-dependent product or the uniform slice theorem required at P4. No universe
+[P4 constructs the function objects, completeness and bounded family](internal-complete-certificate-family.md).
+The P0 fixed-fiber examples alone did not establish that uniform result.
+P4 proves relative completeness for the constructed family, not all slices. No universe
 classifier is present. Any future internal-language interpretation needs its
 own soundness and universe-size account. Operational countdown adequacy is
 separate from P5 and must name its program semantics.
@@ -132,11 +133,11 @@ composition law precedes the selected-record example. The independent
 expected result remains 3 with `[2,1,0]`; the negative controls have concrete
 inhabitants. The finite-fuel case does not infer divergence from exhaustion.
 These checks cover the new definitions, general laws and applications; they
-do not establish the remaining P4–P5 claims; P1 has its own checked
+do not establish P5; P4 now has its own checked [construction](internal-complete-certificate-family.md), and P1 has its own checked
 [construction and cases](assembly-partial-map-classifier.md).
 
 Adopt this assembly infrastructure as a prerequisite for the source model.
-Defer the concrete internal certificate provider until the remaining P4–P5 nodes are proved. Retain the external
+Defer the concrete internal certificate provider until the remaining P5 node is proved. Retain the external
 ordered-domain provider on its own contract; no adapter to that provider is
 an acceptance condition here. Neither route receives a productivity claim
 from these examples. A shared blind spot is the cost of constructing uniform

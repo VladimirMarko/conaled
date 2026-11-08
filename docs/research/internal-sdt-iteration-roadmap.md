@@ -6,7 +6,9 @@ prerequisites at integration `fecec8579a3715ecf9efb5153a64d856256a9cce`. It guid
 [#388](https://github.com/VladimirMarko/conaled/issues/388); it supplies no new
 Lean-checked iteration or completeness theorem. P1 classification was not assumed
 in this assessment. The task graph now uses all-context completeness in #387
-and requires its exponential equivalence in #388.
+and requires its exponential equivalence in #388. Both the P3 iteration and
+[P4 completeness construction](internal-complete-certificate-family.md) are now checked;
+the proof obligations below are retained as their historical construction plan.
 
 Primary source: van Oosten–Simpson, *Axioms and (counter)examples in synthetic domain theory*, APAL 104 (2000), 233–278, DOI 10.1016/S0168-0072(00)00014-2, [publisher-version PDF](https://www.pure.ed.ac.uk/ws/portalfiles/portal/12306183/1_s2.0_S0168007200000142_main.pdf). Retrieved PDF SHA-256 `066a36aa48fc38b5105637e8b77ef0b34de9e61751010492b922946b1ce9c2e2`. Printed page p is PDF zero-based page p−232.
 
@@ -30,7 +32,7 @@ change the checked status of completeness or iteration. [#386's lifting monads](
 now discharge P2. [The checked P3 construction](internal-cut-iteration.md)
 discharges #387, including uniform tracking and conditional selection. The
 proposed P3 steps below are retained as the source-based design rationale;
-#388–#389 retain their construction obligations.
+#388 is now checked; #389 retains its selected-client construction obligations.
 
 ## Proposed direct #387 construction
 
@@ -93,9 +95,10 @@ Revision inspected: `56a005855ea17e0b0958f73ec801ae140b0a1679`, as in the manife
 
 ## Implementation disposition
 
-P3 now has a [checked implementation](internal-cut-iteration.md), including
-all-context conditional selection. Continue with #388's concrete completeness,
-tracked function assemblies and exponential equivalence. The cut-observer
-continuity roadmap remains unformalized. No effective-topos theorem has been
-imported wholesale; any future source/category mismatch must still expose its
-missing prerequisite before claiming the concrete provider complete.
+P3 has a [checked implementation](internal-cut-iteration.md), including
+all-context conditional selection. [P4 now supplies concrete completeness](internal-complete-certificate-family.md),
+tracked function assemblies, exponential equivalence and the bounded uniform
+certificate family. The cut-observer continuity plan is implemented. P5 remains
+open. No effective-topos theorem has been imported wholesale; a future
+source/category mismatch must still expose its missing prerequisite before
+claiming the concrete provider complete.

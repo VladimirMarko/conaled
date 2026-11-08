@@ -8,10 +8,11 @@ with successor has a separate initiality theorem. A uniformly complete strict
 algebra admits a tracked, context-dependent selected fixed point, with algebra
 transport and parameter-substitution laws.
 
-**Completeness of the intended certificate family is still open.** The new
-selection theorem takes all-context completeness as a hypothesis. The checked
-terminal-object example inhabits that contract; lifted-natural-number examples
-retain the hypothesis that #388 must prove. #371 is not complete.
+[P4 now constructs completeness of the intended uniformly realizable family](internal-complete-certificate-family.md).
+The P3 selection theorem retains its general all-context completeness hypothesis.
+The original lifted-natural examples below were conditional; P4 adds instances
+using constructed completeness. P5's selected certificate comparison remains open,
+so #371 is not complete.
 
 ## Source and model boundary
 
@@ -119,9 +120,8 @@ iteration and extension laws are available separately.
 
 `cutSelected_identity` illustrates the distinction between selection and an
 arbitrary solution: identity iteration selects the algebra's bottom. It does
-not prove all identity fixed points equal. #388 must connect the all-context
-contract to the exponential restriction isomorphism after constructing genuine
-tracked function assemblies.
+not prove all identity fixed points equal. P4 now connects the all-context
+contract to a tracked exponential restriction isomorphism.
 
 ## Checked cases and remaining work
 
@@ -134,14 +134,15 @@ exercised as full-arrow equations as well as selected-value instances.
 
 The terminal assembly is proved uniformly complete and given a strict algebra,
 so the conditional theorem has an actual inhabited instance. The lifted-natural
-selection examples remain explicitly conditional on its completeness. They
+selection examples in the original P3 module remain conditional; P4 adds concrete
+instances using its completeness theorem. They
 separate identity's selected bottom from the distinct fixed point `some 17`.
 The Boolean control proves impossibility of the **combined** complete and strict
 algebra hypotheses admitting negation. It neither claims Boolean incompleteness
 nor rejects computable negation as an assembly arrow.
 
-P4 still owes concrete all-context completeness for naturals and their lift,
-function assemblies, the exponential comparison, and the uniformly tracked
+P4 now supplies concrete all-context completeness for naturals and their lift,
+function assemblies, the exponential comparison and the uniformly tracked
 certificate family. P5 still owes that family's algebra, its internal countdown
 functional and its selected-solution comparison. Native external clients retain
 their existing contracts. This milestone establishes neither operational
