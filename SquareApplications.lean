@@ -496,4 +496,6 @@ import Examples.HornDerivations
 
 import Examples.IndexedRelationalTransfer
 
+import Examples.FiniteStrategies
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

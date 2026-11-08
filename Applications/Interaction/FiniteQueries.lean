@@ -1,5 +1,4 @@
 import SquareKit.RetainedException
-import Mathlib.Data.List.Basic
 
 /-! Independent bounded query/response specification and native handler comparison. -/
 namespace Interaction.FiniteQueries

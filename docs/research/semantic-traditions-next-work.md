@@ -116,3 +116,23 @@ realizability models and a general extraction library. Their prerequisite and
 scope costs are reasons for these bounded first tasks, not evidence that the
 traditions are irrelevant. No architecture replacement or general productivity
 claim follows from opening the issues.
+
+## Finite interaction comparison after the fourth wave
+
+[#390](https://github.com/VladimirMarko/conaled/issues/390) supplies the next
+bounded games/interaction comparison under #196, coordinated with #36/#235/#290.
+The [construction report](finite-interaction-strategies.md) compares independent
+finite forwarding strategies with the existing retained-handler semantics.
+Actual intermediate-channel matching and hiding preserve selected service
+histories for adaptive responders; a return-only quotient deliberately excludes
+those histories and adaptive observations. The result supports retaining native
+handlers and keeping the bounded strategy model available for composition tests,
+without adopting a universal game interface.
+
+The games re-entry condition is no longer simply an unexamined deferral. Further
+higher-order or overlapping-query work needs its own legal-context and observation
+contract under #196/#36/#290. This independent comparison does not interrupt
+#371's #386–#389 construction graph. Probability sequencing, modal/higher
+combination, analytic hiding, and source/model admission retain the owners and
+specific hypotheses recorded in the fourth-wave and interaction reports; success
+of the finite strategy probe does not discharge those different obligations.
