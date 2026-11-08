@@ -2,7 +2,7 @@ import Applications.ClassicalControl.Adequacy
 import Applications.ClassicalControl.Frames
 import Applications.ClassicalControl.LastPolicy
 
-/-! Checked uses of the bounded classical-control construction (#380). Logical
+/-! Experimental bounded classical-control construction (#380). Logical
 adequacy and search correctness are deliberately exercised as separate contracts. -/
 namespace ClassicalControl.Examples
 
