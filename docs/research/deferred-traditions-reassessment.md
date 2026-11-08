@@ -91,6 +91,12 @@ blocks treating its full displayed semantics as an implementation specification.
 
 ## Classical realizability: select a principle and an observation
 
+The commissioned [#378 construction](classical-control-selected-search.md) now
+supplies a lambda/control machine, implicational adequacy, a constructed delivery
+pole, restricted coherence and selected finite search with a closure-to-frame
+simulation. It recommends bounded formalization. The proposal below records
+the starting task, not an additional requirement to defer that implementation.
+
 Krivine defines an algebra with terms, stacks, control and a pole closed under
 predecessors of reduction. Theorem 1.3 gives adequacy relative to that
 interpretation; Proposition 1.6 realizes Peirce's law with `cc`. Theorems
