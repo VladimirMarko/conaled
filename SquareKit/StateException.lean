@@ -1,7 +1,7 @@
 import Mathlib.Logic.Relation
 
 /-!
-# Finite state/exception interpretations
+# State/exception interpretations
 
 Experimental bounded comparison for #373. Catch has a separate scope; it is
 not an algebraic operation commuting with arbitrary continuation substitution.
@@ -79,7 +79,8 @@ theorem put_throw (t : S) (e : E) :
     bind (put t) (fun _ => throw e) = (throw e : Undo S E A) := rfl
 end Undo
 
-/-- Unquotiented finite syntax. Equations are admitted only by semantic proofs. -/
+/-- Unquotiented well-founded syntax. Branching may be infinite for arbitrary `S`;
+the Boolean specialization is finite. Equations require semantic proofs. -/
 inductive Tree (S E A : Type) where
   | ret : A → Tree S E A
   | read : (S → Tree S E A) → Tree S E A
@@ -164,7 +165,7 @@ theorem undo_state (S E : Type) : StateLaws (undoAlgebra S E) :=
 theorem undo_read_raise {S E A : Type} (e : E) :
     (undoAlgebra S E).read (fun _ => (Undo.throw e : Undo S E A)) = Undo.throw e := rfl
 
-/-- Nested but finite handler scopes. Continuations in each leaf use Tree.bind. -/
+/-- Well-founded nested handler scopes. Continuations in each leaf use Tree.bind. -/
 inductive Scoped (S E A : Type) where
   | body : Tree S E A → Scoped S E A
   | handle : Scoped S E A → (E → Scoped S E A) → Scoped S E A

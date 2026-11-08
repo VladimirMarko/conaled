@@ -3,7 +3,8 @@
 [#373](https://github.com/VladimirMarko/conaled/issues/373) implements the bounded
 experiment in [the earlier paper report](effectful-witness-interpretation.md).
 [StateException](../../SquareKit/StateException.lean) defines independent `Keep`
-and `Undo` meanings and a finite scoped interpreter.
+and `Undo` meanings and a well-founded scoped interpreter. The generic syntax
+can branch infinitely over arbitrary state types; the Boolean clients are finite.
 [The checked clients](../../Examples/StateException.lean) retain the selected
 natural in `P`, reject recomputation in `Q`, and connect an existing measurement
 record to both policies. Existing clients and their interfaces are unchanged.
@@ -18,7 +19,7 @@ and raise, with continuation substitution `Tree.bind`; it has no catch construct
 This separation prevents substitution from silently expanding a handler's scope.
 
 `Algebra` supplies operations. `LocalLaws` requires four constructor-level
-compatibilities with bind. Induction derives `fold_bind` for every finite tree
+compatibilities with bind. Induction derives `fold_bind` for every well-founded tree
 and continuation. Both interpretations discharge those local obligations by their
 semantic clauses. The whole-program composition theorem is not an assumption.
 `StateLaws` separately checks write/write, write/read, read/write and read/read;
@@ -63,7 +64,7 @@ directly. `measurementTree` expresses the same protected write, exception and
 captured record once; `measurement_handler_keep` and `measurement_handler_undo`
 prove exact agreement with the native computations. The direct route uses the
 catch clauses and the existing `recording_safe` proof. The handler route adds
-finite syntax, interpretation and scope, then reuses the same record contract.
+well-founded syntax, interpretation and scope, then reuses the same record contract.
 There was no timed independent author trial, so this comparison establishes
 matched contracts and proof reuse, not a productivity advantage.
 
