@@ -1,7 +1,7 @@
 import SquareKit.Internal.NominalBodies
 import Examples.NominalTelescope
 
-/-! Independent arithmetic expectations for the varying-body contract (#382). -/
+/-! Checked cases for the experimental varying-body construction. Independent arithmetic expectations for the varying-body contract (#382). -/
 namespace Examples.NominalBodies
 open SquareKit.Internal.NominalTelescope
 open SquareKit.Internal.NominalBodies

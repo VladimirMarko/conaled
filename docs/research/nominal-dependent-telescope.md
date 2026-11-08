@@ -154,3 +154,10 @@ substitution proof that survives it. That would test the limits of rebuilding a
 fixed schema. General nominal syntax and weak-model coherence remain separate
 work, coordinated with #235 and #290. #107 remains paused, #108's held-out
 theorem remains unselected, and #260 remains inactive.
+
+The bounded successor [#382](https://github.com/VladimirMarko/conaled/issues/382)
+now checks a generated arithmetic body language, including a body-only free
+atom collision and a selected sum of bound inputs. Its
+[varying-body report](nominal-varying-bodies.md) records the local substitution
+laws and remaining nested-binder and typing obligations. It preserves this
+fixed-schema interface and its third-tail client.

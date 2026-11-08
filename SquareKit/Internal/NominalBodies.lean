@@ -1,6 +1,6 @@
 import SquareKit.Internal.NominalTelescope
 
-/-! Varying arithmetic bodies beneath the dependent telescope of #369.
+/-! Experimental varying arithmetic bodies beneath the dependent telescope of #369.
 The selected result is the residue modulo the dependent result bound. -/
 namespace SquareKit.Internal.NominalBodies
 open NominalTelescope
@@ -134,6 +134,8 @@ def nominal {N Z ρ} (x : Representative N Z) (a : First N ρ) (b : Second a) :
 theorem comparison {N Z ρ} (x : Representative N Z) (a : First N ρ) (b : Second a) :
     x.nominal a b = observe Z x.body a b := by
   have h := annotations_eval x ρ a.val b.val 0
+  apply Sigma.ext h.2.2.2.1
+  apply (Fin.heq_ext_iff (congrArg (· + 1) h.2.2.2.1)).mpr
   simp only [nominal, h.2.2.2.1, h.2.2.2.2.1, observe, contextual]
 
 theorem invariant {N Z ρ} (x y : Representative N Z) (h : Alpha x y)
