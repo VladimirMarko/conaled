@@ -1,6 +1,5 @@
 import SquareKit.DependentOperation.Local
 import SquareKit.Relations
-import Mathlib.Tactic
 
 /-! A bounded cursor comparison with genuinely changing fibers. -/
 namespace Examples.IndexedRelationalTransfer
