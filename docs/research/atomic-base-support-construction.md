@@ -1,5 +1,9 @@
 # Atomic-base support and selected derivation transport
 
+The bounded construction is now implemented in
+[the #379 record](horn-support-implementation.md). The paper argument below
+records the preceding #377 research scope.
+
 For [#377](https://github.com/VladimirMarko/conaled/issues/377), implement a bounded
 basis-indexed atoms/implication semantics, with an optional labelled-tree layer.
 The construction below proves persistence and implication introduction/application
