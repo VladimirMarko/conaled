@@ -1,3 +1,4 @@
+import Examples.ClassicalControl
 import Examples.VaryingPartialCertificates
 import Examples.OwnedHandle
 import Examples.OpenConstraint
@@ -488,6 +489,7 @@ import Examples.ModalAccess
 import Examples.OpenSystemWiring
 import Examples.AssemblyCertificates
 
+import Examples.RetainedMeasurement
 import Examples.HornDerivations
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
