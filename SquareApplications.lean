@@ -1,3 +1,4 @@
+import Examples.SamplerSubstitution
 import Examples.ClassicalControl
 import Examples.VaryingPartialCertificates
 import Examples.OwnedHandle

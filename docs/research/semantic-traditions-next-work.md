@@ -138,3 +138,16 @@ contract under #196/#36/#290. This independent comparison does not interrupt
 combination, analytic hiding, and source/model admission retain the owners and
 specific hypotheses recorded in the fourth-wave and interaction reports; success
 of the finite strategy probe does not discharge those different obligations.
+
+## Represented probability continuation
+
+[#391](https://github.com/VladimirMarko/conaled/issues/391) proves
+[law-preserving sampler substitution](represented-sampler-substitution.md) for
+admitted randomized continuations with explicit standard Borel noise. The
+retained-value and two-stage laws use the actual generated QBS product sigma
+algebra. Independent finite Markov kernels and selected-record controls keep
+law equality distinct from sample identity. This closes the scoped replacement
+obligation, without constructing general probabilistic bind, conditioning or
+recursion; their ownership remains #200/#36. Native kernels and seeded sampling
+remain available directly. Exact integration acceptance is recorded separately
+by the orchestration.
