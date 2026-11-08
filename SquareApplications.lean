@@ -468,6 +468,7 @@ import Examples.FiniteExecutionAdapters
 
 import Examples.DesignatedMapComparison
 import Examples.SmoothOrdinaryComparison
+import Examples.DiskPresentation
 
 import Examples.DependentOperationScaling
 import Examples.DependentOperationTrialSpec
