@@ -21,7 +21,10 @@ complete.
 The construction status below is frozen at the inspected revision. The bounded
 higher models subsequently passed their gates: [#321](cubical-model-construction.md)
 and [#322/#336](strict-two-groupoid-checkpoint.md). #297 is closed. Its modal
-access example remains a paper comparison, without a constructed MTT model.
+access example now has a [bounded generated fragment and concrete model](bounded-modal-access.md)
+under #375. That construction uses weaker fragment-specific semantics; it is
+not a model of the whole MTT calculus. The derivations below remain the original
+paper comparison.
 The [#350 coverage map](semantic-traditions-coverage.md) records current residual
 ownership, including #348's higher semantic boundaries and the distinct #352
 mode-based compiler experiment. Historical missing-model statements below must
