@@ -1,0 +1,22 @@
+{
+  "status": "awaiting independent freeze review; no author exposure",
+  "issue": 358,
+  "specification": "Examples.DependentOperationTrialSpec",
+  "native_entrypoints": ["SquareKit.DependentOperation.SelectorBase", "Examples.DependentOperationTrialSpec"],
+  "shared_entrypoints": ["SquareKit.DependentOperation.Lowering", "Examples.DependentOperationTrialSpec"],
+  "common_public_documents": ["protocol.md", "task.md"],
+  "native_access_note": "native-author.md",
+  "shared_access_note": "shared-author.md",
+  "excluded": ["Examples.DependentOperationScaling", "research reports", "Git history", "other submissions", "coordinator artifacts"],
+  "setup_tools": "experiments/incremental-dependent-authoring/setup/{prepare,freeze,environment_index,smoke}.py",
+  "attempt_wrapper": "experiments/dependent-author-trial/check_attempt.py",
+  "checkpoints": [
+    {"name": "A", "depth": 1, "new_primitives": 1, "realizations": 1, "active_minutes": 20, "attempt_cap": 15},
+    {"name": "B", "depth": 4, "new_primitives": 2, "realizations": 2, "active_minutes": 20, "attempt_cap": 15},
+    {"name": "C", "depth": 9, "new_primitives": 3, "realizations": 3, "active_minutes": 35, "attempt_cap": 25},
+    {"name": "repair", "active_minutes": 15, "attempt_cap": 10}
+  ],
+  "candidate_identity": "resolved immutable SHA recorded in coordinator freeze approval before export/dispatch",
+  "public_hashes": "final exporter manifests recorded before dispatch",
+  "required_setup_evidence": ["pinned dependency identity", "allowed module closure", "success smoke", "deliberate-failure smoke", "review approvals", "author exposure eligibility"]
+}

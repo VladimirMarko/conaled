@@ -469,4 +469,7 @@ import Examples.FiniteExecutionAdapters
 import Examples.DesignatedMapComparison
 import Examples.SmoothOrdinaryComparison
 
+import Examples.DependentOperationScaling
+import Examples.DependentOperationTrialSpec
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
