@@ -493,4 +493,6 @@ import Examples.AssemblyCertificates
 import Examples.RetainedMeasurement
 import Examples.HornDerivations
 
+import Examples.IndexedRelationalTransfer
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
