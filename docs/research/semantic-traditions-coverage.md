@@ -85,6 +85,15 @@ inferential definition of meaning does not supply this bridge.
 [Primary manuscript, Definitions 2.4–2.6, Figure 2 and subsequent displays,
 Theorems 3.7/3.11](https://www.cantab.net/users/david.pym/Proof_theoretic_Semantics_for_Second_order_Logic.pdf).
 
+The subsequent [#377 construction](atomic-base-support-construction.md) completes
+the atoms/implication probe on paper and warrants a bounded formal successor.
+It derives persistence, introduction/application, both strict base extensions
+and a labelled-tree inclusion bridge. Selected-trace recovery from support
+alone fails, while extension-quantified support remains independently useful.
+The earlier client-and-witness promotion condition above therefore applies to
+selected-witness clients, not to every use of inferential support. No full
+second-order implementation is claimed.
+
 **Classical realizability, #290 with #196.** #296 tested state/exception policies;
 it did not construct a classical realizability algebra, pole or interpretation
 of a classical principle. Krivine's adequacy theorem is relative to these data.

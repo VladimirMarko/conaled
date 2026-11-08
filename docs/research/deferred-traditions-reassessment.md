@@ -16,6 +16,12 @@ productivity measurement. The issue scopes below are proposals for #290 and
 
 ## Support: isolate the usable fragment
 
+The commissioned [#377 construction](atomic-base-support-construction.md) now
+works this fragment through on paper, including both strict extensions,
+implication laws, a selected-tree bridge, reselection failure and rule-replacement
+repair. It recommends a bounded formal implementation. The proposal below is
+retained as the task's starting specification, not its current result.
+
 The Gheorghiu–Pym manuscript still has a displayed clause labelled disjunction
 whose left side uses conjunction and whose second premise omits its formula.
 Definitions 2.4–2.6 and Figure 2 nevertheless specify atomic derivability,
