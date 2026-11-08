@@ -3,11 +3,11 @@
 [#371](https://github.com/VladimirMarko/conaled/issues/371) now has a constructed
 assembly category and program-index lifting infrastructure. This report records
 that P0 milestone, the P1 classifier, P2 lifting monads, P3 iteration and
-[P4 complete certificate family](internal-complete-certificate-family.md).
-**The internal SDT provider and its selected-solution comparison are not complete.**
-P4 now constructs concrete completeness and the uniformly realizable state family.
-P5 / #389 still owns its algebra, countdown arrow and selected-solution comparison.
-#371 remains open until that comparison is complete.
+[P4 complete certificate family](internal-complete-certificate-family.md), and
+[P5 selected solver](internal-selected-certificate-solver.md). P5 supplies the
+actual state algebra, countdown arrow, uniform membership and full selected
+comparison. Its acceptance report maps these constructions to #371's bounded
+provider obligations; it does not claim a full effective-topos port.
 
 ## Model and source boundary
 
@@ -133,13 +133,15 @@ composition law precedes the selected-record example. The independent
 expected result remains 3 with `[2,1,0]`; the negative controls have concrete
 inhabitants. The finite-fuel case does not infer divergence from exhaustion.
 These checks cover the new definitions, general laws and applications; they
-do not establish P5; P4 now has its own checked [construction](internal-complete-certificate-family.md), and P1 has its own checked
+do not by themselves establish P5. P5 now has its own checked
+[construction and selected comparison](internal-selected-certificate-solver.md);
+P4 has its [complete-family construction](internal-complete-certificate-family.md), and P1 has its
 [construction and cases](assembly-partial-map-classifier.md).
 
 Adopt this assembly infrastructure as a prerequisite for the source model.
-Defer the concrete internal certificate provider until the remaining P5 node is proved. Retain the external
-ordered-domain provider on its own contract; no adapter to that provider is
-an acceptance condition here. Neither route receives a productivity claim
+The [P5 provider](internal-selected-certificate-solver.md) now completes the
+concrete selected-client comparison for this bounded assembly slice. Retain the
+external ordered-domain provider on its own all-states contract. Neither route receives a productivity claim
 from these examples. A shared blind spot is the cost of constructing uniform
 context-dependent objects: successful fixed-fiber examples do not measure or
 discharge it. #107 stays paused, #108 remains unselected, and #260 inactive.

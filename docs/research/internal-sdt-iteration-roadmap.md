@@ -32,7 +32,7 @@ change the checked status of completeness or iteration. [#386's lifting monads](
 now discharge P2. [The checked P3 construction](internal-cut-iteration.md)
 discharges #387, including uniform tracking and conditional selection. The
 proposed P3 steps below are retained as the source-based design rationale;
-#388 is now checked; #389 retains its selected-client construction obligations.
+#388 is checked; [#389 now supplies the selected-client construction](internal-selected-certificate-solver.md).
 
 ## Proposed direct #387 construction
 
@@ -98,7 +98,8 @@ Revision inspected: `56a005855ea17e0b0958f73ec801ae140b0a1679`, as in the manife
 P3 has a [checked implementation](internal-cut-iteration.md), including
 all-context conditional selection. [P4 now supplies concrete completeness](internal-complete-certificate-family.md),
 tracked function assemblies, exponential equivalence and the bounded uniform
-certificate family. The cut-observer continuity plan is implemented. P5 remains
-open. No effective-topos theorem has been imported wholesale; a future
-source/category mismatch must still expose its missing prerequisite before
-claiming the concrete provider complete.
+certificate family. The cut-observer continuity plan is implemented.
+[P5 now constructs the internal selected countdown](internal-selected-certificate-solver.md)
+and compares its full certificate state to the unchanged external client. No
+effective-topos theorem has been imported wholesale; future extensions must
+still expose any source/category mismatch and its missing prerequisites.

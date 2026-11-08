@@ -493,6 +493,7 @@ import Examples.AssemblyCertificates
 import Examples.AssemblyPartialMaps
 import Examples.AssemblyLifting
 import Examples.InternalIteration
+import Examples.InternalCertificateControls
 import Examples.CompleteAssemblySearch
 import Examples.CompleteCertificateFamily
 import Examples.NonUniformCertificateState

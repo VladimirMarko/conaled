@@ -9,9 +9,8 @@ the varying certificate family and its relative extension theorem.
 The comparison is with the uniformly realizable part of the existing external
 certificate state space. That restriction is necessary: a checked diagonal
 state is total and bounded but has no uniform realizer. The native external
-client remains unchanged. P5 / #389 still owns the certificate-state algebra,
-countdown arrow and comparison of its extension-selected solution with the
-external selected solution. #371 remains open.
+client remains unchanged. [P5 / #389 now constructs the algebra, countdown and
+selected-solution comparison](internal-selected-certificate-solver.md).
 
 ## Source and exact model
 
@@ -135,11 +134,10 @@ record recovery and arbitrary parameter substitution. The transport cases retain
 value 3 with trace `[2,1,0]` after the two proper changes. Bound-filter cases both
 reject and retain a value at different coordinates.
 
-These are construction and preservation results. The explicit selected-state
-records used in transport cases are not yet the result of an internally
-constructed countdown selector. P5 must build that algebra and arrow, prove
-membership of its selected state in this uniform family, and compare its selected
-partial graph with the unchanged external cpo client. Operational adequacy of
-a separately specified machine and general productivity claims remain separate.
+The explicit selected-state records in P4's transport cases are direct
+constructions. [P5](internal-selected-certificate-solver.md) now derives them
+from internal countdown selection, proves uniform membership and compares the
+full selected partial state with the unchanged external cpo client. Operational
+adequacy of a separately specified machine and productivity claims remain separate.
 The existing Boolean control still excludes the combined complete-plus-strict-
 algebra hypotheses admitting negation; it does not claim Boolean incompleteness.
