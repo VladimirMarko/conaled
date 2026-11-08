@@ -17,6 +17,11 @@ computability to this search problem; a direct recursive search has the same
 selected result without the logical interpretation or continuation machinery.
 Neither capability needs an adapter to the current engine as an entry condition.
 
+The bounded Lean implementation is now described in the
+[implementation record](classical-control-implementation.md). This report retains
+the independent paper construction and fixture evidence; its historical
+validation statements below describe that research stage.
+
 ## Source map and independently chosen boundary
 
 Jean-Louis Krivine, [*Realizability algebras: a program to well order R*,
