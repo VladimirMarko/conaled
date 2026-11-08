@@ -253,6 +253,12 @@ The formal work added one client module and reused the existing solver;
 the internal proof remains paper mathematics. #107 stays paused, #108
 unselected and #260 inactive.
 
+Implementation has since begun in [#371's checked assembly
+prerequisites](internal-sdt-prerequisites.md): tracked maps, program-index
+lifting, and proper certificate embeddings. The complete-family theorem and
+internal selected-solution comparison remain unimplemented; that note records
+their dependency graph.
+
 ## Undefinedness, fuel and statement review
 
 A disabled coordinate has semantic result bottom. On an enabled coordinate,
