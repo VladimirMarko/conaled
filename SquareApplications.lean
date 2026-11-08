@@ -491,6 +491,7 @@ import Examples.OpenSystemWiring
 import Examples.AssemblyCertificates
 import Examples.AssemblyPartialMaps
 import Examples.AssemblyLifting
+import Examples.InternalIteration
 
 import Examples.RetainedMeasurement
 import Examples.HornDerivations
