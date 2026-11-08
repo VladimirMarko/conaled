@@ -1,0 +1,4 @@
+Stage B: 2026-11-08T16:43:17Z to 2026-11-08T16:44:02Z.
+Exact submission: attempts/Attempt03.lean, Lean exit 0. Wall 45s; lock wait 0.000084s; active 44.999916s. One check, 1.897405s checking. Stop: completed early, independent acceptance pending. No known pending B obligations.
+Added half constructor/meaning, macro/instruction/expansion and total-machine case; independent distance executor and local contract cover all admitted old and new operations. Generic preservation and quotation reused unchanged. Four-step source term, exact quoted word and selected outcomes on both machines checked. Concrete half-after-rotate differs from rotate-after-half at bound5/input4: two separate local laws establish execution fidelity, not equality of source composites. No assistance or new setup work.
+Stage C starts 2026-11-08T16:44:02Z.

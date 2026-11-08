@@ -1,0 +1,45 @@
+attempts/checks/Attempt01/Source.lean:5:15: error: unexpected token ':='; expected command
+attempts/checks/Attempt01/Source.lean:12:25: error(lean.unknownIdentifier): Unknown identifier `Spec.rotate`
+attempts/checks/Attempt01/Source.lean:35:15: error: Tactic `rfl` failed: The left-hand side
+  List.foldl (fun s k => runT k s) (total n i) (word (Prim.rotate n))
+is not definitionally equal to the right-hand side
+  total n (meaning (Prim.rotate n) i)
+
+case rotate
+n : ℕ
+i : Position n
+⊢ List.foldl (fun s k => runT k s) (total n i) (word (Prim.rotate n)) = total n (meaning (Prim.rotate n) i)
+attempts/checks/Attempt01/Source.lean:34:96: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:60:17: error: unsolved goals
+case rule.mk.mk.intro
+V : ℕ → Type
+n : ℕ
+r : (rules Prim).Label
+ts : (i : (rules Prim).Arity r) → Derivation (rules Prim) V ((rules Prim).premise r i)
+ih : ∀ (i : (rules Prim).Arity r), Code.lower expand (emit (@macros) (ts i)) = emit (@word) (ts i)
+l : Sigma V
+is : List Mac
+h₁ : emit (@macros) (ts ()) = { load := l, instructions := is }
+l' : Sigma V
+is' : List Instr
+h₂ : emit (@word) (ts ()) = { load := l', instructions := is' }
+left✝ : l = l'
+right✝ : List.flatMap expand is = is'
+⊢ l = l' ∧ List.flatMap expand is = is'
+attempts/checks/Attempt01/Source.lean:67:67: error: Function expected at
+  stageOne
+but this term has type
+  Term Prim Position 4
+
+Note: Expected a function because this term is being applied to the argument
+  3
+attempts/checks/Attempt01/Source.lean:71:16: error(lean.unknownIdentifier): Unknown identifier `Spec.rotate`
+attempts/checks/Attempt01/Source.lean:69:66: error: unsolved goals
+n : ℕ
+⊢ sorry () = 0
+attempts/checks/Attempt01/Source.lean:71:7: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:72:7: error: unexpected token 'variable'; expected identifier
+attempts/checks/Attempt01/Source.lean:78:0: error: Invalid name after `end`: Expected `Spec`, but found `NativeTrial`
+
+Hint: If you meant to end the outer scope(s) `NativeTrial`, you must end all the intervening scopes `NativeTrial.Spec`:
+  end NativeTrial.̲S̲p̲e̲c̲

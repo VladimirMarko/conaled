@@ -1,0 +1,9 @@
+attempts/checks/Attempt05/Source.lean:165:38: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  b ≥ 0
+  a ≥ 0
+  a + b ≥ 0
+where
+ a := ↑↑i
+ b := ↑(n - ↑i)
+attempts/checks/Attempt05/Source.lean:208:78: error: unexpected token 'def'; expected ')', ',' or ':'

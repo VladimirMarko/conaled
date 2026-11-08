@@ -1,0 +1,84 @@
+{
+  "stage": "repair",
+  "start_utc": "2026-11-08T16:48:06.963169+00:00",
+  "end_utc": "2026-11-08T16:49:23.861142+00:00",
+  "snapshot": "attempts/Attempt07.lean",
+  "status": "Lean passed; subject to independent statement review",
+  "wall_seconds": 76.897973,
+  "lock_wait_seconds": 0.00012004100426565856,
+  "check_seconds": 2.2193126779893646,
+  "checks": 1,
+  "stop_reason": "early successful checkpoint",
+  "pending": "No known repair obligations; acceptance remains external",
+  "assistance": "none",
+  "source_bytes": 16943,
+  "changed_old_declarations_textual": [
+    "operate",
+    "runTotal",
+    "stageOne_meaning",
+    "stageOne_result",
+    "wraparound",
+    "runDistances",
+    "distances_local",
+    "stageTwo_meaning",
+    "stageTwo_total",
+    "stageTwo_distances",
+    "runUnary",
+    "unary_local",
+    "stageThree_meaning",
+    "stageThree_meaning_reflected",
+    "stageThree_meaning_twice",
+    "stageThree_total",
+    "stageThree_distances",
+    "stageThree_unary",
+    "stageThree_reflected",
+    "stageThree_twice"
+  ],
+  "added_declarations": [
+    "repairedStageOne",
+    "repairedStageTwo",
+    "repairedStageThree",
+    "repaired_oracles",
+    "repaired_interaction_values"
+  ],
+  "repair_categories": {
+    "source_semantics": [
+      "operate"
+    ],
+    "executors": [
+      "runTotal",
+      "runDistances",
+      "runUnary"
+    ],
+    "local_proofs_edited": [
+      "distances_local",
+      "unary_local"
+    ],
+    "local_proofs_reused_unchanged": [
+      "total_local"
+    ],
+    "global_proofs_edited": [],
+    "quotation_edited": [],
+    "general_substitution_edited": [],
+    "interaction_new": [
+      "repaired_interaction_values"
+    ],
+    "interaction_rechecked_unchanged": [
+      "rotate_half_do_not_commute"
+    ],
+    "wraparound_edited": [
+      "wraparound"
+    ],
+    "dependent_tail_edited": []
+  },
+  "oracles": {
+    "A": 2,
+    "B": 0,
+    "C": 4,
+    "C_reflected": 3,
+    "C_twice": 5
+  },
+  "active_seconds": 76.89785295899573,
+  "changed_old_declaration_count": 20,
+  "count_note": "Excluded parser boundary artifact from final end Shared358; reflect_insert_fails declaration unchanged. Statement instances depending on operate also change semantically even when their source text is unchanged."
+}

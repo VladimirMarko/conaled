@@ -1,0 +1,297 @@
+{
+  "manifest_sha256": "de11f396b5fee2be8a264cde2e2c0cdb6856dcb6b7571156f2e44b7bea76eafd",
+  "wrapper_sha256": "ba47cd4232067230da4ab65bd6cb5f70f89a4b1f1a77152bfd1aefa2bd2cb6bc",
+  "runner_sha256": "1f5662f07ee9c4753576b8e8d6504e9bf76d3412c3ea13563ea86276120e57da",
+  "public_before": "verified",
+  "replays": [
+    {
+      "stage": "A",
+      "original": "/tmp/conaled-362-orchestration/trial358/evidence/shared/Attempt03.lean",
+      "source_sha256": "a17e87345f5ca755680641e0c6fe52d918fead6f971ada25c4bc8772dfdc95f5",
+      "source_bytes": 3449,
+      "exit": 0,
+      "result": {
+        "acceptance": "pending coordinator declaration/statement/axiom checks",
+        "cwd": "/tmp/conaled-362-orchestration/trial358/shared",
+        "elapsed_seconds": 1.6812244680040749,
+        "environment": {
+          "LEAN_PATH": null,
+          "LEAN_SRC_PATH": null,
+          "LEAN_SYSROOT": null
+        },
+        "evidence_sha256": {
+          "Source.lean": "a17e87345f5ca755680641e0c6fe52d918fead6f971ada25c4bc8772dfdc95f5",
+          "attempt.json": "9ded9056ff393d96800459b86923b045aedcd8756cde09e2cb277523f4be6c1a",
+          "deps.command.json": "73f22a83e0b9ece3bd1c99d33ea0a44f2b235fa27d6a6426c9795373a1823d17",
+          "deps.result.json": "6c5a96d7bc9c2ddf6004189ff54d729ce33c16b39a8fd10852ea422492726673",
+          "deps.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "deps.stdout.log": "9b65747e17907d0fe30bc37c1a6322b47c46fd92ec9cf5fa5599d7245e4d20ae",
+          "imports.json": "33180926cd2ddf7d305f3098ddb3c7b38004caabb84fae4f9b65b16fb6ac9985",
+          "lean.command.json": "82046c174b366629ab9e82a7ea59d8d5b782e371473e0af1231191a1c34155a9",
+          "lean.result.json": "60e06e7dba391ac1915105c26a4d02cd500e987fca4514737adee060bcb39680",
+          "lean.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "lean.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.command.json": "b94dbd5b6ee4d02a6ed3d569e8c2d2dcdad6d5a920c34905f02171e7e75f190d",
+          "libdir.result.json": "3d29e776a02c7247240085569faafcfac2bcfb0c86651373218dcf9bc27d24da",
+          "libdir.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.stdout.log": "780311b8eaa8d21cda60455ef753e7a83da17deeb41348d28705f182817bc091",
+          "public-manifest.json": "de11f396b5fee2be8a264cde2e2c0cdb6856dcb6b7571156f2e44b7bea76eafd"
+        },
+        "exit": 0,
+        "finish": "2026-11-08T16:51:27.184856+00:00",
+        "invocation": [
+          "check_attempt.py",
+          "attempts/ReplayA.lean"
+        ],
+        "lean_exit": 0,
+        "manifest_sha256": "de11f396b5fee2be8a264cde2e2c0cdb6856dcb6b7571156f2e44b7bea76eafd",
+        "public_inputs_after": "verified",
+        "public_inputs_before": "verified",
+        "schema": 1,
+        "source": "attempts/ReplayA.lean",
+        "source_sha256": "a17e87345f5ca755680641e0c6fe52d918fead6f971ada25c4bc8772dfdc95f5",
+        "start": "2026-11-08T16:51:25.503563+00:00",
+        "status": "lean-passed"
+      },
+      "timing": {
+        "schema": 1,
+        "source": "attempts/ReplayA.lean",
+        "command": [
+          "direnv",
+          "exec",
+          ".",
+          "python3",
+          "check_attempt.py",
+          "attempts/ReplayA.lean"
+        ],
+        "start_utc": "2026-11-08T16:51:25.404637+00:00",
+        "status": "finished",
+        "lock": "/tmp/conaled-362-orchestration/build.lock",
+        "lock_wait_seconds": 9.723799303174019e-05,
+        "exit_code": 0,
+        "finish_utc": "2026-11-08T16:51:27.189205+00:00",
+        "check_seconds": 1.7844653820066014,
+        "wall_seconds": 1.7845626199996332,
+        "child_maxrss_kib": 1521764,
+        "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+      }
+    },
+    {
+      "stage": "B",
+      "original": "/tmp/conaled-362-orchestration/trial358/evidence/shared/Attempt04.lean",
+      "source_sha256": "6d4e4d6e099feeb0f704fff00aae9a458e4e436bbbb5d175c6df6b8b05d697f3",
+      "source_bytes": 6456,
+      "exit": 0,
+      "result": {
+        "acceptance": "pending coordinator declaration/statement/axiom checks",
+        "cwd": "/tmp/conaled-362-orchestration/trial358/shared",
+        "elapsed_seconds": 1.8168554199946811,
+        "environment": {
+          "LEAN_PATH": null,
+          "LEAN_SRC_PATH": null,
+          "LEAN_SYSROOT": null
+        },
+        "evidence_sha256": {
+          "Source.lean": "6d4e4d6e099feeb0f704fff00aae9a458e4e436bbbb5d175c6df6b8b05d697f3",
+          "attempt.json": "608108ee99e67f79d3a554f50fb36bf2895396e6d2d18a360ea4ffd47be1760e",
+          "deps.command.json": "6b5308ea0c8018fd313db42a621c8bae9cc5d41978359cb757223728bbc026ab",
+          "deps.result.json": "e4665eb5c0e485b6162776f99b8010258ac7014a28ef38dfcd6422b9984610eb",
+          "deps.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "deps.stdout.log": "9b65747e17907d0fe30bc37c1a6322b47c46fd92ec9cf5fa5599d7245e4d20ae",
+          "imports.json": "33180926cd2ddf7d305f3098ddb3c7b38004caabb84fae4f9b65b16fb6ac9985",
+          "lean.command.json": "075e21dbe1d2def605c4a1f389fdd067f87065cc4da4aa2cd66f121631c236a6",
+          "lean.result.json": "e4a88548f843b1c21faa090ec3273d8da6c748f0ca8f5952e70bc1871741acfc",
+          "lean.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "lean.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.command.json": "1fd68915a5cf46c80daa24b3bc18456db60cea1e60d545130bfbd23b95cf5090",
+          "libdir.result.json": "47837c66e3e5c51f3296380aa38cdeea2579f25ca63b2eae21e1f1eccc7e17a2",
+          "libdir.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.stdout.log": "780311b8eaa8d21cda60455ef753e7a83da17deeb41348d28705f182817bc091",
+          "public-manifest.json": "de11f396b5fee2be8a264cde2e2c0cdb6856dcb6b7571156f2e44b7bea76eafd"
+        },
+        "exit": 0,
+        "finish": "2026-11-08T16:51:29.192104+00:00",
+        "invocation": [
+          "check_attempt.py",
+          "attempts/ReplayB.lean"
+        ],
+        "lean_exit": 0,
+        "manifest_sha256": "de11f396b5fee2be8a264cde2e2c0cdb6856dcb6b7571156f2e44b7bea76eafd",
+        "public_inputs_after": "verified",
+        "public_inputs_before": "verified",
+        "schema": 1,
+        "source": "attempts/ReplayB.lean",
+        "source_sha256": "6d4e4d6e099feeb0f704fff00aae9a458e4e436bbbb5d175c6df6b8b05d697f3",
+        "start": "2026-11-08T16:51:27.375195+00:00",
+        "status": "lean-passed"
+      },
+      "timing": {
+        "schema": 1,
+        "source": "attempts/ReplayB.lean",
+        "command": [
+          "direnv",
+          "exec",
+          ".",
+          "python3",
+          "check_attempt.py",
+          "attempts/ReplayB.lean"
+        ],
+        "start_utc": "2026-11-08T16:51:27.285575+00:00",
+        "status": "finished",
+        "lock": "/tmp/conaled-362-orchestration/build.lock",
+        "lock_wait_seconds": 8.278898894786835e-05,
+        "exit_code": 0,
+        "finish_utc": "2026-11-08T16:51:29.196176+00:00",
+        "check_seconds": 1.9105136900034267,
+        "wall_seconds": 1.9105964789923746,
+        "child_maxrss_kib": 1537276,
+        "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+      }
+    },
+    {
+      "stage": "C",
+      "original": "/tmp/conaled-362-orchestration/trial358/evidence/shared/Attempt06.lean",
+      "source_sha256": "d682da50727f5dc4aa90357e2c81468ef4ae2c23c18e7c30baaac50dc59dd083",
+      "source_bytes": 15596,
+      "exit": 0,
+      "result": {
+        "acceptance": "pending coordinator declaration/statement/axiom checks",
+        "cwd": "/tmp/conaled-362-orchestration/trial358/shared",
+        "elapsed_seconds": 2.1209308210090967,
+        "environment": {
+          "LEAN_PATH": null,
+          "LEAN_SRC_PATH": null,
+          "LEAN_SYSROOT": null
+        },
+        "evidence_sha256": {
+          "Source.lean": "d682da50727f5dc4aa90357e2c81468ef4ae2c23c18e7c30baaac50dc59dd083",
+          "attempt.json": "35904aa301cc51a6d127f85b29d94c2c0e83c935a58ed16e710afdbe8356a3cd",
+          "deps.command.json": "208ff17ecf6cd283ec23a668ec2c242cf4b4450fbc0947b182ae4271029db694",
+          "deps.result.json": "424af23e35b8fac438b550b6d9b408ba5cba23eee79632875f6e4eb94666af24",
+          "deps.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "deps.stdout.log": "9b65747e17907d0fe30bc37c1a6322b47c46fd92ec9cf5fa5599d7245e4d20ae",
+          "imports.json": "33180926cd2ddf7d305f3098ddb3c7b38004caabb84fae4f9b65b16fb6ac9985",
+          "lean.command.json": "483d823943ecb031742a67e1560b2bf3680738c692f3fd229a796e8a0cad92e5",
+          "lean.result.json": "d9d93ec015cb9ab1e002e6a9f914b5ce94ac8f044ba1bf7f8bdd6e4e5f3f53cb",
+          "lean.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "lean.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.command.json": "27c72a0275b594da5a5c5a48ba008492c5f987267d6c187100a36239e4220926",
+          "libdir.result.json": "1c4f4ceef372ee13dab44735d019a4333e3da582032b3f65e8a874919cc05088",
+          "libdir.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.stdout.log": "780311b8eaa8d21cda60455ef753e7a83da17deeb41348d28705f182817bc091",
+          "public-manifest.json": "de11f396b5fee2be8a264cde2e2c0cdb6856dcb6b7571156f2e44b7bea76eafd"
+        },
+        "exit": 0,
+        "finish": "2026-11-08T16:51:31.525828+00:00",
+        "invocation": [
+          "check_attempt.py",
+          "attempts/ReplayC.lean"
+        ],
+        "lean_exit": 0,
+        "manifest_sha256": "de11f396b5fee2be8a264cde2e2c0cdb6856dcb6b7571156f2e44b7bea76eafd",
+        "public_inputs_after": "verified",
+        "public_inputs_before": "verified",
+        "schema": 1,
+        "source": "attempts/ReplayC.lean",
+        "source_sha256": "d682da50727f5dc4aa90357e2c81468ef4ae2c23c18e7c30baaac50dc59dd083",
+        "start": "2026-11-08T16:51:29.404811+00:00",
+        "status": "lean-passed"
+      },
+      "timing": {
+        "schema": 1,
+        "source": "attempts/ReplayC.lean",
+        "command": [
+          "direnv",
+          "exec",
+          ".",
+          "python3",
+          "check_attempt.py",
+          "attempts/ReplayC.lean"
+        ],
+        "start_utc": "2026-11-08T16:51:29.299981+00:00",
+        "status": "finished",
+        "lock": "/tmp/conaled-362-orchestration/build.lock",
+        "lock_wait_seconds": 0.0001196469966089353,
+        "exit_code": 0,
+        "finish_utc": "2026-11-08T16:51:31.530463+00:00",
+        "check_seconds": 2.2303583360044286,
+        "wall_seconds": 2.2304779830010375,
+        "child_maxrss_kib": 1556192,
+        "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+      }
+    },
+    {
+      "stage": "Repair",
+      "original": "/tmp/conaled-362-orchestration/trial358/evidence/shared/Attempt07.lean",
+      "source_sha256": "323653e8c1b28c90e1800d783a5c1f91b79cf8c19282446804658f24d59fec79",
+      "source_bytes": 16943,
+      "exit": 0,
+      "result": {
+        "acceptance": "pending coordinator declaration/statement/axiom checks",
+        "cwd": "/tmp/conaled-362-orchestration/trial358/shared",
+        "elapsed_seconds": 2.166562469006749,
+        "environment": {
+          "LEAN_PATH": null,
+          "LEAN_SRC_PATH": null,
+          "LEAN_SYSROOT": null
+        },
+        "evidence_sha256": {
+          "Source.lean": "323653e8c1b28c90e1800d783a5c1f91b79cf8c19282446804658f24d59fec79",
+          "attempt.json": "4b5f91075b1eef3932f81bf61c31ec9616c4377e909c2a2301bf2b279ea3f4f1",
+          "deps.command.json": "b006f8801f139409f203d06ad0690d46b6e9c0375c522fff8dcf1d80b26043ff",
+          "deps.result.json": "572968a9a11150b756a6a758c56745bced87ede4cec78cb78d25fa2087089488",
+          "deps.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "deps.stdout.log": "9b65747e17907d0fe30bc37c1a6322b47c46fd92ec9cf5fa5599d7245e4d20ae",
+          "imports.json": "33180926cd2ddf7d305f3098ddb3c7b38004caabb84fae4f9b65b16fb6ac9985",
+          "lean.command.json": "2a4230bd2e6fdb0b4dfa2e3359dd97b96ea701b989a605ab82ca0a21fd361d4b",
+          "lean.result.json": "3b948614597a6b74d64aa166cb096c883718ac92c35dc44d1ed7dab9c3919c2b",
+          "lean.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "lean.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.command.json": "a25b1243ace0281e42abaa21063116ad0567ccb1f31820ee36c57ff6df330d51",
+          "libdir.result.json": "54623a6f4f05511ba0a577a6a3880b80fe4dc8957dcde50cfeea60b68004dc81",
+          "libdir.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "libdir.stdout.log": "780311b8eaa8d21cda60455ef753e7a83da17deeb41348d28705f182817bc091",
+          "public-manifest.json": "de11f396b5fee2be8a264cde2e2c0cdb6856dcb6b7571156f2e44b7bea76eafd"
+        },
+        "exit": 0,
+        "finish": "2026-11-08T16:51:33.886575+00:00",
+        "invocation": [
+          "check_attempt.py",
+          "attempts/ReplayRepair.lean"
+        ],
+        "lean_exit": 0,
+        "manifest_sha256": "de11f396b5fee2be8a264cde2e2c0cdb6856dcb6b7571156f2e44b7bea76eafd",
+        "public_inputs_after": "verified",
+        "public_inputs_before": "verified",
+        "schema": 1,
+        "source": "attempts/ReplayRepair.lean",
+        "source_sha256": "323653e8c1b28c90e1800d783a5c1f91b79cf8c19282446804658f24d59fec79",
+        "start": "2026-11-08T16:51:31.719941+00:00",
+        "status": "lean-passed"
+      },
+      "timing": {
+        "schema": 1,
+        "source": "attempts/ReplayRepair.lean",
+        "command": [
+          "direnv",
+          "exec",
+          ".",
+          "python3",
+          "check_attempt.py",
+          "attempts/ReplayRepair.lean"
+        ],
+        "start_utc": "2026-11-08T16:51:31.628846+00:00",
+        "status": "finished",
+        "lock": "/tmp/conaled-362-orchestration/build.lock",
+        "lock_wait_seconds": 9.90249973256141e-05,
+        "exit_code": 0,
+        "finish_utc": "2026-11-08T16:51:33.891136+00:00",
+        "check_seconds": 2.2621870690054493,
+        "wall_seconds": 2.262286094002775,
+        "child_maxrss_kib": 1552424,
+        "memory_scope": "Linux RUSAGE_CHILDREN high-water RSS; not aggregate concurrent RSS"
+      }
+    }
+  ],
+  "public_after": "verified"
+}

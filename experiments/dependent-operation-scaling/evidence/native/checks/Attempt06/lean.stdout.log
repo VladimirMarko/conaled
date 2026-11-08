@@ -1,0 +1,27 @@
+attempts/checks/Attempt06/Source.lean:140:29: warning: Unused tactic linter: `congr 1` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+attempts/checks/Attempt06/Source.lean:237:7: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  eval (@meaning) ρ (liftOld (ts ()))
+in the target expression
+  operate r.op (eval (@meaning) ρ (liftOld (ts ()))) = operate r.op (eval (@operate) ρ (ts ()))
+
+case rule
+V : ℕ → Type
+ρ : (n : ℕ) → V n → Position n
+n : ℕ
+r : (rules Op).Label
+ts : (i : (rules Op).Arity r) → Derivation (rules Op) V ((rules Op).premise r i)
+ih : ∀ (i : (rules Op).Arity r), eval (@meaning) ρ (liftOld (ts i)) = eval (@operate) ρ (ts i)
+⊢ operate r.op (eval (@meaning) ρ (liftOld (ts ()))) = operate r.op (eval (@operate) ρ (ts ()))
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    r
+  has type
+    (rules Op).Label
+  but is expected to have type
+    Label Op
+  in the application
+    r.output

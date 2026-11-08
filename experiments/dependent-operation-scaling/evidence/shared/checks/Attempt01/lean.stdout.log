@@ -1,0 +1,51 @@
+attempts/checks/Attempt01/Source.lean:6:15: error: unexpected token ':='; expected command
+attempts/checks/Attempt01/Source.lean:7:15: error: unexpected token ':='; expected command
+attempts/checks/Attempt01/Source.lean:9:16: error(lean.unknownIdentifier): Unknown identifier `Base.Op`
+attempts/checks/Attempt01/Source.lean:13:23: error(lean.unknownIdentifier): Unknown identifier `Base.operate`
+attempts/checks/Attempt01/Source.lean:14:26: error(lean.unknownIdentifier): Unknown identifier `Spec.rotate`
+attempts/checks/Attempt01/Source.lean:16:10: error(lean.unknownIdentifier): Unknown identifier `Base.Low`
+attempts/checks/Attempt01/Source.lean:18:11: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:18:11: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:18:11: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:18:11: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:18:24: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:18:24: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:20:10: error(lean.unknownIdentifier): Unknown identifier `Base.Macro`
+attempts/checks/Attempt01/Source.lean:22:11: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:22:11: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:22:11: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:22:11: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:22:24: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:22:24: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:25:21: error(lean.unknownIdentifier): Unknown identifier `Base.instructions`
+attempts/checks/Attempt01/Source.lean:25:2: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:28:15: error(lean.unknownIdentifier): Unknown identifier `Base.lower`
+attempts/checks/Attempt01/Source.lean:31:17: error(lean.unknownIdentifier): Unknown identifier `Base.runTotal`
+attempts/checks/Attempt01/Source.lean:41:70: error(lean.unknownIdentifier): Unknown identifier `Base.total`
+attempts/checks/Attempt01/Source.lean:42:6: error(lean.unknownIdentifier): Unknown identifier `Base.total`
+attempts/checks/Attempt01/Source.lean:49:42: error(lean.unknownIdentifier): Unknown identifier `Base.total`
+attempts/checks/Attempt01/Source.lean:50:6: error(lean.unknownIdentifier): Unknown identifier `Base.total`
+attempts/checks/Attempt01/Source.lean:53:13: error(lean.unknownIdentifier): Unknown identifier `Base.total`
+attempts/checks/Attempt01/Source.lean:58:56: error: Function expected at
+  stageOne
+but this term has type
+  Term Op Context 4
+
+Note: Expected a function because this term is being applied to the argument
+  3
+attempts/checks/Attempt01/Source.lean:61:16: error(lean.unknownIdentifier): Unknown identifier `Base.total`
+attempts/checks/Attempt01/Source.lean:64:18: error(lean.unknownIdentifier): Unknown identifier `Base.total`
+attempts/checks/Attempt01/Source.lean:64:36: error(lean.unknownIdentifier): Unknown identifier `Base.total`
+attempts/checks/Attempt01/Source.lean:67:17: error(lean.unknownIdentifier): Unknown identifier `Spec.rotate`
+attempts/checks/Attempt01/Source.lean:65:65: error: unsolved goals
+n : ℕ
+⊢ sorry () = 0
+attempts/checks/Attempt01/Source.lean:67:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:67:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:67:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:67:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:67:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:68:0: error: Invalid name after `end`: Expected `Spec`, but found `Shared358`
+
+Hint: If you meant to end the outer scope(s) `Shared358`, you must end all the intervening scopes `Shared358.Base.Spec`:
+  end Shared358.̲B̲a̲s̲e̲.̲S̲p̲e̲c̲
