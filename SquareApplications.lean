@@ -1,3 +1,4 @@
+import Examples.Memoization
 import Examples.SamplerSubstitution
 import Examples.ClassicalControl
 import Examples.VaryingPartialCertificates
