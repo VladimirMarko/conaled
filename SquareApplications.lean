@@ -483,6 +483,7 @@ import Examples.RelationalTransfer
 import Examples.HigherOrderRandomFunction
 import Examples.ModalAccess
 
+import Examples.OpenSystemWiring
 import Examples.AssemblyCertificates
 
 import Examples.HornDerivations

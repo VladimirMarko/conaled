@@ -9,6 +9,12 @@ already express this experiment faithfully. The wiring account supplies a
 composition theorem with explicit admissibility conditions, not an execution
 engine or an unrestricted feedback solver.
 
+The successor [checked implementation](open-system-wiring-implementation.md)
+now supplies the finite real-port construction, local substitution and smoothness
+laws, both hierarchies, and rejection controls. The calculations in this report
+remain the original independent specification; the successor records the exact
+checked scope and remaining obligations.
+
 Local inspection: `36e102788d74268710bfd94e4f29b147bafbb885`. This report adds
 no Lean definitions or checked claims. Published results, the paper calculation,
 and proposed implementation work are distinguished below. The source trail is
