@@ -1,3 +1,5 @@
+import Examples.AdjointModes
+import Examples.IndexedWitnessAdjunctions
 import Examples.InstitutionCapabilities
 import Examples.RelationalSemanticBoundary
 import Examples.SelectedPathBoundary
@@ -452,5 +454,7 @@ import SquareKit.Internal.Cubical.SliceFreshening
 import SquareKit.Internal.Cubical.SlicePrism
 
 import Examples.CubicalFrozenOrdinaryAction
+
+import Examples.FiniteExecutionAdapters
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

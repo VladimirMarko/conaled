@@ -231,14 +231,15 @@ The local formulas above derive the selected-solution law; it is not a field
 that each client is asked to prove in advance. They reveal a reusable
 parameterized extension argument, but no measured agent-authoring advantage.
 
-**Next experiment, [#354](https://github.com/VladimirMarko/conaled/issues/354)
-under #289:** a result family with multiple observable certificates, for which reconstruction from a proposition is
-impossible. Fix the chosen data independently, exhibit a complete lifted
-family and its slice comparisons, then calculate the selected extension and
-two substitutions. Preserve the present client as a specialization. Promote
-a Lean Eff provider only when that consumer justifies its setup cost; a
-smaller checked abstraction for extension and base change may suffice first.
-Neither #107 nor #108 is reopened or selected by this recommendation.
+**Completed paper successor, [#354](https://github.com/VladimirMarko/conaled/issues/354):**
+[the multiple-certificate construction](effective-topos-multiple-certificates.md)
+uses a fiber isomorphic to `2`, proves completeness of its lift using the
+additional source hypotheses, and calculates an alternating selected record
+under two substitutions. Its termination-only observation cannot reconstruct
+both valid records. The present countdown is recovered by specializing the
+construction to `1`. This remains a paper result; a Lean Eff provider is
+deferred, and #289 owns any consumer-driven extension/base-change interface.
+Neither #107 nor #108 is reopened or selected.
 
 Validation of this deliverable consists of the source/statement audit above,
 checking local code references and Markdown links, and `git diff --check`.
