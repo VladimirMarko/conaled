@@ -40,8 +40,10 @@ argument, and body in order and adds one beta contraction. `Comp.step` exposes
 one silent transition per finite beta count; spin takes a silent self-loop.
 Divergent finite prefixes are collapsed into spin. This is a compositional
 behavior model, not an implemented CEK machine or a term-reduction semantics.
-The theorems establish agreement with this model only. Recovering a conventional
-machine's behavior would require a separate simulation proof.
+The #303 theorems establish agreement with this model only. The separate
+[#308 operational bridge](weak-operational-machine.md) now relates it to typed
+syntactic small-step execution, including finite return paths and actual
+infinite executions. The compositional model itself is unchanged.
 
 ## Observations and checked comparisons
 

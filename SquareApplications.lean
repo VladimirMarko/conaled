@@ -1,3 +1,4 @@
+import Examples.WeakMachine
 import Examples.Memoization
 import Examples.SamplerSubstitution
 import Examples.ClassicalControl
