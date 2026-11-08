@@ -29,6 +29,7 @@ import Examples.DependentClientMigration
 import Examples.GeneratedEmptySubstitutions
 import Examples.DependentCapabilities
 import Examples.RepresentationExtension
+import Examples.PreparedQueries
 import Examples.ConstructorObserverExtension
 import Examples.ExactParserRewrites
 import SquareKit.IndexedCompositionalOrdinary
@@ -502,5 +503,47 @@ import Examples.HornDerivations
 import Examples.IndexedRelationalTransfer
 
 import Examples.FiniteStrategies
+
+import Applications.Sequences.LCA.BlockShape
+import Applications.Sequences.LCA.BlockBounds
+import Applications.Sequences.LCA.Sparse
+import Applications.Sequences.LCA.SharedTable
+import Examples.LCATree
+
+import Applications.Sequences.LCA.Backend
+import Applications.Sequences.LCA.Catalog
+import Applications.Sequences.LCA.KeyBounds
+import Applications.Sequences.LCA.Workspace
+import Applications.Sequences.LCA.FlatTable
+import Applications.Sequences.LCA.MachineCapacity
+import Applications.Sequences.LCA.SparseCatalog
+import Examples.LCABackend
+
+import Applications.Sequences.LCA.Control
+import Applications.Sequences.LCA.QueryStorage
+import Applications.Sequences.LCA.PackedBackend
+
+import Applications.Sequences.LCA.BackendBounds
+import Applications.Sequences.LCA.StrategySelection
+import Applications.Sequences.LCA.PackedReads
+import Examples.LCAPhases
+
+import Applications.Sequences.LCA.TableTransport
+import Applications.Sequences.LCA.PreparationInvariants
+import Applications.Sequences.LCA.PreparationCertificate
+import Applications.Sequences.LCA.PreparationMinima
+import Applications.Sequences.LCA.WordTrace
+import Applications.Sequences.LCA.WordLCA
+import Examples.LCAWordQuery
+
+import Applications.Sequences.LCA.Installation
+import Applications.Sequences.LCA.ResidentInstallation
+import Applications.Sequences.LCA.Materialize
+import Applications.Sequences.LCA.PreparationScalars
+import Applications.Sequences.LCA.PackingControl
+import Applications.Sequences.LCA.TargetPreparation
+import Applications.Sequences.LCA.TargetBackend
+import Applications.Sequences.LCA.TargetSelection
+import Examples.LCATarget
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
