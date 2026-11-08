@@ -452,4 +452,6 @@ import SquareKit.Internal.Cubical.SlicePrism
 
 import Examples.CubicalFrozenOrdinaryAction
 
+import Examples.FiniteExecutionAdapters
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
