@@ -477,6 +477,7 @@ import Examples.SelectedIdJTail
 import Examples.HigherSharedObservation
 
 import Examples.NominalTelescope
+import Examples.NominalBodies
 import Examples.NumericalError
 import Examples.StateException
 
