@@ -2,7 +2,7 @@
 
 [#371](https://github.com/VladimirMarko/conaled/issues/371) now has a constructed
 assembly category and program-index lifting infrastructure. This report records
-that P0 milestone and the subsequent P1 classifier. **The internal SDT provider and its selected-solution
+that P0 milestone, the P1 classifier and the P2 lifting monads. **The internal SDT provider and its selected-solution
 comparison are not complete.** In particular, the new code supplies neither
 completeness nor a fixed-point selector. The remaining obligations below belong
 to #371 under #289. P1 / #385 and P2 / #386 are now checked; P3–P5 remain scheduled as
