@@ -19,10 +19,12 @@ formalization replay, operational adequacy theorem or author trial is reported.
 
 [#373](state-exception-checked-comparison.md) constructs both policy meanings,
 scoped interpretation and selected-witness controls in Lean, with an existing
-measurement-record client. #381 owns the further case where the observation is
-produced during protected computation. The calculations below retain their
-original paper scope; they are not a full effect framework or runtime adequacy
-theorem.
+measurement-record client. The [#381 retained-measurement construction](retained-measurement-rollback.md)
+now produces an observation during protected computation and proves exact
+selected-controller and ordered-history preservation under both rollback
+policies. Physical issuance, response correspondence and crash durability remain
+adapter obligations. The calculations below retain their original paper scope;
+they are not a full effect framework or runtime adequacy theorem.
 
 ## Freeze the argument and its meaning
 

@@ -7,6 +7,10 @@ and [its checked client](../../Examples/ModalAccess.lean) implement Task M from
 its selected Boolean and reflexive certificate, enforce both locks, and prove
 substitution and key coherence. Existing ordinary source clients are unchanged.
 This is a fragment-specific model, not a model of the whole MTT calculus.
+The [#384 successor](modal-dependent-comprehension.md) now constructs dependent
+context extension over these locked environments, retaining their access controls
+and exact selected finite indices. Arbitrary modality-annotated interleavings and
+proof-relevant keys remain outside those bounded results.
 
 ## Source contract and chosen boundary
 

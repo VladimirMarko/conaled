@@ -1,12 +1,12 @@
 # Checked assembly prerequisites for internal SDT
 
 [#371](https://github.com/VladimirMarko/conaled/issues/371) now has a constructed
-assembly category and program-index lifting infrastructure. This is its first
-prerequisite milestone. **The internal SDT provider and its selected-solution
+assembly category and program-index lifting infrastructure. This report records
+that P0 milestone and the subsequent P1 classifier. **The internal SDT provider and its selected-solution
 comparison are not complete.** In particular, the new code supplies neither
 completeness nor a fixed-point selector. The remaining obligations below belong
-to #371 under #289 and are scheduled as #385–#389. #371 remains open until the
-selected-solution comparison is complete.
+to #371 under #289. P1 / #385 is now checked; P2–P5 remain scheduled as
+#386–#389. #371 remains open until the selected-solution comparison is complete.
 
 ## Model and source boundary
 
@@ -89,10 +89,10 @@ to be assumed by a future client. `P0` is the checked milestone above.
 
 | Node | Prerequisites | Required deliverable |
 |---|---|---|
-| [P1 / #385](https://github.com/VladimirMarko/conaled/issues/385): admissible partial maps | P0 | Construct pullbacks and the needed subobject semantics for assemblies. Define saturated recursively enumerable supports. Prove that program-index lifting with its unit classifies precisely the corresponding partial maps. Give tracked equivalences between zero-input and diagonal-input presentations. |
+| [P1 / #385](https://github.com/VladimirMarko/conaled/issues/385): admissible partial maps, checked | P0 | [Constructed](assembly-partial-map-classifier.md): pullbacks, saturated recursively enumerable inherited-realizer domains, classification and round trips for their partial maps, reindexing stability, and tracked equivalences between zero-input and diagonal-input presentations. Arbitrary subobjects are not classified. |
 | [P2 / #386](https://github.com/VladimirMarko/conaled/issues/386): lifting monad | P1 | Construct generic lift multiplication with a tracker and prove the monad laws. Prove lift comparisons for the admitted slice maps using P1's pullback and classifier constructions; this node does not construct the certificate state family or its algebra. |
-| [P3 / #387](https://github.com/VladimirMarko/conaled/issues/387): iteration and extension | P2 | Construct I, F, inclusion, successor and infinity with their trackers. Prove the initial strict-algebra and final-coalgebra universal properties. Establish the extension-selected fixed-point theorem for the constructed structures. |
-| [P4 / #388](https://github.com/VladimirMarko/conaled/issues/388): complete certificate family | P1, P3 | Supply the required exponentials and prove completeness of N, completeness of its lift under the halting hypotheses, and closure under exponentials and retracts. Build the context-dependent bound filter on `L(N)^N`, prove its tracking/idempotence, identify its fixed subobject with the certificate state family, and prove extension uniqueness over arbitrary admitted contexts. |
+| [P3 / #387](https://github.com/VladimirMarko/conaled/issues/387): iteration and extension | P2 | Construct I, F, inclusion, successor and infinity with their trackers. First prove initiality as an endofunctor algebra, then derive the strict-algebra-with-successor property using P2. Prove final-coalgebra uniqueness and conditional extension-selected fixed points using all-context completeness; preserve uniform tracker parameters in any parameterized claim. |
+| [P4 / #388](https://github.com/VladimirMarko/conaled/issues/388): complete certificate family | P1, P3 | Construct tracked function assemblies and prove equivalence of P3's all-context completeness with the exponential restriction isomorphism. Prove completeness of N, completeness of its lift under the halting hypotheses, and closure under exponentials and retracts. Build the context-dependent bound filter on `L(N)^N`, prove its tracking/idempotence, identify its fixed subobject with the certificate state family, and prove extension uniqueness over arbitrary admitted contexts. |
 | [P5 / #389](https://github.com/VladimirMarko/conaled/issues/389): selected client comparison | P2, P3, P4 | On P4's constructed certificate state family, construct the coordinatewise union algebra with tracked evaluation/reassembly and prove its algebra laws using P2. Then construct the countdown functional as an internal arrow. Derive its selected solution from extension at infinity, prove equality with the independently specified partial graph, and derive both parameter-change laws from local algebra and extension laws. Recover the unique-certificate client and keep disabled bottom, unequal selections with equal domains, and finite-fuel controls. |
 
 The graph is `P0 → P1 → P2 → P3`, with `(P1,P3) → P4` and
@@ -105,6 +105,15 @@ dependent product or the uniform slice theorem required at P4. No universe
 classifier is present. Any future internal-language interpretation needs its
 own soundness and universe-size account. Operational countdown adequacy is
 separate from P5 and must name its program semantics.
+
+P3 uses restriction bijectivity `Hom(Γ×F,X) → Hom(Γ×I,X)` for every
+assembly context Γ. A global-point extension property alone is insufficient.
+P4 constructs exponentials and proves equivalence with a tracked restriction
+isomorphism, so P3 need not assume that later infrastructure. Ordinary initiality
+does not by itself construct uniformly tracked folds. The
+[source-checked roadmap](internal-sdt-iteration-roadmap.md) records the required
+cut-tracker and finite-observation proofs; none is supplied merely by P1's
+classifier.
 
 ## Statement review and decision limits
 
