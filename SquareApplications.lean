@@ -1,4 +1,7 @@
 import Examples.OwnedHandle
+import Examples.OpenConstraint
+import Examples.WireCorelation
+import Examples.UnaryInteraction
 import Examples.AdjointModes
 import Examples.IndexedWitnessAdjunctions
 import Examples.InstitutionCapabilities
