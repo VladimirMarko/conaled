@@ -1,5 +1,10 @@
 # Architectural assessment after the external orbifold report
 
+The [final disposition](disposition.md) supersedes this report’s pending #362
+scheduling and assigns the bounded follow-ups. This report retains the evidence
+and recommendations at its publication checkpoint; the original independent
+assessments remain unchanged.
+
 The incoming evidence changes the recommended next experiment. Compare a real
 source theorem's model requirements and geometric meaning before extending the
 current certificate interfaces. Retain conaled's constructed geometry and

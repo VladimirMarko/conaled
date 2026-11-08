@@ -1,5 +1,10 @@
 # Interim comparison of architecture and scaling alternatives
 
+The [final disposition](disposition.md) supersedes this report’s pending #362
+scheduling and assigns the bounded follow-ups. This report retains the evidence
+and recommendations at its publication checkpoint; the original independent
+assessments remain unchanged.
+
 Historical interim report: the incoming evidence has now arrived and is assessed
 in the [orbifold synthesis](orbifold-synthesis.md). The pending-report statements
 below describe the earlier assessment, not the current input status.
