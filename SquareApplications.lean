@@ -486,6 +486,7 @@ import Examples.ModalAccess
 
 import Examples.OpenSystemWiring
 import Examples.AssemblyCertificates
+import Examples.AssemblyPartialMaps
 
 import Examples.RetainedMeasurement
 import Examples.HornDerivations

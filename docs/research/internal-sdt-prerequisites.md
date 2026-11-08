@@ -35,9 +35,10 @@ composition trackers proved to satisfy that condition.
 program which, at input zero, returns a realizer of x. A realizer of `none`
 diverges at input zero. The source presentation runs an index on itself;
 the checked implementation uses fixed input zero. The computable equivalence
-of these presentations and the partial-map classification theorem remain
-explicit obligations. We therefore call this a program-index lift, without
-claiming a checked dominance classifier. Lean's host `Option` does not make
+of these presentations and the classification of saturated r.e. inherited-realizer
+partial maps are now proved by [P1 / #385](assembly-partial-map-classifier.md).
+This does not construct the effective topos or classify arbitrary subobjects.
+Lean's host `Option` does not make
 every case analysis an assembly arrow: a caller still owes a tracker.
 
 ## Reused infrastructure and checked claims
@@ -97,7 +98,8 @@ to be assumed by a future client. `P0` is the checked milestone above.
 The graph is `P0 → P1 → P2 → P3`, with `(P1,P3) → P4` and
 `(P2,P3,P4) → P5`. P5 constructs the concrete state algebra only after P4
 supplies its object and evaluation/reassembly infrastructure; P2 supplies the
-generic monad laws independently of that family. P1 is the next bounded obligation. The current examples
+generic monad laws independently of that family. [P1 is now implemented](assembly-partial-map-classifier.md); P2 remains the
+next obligation. The P0 certificate examples
 construct each fixed finite fiber and its maps; they do not establish a
 dependent product or the uniform slice theorem required at P4. No universe
 classifier is present. Any future internal-language interpretation needs its
@@ -119,10 +121,11 @@ composition law precedes the selected-record example. The independent
 expected result remains 3 with `[2,1,0]`; the negative controls have concrete
 inhabitants. The finite-fuel case does not infer divergence from exhaustion.
 These checks cover the new definitions, general laws and applications; they
-do not establish the missing P1–P5 claims.
+do not establish the remaining P2–P5 claims; P1 has its own checked
+[construction and cases](assembly-partial-map-classifier.md).
 
 Adopt this assembly infrastructure as a prerequisite for the source model.
-Defer general SDT selection until P1–P5 are proved. Retain the external
+Defer general SDT selection until the remaining P2–P5 nodes are proved. Retain the external
 ordered-domain provider on its own contract; no adapter to that provider is
 an acceptance condition here. Neither route receives a productivity claim
 from these examples. A shared blind spot is the cost of constructing uniform
