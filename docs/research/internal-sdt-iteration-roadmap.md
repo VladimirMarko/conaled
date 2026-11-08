@@ -27,7 +27,10 @@ The later [cut-continuity proposal](assembly-cut-continuity-roadmap.md) supplies
 explicit candidate recursion-theorem arguments and a uniform extension program
 for the N/L(N) obligations below. It remains unformalized; its existence does not
 change the checked status of completeness or iteration. [#386's lifting monads](assembly-lifting-monad.md)
-now discharge P2, while #387–#389 retain their construction obligations.
+now discharge P2. [The checked P3 construction](internal-cut-iteration.md)
+discharges #387, including uniform tracking and conditional selection. The
+proposed P3 steps below are retained as the source-based design rationale;
+#388–#389 retain their construction obligations.
 
 ## Proposed direct #387 construction
 
@@ -90,4 +93,9 @@ Revision inspected: `56a005855ea17e0b0958f73ec801ae140b0a1679`, as in the manife
 
 ## Implementation disposition
 
-With #386 accepted, continue #387; #388's completeness work remains dependent on #387. The reconciled tasks use all-context completeness before exponentials, then prove the exponential equivalence in #388. Treat concrete cut-tracker recursion and finite-observation lemmas as named obligations in the next implementation plan. No evidence here requires abandoning assemblies or porting an entire topos; equally, no source theorem has been imported wholesale into the current category. The next work can proceed by investigating these explicit proofs, with a design escalation only if direct tracking cannot meet the required uniform contract and a materially different logic/model construction becomes necessary.
+P3 now has a [checked implementation](internal-cut-iteration.md), including
+all-context conditional selection. Continue with #388's concrete completeness,
+tracked function assemblies and exponential equivalence. The cut-observer
+continuity roadmap remains unformalized. No effective-topos theorem has been
+imported wholesale; any future source/category mismatch must still expose its
+missing prerequisite before claiming the concrete provider complete.

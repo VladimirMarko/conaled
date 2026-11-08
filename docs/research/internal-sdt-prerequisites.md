@@ -2,11 +2,11 @@
 
 [#371](https://github.com/VladimirMarko/conaled/issues/371) now has a constructed
 assembly category and program-index lifting infrastructure. This report records
-that P0 milestone, the P1 classifier and the P2 lifting monads. **The internal SDT provider and its selected-solution
-comparison are not complete.** In particular, the new code supplies neither
-completeness nor a fixed-point selector. The remaining obligations below belong
-to #371 under #289. P1 / #385 and P2 / #386 are now checked; P3–P5 remain scheduled as
-#387–#389. #371 remains open until the selected-solution comparison is complete.
+that P0 milestone, the P1 classifier, the P2 lifting monads and P3 iteration. **The internal SDT provider and its selected-solution
+comparison are not complete.** P3 supplies a conditional selected-fixed-point theorem, but concrete
+completeness for the intended family remains unproved. The remaining obligations below belong
+to #371 under #289. P1 / #385, P2 / #386 and P3 / #387 are now checked; P4–P5 remain scheduled as
+#388–#389. #371 remains open until the selected-solution comparison is complete.
 
 ## Model and source boundary
 
@@ -82,7 +82,7 @@ during evaluation rather than counting execution steps. The existing countdown
 finite-fuel control remains unchanged. Neither is a new adequacy theorem for
 the countdown client.
 
-## Exact remaining dependency graph
+## Dependency graph and remaining obligations
 
 The nodes below name required theorems or constructions, not record fields
 to be assumed by a future client. `P0` is the checked milestone above.
@@ -100,7 +100,8 @@ The graph is `P0 → P1 → P2 → P3`, with `(P1,P3) → P4` and
 supplies its object and evaluation/reassembly infrastructure; P2 supplies the
 generic monad laws independently of that family. [P1 is implemented](assembly-partial-map-classifier.md), and
 [P2 supplies the tracked ordinary and slice monads](assembly-lifting-monad.md).
-P3 remains the next obligation. The P0 certificate examples
+[P3 constructs cut iteration, uniform tracking and conditional selection](internal-cut-iteration.md).
+P4 remains the next obligation. The P0 certificate examples
 construct each fixed finite fiber and its maps; they do not establish a
 dependent product or the uniform slice theorem required at P4. No universe
 classifier is present. Any future internal-language interpretation needs its
@@ -131,11 +132,11 @@ composition law precedes the selected-record example. The independent
 expected result remains 3 with `[2,1,0]`; the negative controls have concrete
 inhabitants. The finite-fuel case does not infer divergence from exhaustion.
 These checks cover the new definitions, general laws and applications; they
-do not establish the remaining P3–P5 claims; P1 has its own checked
+do not establish the remaining P4–P5 claims; P1 has its own checked
 [construction and cases](assembly-partial-map-classifier.md).
 
 Adopt this assembly infrastructure as a prerequisite for the source model.
-Defer general SDT selection until the remaining P3–P5 nodes are proved. Retain the external
+Defer the concrete internal certificate provider until the remaining P4–P5 nodes are proved. Retain the external
 ordered-domain provider on its own contract; no adapter to that provider is
 an acceptance condition here. Neither route receives a productivity claim
 from these examples. A shared blind spot is the cost of constructing uniform

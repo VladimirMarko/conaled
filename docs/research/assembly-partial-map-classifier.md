@@ -89,8 +89,9 @@ partial map.
 P2 can use constructed pullbacks, admissible inverse images, the classifier
 bijection and its source/result compatibility. [P2 / #386 now constructs](assembly-lifting-monad.md)
 tracked lift multiplication, the monad laws, and its stated slice comparisons.
-Those are derived constructions, not fields assumed here. P3–P5 still owe iteration objects, completeness and
-uniform varying-family constructions before the selected-solution comparison.
+Those are derived constructions, not fields assumed here. [P3 now supplies iteration and conditional selection](internal-cut-iteration.md).
+P4–P5 still owe concrete completeness and uniform varying-family constructions
+before the selected-solution comparison.
 The category is still assemblies, not a constructed effective topos. No
 source theorem about all internal propositions transfers merely from the
 classifier proved here. Native external partial-computation clients remain

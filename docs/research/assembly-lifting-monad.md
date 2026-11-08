@@ -90,8 +90,8 @@ requires `some b = L p t`. Our slice lift instead has a tracked bottom over
 every base, including the checked base 3. These constructions therefore
 cannot be substituted for each other.
 
-P3 still owes iteration objects and their universal properties; the later
-completeness and selected-client obligations remain open. This work provides
+[P3 now constructs iteration objects and conditional selection](internal-cut-iteration.md);
+the concrete completeness and selected-client obligations remain open. This work provides
 no effective topos, universe classifier, fixed-point selector, certificate
 state algebra, or countdown adequacy theorem. The external ordered-domain
 clients retain their contracts. The examples measure mathematical coverage,
