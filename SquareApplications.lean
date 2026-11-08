@@ -1,3 +1,4 @@
+import Examples.IndexedWitnessAdjunctions
 import Examples.InstitutionCapabilities
 import Examples.RelationalSemanticBoundary
 import Examples.SelectedPathBoundary

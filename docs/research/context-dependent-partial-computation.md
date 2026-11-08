@@ -14,6 +14,9 @@ its local comparisons refer to `b8731310f05efdac29f994706fbc1f32eb77de20`.
 external construction. [#347's concrete effective-topos assessment](effective-topos-selected-solutions.md)
 now discharges the SDT package for this certificate family on paper, including
 slice comparisons and two substitutions. It does not add a Lean SDT provider.
+[#354's multiple-certificate construction](effective-topos-multiple-certificates.md)
+extends the paper provider to two distinguishable records in each fiber and
+preserves an independently selected alternating result.
 
 ## Checked external construction
 
@@ -260,8 +263,8 @@ but their premises differ.
 
 The bounded external implementation in #346 supplies the partial certificates,
 approximants and transport above. It reuses Mathlib's order infrastructure and
-leaves the guarded-stream API unchanged. Remaining SDT provider work belongs
-to #347.
+leaves the guarded-stream API unchanged. #347 and #354 supply the concrete
+paper SDT providers linked above; checked SDT infrastructure remains deferred.
 
 The external cost is explicit order/continuity infrastructure and proofs that
 chosen operations preserve approximants. SDT could move these obligations into
