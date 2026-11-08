@@ -88,13 +88,15 @@ to be assumed by a future client. `P0` is the checked milestone above.
 | Node | Prerequisites | Required deliverable |
 |---|---|---|
 | P1: admissible partial maps | P0 | Construct pullbacks and the needed subobject semantics for assemblies. Define saturated recursively enumerable supports. Prove that program-index lifting with its unit classifies precisely the corresponding partial maps. Give tracked equivalences between zero-input and diagonal-input presentations. |
-| P2: lifting algebra | P1 | Construct multiplication with a tracker, prove monad laws and the parameter comparisons for the admitted slice maps. Construct the state algebra by coordinatewise union; do not assume its laws. |
+| P2: lifting monad | P1 | Construct generic lift multiplication with a tracker and prove the monad laws. Prove lift comparisons for the admitted slice maps using P1's pullback and classifier constructions; this node does not construct the certificate state family or its algebra. |
 | P3: iteration and extension | P2 | Construct I, F, inclusion, successor and infinity with their trackers. Prove the initial strict-algebra and final-coalgebra universal properties. Establish the extension-selected fixed-point theorem for the constructed structures. |
 | P4: complete certificate family | P1, P3 | Supply the required exponentials and prove completeness of N, completeness of its lift under the halting hypotheses, and closure under exponentials and retracts. Build the context-dependent bound filter on `L(N)^N`, prove its tracking/idempotence, identify its fixed subobject with the certificate state family, and prove extension uniqueness over arbitrary admitted contexts. |
-| P5: selected client comparison | P2, P3, P4 | Construct the countdown functional as an internal arrow. Derive its selected solution from extension at infinity, prove equality with the independently specified partial graph, and derive both parameter-change laws from local algebra and extension laws. Recover the unique-certificate client and keep disabled bottom, unequal selections with equal domains, and finite-fuel controls. |
+| P5: selected client comparison | P2, P3, P4 | On P4's constructed certificate state family, construct the coordinatewise union algebra with tracked evaluation/reassembly and prove its algebra laws using P2. Then construct the countdown functional as an internal arrow. Derive its selected solution from extension at infinity, prove equality with the independently specified partial graph, and derive both parameter-change laws from local algebra and extension laws. Recover the unique-certificate client and keep disabled bottom, unequal selections with equal domains, and finite-fuel controls. |
 
 The graph is `P0 → P1 → P2 → P3`, with `(P1,P3) → P4` and
-`(P2,P3,P4) → P5`. P1 is the next bounded obligation. The current examples
+`(P2,P3,P4) → P5`. P5 constructs the concrete state algebra only after P4
+supplies its object and evaluation/reassembly infrastructure; P2 supplies the
+generic monad laws independently of that family. P1 is the next bounded obligation. The current examples
 construct each fixed finite fiber and its maps; they do not establish a
 dependent product or the uniform slice theorem required at P4. No universe
 classifier is present. Any future internal-language interpretation needs its
