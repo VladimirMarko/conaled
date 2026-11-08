@@ -32,25 +32,35 @@ def pairRaw (e : IndexTerm SingleV) : PExpr SingleV :=
 def secondRaw (e : IndexTerm SingleV) : PExpr SingleV :=
   Projection.snd N familyB (pairRaw e)
 
-def componentsTyped (e : IndexTerm SingleV) :
+def componentsFromTyped (e : IndexTerm SingleV) (he : Proof (term Γn e.expression N)) :
     ∀ i : Fin (ProjectionRule.components Γn N familyB (s e.expression) (t e.expression)).length,
       Proof ((ProjectionRule.components Γn N familyB (s e.expression) (t e.expression)).get i) := by
   refine Fin.cases contextN (Fin.cases (typeN Γn contextN) (Fin.cases familyTyped
-    (Fin.cases (indexTyped (.successor e)) (Fin.cases ?_ (fun i => Fin.elim0 i)))))
+    (Fin.cases (declaration (.s Γn e.expression)
+      (Fin.cases contextN (Fin.cases he (fun i => Fin.elim0 i))))
+      (Fin.cases ?_ (fun i => Fin.elim0 i)))))
   have ht := declaration (.t Γn e.expression)
-    (Fin.cases contextN (Fin.cases (indexTyped e) (fun i => Fin.elim0 i)))
+    (Fin.cases contextN (Fin.cases he (fun i => Fin.elim0 i)))
   change Proof (term Γn (t e.expression) (Elimination.instantiate familyB (s e.expression)))
   change Proof (term Γn (t e.expression) (B (s e.expression))) at ht
   simpa [Elimination.instantiate, familyB, B, Expr.subst] using ht
 
-def pairTyped (e : IndexTerm SingleV) : Proof (term Γn (pairRaw e) (Projection.P N familyB)) :=
-  pairRule (.pair Γn N familyB (s e.expression) (t e.expression)) (componentsTyped e)
+def componentsTyped (e : IndexTerm SingleV) := componentsFromTyped e (indexTyped e)
 
-def secondTyped (e : IndexTerm SingleV) : Proof
+def pairFromTyped (e : IndexTerm SingleV) (he : Proof (term Γn e.expression N)) :
+    Proof (term Γn (pairRaw e) (Projection.P N familyB)) :=
+  pairRule (.pair Γn N familyB (s e.expression) (t e.expression)) (componentsFromTyped e he)
+
+def pairTyped (e : IndexTerm SingleV) := pairFromTyped e (indexTyped e)
+
+def secondFromPair (e : IndexTerm SingleV)
+    (hp : Proof (term Γn (pairRaw e) (Projection.P N familyB))) : Proof
     (term Γn (secondRaw e) (Elimination.instantiate familyB (Projection.fst N familyB (pairRaw e)))) :=
   pairRule (.second Γn N familyB (pairRaw e))
     (Fin.cases contextN (Fin.cases (typeN Γn contextN)
-      (Fin.cases familyTyped (Fin.cases (pairTyped e) (fun i => Fin.elim0 i)))))
+      (Fin.cases familyTyped (Fin.cases hp (fun i => Fin.elim0 i)))))
+
+def secondTyped (e : IndexTerm SingleV) := secondFromPair e (pairTyped e)
 
 def secondBeta (e : IndexTerm SingleV) : Proof
     (termEq Γn (secondRaw e) (t e.expression) (B (s e.expression))) := by
