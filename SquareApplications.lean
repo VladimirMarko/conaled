@@ -481,6 +481,7 @@ import Examples.StateException
 
 import Examples.RelationalTransfer
 import Examples.HigherOrderRandomFunction
+import Examples.ModalAccess
 
 import Examples.AssemblyCertificates
 
