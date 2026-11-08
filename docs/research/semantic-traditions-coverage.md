@@ -106,6 +106,14 @@ vacuous for this purpose. A syntactic realizer or adequacy alone does not prove
 selected-output recovery or execution termination.
 [Krivine, §1, Theorem 1.3](https://arxiv.org/pdf/1005.2395).
 
+The subsequent [#378 construction](classical-control-selected-search.md) supplies
+the bounded control/pole experiment on paper. It proves implicational adequacy
+and Peirce for a lambda/control machine, constructs a proper delivery pole and
+proves coherence for pure proof-like terms. A separate traversal invariant and
+closure-to-frame simulation preserve first-even certificates; later-even output
+passes the weaker pole and fails selection. Bounded formalization can proceed
+without an incumbent consumer. This is not full classical arithmetic extraction.
+
 **Relational hiding, #27/#36 with #348.** Baez–Pollard's black-boxing theorem
 maps polynomial open dynamical systems to semialgebraic steady-state relations;
 composition existentially hides internal boundary data. #300 compared wiring

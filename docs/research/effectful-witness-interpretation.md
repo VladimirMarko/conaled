@@ -316,3 +316,11 @@ adequacy and performance. The next client may require different equations.
 #107 remains paused, #108's theorem unselected/unprepared, #260 inactive, and
 #305/#306 outside this assignment. No universal AST, global subtyping or new
 kernel axiom follows from this report.
+
+## Checked successor
+
+[#373's bounded implementation](state-exception-checked-comparison.md) now checks
+these carrier meanings, scoped laws, selected-witness controls and an existing
+measurement-record client. The original report above remains the paper-stage
+record; the successor states the checked scope and remaining external-event
+obligation separately.
