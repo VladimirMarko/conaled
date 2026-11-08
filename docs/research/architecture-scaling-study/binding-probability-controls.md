@@ -3,6 +3,11 @@
 Research for [#365](https://github.com/VladimirMarko/conaled/issues/365),
 2026-11-08, against `0bf03c56876f52f3fd72f91ff0d34c29290800f4`.
 
+The [checked binding successor](../nominal-dependent-telescope.md) now implements
+the bounded nominal/contextual telescope, its two substitutions and dependent
+third field in Lean (#369). The derivations below retain their original paper
+status; the successor states its narrower admitted syntax explicitly.
+
 Both representations of the binding fixture preserve its selected finite
 element through two substitutions. Nominal abstraction removes the choice of
 bound spelling from the contract; it does not supply dependent typing or model
