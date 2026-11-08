@@ -83,6 +83,69 @@ theorem ordinaryLabel_injective (U : Domain) : Function.Injective (ordinaryLabel
       ((locallyConstantGroupSheaf G).obj.map (toSite.map (u x)).op b)
   rw [hk', hl', he]
 
+/-- Principal descriptions supplied for the fibers of an independent point label.
+Coverage and compatible constant labels are derived from this local contract. -/
+structure PrincipalLabelData (U : Domain) (l : LocallyConstant (Points U) G) where
+  defining : G → Free U.dimension
+  fiber_iff : ∀ k (x : Points U), (defining k).val x.val ≠ 0 ↔ l x = k
+
+namespace PrincipalLabelData
+variable {G} {U : Domain} {l : LocallyConstant (Points U) G}
+
+theorem covers (d : PrincipalLabelData G U l) :
+    Covers U d.defining := fun x =>
+  ⟨l x, (d.fiber_iff (l x) x).mpr rfl⟩
+
+def localLabel (d : PrincipalLabelData G U l) (k : G) :
+    embedding.obj (subdomain U (d.defining k)) ⟶ locallyConstantGroupSheaf G :=
+  constantSection _ k
+
+theorem compatible (d : PrincipalLabelData G U l) (i j : G) :
+    embedding.map (overlapLeft U (d.defining i) (d.defining j)) ≫ d.localLabel i =
+    embedding.map (overlapRight U (d.defining i) (d.defining j)) ≫ d.localLabel j := by
+  by_cases h : i = j
+  · subst j
+    rfl
+  · apply empty_domain_hom_ext
+    refine ⟨fun x => h ?_⟩
+    let y : Points U := ⟨x.val, left_ne_zero_of_mul (left_ne_zero_of_mul x.property)⟩
+    have hi := (d.fiber_iff i y).mp
+      (right_ne_zero_of_mul (left_ne_zero_of_mul x.property))
+    have hj := (d.fiber_iff j y).mp (right_ne_zero_of_mul x.property)
+    exact hi.symm.trans hj
+
+/-- Gluing the constant section on each label fiber. -/
+def gluedSection (d : PrincipalLabelData G U l) :
+    (locallyConstantGroupSheaf G).obj.obj (op (toSite.obj U)) :=
+  topology.yonedaEquiv ((sheaf_exists_unique U d.defining d.covers
+    _ d.localLabel d.compatible).choose)
+
+theorem restrict (d : PrincipalLabelData G U l) (k : G) :
+    (locallyConstantGroupSheaf G).obj.map (toSite.map (subInclusion U (d.defining k))).op
+      d.gluedSection = (constantLabel G).app _ k := by
+  exact (topology.yonedaEquiv_naturality _ _).trans
+    (congrArg topology.yonedaEquiv ((sheaf_exists_unique U d.defining
+      d.covers _ d.localLabel d.compatible).choose_spec.1 k))
+
+theorem label_section (d : PrincipalLabelData G U l) (x : Points U) :
+    ordinaryLabel G U d.gluedSection x = l x := by
+  let y : Points (subdomain U (d.defining (l x))) :=
+    ⟨x.val, mul_ne_zero x.property ((d.fiber_iff (l x) x).mpr rfl)⟩
+  have hy : (show Map _ _ from subInclusion U (d.defining (l x))) y = x := rfl
+  rw [← hy, ← ordinaryLabel_natural, restrict, ordinaryLabel_constant]
+  rfl
+
+/-- Uniqueness uses point detection for this particular sheaf. -/
+theorem unique (d : PrincipalLabelData G U l)
+    (a : (locallyConstantGroupSheaf G).obj.obj (op (toSite.obj U)))
+    (ha : ∀ x, ordinaryLabel G U a x = l x) : a = d.gluedSection :=
+  ordinaryLabel_injective G U (funext (fun x => (ha x).trans (d.label_section x).symm))
+
+theorem independent (d e : PrincipalLabelData G U l) : d.gluedSection = e.gluedSection :=
+  e.unique _ d.label_section
+
+end PrincipalLabelData
+
 /-- A label fiber is an ordinary principal open. -/
 def labelDefining (U : Domain) (l : LocallyConstant (Points U) G) (k : G) :
     Free U.dimension :=
@@ -100,40 +163,31 @@ theorem labelDefining_iff (U : Domain) (l : LocallyConstant (Points U) G)
   · intro hx
     exact ⟨x, hx, rfl⟩
 
+/-- The classical selector supplies an instance of the explicit-data API. -/
+def selectedPrincipalLabelData (U : Domain) (l : LocallyConstant (Points U) G) :
+    PrincipalLabelData G U l := ⟨labelDefining G U l, labelDefining_iff G U l⟩
+
 theorem label_covers (U : Domain) (l : LocallyConstant (Points U) G) :
-    Covers U (labelDefining G U l) := fun x =>
-  ⟨l x, (labelDefining_iff G U l (l x) x).mpr rfl⟩
+    Covers U (labelDefining G U l) := (selectedPrincipalLabelData G U l).covers
 
 def fiberLabel (U : Domain) (l : LocallyConstant (Points U) G) (k : G) :
     embedding.obj (subdomain U (labelDefining G U l k)) ⟶ locallyConstantGroupSheaf G :=
-  constantSection _ k
+  (selectedPrincipalLabelData G U l).localLabel k
 
 theorem fiberLabel_compatible (U : Domain) (l : LocallyConstant (Points U) G) (i j : G) :
     embedding.map (overlapLeft U (labelDefining G U l i) (labelDefining G U l j)) ≫ fiberLabel G U l i =
-    embedding.map (overlapRight U (labelDefining G U l i) (labelDefining G U l j)) ≫ fiberLabel G U l j := by
-  by_cases h : i = j
-  · subst j
-    rfl
-  · apply empty_domain_hom_ext
-    refine ⟨fun x => h ?_⟩
-    let y : Points U := ⟨x.val, left_ne_zero_of_mul (left_ne_zero_of_mul x.property)⟩
-    have hi := (labelDefining_iff G U l i y).mp
-      (right_ne_zero_of_mul (left_ne_zero_of_mul x.property))
-    have hj := (labelDefining_iff G U l j y).mp (right_ne_zero_of_mul x.property)
-    exact hi.symm.trans hj
+    embedding.map (overlapRight U (labelDefining G U l i) (labelDefining G U l j)) ≫ fiberLabel G U l j :=
+  (selectedPrincipalLabelData G U l).compatible i j
 
 /-- Gluing the constant section on each label fiber. -/
 def ofOrdinaryLocallyConstant (U : Domain) (l : LocallyConstant (Points U) G) :
     (locallyConstantGroupSheaf G).obj.obj (op (toSite.obj U)) :=
-  topology.yonedaEquiv ((sheaf_exists_unique U (labelDefining G U l) (label_covers G U l)
-    _ (fiberLabel G U l) (fiberLabel_compatible G U l)).choose)
+  (selectedPrincipalLabelData G U l).gluedSection
 
 theorem ofOrdinaryLocallyConstant_restrict (U : Domain) (l : LocallyConstant (Points U) G) (k : G) :
     (locallyConstantGroupSheaf G).obj.map (toSite.map (subInclusion U (labelDefining G U l k))).op
-      (ofOrdinaryLocallyConstant G U l) = (constantLabel G).app _ k := by
-  exact (topology.yonedaEquiv_naturality _ _).trans
-    (congrArg topology.yonedaEquiv ((sheaf_exists_unique U (labelDefining G U l)
-      (label_covers G U l) _ (fiberLabel G U l) (fiberLabel_compatible G U l)).choose_spec.1 k))
+      (ofOrdinaryLocallyConstant G U l) = (constantLabel G).app _ k :=
+  (selectedPrincipalLabelData G U l).restrict k
 
 theorem ordinaryLabel_ofOrdinaryLocallyConstant (U : Domain)
     (l : LocallyConstant (Points U) G) (x : Points U) :
@@ -143,6 +197,11 @@ theorem ordinaryLabel_ofOrdinaryLocallyConstant (U : Domain)
   have hy : (show Map _ _ from subInclusion U (labelDefining G U l (l x))) y = x := rfl
   rw [← hy, ← ordinaryLabel_natural, ofOrdinaryLocallyConstant_restrict, ordinaryLabel_constant]
   rfl
+
+theorem PrincipalLabelData.eq_ofOrdinaryLocallyConstant {U : Domain}
+    {l : LocallyConstant (Points U) G} (d : PrincipalLabelData G U l) :
+    d.gluedSection = ofOrdinaryLocallyConstant G U l :=
+  d.independent (selectedPrincipalLabelData G U l)
 
 /-- The actual point-label map is an equivalence on every ordinary domain. -/
 def ordinaryLocallyConstantEquiv (U : Domain) :
@@ -178,6 +237,26 @@ theorem ordinaryLocallyConstantEquiv_mul (U : Domain)
     ordinaryLocallyConstantEquiv G U (a * b) =
       ordinaryLocallyConstantEquiv G U a * ordinaryLocallyConstantEquiv G U b :=
   DFunLike.ext _ _ (ordinaryLabel_mul G U a b)
+
+/-- Supplied descriptions can be chosen independently after restriction. -/
+theorem PrincipalLabelData.natural {U V : Domain} (f : U ⟶ V)
+    {l : LocallyConstant (Points V) G} (d : PrincipalLabelData G V l)
+    (e : PrincipalLabelData G U (l.comap ⟨(show Map _ _ from f), map_continuous f⟩)) :
+    (locallyConstantGroupSheaf G).obj.map (toSite.map f).op d.gluedSection = e.gluedSection := by
+  rw [d.eq_ofOrdinaryLocallyConstant, e.eq_ofOrdinaryLocallyConstant]
+  exact ofOrdinaryLocallyConstant_natural G f l
+
+/-- Multiplication compares global sections, with independent data for each label. -/
+theorem PrincipalLabelData.mul {U : Domain} {l m : LocallyConstant (Points U) G}
+    (d : PrincipalLabelData G U l) (e : PrincipalLabelData G U m)
+    (p : PrincipalLabelData G U (l * m)) :
+    (show (locallyConstantGroup G).obj.obj (op (toSite.obj U)) from d.gluedSection) *
+      (show (locallyConstantGroup G).obj.obj (op (toSite.obj U)) from e.gluedSection) =
+      p.gluedSection := by
+  apply p.unique
+  intro x
+  rw [ordinaryLabel_mul, d.label_section, e.label_section]
+  rfl
 
 /-- Empty-domain sections agree, including their non-real restrictions. -/
 theorem ordinary_empty_section_unique (U : Domain) [IsEmpty (Points U)]

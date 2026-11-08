@@ -282,4 +282,66 @@ theorem empty_inverse_unique :
       (ordinaryLocallyConstantEquiv C4 emptyDomain).symm (LocallyConstant.const _ 1) :=
   ordinary_empty_section_unique C4 emptyDomain _ _
 
+/-- Constant fibers have elementary supplied descriptions, without openDefining. -/
+def constantData (G : Type) [Group G] [DecidableEq G] (U : Domain) (g : G) :
+    PrincipalLabelData G U (LocallyConstant.const _ g) where
+  defining k := if g = k then 1 else 0
+  fiber_iff k x := by
+    by_cases h : g = k <;> simp [h]
+
+theorem constant_supplied_label (G : Type) [Group G] [DecidableEq G]
+    (U : Domain) (g : G) (x : Points U) :
+    ordinaryLabel G U (constantData G U g).gluedSection x = g :=
+  (constantData G U g).label_section x
+
+/-- Squaring changes the supplied smooth functions while preserving their loci. -/
+def squaredData {G : Type} [Group G] {U : Domain} {l : LocallyConstant (Points U) G}
+    (d : PrincipalLabelData G U l) : PrincipalLabelData G U l where
+  defining k := d.defining k * d.defining k
+  fiber_iff k x := by
+    change (d.defining k).val x.val * (d.defining k).val x.val ≠ 0 ↔ _
+    rw [mul_ne_zero_iff, and_self]
+    exact d.fiber_iff k x
+
+/-- The supplied-data path preserves the disconnected label, including both values. -/
+theorem supplied_sign_values :
+    let d := squaredData (selectedPrincipalLabelData C4 punctured (signLabel C4 quarterTurn))
+    ordinaryLabel C4 punctured d.gluedSection negativePoint = 1 ∧
+      ordinaryLabel C4 punctured d.gluedSection positivePoint = quarterTurn := by
+  dsimp only
+  rw [PrincipalLabelData.label_section, PrincipalLabelData.label_section]
+  constructor <;> norm_num [signLabel, negativePoint, positivePoint]
+
+theorem supplied_sign_not_constant (g : C4) :
+    let d := squaredData (selectedPrincipalLabelData C4 punctured (signLabel C4 quarterTurn))
+    ordinaryLabel C4 punctured d.gluedSection ≠ fun _ => g := by
+  intro d h
+  have hn := congrFun h negativePoint
+  have hp := congrFun h positivePoint
+  exact quarterTurn_ne_one ((supplied_sign_values.2.symm.trans hp).trans
+    (supplied_sign_values.1.symm.trans hn).symm)
+
+theorem squared_data_independent {G : Type} [Group G] {U : Domain}
+    {l : LocallyConstant (Points U) G} (d : PrincipalLabelData G U l) :
+    (squaredData d).gluedSection = d.gluedSection :=
+  (squaredData d).independent d
+
+/-- On the empty domain any supplied functions describe every (empty) fiber. -/
+def emptyData (q : C4 → Free emptyDomain.dimension)
+    (l : LocallyConstant (Points emptyDomain) C4) : PrincipalLabelData C4 emptyDomain l :=
+  ⟨q, fun _ x => isEmptyElim x⟩
+
+theorem empty_supplied_independent :
+    (emptyData (fun _ => 0) (LocallyConstant.const _ quarterTurn)).gluedSection =
+      (emptyData (fun _ => 1) (LocallyConstant.const _ 1)).gluedSection :=
+  ordinary_empty_section_unique C4 emptyDomain _ _
+
+/-- Zero functions cannot describe the inhabited fiber at the negative point. -/
+theorem zero_not_sign_data :
+    ¬ ∀ k (x : Points punctured), (0 : Free punctured.dimension).val x.val ≠ 0 ↔
+      signLabel C4 quarterTurn x = k := by
+  intro h
+  have bad := (h (signLabel C4 quarterTurn negativePoint) negativePoint).mpr rfl
+  exact bad rfl
+
 end Examples.SmoothOrdinaryComparison
