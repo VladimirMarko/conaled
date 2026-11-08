@@ -285,9 +285,30 @@ cb(f[k,L,j,O],π) R Next(k',L,j,O,π')  if k R k' and π R π'.
 
 Only the generated callback family is admitted. An arbitrary host function
 requires another code tag and a new pointwise equation. Relate `walk`/`test`
-parameters componentwise and deliveries by identical `(L,v)`. For substitution,
-structural induction on a core term gives `tσ R t'σ'` whenever the term and
-substitution components are related; runtime payloads remain closed data.
+parameters componentwise and deliveries by identical `(L,v)`.
+
+The substitution lemma concerns **open mixed terms**, built from variables,
+lambda, application, `cc`, `walk` and `test`, together with the closed runtime
+constants above. If `t R t'` and substitutions assign related terms to each free
+variable, then `tσ R t'σ'`. Prove this by structural induction on the related
+mixed terms. The variable case uses the substitution hypothesis. Application
+uses both induction hypotheses. For lambda, choose a common fresh binder and
+extend the substitutions by that variable; capture avoidance and the body
+induction hypothesis give related abstractions. `cc` is unchanged.
+
+For `walk(k,L,j,O)`, substitution produces `walk(kσ,L,j,O)` on the source and
+`walk(k'σ',L,j,O)` on the target. The induction hypothesis relates `kσ` and
+`k'σ'`, so the componentwise scanner clause applies. The `test` case is identical.
+The continuation parameter may be open; only `L,j,O` are fixed closed data.
+`ret`, `last` and `stuck` have no free term parameters and remain unchanged.
+Saved-continuation constants contain closed saved stacks; substitution leaves
+these constants, and their already-related stacks, unchanged. Callback closures
+and target frames occur in those closed stacks, with closed captured environments;
+they are not open term binders in this lemma.
+
+In particular the lemma applies to the initialization body `walk(k,L,0,[])`
+under substitution of related saved continuations for `k`. The pure-core
+restriction used for logical adequacy and coherence remains unchanged.
 
 Whenever a member of a related pair takes a step in this fragment, the other
 has a matching step to a related state:
