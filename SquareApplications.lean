@@ -1,3 +1,4 @@
+import Examples.ClassicalControl
 import Examples.VaryingPartialCertificates
 import Examples.OwnedHandle
 import Examples.OpenConstraint
@@ -477,6 +478,7 @@ import Examples.SelectedIdJTail
 import Examples.HigherSharedObservation
 
 import Examples.NominalTelescope
+import Examples.NominalBodies
 import Examples.NumericalError
 import Examples.StateException
 
