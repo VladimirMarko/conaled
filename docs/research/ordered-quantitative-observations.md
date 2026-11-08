@@ -7,6 +7,11 @@ applicable ordered account. A direct quantitative sum/tensor presentation does
 not admit the numerical operations below with their specified metric. This is a
 bounded paper comparison, not a new numerical backend or a migration decision.
 
+The subsequent [checked composition implementation](numerical-error-composition.md)
+formalizes the bounded proposal across the affine client and the existing
+rational disk-motion execution. Claims labeled paper derivations below describe
+this report's original scope.
+
 ## Client and observations fixed before adaptation
 
 The independent client is a two-stage real scalar pipeline:
