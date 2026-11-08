@@ -1,0 +1,70 @@
+attempts/checks/Attempt02/Source.lean:64:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Code.run (env n) (compileCode (translate (translate (sourceProof ops))))
+in the target expression
+  Code.run (env n) (targetCode ops) = Examples.IncrementalDependentTrialSpec.selected ops n
+
+ops : List Examples.IncrementalDependentTrialSpec.Op
+n : ℕ
+⊢ Code.run (env n) (targetCode ops) = Examples.IncrementalDependentTrialSpec.selected ops n
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Examples.IncrementalDependentTrialSpec.selected ops n
+  has type
+    Examples.IncrementalDependentTrialSpec.Packet
+  but is expected to have type
+    (Shape.second (index ops)).tag.Value
+  in the application
+    Code.run (env n) (targetCode ops) = Examples.IncrementalDependentTrialSpec.selected ops n
+attempts/checks/Attempt02/Source.lean:84:63: error: unsolved goals
+xs ys : List Examples.IncrementalDependentTrialSpec.Op
+n : ℕ
+⊢ Examples.IncrementalDependentTrialSpec.run ys (IndexTerm.meaning (env n) (schedule xs (IndexTerm.var m))) =
+    Examples.IncrementalDependentTrialSpec.run ys (IndexTerm.meaning (env n) (index xs))
+attempts/checks/Attempt02/Source.lean:125:19: error: unsolved goals
+case successor
+σ : SingleV → IndexTerm SingleV
+e : IndexTerm SingleV
+ih : Expr.subst (fun v => (σ v).expression) e.expression = (replace σ e).expression
+⊢ (fun i => Expr.subst (Expr.lift fun v => (σ v).expression) (Fin.cases (zero e.expression) (fun i => nomatch i) i)) =
+    fun i => Fin.cases (zero (replace σ e).expression) (fun i => nomatch i) i
+attempts/checks/Attempt02/Source.lean:128:16: error: unsolved goals
+case double
+σ : SingleV → IndexTerm SingleV
+e : IndexTerm SingleV
+ih : Expr.subst (fun v => (σ v).expression) e.expression = (replace σ e).expression
+⊢ (fun i => Expr.subst (Expr.lift fun v => (σ v).expression) (Fin.cases (zero e.expression) (fun i => nomatch i) i)) =
+    fun i => Fin.cases (zero (replace σ e).expression) (fun i => nomatch i) i
+attempts/checks/Attempt02/Source.lean:127:91: warning: This simp argument is unused:
+  Elimination.subst_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [IndexTerm.expression, replace, s, DependentPairDeclarations.Projection.s,
+    DependentPairDeclarations.Terms.s, DependentPairDeclarations.projection, Expr.subst, ih]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt02/Source.lean:127:115: warning: This simp argument is unused:
+  ih
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [IndexTerm.expression, replace, s, DependentPairDeclarations.Projection.s,
+    DependentPairDeclarations.Terms.s, DependentPairDeclarations.projection, Expr.subst, Elimination.subst_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt02/Source.lean:130:91: warning: This simp argument is unused:
+  Elimination.subst_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [IndexTerm.expression, replace, d, DependentPairDeclarations.Projection.d,
+    DependentPairDeclarations.Terms.d, DependentPairDeclarations.projection, Expr.subst, ih]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt02/Source.lean:130:115: warning: This simp argument is unused:
+  ih
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [IndexTerm.expression, replace, d, DependentPairDeclarations.Projection.d,
+    DependentPairDeclarations.Terms.d, DependentPairDeclarations.projection, Expr.subst, Elimination.subst_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,24 @@
+{
+  "recorded_at": "2026-11-08T08:05:19.580929+00:00",
+  "authors": [
+    {
+      "arm": "baseline",
+      "agent": "/root/trial357_native_author",
+      "dispatch": "2026-11-08T08:05:00Z",
+      "deadline": "2026-11-08T08:35:00Z",
+      "prompt": "You are a fresh independent measured author for #357, native arm. Work ONLY in /tmp/conaled-351-357/author-baseline and its private dependencies/toolchain. Do not read the parent repository or any other checkout. Read local AGENTS.md, AUTHOR.md, PROTOCOL.md and TASK.md, then carry out that assignment. This is assigned work inside the coordinator's existing implementation/review loop; do not delegate or start another workflow. Your measured dispatch time is 2026-11-08 08:05:00 UTC; deadline 08:35:00 UTC, or 30 archived wrapper checks, whichever first. All reading/editing/reporting is within the budget. Every Lean inspection/check uses the unchanged check_attempt.py with fresh attempts/AttemptNN.lean. Keep activity/outcome records. Do not inspect other authors, Git objects/history, external sources or prepared solutions. Do not alter frozen inputs. Stop at success, documented obstruction after attempted remedies, or deadline; preserve partial work. Only environment/contract questions to root; no proof assistance. Return your final artifact and outcome when stopped."
+    },
+    {
+      "arm": "candidate",
+      "agent": "/root/trial357_compositional_author",
+      "dispatch": "2026-11-08T08:05:05Z",
+      "deadline": "2026-11-08T08:35:05Z",
+      "prompt": "You are a fresh independent measured author for #357, compositional arm. Work ONLY in /tmp/conaled-351-357/author-candidate and its private dependencies/toolchain. Do not read the parent repository or any other checkout. Read local AGENTS.md, AUTHOR.md, PROTOCOL.md and TASK.md, then carry out that assignment. This is assigned work inside the coordinator's existing implementation/review loop; do not delegate or start another workflow. Your measured dispatch time is 2026-11-08 08:05:05 UTC; deadline 08:35:05 UTC, or 30 archived wrapper checks, whichever first. All reading/editing/reporting is within the budget. Every Lean inspection/check uses the unchanged check_attempt.py with fresh attempts/AttemptNN.lean. Keep activity/outcome records. Do not inspect other authors, Git objects/history, external sources or prepared solutions. Do not alter frozen inputs. Stop at success, documented obstruction after attempted remedies, or deadline; preserve partial work. Only environment/contract questions to root; no proof assistance. Return your final artifact and outcome when stopped."
+    }
+  ],
+  "fork_turns": "none",
+  "model_override": null,
+  "reasoning_override": null,
+  "clock_note": "Dispatch times specified in each prompt immediately around tool dispatch; no finer tool timestamp available. Root records separately the post-dispatch observation.",
+  "prompt_contract": "Fresh author; assigned handoff only; read AGENTS/AUTHOR/PROTOCOL/TASK; 30 minutes or30 archived checks; no other sources or agents; no proof assistance; preserve all attempts and outcome."
+}

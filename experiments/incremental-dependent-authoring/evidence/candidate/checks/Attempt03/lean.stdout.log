@@ -1,0 +1,14 @@
+attempts/checks/Attempt03/Source.lean:134:4: error: Type mismatch: After simplification, term
+  congrArg zero ih
+ has type
+  zero (Expr.subst (fun v => (σ v).expression) e.expression) = zero (replace σ e).expression
+but is expected to have type
+  Expr.subst (Expr.lift fun v => (σ v).expression) (Fin.cases (zero e.expression) (fun i => nomatch i) ⟨0, ⋯⟩) =
+    Fin.cases (zero (replace σ e).expression) (fun i => nomatch i) ⟨0, ⋯⟩
+attempts/checks/Attempt03/Source.lean:142:4: error: Type mismatch: After simplification, term
+  congrArg zero ih
+ has type
+  zero (Expr.subst (fun v => (σ v).expression) e.expression) = zero (replace σ e).expression
+but is expected to have type
+  Expr.subst (Expr.lift fun v => (σ v).expression) (Fin.cases (zero e.expression) (fun i => nomatch i) ⟨0, ⋯⟩) =
+    Fin.cases (zero (replace σ e).expression) (fun i => nomatch i) ⟨0, ⋯⟩

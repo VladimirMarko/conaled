@@ -64,6 +64,11 @@ soundness also remain separate claims.
 
 ## Follow-up ownership
 
+The four bounded follow-ups below have results in the
+[indexed compilation experiments](indexed-compilation-experiment-results.md).
+Their original questions are retained here to connect the two rounds. Broader
+agenda owners and promotion conditions remain as stated below.
+
 | Owner | Next experiment and retained distinction |
 |---|---|
 | [#351](https://github.com/VladimirMarko/conaled/issues/351) | Derive selected witness and quantifier comparisons from actual adjunctions, with base-change hypotheses and a failed non-pullback control. Opposite arrow directions alone are insufficient. |

@@ -1,0 +1,159 @@
+attempts/checks/Attempt01/Source.lean:9:15: error: unexpected token ':='; expected command
+attempts/checks/Attempt01/Source.lean:26:15: error(lean.unknownIdentifier): Unknown identifier `Spec.Op`
+attempts/checks/Attempt01/Source.lean:29:25: error(lean.unknownIdentifier): Unknown identifier `Spec.Op`
+attempts/checks/Attempt01/Source.lean:32:38: error(lean.unknownIdentifier): Unknown identifier `Spec.Op`
+attempts/checks/Attempt01/Source.lean:32:38: error(lean.unknownIdentifier): Unknown identifier `Spec.Op`
+attempts/checks/Attempt01/Source.lean:38:34: error(lean.unknownIdentifier): Unknown identifier `Spec.Op`
+attempts/checks/Attempt01/Source.lean:39:30: error(lean.unknownIdentifier): Unknown identifier `Spec.run`
+attempts/checks/Attempt01/Source.lean:44:4: error: No goals to be solved
+attempts/checks/Attempt01/Source.lean:43:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:43:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:43:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:43:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:43:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:43:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:46:34: error(lean.unknownIdentifier): Unknown identifier `Spec.Op`
+attempts/checks/Attempt01/Source.lean:46:34: error(lean.unknownIdentifier): Unknown identifier `Spec.Op`
+attempts/checks/Attempt01/Source.lean:49:2: error: No goals to be solved
+attempts/checks/Attempt01/Source.lean:58:45: error(lean.unknownIdentifier): Unknown identifier `Spec.Packet`
+attempts/checks/Attempt01/Source.lean:60:45: error(lean.unknownIdentifier): Unknown identifier `Spec.Packet`
+attempts/checks/Attempt01/Source.lean:62:45: error(lean.unknownIdentifier): Unknown identifier `Spec.Packet`
+attempts/checks/Attempt01/Source.lean:64:45: error(lean.unknownIdentifier): Unknown identifier `Spec.Packet`
+attempts/checks/Attempt01/Source.lean:81:34: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+attempts/checks/Attempt01/Source.lean:81:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+attempts/checks/Attempt01/Source.lean:83:8: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:85:34: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+attempts/checks/Attempt01/Source.lean:85:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+attempts/checks/Attempt01/Source.lean:87:24: error(lean.unknownIdentifier): Unknown identifier `Spec.Op`
+attempts/checks/Attempt01/Source.lean:90:29: error(lean.unknownIdentifier): Unknown identifier `Spec.Op`
+attempts/checks/Attempt01/Source.lean:91:41: error(lean.unknownIdentifier): Unknown identifier `Spec.selected`
+attempts/checks/Attempt01/Source.lean:92:24: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:92:48: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:92:65: warning: declaration uses `sorry`
+attempts/checks/Attempt01/Source.lean:92:13: warning: This simp argument is unused:
+  translate
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [program, translatePair, TargetCode.exec, TargetPair.exec, Spec.selected, eval_generate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt01/Source.lean:92:24: warning: This simp argument is unused:
+  program
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [translate, translatePair, TargetCode.exec, TargetPair.exec, Spec.selected, eval_generate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt01/Source.lean:92:33: warning: This simp argument is unused:
+  translatePair
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [translate, program, TargetCode.exec, TargetPair.exec, Spec.selected, eval_generate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt01/Source.lean:92:65: warning: This simp argument is unused:
+  TargetPair.exec
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [translate, program, translatePair, TargetCode.exec, Spec.selected, eval_generate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt01/Source.lean:93:4: warning: This simp argument is unused:
+  Spec.selected
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [translate, program, translatePair, TargetCode.exec, TargetPair.exec, eval_generate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt01/Source.lean:93:19: warning: This simp argument is unused:
+  eval_generate
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [translate, program, translatePair, TargetCode.exec, TargetPair.exec, Spec.selected]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt01/Source.lean:95:38: error(lean.unknownIdentifier): Unknown identifier `Spec.Op`
+attempts/checks/Attempt01/Source.lean:95:38: error(lean.unknownIdentifier): Unknown identifier `Spec.Op`
+attempts/checks/Attempt01/Source.lean:98:24: error(lean.unknownIdentifier): Unknown identifier `Spec.Packet`
+attempts/checks/Attempt01/Source.lean:99:13: warning: This simp argument is unused:
+  eval_append
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+attempts/checks/Attempt01/Source.lean:124:4: error: Type mismatch: After simplification, term
+  declaration (DependentPairDeclarations.Rule.t Γn e.quote) fun i =>
+    Fin.cases contextN (fun i => Fin.cases e.typed (fun i => i.elim0) i) i
+ has type
+  Proof
+    (DependentPairDeclarations.Rule.schema DependentPairDeclarations.projection
+        (DependentPairDeclarations.Rule.t Γn e.quote)).conclusion
+but is expected to have type
+  Proof
+    (Judgment.term Γn (t e.quote) (DependentPairDeclarations.Terms.B DependentPairDeclarations.projection (s e.quote)))
+attempts/checks/Attempt01/Source.lean:137:15: error: Type mismatch
+  familyTyped
+has type
+  Proof (Judgment.type (Γn.extend N) familyB)
+but is expected to have type
+  Proof
+    ((StructuralRule.familyCong Γn N familyB (Projection.fst N familyB (SourcePair.pair e).quote)
+              (s e.quote)).schema.premises.get
+      0)
+attempts/checks/Attempt01/Source.lean:137:38: error: Type mismatch
+  hf
+has type
+  Proof (ProjectionRule.firstBeta Γn N familyB (s e.quote) (t e.quote)).schema.conclusion
+but is expected to have type
+  Proof
+    ((StructuralRule.familyCong Γn N familyB (Projection.fst N familyB (SourcePair.pair e).quote)
+              (s e.quote)).schema.premises.get
+      (Fin.succ 0))
+attempts/checks/Attempt01/Source.lean:137:61: error: Application type mismatch: The argument
+  i
+has type
+  Fin
+    [Judgment.type (Γn.extend N) familyB,
+        Judgment.termEq Γn (Projection.fst N familyB (SourcePair.pair e).quote) (s e.quote) N].length
+but is expected to have type
+  Fin 0
+in the application
+  i.elim0
+attempts/checks/Attempt01/Source.lean:140:47: error(lean.unknownIdentifier): Unknown identifier `he`
+attempts/checks/Attempt01/Source.lean:142:23: error: don't know how to synthesize implicit argument `H'`
+  @TheoryMap.transport (Judgment projectionSignature) (Judgment projectionSignature) (projectionPresentation false)
+    (projectionPresentation true) id projectionInclusion (fun x => Empty) (?m.16 e) (fun x h => h.elim)
+    (Judgment.term Γn (raw e) (resultType e)) (rawTyped e)
+context:
+e : Ix
+⊢ Judgment projectionSignature → Type
+attempts/checks/Attempt01/Source.lean:142:65: error: don't know how to synthesize implicit argument `C`
+  @Empty.elim (?m.16 e (id x✝)) h
+context:
+e : Ix
+x✝ : Judgment projectionSignature
+h : Empty
+⊢ Type
+attempts/checks/Attempt01/Source.lean:142:4: error(lean.inferDefTypeFailed): Failed to infer type of definition `afterF`
+attempts/checks/Attempt01/Source.lean:145:70: error: Function expected at
+  afterF
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  e
+
+Hint: The identifier `afterF` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+attempts/checks/Attempt01/Source.lean:147:0: error: Invalid name after `end`: Expected `Spec`, but found `IncrementalNative`
+
+Hint: If you meant to end the outer scope(s) `IncrementalNative`, you must end all the intervening scopes `IncrementalNative.Spec`:
+  end IncrementalNative.̲S̲p̲e̲c̲

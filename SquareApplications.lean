@@ -456,6 +456,8 @@ import SquareKit.Internal.Cubical.SlicePrism
 import Examples.CubicalFrozenOrdinaryAction
 import Examples.DependentPairSharedClient
 import Examples.IncrementalDependentTrialSpec
+import Examples.IncrementalDependentCompositionalTrial
+import Examples.IncrementalDependentNativeTrial
 
 import Examples.FiniteExecutionAdapters
 

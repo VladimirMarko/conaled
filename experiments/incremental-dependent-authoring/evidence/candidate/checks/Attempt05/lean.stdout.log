@@ -1,0 +1,58 @@
+attempts/checks/Attempt05/Source.lean:296:70: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  compileCode (indexProof Phase.source e)
+in the target expression
+  ((fun i =>
+          DependentBranchTheoryMaps.Derivation.interpret (codeModel Phase.source) (fun x e => e.elim)
+            ((fun x => indexProof Phase.source e) i))
+        ()).successor =
+    (Code.index Phase.source e).successor
+
+case successor
+e : IndexTerm SingleV
+ih : compileCode (indexProof Phase.source e) = Code.index Phase.source e
+⊢ ((fun i =>
+          DependentBranchTheoryMaps.Derivation.interpret (codeModel Phase.source) (fun x e => e.elim)
+            ((fun x => indexProof Phase.source e) i))
+        ()).successor =
+    (Code.index Phase.source e).successor
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Step.successor e
+  has type
+    Step
+  but is expected to have type
+    (rules Phase.source).Label
+  in the application
+    (rules Phase.source).Arity (Step.successor e)
+attempts/checks/Attempt05/Source.lean:297:61: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  compileCode (indexProof Phase.source e)
+in the target expression
+  ((fun i =>
+          DependentBranchTheoryMaps.Derivation.interpret (codeModel Phase.source) (fun x e => e.elim)
+            ((fun x => indexProof Phase.source e) i))
+        ()).double =
+    (Code.index Phase.source e).double
+
+case double
+e : IndexTerm SingleV
+ih : compileCode (indexProof Phase.source e) = Code.index Phase.source e
+⊢ ((fun i =>
+          DependentBranchTheoryMaps.Derivation.interpret (codeModel Phase.source) (fun x e => e.elim)
+            ((fun x => indexProof Phase.source e) i))
+        ()).double =
+    (Code.index Phase.source e).double
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Step.double e
+  has type
+    Step
+  but is expected to have type
+    (rules Phase.source).Label
+  in the application
+    (rules Phase.source).Arity (Step.double e)
+attempts/checks/Attempt05/Source.lean:308:75: error: No goals to be solved
+attempts/checks/Attempt05/Source.lean:309:66: error: No goals to be solved
