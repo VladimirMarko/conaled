@@ -4,6 +4,12 @@ Research for [#298](https://github.com/VladimirMarko/conaled/issues/298),
 2026-11-05, at local revision
 `497daa15afc2a38a0640eccfcc5e96100709aa74`.
 
+Implementation follow-up: [#370's checked bounded model](higher-order-random-functions-implementation.md)
+now supplies random-element closure, evaluation/currying, sampled function laws,
+the continuous event discriminator and nonlinear polynomial comparison. The
+paper experiment below remains the earlier scope record; its probability-monad,
+compiler and runtime obligations are not claimed by that implementation.
+
 **Retain ordinary kernels for the fixed affine client. Investigate a bounded
 probability-only QBS interpretation when clients must accept arbitrary
 admissible random functions. Defer an ambient model migration and recursive

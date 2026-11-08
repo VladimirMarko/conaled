@@ -479,4 +479,6 @@ import Examples.NominalTelescope
 import Examples.NumericalError
 import Examples.StateException
 
+import Examples.HigherOrderRandomFunction
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

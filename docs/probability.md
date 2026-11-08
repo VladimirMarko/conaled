@@ -6,6 +6,17 @@ computational representation of those laws. There is no random-bit sampler in
 this implementation. Evaluating a table entry computes a probability, not a
 random outcome.
 
+## Random functions
+
+The experimental [random-function model](research/higher-order-random-functions-implementation.md)
+constructs QBS values, products, exponentials and measurable observations.
+Standard Borel source measures can sample these functions. A checked continuous
+example distinguishes sharing one affine function from independent resampling,
+and compares squaring with a correlated polynomial coefficient realization.
+This supplies deterministic pushforward and independent source products, not a
+general higher-order probability monad. The kernel and finite-table interfaces
+below retain their existing contracts.
+
 ## Accept/reject semantics
 
 `Applications.Probability.acceptReject` weights a proposal kernel by a
