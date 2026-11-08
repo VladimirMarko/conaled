@@ -485,6 +485,7 @@ import Examples.StateException
 import Examples.RelationalTransfer
 import Examples.HigherOrderRandomFunction
 import Examples.ModalAccess
+import Examples.ModalComprehension
 
 import Examples.OpenSystemWiring
 import Examples.AssemblyCertificates
@@ -492,5 +493,7 @@ import Examples.AssemblyPartialMaps
 
 import Examples.RetainedMeasurement
 import Examples.HornDerivations
+
+import Examples.IndexedRelationalTransfer
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
