@@ -5,7 +5,7 @@ bounded function and sampling fragment below. It starts from
 [higher-order random functions](higher-order-random-functions.md) and the
 [nonlinear maintenance comparison](architecture-scaling-study/binding-probability-controls.md).
 The incorporated integration base is
-`c214c878635c5ea2f58f3c1bc6f4fb317d6e1d70`.
+`f6329edf700f6b151ba9c0be1866701c4f2c8cc1`.
 
 ## Model and source boundary
 

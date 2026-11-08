@@ -1,5 +1,11 @@
 # Relational transfer of a FIFO construction
 
+The [checked two-client successor](relational-transfer-checked-comparison.md)
+now compares this direct FIFO route with its existing typed registration route
+and rational interval compilation (#374), retaining exact selected outputs
+and checking the domain and reset controls. This report retains its original
+paper scope.
+
 For [#295](https://github.com/VladimirMarko/conaled/issues/295), retain the direct
 logical-relation proof for the frozen FIFO client. Investigate annotated transfer
 only when another client makes repeated translation work visible. A partial
