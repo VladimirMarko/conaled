@@ -60,4 +60,29 @@ def secondBeta (e : IndexTerm SingleV) : Proof
 
 def compiledSecond (e : IndexTerm SingleV) := compile (secondTyped e)
 
+def successorSub : SingleV → PExpr SingleV
+  | .inl _ => s (.var m)
+  | .inr e => e.elim
+
+def successorSubTyped : TypedSubstitution.Typed (R := R) (H := fun _ => Empty)
+    Γn Γn successorSub where
+  context := contextN
+  component v := by
+    cases v with
+    | inl i =>
+      have hi : i = 0 := Subsingleton.elim _ _
+      subst i
+      simpa [Γn, Context.lookup, successorSub, N, Form.subst, Expr.subst_rename,
+        Proof, TypedSubstitution.Proof, Judgment.term, IndexTerm.expression, m] using
+          indexTyped (.successor (.var m))
+    | inr e => exact e.elim
+
+def secondSigma (e : IndexTerm SingleV) :=
+  TypedSubstitution.substituteFullProjection false (secondTyped e) Γn successorSub successorSubTyped
+
+def secondTwice (e : IndexTerm SingleV) :=
+  TypedSubstitution.substituteFullProjection false (secondSigma e) Γn tauRaw tauTyped
+
+def compiledTwice (e : IndexTerm SingleV) := compile (secondTwice e)
+
 end SquareKit.DependentPairComputedTyping
