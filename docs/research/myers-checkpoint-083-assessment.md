@@ -24,11 +24,10 @@ separate from this assessment.
 The [supplied chat response](../history/orbifold/agda-checkpoints/checkpoint-083/myers-orbifolds-agda-checkpoint-083-chat-response.md)
 and [preserved checkpoint 083](../history/orbifold/agda-checkpoints/checkpoint-083/README.md)
 are primary evidence for what its author reports. The archive's `formalization/CHECKPOINT-083.md`,
-`research/semantics/CONALED-REUSE-080.md`,
+`formalization/research/semantics/CONALED-REUSE-080.md`,
 `LIBRARY-COMPARISON-080.md`, `CONSTRUCTIVITY-NOTES-080.txt`, and
 `ANALYSIS-LIBRARIES-083.md` give the detailed comparison and constructive
-addendum. Paths in this paragraph are relative to the preserved checkpoint's
-`formalization/` directory except for `CHECKPOINT-083.md`.
+addendum. The last three files are also in `formalization/research/semantics/`.
 
 The checkpoint declares a fresh ordinary aggregate of 63 modules and a
 retained, source-matched 539-module Cubical receipt, totaling 602 disjoint
