@@ -7,6 +7,15 @@ implementation directions and the two deferred research directions. The baseline
 is `c19a9ab31d0764d68752f4825554fac8e44a5e24`; the open tracker was inspected on
 2026-11-08. These are scheduled scopes, not new formal results.
 
+## First-wave results and continuing order
+
+The [first-wave synthesis](semantic-traditions-first-wave.md) records the bounded
+results of #369/#372/#373/#377/#378 and successors #379–#382. Relational transfer
+(#374) continues alongside the concrete higher-order probability model milestone
+(#370), to test model assembly as well as reuse of existing interfaces. #375–#376,
+#371 and the external-consumer improvements #367–#368 remain scheduled. The
+original ordering below records the starting plan, not a dependency barrier.
+
 ## Decision criteria and present evidence
 
 Promote a bounded task when it can demonstrate a missing capability or test a

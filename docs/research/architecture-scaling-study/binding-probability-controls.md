@@ -26,6 +26,14 @@ the earlier reports before choosing these fixtures. This is informed follow-up,
 not a blind assessment or the deferred #358 trial. Independent acceptance is
 coordinated by the enclosing workflow.
 
+## Subsequent checked work
+
+[#369](../nominal-dependent-telescope.md) checks the binding fixture and third-tail
+extension with a finite-permutation quotient and intrinsic contextual families.
+It admits a fixed selected-body schema; #382 tests a varying body fragment.
+The probability construction below remains a paper result, with its concrete
+model milestone owned by #370. Neither result establishes productivity at scale.
+
 ## Binding contract and two dependent declarations
 
 Work in ordinary set-valued dependent families. Write `Fin(r)` for natural

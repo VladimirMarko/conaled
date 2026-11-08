@@ -15,6 +15,15 @@ bibliography, and the existing #196/#254/#278/#285 reports. All new construction
 and reductions below are paper arguments. No new Lean claim, external
 formalization replay, operational adequacy theorem or author trial is reported.
 
+## Subsequent checked work
+
+[#373](state-exception-checked-comparison.md) constructs both policy meanings,
+scoped interpretation and selected-witness controls in Lean, with an existing
+measurement-record client. #381 owns the further case where the observation is
+produced during protected computation. The calculations below retain their
+original paper scope; they are not a full effect framework or runtime adequacy
+theorem.
+
 ## Freeze the argument and its meaning
 
 Let state `S = Bool`, exception set `E = {fault}`, and returned data
