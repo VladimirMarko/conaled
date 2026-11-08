@@ -5,8 +5,8 @@ assembly category and program-index lifting infrastructure. This report records
 that P0 milestone and the subsequent P1 classifier. **The internal SDT provider and its selected-solution
 comparison are not complete.** In particular, the new code supplies neither
 completeness nor a fixed-point selector. The remaining obligations below belong
-to #371 under #289. P1 / #385 is now checked; P2–P5 remain scheduled as
-#386–#389. #371 remains open until the selected-solution comparison is complete.
+to #371 under #289. P1 / #385 and P2 / #386 are now checked; P3–P5 remain scheduled as
+#387–#389. #371 remains open until the selected-solution comparison is complete.
 
 ## Model and source boundary
 
@@ -98,8 +98,9 @@ to be assumed by a future client. `P0` is the checked milestone above.
 The graph is `P0 → P1 → P2 → P3`, with `(P1,P3) → P4` and
 `(P2,P3,P4) → P5`. P5 constructs the concrete state algebra only after P4
 supplies its object and evaluation/reassembly infrastructure; P2 supplies the
-generic monad laws independently of that family. [P1 is now implemented](assembly-partial-map-classifier.md); P2 remains the
-next obligation. The P0 certificate examples
+generic monad laws independently of that family. [P1 is implemented](assembly-partial-map-classifier.md), and
+[P2 supplies the tracked ordinary and slice monads](assembly-lifting-monad.md).
+P3 remains the next obligation. The P0 certificate examples
 construct each fixed finite fiber and its maps; they do not establish a
 dependent product or the uniform slice theorem required at P4. No universe
 classifier is present. Any future internal-language interpretation needs its
@@ -130,11 +131,11 @@ composition law precedes the selected-record example. The independent
 expected result remains 3 with `[2,1,0]`; the negative controls have concrete
 inhabitants. The finite-fuel case does not infer divergence from exhaustion.
 These checks cover the new definitions, general laws and applications; they
-do not establish the remaining P2–P5 claims; P1 has its own checked
+do not establish the remaining P3–P5 claims; P1 has its own checked
 [construction and cases](assembly-partial-map-classifier.md).
 
 Adopt this assembly infrastructure as a prerequisite for the source model.
-Defer general SDT selection until the remaining P2–P5 nodes are proved. Retain the external
+Defer general SDT selection until the remaining P3–P5 nodes are proved. Retain the external
 ordered-domain provider on its own contract; no adapter to that provider is
 an acceptance condition here. Neither route receives a productivity claim
 from these examples. A shared blind spot is the cost of constructing uniform
