@@ -49,10 +49,13 @@ structure, quotient construction, general dependent bind, general monad laws,
 strength or commutativity theorem. The product law above concerns independent
 source measures and their observations. The implementation does not identify
 the sigma algebra of a QBS product with the product of its sigma algebras.
-A future higher-order dependent-sampling client would require the probability
-object, well-defined bind and its random-element preservation before using it.
-That is residual probability-library work, not a missing hypothesis of this
-fragment or a reason to replace native kernel clients.
+A client using a general QBS probability object and bind would require their
+construction and random-element preservation. A represented continuation with
+explicit standard Borel noise can instead use the later
+[law-substitution theorem](represented-sampler-substitution.md) (#391), including
+retained semantic values and two fresh stages. This does not supply the general
+probability object. Those broader obligations remain probability-library work,
+not missing hypotheses of this fragment or reasons to replace native kernels.
 
 The function carrier is unchanged by squaring. `repair_meaning` identifies
 its result at every real input with coefficients `(A²,2AB,B²)`;
