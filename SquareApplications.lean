@@ -1,4 +1,5 @@
 import Examples.VaryingPartialCertificates
+import Examples.OwnedHandle
 import Examples.OpenConstraint
 import Examples.WireCorelation
 import Examples.UnaryInteraction
@@ -464,5 +465,8 @@ import Examples.IncrementalDependentCompositionalTrial
 import Examples.IncrementalDependentNativeTrial
 
 import Examples.FiniteExecutionAdapters
+
+import Examples.DesignatedMapComparison
+import Examples.SmoothOrdinaryComparison
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
