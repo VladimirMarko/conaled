@@ -461,4 +461,6 @@ import Examples.IncrementalDependentNativeTrial
 
 import Examples.FiniteExecutionAdapters
 
+import Examples.DesignatedMapComparison
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
