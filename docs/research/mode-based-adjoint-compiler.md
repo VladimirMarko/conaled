@@ -61,7 +61,10 @@ compiler or the syntax of programs.
 Map (down X) A ≃ (X → up A).
 ```
 
-Both naturality equations and both triangle equations are checked.
+Both naturality equations and both triangle equations are checked. Source
+`Term.transpose` and `Term.untranspose` use the restricted unit/counit and
+functorial shift rules. Their compiled round trips are identities;
+`transpose_compiles` identifies the source construction with this hom equivalence.
 [`Category`](../../SquareKit/AdjointModes/Category.lean) packages these data as
 Mathlib functors and an `Adjunction`. `compare_right_adjoint` reuses the existing
 `AdjointComparison.curry` theorem to compare any other chosen right adjoint.

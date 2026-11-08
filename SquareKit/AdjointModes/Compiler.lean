@@ -97,4 +97,30 @@ theorem no_generic_linear_discard : ¬Nonempty
   rintro ⟨t⟩
   exact atom_no_discard ⟨t.compile tokenAtoms (emptyMeaning tokenAtoms)⟩
 
+/-- The source-level transpose uses only the restricted unit and functorial upshift. -/
+def Term.transpose {P} {A : Ty .unrestricted} {B : Ty .linear}
+    (f : Term P (.down A) B) : Term P A (.up B) := .comp (.upMap f) .unit
+
+def Term.untranspose {P} {A : Ty .unrestricted} {B : Ty .linear}
+    (g : Term P A (.up B)) : Term P (.down A) B := .comp .counit (.downMap g)
+
+theorem Term.transpose_compiles {P} (v : Atoms) (p : PrimitiveMeaning v P)
+    {A : Ty .unrestricted} {B : Ty .linear} (f : Term P (.down A) B) :
+    (f.transpose.compile v p).run =
+      shiftAdjunction (A.meaning v).Carrier (B.meaning v) (show Map (down (A.meaning v).Carrier) (B.meaning v) from @Term.compile P v p .linear (.down A) B f) := rfl
+
+theorem Term.transpose_roundtrip {P} (v : Atoms) (p : PrimitiveMeaning v P)
+    {A : Ty .unrestricted} {B : Ty .linear} (f : Term P (.down A) B) :
+    (f.transpose.untranspose).compile v p = f.compile v p := by
+  apply Map.ext
+  intro x
+  rfl
+
+theorem Term.untranspose_roundtrip {P} (v : Atoms) (p : PrimitiveMeaning v P)
+    {A : Ty .unrestricted} {B : Ty .linear} (g : Term P A (.up B)) :
+    (g.untranspose.transpose).compile v p = g.compile v p := by
+  apply Map.ext
+  intro x
+  rfl
+
 end SquareKit.AdjointModes
