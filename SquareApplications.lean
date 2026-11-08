@@ -353,6 +353,7 @@ import Examples.CoherentGroupoidPresentations
 
 import Examples.ReferenceDependentCalculus
 import Examples.ReferenceClient
+import Examples.ReferenceHigherTheoryMaps
 import Examples.ReferenceCongruence
 
 import Examples.TwoFamily
