@@ -1,3 +1,4 @@
+import Examples.VaryingPartialCertificates
 import Examples.OpenConstraint
 import Examples.WireCorelation
 import Examples.UnaryInteraction
