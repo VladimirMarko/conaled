@@ -12,7 +12,9 @@ Horn support, together with assembly prerequisites. The
 [fourth-wave synthesis](semantic-traditions-fourth-wave.md) records checked
 classical control, retained measurements, varying nominal bodies, indexed cursor
 transport, modal comprehension and the assembly partial-map classifier. Combined
-integration acceptance is external to this report. #386–#389 retain the remaining
+integration acceptance is external to this report. The
+[fifth-wave synthesis](semantic-traditions-fifth-wave.md) records accepted lifting
+monads (#386) and finite interaction strategies (#390). #387–#389 retain the remaining
 internal SDT obligations; the [iteration roadmap](internal-sdt-iteration-roadmap.md)
 requires all-context completeness and its tracked exponential equivalence. The
 historical comparison below is not a claim that these bounded results are absent.
@@ -256,13 +258,15 @@ under #36/#290, with #343/#349 and #196 coordinating its boundaries.
 
 The first-pass [computational survey](external-computational-semantics.md) also
 retains games, separation/resource semantics, matching logic and quantitative
-dependent syntax. Their appearance in a survey is not a completed applicability
-test. Keep these concrete deferred tasks under the existing open programmes:
+dependent syntax. The bounded games re-entry test now has the checked #390 comparison; the other
+triggers retain their own contracts under the existing open programmes:
 
-- #196/#36: if interaction observations exceed returned values, compare a game
-  strategy with an independent trace meaning; reject equating strategies solely
-  from equal output distributions. Ground adequacy alone is insufficient for
-  all higher-order contexts.
+- #196/#36/#290: [#390](finite-interaction-strategies.md) compares finite serial
+  strategies with independent native/handler meanings, including exact histories
+  and an intentional constant-return quotient. Retain native handlers and the
+  bounded strategy experiment. Higher-order or overlapping-query interaction
+  still needs a client with explicit legal contexts, synchronization and
+  observations; the finite composition theorem does not settle that contract.
 - #196/#193: if a client needs local ownership or interference, supply its
   separating resource algebra and frame/interaction hypotheses. A scalar cost
   monoid is not a proof of separation or a safe physical rollback contract.
