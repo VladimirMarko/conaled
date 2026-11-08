@@ -1,5 +1,10 @@
 # Supplied Agda formalization checkpoints
 
+The later [Myers checkpoint 080 and consumer reports](checkpoint-080/README.md)
+were supplied on 2026-11-08 and have their own evidence inventory and fresh
+ordinary-Agda replay. The historical checkpoint 22 and Kock inventory below
+remains unchanged; it does not describe the later Myers development.
+
 The user supplied these incomplete formalizations during the orbifold-motion
 reassessment on 2026-11-04. The archives are preserved byte-for-byte:
 

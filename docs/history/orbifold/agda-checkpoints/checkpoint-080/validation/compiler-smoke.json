@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Positive",
+    "expected_acceptance": true,
+    "exit_code": 0,
+    "passed": true,
+    "output": "Checking Positive (/tmp/conaled-orbifold-080/replay/agda-state/smoke/Positive.agda).\n Checking Agda.Builtin.Nat (/tmp/conaled-orbifold-080/replay/agda-state/data/2.8.0.2/lib/prim/Agda/Builtin/Nat.agda).\n  Checking Agda.Builtin.Bool (/tmp/conaled-orbifold-080/replay/agda-state/data/2.8.0.2/lib/prim/Agda/Builtin/Bool.agda).\n Checking Agda.Builtin.Equality (/tmp/conaled-orbifold-080/replay/agda-state/data/2.8.0.2/lib/prim/Agda/Builtin/Equality.agda).\n",
+    "elapsed_seconds": 0.056
+  },
+  {
+    "name": "FalseEquality",
+    "expected_acceptance": false,
+    "exit_code": 42,
+    "passed": true,
+    "output": "Checking FalseEquality (/tmp/conaled-orbifold-080/replay/agda-state/smoke/FalseEquality.agda).\n/tmp/conaled-orbifold-080/replay/agda-state/smoke/FalseEquality.agda:4.7-11: error: [UnequalTerms]\n0 != 1 of type Nat\nwhen checking that the expression refl has type zero \u2261 1\n",
+    "elapsed_seconds": 0.016
+  },
+  {
+    "name": "UnsolvedHole",
+    "expected_acceptance": false,
+    "exit_code": 42,
+    "passed": true,
+    "output": "Checking UnsolvedHole (/tmp/conaled-orbifold-080/replay/agda-state/smoke/UnsolvedHole.agda).\n/tmp/conaled-orbifold-080/replay/agda-state/smoke/UnsolvedHole.agda:4.7-8: error: [UnsolvedInteractionMetas]\nUnsolved interaction metas at the following locations:\n  /tmp/conaled-orbifold-080/replay/agda-state/smoke/UnsolvedHole.agda:4.7-8\n",
+    "elapsed_seconds": 0.022
+  },
+  {
+    "name": "Postulate",
+    "expected_acceptance": false,
+    "exit_code": 42,
+    "passed": true,
+    "output": "Checking Postulate (/tmp/conaled-orbifold-080/replay/agda-state/smoke/Postulate.agda).\n/tmp/conaled-orbifold-080/replay/agda-state/smoke/Postulate.agda:1.11-20: error: [SafeFlagPostulate]\nCannot postulate bad with safe flag\nwhen scope checking the declaration\n  bad : Set\n",
+    "elapsed_seconds": 0.012
+  },
+  {
+    "name": "Nonterminating",
+    "expected_acceptance": false,
+    "exit_code": 42,
+    "passed": true,
+    "output": "Checking Nonterminating (/tmp/conaled-orbifold-080/replay/agda-state/smoke/Nonterminating.agda).\n/tmp/conaled-orbifold-080/replay/agda-state/smoke/Nonterminating.agda:3.1-20: error: [SafeFlagTerminating]\nCannot use TERMINATING pragma with safe flag.\n",
+    "elapsed_seconds": 0.013
+  },
+  {
+    "name": "Cubical",
+    "expected_acceptance": true,
+    "exit_code": 0,
+    "passed": true,
+    "output": "Checking Cubical (/tmp/conaled-orbifold-080/replay/agda-state/smoke/Cubical.agda).\n Checking Agda.Builtin.Cubical.Path (/tmp/conaled-orbifold-080/replay/agda-state/data/2.8.0.2/lib/prim/Agda/Builtin/Cubical/Path.agda).\n",
+    "elapsed_seconds": 0.021
+  }
+]

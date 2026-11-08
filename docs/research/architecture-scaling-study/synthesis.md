@@ -1,5 +1,9 @@
 # Interim comparison of architecture and scaling alternatives
 
+Historical interim report: the incoming evidence has now arrived and is assessed
+in the [orbifold synthesis](orbifold-synthesis.md). The pending-report statements
+below describe the earlier assessment, not the current input status.
+
 This is the interim result for [#362](https://github.com/VladimirMarko/conaled/issues/362),
 against repository baseline `5867d02ecfc290b7a3b7505cc94acbb98f4f49ff`.
 The independent Agda/orbifold library comparison announced by the owner has not
