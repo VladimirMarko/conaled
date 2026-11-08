@@ -167,10 +167,10 @@ interfaces. The direct route remains short for the frozen clients, while the
 existing compilers derive certificates for their admitted source syntax.
 This result does not rank either route for future authoring tasks.
 
-#290 and #235 retain the next obligation: choose an independently specified
-indexed-output client whose result relation depends on related indices, then
-compare complete term-and-type transport with the direct proof. It should
-preserve the selected fiber data and expose any equality-transport premises.
-The present comparison supplies neither arbitrary dependent relators nor
-canonical representative transport. #107 stays paused, #108's held-out theorem
+The [#383 cursor comparison](indexed-relational-transfer.md) now supplies the
+indexed-output successor: changing capacities, explicit equality-transport
+premises and full selected position/history preservation through existing theory
+maps. That bounded result adds no generic interface. #290 and #235 retain broader
+dependent-relator exploration; neither comparison supplies arbitrary dependent
+relators or canonical representative transport. #107 stays paused, #108's held-out theorem
 stays unselected, and #260 stays inactive.

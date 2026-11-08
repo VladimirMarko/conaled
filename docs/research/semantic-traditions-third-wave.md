@@ -4,7 +4,10 @@ This continuation under [#235](https://github.com/VladimirMarko/conaled/issues/2
 follows the [second wave](semantic-traditions-second-wave.md). It distinguishes
 completed bounded comparisons from a prerequisite milestone whose parent task
 remains open. Integration review and candidate evidence are recorded by the
-orchestration; no full internal SDT provider is claimed.
+orchestration; no full internal SDT provider is claimed. The later
+[fourth-wave synthesis](semantic-traditions-fourth-wave.md) records the checked
+successors #380–#385; unfinished boundaries below describe this third-wave
+snapshot, not absence of those later bounded results.
 
 | Task | Result | Unfinished boundary |
 |---|---|---|

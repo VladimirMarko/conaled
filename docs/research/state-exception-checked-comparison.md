@@ -100,10 +100,11 @@ classical control or witness extraction from a proposition. These distinctions
 remain relevant to the other frontier tasks: a pole or logical translation
 must justify its own observations rather than borrowing this result relation.
 
-The concrete next obligation for #196/#235, coordinated with #288/#290, is a
-client whose observation is produced *during* the protected computation. It
-needs a separate retained external-event component and local rollback laws
-that preserve that event trace. This implementation deliberately captures an
-existing record before the tentative local work; it does not settle that larger
-interaction model. #107 stays paused, #108's held-out theorem unselected, and
+The [#381 successor](retained-measurement-rollback.md) now produces the
+observation during protected computation, with separate retained operation state
+and local rollback laws preserving the selected controller and ordered history.
+The present implementation still captures its record before tentative work.
+Neither development establishes physical execution from the history list;
+concrete adapter correspondence and durability remain with #225/#196, coordinated
+with #235. #107 stays paused, #108's held-out theorem unselected, and
 #260 inactive.

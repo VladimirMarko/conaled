@@ -6,12 +6,16 @@ state/exception policies and the nominal telescope now have checked results at
 their stated scopes. The support and classical-control studies have bounded
 formalization successors #379/#380. The [second wave](semantic-traditions-second-wave.md) adds a constructed
 random-function model, selected FIFO/interval transfer through existing compilers,
-and explicit geometric-data comparison. #383 owns the varying-fiber transfer
-successor. The [third wave](semantic-traditions-third-wave.md) records modal access,
-scalar-port wiring, the proper-etale comparison and checked Horn support, together
-with assembly prerequisites for the still-open internal SDT provider. #384 and
-#385–#389 retain the modal and internal-model successor obligations. The historical
-comparison below is not a claim that those later results are absent.
+and explicit geometric-data comparison. The [third wave](semantic-traditions-third-wave.md)
+records modal access, scalar-port wiring, the proper-etale comparison and checked
+Horn support, together with assembly prerequisites. The
+[fourth-wave synthesis](semantic-traditions-fourth-wave.md) records checked
+classical control, retained measurements, varying nominal bodies, indexed cursor
+transport, modal comprehension and the assembly partial-map classifier. Combined
+integration acceptance is external to this report. #386–#389 retain the remaining
+internal SDT obligations; the [iteration roadmap](internal-sdt-iteration-roadmap.md)
+requires all-context completeness and its tracked exponential equivalence. The
+historical comparison below is not a claim that these bounded results are absent.
 
 [#350](https://github.com/VladimirMarko/conaled/issues/350) reconciles the
 previous discovery programme with baseline

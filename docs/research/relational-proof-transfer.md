@@ -3,8 +3,11 @@
 The [checked two-client successor](relational-transfer-checked-comparison.md)
 now compares this direct FIFO route with its existing typed registration route
 and rational interval compilation (#374), retaining exact selected outputs
-and checking the domain and reset controls. This report retains its original
-paper scope.
+and checking the domain and reset controls. The subsequent
+[indexed cursor comparison](indexed-relational-transfer.md) (#383) checks
+term-and-type transport through changing capacities, reusing existing indexed
+certificates and preserving the selected position and history. This report
+retains its original paper scope.
 
 For [#295](https://github.com/VladimirMarko/conaled/issues/295), retain the direct
 logical-relation proof for the frozen FIFO client. Investigate annotated transfer
