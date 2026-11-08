@@ -14,10 +14,14 @@ results of #369/#372/#373/#377/#378 and successors #379–#382. The
 [second-wave synthesis](semantic-traditions-second-wave.md) records constructed
 higher-order probability (#370), reuse of existing relational compiler
 registrations (#374), and explicit geometric-data boundaries (#367). #383 owns
-the next indexed-output transfer comparison. #371 and #375 are in implementation;
-#376 and the external proper-etale comparison #368 remain scheduled alongside
-#379–#383. The original ordering below records the starting plan, not a dependency
-barrier or a claim that subsequent checked results are absent.
+the next indexed-output transfer comparison. The [third wave](semantic-traditions-third-wave.md)
+adds modal access (#375), scalar-port wiring (#376), the external proper-etale
+comparison (#368), and Horn support (#379). #371 has checked assembly prerequisites;
+its full internal provider remains open through #385–#389. Classical control (#380),
+newly produced retained events (#381), varying bodies (#382), indexed transfer
+(#383), and modal context extension (#384) continue the scheduled work. The
+original ordering below records the starting plan, not a dependency barrier or
+a claim that subsequent checked results are absent.
 
 ## Decision criteria and present evidence
 

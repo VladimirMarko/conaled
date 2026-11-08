@@ -127,9 +127,11 @@ The new modules enter the normal public import closure through
 audit apply. Candidate execution receipts belong to the issue's implementation
 handoff, rather than being inferred from this mathematical description.
 
-Properness and étaleness of a Lie groupoid anchor, general Weil-square
-instances, a joint higher smooth model, and interpretation of the exact Agda
-source proof remain separate obligations. Finite stabilizers do not prove
-properness. The external obstruction investigation remains with its owner.
+The [external disk presentation](disk-proper-etale-presentation.md) now supplies
+properness of the actual C4 anchor and local diffeomorphism proofs for its source
+and target, with an exact ordinary chart-arrow comparison (#368). General
+Weil-square instances, a joint higher smooth model, and interpretation of the
+exact Agda source proof remain separate obligations. Finite stabilizers alone
+do not prove properness. The external obstruction investigation remains with its owner.
 The archived Agda checkpoint supplied consumer evidence; it was not developed
 to conaled's standards and does not establish integration readiness.

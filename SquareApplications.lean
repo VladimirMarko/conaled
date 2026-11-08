@@ -469,6 +469,7 @@ import Examples.FiniteExecutionAdapters
 
 import Examples.DesignatedMapComparison
 import Examples.SmoothOrdinaryComparison
+import Examples.DiskPresentation
 
 import Examples.DependentOperationScaling
 import Examples.DependentOperationTrialSpec
@@ -486,5 +487,7 @@ import Examples.ModalAccess
 
 import Examples.OpenSystemWiring
 import Examples.AssemblyCertificates
+
+import Examples.HornDerivations
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
