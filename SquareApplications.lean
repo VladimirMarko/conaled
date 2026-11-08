@@ -471,5 +471,8 @@ import Examples.SmoothOrdinaryComparison
 
 import Examples.DependentOperationScaling
 import Examples.DependentOperationTrialSpec
+import Examples.ReferenceHigherSharedMeaning
+import Examples.SelectedIdJTail
+import Examples.HigherSharedObservation
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
