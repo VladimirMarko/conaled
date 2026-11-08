@@ -484,4 +484,7 @@ import Examples.RelationalTransfer
 import Examples.HigherOrderRandomFunction
 import Examples.ModalAccess
 
+import Examples.OpenSystemWiring
+import Examples.AssemblyCertificates
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
