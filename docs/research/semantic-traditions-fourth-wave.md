@@ -7,6 +7,10 @@ Combined integration acceptance remains a separate review of the committed
 candidate, recorded by the orchestration; this report does not assert that
 acceptance or completion of the full #371 provider.
 
+The [fifth-wave successor](semantic-traditions-fifth-wave.md) records accepted
+#386 lifting monads and #390 finite interaction strategies. References below to
+#386 as remaining work describe the fourth-wave boundary; #387–#389 remain open.
+
 ## Different obligations for selected computation
 
 The [classical-control construction](classical-control-implementation.md)
