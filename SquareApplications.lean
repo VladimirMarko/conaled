@@ -170,6 +170,7 @@ import Examples.OrbifoldComparison
 import Examples.ClosedTransport
 import Examples.FRPDemand
 import Examples.FRPTrace
+import Examples.MeasuredFRPTrace
 import Examples.FRPFrontier
 import Examples.FRP
 import Examples.FullSourceNaturality
@@ -258,6 +259,7 @@ import Examples.MatrixStack
 import Examples.Run
 import Examples.OrderCertificate
 import Examples.NumericalMotion
+import Examples.MeasuredNumericalMotion
 import FirstOrder
 import SquareCompiler
 import SquareKit.Arithmetic
