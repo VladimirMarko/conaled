@@ -26,6 +26,12 @@ square commutes, and repeated key extensions compose. It retains the dependent
 component rather than selecting a replacement. No dependent right adjoint is
 needed for these operations.
 
+Extensions are formed over an already locked environment `Env Γ w`. This
+construction does not generate arbitrary interleavings of new declarations
+with individually chosen modality annotations and further locks. That broader
+source calculus would need another construction; it is not inferred from the
+pullback laws proved here.
+
 `Context` generates base contexts and finite dependent extensions. `Term`
 generates local primitives, the newest variable and explicit substitution.
 `Sub` generates identity, base maps, projections, composition and dependent
