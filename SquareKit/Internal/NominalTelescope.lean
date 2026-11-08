@@ -485,4 +485,3 @@ theorem tail_retains {N Z ρ} (f : Frame (support N Z))
   rfl
 
 end SquareKit.Internal.NominalTelescope
-
