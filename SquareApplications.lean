@@ -265,6 +265,7 @@ import Examples.CountedStack
 import Examples.CountedStackRun
 import Examples.RadialFlow
 import Examples.RadialExponential
+import Examples.RadialDisplacement
 import Examples.Run
 import Examples.OrderCertificate
 import Examples.NumericalMotion
