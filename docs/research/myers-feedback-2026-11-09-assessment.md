@@ -16,10 +16,10 @@ mathematical claims remain attributed to that report.
 
 This response inspects local source at `7ef2aaaddde72a10d735f844d599602598e031f9`.
 The changes since the feedback's reviewed revision are documentation and
-scheduling changes, not new Lean implementations. This assessment does not
-rebuild Lean, replay Agda or independently audit the newly reported internal
-properness results. The feedback contains Agda declaration names but is not a
-new source checkpoint containing those proofs.
+scheduling changes, not new Lean implementations. The initial assessment did not rebuild Lean or replay Agda. The later
+[checkpoint 096-10 verification](myers-properness-096-10-verification.md) now
+records a fresh targeted Agda check and statement review of the properness
+claims. It does not establish whole-checkpoint acceptance.
 
 ## What is available for extraction
 
@@ -65,8 +65,8 @@ These are proposed tests, not new checked results.
    Mathlib `IsProperMap`, with the disk as a retained specialization. The
    signature must state the actual manifold, topology and smoothness hypotheses.
    Compactness of the manifold and effectiveness of the action must not become
-   hidden requirements. This assessment recommends that ticket; it does not
-   claim that the extraction has been implemented or start another wave.
+   hidden requirements. The approved extraction is now [#435](https://github.com/VladimirMarko/conaled/issues/435);
+   it has not been implemented as part of this verification task.
 2. Keep #426's TwoFamily experiment. The feedback independently requests the same
    all-cell diagram and rejecting controls; no duplicate ticket is needed.
 3. Keep #427's genuinely weakly stable model comparison. The external author
@@ -102,10 +102,11 @@ Any future comparison proposal must state its quantifiers, universe levels and
 restriction policy and address that test. A different internal predicate would
 change the specification and must be identified explicitly.
 
-The external agent retains responsibility for its internal obstruction work.
-Our immediate responsibility is to avoid promising an unsupported bridge and
-to provide an accurate external geometric target. No new internal-properness
-formalization or model nonexistence result is claimed here.
+We have independently checked the supplied properness module and its import
+closure; see the later verification report for exact hypotheses and receipts.
+The external agent retains responsibility for its broader development. No new
+conaled internal-properness formalization or general model nonexistence result
+is claimed here.
 
 ## Declaration-level answer to the optional higher questions
 

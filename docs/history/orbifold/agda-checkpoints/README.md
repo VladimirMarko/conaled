@@ -113,3 +113,11 @@ Record a new independent rebuild before treating supplied checks as locally
 reproduced. A source comparison, an executable realization and a constructed
 smooth model have separate acceptance obligations; none is supplied merely
 by restoring these archives.
+
+## Later curated mathematical snapshot
+
+The [096-10 source archive](checkpoint-096-10-source/README.md) preserves the
+later project and pinned dependency sources, mathematical notes and isolated
+pending additions. It removes nested recovery history and runtime packaging.
+Its independent properness replay has a separate scope from the older checkpoints
+and does not certify the entire newer development.

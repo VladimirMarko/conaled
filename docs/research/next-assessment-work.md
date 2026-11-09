@@ -98,6 +98,8 @@ The [2026-11-09 Agda consumer assessment](myers-feedback-2026-11-09-assessment.m
 recommends a bounded generic finite-action extraction from the existing disk
 proper étale presentation. This request is independent of a full joint semantic
 model and complements the source-path assessment. The supplied feedback is
-preserved in the repository; its reported internal properness obstruction has
-not been independently replayed here. The extraction is a recommendation pending
-scheduling, not an implemented result or a replacement for #426/#428/#433.
+preserved in the repository; the [properness verification](myers-properness-096-10-verification.md) now records
+a fresh targeted Agda replay and statement review. The approved extraction is
+[#435](https://github.com/VladimirMarko/conaled/issues/435), independent of
+#426/#428/#433. Its external properness theorem must not be advertised as the
+unrestricted internal properness needed by the Agda source.
