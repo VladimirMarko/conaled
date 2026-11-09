@@ -329,6 +329,21 @@ def telCons {a a' b b' : Expression V} (ha : Equal (Ω := Ω) a a')
     (Fin.cases ha (Fin.cases hb (fun i => nomatch i)))
   simpa using e
 
+def total {a b : Expression V} (h : Equal (Ω := Ω) a b) :
+    Equal (Ω := Ω) (Contextual.total a) (Contextual.total b) :=
+  unary (Contextual.Equal.total (.hypothesis List.mem_cons_self)) h
+def rootTail {a a' x x' t t' : Expression V} (ha : Equal (Ω := Ω) a a')
+    (hx : Equal (Ω := Ω) x x') (ht : Equal (Ω := Ω) t t') :
+    Equal (Ω := Ω) (Contextual.rootTail a x t) (Contextual.rootTail a' x' t') :=
+  Derivation.congruence (T := theory) (Sum.inr Operation.rootTail)
+    (Fin.cases ha (Fin.cases hx (Fin.cases ht (fun i => nomatch i))))
+def j {a a' x x' t t' d d' b b' : Expression V} (ha : Equal (Ω := Ω) a a')
+    (hx : Equal (Ω := Ω) x x') (ht : Equal (Ω := Ω) t t')
+    (hd : Equal (Ω := Ω) d d') (hb : Equal (Ω := Ω) b b') :
+    Equal (Ω := Ω) (Contextual.j a x t d b) (Contextual.j a' x' t' d' b') :=
+  Derivation.congruence (T := theory) (Sum.inr Operation.j)
+    (Fin.cases ha (Fin.cases hx (Fin.cases ht (Fin.cases hd (Fin.cases hb (fun i => nomatch i))))))
+
 end Equal
 namespace Tm
 def pathSub (hx : Tm (Ω := Ω) Γ A x) (hs : Sub (Ω := Ω) Δ Γ σ) :
@@ -340,9 +355,38 @@ def pathSubProjection (hx : Tm (Ω := Ω) Γ A x) (hs : Sub (Ω := Ω) Δ Γ σ)
       (comp (liftSyntax Δ A σ) (Contextual.weaken (Contextual.extend Δ (subTy A σ)) (Contextual.pathFamily Δ (subTy A σ) (subTm x σ)))) :=
   binary (Contextual.Tm.pathSubProjection (.hypothesis List.mem_cons_self)
     (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))) hx hs
+def rootTail (hx : Tm (Ω := Ω) Γ A x) (hT : Tel (Ω := Ω) n (Contextual.path A x) T) :
+    Sub (Ω := Ω) (total (pullback T (Contextual.root A x))) (total T) (Contextual.rootTail A x T) :=
+  binary (Contextual.Tm.rootTail (.hypothesis List.mem_cons_self)
+    (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))) hx hT
+def pathTailMap (hx : Tm (Ω := Ω) Γ A x) (hT : Tel (Ω := Ω) n (Contextual.path A x) T)
+    (hs : Sub (Ω := Ω) Δ Γ σ) :
+    Sub (Ω := Ω) (total (Contextual.pathTail A x T σ)) (total T) (Contextual.pathTailMap A x T σ) :=
+  ternary (Contextual.Tm.pathTailMap (.hypothesis List.mem_cons_self)
+    (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))
+    (.hypothesis (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ List.mem_cons_self)))) hx hT hs
+def branchMap (hx : Tm (Ω := Ω) Γ A x) (hT : Tel (Ω := Ω) n (Contextual.path A x) T)
+    (hs : Sub (Ω := Ω) Δ Γ σ) :
+    Sub (Ω := Ω) (total (pullback (Contextual.pathTail A x T σ) (Contextual.root (subTy A σ) (subTm x σ))))
+      (total (pullback T (Contextual.root A x))) (Contextual.branchMap A x T σ) := by
+  have e := Derivation.rule (T := theory) (Γ := Ω) (Sum.inl (Sum.inr (.branchMap n))) ![Γ,A,x,T,Δ,σ]
+    (Fin.cases (by simpa [Tm, theory, Contextual.theory, Theory.extend, Contextual.rule] using hx)
+      (Fin.cases (by simpa [Tel, theory, Contextual.theory, Theory.extend, Contextual.rule] using hT)
+        (Fin.cases (by simpa [Sub, theory, Contextual.theory, Theory.extend, Contextual.rule] using hs) (fun i => nomatch i))))
+  simpa [Sub, theory, Contextual.theory, Theory.extend, Contextual.rule] using e
+
+def pathSubEndpoint {p : Expression V} (hx : Tm (Ω := Ω) Γ A x) (hy : Tm (Ω := Ω) Γ A y)
+    (hp : Tm (Ω := Ω) Γ (Contextual.identity A x y) p) (hs : Sub (Ω := Ω) Δ Γ σ) : Equal (Ω := Ω)
+    (comp (Contextual.pathSub A x σ) (Contextual.endpoint Δ (subTy A σ) (subTm x σ) (subTm y σ) (subTm p σ)))
+    (comp (Contextual.endpoint Γ A x y p) σ) :=
+  quaternary (Contextual.Tm.pathSubEndpoint (.hypothesis List.mem_cons_self)
+    (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))
+    (.hypothesis (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ List.mem_cons_self)))
+    (.hypothesis (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ List.mem_cons_self))))) hx hy hp hs
+
 def jSub (hx : Tm (Ω := Ω) Γ A x) (hT : Tel (Ω := Ω) n (Contextual.path A x) T)
     (hD : Ty (Ω := Ω) (total T) D)
-    (hd : Tm (Ω := Ω) (total (pullback T (Contextual.root A x))) (subTy D (rootTail A x T)) d)
+    (hd : Tm (Ω := Ω) (total (pullback T (Contextual.root A x))) (subTy D (Contextual.rootTail A x T)) d)
     (hs : Sub (Ω := Ω) Δ Γ σ) :
     Equal (Ω := Ω) (subTm (Contextual.j A x T D d) (Contextual.pathTailMap A x T σ))
       (Contextual.j (subTy A σ) (subTm x σ) (Contextual.pathTail A x T σ)
