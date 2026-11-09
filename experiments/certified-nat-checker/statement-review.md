@@ -49,3 +49,20 @@ bound, zero branch and exact fallback. No archived definition or proof was edite
 The new selector verifies correction provenance separately from compiling the
 corrected source and its complete dependencies. The generic six-module slice
 alone would not check that source wrapper; the comparison profile includes it.
+
+
+## Native reproduction claims
+
+No Lean definition or theorem changes in the native follow-up. The profile
+selects the historical 31-module corrected closure without changing source
+bytes. The existing exact inverse-source and reflection-correction checks still
+run before compilation. The exhaustive audit now includes the actual CLI.
+
+The new executable assertions are observations with literal expected outcomes:
+original endpoint at 16 returns 14772512, zero boards returns one, and each
+malformed/false small claim rejects. The source proofs were audited independently
+before native generation. Observed success is not a Lean proof of these numeral
+equations. Canonical zero tests the endpoint's empty-board boundary; false zero
+avoids treating a parser-only rejection as evidence about value checking. Wrong
+source, operator, leading-zero and extra-token cases test admission. Existing
+checked independent Nat clients and reflection specializations remain unchanged.

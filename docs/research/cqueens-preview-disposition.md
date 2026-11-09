@@ -183,7 +183,8 @@ source-reviewed producer and support source, but no generated mathematical data
 or executed producer result. The 25-owner source endpoint is also recorded
 uncompiled. This is a specific missing proof artifact and unexecuted selection,
 not an artifact-discovery failure and not a reason to manufacture a success.
-No generator, native checker or certificate has been run by this intake.
+No strong-CSP generator or certificate has been run by this intake. The separate
+corrected reflection native route is reproduced below.
 [strong-target; checkpoint-scope]
 
 ## Value assessment and finite completion boundary
@@ -207,12 +208,58 @@ there is no need to invent another helper ticket merely because a theorem is
 generalizable. The full source-comparison reproduction and its precise receipt
 are separate from the supplied external timing claim.
 
-Root and supervising originator retain the #137 closure decision against the
-written issue. In particular, any requirement to *locally rerun the supplied
-external numerical acceptance* is still unsatisfied: this slice deliberately
-runs no native/n16 workload. It must not be silently waived or replaced by the
-source build. The missing strong-CSP artifact and failed complete kernel
-selections can be closed as inspected findings only if that disposition meets
-the issue's intake scope; they cannot be closed as implemented successes.
-Optional kernel adoption, fixing those complete selections, the stock n16 proof,
-#149 reconstruction and #107/#108 theorem selection remain outside this task.
+## Fresh native reproduction
+
+The supervising originator required a local reproduction of the supplied native
+acceptance as ISSUE137-SPEC-001. The `native` profile now rebuilds all 31 selected
+sources, including the seven prerequisites whose objects the historical gate
+prepared separately. The corrected reflection proof and scoped inverse-source
+correspondence are unchanged. No archived script, prepared object or executable
+is reused. The full fresh source audit reports 31 modules, 1,338 safe roots,
+zero unsafe declarations and only `Quot.sound`, `Classical.choice`, `propext`.
+
+The [durable measurement](../../experiments/certified-nat-checker/evidence/native-validation.json)
+records candidate `ce54e975990b909831774fb6e3231cf7d5516a79`, all source and
+output hashes, compiler/runtime identities and all 109 commands. The complete
+run took 37.57 seconds. Source proof compilation took 10.35 seconds; exhaustive
+audit execution took 1.89 seconds. Fresh C generation took 10.10 seconds,
+including repeated frontend checking; C compilation took 7.72 seconds and
+linking 0.47 seconds. These stages do not have the same boundary as the old
+23.36-second historical gate, which excluded prerequisite object preparation.
+No speedup over another route is inferred.
+
+The executable accepted exactly these four arguments:
+
+```text
+ADWH.Chapter15.Queens.BitRepresentation.cqueens 16 = 14772512
+```
+
+Its stdout was exactly `ACCEPT ` followed by that canonical claim and a newline;
+exit status was zero and stderr empty. The native process took 4.68 seconds and
+peaked at 19,872 KiB RSS. The whole reproduction's maximum child RSS was
+1,586,632 KiB, within the 8-GiB virtual-address cap. A zero-board claim with value
+one passed. Wrong value, source label, operator, noncanonical numeral and extra
+token cases each returned `REJECT` with exit one and empty stderr. Output hashes
+and actual statuses are in the receipt, separate from the universal proofs.
+
+Lean 4.35.0 has the same source commit as the historical compiler, but the local
+binary differs. The local Nix `leanc` wrapper uses the shell's GCC, explicitly
+bound through `LEAN_CC`. The receipt binds the native tools, headers/libraries,
+27-path Nix compiler closure, seven dynamic dependencies and generated binary.
+The executable digest is
+`a529e8f771e71686558520fb0dcd0ee04c9edbc608fe4e1ad4cf56c88d038bc1`.
+Two earlier attempts passed the proof audit then failed at native inventory
+setup (command-path resolution and a Nix JSON warning). Both are retained;
+neither was a proof failure or successful native reproduction. Caps were not
+increased.
+
+This observation trusts Lean code generation, C compilation/linking, the runtime
+and host execution. It does not produce a stock-kernel numeral theorem, prove a
+concrete Lean acceptance equation, or establish binary correctness. The existing
+checked source bridge binds the endpoint to original fixed-Word16 `cqueens`;
+the CLI has no evaluator-selection argument. The missing strong-CSP artifact
+and failed complete kernel selections remain inspected findings, not successful
+implementations. Optional kernel adoption, repair of those selections, the stock
+n16 proof, #149 reconstruction and #107/#108 theorem selection remain outside
+this task. Root and supervising originator retain the full-issue closure decision
+and must review the exact final reproduction receipt.
