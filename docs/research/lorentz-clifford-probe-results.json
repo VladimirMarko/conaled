@@ -1,0 +1,2726 @@
+{
+  "cases": [
+    {
+      "backend": "pose",
+      "boundary_bits": 0,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "0.0"
+      },
+      "frame_relative": "4.965068306494545994154540632895047903440351698937162359716917515518643634648399E-17",
+      "inside_disk": true,
+      "point_absolute": "0",
+      "point_gap_scaled": "0",
+      "reference_agreement_max": "0",
+      "reference_precision_change_max": "0",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 0,
+      "diagnostics": {},
+      "frame_relative": "4.965068306494545994154540632895047903440351698937162359716917515518643634648399E-17",
+      "inside_disk": true,
+      "point_absolute": "0",
+      "point_gap_scaled": "0",
+      "reference_agreement_max": "0",
+      "reference_precision_change_max": "0",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {
+          "add": 1,
+          "mul": 4,
+          "neg": 1,
+          "sub": 1
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 0,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "0.0"
+      },
+      "frame_relative": "4.965068306494545994154540632895047903440351698937162359716917515518643634648399E-17",
+      "inside_disk": true,
+      "point_absolute": "0",
+      "point_gap_scaled": "0",
+      "reference_agreement_max": "0",
+      "reference_precision_change_max": "0",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {
+          "add": 23,
+          "div": 9,
+          "mul": 43,
+          "neg": 1,
+          "sub": 1
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 0,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "1.1102230246251565e-16"
+      },
+      "frame_relative": "9.9301366129890919883090812657900958068807033978743247194338350310372872692967978E-17",
+      "inside_disk": true,
+      "point_absolute": "0",
+      "point_gap_scaled": "0",
+      "reference_agreement_max": "0E-81",
+      "reference_precision_change_max": "0",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {
+          "add": 4,
+          "div": 5,
+          "mul": 9,
+          "neg": 2,
+          "sqrt": 2,
+          "sub": 1
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 0,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "0.0"
+      },
+      "frame_relative": "0E+11",
+      "inside_disk": true,
+      "point_absolute": "0",
+      "point_gap_scaled": "0E+8",
+      "reference_agreement_max": "0.000",
+      "reference_precision_change_max": "0.000",
+      "scalar_events": {
+        "composition": {
+          "add": 12,
+          "div": 4,
+          "mul": 28,
+          "neg": 4,
+          "sub": 6
+        },
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 0,
+      "diagnostics": {},
+      "frame_relative": "0E+11",
+      "inside_disk": true,
+      "point_absolute": "0",
+      "point_gap_scaled": "0E+8",
+      "reference_agreement_max": "0.000",
+      "reference_precision_change_max": "0.000",
+      "scalar_events": {
+        "composition": {
+          "add": 16,
+          "mul": 32,
+          "sub": 8
+        },
+        "conversion": {
+          "add": 2,
+          "mul": 8,
+          "neg": 2,
+          "sub": 2
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 0,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "1.1102230246251565e-16"
+      },
+      "frame_relative": "1.360673726469308064679353265091776847839355468750000000000000000000000E-17",
+      "inside_disk": true,
+      "point_absolute": "0",
+      "point_gap_scaled": "0E+8",
+      "reference_agreement_max": "1E-80",
+      "reference_precision_change_max": "0.000",
+      "scalar_events": {
+        "composition": {
+          "add": 18,
+          "mul": 27
+        },
+        "conversion": {
+          "add": 46,
+          "div": 18,
+          "mul": 86,
+          "neg": 2,
+          "sub": 2
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 0,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "3.3306690738754696e-16"
+      },
+      "frame_relative": "2.4539478627165782534872690331504237561608179504505196938639725847056589052484728E-16",
+      "inside_disk": true,
+      "point_absolute": "2.77555756156289135105907917022705078125E-17",
+      "point_gap_scaled": "5.6616951056581688117221057177539840637450199203187250996015936254980079681274900E-17",
+      "reference_agreement_max": "4E-80",
+      "reference_precision_change_max": "0.000",
+      "scalar_events": {
+        "composition": {
+          "add": 12,
+          "mul": 16,
+          "neg": 4
+        },
+        "conversion": {
+          "add": 8,
+          "div": 10,
+          "mul": 18,
+          "neg": 4,
+          "sqrt": 4,
+          "sub": 2
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 0,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "1.1102230246251565e-16"
+      },
+      "frame_relative": "4.2852307020488048290094877144274664371662983914479042915632906770486742426561171E-16",
+      "inside_disk": true,
+      "point_absolute": "1.0666795401129980750199161565808455643651767999617544596418990632669863006858944E-17",
+      "point_gap_scaled": "2.1565678871387567551061715202163520860468355593171886946086670928999123238172336E-17",
+      "reference_agreement_max": "0E-81",
+      "reference_precision_change_max": "6.265750853185087517933285947728413782146E-81",
+      "scalar_events": {
+        "composition": {
+          "add": 96,
+          "div": 32,
+          "mul": 224,
+          "neg": 32,
+          "sub": 48
+        },
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 0,
+      "diagnostics": {},
+      "frame_relative": "3.4228863587200778762130044655239926340198641073487507702468985376914605697997528E-16",
+      "inside_disk": true,
+      "point_absolute": "2.6234331756462321870831290956099475043067597078616142773503138973059678509217268E-17",
+      "point_gap_scaled": "5.3039469942901296124395032693956037898194262584085291291157443545219215334440207E-17",
+      "reference_agreement_max": "1.4E-80",
+      "reference_precision_change_max": "6.265750853185087517933285947728413782146E-81",
+      "scalar_events": {
+        "composition": {
+          "add": 128,
+          "mul": 256,
+          "sub": 64
+        },
+        "conversion": {
+          "add": 9,
+          "mul": 36,
+          "neg": 9,
+          "sub": 9
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 0,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "6.661338147750939e-16"
+      },
+      "frame_relative": "3.6427930445726829949029716246351477490389567251235405574503242179695888344963805E-16",
+      "inside_disk": true,
+      "point_absolute": "2.4497284015425582185411224252801376066992542771799934723296639791269163316167473E-17",
+      "point_gap_scaled": "4.9527579786697573332980332873141694444069557848336713251209987303473677893940900E-17",
+      "reference_agreement_max": "3E-80",
+      "reference_precision_change_max": "6.265750853185087517933285947728413782146E-81",
+      "scalar_events": {
+        "composition": {
+          "add": 144,
+          "mul": 216
+        },
+        "conversion": {
+          "add": 207,
+          "div": 81,
+          "mul": 387,
+          "neg": 9,
+          "sub": 9
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 0,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "1.5543122344752192e-15"
+      },
+      "frame_relative": "1.5221848184016202015551719958993365320767300325960088366046872977265975415281641E-16",
+      "inside_disk": true,
+      "point_absolute": "4.1971838807904123668094826563280978245389362982766333732330635120595276138543117E-17",
+      "point_gap_scaled": "8.4856900628000800140212310706591871512944977855305648045127460678271419784724709E-17",
+      "reference_agreement_max": "1.0E-80",
+      "reference_precision_change_max": "6.265750853185087517933285947728413782146E-81",
+      "scalar_events": {
+        "composition": {
+          "add": 96,
+          "mul": 128,
+          "neg": 32
+        },
+        "conversion": {
+          "add": 36,
+          "div": 45,
+          "mul": 81,
+          "neg": 18,
+          "sqrt": 18,
+          "sub": 9
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 0,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "8.881784197001252e-16"
+      },
+      "frame_relative": "1.3676814699636448503561625210215662896156855080122642123804781941497610641568735E-15",
+      "inside_disk": true,
+      "point_absolute": "1.0697879305112400796387635561888814575460825412386002607955356133378898461588722E-16",
+      "point_gap_scaled": "2.1861338069811261783190970589706041258860456942584130253980768457166785506766368E-16",
+      "reference_agreement_max": "0E-80",
+      "reference_precision_change_max": "9.8127680115188069059840048516374946276060E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 768,
+          "div": 256,
+          "mul": 1792,
+          "neg": 256,
+          "sub": 384
+        },
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 0,
+      "diagnostics": {},
+      "frame_relative": "1.9111933581079169521810661746580818695053847639408206071385929156952366826379995E-15",
+      "inside_disk": true,
+      "point_absolute": "1.5321100218888855321245817376892170969428502060885439305446522949435404507171178E-16",
+      "point_gap_scaled": "3.1308985821752962266922259984650280671210586081941750101405682959678496922370234E-16",
+      "reference_agreement_max": "7E-80",
+      "reference_precision_change_max": "9.8127680115188069059840048516374946276060E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 1024,
+          "mul": 2048,
+          "sub": 512
+        },
+        "conversion": {
+          "add": 65,
+          "mul": 260,
+          "neg": 65,
+          "sub": 65
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 0,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "9.103828801926284e-15"
+      },
+      "frame_relative": "2.4882877710617461933168819756396950188510255505383212753658905999263111862625427E-15",
+      "inside_disk": true,
+      "point_absolute": "5.7998460600305393952974055662125389616429470033697245378242555537102920567914289E-16",
+      "point_gap_scaled": "1.1852105623457330408810957742922849974845560709632000131734912860687393484745472E-15",
+      "reference_agreement_max": "1.9E-79",
+      "reference_precision_change_max": "9.8127680115188069059840048516374946276060E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 1152,
+          "mul": 1728
+        },
+        "conversion": {
+          "add": 1495,
+          "div": 585,
+          "mul": 2795,
+          "neg": 65,
+          "sub": 65
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 0,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "9.547918011776346e-15"
+      },
+      "frame_relative": "3.6589953523713973941274261150426469579554108886822228394310872324027281628323640E-15",
+      "inside_disk": true,
+      "point_absolute": "1.1135045886272582473831063091640204780386511835420230491441684200572325400908248E-16",
+      "point_gap_scaled": "2.2754697038536876899175773154798228626580943984591989673812233980539397741389734E-16",
+      "reference_agreement_max": "2.6E-79",
+      "reference_precision_change_max": "9.8127680115188069059840048516374946276060E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 768,
+          "mul": 1024,
+          "neg": 256
+        },
+        "conversion": {
+          "add": 260,
+          "div": 325,
+          "mul": 585,
+          "neg": 130,
+          "sqrt": 130,
+          "sub": 65
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 8,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "0.0"
+      },
+      "frame_relative": "7.0354079683415691533340302404084526584836871834973069652323403373961801808446610E-17",
+      "inside_disk": true,
+      "point_absolute": "0",
+      "point_gap_scaled": "0E+16",
+      "reference_agreement_max": "0E-8",
+      "reference_precision_change_max": "0E-8",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 8,
+      "diagnostics": {},
+      "frame_relative": "9.0053221994772085162675587077228194028591195948765529154973956318671106314811661E-15",
+      "inside_disk": true,
+      "point_absolute": "0",
+      "point_gap_scaled": "0E+16",
+      "reference_agreement_max": "0E-8",
+      "reference_precision_change_max": "0E-8",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {
+          "add": 1,
+          "mul": 4,
+          "neg": 1,
+          "sub": 1
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 8,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "1.8189894035458565e-11"
+      },
+      "frame_relative": "1.8080998478637832724068457717849723332303076061588078900647114667108183064770779E-14",
+      "inside_disk": true,
+      "point_absolute": "0",
+      "point_gap_scaled": "0E+16",
+      "reference_agreement_max": "1E-80",
+      "reference_precision_change_max": "0E-8",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {
+          "add": 23,
+          "div": 9,
+          "mul": 43,
+          "neg": 1,
+          "sub": 1
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 8,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "7.105427357601002e-15"
+      },
+      "frame_relative": "1.4194186215773798909719958145970221457011525641530701526118920582753106164968862E-14",
+      "inside_disk": true,
+      "point_absolute": "1.5700924586837750593933823719635634914234233187901291475004669639833704036370266E-16",
+      "point_gap_scaled": "4.0273025194637918705442155432095536976096074606743602274203758493782451183074824E-14",
+      "reference_agreement_max": "7.29E-80",
+      "reference_precision_change_max": "0E-8",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {
+          "add": 4,
+          "div": 5,
+          "mul": 9,
+          "neg": 2,
+          "sqrt": 2,
+          "sub": 1
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 8,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "1.1102230246251565e-16"
+      },
+      "frame_relative": "6.4805029055576468137932556920523145995182123642760725801012184685089311746747629E-15",
+      "inside_disk": true,
+      "point_absolute": "5.6761129543511853694994751064947553943662834201949711623388226529190261327819476E-17",
+      "point_gap_scaled": "1.5876640360932783436770159596396400333302845685001813191413855394291721075445028E-14",
+      "reference_agreement_max": "0E-81",
+      "reference_precision_change_max": "4.18448999470220423947580465959149042765010E-81",
+      "scalar_events": {
+        "composition": {
+          "add": 12,
+          "div": 4,
+          "mul": 28,
+          "neg": 4,
+          "sub": 6
+        },
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 8,
+      "diagnostics": {},
+      "frame_relative": "6.0162352597896192712258643244066434367939357116018554820684443130352464384077185E-17",
+      "inside_disk": true,
+      "point_absolute": "5.6761129543511853694994751064947553943662834201949711623388226529190261327819476E-17",
+      "point_gap_scaled": "1.5876640360932783436770159596396400333302845685001813191413855394291721075445028E-14",
+      "reference_agreement_max": "4.2E-81",
+      "reference_precision_change_max": "4.18448999470220423947580465959149042765010E-81",
+      "scalar_events": {
+        "composition": {
+          "add": 16,
+          "mul": 32,
+          "sub": 8
+        },
+        "conversion": {
+          "add": 2,
+          "mul": 8,
+          "neg": 2,
+          "sub": 2
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 8,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "1.7131185359176015e-11"
+      },
+      "frame_relative": "6.9455276414897579680493905447412572219136518981880732690055985150035624519494220E-14",
+      "inside_disk": true,
+      "point_absolute": "3.1190507076635596539144119086296826772716155119708007064320047798331314458340276E-17",
+      "point_gap_scaled": "8.7242883909007193620730662065797242558061209069894707295162706263460014175021896E-15",
+      "reference_agreement_max": "6E-80",
+      "reference_precision_change_max": "4.18448999470220423947580465959149042765010E-81",
+      "scalar_events": {
+        "composition": {
+          "add": 18,
+          "mul": 27
+        },
+        "conversion": {
+          "add": 46,
+          "div": 18,
+          "mul": 86,
+          "neg": 2,
+          "sub": 2
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 8,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "0.0"
+      },
+      "frame_relative": "3.8182361443731724805171996668133443729688452109310406039501507222361702497808910E-14",
+      "inside_disk": true,
+      "point_absolute": "2.1549830196141379513276811544280773549703614491109467779878999455567838274985736E-16",
+      "point_gap_scaled": "6.0276972395524649754125720167540046448502227328717973479917668084455401936492616E-14",
+      "reference_agreement_max": "1E-80",
+      "reference_precision_change_max": "4.18448999470220423947580465959149042765010E-81",
+      "scalar_events": {
+        "composition": {
+          "add": 12,
+          "mul": 16,
+          "neg": 4
+        },
+        "conversion": {
+          "add": 8,
+          "div": 10,
+          "mul": 18,
+          "neg": 4,
+          "sqrt": 4,
+          "sub": 2
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 8,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "0.0"
+      },
+      "frame_relative": "1.4582318164050719774845530399247237378167303339744851168053329180414041302770680E-13",
+      "inside_disk": true,
+      "point_absolute": "7.1247746224056659431917210772939973121790781840677638880766698589157580492486496E-16",
+      "point_gap_scaled": "2.0907819433697659413767429244081214670122809706498593426263068620988804379238835E-13",
+      "reference_agreement_max": "0E-80",
+      "reference_precision_change_max": "5.285862617738437441621490820196744047345861E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 96,
+          "div": 32,
+          "mul": 224,
+          "neg": 32,
+          "sub": 48
+        },
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 8,
+      "diagnostics": {},
+      "frame_relative": "4.7625034535287348421693433009786131522121470640973974796447403811992925812837365E-14",
+      "inside_disk": true,
+      "point_absolute": "2.3461043038244305567820083424872910122368518793588947988152995623883438243019316E-16",
+      "point_gap_scaled": "6.8846985001779414121969915715140556859227125193450067346159616323096098800399929E-14",
+      "reference_agreement_max": "8E-80",
+      "reference_precision_change_max": "5.285862617738437441621490820196744047345861E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 128,
+          "mul": 256,
+          "sub": 64
+        },
+        "conversion": {
+          "add": 9,
+          "mul": 36,
+          "neg": 9,
+          "sub": 9
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 8,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "7.09405867382884e-11"
+      },
+      "frame_relative": "1.3931231970573556370045383522890658781126447792315516062308438851920280333529716E-13",
+      "inside_disk": true,
+      "point_absolute": "3.9741389715553976248257601059515497208295614245332675135775898584072248319035239E-16",
+      "point_gap_scaled": "1.1662204690714245149626600385656191240226919480142069342294696081506656467816777E-13",
+      "reference_agreement_max": "6.94E-80",
+      "reference_precision_change_max": "5.285862617738437441621490820196744047345861E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 144,
+          "mul": 216
+        },
+        "conversion": {
+          "add": 207,
+          "div": 81,
+          "mul": 387,
+          "neg": 9,
+          "sub": 9
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 8,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "1.0658141036401503e-13"
+      },
+      "frame_relative": "1.1166350766584922279611208844175323308265560525006947757947229680203991450397962E-13",
+      "inside_disk": true,
+      "point_absolute": "6.8711498843750987732698220244609500884547037602248134414536668803436010831189733E-16",
+      "point_gap_scaled": "2.0163551648722938284072551701591466062079468313222506028517837887977120017117894E-13",
+      "reference_agreement_max": "6E-80",
+      "reference_precision_change_max": "5.285862617738437441621490820196744047345861E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 96,
+          "mul": 128,
+          "neg": 32
+        },
+        "conversion": {
+          "add": 36,
+          "div": 45,
+          "mul": 81,
+          "neg": 18,
+          "sqrt": 18,
+          "sub": 9
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 8,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "4.218847493575595e-15"
+      },
+      "frame_relative": "1.0912555617773385834027792724790485087163323722420107732454601150843492719071883E-12",
+      "inside_disk": true,
+      "point_absolute": "6.3262282917529270665036454622751115408979544336070693691655173946434547367724690E-15",
+      "point_gap_scaled": "1.3206803914931087795750548539476953126083085669339816902955308968298417260274948E-12",
+      "reference_agreement_max": "0E-80",
+      "reference_precision_change_max": "5.5564887931486092674364035824035601252863468E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 768,
+          "div": 256,
+          "mul": 1792,
+          "neg": 256,
+          "sub": 384
+        },
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 8,
+      "diagnostics": {},
+      "frame_relative": "1.3741529865507827717236887149194866157848965686118608501012169575673715895902906E-13",
+      "inside_disk": true,
+      "point_absolute": "2.5633821257076652200724754328078399888740231302890077889115113320479490352550289E-15",
+      "point_gap_scaled": "5.3513853013166837081338656862411672331231215835699910104495875418650850455638347E-13",
+      "reference_agreement_max": "5.400E-79",
+      "reference_precision_change_max": "5.5564887931486092674364035824035601252863468E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 1024,
+          "mul": 2048,
+          "sub": 512
+        },
+        "conversion": {
+          "add": 65,
+          "mul": 260,
+          "neg": 65,
+          "sub": 65
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 8,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "7.275957614183426e-10"
+      },
+      "frame_relative": "5.9776204626573964021030131846869512460282547087976200956248422447779066907284373E-13",
+      "inside_disk": true,
+      "point_absolute": "8.6740320203264813996152550467283457502241739065571593751466067659054154534026955E-15",
+      "point_gap_scaled": "1.8108141970409849891196438112580822990746145367527402732663164172875947521219947E-12",
+      "reference_agreement_max": "4.4E-79",
+      "reference_precision_change_max": "5.5564887931486092674364035824035601252863468E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 1152,
+          "mul": 1728
+        },
+        "conversion": {
+          "add": 1495,
+          "div": 585,
+          "mul": 2795,
+          "neg": 65,
+          "sub": 65
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 8,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "4.263256414560601e-14"
+      },
+      "frame_relative": "3.4367269781464779025673755154842200979979037690631923653611968420722433030518532E-14",
+      "inside_disk": true,
+      "point_absolute": "4.1410640058160064802595064878747047223167109451841885757515721851349369734005586E-15",
+      "point_gap_scaled": "8.6449963235261304898695516957006984149448797807400150398916772495085395079737145E-13",
+      "reference_agreement_max": "5.3E-79",
+      "reference_precision_change_max": "5.5564887931486092674364035824035601252863468E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 768,
+          "mul": 1024,
+          "neg": 256
+        },
+        "conversion": {
+          "add": 260,
+          "div": 325,
+          "mul": 585,
+          "neg": 130,
+          "sqrt": 130,
+          "sub": 65
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 20,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "0.0"
+      },
+      "frame_relative": "7.0216702853467067301308832787283101157500019605370044061783540323177011596198856E-17",
+      "inside_disk": true,
+      "point_absolute": "0",
+      "point_gap_scaled": "0E+40",
+      "reference_agreement_max": "0E-20",
+      "reference_precision_change_max": "0E-20",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 20,
+      "diagnostics": {},
+      "frame_relative": "2.6031269735430810363674142454100669773808357943802456166822251845732756504457343E-11",
+      "inside_disk": true,
+      "point_absolute": "0",
+      "point_gap_scaled": "0E+40",
+      "reference_agreement_max": "0E-20",
+      "reference_precision_change_max": "0E-20",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {
+          "add": 1,
+          "mul": 4,
+          "neg": 1,
+          "sub": 1
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 20,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "6.103515625e-05"
+      },
+      "frame_relative": "5.2164620548133177967004034550211830468356901749507978388989358069595094277118214E-11",
+      "inside_disk": true,
+      "point_absolute": "0",
+      "point_gap_scaled": "0E+40",
+      "reference_agreement_max": "1E-80",
+      "reference_precision_change_max": "0E-20",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {
+          "add": 23,
+          "div": 9,
+          "mul": 43,
+          "neg": 1,
+          "sub": 1
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 20,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "6.548361852765083e-11"
+      },
+      "frame_relative": "5.8343816898004264918574502643752391658142788638843107781246578348337459908731736E-11",
+      "inside_disk": true,
+      "point_absolute": "2.4825341532472729970772703164475239517201758494685811798584587577593218173241995E-16",
+      "point_gap_scaled": "2.6031269735430810363674142454100669773808357943802456166822251845732756504457343E-10",
+      "reference_agreement_max": "1.428269E-80",
+      "reference_precision_change_max": "0E-20",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {
+          "add": 4,
+          "div": 5,
+          "mul": 9,
+          "neg": 2,
+          "sqrt": 2,
+          "sub": 1
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 20,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "0.0"
+      },
+      "frame_relative": "6.3845484407869185608453276762762001073278489794559455696489447489477743559690734E-12",
+      "inside_disk": true,
+      "point_absolute": "8.6355394325981674025280526206992079229792952164852876363851147237269674720114388E-19",
+      "point_gap_scaled": "9.8775509799250374499196703377542627204922801804329685869689415918346813760627671E-13",
+      "reference_agreement_max": "0E-81",
+      "reference_precision_change_max": "4.038572970017808800101349465407185971817554546E-81",
+      "scalar_events": {
+        "composition": {
+          "add": 12,
+          "div": 4,
+          "mul": 28,
+          "neg": 4,
+          "sub": 6
+        },
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 20,
+      "diagnostics": {},
+      "frame_relative": "6.7479812298503422325565104818235139626621225142953682222097457290954037051558375E-17",
+      "inside_disk": true,
+      "point_absolute": "8.6355394325981674025280526206992079229792952164852876363851147237269674720114388E-19",
+      "point_gap_scaled": "9.8775509799250374499196703377542627204922801804329685869689415918346813760627671E-13",
+      "reference_agreement_max": "4.03860E-81",
+      "reference_precision_change_max": "4.038572970017808800101349465407185971817554546E-81",
+      "scalar_events": {
+        "composition": {
+          "add": 16,
+          "mul": 32,
+          "sub": 8
+        },
+        "conversion": {
+          "add": 2,
+          "mul": 8,
+          "neg": 2,
+          "sub": 2
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 20,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "0.00044465065002441406"
+      },
+      "frame_relative": "2.1984481908291110380094527953241419198629096467435943954133932926394978311523957E-10",
+      "inside_disk": true,
+      "point_absolute": "1.3601819201062180677968225228646302239338023333133852535194181857481532753703411E-16",
+      "point_gap_scaled": "1.5558108862435286390927489588009595039060244816451462206535073546222048465318043E-10",
+      "reference_agreement_max": "6E-80",
+      "reference_precision_change_max": "4.038572970017808800101349465407185971817554546E-81",
+      "scalar_events": {
+        "composition": {
+          "add": 18,
+          "mul": 27
+        },
+        "conversion": {
+          "add": 46,
+          "div": 18,
+          "mul": 86,
+          "neg": 2,
+          "sub": 2
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 20,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "1.4551915228366852e-10"
+      },
+      "frame_relative": "4.6068483551396739831602094507487994633270937526185676122703469056154791878265670E-10",
+      "inside_disk": true,
+      "point_absolute": "2.9958835681438872072324340104179688784768085966871682901099074213708558865195656E-16",
+      "point_gap_scaled": "3.4267682876363929857989912415797448192316853177802227276186702304380130484808168E-10",
+      "reference_agreement_max": "1.2923647E-79",
+      "reference_precision_change_max": "4.038572970017808800101349465407185971817554546E-81",
+      "scalar_events": {
+        "composition": {
+          "add": 12,
+          "mul": 16,
+          "neg": 4
+        },
+        "conversion": {
+          "add": 8,
+          "div": 10,
+          "mul": 18,
+          "neg": 4,
+          "sqrt": 4,
+          "sub": 2
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 20,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "4.440892098500626e-16"
+      },
+      "frame_relative": "2.2470788004464241182330934902868010609413934481974906248673882335609315831065496E-10",
+      "inside_disk": true,
+      "point_absolute": "2.9473914655319011959378349916850957019554148943165224139789518921519836628908037E-16",
+      "point_gap_scaled": "3.5375355483638589169297013209756579758186082161651275990303479988447984466159034E-10",
+      "reference_agreement_max": "0E-80",
+      "reference_precision_change_max": "1.50030117462474743188087294868284426800685865847E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 96,
+          "div": 32,
+          "mul": 224,
+          "neg": 32,
+          "sub": 48
+        },
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 20,
+      "diagnostics": {},
+      "frame_relative": "2.7712464347687903399106852522122861094779793951259629442320074552099795050999552E-10",
+      "inside_disk": true,
+      "point_absolute": "2.7889565195094021794214331104863332247915703739689203984563899858214170319282579E-16",
+      "point_gap_scaled": "3.3473778240805139064214875215906789129204076666948265861746822221035895744084737E-10",
+      "reference_agreement_max": "2.2150832E-79",
+      "reference_precision_change_max": "1.50030117462474743188087294868284426800685865847E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 128,
+          "mul": 256,
+          "sub": 64
+        },
+        "conversion": {
+          "add": 9,
+          "mul": 36,
+          "neg": 9,
+          "sub": 9
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 20,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "0.00146484375"
+      },
+      "frame_relative": "5.3303166738180666337644367356491050997320648790891606707327147622397286292812469E-10",
+      "inside_disk": true,
+      "point_absolute": "6.1613814651480866808314356887672136755313894047064404561603047311707373896711201E-16",
+      "point_gap_scaled": "7.3950495598853603925339010008071491037547358136500133751724839099456533149171366E-10",
+      "reference_agreement_max": "4.5716604E-79",
+      "reference_precision_change_max": "1.50030117462474743188087294868284426800685865847E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 144,
+          "mul": 216
+        },
+        "conversion": {
+          "add": 207,
+          "div": 81,
+          "mul": 387,
+          "neg": 9,
+          "sub": 9
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 20,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "3.4924596548080444e-10"
+      },
+      "frame_relative": "5.0904153910281162929242824616144076514390993966374446885449427394619667204276516E-10",
+      "inside_disk": true,
+      "point_absolute": "5.1049509942253547781268604955822562523830554872778620730350977098936312580467880E-16",
+      "point_gap_scaled": "6.1270943564561785736359457618229437365815184024615184027225697007126977208473611E-10",
+      "reference_agreement_max": "1.0E-79",
+      "reference_precision_change_max": "1.50030117462474743188087294868284426800685865847E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 96,
+          "mul": 128,
+          "neg": 32
+        },
+        "conversion": {
+          "add": 36,
+          "div": 45,
+          "mul": 81,
+          "neg": 18,
+          "sqrt": 18,
+          "sub": 9
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 20,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "2.886579864025407e-15"
+      },
+      "frame_relative": "3.0479029140311802079095646288216753763466288637728491192150489872903594453754426E-9",
+      "inside_disk": true,
+      "point_absolute": "4.2427507434623971691462852992757928694301838801439265484023140213619175648684973E-15",
+      "point_gap_scaled": "3.6176101941319626529849859075846204091674173212295594528660950474420523342011787E-9",
+      "reference_agreement_max": "0E-80",
+      "reference_precision_change_max": "2.3111756139155697851792978994812838239652732895E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 768,
+          "div": 256,
+          "mul": 1792,
+          "neg": 256,
+          "sub": 384
+        },
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 20,
+      "diagnostics": {},
+      "frame_relative": "6.9900623412502340817411503085825884788489656359681051754455584134966761664733220E-10",
+      "inside_disk": true,
+      "point_absolute": "2.5455919548165358525317359525612130636037264966316722857841196828544582448416206E-15",
+      "point_gap_scaled": "2.1705162435089036766154350614852155158275620649618574645295910895648504255320211E-9",
+      "reference_agreement_max": "2.9E-79",
+      "reference_precision_change_max": "2.3111756139155697851792978994812838239652732895E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 1024,
+          "mul": 2048,
+          "sub": 512
+        },
+        "conversion": {
+          "add": 65,
+          "mul": 260,
+          "neg": 65,
+          "sub": 65
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 20,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "0.01239013671875"
+      },
+      "frame_relative": "2.1654076448939662514875565678659115004314341796497978706720852166223164941233985E-9",
+      "inside_disk": true,
+      "point_absolute": "9.3463700317692765660889417138896831135009341208897117106554387941140125312285931E-15",
+      "point_gap_scaled": "7.9692457911079915289336682226057799746906219549366929645085468859332201171854677E-9",
+      "reference_agreement_max": "1.19E-78",
+      "reference_precision_change_max": "2.3111756139155697851792978994812838239652732895E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 1152,
+          "mul": 1728
+        },
+        "conversion": {
+          "add": 1495,
+          "div": 585,
+          "mul": 2795,
+          "neg": 65,
+          "sub": 65
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 20,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "9.89530235528946e-10"
+      },
+      "frame_relative": "1.0578802497078005005150006107031782964520142319637303304519420601393355379564449E-9",
+      "inside_disk": true,
+      "point_absolute": "4.6054597063172521063214281735686959034816727521642994446280245236950919752802034E-15",
+      "point_gap_scaled": "3.9268764510641226571810861150800121147167498892885452679840454421248868152946106E-9",
+      "reference_agreement_max": "5.4E-79",
+      "reference_precision_change_max": "2.3111756139155697851792978994812838239652732895E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 768,
+          "mul": 1024,
+          "neg": 256
+        },
+        "conversion": {
+          "add": 260,
+          "div": 325,
+          "mul": 585,
+          "neg": 130,
+          "sqrt": 130,
+          "sub": 65
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 40,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "0.0"
+      },
+      "frame_relative": "4.5476955751546189319297888413185599840410002292844539844806363161802145697087631E-13",
+      "inside_disk": true,
+      "point_absolute": "0",
+      "point_gap_scaled": "0E+80",
+      "reference_agreement_max": "0E-40",
+      "reference_precision_change_max": "0E-40",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 40,
+      "diagnostics": {},
+      "frame_relative": "0.000054591503560322484075849754815673109735061212879128383202476686071795287804096822",
+      "inside_disk": true,
+      "point_absolute": "0",
+      "point_gap_scaled": "0E+80",
+      "reference_agreement_max": "0E-40",
+      "reference_precision_change_max": "0E-40",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {
+          "add": 1,
+          "mul": 4,
+          "neg": 1,
+          "sub": 1
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 40,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "100663296.0"
+      },
+      "frame_relative": "0.000054591503560322484075849754815673109735061212879128383202476686071795287804096822",
+      "inside_disk": true,
+      "point_absolute": "0",
+      "point_gap_scaled": "0E+80",
+      "reference_agreement_max": "2E-80",
+      "reference_precision_change_max": "0E-40",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {
+          "add": 23,
+          "div": 9,
+          "mul": 43,
+          "neg": 1,
+          "sub": 1
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 40,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "0.00014495849609375"
+      },
+      "frame_relative": "0.00019870263340488623624392677443017526773810721644778274212817764256839204628759156",
+      "inside_disk": true,
+      "point_absolute": "1.1102230246251565404236316680908203125E-16",
+      "point_gap_scaled": "0.00012207031250005551115123128307057014866726175121069321073774094348243022111250067",
+      "reference_agreement_max": "2E-80",
+      "reference_precision_change_max": "0E-40",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {
+          "add": 4,
+          "div": 5,
+          "mul": 9,
+          "neg": 2,
+          "sqrt": 2,
+          "sub": 1
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 40,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "3.3306690738754696e-16"
+      },
+      "frame_relative": "0.000044207933510657883230427750585287609421877027975294279596100506764775252910321535",
+      "inside_disk": true,
+      "point_absolute": "2.0092137511971087545926994152896398063903117095953796219028323123055312401711184E-17",
+      "point_gap_scaled": "0.000024098260275978298632749199178673155733618856541232354312647553376913698751864553",
+      "reference_agreement_max": "0E-81",
+      "reference_precision_change_max": "9.1518050186556771567212703330978742647242E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 12,
+          "div": 4,
+          "mul": 28,
+          "neg": 4,
+          "sub": 6
+        },
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 40,
+      "diagnostics": {},
+      "frame_relative": "4.5475690343606392655799610909952219841601353743536786962464649465881091231575006E-13",
+      "inside_disk": true,
+      "point_absolute": "2.0092137511971087545926994152896398063903117095953796219028323123055312401711184E-17",
+      "point_gap_scaled": "0.000024098260275978298632749199178673155733618856541232354312647553376913698751864553",
+      "reference_agreement_max": "9.686640296443E-80",
+      "reference_precision_change_max": "9.1518050186556771567212703330978742647242E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 16,
+          "mul": 32,
+          "sub": 8
+        },
+        "conversion": {
+          "add": 2,
+          "mul": 8,
+          "neg": 2,
+          "sub": 2
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 40,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "244973567.0"
+      },
+      "frame_relative": "0.000080937401378171080461369409872361335914369018048811449107631268770136054038975615",
+      "inside_disk": true,
+      "point_absolute": "5.3498361277966669465888223021809656990224960475851579908261707821875377429610201E-17",
+      "point_gap_scaled": "0.000064165270302705808630598233232286506481582037523737280967188685398383667298157426",
+      "reference_agreement_max": "1.1E-79",
+      "reference_precision_change_max": "9.1518050186556771567212703330978742647242E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 18,
+          "mul": 27
+        },
+        "conversion": {
+          "add": 46,
+          "div": 18,
+          "mul": 86,
+          "neg": 2,
+          "sub": 2
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 40,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "9.1552734375e-05"
+      },
+      "frame_relative": "0.00021281827040013585323999759320983419973382330568123376014919355655489370852273580",
+      "inside_disk": true,
+      "point_absolute": "1.9985874197997470795547959544382001847745913931401669107770094489433456991366680E-16",
+      "point_gap_scaled": "0.00023970809376520812224780273025160081763918061085904532445251733927114920531585827",
+      "reference_agreement_max": "1.8142791068745E-79",
+      "reference_precision_change_max": "9.1518050186556771567212703330978742647242E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 12,
+          "mul": 16,
+          "neg": 4
+        },
+        "conversion": {
+          "add": 8,
+          "div": 10,
+          "mul": 18,
+          "neg": 4,
+          "sqrt": 4,
+          "sub": 2
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 40,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "2.220446049250313e-16"
+      },
+      "frame_relative": "0.00068942051480819656037624732933535568105638197380211639307556603214331439284080140",
+      "inside_disk": true,
+      "point_absolute": "6.2704287203792287389125670913067673208859705944694408582358417751533505091741792E-16",
+      "point_gap_scaled": "0.00078915077062684519326221679359421892159254596306718074756989094705279071328810530",
+      "reference_agreement_max": "0E-80",
+      "reference_precision_change_max": "4.1309234234544896044803468701575070663061841568983676E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 96,
+          "div": 32,
+          "mul": 224,
+          "neg": 32,
+          "sub": 48
+        },
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 40,
+      "diagnostics": {},
+      "frame_relative": "0.00027673371323105560818318922395071785659752020553095810772828314942213695763000022",
+      "inside_disk": true,
+      "point_absolute": "6.1935650269422658855605914748963255062595567407250763310070311584158393458892426E-16",
+      "point_gap_scaled": "0.00077947726254407787226149883514702403690959373864577179461784912467617967463813161",
+      "reference_agreement_max": "4.450122709136E-80",
+      "reference_precision_change_max": "4.1309234234544896044803468701575070663061841568983676E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 128,
+          "mul": 256,
+          "sub": 64
+        },
+        "conversion": {
+          "add": 9,
+          "mul": 36,
+          "neg": 9,
+          "sub": 9
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 40,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "1912602623.0"
+      },
+      "frame_relative": "0.00086008315773269297487765890827768126629572867440666970736095530393930960758193354",
+      "inside_disk": true,
+      "point_absolute": "6.2191133170883980876093429548606417963916456544620641987784212190275464600142267E-16",
+      "point_gap_scaled": "0.00078269258541211282215983650489507331298038334481898155181742923049216010735151200",
+      "reference_agreement_max": "1.6081189458587E-79",
+      "reference_precision_change_max": "4.1309234234544896044803468701575070663061841568983676E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 144,
+          "mul": 216
+        },
+        "conversion": {
+          "add": 207,
+          "div": 81,
+          "mul": 387,
+          "neg": 9,
+          "sub": 9
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 40,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "0.000244140625"
+      },
+      "frame_relative": "0.00027659691826543635978244151998374418310583539780463939124274212589899413494861833",
+      "inside_disk": true,
+      "point_absolute": "2.4693909247621939239082547842943577536842157717591302064652020492159793002936085E-16",
+      "point_gap_scaled": "0.00031077966725330491471114343933118518411382764128918804889277657606457028960702846",
+      "reference_agreement_max": "5E-80",
+      "reference_precision_change_max": "4.1309234234544896044803468701575070663061841568983676E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 96,
+          "mul": 128,
+          "neg": 32
+        },
+        "conversion": {
+          "add": 36,
+          "div": 45,
+          "mul": 81,
+          "neg": 18,
+          "sqrt": 18,
+          "sub": 9
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 40,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "8.881784197001252e-16"
+      },
+      "frame_relative": "0.00072698404748594537595480418068518973317772389079642462701716216442635208352448893",
+      "inside_disk": true,
+      "point_absolute": "2.3027993085114797050312724973722865117238507608085279826713663188803235722830134E-15",
+      "point_gap_scaled": "0.0020588748661890778386020928304987170803811339932188694890486307903263375777106677",
+      "reference_agreement_max": "0E-80",
+      "reference_precision_change_max": "1.28038950541433757889594359533273672134435E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 768,
+          "div": 256,
+          "mul": 1792,
+          "neg": 256,
+          "sub": 384
+        },
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 40,
+      "diagnostics": {},
+      "frame_relative": "0.00061561496884593940319451090589421511290025369180580281338620266324262243849565871",
+      "inside_disk": true,
+      "point_absolute": "1.3930942831088324124761753958360577670018197457551184113009946486977611647652686E-15",
+      "point_gap_scaled": "0.0012455305137200445402025084740434121433491742516053536591807887742319778850908124",
+      "reference_agreement_max": "1.8E-79",
+      "reference_precision_change_max": "1.28038950541433757889594359533273672134435E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 1024,
+          "mul": 2048,
+          "sub": 512
+        },
+        "conversion": {
+          "add": 65,
+          "mul": 260,
+          "neg": 65,
+          "sub": 65
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 40,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "13690208255.0"
+      },
+      "frame_relative": "0.0058935865283423455230743277307106908233200787835273018934381144734286600166715146",
+      "inside_disk": true,
+      "point_absolute": "9.2681113154949821227673826433835740215151248522149058926074883841471494334211173E-15",
+      "point_gap_scaled": "0.0082863849116098882320737037174817696906125353613577856412038707897040773445655405",
+      "reference_agreement_max": "7.051583571939E-79",
+      "reference_precision_change_max": "1.28038950541433757889594359533273672134435E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 1152,
+          "mul": 1728
+        },
+        "conversion": {
+          "add": 1495,
+          "div": 585,
+          "mul": 2795,
+          "neg": 65,
+          "sub": 65
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 40,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "0.00152587890625"
+      },
+      "frame_relative": "0.0016589062941288996755451758719917530144824275118357961219573090981585752421222179",
+      "inside_disk": true,
+      "point_absolute": "4.7812688537328364619045642908787839658871737958921188125505498928041621126622497E-15",
+      "point_gap_scaled": "0.0042748120667998392658680086869453251777614117504050186194831006518523706655770659",
+      "reference_agreement_max": "6.3E-79",
+      "reference_precision_change_max": "1.28038950541433757889594359533273672134435E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 768,
+          "mul": 1024,
+          "neg": 256
+        },
+        "conversion": {
+          "add": 260,
+          "div": 325,
+          "mul": 585,
+          "neg": 130,
+          "sqrt": 130,
+          "sub": 65
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 50,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "0.0"
+      },
+      "frame_relative": "0.062500000000000516253706450698083668561723199368408035792272317437774252852225470",
+      "inside_disk": true,
+      "point_absolute": "4.9650683064945459941545406328950479034403516989371623597169175155186436346483989E-17",
+      "point_gap_scaled": "0.055901699437494767235570874191022901325024037227660780637955183097592895680890242",
+      "reference_agreement_max": "0E-50",
+      "reference_precision_change_max": "1.201908111572265625000E-81",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 50,
+      "diagnostics": {},
+      "frame_relative": "0.079056941504209939708323253582277074520400026825214827860966510233314998114719631",
+      "inside_disk": true,
+      "point_absolute": "4.9650683064945459941545406328950479034403516989371623597169175155186436346483989E-17",
+      "point_gap_scaled": "0.055901699437494767235570874191022901325024037227660780637955183097592895680890242",
+      "reference_agreement_max": "2E-81",
+      "reference_precision_change_max": "1.201908111572265625000E-81",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {
+          "add": 1,
+          "mul": 4,
+          "neg": 1,
+          "sub": 1
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 50,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "211106232532993.0"
+      },
+      "frame_relative": "0.058673448401839277443659675881799416554092278264148388309183749160204826543344672",
+      "inside_disk": true,
+      "point_absolute": "2.0471501066083613440410081189575015952468295507499149739078508248730050637757828E-16",
+      "point_gap_scaled": "0.23048861143232228510756218746218248684524048304519664240627574151205635866706299",
+      "reference_agreement_max": "2.988925724762891E-80",
+      "reference_precision_change_max": "1.201908111572265625000E-81",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {
+          "add": 23,
+          "div": 9,
+          "mul": 43,
+          "neg": 1,
+          "sub": 1
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 50,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "0.15625"
+      },
+      "frame_relative": "0.19725617834957027278618505684950911703665039077591764869394709066525828292560846",
+      "inside_disk": true,
+      "point_absolute": "2.0471501066083613440410081189575015952468295507499149739078508248730050637757828E-16",
+      "point_gap_scaled": "0.23048861143232228510756218746218248684524048304519664240627574151205635866706299",
+      "reference_agreement_max": "3.909717003968146E-80",
+      "reference_precision_change_max": "1.201908111572265625000E-81",
+      "scalar_events": {
+        "composition": {},
+        "conversion": {
+          "add": 4,
+          "div": 5,
+          "mul": 9,
+          "neg": 2,
+          "sqrt": 2,
+          "sub": 1
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 0
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 50,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "4.440892098500626e-16"
+      },
+      "frame_relative": "0.15901394422310829824415645771516266617938188793434884534420703325440040935106184",
+      "inside_disk": true,
+      "point_absolute": "1.5179414338363119904723991184895327951366282366456697178577089953178839804808009E-16",
+      "point_gap_scaled": "0.18642945122238996024967811667985060086203145131281113058011697604458104892628609",
+      "reference_agreement_max": "0E-81",
+      "reference_precision_change_max": "9.372267968175529685804288695242211858879E-81",
+      "scalar_events": {
+        "composition": {
+          "add": 12,
+          "div": 4,
+          "mul": 28,
+          "neg": 4,
+          "sub": 6
+        },
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 50,
+      "diagnostics": {},
+      "frame_relative": "0.019920318725100049034735132398322172743322321955449522423541440064127189380600477",
+      "inside_disk": true,
+      "point_absolute": "1.5179414338363119904723991184895327951366282366456697178577089953178839804808009E-16",
+      "point_gap_scaled": "0.18642945122238996024967811667985060086203145131281113058011697604458104892628609",
+      "reference_agreement_max": "7.84696069785254E-81",
+      "reference_precision_change_max": "9.372267968175529685804288695242211858879E-81",
+      "scalar_events": {
+        "composition": {
+          "add": 16,
+          "mul": 32,
+          "sub": 8
+        },
+        "conversion": {
+          "add": 2,
+          "mul": 8,
+          "neg": 2,
+          "sub": 2
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 50,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "334045376413697.0"
+      },
+      "frame_relative": "0.22815377337501427640118170764479264270178294800672198887862520611910267125561810",
+      "inside_disk": true,
+      "point_absolute": "9.5716027321210498506001116587217583749866938143224274641121507584306077695984972E-17",
+      "point_gap_scaled": "0.11755582955254389200573991782428198671048055383944053924783950566138909823626121",
+      "reference_agreement_max": "8.154138830481961E-80",
+      "reference_precision_change_max": "9.372267968175529685804288695242211858879E-81",
+      "scalar_events": {
+        "composition": {
+          "add": 18,
+          "mul": 27
+        },
+        "conversion": {
+          "add": 46,
+          "div": 18,
+          "mul": 86,
+          "neg": 2,
+          "sub": 2
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 50,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "0.15625"
+      },
+      "frame_relative": "0.28167831831012648191455923650145270694999580620363758551125709024973843710641578",
+      "inside_disk": true,
+      "point_absolute": "2.7967386166037190832853853337088999658147113301614751596202886565995040050400840E-16",
+      "point_gap_scaled": "0.34348785393397612871124669622482876984632039797417052855561266693796308442753596",
+      "reference_agreement_max": "4.666361740490115E-80",
+      "reference_precision_change_max": "9.372267968175529685804288695242211858879E-81",
+      "scalar_events": {
+        "composition": {
+          "add": 12,
+          "mul": 16,
+          "neg": 4
+        },
+        "conversion": {
+          "add": 8,
+          "div": 10,
+          "mul": 18,
+          "neg": 4,
+          "sqrt": 4,
+          "sub": 2
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 1
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 50,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "0.0"
+      },
+      "frame_relative": "0.50231926043360395393268366031365564322654468832501592332169197703694988147617701",
+      "inside_disk": true,
+      "point_absolute": "4.1117913191349817705209099924250537083217266265289944102392292572670722676331519E-16",
+      "point_gap_scaled": "0.52989981949204158446394180846259849110435076828420491495581720484050120555834535",
+      "reference_agreement_max": "0E-80",
+      "reference_precision_change_max": "3.1543332059556942931596701272567143971700E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 96,
+          "div": 32,
+          "mul": 224,
+          "neg": 32,
+          "sub": 48
+        },
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 50,
+      "diagnostics": {},
+      "frame_relative": "0.23784185426749195452857625530792721592043410594854962652002697408519330598000146",
+      "inside_disk": true,
+      "point_absolute": "4.2518628248225001671955271171051331915110521786481909010522034265380395932726253E-16",
+      "point_gap_scaled": "0.54795128655808162917972093216347541530244750678473613694797019708399783856487665",
+      "reference_agreement_max": "4E-80",
+      "reference_precision_change_max": "3.1543332059556942931596701272567143971700E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 128,
+          "mul": 256,
+          "sub": 64
+        },
+        "conversion": {
+          "add": 9,
+          "mul": 36,
+          "neg": 9,
+          "sub": 9
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 50,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "1935140464885760.0"
+      },
+      "frame_relative": "0.36744381262526334679790765274764302252350363831499330111406208221577867948871450",
+      "inside_disk": true,
+      "point_absolute": "6.5050728497437033455282588425056478862131970563730721093689548931067650788216879E-16",
+      "point_gap_scaled": "0.83832973546598650213572643161516573760608172297207741089021355367466678293269546",
+      "reference_agreement_max": "1.5681721593928345E-79",
+      "reference_precision_change_max": "3.1543332059556942931596701272567143971700E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 144,
+          "mul": 216
+        },
+        "conversion": {
+          "add": 207,
+          "div": 81,
+          "mul": 387,
+          "neg": 9,
+          "sub": 9
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 50,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "0.15625"
+      },
+      "frame_relative": "0.24946340267376530441323583285991022281574183747677480958880562524352017911526449",
+      "inside_disk": true,
+      "point_absolute": "4.1755434749694018482941742941515185521728567635322093313056474619871816563018922E-16",
+      "point_gap_scaled": "0.53811576559603663061919082681875636654683263407510208519540958380282963318582163",
+      "reference_agreement_max": "2.488270246491623E-80",
+      "reference_precision_change_max": "3.1543332059556942931596701272567143971700E-80",
+      "scalar_events": {
+        "composition": {
+          "add": 96,
+          "mul": 128,
+          "neg": 32
+        },
+        "conversion": {
+          "add": 36,
+          "div": 45,
+          "mul": 81,
+          "neg": 18,
+          "sqrt": 18,
+          "sub": 9
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 8
+    },
+    {
+      "backend": "pose",
+      "boundary_bits": 50,
+      "diagnostics": {
+        "phase_unit_norm_absolute_defect": "1.3322676295501878e-15"
+      },
+      "frame_relative": "0.89835546157398470469669430993868276934797177801098812486968358311594315713889411",
+      "inside_disk": true,
+      "point_absolute": "3.3249468659451601426802232621654041283086598716439573883588628485418665150762959E-15",
+      "point_gap_scaled": "3.0440972848147131878276105050525502377712205368382519058263694223792957159360546",
+      "reference_agreement_max": "0E-80",
+      "reference_precision_change_max": "3.89515853624183035821290931421862301743048E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 768,
+          "div": 256,
+          "mul": 1792,
+          "neg": 256,
+          "sub": 384
+        },
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "complex",
+      "boundary_bits": 50,
+      "diagnostics": {},
+      "frame_relative": "0.66590791942186017605184288841059984827942600890209269978440532705187249687440153",
+      "inside_disk": false,
+      "point_absolute": "4.4934723358626809077777945304426468517151947098915217667920122200472922757687133E-15",
+      "point_gap_scaled": "4.1139204590270347888587449934747016931705022605464690243033805735461800079301656",
+      "reference_agreement_max": "3.4E-79",
+      "reference_precision_change_max": "3.89515853624183035821290931421862301743048E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 1024,
+          "mul": 2048,
+          "sub": 512
+        },
+        "conversion": {
+          "add": 65,
+          "mul": 260,
+          "neg": 65,
+          "sub": 65
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "lorentz",
+      "boundary_bits": 50,
+      "diagnostics": {
+        "lorentz_gram_max_absolute_defect": "1.1188630324248576e+16"
+      },
+      "frame_relative": "4.1568141109120432320250500240296688532906135684098394363088316436139572604713490",
+      "inside_disk": true,
+      "point_absolute": "4.5758968962766234362218983760929492941649522793475811856747304038985217208459853E-15",
+      "point_gap_scaled": "4.1893828320134989547214518413948682633768397894316032299073769351105909574123894",
+      "reference_agreement_max": "7.6723234488451077E-79",
+      "reference_precision_change_max": "3.89515853624183035821290931421862301743048E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 1152,
+          "mul": 1728
+        },
+        "conversion": {
+          "add": 1495,
+          "div": 585,
+          "mul": 2795,
+          "neg": 65,
+          "sub": 65
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "steps": 64
+    },
+    {
+      "backend": "spin",
+      "boundary_bits": 50,
+      "diagnostics": {
+        "spin_unit_norm_absolute_defect": "0.3125"
+      },
+      "frame_relative": "0.18139378017069750017302689604808190249296858160023335206878936109042220814463998",
+      "inside_disk": true,
+      "point_absolute": "5.4535722362813188718923891523506017976328024992205769078950922794821219505992012E-15",
+      "point_gap_scaled": "4.9929232274470510161037458254408100464304207220456071995325261499153306789438955",
+      "reference_agreement_max": "7.3E-79",
+      "reference_precision_change_max": "3.89515853624183035821290931421862301743048E-79",
+      "scalar_events": {
+        "composition": {
+          "add": 768,
+          "mul": 1024,
+          "neg": 256
+        },
+        "conversion": {
+          "add": 260,
+          "div": 325,
+          "mul": 585,
+          "neg": 130,
+          "sqrt": 130,
+          "sub": 65
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "steps": 64
+    }
+  ],
+  "crosscheck_decimal_precision": 120,
+  "float_mantissa": 53,
+  "max_steps": 64,
+  "python": "3.13.15",
+  "reference_decimal_precision": 80,
+  "renormalization": "none; spin inverse uses computed reverse/norm",
+  "reuse": [
+    {
+      "backend": "pose",
+      "cached": {
+        "composition": {
+          "add": 768,
+          "div": 256,
+          "mul": 1792,
+          "neg": 256,
+          "sub": 384
+        },
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "observations_identical": true,
+      "steps": 64,
+      "uncached": {
+        "composition": {
+          "add": 768,
+          "div": 256,
+          "mul": 1792,
+          "neg": 256,
+          "sub": 384
+        },
+        "conversion": {},
+        "decode": {
+          "add": 2,
+          "div": 1,
+          "mul": 4,
+          "neg": 1
+        }
+      },
+      "unique_increments": 3
+    },
+    {
+      "backend": "complex",
+      "cached": {
+        "composition": {
+          "add": 1024,
+          "mul": 2048,
+          "sub": 512
+        },
+        "conversion": {
+          "add": 4,
+          "mul": 16,
+          "neg": 4,
+          "sub": 4
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "observations_identical": true,
+      "steps": 64,
+      "uncached": {
+        "composition": {
+          "add": 1024,
+          "mul": 2048,
+          "sub": 512
+        },
+        "conversion": {
+          "add": 65,
+          "mul": 260,
+          "neg": 65,
+          "sub": 65
+        },
+        "decode": {
+          "add": 9,
+          "div": 6,
+          "mul": 24,
+          "neg": 4,
+          "sub": 5
+        }
+      },
+      "unique_increments": 3
+    },
+    {
+      "backend": "lorentz",
+      "cached": {
+        "composition": {
+          "add": 1152,
+          "mul": 1728
+        },
+        "conversion": {
+          "add": 92,
+          "div": 36,
+          "mul": 172,
+          "neg": 4,
+          "sub": 4
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "observations_identical": true,
+      "steps": 64,
+      "uncached": {
+        "composition": {
+          "add": 1152,
+          "mul": 1728
+        },
+        "conversion": {
+          "add": 1495,
+          "div": 585,
+          "mul": 2795,
+          "neg": 65,
+          "sub": 65
+        },
+        "decode": {
+          "add": 1,
+          "div": 4,
+          "mul": 6,
+          "sub": 2
+        }
+      },
+      "unique_increments": 3
+    },
+    {
+      "backend": "spin",
+      "cached": {
+        "composition": {
+          "add": 768,
+          "mul": 1024,
+          "neg": 256
+        },
+        "conversion": {
+          "add": 16,
+          "div": 20,
+          "mul": 36,
+          "neg": 8,
+          "sqrt": 8,
+          "sub": 4
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "observations_identical": true,
+      "steps": 64,
+      "uncached": {
+        "composition": {
+          "add": 768,
+          "mul": 1024,
+          "neg": 256
+        },
+        "conversion": {
+          "add": 260,
+          "div": 325,
+          "mul": 585,
+          "neg": 130,
+          "sqrt": 130,
+          "sub": 65
+        },
+        "decode": {
+          "add": 37,
+          "div": 8,
+          "mul": 62,
+          "neg": 28,
+          "sub": 2
+        }
+      },
+      "unique_increments": 3
+    }
+  ],
+  "seed": null
+}
