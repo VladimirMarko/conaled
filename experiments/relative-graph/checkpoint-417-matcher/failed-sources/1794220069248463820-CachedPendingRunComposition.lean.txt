@@ -1,0 +1,29 @@
+import CachedLambdaComposition
+/-! Experimental positive pending-value composition at the actual cached fuel.
+See [scope](../../docs/research/relative-cached-acceptance.md). -/
+namespace CachedPendingRunComposition
+open ConLeche ConLeche.Cached CachedTransitionComposition
+set_option maxRecDepth 4000
+set_option maxHeartbeats 1000000
+theorem defn_run (fe : FEnv) (cv : ConstantVal) (value ty vty : Expr) (pos vis : Nat)
+    (u : Level) (s1 s2 s3 out : CState) (ops : CoreFnsI)
+    (hop : coreKnotI .verified (fe.restrictTo vis) checkFuel = ops)
+    (hi : ops.infer 0 cv.type {} = .ok (ty,s1))
+    (hs : opSIxC .verified (fe.restrictTo vis) 0 ty s1 = .ok (u,s2))
+    (hv : ops.infer 0 value s2 = .ok (vty,s3))
+    (he : ops.defeq 0 vty cv.type s3 = .ok (true,out)) :
+    checkPending .verified fe ⟨⟨.defn,cv,value⟩,pos,vis⟩ {} = .ok ((),out) := by
+  have hFuel : checkFuel = 4611686018427387904 := by unfold checkFuel; rfl
+  unfold checkPending
+  dsimp only
+  rw [hFuel]
+  rw [hFuel] at hop
+  rw [hop]
+  refine bind_ok _ _ {} {} out _ _ rfl ?_
+  refine bind_ok _ _ {} s1 out _ _ hi ?_
+  refine bind_ok _ _ s1 s2 out _ _ hs ?_
+  simp only [show ¬ ValueKind.defn = ValueKind.thm by decide, ↓reduceIte]
+  refine bind_ok _ _ s2 s3 out _ _ hv ?_
+  exact bind_ok _ _ s3 out out _ _ he rfl
+end CachedPendingRunComposition
+#audit_graph_module

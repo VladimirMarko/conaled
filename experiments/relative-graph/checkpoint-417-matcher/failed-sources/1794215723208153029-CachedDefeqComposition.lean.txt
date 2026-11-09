@@ -1,0 +1,59 @@
+import CachedInstantiationReduction
+import ConLeche.Verify.Cached.DiscC5
+/-! Experimental exact cached conversion composition for #417.
+See [scope](../../docs/research/relative-cached-acceptance.md). -/
+namespace CachedDefeqComposition
+open ConLeche ConLeche.Cached
+set_option maxRecDepth 4000
+set_option maxHeartbeats 1000000
+theorem beta_body (mode : CheckMode) (r : CoreFnsI) (fe : FEnv) (d : Nat)
+    (a b a' b' : Expr) (s s1 s2 s3 s4 s5 : CState)
+    (hne : (a == b) = false) (hbt : Expr.isBoolTrue b = false)
+    (hq : quickDefEqI mode r d a b s = .ok (none,s1))
+    (hp : propIrrelI r fe d a b s1 = .ok (false,s2))
+    (hl : r.whnfCore true d a s2 = .ok (a',s3))
+    (hr : r.whnfCore true d b s3 = .ok (b',s4))
+    (hq2 : quickDefEqI mode r d a' b' s4 = .ok (some true,s5)) :
+    defeqBodyI mode r fe d a b s = .ok (true,s5) := by
+  simp only [defeqBodyI, hne, Bool.false_eq_true, ↓reduceIte]
+  simp only [bind, StateT.bind, pure, StateT.pure, Except.bind, Except.pure,
+    hbt, Bool.false_and, Bool.false_eq_true, ↓reduceIte, hq, hp, hl, hr, hq2]
+theorem miss (mode : CheckMode) (fe : FEnv) (f d : Nat) (a b : Expr) (s out : CState)
+    (hm : s.defeqC[(a,b)]? = none)
+    (hb : defeqBodyI mode (coreKnotI mode fe f) fe d a b s = .ok (true,out)) :
+    (coreKnotI mode fe (f+1)).defeq d a b s =
+      .ok (true,{out with defeqC := out.defeqC.insert (a,b) true}) := by
+  rw [CachedReductionEquations.defeq]
+  unfold memoBI
+  simp only [bind, StateT.bind, get, getThe, MonadStateOf.get, StateT.get,
+    pure, Except.pure, Except.bind]
+  rw [hm]
+  dsimp only
+  exact CachedTransitionComposition.bind_ok _ _ s out _ _ _ hb rfl
+
+theorem quick_body (mode : CheckMode) (r : CoreFnsI) (fe : FEnv) (d : Nat)
+    (a b : Expr) (s out : CState) (hne : (a == b) = false)
+    (hbt : Expr.isBoolTrue b = false)
+    (hq : quickDefEqI mode r d a b s = .ok (some true,out)) :
+    defeqBodyI mode r fe d a b s = .ok (true,out) := by
+  simp only [defeqBodyI, hne, Bool.false_eq_true, ↓reduceIte]
+  simp only [bind, StateT.bind, pure, StateT.pure, Except.bind, Except.pure,
+    hbt, Bool.false_and, Bool.false_eq_true, ↓reduceIte, hq]
+
+theorem forall_quick (mode : CheckMode) (r : CoreFnsI) (d : Nat)
+    (a b c e b' e' : Expr) (s s1 s2 : CState)
+    (hne : (Expr.forallE a b == Expr.forallE c e) = false)
+    (hd : r.defeq d a c s = .ok (true,s1))
+    (hi1 : inst1M b (.fvar d c) 0 s1 = .ok (b',s1))
+    (hi2 : inst1M e (.fvar d c) 0 s1 = .ok (e',s1))
+    (hb : r.defeq (d+1) b' e' s1 = .ok (true,s2)) :
+    quickDefEqI mode r d (.forallE a b) (.forallE c e) s = .ok (some true,s2) := by
+  simp only [quickDefEqI, hne, Bool.false_eq_true, ↓reduceIte]
+  refine CachedTransitionComposition.bind_ok _ _ s s1 s2 _ _ hd ?_
+  dsimp only
+  refine CachedTransitionComposition.bind_ok _ _ s1 s1 s2 _ _ rfl ?_
+  refine CachedTransitionComposition.bind_ok _ _ s1 s1 s2 _ _ hi1 ?_
+  refine CachedTransitionComposition.bind_ok _ _ s1 s1 s2 _ _ hi2 ?_
+  exact CachedTransitionComposition.bind_ok _ _ s1 s2 s2 _ _ hb rfl
+end CachedDefeqComposition
+#audit_graph_module
