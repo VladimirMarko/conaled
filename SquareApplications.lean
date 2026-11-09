@@ -260,6 +260,8 @@ import Examples.SmoothTorsors
 import Examples.QuotientDescent
 import Examples.DiscreteSmoothMapping
 import Examples.SmoothQuotientArcs
+import Examples.SmoothSourceTransport
+import Examples.ChangingFamilyTails
 import Examples.QuarterTurnArcs
 import Examples.JetScan
 import Examples.MatrixStack

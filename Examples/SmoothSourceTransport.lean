@@ -1,5 +1,6 @@
 import SquareKit.SmoothQuotientSource
 import SquareKit.SmoothQuotientDeformationCocycle
+import SquareKit.SmoothQuotientDeformationRestriction
 import Examples.QuotientDescent
 
 /-! Checked consumers of the retained source proof on smooth quotient
