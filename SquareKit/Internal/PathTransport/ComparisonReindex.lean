@@ -84,6 +84,12 @@ theorem hext {B : Family Γ} (h : A = B) {s : Section A} {t : Section B}
   apply heq_of_eq
   exact Section.ext (eq_of_heq hl) (eq_of_heq hr)
 
+theorem cast_left {B : Family Γ} (h : A = B) (s : Section A) :
+    HEq (cast (congrArg Section h) s).left s.left := by cases h; rfl
+
+theorem cast_right {B : Family Γ} (h : A = B) (s : Section A) :
+    HEq (cast (congrArg Section h) s).right s.right := by cases h; rfl
+
 theorem reindex_id (s : Section A) : HEq (s.reindex (Substitution.id Γ)) s :=
   hext A.reindex_id HEq.rfl HEq.rfl
 

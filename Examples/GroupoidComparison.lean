@@ -1,4 +1,4 @@
-import SquareKit.Internal.PathTransport.ComparisonComprehension
+import SquareKit.Internal.PathTransport.ComparisonProjections
 import Examples.FamilyMapElimination
 
 /-! Noninvertible comparison families retain selected C4 arrows through
@@ -46,5 +46,38 @@ example {Δ : Comparison.Context.{0}} (σ : Comparison.Substitution Δ context)
     (t : Comparison.Section (family.reindex σ)) :
     Comparison.Substitution.comp family.weaken (family.pair σ t) = σ :=
   family.weaken_pair σ t
+
+/-- A noninvertible comparison of complete primitive signatures. -/
+def signature : Comparison.Signature.{0} where
+  base := ⟨@Grpd.of (Discrete Bool × G) Groupoid.ofIsGroupoid,
+    @Grpd.of G Groupoid.ofIsGroupoid, collapse⟩
+  leftFiber := (CategoryTheory.Functor.const _).obj Bool
+  rightFiber := (CategoryTheory.Functor.const _).obj PUnit
+  fiberMap := { app := fun _ => ↾fun _ => PUnit.unit, naturality := fun {_ _} _ => rfl }
+
+def basePoint : Comparison.Section (signature.baseFamily context) := chosenSection
+
+example : ((signature.fiber basePoint).map.app (Discrete.mk PUnit.unit)).obj
+    (Discrete.mk false) = Discrete.mk PUnit.unit := rfl
+example : ((signature.fiber basePoint).map.app (Discrete.mk PUnit.unit)).obj
+    (Discrete.mk true) = Discrete.mk PUnit.unit := rfl
+
+example (g : p ⟶ p) :
+    ((family.identity chosenSection chosenSection).map.app (Discrete.mk PUnit.unit)).obj
+      (Discrete.mk (selected false g)) = Discrete.mk g := rfl
+
+/-- Both projections preserve the independently supplied primitive fibers. -/
+example : (Comparison.leftProjection signature).family (signature.fiber basePoint) =
+    primitiveFiber signature.leftFiber basePoint.left := Comparison.left_fiber signature basePoint
+example : (Comparison.rightProjection signature).family (signature.fiber basePoint) =
+    primitiveFiber signature.rightFiber basePoint.right := Comparison.right_fiber signature basePoint
+
+/-- Source-family conversion commutes with both projections through actual casts. -/
+example {Γ : Comparison.Context.{0}} {A B : Comparison.Family Γ}
+    (h : A = B) (s : Comparison.Section A) :
+    HEq (cast (congrArg Comparison.Section h) s).left s.left := Comparison.Section.cast_left h s
+example {Γ : Comparison.Context.{0}} {A B : Comparison.Family Γ}
+    (h : A = B) (s : Comparison.Section A) :
+    HEq (cast (congrArg Comparison.Section h) s).right s.right := Comparison.Section.cast_right h s
 
 end Examples.GroupoidComparison

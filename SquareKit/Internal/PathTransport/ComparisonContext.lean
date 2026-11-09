@@ -14,7 +14,7 @@ structure Context where
   map : left ⥤ right
 
 /-- A simultaneous substitution preserves the selected comparison strictly. -/
-@[ext] structure Substitution (Δ Γ : Context.{u}) where
+@[ext] structure Substitution (Δ Γ : Context.{u}) : Type (u+1) where
   left : Δ.left ⥤ Γ.left
   right : Δ.right ⥤ Γ.right
   commutes : left ⋙ Γ.map = Δ.map ⋙ right
@@ -65,7 +65,7 @@ end Family
 
 /-- A section includes its two ordinary interpretations and equality of their
 comparison functors. The equality retains the entire arrow action. -/
-@[ext] structure Section {Γ : Context.{u}} (A : Family Γ) where
+@[ext] structure Section {Γ : Context.{u}} (A : Family Γ) : Type (u+1) where
   left : GroupoidModel.Section A.left
   right : GroupoidModel.Section A.right
   commutes : left.familyImage A.map = right.reindex Γ.map

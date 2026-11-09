@@ -66,5 +66,26 @@ theorem variable_pair (A : Family Γ) (σ : Substitution Δ Γ) (t : Section (A.
     ((A.reindex_comp A.weaken (A.pair σ t)).trans (congrArg A.reindex (A.weaken_pair σ t)))
     HEq.rfl HEq.rfl
 
+theorem pair_eta (A : Family Γ) (σ : Substitution Δ A.extend) :
+    A.pair (Substitution.comp A.weaken σ)
+      (cast (congrArg Section (A.reindex_comp A.weaken σ)) (A.variable.reindex σ)) = σ := by
+  apply Substitution.ext
+  · change GroupoidModel.pair A.left (σ.left ⋙ GroupoidModel.weaken A.left)
+      (cast (congrArg Section (A.reindex_comp A.weaken σ)) (A.variable.reindex σ)).left = σ.left
+    rw [eq_of_heq (Section.cast_left (A.reindex_comp A.weaken σ) (A.variable.reindex σ))]
+    fapply CategoryTheory.Functor.ext
+    · intro a; rfl
+    · intro a b f
+      simp only [eqToHom_refl, Category.id_comp, Category.comp_id]
+      rfl
+  · change GroupoidModel.pair A.right (σ.right ⋙ GroupoidModel.weaken A.right)
+      (cast (congrArg Section (A.reindex_comp A.weaken σ)) (A.variable.reindex σ)).right = σ.right
+    rw [eq_of_heq (Section.cast_right (A.reindex_comp A.weaken σ) (A.variable.reindex σ))]
+    fapply CategoryTheory.Functor.ext
+    · intro a; rfl
+    · intro a b f
+      simp only [eqToHom_refl, Category.id_comp, Category.comp_id]
+      rfl
+
 end Family
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison
