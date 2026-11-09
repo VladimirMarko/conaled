@@ -157,22 +157,13 @@ recursion; their ownership remains #200/#36. Native kernels and seeded sampling
 remain available directly. Exact integration acceptance is recorded separately
 by the orchestration.
 
-## Scheduled exploratory successors after the retrospective
+## Exploratory successors after the retrospective
 
-The user approved two bounded investigations. Both are ready for agent work and
-may proceed independently; neither requires a second existing consumer or an
-adapter to the current architecture before investigation.
-
-- [#424: local-universes coherence](https://github.com/VladimirMarko/conaled/issues/424)
-  attempts a concrete weakly stable model and its required hypotheses, comparing
-  the resulting substitution coherence with direct strict construction. It
-  follows #366's unconstructed route; it does not repeat that closed comparison.
-- [#425: modal access with higher identity](https://github.com/VladimirMarko/conaled/issues/425)
-  investigates one dependent construction needing both restricted access and
-  retained higher cells. Separate modal and higher examples do not settle it.
-
-These are research tasks, not adoption decisions or a restart of the broad
-implementation waves. Their reports must distinguish missing constructions
-from impossibility results and propose bounded implementation successors only
-when warranted. #289 owns both, coordinated with #36/#235. Existing paused
-source-transfer and independent-author tests retain their gates.
+The user-approved [#424 local-universes comparison](local-universes-concrete-comparison.md)
+and [#425 joint modal/higher comparison](joint-modal-higher-comparison.md) now
+have concrete paper constructions. The [combined findings](local-universes-modal-higher-results.md)
+record their distinct conclusions and possible formalization successors.
+Neither investigation required a second existing consumer or an adapter to the
+current architecture. Neither report supplies a new Lean framework or a general
+adoption decision. #289 owns the results, coordinated with #36/#235; existing
+source-transfer and independent-author gates remain unchanged.
