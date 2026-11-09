@@ -145,9 +145,11 @@ that the accepted component theorems are false.
    [#289](https://github.com/VladimirMarko/conaled/issues/289) still described [#371](https://github.com/VladimirMarko/conaled/issues/371)/[#386](https://github.com/VladimirMarko/conaled/issues/386)–[#389](https://github.com/VladimirMarko/conaled/issues/389) as unfinished, although the solver was
    accepted. Older lists of unresolved obligations point to [#193](https://github.com/VladimirMarko/conaled/issues/193) as their tracking
    issue although it is closed. This requires reconciliation; it must not be reported as missing
-   mathematics. The earlier recovery of accepted prepared-query code for [#309](https://github.com/VladimirMarko/conaled/issues/309)
-   from a branch that had not reached master is a related reminder that reviews
-   alone do not ensure delivery and discoverability.
+   mathematics. The [recovery of accepted prepared-query code](../completed-work-delivery.md)
+   for [#305](https://github.com/VladimirMarko/conaled/issues/305) and
+   [#306](https://github.com/VladimirMarko/conaled/issues/306) from a branch that had
+   not reached master is a related reminder that reviews alone do not ensure
+   delivery and discoverability.
 
 The [scaling evidence](../dependent-operation-scaling.md),
 [external-consumer assessment](../architecture-scaling-study/orbifold-consumer-assessment.md),
