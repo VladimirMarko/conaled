@@ -1,5 +1,5 @@
 import Applications.Resources.Workload
-import Applications.Optimization.Thinning
+import Applications.Optimization.Choice.Selection
 
 /-! Preparation sees only static data. Query inputs become available afterwards.
 Work is a declared primitive tariff; storage and physical elapsed time are not
@@ -351,7 +351,7 @@ def offlineInput (s : S) (future : List Q) : S × List Q := (s,future)
 
 def select (catalog : List C) (profile : C → Profile S) (req : Requirements)
     (s : S) (objective : C → Nat) : Option C :=
-  Optimization.Thinning.argmin objective (catalog.filter (fun c => decide (Feasible req (profile c) s)))
+  Optimization.Choice.select catalog (fun c => Feasible req (profile c) s) objective
 
 theorem selected (h : select catalog profile req s objective = some c) :
     c ∈ Optimization.minimizers
