@@ -508,6 +508,8 @@ import Examples.ModalAccess
 import Examples.ModalComprehension
 
 import Examples.OpenSystemWiring
+import Examples.WiringApproximation
+import Examples.WiringApproximationControls
 import Examples.AssemblyCertificates
 import Examples.AssemblyPartialMaps
 import Examples.AssemblyLifting
@@ -569,5 +571,7 @@ import Examples.LCATarget
 import Examples.AtlasIsotropy
 import Examples.LocalDisplacement
 import Examples.KineticLegendre
+
+import Examples.BudgetDiskDriver
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

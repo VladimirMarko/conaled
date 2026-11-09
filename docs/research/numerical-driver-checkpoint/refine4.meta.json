@@ -1,0 +1,33 @@
+{
+  "name": "refine4",
+  "returncode": 0,
+  "wall_timeout": false,
+  "wall_seconds": 1.6694893570092972,
+  "max_rss_kib": 4151916,
+  "limits": {
+    "address_space_bytes": 17179869184,
+    "cpu_soft_seconds": 15,
+    "cpu_hard_seconds": 16,
+    "wall_seconds": 25,
+    "output_bytes": 8388608,
+    "lock_wait_seconds": 5
+  },
+  "recorded_command_sanitized": [
+    "direnv",
+    "exec",
+    ".",
+    "lean",
+    "-j",
+    "1",
+    "--run",
+    "scripts/probes/DiskDriverFeasibility.lean",
+    "move",
+    "4",
+    "1",
+    "1024",
+    "32768",
+    "16384",
+    "steps"
+  ],
+  "path_redaction": "Host-dependent checkout, evidence and lock paths removed; numerical arguments unchanged."
+}
