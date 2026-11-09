@@ -7,3 +7,5 @@ The initial checked source checkpoint is `ea574ef`, based on `5f69973bff7697e90e
 Reproduce the final integrated closure with the repository acceptance runner once these modules are included in its manifest. The temporary run-module.py harness is not a portable acceptance receipt. Root owns the fresh audit and independent reviews for the final complete #417 candidate.
 
 The source-binding theorems identify replacement of declaration 12's body or type, or deletion of declaration 11. The missing-helper control retains the exact unresolvedConstsErrorL result because the pinned formatter's partial scanner is opaque to kernel reduction. It proves rejection and supplies the actual position; it does not claim a normalized textual category.
+
+The next checkpoint adds `CachedRejectionsComposition.lean`. All three complete exported error equations are checked conditional on exactly `CachedPending7.accepted`'s local success proposition. This exposes the remaining dependency without admitting it. The separate final wrapper module must discharge it before claiming unconditional controls.

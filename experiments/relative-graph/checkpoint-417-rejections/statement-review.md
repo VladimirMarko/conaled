@@ -13,3 +13,14 @@ Base: `5f69973bff7697e90e077f392c2102e4ba38f385`. The initial checkpoint contain
 All successful module checks execute #audit_graph_module and report only Quot.sound, Classical.choice, propext. Failed attempts are retained individually. An initial unsplit missing-helper kernel join exceeded the 30-second cap and a 90-second attempt also timed out; these are proof-construction limits, not accepted checker executions. The successful split checks in about 2.15 seconds. No fuel, source record or upstream support module was changed to make it pass.
 
 The whole exported checkDecls rejection remains pending until earlier pending-value success, especially record 7, is available. Local and installation certificates alone do not assert that endpoint. Final independent review and full fresh closure audit remain with the enclosing author/root workflow.
+
+## Pending-list and exported-error composition checkpoint
+
+`CachedRejectionsComposition` has one explicitly retained premise: actual local cached success of pending record 7. It is a composition checkpoint, not unconditional acceptance or rejection. All other prefix certificates are applied and checked.
+
+- `skip` and `stop` express the actual `checkPendingList` branches. A successful record continues with fresh memo for the next record; a failed record returns its own recorded position and does not evaluate the tail. Their concrete applications use each modified family's exact pending list.
+- `run_error` connects an actual `InstallRun` from the empty environment and an actual pending-list error to exported `Cached.checkDecls`. It makes no assumption about pure checking or runtime/model agreement.
+- Each `*_checked0` through `*_checked8` (through 7 for the omitted-helper family) uses the original corresponding local success theorem and establishes the modified final environment's exact prefix conditions. The supplied record-7 premise is used only for record 7. The original helper8 certificate is used only when that helper remains present.
+- Each `*_pending` composes those successes and the first malformed emitted record's actual failure; the backward record is installed but its value is unreachable. Each `*_rejected` applies `run_error` to the checked installation. Reported positions are 12 for changed body/type and 11 after omission.
+
+Direct concrete rewriting generated proofs quickly but checking those proof terms exceeded the 30-second cap. Named `skip`, `stop`, and `run_error` remove the costly definitional joins without changing checker fuel, inputs, result, or assumptions. The complete conditional composition module checks in about 1.12 seconds. Its three unconditional wrapper applications remain outside this checkpoint until `CachedPending7.accepted` is available and they compile.
