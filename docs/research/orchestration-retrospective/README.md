@@ -139,19 +139,22 @@ that the accepted component theorems are false.
    were not disproved by the bounded studies. Assigning a tracking issue and a
    trigger for reconsideration does not establish active investigation.
 5. **System-level acquisition and execution.** The remaining questions concern
-   several connections, not an absence of component composition. The
+   three obligations: admitting inputs, connecting component semantics, and
+   executing within a resource budget. Progress on one does not discharge the
+   others. For composition, the
    [#392 research](../categorical-systems-approximate-transport.md) led to the
    [#416 implementation](../approximate-wiring-experiment.md), which derives
    finite-horizon error bounds through actual feedback wiring.
    They do not supply adapters to FRP, numerical motion or probability, nor
    continuous-flow accuracy, roundoff bounds or physical-device correspondence.
-   [Geometry acquisition](../geometry-realization-experiment-results.md) still
+   Input admission is a different connection. [Geometry acquisition](../geometry-realization-experiment-results.md) still
    requires admitted inputs: for example, a certified pose or evidence that a
    matrix lies in the encoding image. The [numerical driver](../budget-disk-driver.md)
    accepts one proved initializer rather than arbitrary packets with an asserted
    error. These are input and interpretation obligations.
 
-   Execution cost is a separate obligation. The [exact-rational measurements](../numerical-driver-checkpoint.md)
+   Even with admitted inputs and a proved semantic comparison, execution cost
+   remains a separate obligation. The [exact-rational measurements](../numerical-driver-checkpoint.md)
    show why: refinement can reduce the certified error budget while rapidly
    growing numerator and denominator sizes. A successful mathematical error
    estimate does not guarantee that the chosen representation will finish within
@@ -202,8 +205,20 @@ a discovery barrier: alternatives need room to demonstrate capabilities absent
 from the current client set. This risk does not establish that the earlier
 infrastructure conditions were a blanket research policy.
 
-These are assessment recommendations, not new tickets or implementation
-authorization. At this assessment snapshot, further implementation scheduling
-for this orchestration was stopped after [#417](https://github.com/VladimirMarko/conaled/issues/417)/[#128](https://github.com/VladimirMarko/conaled/issues/128) closure. The diagnostic
-investigation in [#418](https://github.com/VladimirMarko/conaled/issues/418) and measurement-tooling work in [#195](https://github.com/VladimirMarko/conaled/issues/195) were deferred. The next strategic question is how
-economically a new consumer can discover and compose the available guarantees.
+The subsequent approved follow-ups give these recommendations concrete owners.
+The [complete consumer-path assessment (#428)](https://github.com/VladimirMarko/conaled/issues/428)
+will trace the retained monodromy argument and prioritize existing construction
+issues #419–#422. It does not replace the broader orbifold consumer or its gates.
+The [authoring protocol (#429)](https://github.com/VladimirMarko/conaled/issues/429)
+will measure recurring dependent conversion against direct helpers, coordinating
+#423 with the source and surface studies #115–#117. Protocol preparation does not
+constitute an executed author trial.
+
+The [successor map](../next-assessment-work.md) also tracks the TwoFamily and
+local-universes experiments, a numerical systems adapter, restricted constructive
+model combinations and a historical statement audit. These are scoped tickets,
+not evidence that their obligations have been discharged. #107 remains paused;
+#108's independent fresh-theorem gate and #102/#103's source-transfer conditions
+remain intact. The earlier stop after #417/#128 describes that completed wave;
+new ticket creation does not start another implementation wave. #418 and #195
+retain their separate diagnostic and measurement-tooling scopes.

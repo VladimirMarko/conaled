@@ -87,7 +87,9 @@ into checked evidence, including arbitrary motives, hom-set inverses, naturality
 and repeated substitution. It is not needed to justify the higher-key experiment
 and would not itself answer where local universes outperform direct families.
 
-These are recommendations for #289/#36/#235, not newly scheduled implementation
-waves. The #102/#103 source-transfer gates, #107 pause and #108 independent-author
+The approved successors are [#426](https://github.com/VladimirMarko/conaled/issues/426)
+for the TwoFamily experiment and [#427](https://github.com/VladimirMarko/conaled/issues/427)
+for the weakly stable model study, in that priority order. Their specifications
+are tracked; implementation has not started as part of this scheduling update. The #102/#103 source-transfer gates, #107 pause and #108 independent-author
 test remain unchanged. The component reports give source versions, detailed
 calculations, local-code comparisons and validation boundaries.
