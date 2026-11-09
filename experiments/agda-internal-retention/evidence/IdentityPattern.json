@@ -1,0 +1,1020 @@
+{
+  "sha256": "900fc94f6b312402c20ed61db9334a1075c134d8d7edf540122d5921c90ca884",
+  "header": [
+    14539896013842690882,
+    14232580953055310507,
+    202507030
+  ],
+  "interface": [
+    0,
+    0,
+    0,
+    40,
+    53,
+    5,
+    1,
+    624,
+    1068,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1253,
+    1,
+    1256,
+    1267,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "sourceSha256": "04298fc9593a75d3d82916d081ea83c932015befd70554c9859d754d0045e997",
+  "environment": {
+    "imports": {
+      "node": 40,
+      "words": [
+        17,
+        28,
+        39
+      ]
+    },
+    "metaBindings": {
+      "node": 1,
+      "words": []
+    },
+    "builtins": {
+      "node": 1,
+      "words": []
+    },
+    "filePragmas": {
+      "node": 1256,
+      "words": [
+        1255
+      ]
+    },
+    "optionsUsed": {
+      "node": 1267,
+      "words": [
+        54,
+        1,
+        54,
+        1,
+        1264,
+        1,
+        1,
+        1,
+        1,
+        4,
+        4,
+        1,
+        1,
+        41,
+        1,
+        1,
+        1,
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        54,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        500,
+        1,
+        1,
+        50,
+        54,
+        1,
+        1,
+        1266,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "partialDefs": {
+      "node": 1,
+      "words": []
+    },
+    "opaqueBlocks": {
+      "node": 1,
+      "words": []
+    },
+    "opaqueNames": {
+      "node": 1,
+      "words": []
+    }
+  },
+  "rewriteRules": {
+    "node": 1,
+    "words": []
+  },
+  "declarations": [
+    {
+      "name": "IdentityPattern.forget",
+      "fields": [
+        628,
+        575,
+        1052,
+        58,
+        3,
+        1,
+        1,
+        3,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        54,
+        1,
+        1065
+      ],
+      "defn": [
+        1,
+        1060,
+        1064,
+        55,
+        1,
+        1,
+        54,
+        41,
+        828,
+        54,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 635,
+        "words": [
+          0,
+          1,
+          634
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 1051,
+          "words": [
+            5,
+            1049,
+            1050
+          ]
+        },
+        "termTags": {
+          "Pi": 1,
+          "Def": 1
+        },
+        "references": [
+          "Agda.Builtin.Nat.Nat"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 1,
+        "words": []
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 1059,
+            "words": [
+              1,
+              1,
+              1053,
+              1058,
+              967,
+              969,
+              1,
+              4,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 1057,
+              "words": [
+                1048,
+                1056
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 966,
+              "words": [
+                4,
+                958,
+                1,
+                1
+              ]
+            },
+            "termTags": {
+              "Con": 1
+            },
+            "references": [
+              "Agda.Builtin.Nat.Nat.zero"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 1064,
+        "words": [
+          1063
+        ]
+      },
+      "flags": {
+        "node": 828,
+        "words": [
+          41
+        ]
+      },
+      "terminates": {
+        "node": 54,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    },
+    {
+      "name": "IdentityPattern.identity",
+      "fields": [
+        628,
+        588,
+        909,
+        910,
+        910,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        54,
+        1,
+        1045
+      ],
+      "defn": [
+        1,
+        1044,
+        948,
+        69,
+        1,
+        1,
+        54,
+        41,
+        828,
+        54,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 629,
+        "words": [
+          3,
+          1,
+          0
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 908,
+          "words": [
+            5,
+            890,
+            907
+          ]
+        },
+        "termTags": {
+          "Pi": 3,
+          "Def": 1,
+          "Sort": 1,
+          "Var": 1
+        },
+        "references": [
+          "Agda.Primitive.Level"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 1,
+        "words": []
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 1043,
+            "words": [
+              1,
+              1,
+              916,
+              1042,
+              43,
+              942,
+              1,
+              4,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 918,
+              "words": [
+                793,
+                917
+              ]
+            },
+            {
+              "node": 922,
+              "words": [
+                793,
+                921
+              ]
+            },
+            {
+              "node": 1041,
+              "words": [
+                628,
+                1040
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 4,
+              "words": [
+                0
+              ]
+            },
+            "termTags": {
+              "Var": 1
+            },
+            "references": [],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 948,
+        "words": [
+          947
+        ]
+      },
+      "flags": {
+        "node": 828,
+        "words": [
+          41
+        ]
+      },
+      "terminates": {
+        "node": 54,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    },
+    {
+      "name": "IdentityPattern.predecessor",
+      "fields": [
+        628,
+        613,
+        957,
+        3,
+        54,
+        1,
+        1,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        54,
+        1,
+        1028
+      ],
+      "defn": [
+        1,
+        1009,
+        1020,
+        1027,
+        1,
+        1,
+        54,
+        41,
+        828,
+        54,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 635,
+        "words": [
+          0,
+          1,
+          634
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 956,
+          "words": [
+            5,
+            954,
+            955
+          ]
+        },
+        "termTags": {
+          "Pi": 1,
+          "Def": 1
+        },
+        "references": [
+          "Agda.Builtin.Nat.Nat"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 1,
+        "words": []
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 970,
+            "words": [
+              1,
+              1,
+              1,
+              965,
+              967,
+              969,
+              1,
+              4,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 964,
+              "words": [
+                628,
+                963
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 966,
+              "words": [
+                4,
+                958,
+                1,
+                1
+              ]
+            },
+            "termTags": {
+              "Con": 1
+            },
+            "references": [
+              "Agda.Builtin.Nat.Nat.zero"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        },
+        {
+          "raw": {
+            "node": 1008,
+            "words": [
+              1,
+              1,
+              976,
+              1007,
+              43,
+              969,
+              1,
+              4,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 1006,
+              "words": [
+                628,
+                1005
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 4,
+              "words": [
+                0
+              ]
+            },
+            "termTags": {
+              "Var": 1
+            },
+            "references": [],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 1020,
+        "words": [
+          1019
+        ]
+      },
+      "flags": {
+        "node": 828,
+        "words": [
+          41
+        ]
+      },
+      "terminates": {
+        "node": 54,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    },
+    {
+      "name": "IdentityPattern.opaqueIdentity",
+      "fields": [
+        628,
+        601,
+        909,
+        910,
+        910,
+        1,
+        1,
+        4,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        54,
+        1,
+        950
+      ],
+      "defn": [
+        1,
+        944,
+        948,
+        69,
+        1,
+        1,
+        54,
+        41,
+        949,
+        54,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 629,
+        "words": [
+          3,
+          1,
+          0
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 908,
+          "words": [
+            5,
+            890,
+            907
+          ]
+        },
+        "termTags": {
+          "Pi": 3,
+          "Def": 1,
+          "Sort": 1,
+          "Var": 1
+        },
+        "references": [
+          "Agda.Primitive.Level"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 1,
+        "words": []
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 943,
+            "words": [
+              1,
+              1,
+              916,
+              939,
+              43,
+              942,
+              1,
+              4,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 918,
+              "words": [
+                793,
+                917
+              ]
+            },
+            {
+              "node": 922,
+              "words": [
+                793,
+                921
+              ]
+            },
+            {
+              "node": 938,
+              "words": [
+                628,
+                937
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 4,
+              "words": [
+                0
+              ]
+            },
+            "termTags": {
+              "Var": 1
+            },
+            "references": [],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 948,
+        "words": [
+          947
+        ]
+      },
+      "flags": {
+        "node": 949,
+        "words": [
+          344
+        ]
+      },
+      "terminates": {
+        "node": 54,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    },
+    {
+      "name": "IdentityPattern.J",
+      "fields": [
+        628,
+        561,
+        778,
+        779,
+        780,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        54,
+        1,
+        885
+      ],
+      "defn": [
+        1,
+        865,
+        876,
+        881,
+        1,
+        884,
+        54,
+        41,
+        828,
+        54,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 629,
+        "words": [
+          3,
+          1,
+          0
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 777,
+          "words": [
+            5,
+            638,
+            776
+          ]
+        },
+        "termTags": {
+          "Pi": 10,
+          "Def": 3,
+          "Sort": 2,
+          "Var": 8,
+          "Con": 1
+        },
+        "references": [
+          "Agda.Builtin.Equality._≡_",
+          "Agda.Builtin.Equality._≡_.refl",
+          "Agda.Primitive.Level"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 1,
+        "words": []
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 864,
+            "words": [
+              1,
+              1,
+              792,
+              856,
+              43,
+              863,
+              1,
+              4,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 798,
+              "words": [
+                793,
+                797
+              ]
+            },
+            {
+              "node": 802,
+              "words": [
+                793,
+                801
+              ]
+            },
+            {
+              "node": 806,
+              "words": [
+                793,
+                805
+              ]
+            },
+            {
+              "node": 810,
+              "words": [
+                793,
+                809
+              ]
+            },
+            {
+              "node": 826,
+              "words": [
+                628,
+                825
+              ]
+            },
+            {
+              "node": 842,
+              "words": [
+                628,
+                841
+              ]
+            },
+            {
+              "node": 845,
+              "words": [
+                793,
+                844
+              ]
+            },
+            {
+              "node": 855,
+              "words": [
+                628,
+                854
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 4,
+              "words": [
+                0
+              ]
+            },
+            "termTags": {
+              "Var": 1
+            },
+            "references": [],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 876,
+        "words": [
+          875
+        ]
+      },
+      "flags": {
+        "node": 828,
+        "words": [
+          41
+        ]
+      },
+      "terminates": {
+        "node": 54,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    }
+  ]
+}

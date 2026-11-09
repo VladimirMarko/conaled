@@ -12,6 +12,11 @@ restricted proof fragment and no Agda frontend. An importer would be an
 additional producer of checked objects, not a prerequisite for continuing that
 development.
 
+The subsequent [completed-declaration inspection](agda-internal-retention.md)
+checks the retained Monodromy/FrozenMemo closure and an ordinary probe against
+Agda 2.8.0.2. It records actual saved interfaces, backend erasures and the
+limits of the bounded inspection tool.
+
 ## Which Agda core can preserve the mathematics?
 
 Agda's documented stages distinguish concrete syntax, scoped/desugared

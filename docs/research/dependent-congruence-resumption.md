@@ -86,7 +86,8 @@ The other approved inputs have narrower reuse:
 
 Prefer authoring the known regression through the already adopted guarded
 boundary, while preserving its mathematical recipe and recovering its existing
-consumers. This is a proposal requiring a scope decision, not work already done.
+consumers. The owner approved this bounded migration on 2026-11-09; its implementation is
+not completed by these probes.
 It changes which public interface #108 would test. It does not require a general
 Agda translator, a shared AST, a universal frontend, or retirement of `Typed`.
 
@@ -117,8 +118,8 @@ This preserves #107's mathematical and consumer obligations but would revise
 its implementation-specific requirement to finish the archived `Typed`
 derivation through that interface's existing soundness. The new derivation
 would instead use guarded source judgments and their already constructed
-soundness, with an explicit old-client recovery obligation. That change must
-be decided openly; it cannot be disguised as satisfying the old freeze.
+soundness, with an explicit old-client recovery obligation. The owner approved that change explicitly. It cannot be disguised as
+satisfying the old freeze, and the new freeze still requires all listed work.
 
 The alternative is to retain the original acceptance unchanged and complete
 reusable legacy presentation coherence. Its next obligation is precise:
