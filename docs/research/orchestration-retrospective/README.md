@@ -57,8 +57,9 @@ a proof tree, a probability law, a service history and a higher path are differe
 contracts. Truth or existence can forget distinctions those clients require.
 Conversely, Horn support and the finite-interaction quotient demonstrate useful
 contracts that deliberately forget selections or histories. Preserving maximal
-data is not a universal specification. Equality of representations is also not
-automatically the equality required of their meanings.
+data is not a universal specification. Distinct representations can have equal
+meanings. Consequently, a specification’s equality need not require equality of
+representations.
 
 **Local laws can remove repeated global proofs.** The indexed compiler derives
 whole-term preservation from primitive certificates; constructor/observer laws
