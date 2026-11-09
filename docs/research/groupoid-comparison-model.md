@@ -141,3 +141,21 @@ section, and applies comprehension and reindexing laws. The focused build
 `nix develop --command taskset -c 0,1 lake build Examples.HorizontalComparison`
 passed. Identity-family and primitive-fiber horizontal laws, followed by the
 joint generated closure, remain outstanding at this milestone.
+
+The next checkpoint supplies horizontal primitive-signature and fiber laws in
+`ComparisonHorizontalSignature` and `ComparisonHorizontalFiber`. The fiber law
+uses the composed base section and proves equality of the entire comparison
+family, including its natural transformation. Its hypotheses identify only the
+shared middle context, primitive family and section; they impose no invertibility
+on either comparison. The example composes the Bool-to-unit primitive map and
+checks that its two inputs still have the same output.
+
+`ComparisonDiagonal` constructs identity comparison data and proves its
+comprehension, reindexing, identity-family and primitive-fiber laws. Checked
+applications use the same selected-arrow fixture. These are laws about existing
+comparison records, not a second interpretation model. Statement review checks
+that equality covers the full family map and that the chosen sections appear in
+the identity and fiber statements. The focused
+`nix develop --command taskset -c 0,1 lake build Examples.HorizontalComparison`
+passes with these applications. Joint generated identity/composition closure
+and generated parameter-compatible descent remain outstanding.

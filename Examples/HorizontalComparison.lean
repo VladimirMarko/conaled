@@ -1,5 +1,5 @@
 import Examples.GroupoidComparison
-import SquareKit.Internal.PathTransport.ComparisonHorizontalReindex
+import SquareKit.Internal.PathTransport.ComparisonDiagonal
 
 /-! Horizontal composition retains the chosen arrows of the noninvertible
 comparison fixture and composes its actual compatible section. -/
@@ -42,5 +42,45 @@ example :
         (Substitution.id middle) rfl rfl HEq.rfl HEq.rfl) :=
   family.horizontal_reindex remaining (Substitution.id context)
     (Substitution.id middle) rfl rfl HEq.rfl HEq.rfl
+
+def remainingSignature : Signature.{0} where
+  base := ⟨signature.base.right, signature.base.right, 𝟭 _⟩
+  leftFiber := signature.rightFiber
+  rightFiber := signature.rightFiber
+  fiberMap := 𝟙 _
+
+def remainingPoint : Comparison.Section (remainingSignature.baseFamily middle) where
+  left := basePoint.right
+  right := basePoint.right
+  commutes := SquareKit.Internal.PathTransport.GroupoidModel.Section.familyImage_id _
+
+def compositePoint := signature.horizontal_point remainingSignature rfl HEq.rfl rfl
+  basePoint remainingPoint HEq.rfl
+
+def compositeFiber := (signature.horizontal remainingSignature rfl HEq.rfl).fiber compositePoint
+
+example : compositeFiber = (signature.fiber basePoint).horizontal
+    (remainingSignature.fiber remainingPoint) rfl
+    (signature.horizontal_fiber_middle remainingSignature rfl HEq.rfl rfl
+      basePoint remainingPoint HEq.rfl) :=
+  signature.horizontal_fiber remainingSignature rfl HEq.rfl rfl basePoint remainingPoint HEq.rfl
+
+/-- Composition still sends the two distinct primitive inputs to one output. -/
+example : (compositeFiber.map.app (Discrete.mk PUnit.unit)).obj (Discrete.mk false) =
+    (compositeFiber.map.app (Discrete.mk PUnit.unit)).obj (Discrete.mk true) := rfl
+
+example : (Family.diagonal family.left).extend =
+    Context.diagonal (@Grpd.of (Extend family.left) Groupoid.ofIsGroupoid) :=
+  Family.diagonal_extend family.left
+
+example : (Family.diagonal family.left).identity
+    (Section.diagonal chosenSection.left) (Section.diagonal chosenSection.left) =
+      Family.diagonal (identityFamily family.left chosenSection.left chosenSection.left) :=
+  Family.diagonal_identity family.left chosenSection.left chosenSection.left
+
+example : (Signature.diagonal signature.base.left signature.leftFiber).fiber
+    (Section.diagonal basePoint.left) =
+      Family.diagonal (primitiveFiber signature.leftFiber basePoint.left) :=
+  Signature.diagonal_fiber signature.leftFiber basePoint.left
 
 end Examples.HorizontalComparison
