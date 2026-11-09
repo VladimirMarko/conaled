@@ -490,6 +490,7 @@ import Examples.FiniteExecutionAdapters
 import Examples.DesignatedMapComparison
 import Examples.SmoothOrdinaryComparison
 import Examples.DiskPresentation
+import Examples.FiniteActionPresentation
 
 import Examples.DependentOperationScaling
 import Examples.DependentOperationTrialSpec
@@ -573,5 +574,12 @@ import Examples.LocalDisplacement
 import Examples.KineticLegendre
 
 import Examples.BudgetDiskDriver
+
+import Examples.GuardedLeftAuthoring
+import Examples.GuardedLeftConcatenation
+import Examples.GuardedLeftAssociativity
+import Examples.GuardedLeftTransportComposition
+import SquareKit.Internal.DependentJudgments.TelescopeTransport
+import Examples.ModalHigher
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

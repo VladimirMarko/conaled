@@ -36,3 +36,17 @@ copy of the corresponding source, then check that copy with `lake env lean`.
 The sources remain outside the normal integrated import closure. A successful
 #107 freeze still requires its full mathematical acceptance, integration and
 fresh validation, independent review and a separate unprepared #108 theorem.
+
+## Guarded endpoint diagnostic
+
+After building `SquareKit.Internal.DependentJudgments.LeftAssociativity`, run:
+
+```sh
+direnv exec . lake env lean experiments/dependent-congruence-resumption/GuardedWrongEndpoint.lean.txt
+```
+
+This must fail on `hq`: the caller supplies `q : x = z` where the composable
+triple requires `q : y = z`. `GuardedWrongEndpoint.diagnostic.txt` retains that
+output. This failing source is not an integrated theorem. Successful arbitrary
+callers and the later acceptance boundary are in the
+[guarded repair report](../../docs/research/guarded-dependent-authoring-repair.md).
