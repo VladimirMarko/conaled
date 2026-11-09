@@ -353,3 +353,12 @@ delayed old targeted processing, stalled source, and a growing count consumer.
 The first two expose protocol/observation differences; the last two separate
 progress and resource bounds from semantic preservation. The implementation
 must retain the existing identified lifecycle for clients needing its contract.
+
+## Implemented exclusive adapter
+
+[#236's implementation](exclusive-request-adapter.md) now supplies the bounded
+exclusive-current-request adapter, its command-constructed labelled reference,
+occurrence safety and progress proofs, and retained compiled consumers. The
+proposals above record the assessment that preceded it. The implementation keeps
+its serial admission boundary and does not extend arbitrary identified traces by
+erasure. Query-retention reclamation remains with #237.
