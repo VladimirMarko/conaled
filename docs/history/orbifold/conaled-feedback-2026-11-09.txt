@@ -1,0 +1,377 @@
+Conaled feedback: a reusable finite-action presentation and the Agda bridge
+To: the conaled maintainers and project contributors
+Date: 2026-11-09
+Reviewed revision: cce531c116d10d93306a40a7178de0361df09bec
+Earlier source baseline: d7debd4e0d510a1a5f8d18513a1fb80e69e51410
+
+1. Main request
+
+The most useful next contribution for our constructive Agda orbifold work is
+a generic finite-action version of the external presentation already built
+for the quarter-turn disk: construct the smooth action groupoid with objects
+M and arrows G × M, prove that source and target are local diffeomorphisms,
+and prove Mathlib's exact IsProperMap predicate for the anchor. The inputs
+should expose finite group data, the manifold structure, and the action by
+diffeomorphisms. Neither compactness of M nor effectiveness of the action
+should be required.
+
+This is a request to extract and generalize a successful concrete theorem.
+The existing disk construction supplies real geometric content, and the
+ordinary chart-arrow comparison retains actual arrows and their labels.
+Those results give a strong starting point. We did not identify the generic
+finite-action proper étale construction in the bounded source inspection;
+this is not an assertion that no such result exists anywhere in the project.
+If it is already available under another interface, its exact declaration
+and hypotheses would answer the main request. [2–5]
+
+The external theorem is useful independently of a full higher/cohesive model.
+It gives the Agda work a precise target and separates the finite, smooth,
+topological, and categorical obligations that a constructive translation
+must discharge. A generic joint semantic framework is not a prerequisite
+for this finite-action result.
+
+2. What the inspected implementation already achieves
+
+PrincipalLabelData is a useful explicit-data interface. A locally constant
+label is specified independently; the supplied smooth functions describe
+its fibers through the local nonzero/fiber equivalence. Coverage, local
+compatibility, a glued section, recovery of the specified label, uniqueness,
+independence of the supplied descriptions, restriction naturality, and
+multiplication compatibility are then derived. The record does not assume
+the desired section or its comparison with the existing section. This is
+the right separation between inputs and conclusions. [2]
+
+The remaining classical dependencies are also documented precisely. The
+gluing construction still selects from unique existence, and point
+injectivity still uses analytic refinement machinery. The published axiom
+ledger reports propext, Classical.choice, and Quot.sound for the inspected
+declarations. We have read that ledger, not rerun it. Supplying fiber
+functions is therefore useful interface work; it is not, by itself, a
+constructive port or evidence that the transitive axiom set has decreased.
+[2]
+
+DiskPresentation constructs the actual arrow manifold C4 × Disk. Its source
+and target are (g,x) ↦ x and (g,x) ↦ g • x. It gives fixed-label source
+charts, target charts obtained using the action diffeomorphism, smooth
+unit/inverse/composition maps, coordinates on composable pairs, and the
+comparison with action-groupoid homs. The exported proper_etale theorem
+contains constructed proofs of local diffeomorphism and properness; these
+are not caller-supplied fields. [3]
+
+The properness argument is particularly reusable. The finite label space
+is compact, so projection G × M → M is proper. The anchor is continuous,
+and its composite with the first projection M × M → M is that source
+projection. The Hausdorff intermediate space permits the existing
+isProperMap_of_comp_of_t2 argument. In the disk instance, no compactness of
+the open disk is assumed and no inference from finite stabilizers replaces
+this proof. The predicate is Mathlib's IsProperMap, with its Bourbaki
+cluster-point lifting contract. [3,6]
+
+SmoothDiskPresentation adds more than a pointwise label correspondence.
+Its smoothChartEquiv identifies the actual quotient chart arrows with all
+smooth maps from an admitted ordinary principal-open domain into C4 × Disk
+having the specified source and target. The reverse direction obtains
+local constancy of the label from continuity into the discrete group. Both
+inverse laws retain actual arrows. Identity, composition, inverse, and
+restriction are compared through the real constructions. The quotient
+label and forward action label are inverses, and the generic composition
+law correctly sends an arrow labelled g followed by h to h*g. [4]
+
+The controls are valuable: distinct origin isotropy arrows share anchor
+values; nonzero disk points have trivial stabilizers; the disconnected
+sign-domain arrow has varying labels; ineffective labels remain distinct;
+and the noncommuting S3 example detects reversed multiplication that C4
+would conceal. These should remain clients of the generic extraction. The
+canonical recovery comparison also deserves its stated scope: it treats
+canonical data of global chart objects along the admitted split covers.
+It does not already provide arbitrary change of cover for independently
+supplied descent data or all manifold bases. [4,5]
+
+3. Proposed generic theorem and acceptance criteria
+
+Please expose a construction with the following explicit inputs:
+
+  • A finite group G, with usable finite data such as Fintype G and
+    DecidableEq G, together with its discrete topology. The intended finite
+    interface should expose enumeration and its completeness, rather than
+    leave constructive users only an unspecified finite-existence witness.
+  • A Hausdorff smooth manifold M, with its model, charts, smoothness class,
+    and any additional manifold conventions stated in the signature.
+    Second countability should be explicit if required by the chosen
+    notion of Lie groupoid. M need not be compact.
+  • A group action on M by supplied diffeomorphisms, with the identity and
+    multiplication laws. The action may have a nontrivial kernel.
+
+The desired outputs are concrete objects, maps, and proofs:
+
+  A. Construct G × M with its zero-dimensional label/product manifold
+     structure. Define source, target, units, inverses, and composition.
+     For a left action, use the order
+
+       (g,x) followed by (h,g • x) = (h*g,x).
+
+     Identify composable pairs with (G × G) × M and prove smoothness of the
+     structure maps in those coordinates. Relate these operations to the
+     actual action groupoid and prove both directions of the hom/anchor-
+     fiber equivalence.
+
+  B. Construct the source partial diffeomorphism on each open component
+     {g} × M and the target partial diffeomorphism using the supplied
+     diffeomorphism for g. Derive the two local-diffeomorphism theorems.
+     A record that asks the caller for these conclusions would not supply
+     the requested generalization.
+
+  C. Prove IsProperMap for (g,x) ↦ (x,g • x). Retain the exact Mathlib
+     predicate and show the actual continuity and compact-label arguments.
+     Keep clear which hypotheses give étaleness and which give properness.
+     If a compact-preimage formulation is also exported, supply the
+     comparison theorem and all hypotheses needed for that formulation.
+
+  D. Obtain the existing C4/Disk presentation as a specialization of this
+     construction, with its existing arrow and smooth-family comparison
+     still usable. Keep an ineffective action and the noncommuting label-
+     order control. Neither effectiveness nor anchor injectivity should
+     enter the generic theorem.
+
+  E. Provide the exact declarations, a pinned build result, and a transitive
+     axiom/dependency report for the principal exported theorem and its
+     immediate comparison maps. Explicit finite inputs improve the API;
+     they do not certify the surrounding analytic Lean development as
+     constructive. The report should retain that distinction.
+
+The first deliverable can stop at the generic external presentation and
+the existing disk specialization. General manifold-base quotient-arrow
+comparison, arbitrary descent, Morita invariance, and a complete theorem
+identifying all synthetic orbifolds with classical orbifolds are further
+mathematical tasks. They need not delay this extraction.
+
+4. Why the properness definition matters for the Agda translation
+
+The proposed translation must distinguish external IsProperMap from the
+literal internal Dubuc–Penon predicate used in the current Agda
+formalization. In that formalization, with universe levels fixed, the
+definition is
+
+  DPProper f =
+    (U : Y → hProp) → DPCompact (Subtype U)
+                    → DPCompact (Preimage f U).
+
+The quantification is over ordinary, varying proposition-valued subtypes;
+it is not restricted to crisp subtypes. This follows the stated
+quantifiers of Myers's Definition 6.2.1. Crispness of a groupoid
+presentation does not change those internal quantifiers. [13]
+
+The Agda results in ProperCompactDecisions establish that DP compactness
+decides mere inhabitation. For a set X they consequently give
+
+  DPProper (x ↦ (x,x))  ≃  ((x y : X) → Dec (x = y)).
+
+Thus properness of a diagonal in this literal internal sense is equivalent
+to decidable equality. Under the displayed Kock field and first-order
+Kock–Lawvere hypotheses, the formalized smooth ring has no decidable
+equality, so its diagonal cannot satisfy that predicate. These are
+conditional internal theorems, not a claim about the classical topology of
+the real line. The exact Agda entry points are
+
+  Orbifolds.ProperCompactDecisions.compact-inhabitation-decidable
+  Orbifolds.ProperCompactDecisions.Diagonal.proper-diagonal≃discrete
+  Orbifolds.ProperCompactDecisions.SmoothReals.smooth-real-diagonal-not-DP-proper.
+
+The diagonal argument is explicit: properness supplies compact fibers; the
+fiber over (x,y) is equivalent to the proposition x = y; and compactness of
+a proposition supplies its decision. Conversely, decidable equality makes
+these fibers empty or contractible, and the proved compact-fiber criterion
+supplies properness. No choice of global real points is involved.
+
+This creates a concrete obstruction to a bridge that simultaneously
+preserves the relevant ring and diagonal, validates those synthetic
+axioms, and identifies ordinary classical properness with literal
+DPProper. Comparing compactness only on fixed external manifolds does not
+discharge the stronger varying-subtype condition. The equality-subtype
+warning in Myers's Warning 6.2.20 is relevant to exactly this distinction.
+[13]
+
+The simplest external test is the unit groupoid on the ordinary Hausdorff
+real line. Its source and target are identities, and its anchor is the
+closed diagonal, which is classically proper. This is already a proper
+étale presentation. Restricting to finite actions alone therefore does not
+avoid the comparison problem: the trivial-group action includes this test.
+
+Accordingly, the generic conaled result should keep its external
+IsProperMap conclusion. It should not acquire a claim that finite-action
+properness automatically supplies the internal DPProper hypothesis. A
+successful bridge needs either a proved comparison for a precisely
+restricted class or an explicitly different internal geometric interface.
+The obstruction does not refute the existing conditional internal
+orbifold theorem, and it does not prove that every intended formulation
+of Myers's foundations has no model.
+
+5. Credit for the local-universe and higher work
+
+The more recent documents provide useful mathematical methods. The
+comparison from d7debd4 to cce531c contains seven commits changing 21
+documentation files and no Lean source; the paper constructions in that
+interval should be credited as such. They do not replace or erase the
+substantial previously implemented components. [1]
+
+LocalUniverses.lean has actual Type-valued definitions and proof bodies:
+parameter/fiber/name families, reindexing by changing the name,
+comprehensionEquiv with both inverse laws, the dependent Sigma parameter
+object, Sigma and pair substitution laws including the second dependent
+component, and displayCurry with its inverse laws and naturality. These
+are useful existing results, not a record merely assuming stability. [7]
+
+The new finite-set report goes further on paper: all finite sets and all
+functions, explicit chosen pullbacks and their comparisons, slice
+dependent-product hom-set bijections, and a parameter object for arbitrary
+dependent Sigma elimination. In the sum parameter
+
+  Σ (a : V_A). (E_A(a) → V_B),
+
+the function is essential because the second family is named separately
+at each element of the first fiber. For the eliminator, representing the
+motive and branch and proving their behavior under repeated substitution
+is the useful next obligation. Formation stability alone would not prove
+that term equation. The supplied paper formulas provide a good layout
+for doing this work. [8]
+
+These presentation objects are not an object-language universe or a
+classifier of every admitted type. The finite-set calculation does not
+establish universe closure, resizing, univalence, higher identity, or the
+required hypotheses for a sheaf or higher model. Direct indexed families
+remain a sensible implementation when they already give stable operations;
+local universes are useful where an actual model has weakly stable choices
+that require this extra coherence construction. [7,8,12]
+
+TwoFamilyHigherReindex.lean also contains real higher comparison proofs.
+Its whiskering calculations retain base and fiber 2-cells and their
+boundary transports; reindexHigher constructs the higher functor on total
+contexts and proves its projection square. Those methods are relevant to
+dependent transport, well beyond equality of object maps. [9]
+
+TwoFamilyFullModel.lean deserves equally precise credit. Its fullModel
+calls modelFromContractions with rootContraction and
+rootContraction_square, and fullSigma uses sigmaStable. The caller is not
+asked to provide a contraction or its square. This is a concrete contextual
+J/Sigma assembly from imported providers. We have not re-audited that
+entire imported proof graph or freshly compiled it. Its noncomputable
+Typed.Model interface is not, by that fact alone, an interpretation of the
+Agda project's full Cubical/cohesive source language. [10]
+
+The B²G report supplies a useful further experiment: a dependent family
+with fiber BG in which a base 2-cell g acts by the actual fiber arrow g,
+and key pullback changes the action by a scalar. The total-context
+boundary a = b + d*g and the all-cell pullback calculation detect mistakes
+that selected numerical examples would miss. The distinction between
+base reindexing, which retains the output fiber, and a map between output
+fibers is particularly useful. The Boolean access policy is a stated
+factorization condition; it is not yet the semantics of arbitrary crisp
+contexts or a full multimodal language. [11,12]
+
+6. What a usable semantic bridge still needs
+
+For the Agda project, a semantic bridge must construct the mathematical
+objects and interpret the operations actually used. We need explicit
+context and family interpretations, comprehension, reindexing, identity
+and composition comparison maps, and constructor equations in their
+dependent result fibers. Terms, motives, and branches must survive those
+comparisons. Genuine higher cells must be preserved where the source uses
+them. A set-valued or ordinary-arrow comparison is useful at its stated
+level, but does not settle the higher interpretation.
+
+The remaining source obligations also include the precise meaning of
+crisp contexts and their substitution, the modal operations and their
+interaction with identity, the admitted higher inductive constructions,
+and the internal universes with their size and closure properties. An
+internal uniform rule witness cannot be inferred merely from metatheoretic
+admissibility of isolated rule instances; their correspondence must be
+proved. In particular, a uniform flat/path equivalence must be constructed
+in the proposed setting before it can be used as a premise of an Agda
+transport argument. The bounded access-policy example does not supply it.
+
+We will use the conaled results as mathematical references and independent
+comparison targets. The end-to-end proof and its substantive geometric
+content must still be constructed and checked in Agda. No Lean theorem is
+being inserted as an axiom, and no unverified Lean-to-Agda proof transfer is
+part of the intended trust chain. This makes exact statement boundaries,
+explicit data, and actual comparison maps more useful than an assertion
+that a complete model exists behind an interface.
+
+7. Optional semantic information, separate from the main request
+
+If the conaled higher development already supplies more of the intended
+interface, a concise declaration-level correspondence would be useful:
+
+  • Which source judgments does the existing contextual J/Sigma model
+    interpret, and where are preservation of substitution and the actual
+    eliminator terms proved?
+  • Which existing model, if any, combines that higher interpretation with
+    the smooth site, the relevant crisp/modal rules, and internal universe
+    closure? Please distinguish implemented comparisons from proposed
+    hypotheses or paper constructions.
+  • Is there an intended properness comparison that avoids identifying
+    classical properness with the unrestricted internal DPProper predicate?
+    Its exact quantifiers and treatment of the diagonal would be decisive.
+
+These questions do not ask for another general interface before the
+finite-action theorem can proceed. A small concrete successor to the
+higher paper, if desired independently, would implement its B²G family and
+all-cell key lift using the existing TwoFamily machinery, retaining the
+invalid-boundary and nontrivial-cell controls. A source-level transport
+claim should then evaluate an actual source expression to the constructed
+action, rather than only reproduce the selected arithmetic observation.
+
+8. Review method and pinned primary references
+
+This report is based on the supplied pinned source snapshots and research
+documents. It is source inspection and mathematical assessment. We did
+not refresh the repository HEAD, run a fresh Lean build, rerun #print
+axioms, or audit every transitive import. The implementation claims above
+refer to the actual inspected definition and proof bodies; the document
+claims retain their paper-mathematics status. All links below are pinned
+to the reviewed versions, except the separately versioned Myers paper.
+
+[1] Comparison of the two reviewed conaled revisions:
+https://github.com/VladimirMarko/conaled/compare/d7debd4e0d510a1a5f8d18513a1fb80e69e51410...cce531c116d10d93306a40a7178de0361df09bec
+
+[2] Explicit principal-label data and its dependency ledger:
+https://github.com/VladimirMarko/conaled/blob/d7debd4e0d510a1a5f8d18513a1fb80e69e51410/SquareKit/SmoothConstantComparison.lean
+https://github.com/VladimirMarko/conaled/blob/d7debd4e0d510a1a5f8d18513a1fb80e69e51410/docs/research/ordinary-label-explicit-data.md
+
+[3] Concrete disk proper étale construction:
+https://github.com/VladimirMarko/conaled/blob/d7debd4e0d510a1a5f8d18513a1fb80e69e51410/Applications/Orbifolds/DiskPresentation.lean
+https://github.com/VladimirMarko/conaled/blob/d7debd4e0d510a1a5f8d18513a1fb80e69e51410/docs/research/disk-proper-etale-presentation.md
+
+[4] Exact ordinary smooth-arrow comparison:
+https://github.com/VladimirMarko/conaled/blob/d7debd4e0d510a1a5f8d18513a1fb80e69e51410/SquareKit/SmoothDiskPresentation.lean
+https://github.com/VladimirMarko/conaled/blob/d7debd4e0d510a1a5f8d18513a1fb80e69e51410/SquareKit/SmoothOrdinaryCoverRecovery.lean
+
+[5] Disk, ineffective, disconnected-domain, and label-order controls:
+https://github.com/VladimirMarko/conaled/blob/d7debd4e0d510a1a5f8d18513a1fb80e69e51410/Examples/DiskPresentation.lean
+https://github.com/VladimirMarko/conaled/blob/d7debd4e0d510a1a5f8d18513a1fb80e69e51410/Examples/SmoothOrdinaryComparison.lean
+
+[6] Mathlib proper-map definition at the referenced dependency revision:
+https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Topology/Maps/Proper/Basic.lean
+
+[7] Implemented local-universe families, Sigma laws, and currying:
+https://github.com/VladimirMarko/conaled/blob/cce531c116d10d93306a40a7178de0361df09bec/SquareKit/LocalUniverses.lean
+
+[8] Concrete finite-set local-universe paper construction:
+https://github.com/VladimirMarko/conaled/blob/cce531c116d10d93306a40a7178de0361df09bec/docs/research/local-universes-concrete-comparison.md
+
+[9] Implemented higher reindexing:
+https://github.com/VladimirMarko/conaled/blob/cce531c116d10d93306a40a7178de0361df09bec/SquareKit/Internal/PathTransport/TwoFamilyHigherReindex.lean
+
+[10] Contextual J/Sigma model assembly:
+https://github.com/VladimirMarko/conaled/blob/cce531c116d10d93306a40a7178de0361df09bec/SquareKit/Internal/PathTransport/TwoFamilyFullModel.lean
+
+[11] Joint modal/higher paper construction:
+https://github.com/VladimirMarko/conaled/blob/cce531c116d10d93306a40a7178de0361df09bec/docs/research/joint-modal-higher-comparison.md
+
+[12] Relationship and stated boundaries of the two research reports:
+https://github.com/VladimirMarko/conaled/blob/cce531c116d10d93306a40a7178de0361df09bec/docs/research/local-universes-modal-higher-results.md
+
+[13] Myers, Orbifolds as microlinear types, version 1; see Definition 6.2.1,
+Warning 6.2.20, Definition 6.3.6, and Theorem 6.3.7:
+https://arxiv.org/html/2205.15887v1
+https://arxiv.org/abs/2205.15887v1

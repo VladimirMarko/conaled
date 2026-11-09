@@ -91,3 +91,13 @@ nor #102 closure is a blanket gate on #433. The #103 parent retains both childre
 its execution requirements remain. #195 Phase 1 is available, while its Lean
 migration keeps its interaction-contract prerequisite. #418's diagnostic work is
 eligible for scheduling. These priority choices do not imply a new broad wave.
+
+## Incoming independent-consumer feedback
+
+The [2026-11-09 Agda consumer assessment](myers-feedback-2026-11-09-assessment.md)
+recommends a bounded generic finite-action extraction from the existing disk
+proper étale presentation. This request is independent of a full joint semantic
+model and complements the source-path assessment. The supplied feedback is
+preserved in the repository; its reported internal properness obstruction has
+not been independently replayed here. The extraction is a recommendation pending
+scheduling, not an implemented result or a replacement for #426/#428/#433.
