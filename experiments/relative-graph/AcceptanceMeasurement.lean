@@ -4,6 +4,10 @@ import ArtifactAudit
 through Lean's checked addDecl, with no native acceptance oracle. -/
 open Lean Elab Command Meta
 
+register_option acceptance.measureTreeSize : Bool := {
+  defValue := true
+  descr := "Count expression nodes without sharing; disable for very large duplicated proof trees." }
+
 /-- Optional per-attempt side channel keeps phase markers if the compiler is killed.
 It is diagnostic output and contributes no proof premise. -/
 def recordAcceptanceMeasurement (message : String) : IO Unit := do
@@ -26,7 +30,11 @@ elab "measured_theorem " n:ident " : " ty:term " := " val:term : command => do
   if type.hasSorry || value.hasSorry then
     throwError "Proof generation failed; refusing an admitted declaration"
   let generated ← IO.monoNanosNow
-  liftIO <| recordAcceptanceMeasurement s!"generation_ns={generated-start}; expression_nodes={value.sizeWithoutSharing}"
+  liftIO <| recordAcceptanceMeasurement s!"proof_generated generation_ns={generated-start}"
+  if acceptance.measureTreeSize.get (← getOptions) then
+    liftIO <| recordAcceptanceMeasurement s!"expression_nodes={value.sizeWithoutSharing}"
+  else
+    liftIO <| recordAcceptanceMeasurement "expression_nodes=not_measured"
   (← IO.getStdout).flush
   let name := (← getCurrNamespace) ++ n.getId
   let d := Declaration.thmDecl { name, levelParams := [], type, value }

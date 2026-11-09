@@ -1,0 +1,35 @@
+import CachedInstantiationReduction
+/-! Experimental structural equality equations used by the bounded #417 proofs.
+See [scope](../../docs/research/relative-cached-acceptance.md). -/
+namespace CachedExpressionReduction
+open ConLeche
+@[cbv_eval] theorem bvar_eq (i j : Nat) :
+    Expr.beq (.bvar i) (.bvar j) = (i == j) := by
+  simp only [Expr.beq, Expr.bvar.injEq, beq_iff_eq, decide_and]
+  rfl
+@[cbv_eval] theorem fvar_eq (i j : Nat) (a b : Expr) :
+    Expr.beq (.fvar i a) (.fvar j b) = ((i == j) && Expr.beq a b) := by
+  simp only [Expr.beq, Expr.fvar.injEq, beq_iff_eq, decide_and]
+  rfl
+@[cbv_eval] theorem sort_eq (u v : Level) :
+    Expr.beq (.sort u) (.sort v) = (u == v) := by
+  simp only [Expr.beq, Expr.sort.injEq, beq_iff_eq, decide_and]
+  rfl
+@[cbv_eval] theorem const_eq (n m : Name) (us vs : List Level) :
+    Expr.beq (.const n us) (.const m vs) = ((n == m) && (us == vs)) := by
+  simp only [Expr.beq, Expr.const.injEq, beq_iff_eq, decide_and]
+  rfl
+@[cbv_eval] theorem app_eq (f g a b : Expr) :
+    Expr.beq (.app f a) (.app g b) = (Expr.beq f g && Expr.beq a b) := by
+  simp only [Expr.beq, Expr.app.injEq, beq_iff_eq, decide_and]
+  rfl
+@[cbv_eval] theorem lam_eq (a b c d : Expr) :
+    Expr.beq (.lam a b) (.lam c d) = (Expr.beq a c && Expr.beq b d) := by
+  simp only [Expr.beq, Expr.lam.injEq, beq_iff_eq, decide_and]
+  rfl
+@[cbv_eval] theorem forallE_eq (a b c d : Expr) :
+    Expr.beq (.forallE a b) (.forallE c d) = (Expr.beq a c && Expr.beq b d) := by
+  simp only [Expr.beq, Expr.forallE.injEq, beq_iff_eq, decide_and]
+  rfl
+end CachedExpressionReduction
+#audit_graph_module

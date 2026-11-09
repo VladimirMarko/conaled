@@ -1,0 +1,74 @@
+import CachedPending1Stages
+/-! Experimental cached Eq.symm final conversion for #417.
+See [scope](../../docs/research/relative-cached-acceptance.md). -/
+namespace CachedPending1Equality
+open ConLeche ConLeche.Cached CachedPending1Stages NativeHelper1
+set_option acceptance.measureTreeSize false
+set_option maxRecDepth 100000
+set_option maxHeartbeats 1000000
+set_option cbv.maxSteps 2000000
+set_option pp.deepTerms.threshold 4
+attribute [local cbv_eval] Expr.bvarBRaw_bvar Expr.bvarBRaw_fvar Expr.bvarBRaw_sort Expr.bvarBRaw_const Expr.bvarBRaw_lit Expr.bvarBRaw_app Expr.bvarBRaw_lam Expr.bvarBRaw_forallE Expr.bvarBRaw_letE Expr.bvarBRaw_proj Expr.fvarBRaw_bvar Expr.fvarBRaw_fvar Expr.fvarBRaw_sort Expr.fvarBRaw_const Expr.fvarBRaw_lit Expr.fvarBRaw_app Expr.fvarBRaw_lam Expr.fvarBRaw_forallE Expr.fvarBRaw_letE Expr.fvarBRaw_proj Expr.hasLP_bvar Expr.hasLP_fvar Expr.hasLP_sort Expr.hasLP_const Expr.hasLP_lit Expr.hasLP_app Expr.hasLP_lam Expr.hasLP_forallE Expr.hasLP_letE Expr.hasLP_proj
+attribute [local cbv_eval] whnfLoopI.eq_1 whnfLoopI.eq_2 whnfCoreLoopI.eq_1 whnfCoreLoopI.eq_2
+attribute [local cbv_opaque] coreKnotI mkFEnv
+attribute [local cbv_eval] coreKnotI_infer_succ coreKnotI_whnf_succ coreKnotI_whnfCore_succ
+attribute [local cbv_eval] CachedTransitionComposition.infer_pis_sort
+attribute [local cbv_eval] CachedBinderComposition.pis_app CachedBinderComposition.pis_fvar
+attribute [local cbv_eval] mkFEnv_find? mkFEnv_env coreKnotI_defeq_succ structWalkersC_eq_plain Expr.abstractRangeC_spec Expr.abstract1C_spec
+attribute [local cbv_eval] Expr.instantiateRev_spec Expr.instLevelParams_spec Expr.instantiate1LiftC_spec Expr.getAppArgsC_spec Expr.wscopedBC_spec
+attribute [local cbv_eval] Expr.allLevelParamsDefinedC_spec constsResolveFC_spec constsResolveF_eq
+attribute [local cbv_eval] lazyDeltaReductionI.eq_1 lazyDeltaReductionI.eq_2 lazyDeltaProjReductionI.eq_1 lazyDeltaProjReductionI.eq_2
+attribute [local cbv_eval] whnfAppI.eq_def
+attribute [local cbv_eval] push_mkFEnv
+attribute [local cbv_eval] Expr.instantiate1C_spec Expr.instantiateListC_spec Expr.instSpineC_spec
+def lhs0 := valueType
+def rhs0 := cv.type
+def m0 := valueMemo
+checked_normal_form a0 : Expr := match lhs0 with | .forallE a _ => a | _ => .sort .zero
+checked_normal_form b0 : Expr := match rhs0 with | .forallE a _ => a | _ => .sort .zero
+checked_normal_form dl0 : Expr := match lhs0 with | .forallE _ b => b | _ => .sort .zero
+checked_normal_form dr0 : Expr := match rhs0 with | .forallE _ b => b | _ => .sort .zero
+checked_normal_form dom0 : Except CheckError (Bool × CState) :=
+  (coreKnotI .verified fe 4611686018427387903).defeq 0 a0 b0 m0
+def m1 := (dom0.toOption.map Prod.snd).getD {}
+measured_theorem dom0_ok :
+  (coreKnotI .verified fe 4611686018427387903).defeq 0 a0 b0 m0 = .ok (true,m1) := by rw [dom0_eq]; rfl
+checked_normal_form lhs1 : Expr := dl0.instantiate1 (.fvar 0 b0)
+checked_normal_form rhs1 : Expr := dr0.instantiate1 (.fvar 0 b0)
+checked_normal_form a1 : Expr := match lhs1 with | .forallE a _ => a | _ => .sort .zero
+checked_normal_form b1 : Expr := match rhs1 with | .forallE a _ => a | _ => .sort .zero
+checked_normal_form dl1 : Expr := match lhs1 with | .forallE _ b => b | _ => .sort .zero
+checked_normal_form dr1 : Expr := match rhs1 with | .forallE _ b => b | _ => .sort .zero
+checked_normal_form dom1 : Except CheckError (Bool × CState) :=
+  (coreKnotI .verified fe 4611686018427387902).defeq 1 a1 b1 m1
+def m2 := (dom1.toOption.map Prod.snd).getD {}
+measured_theorem dom1_ok :
+  (coreKnotI .verified fe 4611686018427387902).defeq 1 a1 b1 m1 = .ok (true,m2) := by rw [dom1_eq]; rfl
+checked_normal_form lhs2 : Expr := dl1.instantiate1 (.fvar 1 b1)
+checked_normal_form rhs2 : Expr := dr1.instantiate1 (.fvar 1 b1)
+checked_normal_form a2 : Expr := match lhs2 with | .forallE a _ => a | _ => .sort .zero
+checked_normal_form b2 : Expr := match rhs2 with | .forallE a _ => a | _ => .sort .zero
+checked_normal_form dl2 : Expr := match lhs2 with | .forallE _ b => b | _ => .sort .zero
+checked_normal_form dr2 : Expr := match rhs2 with | .forallE _ b => b | _ => .sort .zero
+checked_normal_form dom2 : Except CheckError (Bool × CState) :=
+  (coreKnotI .verified fe 4611686018427387901).defeq 2 a2 b2 m2
+def m3 := (dom2.toOption.map Prod.snd).getD {}
+measured_theorem dom2_ok :
+  (coreKnotI .verified fe 4611686018427387901).defeq 2 a2 b2 m2 = .ok (true,m3) := by rw [dom2_eq]; rfl
+checked_normal_form lhs3 : Expr := dl2.instantiate1 (.fvar 2 b2)
+checked_normal_form rhs3 : Expr := dr2.instantiate1 (.fvar 2 b2)
+checked_normal_form a3 : Expr := match lhs3 with | .forallE a _ => a | _ => .sort .zero
+checked_normal_form b3 : Expr := match rhs3 with | .forallE a _ => a | _ => .sort .zero
+checked_normal_form dl3 : Expr := match lhs3 with | .forallE _ b => b | _ => .sort .zero
+checked_normal_form dr3 : Expr := match rhs3 with | .forallE _ b => b | _ => .sort .zero
+checked_normal_form dom3 : Except CheckError (Bool × CState) :=
+  (coreKnotI .verified fe 4611686018427387900).defeq 3 a3 b3 m3
+def m4 := (dom3.toOption.map Prod.snd).getD {}
+measured_theorem dom3_ok :
+  (coreKnotI .verified fe 4611686018427387900).defeq 3 a3 b3 m3 = .ok (true,m4) := by rw [dom3_eq]; rfl
+checked_normal_form lhs4 : Expr := dl3.instantiate1 (.fvar 3 b3)
+checked_normal_form rhs4 : Expr := dr3.instantiate1 (.fvar 3 b3)
+checked_normal_form leafRun : Except CheckError (Bool × CState) :=
+  (coreKnotI .verified fe 4611686018427387900).defeq 4 lhs4 rhs4 m4
+end CachedPending1Equality
+#audit_graph_module

@@ -1,0 +1,114 @@
+import CachedExistsInstaller
+import EmittedAcceptance
+/-! Experimental installation of the exact canonical value records for #417.
+See [scope](../../docs/research/relative-cached-acceptance.md). -/
+namespace CachedFamilyInstallation
+open ConLeche ConLeche.Cached
+set_option acceptance.measureTreeSize false
+set_option maxRecDepth 100000
+set_option maxHeartbeats 1000000
+set_option cbv.maxSteps 2000000
+set_option pp.deepTerms.threshold 4
+attribute [local cbv_eval] Expr.bvarBRaw_bvar Expr.bvarBRaw_fvar Expr.bvarBRaw_sort Expr.bvarBRaw_const Expr.bvarBRaw_lit Expr.bvarBRaw_app Expr.bvarBRaw_lam Expr.bvarBRaw_forallE Expr.bvarBRaw_letE Expr.bvarBRaw_proj Expr.fvarBRaw_bvar Expr.fvarBRaw_fvar Expr.fvarBRaw_sort Expr.fvarBRaw_const Expr.fvarBRaw_lit Expr.fvarBRaw_app Expr.fvarBRaw_lam Expr.fvarBRaw_forallE Expr.fvarBRaw_letE Expr.fvarBRaw_proj Expr.hasLP_bvar Expr.hasLP_fvar Expr.hasLP_sort Expr.hasLP_const Expr.hasLP_lit Expr.hasLP_app Expr.hasLP_lam Expr.hasLP_forallE Expr.hasLP_letE Expr.hasLP_proj
+attribute [local cbv_eval] whnfLoopI.eq_1 whnfLoopI.eq_2 whnfCoreLoopI.eq_1 whnfCoreLoopI.eq_2
+attribute [local cbv_opaque] coreKnotI mkFEnv
+attribute [local cbv_eval] coreKnotI_infer_succ coreKnotI_whnf_succ coreKnotI_whnfCore_succ
+attribute [local cbv_eval] CachedTransitionComposition.infer_pis_sort
+attribute [local cbv_eval] CachedBinderComposition.pis_app CachedBinderComposition.pis_fvar
+attribute [local cbv_eval] mkFEnv_find? mkFEnv_env coreKnotI_defeq_succ structWalkersC_eq_plain Expr.abstractRangeC_spec Expr.abstract1C_spec
+attribute [local cbv_eval] Expr.instantiateRev_spec Expr.instLevelParams_spec Expr.instantiate1LiftC_spec Expr.getAppArgsC_spec Expr.wscopedBC_spec
+attribute [local cbv_eval] Expr.allLevelParamsDefinedC_spec constsResolveFC_spec constsResolveF_eq
+attribute [local cbv_eval] push_mkFEnv
+def pc0 : PendingCheck := ⟨⟨.defn, NativeHelper0.cv, NativeHelper0.value⟩,3,9⟩
+measured_theorem step0 : ∀ pend : Array PendingCheck,
+  installDeclStep .verified [] (3,mkFEnv NativeHelper0.before,pend) NativeHelper0.decl =
+    .ok (4,mkFEnv NativeHelper0.after,pend.push pc0) := by
+  intro pend
+  cbv
+def pc1 : PendingCheck := ⟨⟨.thm, NativeHelper1.cv, NativeHelper1.value⟩,4,10⟩
+measured_theorem step1 : ∀ pend : Array PendingCheck,
+  installDeclStep .verified [] (4,mkFEnv NativeHelper1.before,pend) NativeHelper1.decl =
+    .ok (5,mkFEnv NativeHelper1.after,pend.push pc1) := by
+  intro pend
+  cbv
+def pc2 : PendingCheck := ⟨⟨.thm, NativeHelper2.cv, NativeHelper2.value⟩,5,11⟩
+measured_theorem step2 : ∀ pend : Array PendingCheck,
+  installDeclStep .verified [] (5,mkFEnv NativeHelper2.before,pend) NativeHelper2.decl =
+    .ok (6,mkFEnv NativeHelper2.after,pend.push pc2) := by
+  intro pend
+  cbv
+def pc3 : PendingCheck := ⟨⟨.thm, NativeHelper3.cv, NativeHelper3.value⟩,6,12⟩
+measured_theorem step3 : ∀ pend : Array PendingCheck,
+  installDeclStep .verified [] (6,mkFEnv NativeHelper3.before,pend) NativeHelper3.decl =
+    .ok (7,mkFEnv NativeHelper3.after,pend.push pc3) := by
+  intro pend
+  cbv
+def pc4 : PendingCheck := ⟨⟨.thm, NativeHelper4.cv, NativeHelper4.value⟩,7,13⟩
+measured_theorem step4 : ∀ pend : Array PendingCheck,
+  installDeclStep .verified [] (7,mkFEnv NativeHelper4.before,pend) NativeHelper4.decl =
+    .ok (8,mkFEnv NativeHelper4.after,pend.push pc4) := by
+  intro pend
+  cbv
+def pc5 : PendingCheck := ⟨⟨.thm, NativeHelper5.cv, NativeHelper5.value⟩,8,14⟩
+measured_theorem step5 : ∀ pend : Array PendingCheck,
+  installDeclStep .verified [] (8,mkFEnv NativeHelper5.before,pend) NativeHelper5.decl =
+    .ok (9,mkFEnv NativeHelper5.after,pend.push pc5) := by
+  intro pend
+  cbv
+def pc6 : PendingCheck := ⟨⟨.defn, NativeHelper6.cv, NativeHelper6.value⟩,9,15⟩
+measured_theorem step6 : ∀ pend : Array PendingCheck,
+  installDeclStep .verified [] (9,mkFEnv NativeHelper6.before,pend) NativeHelper6.decl =
+    .ok (10,mkFEnv NativeHelper6.after,pend.push pc6) := by
+  intro pend
+  cbv
+def pc7 : PendingCheck := ⟨⟨.defn, NativeHelper7.cv, NativeHelper7.value⟩,10,16⟩
+measured_theorem step7 : ∀ pend : Array PendingCheck,
+  installDeclStep .verified [] (10,mkFEnv NativeHelper7.before,pend) NativeHelper7.decl =
+    .ok (11,mkFEnv NativeHelper7.after,pend.push pc7) := by
+  intro pend
+  cbv
+def pc8 : PendingCheck := ⟨⟨.thm, NativeHelper8.cv, NativeHelper8.value⟩,11,17⟩
+measured_theorem step8 : ∀ pend : Array PendingCheck,
+  installDeclStep .verified [] (11,mkFEnv NativeHelper8.before,pend) NativeHelper8.decl =
+    .ok (12,mkFEnv NativeHelper8.after,pend.push pc8) := by
+  intro pend
+  cbv
+def pc9 : PendingCheck := ⟨⟨.thm, EmittedForwardAcceptance.cv, EmittedForwardAcceptance.value⟩,12,18⟩
+measured_theorem step9 : ∀ pend : Array PendingCheck,
+  installDeclStep .verified [] (12,mkFEnv EmittedForwardAcceptance.before,pend) EmittedForwardAcceptance.decl =
+    .ok (13,mkFEnv EmittedForwardAcceptance.after,pend.push pc9) := by
+  intro pend
+  cbv
+def pc10 : PendingCheck := ⟨⟨.thm, EmittedBackwardAcceptance.cv, EmittedBackwardAcceptance.value⟩,13,19⟩
+measured_theorem step10 : ∀ pend : Array PendingCheck,
+  installDeclStep .verified [] (13,mkFEnv EmittedBackwardAcceptance.before,pend) EmittedBackwardAcceptance.decl =
+    .ok (14,mkFEnv EmittedBackwardAcceptance.after,pend.push pc10) := by
+  intro pend
+  cbv
+def pend : Array PendingCheck := #[pc0, pc1, pc2, pc3, pc4, pc5, pc6, pc7, pc8, pc9, pc10]
+measured_theorem run :
+  InstallRun .verified [] EmittedEnvironment.declarations (0,mkFEnv Env.empty,#[])
+    (14,mkFEnv EmittedEnvironment.environment,pend) := by
+  rw [← EmittedAcceptance.environment_eq]
+  unfold EmittedEnvironment.declarations
+  rw [EmittedAcceptance.helper_list, EmittedAcceptance.graph_list]
+  change InstallRun .verified [] (_ :: _ :: _ :: _) _ _
+  refine .cons AcceptanceStages.equalityInstall ?_
+  refine .cons CachedAndInstaller.install ?_
+  refine .cons CachedExistsInstaller.install ?_
+  refine .cons (step0 _) ?_
+  refine .cons (step1 _) ?_
+  refine .cons (step2 _) ?_
+  refine .cons (step3 _) ?_
+  refine .cons (step4 _) ?_
+  refine .cons (step5 _) ?_
+  refine .cons (step6 _) ?_
+  refine .cons (step7 _) ?_
+  refine .cons (step8 _) ?_
+  refine .cons (step9 _) ?_
+  refine .cons (step10 _) ?_
+  exact .nil _
+def installed : InstalledEnv .verified [] EmittedEnvironment.declarations :=
+  ⟨mkFEnv EmittedEnvironment.environment,pend,⟨14,run⟩⟩
+end CachedFamilyInstallation
+#audit_graph_module
