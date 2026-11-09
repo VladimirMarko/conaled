@@ -42,6 +42,7 @@ import Examples.Uncomputation
 import Examples.ClientSchedules
 import Examples.GuardedStreams
 import Examples.GuardedStreamCompiler
+import Examples.GuardedStreamExecution
 import Examples.CompositionalCoalgebra
 import Examples.EquationTranspose
 import Examples.EquationViews
