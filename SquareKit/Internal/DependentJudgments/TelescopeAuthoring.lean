@@ -344,6 +344,11 @@ def j {a a' x x' t t' d d' b b' : Expression V} (ha : Equal (Ω := Ω) a a')
   Derivation.congruence (T := theory) (Sum.inr Operation.j)
     (Fin.cases ha (Fin.cases hx (Fin.cases ht (Fin.cases hd (Fin.cases hb (fun i => nomatch i))))))
 
+def reflexivity {a a' x x' : Expression V} (ha : Equal (Ω := Ω) a a') (hx : Equal (Ω := Ω) x x') :
+    Equal (Ω := Ω) (Contextual.reflexivity a x) (Contextual.reflexivity a' x') :=
+  binary (Contextual.Equal.reflexivity (.hypothesis List.mem_cons_self)
+    (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))) ha hx
+
 end Equal
 namespace Tm
 def pathSub (hx : Tm (Ω := Ω) Γ A x) (hs : Sub (Ω := Ω) Δ Γ σ) :
@@ -383,6 +388,15 @@ def pathSubEndpoint {p : Expression V} (hx : Tm (Ω := Ω) Γ A x) (hy : Tm (Ω 
     (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))
     (.hypothesis (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ List.mem_cons_self)))
     (.hypothesis (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ List.mem_cons_self))))) hx hy hp hs
+
+def pathFamilySection (hx : Tm (Ω := Ω) Γ A x) (hy : Tm (Ω := Ω) Γ A y) :
+    Equal (Ω := Ω) (subTy (Contextual.pathFamily Γ A x) (sectionSub Γ A y)) (Contextual.identity A x y) :=
+  binary (Contextual.Tm.pathFamilySection (.hypothesis List.mem_cons_self)
+    (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))) hx hy
+def reflSub (hx : Tm (Ω := Ω) Γ A x) (hs : Sub (Ω := Ω) Δ Γ σ) :
+    Equal (Ω := Ω) (subTm (Contextual.reflexivity A x) σ) (Contextual.reflexivity (subTy A σ) (subTm x σ)) :=
+  binary (Contextual.Tm.reflSub (.hypothesis List.mem_cons_self)
+    (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))) hx hs
 
 def jSub (hx : Tm (Ω := Ω) Γ A x) (hT : Tel (Ω := Ω) n (Contextual.path A x) T)
     (hD : Ty (Ω := Ω) (total T) D)
