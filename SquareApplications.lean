@@ -131,6 +131,7 @@ import Examples.AgdaTransferModels
 import Examples.AgdaTransferDiagnostics
 import Examples.PathTransportUniqueness
 import Examples.TypedPathTransport
+import Examples.SignatureInterpretationMaps
 import Examples.GroupoidTransport
 import Examples.GroupoidRoutes
 import Examples.FiniteUniverse
