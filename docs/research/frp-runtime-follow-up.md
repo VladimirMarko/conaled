@@ -195,3 +195,11 @@ composed clients without IDs or growing histories. Its uniform space theorem is
 for an explicit circuit arena model; host allocation, reclamation and IO remain
 trusted. The frontier driver and unrestricted lifecycle do not inherit this
 bound. #234's implementation record states those distinct contracts and limits.
+
+## Exclusive repeated requests
+
+The [exclusive-request adapter](exclusive-request-adapter.md) implements #236's
+optional serial protocol without runtime request identifiers. It retains source
+and compiled-consumer state, proves a constructed identified-reference comparison,
+and preserves conditional delivery. It does not provide stale-message rejection
+for arbitrary callbacks or the retention/resource contract of #237.
