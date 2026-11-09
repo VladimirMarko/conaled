@@ -96,7 +96,7 @@ def reproduce(lean, source, output, rows, commands, started):
     store = next((p for p in [cc, *cc.parents] if p.parent == Path('/nix/store')), None)
     if store is None:
         raise RuntimeError('Native C compiler must come from the pinned Nix shell')
-    run('native-nix-closure-before', ['nix', 'path-info', '--json', '--recursive', store])
+    run('native-nix-closure-before', ['nix', 'path-info', '--json', '--json-format', '1', '--recursive', store])
     nix_before = json.loads((commands.directory / 'native-nix-closure-before.log').read_text())
     native = {'compiler_files': identities, 'cc': str(cc), 'leanc': str(leanc),
               'nix_compiler_closure': nix_before,
@@ -147,7 +147,7 @@ def reproduce(lean, source, output, rows, commands, started):
         raise RuntimeError('Native executable changed during observation')
     if any(digest(p) != h for p, h in {**identities, **runtime}.items()):
         raise RuntimeError('Native compiler/runtime changed during reproduction')
-    run('native-nix-closure-after', ['nix', 'path-info', '--json', '--recursive', store])
+    run('native-nix-closure-after', ['nix', 'path-info', '--json', '--json-format', '1', '--recursive', store])
     if json.loads((commands.directory / 'native-nix-closure-after.log').read_text()) != nix_before:
         raise RuntimeError('Nix compiler closure changed during reproduction')
     native['observations'] = observations
