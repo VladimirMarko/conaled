@@ -128,4 +128,14 @@ theorem plusBranch_unique (h : ℝ) (x : ℂ) (hh : 0 < h) (hx : Complex.normSq 
     (hq : q ∈ (plusBranch h x hh hx).source) (he : legendrePlus h p = legendrePlus h q) :
     p = q := (plusBranch h x hh hx).injOn hp hq he
 
+theorem minus_inverse_smooth (h : ℝ) (x : ℂ) (hh : 0 < h) (hx : Complex.normSq x < 1) :
+    ContDiffAt ℝ ∞ (minusBranch h x hh hx).symm (legendreMinus h (x,x)) :=
+  (minus_smooth h x (ne_of_gt hh) (ne_of_gt (sub_pos.mpr hx))).to_localInverse
+    (minus_derivative h x (ne_of_gt hh) (ne_of_gt (sub_pos.mpr hx))) (by simp)
+
+theorem plus_inverse_smooth (h : ℝ) (x : ℂ) (hh : 0 < h) (hx : Complex.normSq x < 1) :
+    ContDiffAt ℝ ∞ (plusBranch h x hh hx).symm (legendrePlus h (x,x)) :=
+  (plus_smooth h x (ne_of_gt hh) (ne_of_gt (sub_pos.mpr hx))).to_localInverse
+    (plus_derivative h x (ne_of_gt hh) (ne_of_gt (sub_pos.mpr hx))) (by simp)
+
 end Orbifold.Kinetic

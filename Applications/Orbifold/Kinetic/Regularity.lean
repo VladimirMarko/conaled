@@ -79,4 +79,15 @@ theorem d2_joint_diagonal (h : ℝ) (x : ℂ) (hh : h ≠ 0) (hg : gap x ≠ 0) 
     intro p
     simp [diagonalScale,deltaLinear,covector,ContinuousLinearMap.comp_apply]
 
+/-- This is the derivative of the already proved first partial, not a stipulated Hessian. -/
+theorem mixed_hessian (h : ℝ) (x : ℂ) (hh : h ≠ 0) (hg : gap x ≠ 0) :
+    HasFDerivAt (fun y => d1 h x y)
+      (-(4/(h*gap x^2)) • ContinuousLinearMap.id ℝ ℂ) x := by
+  have H := (d1_joint_diagonal h x hh hg).comp x
+    ((hasFDerivAt_const (𝕜 := ℝ) x x).prodMk (hasFDerivAt_id (𝕜 := ℝ) x))
+  convert H using 1
+  · rfl
+  · ext v
+    simp [diagonalScale,deltaLinear]
+
 end Orbifold.Kinetic

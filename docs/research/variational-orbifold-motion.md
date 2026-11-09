@@ -3,9 +3,12 @@
 This report completes the research deliverable for #311. Its recommendation is
 **investigate a separate mechanical client**: free inertial motion on the
 hyperbolic disk modulo quarter turns, discretized upstairs and descended with
-explicit symmetry. The mathematical calculations below are not Lean theorems.
-The existing timed-command and numerical implementations remain unchanged.
-Independent acceptance of this report is pending.
+explicit symmetry. The calculations below record the research derivation. The bounded #414
+[kinetic and Legendre implementation](disk-kinetic-legendre-laws.md) now checks
+the specified continuous equation, midpoint derivatives and local inverse
+branches, exact diameter action, and rejecting controls in Lean. Further claims
+in this report retain their stated research status. The existing timed-command
+and numerical implementations remain unchanged.
 
 ## Physical question and state
 

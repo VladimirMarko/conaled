@@ -47,4 +47,14 @@ theorem quartic_unique_recurrence (x y z : ℝ) :
 example (x : ℝ) : HasDerivAt (fun z => -4*(z-x)^3) 0 x := by
   simpa using quartic_mixed x x
 
+theorem quartic_mixed_not_invertible (x : ℝ) :
+    ¬ ∃ e : ℝ ≃L[ℝ] ℝ, HasFDerivAt (fun y => -4*(y-x)^3) (e : ℝ →L[ℝ] ℝ) x := by
+  rintro ⟨e,he⟩
+  have hz : HasDerivAt (fun y => -4*(y-x)^3) 0 x := by simpa using quartic_mixed x x
+  have heq := he.unique hz.hasFDerivAt
+  have h1 := congrArg (fun f : ℝ →L[ℝ] ℝ => f 1) heq
+  have hzero : e 1 = e 0 := by simpa using h1
+  have := e.injective hzero
+  norm_num at this
+
 end Orbifold.Kinetic
