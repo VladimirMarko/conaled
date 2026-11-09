@@ -1,0 +1,636 @@
+{
+  "sha256": "4ba7f98384f2a3e40679186572cea4abef9ca4a77bda20624b7a4e77e84f5920",
+  "header": [
+    4514087598122999849,
+    8033465887204789085,
+    202507030
+  ],
+  "interface": [
+    0,
+    0,
+    0,
+    84,
+    126,
+    5,
+    1,
+    9605,
+    11228,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    11736,
+    11739,
+    1,
+    11742,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "sourceSha256": "70cf63840e63fcac222198001996be83e50149e6f0089de7c68618899fedbaaf",
+  "environment": {
+    "imports": {
+      "node": 84,
+      "words": [
+        17,
+        28,
+        39,
+        50,
+        61,
+        72,
+        83
+      ]
+    },
+    "metaBindings": {
+      "node": 1,
+      "words": []
+    },
+    "builtins": {
+      "node": 1,
+      "words": []
+    },
+    "filePragmas": {
+      "node": 1,
+      "words": []
+    },
+    "optionsUsed": {
+      "node": 11742,
+      "words": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        100,
+        87,
+        87,
+        1,
+        1,
+        85,
+        1,
+        1,
+        1,
+        87,
+        100,
+        1,
+        1,
+        1,
+        1,
+        100,
+        100,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        87,
+        1,
+        1,
+        88,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        500,
+        1,
+        1,
+        50,
+        100,
+        1,
+        1,
+        11741,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        87,
+        1,
+        87,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "partialDefs": {
+      "node": 1,
+      "words": []
+    },
+    "opaqueBlocks": {
+      "node": 1,
+      "words": []
+    },
+    "opaqueNames": {
+      "node": 1,
+      "words": []
+    }
+  },
+  "rewriteRules": {
+    "node": 1,
+    "words": []
+  },
+  "declarations": [
+    {
+      "name": "Cubical.Data.Equality.S1.loop",
+      "fields": [
+        6131,
+        7567,
+        11128,
+        1,
+        1,
+        1,
+        1,
+        13,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        100,
+        9617,
+        11140
+      ],
+      "defn": [
+        1,
+        11135,
+        11139,
+        88,
+        1,
+        1,
+        100,
+        85,
+        1050,
+        100,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 9613,
+        "words": [
+          0,
+          1,
+          9612
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 9912,
+          "words": [
+            3,
+            6296,
+            9911
+          ]
+        },
+        "termTags": {
+          "Def": 2,
+          "Level": 1,
+          "Con": 1
+        },
+        "references": [
+          "Agda.Builtin.Equality._≡_",
+          "Cubical.HITs.S1.Base.S¹",
+          "Cubical.HITs.S1.Base.S¹.base"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 9617,
+        "words": [
+          1,
+          87
+        ]
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 11134,
+            "words": [
+              1,
+              1,
+              1,
+              1,
+              11131,
+              11133,
+              1,
+              87,
+              87,
+              1,
+              1
+            ]
+          },
+          "patterns": [],
+          "body": {
+            "root": {
+              "node": 11130,
+              "words": [
+                3,
+                5520,
+                11129
+              ]
+            },
+            "termTags": {
+              "Def": 2,
+              "Level": 1,
+              "Con": 2
+            },
+            "references": [
+              "Cubical.Data.Equality.Conversion.pathToEq",
+              "Cubical.HITs.S1.Base.S¹",
+              "Cubical.HITs.S1.Base.S¹.base",
+              "Cubical.HITs.S1.Base.S¹.loop"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 11139,
+        "words": [
+          11138
+        ]
+      },
+      "flags": {
+        "node": 1050,
+        "words": [
+          85
+        ]
+      },
+      "terminates": {
+        "node": 100,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    },
+    {
+      "name": "Cubical.Data.Equality.S1.Cover",
+      "fields": [
+        6131,
+        7471,
+        10665,
+        3,
+        100,
+        1,
+        1,
+        39,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        100,
+        9617,
+        10711
+      ],
+      "defn": [
+        1,
+        10690,
+        10710,
+        101,
+        1,
+        1,
+        100,
+        85,
+        1050,
+        100,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 9908,
+        "words": [
+          0,
+          1,
+          6144
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 10664,
+          "words": [
+            5,
+            9660,
+            10663
+          ]
+        },
+        "termTags": {
+          "Pi": 1,
+          "Def": 1,
+          "Sort": 1
+        },
+        "references": [
+          "Cubical.HITs.S1.Base.S¹"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 9617,
+        "words": [
+          1,
+          87
+        ]
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 10689,
+            "words": [
+              1,
+              1,
+              1,
+              1,
+              10686,
+              10688,
+              1,
+              87,
+              87,
+              1,
+              1
+            ]
+          },
+          "patterns": [],
+          "body": {
+            "root": {
+              "node": 10685,
+              "words": [
+                3,
+                7535,
+                10684
+              ]
+            },
+            "termTags": {
+              "Def": 4,
+              "Level": 1,
+              "Sort": 1
+            },
+            "references": [
+              "Cubical.Data.Equality.Conversion.pathToEq",
+              "Cubical.Data.Equality.S1.S¹-rec",
+              "Cubical.Data.Int.Base.ℤ",
+              "Cubical.Data.Int.Properties.sucPathℤ"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 10710,
+        "words": [
+          10709
+        ]
+      },
+      "flags": {
+        "node": 1050,
+        "words": [
+          85
+        ]
+      },
+      "terminates": {
+        "node": 100,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    },
+    {
+      "name": "Cubical.Data.Equality.S1.S¹-rec",
+      "fields": [
+        6131,
+        7535,
+        9676,
+        9677,
+        9678,
+        1,
+        1,
+        14,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        100,
+        9617,
+        9791
+      ],
+      "defn": [
+        1,
+        9756,
+        9790,
+        178,
+        1,
+        1,
+        100,
+        85,
+        1050,
+        100,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 9607,
+        "words": [
+          3,
+          1,
+          0
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 9675,
+          "words": [
+            5,
+            9616,
+            9674
+          ]
+        },
+        "termTags": {
+          "Pi": 5,
+          "Def": 3,
+          "Sort": 1,
+          "Var": 3
+        },
+        "references": [
+          "Agda.Builtin.Equality._≡_",
+          "Agda.Primitive.Level",
+          "Cubical.HITs.S1.Base.S¹"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 9617,
+        "words": [
+          1,
+          87
+        ]
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 9755,
+            "words": [
+              1,
+              1,
+              9686,
+              9728,
+              9743,
+              9754,
+              1,
+              87,
+              87,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 9691,
+              "words": [
+                9687,
+                9690
+              ]
+            },
+            {
+              "node": 9695,
+              "words": [
+                9687,
+                9694
+              ]
+            },
+            {
+              "node": 9711,
+              "words": [
+                6131,
+                9710
+              ]
+            },
+            {
+              "node": 9727,
+              "words": [
+                6131,
+                9726
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 9742,
+              "words": [
+                3,
+                3556,
+                9741
+              ]
+            },
+            "termTags": {
+              "Def": 2,
+              "Var": 4
+            },
+            "references": [
+              "Cubical.Data.Equality.Conversion.eqToPath",
+              "Cubical.HITs.S1.Properties.rec"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 9790,
+        "words": [
+          9789
+        ]
+      },
+      "flags": {
+        "node": 1050,
+        "words": [
+          85
+        ]
+      },
+      "terminates": {
+        "node": 100,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    }
+  ]
+}

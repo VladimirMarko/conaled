@@ -1,0 +1,11 @@
+var agdaRTS = require("agda-rts");
+
+var z_jAgda_Agda_Builtin_Equality = require("jAgda.Agda.Builtin.Equality");
+var z_jAgda_Agda_Builtin_Nat = require("jAgda.Agda.Builtin.Nat");
+var z_jAgda_Agda_Primitive = require("jAgda.Agda.Primitive");
+
+exports["identity"] = a => b => c => c;
+exports["J"] = a => b => c => d => e => f => g => h => f;
+exports["predecessor"] = a => agdaRTS.uprimIntegerEqual(agdaRTS.primIntegerFromString("0"),a)? agdaRTS.primIntegerFromString("0"): agdaRTS.uprimIntegerMinus(a,agdaRTS.primIntegerFromString("1"));
+exports["forget"] = a => agdaRTS.primIntegerFromString("0");
+exports["opaqueIdentity"] = a => b => c => c;

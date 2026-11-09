@@ -1,0 +1,1415 @@
+{
+  "sha256": "ffc1a3ea6e68b7a9b5ab285fcfaf14511c66802d967da24a301e17a9d3e99830",
+  "header": [
+    18086829036774880275,
+    7535663696592510154,
+    202507030
+  ],
+  "interface": [
+    0,
+    0,
+    0,
+    58,
+    70,
+    5,
+    1,
+    5564,
+    7675,
+    1,
+    7914,
+    1,
+    1,
+    1,
+    1,
+    8118,
+    8121,
+    8121,
+    8124,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "sourceSha256": "bbca6eabc7d35040fd5bb1fcc84f49c12ddfcfb90ffc2edb6d922a8c6e622aa3",
+  "environment": {
+    "imports": {
+      "node": 58,
+      "words": [
+        17,
+        28,
+        39,
+        50,
+        57
+      ]
+    },
+    "metaBindings": {
+      "node": 1,
+      "words": []
+    },
+    "builtins": {
+      "node": 1,
+      "words": []
+    },
+    "filePragmas": {
+      "node": 8121,
+      "words": [
+        8120
+      ]
+    },
+    "optionsUsed": {
+      "node": 8124,
+      "words": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        71,
+        4,
+        4,
+        1,
+        1,
+        59,
+        1,
+        1,
+        1,
+        4,
+        71,
+        1,
+        1,
+        1,
+        1,
+        71,
+        71,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4,
+        1,
+        1,
+        25,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        500,
+        1,
+        1,
+        50,
+        71,
+        1,
+        1,
+        8123,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "partialDefs": {
+      "node": 1,
+      "words": []
+    },
+    "opaqueBlocks": {
+      "node": 1,
+      "words": []
+    },
+    "opaqueNames": {
+      "node": 1,
+      "words": []
+    }
+  },
+  "rewriteRules": {
+    "node": 1,
+    "words": []
+  },
+  "declarations": [
+    {
+      "name": "Monodromy.step",
+      "fields": [
+        4500,
+        4774,
+        7640,
+        3,
+        3,
+        1,
+        1,
+        49,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        71,
+        5598,
+        7661
+      ],
+      "defn": [
+        1,
+        7658,
+        7660,
+        72,
+        1,
+        1,
+        71,
+        59,
+        5905,
+        71,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 5566,
+        "words": [
+          0,
+          1,
+          5565
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 7639,
+          "words": [
+            5,
+            5715,
+            7638
+          ]
+        },
+        "termTags": {
+          "Pi": 1,
+          "Def": 7,
+          "Level": 1,
+          "Con": 1,
+          "Var": 1
+        },
+        "references": [
+          "Agda.Builtin.Equality._≡_",
+          "Cubical.Data.Equality.Base.transport",
+          "Cubical.Data.Equality.S1.Cover",
+          "Cubical.Data.Int.Base.sucℤ",
+          "Cubical.Data.Int.Base.ℤ",
+          "Cubical.HITs.S1.Base.S¹",
+          "Cubical.HITs.S1.Base.S¹.base",
+          "Monodromy.circle-loop"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 5598,
+        "words": [
+          1,
+          4
+        ]
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 7657,
+            "words": [
+              1,
+              1,
+              5747,
+              7653,
+              7654,
+              7656,
+              1,
+              4,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [
+            {
+              "node": 7652,
+              "words": [
+                4500,
+                7651
+              ]
+            }
+          ],
+          "body": {
+            "root": {
+              "node": 6304,
+              "words": [
+                4,
+                6303,
+                1,
+                1
+              ]
+            },
+            "termTags": {
+              "Con": 1
+            },
+            "references": [
+              "Agda.Builtin.Equality._≡_.refl"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 7660,
+        "words": [
+          7659
+        ]
+      },
+      "flags": {
+        "node": 5905,
+        "words": [
+          3840
+        ]
+      },
+      "terminates": {
+        "node": 71,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    },
+    {
+      "name": "Monodromy.circle-loop",
+      "fields": [
+        4500,
+        4737,
+        7462,
+        1,
+        1,
+        1,
+        1,
+        48,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        71,
+        5598,
+        7471
+      ],
+      "defn": [
+        1,
+        7468,
+        7470,
+        25,
+        1,
+        1,
+        71,
+        59,
+        5905,
+        71,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 5566,
+        "words": [
+          0,
+          1,
+          5565
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 7461,
+          "words": [
+            3,
+            3950,
+            7460
+          ]
+        },
+        "termTags": {
+          "Def": 2,
+          "Level": 1,
+          "Con": 1
+        },
+        "references": [
+          "Agda.Builtin.Equality._≡_",
+          "Cubical.HITs.S1.Base.S¹",
+          "Cubical.HITs.S1.Base.S¹.base"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 5598,
+        "words": [
+          1,
+          4
+        ]
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 7467,
+            "words": [
+              1,
+              1,
+              1,
+              1,
+              7464,
+              7466,
+              1,
+              4,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [],
+          "body": {
+            "root": {
+              "node": 7463,
+              "words": [
+                3,
+                4401,
+                1
+              ]
+            },
+            "termTags": {
+              "Def": 1
+            },
+            "references": [
+              "Cubical.Data.Equality.S1.loop"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 7470,
+        "words": [
+          7469
+        ]
+      },
+      "flags": {
+        "node": 5905,
+        "words": [
+          3840
+        ]
+      },
+      "terminates": {
+        "node": 71,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    },
+    {
+      "name": "Monodromy.transport-two",
+      "fields": [
+        4500,
+        4801,
+        7448,
+        1,
+        1,
+        1,
+        1,
+        54,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        71,
+        5598,
+        7458
+      ],
+      "defn": [
+        1,
+        7454,
+        7457,
+        25,
+        1,
+        1,
+        71,
+        59,
+        948,
+        71,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 5566,
+        "words": [
+          0,
+          1,
+          5565
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 7447,
+          "words": [
+            3,
+            3950,
+            7446
+          ]
+        },
+        "termTags": {
+          "Def": 4,
+          "Level": 1,
+          "Con": 1,
+          "Lit": 1
+        },
+        "references": [
+          "Agda.Builtin.Equality._≡_",
+          "Agda.Builtin.Sigma.Σ.fst",
+          "Cubical.Data.Int.Base.ℤ",
+          "Cubical.Data.Int.Base.ℤ.pos",
+          "Monodromy.M.second-w",
+          "Monodromy.erased-input"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 5598,
+        "words": [
+          1,
+          4
+        ]
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 7453,
+            "words": [
+              1,
+              1,
+              1,
+              1,
+              7450,
+              7452,
+              1,
+              4,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [],
+          "body": {
+            "root": {
+              "node": 7449,
+              "words": [
+                3,
+                4827,
+                6648
+              ]
+            },
+            "termTags": {
+              "Def": 1,
+              "Con": 1,
+              "Lit": 1
+            },
+            "references": [
+              "Cubical.Data.Int.Base.ℤ.pos",
+              "Monodromy.two-steps"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 7457,
+        "words": [
+          7456
+        ]
+      },
+      "flags": {
+        "node": 948,
+        "words": [
+          59
+        ]
+      },
+      "terminates": {
+        "node": 71,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    },
+    {
+      "name": "Monodromy.input",
+      "fields": [
+        4500,
+        4761,
+        6294,
+        1,
+        1,
+        1,
+        1,
+        50,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        71,
+        5598,
+        6822
+      ],
+      "defn": [
+        1,
+        6817,
+        6821,
+        25,
+        1,
+        1,
+        71,
+        59,
+        948,
+        71,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 5566,
+        "words": [
+          0,
+          1,
+          5565
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 6293,
+          "words": [
+            3,
+            4962,
+            1
+          ]
+        },
+        "termTags": {
+          "Def": 1
+        },
+        "references": [
+          "Monodromy.M.Θ"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 5598,
+        "words": [
+          1,
+          4
+        ]
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 6816,
+            "words": [
+              1,
+              1,
+              1,
+              1,
+              6815,
+              6328,
+              1,
+              4,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [],
+          "body": {
+            "root": {
+              "node": 6814,
+              "words": [
+                4,
+                6302,
+                1,
+                6813
+              ]
+            },
+            "termTags": {
+              "Con": 4,
+              "Def": 3,
+              "Level": 1,
+              "Lit": 1
+            },
+            "references": [
+              "Agda.Builtin.Equality._≡_.refl",
+              "Cubical.Data.Equality.Base._∙_",
+              "Cubical.Data.Int.Base.ℤ.pos",
+              "Cubical.HITs.S1.Base.S¹",
+              "Cubical.HITs.S1.Base.S¹.base",
+              "Monodromy.M.theta",
+              "Monodromy.circle-loop"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 6821,
+        "words": [
+          6820
+        ]
+      },
+      "flags": {
+        "node": 948,
+        "words": [
+          59
+        ]
+      },
+      "terminates": {
+        "node": 71,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    },
+    {
+      "name": "Monodromy.transport-three",
+      "fields": [
+        4500,
+        4787,
+        6645,
+        1,
+        1,
+        1,
+        1,
+        53,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        71,
+        5598,
+        6744
+      ],
+      "defn": [
+        1,
+        6694,
+        6743,
+        25,
+        1,
+        1,
+        71,
+        59,
+        948,
+        71,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 5566,
+        "words": [
+          0,
+          1,
+          5565
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 6644,
+          "words": [
+            3,
+            3950,
+            6643
+          ]
+        },
+        "termTags": {
+          "Def": 4,
+          "Level": 1,
+          "Con": 1,
+          "Lit": 1
+        },
+        "references": [
+          "Agda.Builtin.Equality._≡_",
+          "Agda.Builtin.Sigma.Σ.fst",
+          "Cubical.Data.Int.Base.ℤ",
+          "Cubical.Data.Int.Base.ℤ.pos",
+          "Monodromy.M.second-w",
+          "Monodromy.input"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 5598,
+        "words": [
+          1,
+          4
+        ]
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 6693,
+            "words": [
+              1,
+              1,
+              1,
+              1,
+              6690,
+              6692,
+              1,
+              4,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [],
+          "body": {
+            "root": {
+              "node": 6689,
+              "words": [
+                3,
+                3933,
+                6688
+              ]
+            },
+            "termTags": {
+              "Def": 16,
+              "Level": 1,
+              "Con": 5,
+              "Lit": 3
+            },
+            "references": [
+              "Agda.Builtin.Sigma.Σ.fst",
+              "Cubical.Data.Equality.Base._∙_",
+              "Cubical.Data.Equality.Base.ap",
+              "Cubical.Data.Equality.Base.transport",
+              "Cubical.Data.Equality.S1.Cover",
+              "Cubical.Data.Int.Base.sucℤ",
+              "Cubical.Data.Int.Base.ℤ",
+              "Cubical.Data.Int.Base.ℤ.pos",
+              "Cubical.HITs.S1.Base.S¹",
+              "Cubical.HITs.S1.Base.S¹.base",
+              "Monodromy.M.second-w",
+              "Monodromy.circle-loop",
+              "Monodromy.input",
+              "Monodromy.step",
+              "Monodromy.two-steps"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 6743,
+        "words": [
+          6742
+        ]
+      },
+      "flags": {
+        "node": 948,
+        "words": [
+          59
+        ]
+      },
+      "terminates": {
+        "node": 71,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    },
+    {
+      "name": "Monodromy.value-and-witness-twice",
+      "fields": [
+        4500,
+        4839,
+        6501,
+        1,
+        1,
+        1,
+        1,
+        55,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        71,
+        5598,
+        6511
+      ],
+      "defn": [
+        1,
+        6507,
+        6510,
+        25,
+        1,
+        1,
+        71,
+        59,
+        948,
+        71,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 5566,
+        "words": [
+          0,
+          1,
+          5565
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 6500,
+          "words": [
+            3,
+            3950,
+            6499
+          ]
+        },
+        "termTags": {
+          "Def": 16,
+          "Level": 1,
+          "Lam": 1,
+          "Var": 1
+        },
+        "references": [
+          "Agda.Builtin.Equality._≡_",
+          "Agda.Builtin.Sigma.Σ",
+          "Cubical.Data.Equality.Base._∙_",
+          "Cubical.Data.Equality.Base.transport",
+          "Cubical.Data.Equality.S1.Cover",
+          "Cubical.HITs.S1.Base.S¹",
+          "FrozenMemo.Memo.Θ.k",
+          "FrozenMemo.Memo.Θ.u",
+          "FrozenMemo.Memo.Θ.x",
+          "FrozenMemo.Memo.Θ.ℓ",
+          "FrozenMemo.Memo.σ∘τ",
+          "Monodromy.M.second-w",
+          "Monodromy.M.valueWitness",
+          "Monodromy.input"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 5598,
+        "words": [
+          1,
+          4
+        ]
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 6506,
+            "words": [
+              1,
+              1,
+              1,
+              1,
+              6503,
+              6505,
+              1,
+              4,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [],
+          "body": {
+            "root": {
+              "node": 6502,
+              "words": [
+                3,
+                3295,
+                6089
+              ]
+            },
+            "termTags": {
+              "Def": 2
+            },
+            "references": [
+              "FrozenMemo.Memo.w-twice",
+              "Monodromy.input"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 6510,
+        "words": [
+          6509
+        ]
+      },
+      "flags": {
+        "node": 948,
+        "words": [
+          59
+        ]
+      },
+      "terminates": {
+        "node": 71,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    },
+    {
+      "name": "Monodromy.erased-input",
+      "fields": [
+        4500,
+        4750,
+        6294,
+        1,
+        1,
+        1,
+        1,
+        51,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        71,
+        5598,
+        6343
+      ],
+      "defn": [
+        1,
+        6330,
+        6342,
+        25,
+        1,
+        1,
+        71,
+        59,
+        948,
+        71,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 5566,
+        "words": [
+          0,
+          1,
+          5565
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 6293,
+          "words": [
+            3,
+            4962,
+            1
+          ]
+        },
+        "termTags": {
+          "Def": 1
+        },
+        "references": [
+          "Monodromy.M.Θ"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 5598,
+        "words": [
+          1,
+          4
+        ]
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 6329,
+            "words": [
+              1,
+              1,
+              1,
+              1,
+              6326,
+              6328,
+              1,
+              4,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [],
+          "body": {
+            "root": {
+              "node": 6325,
+              "words": [
+                4,
+                6302,
+                1,
+                6324
+              ]
+            },
+            "termTags": {
+              "Con": 4,
+              "Def": 3,
+              "Level": 1,
+              "Lit": 1
+            },
+            "references": [
+              "Agda.Builtin.Equality._≡_.refl",
+              "Cubical.Data.Equality.Base._∙_",
+              "Cubical.Data.Int.Base.ℤ.pos",
+              "Cubical.HITs.S1.Base.S¹",
+              "Cubical.HITs.S1.Base.S¹.base",
+              "Monodromy.M.theta",
+              "Monodromy.circle-loop"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 6342,
+        "words": [
+          6341
+        ]
+      },
+      "flags": {
+        "node": 948,
+        "words": [
+          59
+        ]
+      },
+      "terminates": {
+        "node": 71,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    },
+    {
+      "name": "Monodromy.transported-witness-twice",
+      "fields": [
+        4500,
+        4814,
+        6102,
+        1,
+        1,
+        1,
+        1,
+        56,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        71,
+        5598,
+        6115
+      ],
+      "defn": [
+        1,
+        6108,
+        6114,
+        25,
+        1,
+        1,
+        71,
+        59,
+        948,
+        71,
+        1,
+        1,
+        1,
+        1
+      ],
+      "typeSort": {
+        "node": 5566,
+        "words": [
+          0,
+          1,
+          5565
+        ]
+      },
+      "typeTerm": {
+        "root": {
+          "node": 6101,
+          "words": [
+            3,
+            3950,
+            6100
+          ]
+        },
+        "termTags": {
+          "Def": 26,
+          "Level": 1
+        },
+        "references": [
+          "Agda.Builtin.Equality._≡_",
+          "Cubical.Data.Equality.Base._∙_",
+          "Cubical.Data.Equality.Base.transport",
+          "Cubical.Data.Equality.S1.Cover",
+          "Cubical.HITs.S1.Base.S¹",
+          "FrozenMemo.Memo.K",
+          "FrozenMemo.Memo.v",
+          "FrozenMemo.Memo.Θ.h",
+          "FrozenMemo.Memo.Θ.k",
+          "FrozenMemo.Memo.Θ.u",
+          "FrozenMemo.Memo.Θ.x",
+          "FrozenMemo.Memo.Θ.ℓ",
+          "FrozenMemo.Memo.Θ.ℓ′",
+          "FrozenMemo.Memo.η",
+          "FrozenMemo.Memo.σ∘τ",
+          "Monodromy.M.higherWitness",
+          "Monodromy.M.second-apd",
+          "Monodromy.input"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "language": {
+        "node": 5598,
+        "words": [
+          1,
+          4
+        ]
+      },
+      "clauses": [
+        {
+          "raw": {
+            "node": 6107,
+            "words": [
+              1,
+              1,
+              1,
+              1,
+              6104,
+              6106,
+              1,
+              4,
+              4,
+              1,
+              1
+            ]
+          },
+          "patterns": [],
+          "body": {
+            "root": {
+              "node": 6103,
+              "words": [
+                3,
+                3107,
+                6089
+              ]
+            },
+            "termTags": {
+              "Def": 2
+            },
+            "references": [
+              "FrozenMemo.Memo.apd-twice",
+              "Monodromy.input"
+            ],
+            "unresolvedTermPositions": [],
+            "notTraversed": [
+              "sorts",
+              "levels",
+              "literals",
+              "binder metadata"
+            ]
+          }
+        }
+      ],
+      "compiled": {
+        "node": 6114,
+        "words": [
+          6113
+        ]
+      },
+      "flags": {
+        "node": 948,
+        "words": [
+          59
+        ]
+      },
+      "terminates": {
+        "node": 71,
+        "words": [
+          1
+        ]
+      },
+      "opaque": {
+        "node": 1,
+        "words": []
+      }
+    }
+  ]
+}
