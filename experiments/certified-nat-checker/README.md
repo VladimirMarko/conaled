@@ -42,8 +42,8 @@ memory consumption. Failed runs retain their logs and an incomplete receipt.
 checks, staged source hashes, fresh output hashes, time and maximum child RSS.
 `logs/commands.json` contains exact commands and exit codes. These are ordinary
 local validation records, not a proof of executable-binary correctness or a
-replacement for independent review. No native checker, queens numeral workload,
-or modified kernel runs. Normal main-repository `check.sh` does not import this
+replacement for independent review. The checker and comparison profiles run no native checker, queens numeral
+workload or modified kernel. Normal main-repository `check.sh` does not import this
 isolated experiment; its fresh reproduction and audit are separate requirements.
 
 ## Reflected first-row comparison
@@ -69,3 +69,36 @@ predecessor, checking every intermediate hash and the exact corrected bytes.
 The [route disposition](../../docs/research/cqueens-preview-disposition.md)
 distinguishes this source reproduction from supplied runtime evidence, failed
 complete kernel selections and the missing strong-CSP generated input.
+
+
+## Fresh native observation
+
+The `native` profile addresses ISSUE137-SPEC-001. It selects the full historical
+31-module corrected native closure, including its CLI, and freshly compiles and
+audits every source prerequisite. No prepared object is copied. After the proof
+audit it generates C, compiles each C file, links all fresh objects and invokes
+the exact original-source claim `cqueens 16 = 14772512` through the CLI. It also
+checks a zero-board positive result and five cheap rejection cases.
+
+```sh
+flock /tmp/conaled-369-orchestration/build.lock \
+  direnv exec . python3 experiments/certified-nat-checker/reproduce.py \
+  --selection native --out /tmp/checker-137-native-fresh
+```
+
+Use a clean committed candidate and a new output directory. The same per-process
+120-second, 8-GiB virtual-address and overall 20-minute caps apply; processes run
+sequentially on one CPU. Native C compilation may create subprocesses or threads.
+No automatic cap increase or retry occurs. `native-provenance.json` records the
+C compiler, toolchain headers/libraries, Nix compiler closure, dynamic runtime,
+executable digest and separate generation, C compilation, linking and execution
+times. C generation repeats frontend checking, so its time is not pure backend
+time. Native observation files retain separate stdout/stderr, actual exit status
+and peak child RSS. The shared command logs also retain timeout and overflow
+failures. A failed run never sets `complete=true`.
+
+The C compiler is explicitly the pinned development shell's `cc`, passed through
+`LEAN_CC`; it need not match the historical machine's compiler. Native acceptance
+trusts code generation, the C toolchain, runtime and host execution. It creates
+neither a stock-kernel numeral theorem nor a concrete Lean acceptance proof.
+Source checking and exhaustive axiom auditing remain separate from that trust.

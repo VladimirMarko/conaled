@@ -72,7 +72,7 @@ def verify_reflection_correction(archive):
 
 
 def selection_file(selection):
-    return HERE / ('selection-comparison.json' if selection == 'comparison' else 'selection.json')
+    return HERE / ('selection.json' if selection == 'checker' else f'selection-{selection}.json')
 
 
 def prepare(out, archive_path, profile):
@@ -88,7 +88,7 @@ def prepare(out, archive_path, profile):
         raise RuntimeError('Selection must give unique modules in compilation order')
     with zipfile.ZipFile(archive_path) as archive:
         inverse = verify_inverse(archive, rows)
-        correction = verify_reflection_correction(archive) if profile == 'comparison' else None
+        correction = verify_reflection_correction(archive) if profile != 'checker' else None
         seen = set()
         for row in rows:
             name = row['module']
@@ -119,7 +119,7 @@ def main():
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--archive', type=Path, default=ARCHIVE)
     parser.add_argument('--prepare-only', action='store_true')
-    parser.add_argument('--selection', choices=['checker', 'comparison'], default='checker')
+    parser.add_argument('--selection', choices=['checker', 'comparison', 'native'], default='checker')
     args = parser.parse_args()
     out = args.out.resolve()
     if out == ROOT or ROOT in out.parents:
@@ -132,11 +132,13 @@ def main():
         return
     try:
         candidate = shared.clean_commit(ROOT)
-        local_clients = ['Squares', 'CheckerClient'] + (['ReflectionClient'] if args.selection == 'comparison' else [])
+        local_clients = [] if args.selection == 'native' else ['Squares', 'CheckerClient'] + (['ReflectionClient'] if args.selection == 'comparison' else [])
         inputs = [selection_file(args.selection), HERE / 'reproduce.py', HERE / 'CheckerClient.lean',
                   SHARED / 'reproduce-acceptance.py', SHARED / 'ClosureAudit.lean',
                   ROOT / 'scripts/check.py', ROOT / 'Squares.lean', ROOT / 'lean-toolchain',
                   ROOT / 'flake.nix', ROOT / 'flake.lock']
+        if args.selection == 'native':
+            inputs.append(HERE / 'native.py')
         if args.selection == 'comparison':
             inputs.append(HERE / 'ReflectionClient.lean')
         tracked = set(subprocess.check_output(['git', 'ls-files', '-z'], cwd=ROOT).decode().split('\0'))
@@ -183,6 +185,9 @@ def main():
                 str(lean), '-j1', '-DautoImplicit=false', '-DwarningAsError=true',
                 '-DElab.async=false', '-R', str(source), '-o', str(target),
                 str((source / relative).with_suffix('.lean'))], source, timeout=min(120, remaining))
+        if args.selection == 'native':
+            import native
+            receipt['native'] = native.reproduce(lean, source, output, receipt['selected'], commands, start)
         if shared.clean_commit(ROOT) != candidate or any(sha(ROOT / p) != h for p, h in identities.items()):
             raise RuntimeError('Candidate inputs changed during reproduction')
         if sha(args.archive) != ARCHIVE_SHA or sha(lean) != compiler_hash or shared.compiler_version(True, env) != version:

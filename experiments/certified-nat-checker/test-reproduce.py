@@ -38,6 +38,43 @@ class SelectionTests(unittest.TestCase):
                                if r['module'] == 'FirstRowReflection'))
             self.assertFalse(receipt['complete'])
 
+    def test_native_selection_is_complete_and_source_only(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp) / 'native'
+            result = self.invoke('--selection', 'native', '--out', out)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            receipt = json.loads((out / 'provenance.json').read_text())
+            self.assertEqual(len(receipt['selected']), 31)
+            self.assertEqual(receipt['selected'][-1]['module'],
+                             'FirstRowReflectionRestrictedNatCheckerMain')
+            self.assertTrue(receipt['reflection_correction'])
+            self.assertTrue(receipt['inverse_correspondence'])
+            self.assertFalse(receipt['complete'])
+            self.assertFalse((out / 'output').exists())
+
+    def test_native_observer_checks_separate_streams_and_status(self):
+        observer = SCRIPT.with_name('native.py')
+        cases = [
+            ("print('REJECT'); raise SystemExit(1)", 1, 'REJECT\n', True),
+            ("print('REJECT')", 1, 'REJECT\n', False),
+            ("import sys; print('REJECT', file=sys.stderr); raise SystemExit(1)",
+             1, 'REJECT\n', False),
+            ("print('ACCEPT wrong')", 0, 'ACCEPT expected\n', False),
+        ]
+        with tempfile.TemporaryDirectory() as tmp:
+            for index, (code, expected_exit, stdout, passed) in enumerate(cases):
+                spec = Path(tmp) / f'case{index}.json'
+                spec.write_text(json.dumps({'argv': [sys.executable, '-c', code],
+                                            'expected_exit': expected_exit,
+                                            'expected_stdout': stdout}))
+                result = subprocess.run([sys.executable, str(observer), '--observe', str(spec)],
+                                        capture_output=True, timeout=10)
+                self.assertEqual(result.returncode == 0, passed, result.stderr)
+                receipt = json.loads(spec.with_suffix('.result.json').read_text())
+                self.assertEqual(receipt['passed'], passed)
+                self.assertTrue(spec.with_suffix('.stdout').exists())
+                self.assertTrue(spec.with_suffix('.stderr').exists())
+
     def test_reject_corrupt_archive(self):
         with tempfile.TemporaryDirectory() as tmp:
             bad = Path(tmp) / 'bad.zip'
