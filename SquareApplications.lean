@@ -574,4 +574,6 @@ import Examples.KineticLegendre
 
 import Examples.BudgetDiskDriver
 
+import Examples.ModalHigher
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
