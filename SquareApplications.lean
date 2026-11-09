@@ -560,5 +560,6 @@ import Applications.Sequences.LCA.TargetSelection
 import Examples.LCATarget
 
 import Examples.AtlasIsotropy
+import Examples.LocalDisplacement
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
