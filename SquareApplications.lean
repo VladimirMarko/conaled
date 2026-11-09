@@ -283,6 +283,7 @@ import SquareKit.SheafTorsorDescent
 import SquareKit.STLCRelations
 import Examples.ReactivePipeline
 import Examples.ExclusiveRequests
+import Examples.RetainedRequests
 import Examples.RequestLifecycle
 import Examples.ReactiveTarget
 import Examples.FRPEngine
