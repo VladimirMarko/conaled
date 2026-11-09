@@ -15,6 +15,23 @@ This report separates existing Lean results, mathematical derivations below,
 published numerical analysis, and executable observations. It adds no Lean
 theorem or certified simulator. The Python artifact is a research experiment.
 
+## Subsequent exact Lorentz implementation
+
+[#411's implementation record](exact-lorentz-motion.md) describes the checked
+`B(a)R(u)` image carrier, coordinate round trips, actual real matrix operations,
+point/full-frame actions, finite products and independent consumers. It does
+not classify every future Lorentz matrix or add a numerical backend. The
+research derivations and numerical observations below retain their original
+status; the implementation record identifies the results now checked in Lean.
+
+## Subsequent exact Clifford implementation
+
+[#412's implementation record](exact-clifford-motion.md) describes the actual
+even Clifford realization, independently calculated sandwich, generated
+normalized carrier, exact sign quotient and native finite-composition consumer.
+It records the chosen-half-phase acquisition boundary and does not add a
+numerical backend or a general normalizer classification.
+
 ## Common semantics and existing checked boundary
 
 Freeze the curvature −1 Poincaré disk, with a pose `(a,u)` satisfying

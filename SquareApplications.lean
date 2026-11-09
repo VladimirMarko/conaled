@@ -170,6 +170,8 @@ import Applications.Orbifold.ConnectionAssessment
 import Examples.InternalRelations
 import Examples.InternalGraphs
 import Examples.DiskRealizations
+import Examples.LorentzMotion
+import Examples.CliffordMotion
 import Examples.OrbifoldComparison
 import Examples.ClosedTransport
 import Examples.FRPDemand
@@ -563,5 +565,7 @@ import Applications.Sequences.LCA.TargetSelection
 import Examples.LCATarget
 
 import Examples.AtlasIsotropy
+import Examples.LocalDisplacement
+import Examples.KineticLegendre
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
