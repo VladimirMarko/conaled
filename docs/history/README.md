@@ -50,6 +50,8 @@ in the issues below. The existing
 [Harper assessment](../research/harper-methods-and-adaptation.md) and
 [cubical construction record](../research/cubical-model-construction.md) describe
 related local work and its scope.
+The [computational HoTT synthesis](../research/computational-hott-research.md)
+collects the later primary-source investigations and their follow-up scopes.
 
 - [#393: Computational univalence](https://github.com/VladimirMarko/conaled/issues/393)
 - [#394: Judgmental and propositional equality](https://github.com/VladimirMarko/conaled/issues/394)
