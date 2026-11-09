@@ -125,3 +125,19 @@ then propagate through reindexing, identity families and arbitrary telescopes.
 The existing endpoint-preservation and whole-section results supply the term
 and substitution comparisons for that induction. Generated descent follows
 that closure and remains separate from fixed-cover section transport.
+
+`ComparisonHorizontal` now constructs horizontal composition directly on the
+existing context, family, section and substitution records. The middle data
+are identified by equality or HEq; section composition derives compatibility
+from the two original whole-section equations. `Family.horizontal_extend`
+proves comprehension preservation. `ComparisonHorizontalReindex` proves
+reindexing preservation, including the equality transports from both strict
+substitution squares. These are operations and laws for the current model,
+not a new source interpretation.
+
+`Examples.HorizontalComparison` composes the noninvertible fixture with its
+identity comparison, retains each selected C4 arrow, composes its compatible
+section, and applies comprehension and reindexing laws. The focused build
+`nix develop --command taskset -c 0,1 lake build Examples.HorizontalComparison`
+passed. Identity-family and primitive-fiber horizontal laws, followed by the
+joint generated closure, remain outstanding at this milestone.
