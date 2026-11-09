@@ -1,0 +1,99 @@
+import CachedCoreStages
+import CachedTransitionComposition
+
+/-! Experimental #417 actual cached And former transitions.
+See [artifact scope](../../docs/research/relative-emitted-acceptance.md). -/
+namespace CachedAndFormer
+open ConLeche ConLeche.Cached CachedTransitionComposition
+set_option maxRecDepth 2000
+set_option maxHeartbeats 1000000
+set_option pp.deepTerms.threshold 4
+
+def s1 := CachedCoreStages.sortMemo
+def s2 : CState := { s1 with whnfCoreC := s1.whnfCoreC.insert (.sort (.succ .zero)) (.sort (.succ .zero)) }
+def s3 : CState := { s2 with whnfC := s2.whnfC.insert (.sort (.succ .zero)) (.sort (.succ .zero)) }
+
+measured_theorem core_sort : ∀ (env : Env) (f d : Nat),
+    (coreKnotI .verified (mkFEnv env) (f + 1)).whnfCore false d (.sort (.succ .zero)) s1 =
+      .ok (.sort (.succ .zero), s2) := by
+  intro env f d
+  rw [coreKnotI_whnfCore_succ]
+  simp only [Bool.false_eq_true, ↓reduceIte]
+  apply memo_miss (s' := s1)
+  · exact Std.HashMap.getElem?_empty
+  · rw [whnf_core_sort_body]
+    rfl
+
+measured_theorem whnf_sort : ∀ (env : Env) (f d : Nat),
+    (coreKnotI .verified (mkFEnv env) ((f + 1) + 1)).whnf d (.sort (.succ .zero)) s1 =
+      .ok (.sort (.succ .zero), s3) := by
+  intro env f d
+  rw [coreKnotI_whnf_succ]
+  apply memo_miss (s' := s2)
+  · exact Std.HashMap.getElem?_empty
+  · apply whnf_sort_body
+    exact core_sort env f d
+
+measured_theorem infer_hit : ∀ (env : Env) (f d : Nat),
+    (coreKnotI .verified (mkFEnv env) (f + 1)).infer d (.sort .zero) s3 =
+      .ok (.sort (.succ .zero), s3) := by
+  intro env f d
+  rw [coreKnotI_infer_succ]
+  apply memo_hit
+  simp [s3, s2, s1, CachedCoreStages.sortMemo]
+
+measured_theorem whnf_hit : ∀ (env : Env) (f d : Nat),
+    (coreKnotI .verified (mkFEnv env) (f + 1)).whnf d (.sort (.succ .zero)) s3 =
+      .ok (.sort (.succ .zero), s3) := by
+  intro env f d
+  rw [coreKnotI_whnf_succ]
+  apply memo_hit
+  simp [s3]
+
+def formerType : Expr := .forallE (.sort .zero) (.forallE (.sort .zero) (.sort .zero))
+def formerSort : Level := .imax (.succ .zero) (.imax (.succ .zero) (.succ .zero))
+
+measured_theorem infer_tail : ∀ (env : Env) (f n : Nat),
+    inferPisI (coreKnotI .verified (mkFEnv env) ((f + 1) + 1)) 0
+      (n + 1) (.forallE (.sort .zero) (.sort .zero)) 1
+      #[.fvar 0 (.sort .zero)] [.succ .zero] s3 = .ok (.sort formerSort, s3) := by
+  intro env f n
+  unfold inferPisI
+  simp only [instListRevM, bind, StateT.bind, pure, StateT.pure, Except.pure, Except.bind]
+  have inst_sort (vs : Array Expr) : (Expr.sort .zero).instantiateRev vs = .sort .zero := by
+    unfold Expr.instantiateRev
+    simp [Expr.bvarB, Expr.bvarBRaw_sort, satRange]
+  simp only [inst_sort, infer_hit]
+  try simp only [Except.bind]
+  simp only [whnf_hit]
+  dsimp only [bind, pure, StateT.bind, StateT.pure, Except.bind, Except.pure]
+  rw [infer_pis_sort]
+  unfold inferPisLeafI
+  simp only [instListRevM, bind, StateT.bind, pure, StateT.pure, Except.pure, Except.bind]
+  simp only [inst_sort, infer_hit]
+  try simp only [Except.bind]
+  simp only [whnf_hit]
+  rfl
+
+measured_theorem infer_body : ∀ (env : Env) (f : Nat),
+    inferBodyI (coreKnotI .verified (mkFEnv env) ((f + 1) + 1))
+      (mkFEnv env) 0 formerType {} = .ok (.sort formerSort, s3) := by
+  intro env f
+  unfold formerType
+  simp only [inferBodyI, bind, StateT.bind, pure, StateT.pure, Except.pure, Except.bind]
+  rw [CachedCoreStages.sort_infer_succ]
+  try simp only [Except.bind]
+  rw [← show s1 = CachedCoreStages.sortMemo from rfl]
+  rw [whnf_sort]
+  try simp only [Except.bind]
+  unfold peelFuelM
+  dsimp only [bind, pure, StateT.bind, StateT.pure, Except.bind, Except.pure]
+  exact Eq.trans
+    (congrArg (fun fuel => inferPisI (coreKnotI .verified (mkFEnv env) ((f + 1) + 1)) 0
+      fuel (.forallE (.sort .zero) (.sort .zero)) 1
+      #[.fvar 0 (.sort .zero)] [.succ .zero] s3)
+      (show peelFuel = 16777215 + 1 from rfl))
+    (infer_tail env f 16777215)
+
+end CachedAndFormer
+#audit_graph_module
