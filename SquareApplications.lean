@@ -586,3 +586,6 @@ import Examples.ModalHigher
 import Examples.WiredNumericalMotion
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
+
+import Examples.DescentClosure
+import SquareKit.SheafActionQuotientDescentDisplay
