@@ -5,7 +5,7 @@ This is a partial implementation record for [#433], based on accepted integratio
 transport-composition proof is interpreted on every smooth quotient groupoid,
 with a constructed family of torsor deformations. That family has parameter
 restriction, a comparison with the actual boundary fiber, and effective descent
-over each fixed quotient object. Its chart specialization gives the existing
+over each fixed quotient object and through quotient torsor cocycles. Its chart specialization gives the existing
 fixed-lift transport and classical quarter-turn composition.
 
 The remaining requirement is restriction and descent of the generated source
@@ -107,8 +107,14 @@ or effectiveness witness.
 global map. Its zero equation follows by cancellation of the total-space cover.
 Its equivariance follows by cancellation after adjoining the group parameter.
 `descend_restrict` and `descend_unique` establish effectiveness and uniqueness.
-This is descent over a fixed quotient object; combining it with quotient-object
-cocycle descent and proving closure for generated contexts remains work.
+`CocycleDatum` combines this with quotient-object cocycle descent. Its inputs
+are a local quotient object, torsor cocycle, compatible local value map, and
+local deformation invariant under that cocycle. The descended quotient object
+is constructed by the existing quotient descent theorem. `CocycleDatum.descend`
+then constructs its deformation; `recover` recovers the local deformation via
+the quotient comparison arrow, and `unique` proves uniqueness on that descended
+object. No global quotient object is an input. Closure for generated contexts
+remains work.
 
 The next interface must supply parameter maps between interpretations of
 *generated* contexts and their dependent families, preserving variables,
@@ -136,7 +142,9 @@ quotient objects, arrows, and deformation. It also checks:
 - the four origin automorphisms and trivial isotropy at nonzero disk points;
 - distinct ineffective loops and source-derived identity transport for their
   composition;
-- effective deformation descent over arbitrary locally surjective parameters.
+- effective deformation descent over arbitrary locally surjective parameters;
+- recovery of local deformations from quotient torsor cocycles without a supplied
+  global quotient object.
 
 Statement review checked quantifier order, zero boundaries, inverse-arrow
 orientation, and the distinction between equality of deformation maps and

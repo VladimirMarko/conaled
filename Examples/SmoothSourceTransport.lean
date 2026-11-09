@@ -1,5 +1,5 @@
 import SquareKit.SmoothQuotientSource
-import SquareKit.SmoothQuotientDeformationDescent
+import SquareKit.SmoothQuotientDeformationCocycle
 import Examples.QuotientDescent
 
 /-! Checked consumers of the retained source proof on smooth quotient
@@ -57,5 +57,14 @@ example {H : Type} [Group H] {M X Y : Sheaf topology Type}
     {a : Action (locallyConstantGroup H) M} (P : Object a X) (f : Y ⟶ X)
     [Presheaf.IsLocallySurjective topology f.hom] (d : DescentDatum P f) :
     restrict f d.descend = d.localDeformation := d.descend_restrict
+
+/-- A torsor cocycle and a compatible local deformation suffice for recovery;
+no global quotient object is supplied to this caller. -/
+example {H : Type} [Group H] {M X : Sheaf topology Type}
+    {a : Action (locallyConstantGroup H) M} {A : SplitSheaf.Ty X}
+    [Presheaf.IsLocallySurjective topology (SplitSheaf.p A).hom]
+    (d : CocycleDatum (a := a) A) :
+    transport d.quotient.comparison (restrict (SplitSheaf.p A) d.descend) =
+      d.localDeformation := d.recover
 
 end Examples.SmoothSourceTransport
