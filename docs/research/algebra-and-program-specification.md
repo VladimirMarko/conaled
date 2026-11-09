@@ -273,10 +273,8 @@ not Harper's historical distinction by itself.
 
 ## Source receipts and inspection limits
 
-Primary sources were retrieved on 2026-11-09. The enclosing research handoff
-stores raw snapshots, URLs and SHA-256 receipts in
-`/tmp/conaled-369-orchestration/evidence407/sources.json`; that temporary evidence
-path is not a repository dependency. Durable source identities are below.
+Primary sources were retrieved on 2026-11-09. Their URLs, versions and paper
+checksums are recorded below.
 The discussion is mutable; its dated comments and anchor identify the historical
 claims. Paper versions and Felix revision fix the technical scope. No copied
 historical transcript serves as proof evidence.
