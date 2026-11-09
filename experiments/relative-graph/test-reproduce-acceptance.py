@@ -35,6 +35,14 @@ class AcceptanceControls(unittest.TestCase):
         plan = json.loads(result.stdout)
         self.assertIn('EmittedEnvironment', plan['graph'])
         self.assertIn('EmittedClosed', plan['graph'])
+        for module in ('CachedEmittedAcceptance', 'CachedAcceptedEmission', 'CachedRejections'):
+            self.assertIn(module, plan['graph'])
+        self.assertLess(plan['graph'].index('CachedPending10'),
+                        plan['graph'].index('CachedEmittedAcceptance'))
+        self.assertLess(plan['graph'].index('CachedEmittedAcceptance'),
+                        plan['graph'].index('CachedAcceptedEmission'))
+        self.assertLess(plan['graph'].index('CachedRejectionsComposition'),
+                        plan['graph'].index('CachedRejections'))
         self.assertIn('SquareKit.Internal.GraphEmissionContract', plan['native'])
         self.assertNotIn('Lean4LeanAudit', plan['graph'])
         self.assertLess(plan['graph'].index('EmittedEnvironment'), plan['graph'].index('EmittedClosed'))

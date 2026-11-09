@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fresh isolated #135 acceptance (invoke through direnv, under the build lock).
+"""Fresh isolated #135/#417 acceptance (invoke through direnv, under the build lock).
 
 --plan only inventories sources; it is not validation. A real run requires a
 clean committed candidate and a new output directory. External package outputs
