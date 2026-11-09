@@ -75,7 +75,7 @@ commit `eb6cafb7290e8bd5f2937522d8d804f58f02bafc`. The archive hash is
 `8a5e2b2d5535a149a67111c6adf9ba9e173cbbd2a986d63dc702d75178252e63`.
 The authoritative hash is also checked by the selector and archive metadata.
 The twenty compile processes took 7.225 seconds in aggregate. The initial
-[exhaustive audit](../../experiments/certified-nat-checker/evidence/initial-audit.log)
+[exhaustive audit](../../experiments/certified-nat-checker/evidence/initial-audit.txt)
 covered 1,144 safe declarations, including 787 theorems, with only `propext`,
 `Classical.choice`, and `Quot.sound`, and no unsafe runtime exclusions. Peak child
 RSS across compilation and audit was 1,569,416 KiB. These are host-specific
