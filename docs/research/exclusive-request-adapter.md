@@ -65,7 +65,7 @@ there is no response from the initially reserved label. Local `emitted` and
 requires current completion evidence for both sources; packet validity alone
 is not source honesty. Validity is preserved by steps and finite runs.
 
-[`ExclusiveProgress.eventual_response`](../../Applications/FRP/ExclusiveProgress.lean)
+[`Exclusive.eventual_response`](../../Applications/FRP/ExclusiveProgress.lean)
 uses the existing engine delivery theorem. Its assumptions describe actual
 commands: source-stream alignment, finite closing prefixes and their availability,
 fair source consumption, and scheduling of generic process commands when work
