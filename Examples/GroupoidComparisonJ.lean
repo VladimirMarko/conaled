@@ -1,5 +1,5 @@
 import Examples.GroupoidComparison
-import SquareKit.Internal.PathTransport.ComparisonJProjections
+import SquareKit.Internal.PathTransport.ComparisonJSubstitution
 
 /-! Contextual elimination with two changing dependent declarations. The second
 is the identity family of the first variable, retaining selected arrows. -/
@@ -66,5 +66,22 @@ example : HEq ((rightProjection signature).mapTm result)
       ((rightProjection signature).jMotive family chosenSection tail motive)
       ((rightProjection signature).jBranch family chosenSection tail motive branch)) :=
   contextualJ_right signature family chosenSection tail motive branch
+
+/-- An ordinary open substitution acts on the entire dependent J application. -/
+example {Δ : Comparison.Context.{0}} (σ : Comparison.Substitution Δ context) :
+    HEq (result.reindex (StructuralModel.pathTailMap M family chosenSection tail σ))
+      (Comparison.contextualJ signature (family.reindex σ) (chosenSection.reindex σ)
+        (StructuralModel.pathTail M family chosenSection tail σ)
+        (motive.reindex (StructuralModel.pathTailMap M family chosenSection tail σ))
+        (StructuralModel.reindexBranch M family chosenSection tail σ motive branch)) :=
+  contextualJ_sub signature family chosenSection tail σ motive branch
+
+example : Typed.ModelMap (Comparison.fullModel signature)
+    (GroupoidModel.Instance.fullModel signature.base.left signature.leftFiber) :=
+  leftModelMap signature
+
+example : Typed.ModelMap (Comparison.fullModel signature)
+    (GroupoidModel.Instance.fullModel signature.base.right signature.rightFiber) :=
+  rightModelMap signature
 
 end Examples.GroupoidComparisonJ
