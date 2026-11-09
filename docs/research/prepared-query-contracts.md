@@ -1,5 +1,10 @@
 # Prepared queries and phase requirements
 
+Ownership update: #193 is closed and supplies completed measured-execution
+evidence. Historical assignments to #193 below are not an active work queue;
+use the [current residual-owner map](workstream-status-reconciliation.md) for
+new resource, runtime and error-comparison work.
+
 `Applications/Resources/Prepared.lean` separates operations, semantics,
 resource interpretations and application requirements. It adds phase bounds to
 the existing measured execution and finite optimization interfaces (#305).

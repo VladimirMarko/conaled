@@ -32,8 +32,9 @@ use of adjunctions does not identify their syntaxes or correctness claims.
 
 The tracker was read on 2026-11-07: #294–#301, #321/#322, #325–#327 and
 #337–#342 are closed. Their reports retain bounded results, not active ownership
-of every omitted variant. Open #288/#289/#290, #36, #196, #174/#193, #27 and
-#235 provide the residual owners below. Current #343–#349 implementations are
+of every omitted variant. At that snapshot, #288/#289/#290, #36, #196, #174/#193, #27 and
+#235 provided residual ownership. The [current reconciliation](workstream-status-reconciliation.md)
+supersedes closed-ticket ownership, including #193. The #343–#349 implementations were
 in progress during this assessment; their acceptance is not claimed here.
 
 This document adds sourced analysis and paper calculations. It adds no Lean
@@ -53,7 +54,7 @@ implementation is not evidence that an entire tradition is unavailable.
 | Modal contexts, [#297](modal-context-higher-identity-comparison.md): MTT | Paper two-lock access, permitted 2-cell and rejected ordinary variable. Existing ordinary judgments lack those access rules. No full MTT model constructed. | #289/#36 own an access layer when dependent lock bookkeeping repeats. Require admissible substitutions, key transformations and a model. The adjoint compiler experiment below instead tests structural resource permissions. |
 | Higher identity, #297 and [#316](dependent-higher-identity.md) | External source detector followed by checked [cubical #321](cubical-model-construction.md) and [strict two-groupoid #322/#336](strict-two-groupoid-checkpoint.md), contextual J and retained higher observations at their scopes. | #348 owns semantic-client boundaries. [#425](joint-modal-higher-comparison.md) now supplies a paper key diagram with dependent higher action and access controls. #289/#36 own the proposed bounded formalization and the remaining full modal/higher model; no existing-client prerequisite is imposed. Closed bounded models are neither absent nor a universal infinity-dimensional model. |
 | Probability, [#298](higher-order-random-functions.md): QBS, ordinary kernels and domain variants | Paper continuous affine random-function comparison retains joint laws; affine closures fail full nonlinear evaluation. Existing finite kernels and correlation controls checked; QBS model/monad and compiler interpretation unconstructed. | #36/#235: promote probability-only QBS construction when arbitrary admitted random functions are required. Retain joint event discriminator and nonlinear `x²`; require evaluation/curry and Dirac/bind/product comparisons. Recursion, conditioning and internal lower-real models need distinct consumer hypotheses. |
-| Ordered/quantitative effects, [#299](ordered-quantitative-observations.md) | Paper error transformer `e ↦ L*e+d`, affine composition, interval/Galois calculation; rejected additive error and tensor interchange. Checked rational enclosure and measured resources are narrower. | #174 owns Lipschitz error composition and interval specialization; #193 owns comparison to resource weights. Promote shared machinery for a second bound-sensitive consumer, not by identifying numerical error with additive cost. #36 owns a recursive abstract-domain construction only with complete-domain hypotheses. |
+| Ordered/quantitative effects, [#299](ordered-quantitative-observations.md) | Paper error transformer `e ↦ L*e+d`, affine composition, interval/Galois calculation; rejected additive error and tensor interchange. Checked rational enclosure and measured resources are narrower. | The [#372 construction](semantic-traditions-first-wave.md) supplies bounded numerical error composition; #193 supplies completed execution instrumentation. #235 owns further cross-domain error/resource comparisons, with #174 for data structures, #27 for FRP and #34 for numerical motion. Numerical error must not be identified with additive cost. #36 owns a recursive abstract-domain construction only with complete-domain hypotheses. |
 | Open composition, [#300](open-system-wiring-comparison.md) | Paper smooth vector-field/readout preservation under two hierarchical wirings; rejected instantaneous feedthrough. Checked discrete feedback has a different time/scheduling contract. | #27/#36: promote typed wiring when a client repeats port substitution. Relational steady-state hiding is an untested variant below; wiring alone did not supply it. |
 | Partial computation, [#337](context-dependent-partial-computation.md), following #301 | Paper approximants, chosen certificates and two reindexings; separates fixed-point existence from selection. Existing guarded recursion is a different sufficient contract. | #346 owns indexed partial formalization; #347 owns a concrete SDT provider. Neither task is a theorem that every setting admits general recursion or all endomaps have fixed points. |
 | Conversion, [#338](joint-conversion-extensions.md), following #301 | Paper joint arithmetic packages and nonconfluent union; independent selected dependent meaning. Checked fixed-boundary rule admission is not a conversion engine. | #345 owns bounded certificates and joint admission. General lambda-Pi-modulo import, arbitrary termination and decidable equality remain unclaimed; #288 owns a later consumer. |
@@ -270,13 +271,13 @@ triggers retain their own contracts under the existing open programmes:
   bounded strategy experiment. Higher-order or overlapping-query interaction
   still needs a client with explicit legal contexts, synchronization and
   observations; the finite composition theorem does not settle that contract.
-- #196/#193: if a client needs local ownership or interference, supply its
+- #196, coordinated with #27/#34 for runtime consumers: if a client needs local ownership or interference, supply its
   separating resource algebra and frame/interaction hypotheses. A scalar cost
   monoid is not a proof of separation or a safe physical rollback contract.
 - #288/#290: if matching-logic patterns are selected as an admission boundary,
   compare satisfaction and rule interpretation on one extension; explicitly
   retain proof/witness data that set membership forgets.
-- #193/#289: if exact usage multiplicities, rather than only permissions W/C,
+- #235/#289: if exact usage multiplicities, rather than only permissions W/C,
   are required, compare quantitative dependent syntax with the mode experiment.
   Require substitution of grades and dependent payloads; successful linear
   permission checking is not already that theorem.

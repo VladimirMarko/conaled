@@ -1,5 +1,11 @@
 # Tracked lifting, interaction hiding and observation contracts
 
+Current-status note: the internal provider #371 and its #385–#389 construction
+chain are complete; see the [accepted solver](internal-selected-certificate-solver.md).
+Open/remaining descriptions below record this document's earlier checkpoint.
+For residual ownership after closed #193, use the
+[status reconciliation](workstream-status-reconciliation.md).
+
 This fifth-wave synthesis under [#235](https://github.com/VladimirMarko/conaled/issues/235)
 follows the [fourth wave](semantic-traditions-fourth-wave.md). The bounded #386
 lifting and #390 interaction implementations have passed independent ticket

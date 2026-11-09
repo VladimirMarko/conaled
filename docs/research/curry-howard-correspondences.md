@@ -1,5 +1,10 @@
 # Curry–Howard correspondences and transport between settings
 
+Ownership update: #193 is closed and supplies completed measured-execution
+evidence. Historical assignments to #193 below are not an active work queue;
+use the [current residual-owner map](workstream-status-reconciliation.md) for
+new resource, runtime and error-comparison work.
+
 Research date: 2026-10-28. Local evidence: checkout
 `1f1db074eca229cab995591deb2b32db3f899c00`. This is a research assessment and
 proposal for bounded experiments, not an adopted architecture or a claim that

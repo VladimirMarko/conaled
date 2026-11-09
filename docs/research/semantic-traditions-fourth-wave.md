@@ -1,5 +1,11 @@
 # Selected computation, dependent transport and admissible partial maps
 
+Current-status note: the internal provider #371 and its #385–#389 construction
+chain are complete; see the [accepted solver](internal-selected-certificate-solver.md).
+Open/remaining descriptions below record this document's earlier checkpoint.
+For residual ownership after closed #193, use the
+[status reconciliation](workstream-status-reconciliation.md).
+
 This fourth-wave synthesis under [#235](https://github.com/VladimirMarko/conaled/issues/235)
 follows [the third wave](semantic-traditions-third-wave.md). The bounded ticket
 work described here has checked implementations and independent ticket reviews.

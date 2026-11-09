@@ -1,5 +1,11 @@
 # Modal access, geometric composition and Horn support
 
+Current-status note: the internal provider #371 and its #385–#389 construction
+chain are complete; see the [accepted solver](internal-selected-certificate-solver.md).
+Open/remaining descriptions below record this document's earlier checkpoint.
+For residual ownership after closed #193, use the
+[status reconciliation](workstream-status-reconciliation.md).
+
 This continuation under [#235](https://github.com/VladimirMarko/conaled/issues/235)
 follows the [second wave](semantic-traditions-second-wave.md). It distinguishes
 completed bounded comparisons from a prerequisite milestone whose parent task

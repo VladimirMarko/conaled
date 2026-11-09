@@ -1,5 +1,10 @@
 # When FRP requests can omit identifiers
 
+Ownership update: #193 is closed and supplies completed measured-execution
+evidence. Historical assignments to #193 below are not an active work queue;
+use the [current residual-owner map](workstream-status-reconciliation.md) for
+new resource, runtime and error-comparison work.
+
 Explicit request identifiers are unnecessary for some useful reactive protocols.
 The existing initialized machines already execute without them. A sequential
 request interface can also omit them if its communication contract prevents

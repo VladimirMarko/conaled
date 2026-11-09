@@ -138,22 +138,35 @@ that the accepted component theorems are false.
    outputs. Matching logic, local universes and richer modal/higher combinations
    were not disproved by the bounded studies. Assigning a tracking issue and a
    trigger for reconsideration does not establish active investigation.
-5. **System-level acquisition and execution.** Bounded runtimes exist, but proving
-   that inputs satisfy a model’s assumptions, choosing useful numerical
-   representations, connecting formal operations to real devices, and combining
-   components with different contracts remain separate work. The
-   [exact-rational numerical driver measurements](../numerical-driver-checkpoint.md)
-   show why theorem-level error control alone does not settle practicality.
-6. **Status and discovery.** Historical wave summaries necessarily describe
-   intermediate states, but parent issues can also lag. At assessment time
-   [#289](https://github.com/VladimirMarko/conaled/issues/289) still described [#371](https://github.com/VladimirMarko/conaled/issues/371)/[#386](https://github.com/VladimirMarko/conaled/issues/386)–[#389](https://github.com/VladimirMarko/conaled/issues/389) as unfinished, although the solver was
-   accepted. Older lists of unresolved obligations point to [#193](https://github.com/VladimirMarko/conaled/issues/193) as their tracking
-   issue although it is closed. This requires reconciliation; it must not be reported as missing
-   mathematics. The [recovery of accepted prepared-query code](../completed-work-delivery.md)
-   for [#305](https://github.com/VladimirMarko/conaled/issues/305) and
-   [#306](https://github.com/VladimirMarko/conaled/issues/306) from a branch that had
-   not reached master is a related reminder that reviews alone do not ensure
-   delivery and discoverability.
+5. **System-level acquisition and execution.** The remaining questions concern
+   several connections, not an absence of component composition. The
+   [#392 research and [#416](https://github.com/VladimirMarko/conaled/issues/416) implementation](../approximate-wiring-experiment.md)
+   already derive finite-horizon error bounds through actual feedback wiring.
+   They do not supply adapters to FRP, numerical motion or probability, nor
+   continuous-flow accuracy, roundoff bounds or physical-device correspondence.
+   [Geometry acquisition](../geometry-realization-experiment-results.md) still
+   requires admitted inputs: for example, a certified pose or evidence that a
+   matrix lies in the encoding image. The [numerical driver](../budget-disk-driver.md)
+   accepts one proved initializer rather than arbitrary packets with an asserted
+   error. These are input and interpretation obligations.
+
+   Execution cost is a separate obligation. The [exact-rational measurements](../numerical-driver-checkpoint.md)
+   show why: refinement can reduce the certified error budget while rapidly
+   growing numerator and denominator sizes. A successful mathematical error
+   estimate does not guarantee that the chosen representation will finish within
+   a resource budget. This example concerns representation and execution cost;
+   it is not evidence for every input-admission or physical-adapter gap above.
+6. **Status and discovery.** At the original assessment, parent issue [#289](https://github.com/VladimirMarko/conaled/issues/289)
+   still called the accepted internal SDT provider unfinished, and some residual
+   lists used closed [#193](https://github.com/VladimirMarko/conaled/issues/193) as an active owner. The subsequent
+   [status reconciliation](../workstream-status-reconciliation.md) corrects
+   those routes and identifies completed evidence separately from remaining
+   work. Historical wave accounts and initial independent assessments retain
+   their original evidence, with current-status pointers where needed. This
+   was tracking debt, not missing mathematics. The
+   [recovery of accepted prepared-query code](../completed-work-delivery.md)
+   for [#305](https://github.com/VladimirMarko/conaled/issues/305)/#306 from a branch that had not reached master is a related reminder
+   that reviews alone do not ensure delivery and discoverability.
 
 The [scaling evidence](../dependent-operation-scaling.md),
 [external-consumer assessment](../architecture-scaling-study/orbifold-consumer-assessment.md),

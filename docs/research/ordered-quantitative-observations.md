@@ -1,5 +1,10 @@
 # Ordered approximation and compositional numerical error
 
+Ownership update: #193 is closed and supplies completed measured-execution
+evidence. Historical assignments to #193 below are not an active work queue;
+use the [current residual-owner map](workstream-status-reconciliation.md) for
+new resource, runtime and error-comparison work.
+
 For [#299](https://github.com/VladimirMarko/conaled/issues/299), retain relational
 containment as the enclosure contract and investigate a small sensitivity-aware
 error certificate alongside it. Interval abstract interpretation supplies an

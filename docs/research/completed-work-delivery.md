@@ -1,5 +1,11 @@
 # Completed-work delivery checkpoint
 
+Current-status note: the internal provider #371 and its #385–#389 construction
+chain are complete; see the [accepted solver](internal-selected-certificate-solver.md).
+Open/remaining descriptions below record this document's earlier checkpoint.
+For residual ownership after closed #193, use the
+[status reconciliation](workstream-status-reconciliation.md).
+
 This checkpoint reconciles accepted work that was absent from `master` at
 `be1dfca1f57a950950a4e77d81f9fed5140161ee`. Acceptance of a ticket on an isolated
 branch did not by itself deliver that result to the main checkout. The user

@@ -36,6 +36,19 @@ higher-identity results remain separate until an actual source connection is mad
 
 ## What can be combined
 
+The two investigations were commissioned together and each scope asked about
+its possible connection to the other. That explains this cross-check; it does
+not establish that these approaches are uniquely compatible or that their
+combination should take priority over other uses.
+
+The more immediate comparisons are local universes with weakly stable model
+constructors, and the key diagram with existing `TwoFamily` reindexing and
+source interpretation. The former could concern a homotopical provider with
+noncanonical fillers; the latter can reuse already constructed higher structure.
+Cubical family-code and Glue work (#419/#420) has distinct size, filling and
+source-rule obligations. Local universes cannot be assumed to discharge those
+merely because both constructions use the word universe.
+
 Local universes can address substitution coherence once the relevant weak
 semantic operations and theorem hypotheses are supplied. The finite-set example
 does not provide the higher operations or key interactions of the second report.
@@ -51,19 +64,28 @@ architecture before it could begin.
 
 ## Bounded successor choices
 
-The detailed reports specify two possible formalization successors:
+The leading recommendation is to formalize the explicit higher-family/key
+diagram using `TwoFamily` reindexing and total-context machinery, comparing it
+with the direct construction. Retain all-cell pullback laws, the selected arrow,
+invalid-boundary control and forbidden Boolean-dependent substitution. This is
+a test of reuse in existing higher code, not a prerequisite to adopting a full
+modal framework. If source-level transport is claimed, connect an actual source
+expression to the semantic action rather than merely proving its arithmetic
+observation again.
 
-- Extend the existing local-universe specialization with dependent sum elimination
-  and formalize the finite-set slice LF comparison, retaining arbitrary motives,
-  hom-set inverses, naturality and repeated-substitution controls.
-- Formalize the explicit higher-family/key diagram and compare direct construction
-  with reuse of `TwoFamily`. Retain all-cell pullback laws, the selected arrow,
-  invalid-boundary control and forbidden Boolean-dependent substitution.
+A separate research successor could select a weak homotopical model with a
+noncanonical eliminator/filler choice and compare local-universes coherence with
+a direct stable construction. Establish the actual LF, weak stability, size and
+required mixed laws; do not infer them from the finite-set case. Coordinate with
+#419/#420 where the chosen provider overlaps their cubical family/Glue work,
+without duplicating those tickets or assuming that local universes supply their
+internal classifier.
 
-These would turn paper constructions into checked examples. They are not evidence
-for adopting a general framework. A stronger local-universes experiment would
-need a weak homotopical model with a demonstrated filler-stability obligation;
-that question remains distinct from the finite-set formalization.
+Formalizing the finite-set slice LF comparison and dependent sum eliminator
+remains a smaller optional regression task. It would turn the paper calculation
+into checked evidence, including arbitrary motives, hom-set inverses, naturality
+and repeated substitution. It is not needed to justify the higher-key experiment
+and would not itself answer where local universes outperform direct families.
 
 These are recommendations for #289/#36/#235, not newly scheduled implementation
 waves. The #102/#103 source-transfer gates, #107 pause and #108 independent-author
