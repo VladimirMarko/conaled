@@ -583,5 +583,6 @@ import Examples.GuardedLeftAssociativity
 import Examples.GuardedLeftTransportComposition
 import SquareKit.Internal.DependentJudgments.TelescopeTransport
 import Examples.ModalHigher
+import Examples.WiredNumericalMotion
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
