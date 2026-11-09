@@ -52,7 +52,13 @@ def reproduce(lean, source, output, rows, commands, started):
         remaining = 1200 - (time.monotonic() - started)
         if remaining <= 0:
             raise RuntimeError('Total 20-minute time limit')
-        commands.run(label, limited + list(map(str, argv)), source,
+        argv = list(map(str, argv))
+        if not Path(argv[0]).is_absolute():
+            resolved = shutil.which(argv[0])
+            if not resolved:
+                raise RuntimeError(f'Missing native tool: {argv[0]}')
+            argv[0] = resolved
+        commands.run(label, limited + argv, source,
                      timeout=min(120, remaining))
 
     # The Nix-patched leanc wrapper can otherwise select a different compiler
