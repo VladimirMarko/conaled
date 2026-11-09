@@ -9,8 +9,8 @@ def identify : Bool → String | false => "a" | true => "b"
 def fixed : Bool → Nat | false => 0 | true => 1
 
 def observations : Except String Epoch := do
-  let a ← (Epoch.start context 1).record context ⟨"a",0,20,true⟩
-  a.record context ⟨"b",0,10,true⟩
+  let a ← (Epoch.start context 1).record context ⟨"a",0,20,true,context⟩
+  a.record context ⟨"b",0,10,true,context⟩
 
 def trained := observations.toOption
 example : choose [false,true] (fun _ => True) identify context 1 fixed none = some false := by decide

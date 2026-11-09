@@ -22,6 +22,7 @@ structure Sample where
   repetition : Nat
   elapsedNs : Nat
   success : Bool
+  context : Context
   deriving DecidableEq, BEq, Repr
 
 structure Epoch where
@@ -37,6 +38,7 @@ def Epoch.start (context : Context) (repetitions : Nat) : Epoch :=
 Rejected records leave the old immutable epoch available to its caller. -/
 def Epoch.record (epoch : Epoch) (context : Context) (sample : Sample) : Except String Epoch := do
   if context != epoch.context then throw "context mismatch"
+  if sample.context != context then throw "observation context mismatch"
   if epoch.repetitions == 0 then throw "zero repetitions"
   if !decide epoch.context.catalog.Nodup then throw "duplicate candidate IDs"
   if !epoch.context.catalog.contains sample.candidate then throw "unknown candidate"
@@ -51,7 +53,7 @@ def Epoch.complete (epoch : Epoch) (context : Context) (repetitions : Nat) : Boo
   epoch.context == context && epoch.repetitions == repetitions && repetitions > 0 &&
   decide context.catalog.Nodup &&
   epoch.samples.length == context.catalog.length * repetitions &&
-  epoch.samples.all (fun s => s.success && context.catalog.contains s.candidate &&
+  epoch.samples.all (fun s => s.context == context && s.success && context.catalog.contains s.candidate &&
     s.repetition < repetitions) &&
   context.catalog.all (fun c => (List.range repetitions).all (fun r =>
     (epoch.samples.filter (fun s => s.candidate == c && s.repetition == r)).length == 1))

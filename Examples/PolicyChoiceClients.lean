@@ -12,8 +12,8 @@ def context : Context := ⟨"synthetic-v1", "test", "fixture", "root", "one-tota
 /-- Two explicit exploration observations; this is synthetic evidence, not timing. -/
 def training (ctx : Context) (first second : String) : Option Epoch :=
   (do
-    let epoch ← (Epoch.start ctx 1).record ctx ⟨first,0,20,true⟩
-    epoch.record ctx ⟨second,0,10,true⟩).toOption
+    let epoch ← (Epoch.start ctx 1).record ctx ⟨first,0,20,true,ctx⟩
+    epoch.record ctx ⟨second,0,10,true,ctx⟩).toOption
 
 namespace Scan
 open Examples.ScanSearch

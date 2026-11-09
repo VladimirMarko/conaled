@@ -583,5 +583,6 @@ import SquareKit.Internal.DependentJudgments.TelescopeTransport
 import Examples.ModalHigher
 
 import Examples.PolicyChoiceClients
+import Examples.PolicyChoiceDriver
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
