@@ -8,6 +8,14 @@ open scoped ComplexConjugate ContDiff
 namespace Orbifold.Kinetic
 open DiskConnection
 
+@[simp] theorem scalar_re (r : ℝ) (v : ℂ) : (r • v).re = r*v.re := by
+  rw [Complex.real_smul]
+  simp only [Complex.mul_re,Complex.ofReal_re,Complex.ofReal_im,zero_mul,sub_zero]
+
+@[simp] theorem scalar_im (r : ℝ) (v : ℂ) : (r • v).im = r*v.im := by
+  rw [Complex.real_smul]
+  simp only [Complex.mul_im,Complex.ofReal_re,Complex.ofReal_im,zero_mul,add_zero]
+
 /-- Euclidean real covector represented by a complex vector. -/
 def covector (v : ℂ) : ℂ →L[ℝ] ℝ := v.re • Complex.reCLM + v.im • Complex.imCLM
 
