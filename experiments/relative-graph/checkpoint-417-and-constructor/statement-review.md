@@ -1,0 +1,11 @@
+# Cached And constructor checkpoint
+
+`CachedAndConstructor.constructor` establishes the actual `checkSumCtorF` call for `andIntroRaw`, using `sharedOpsC .verified` at the former-installed indexed environment, from fresh memo state to the fully specified `p11`. It checks both values of the large-elimination flag. Both fields inhabit Prop, and the generic field-step lemma requires the actual large-elimination guard to succeed even when the flag is false. This extra premise is discharged here; it is not a necessary condition claimed for all constructors.
+
+The statement preserves the actual raw constructor record, two parameters, two fields, zero indices, and the exact two returned zero universe levels. It does not yet compose the former's flush, `checkBlockCtorsF`, the complete And installer, Exists, helpers, or emitted theorem declarations. Full #417 acceptance remains pending.
+
+Atomic transition lemmas prove actual memo hit or miss calls. Their lookup, arity, scope and instantiation premises are explicit. Application composition checks both arguments through `defeqArgI`; the concrete free variables are proved non-eager before the reflexive defeq shortcut is used. Binder composition checks each opened domain and the result application, preserving the raw nested imax sort. `actual_type` connects this telescope to the original constructor record.
+
+The fixed-fuel equations only re-express `checkFuel` as successors. The telescope retains `peelFuel`; neither fuel is reduced. Generic bind composition prevents the kernel from unfolding a concrete recursive checker when checking joins. The full memo record, including infer, whnf, whnfCore, constant-type and defeq entries, is retained. The constructor metadata and structural guards are separately checked by proof-producing reduction. The named installed constant has its checked normal-form equation and an explicit lookup equality.
+
+`constant`, `domains`, and `fields` discharge every operational premise of `constructor_of_runs`. There is no assumed pure or cached acceptance result, reverse simulation, native reduction, admission, or added axiom. Each of the four new modules passed its focused permitted-axiom audit. Retained measurements identify exact input hashes and commands; these checks do not replace final fresh closure validation.

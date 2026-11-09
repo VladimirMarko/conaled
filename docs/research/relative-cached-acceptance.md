@@ -11,3 +11,12 @@ A direct symbolic former reduction exceeded the generation heartbeat budget. A t
 The target remains `Cached.checkDecls .verified [] EmittedEnvironment.declarations.toArray = .ok EmittedEnvironment.environment`, with exact indexes, projection tables, pending-prefix visibility, actual helper kinds, and emitted bodies. It establishes a Lean operational result, not binary-driver correctness or general cached/pure equivalence. The eventual model application must retain explicit SetTheory assumptions. #107/#108 independent-author gates remain unchanged.
 
 Portable fresh reproduction and final independent reviews will apply to the frozen complete candidate. Existing #135 outputs are development reuse, not #417 acceptance evidence.
+
+The [constructor checkpoint](../../experiments/relative-graph/checkpoint-417-and-constructor/statement-review.md)
+now proves `checkSumCtorF` for the actual And introduction record, at the
+former-installed indexed environment and original fixed fuel. Its fresh memo
+input and complete output state are explicit. Parameter comparisons and field
+sort checks reuse the memo entries produced by constructor inference. The
+[retained measurements](../../experiments/relative-graph/checkpoint-417-and-constructor/measurements.json)
+bind these focused checks to source hashes. The complete cached And installer
+and whole emitted-family acceptance remain pending.
