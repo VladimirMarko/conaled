@@ -1,0 +1,24 @@
+Proof audit: 1144 kernel-safe declarations, 787 theorem declarations, 20 project modules.
+  CertifiedNatChecker: 74 logical declarations; 30 theorem declarations; 0 unsafe runtime declarations
+  FiniteFold: 51 logical declarations; 16 theorem declarations; 0 unsafe runtime declarations
+  FirstOrderNat: 44 logical declarations; 29 theorem declarations; 0 unsafe runtime declarations
+  FirstOrderNatSource: 10 logical declarations; 8 theorem declarations; 0 unsafe runtime declarations
+  FirstOrderNatSourceAudit: 0 logical declarations; 0 theorem declarations; 0 unsafe runtime declarations
+  QueensNatChecker: 6 logical declarations; 4 theorem declarations; 0 unsafe runtime declarations
+  RestrictedNatCheckerMain: 2 logical declarations; 0 theorem declarations; 0 unsafe runtime declarations
+  SymbolicWord16Core: 11 logical declarations; 7 theorem declarations; 0 unsafe runtime declarations
+  SymbolicWord16Recurrence: 19 logical declarations; 18 theorem declarations; 0 unsafe runtime declarations
+  ADWH.Chapter01.Lists: 228 logical declarations; 150 theorem declarations; 0 unsafe runtime declarations
+  ADWH.Chapter01.Permutations: 112 logical declarations; 78 theorem declarations; 0 unsafe runtime declarations
+  ADWH.Chapter15.Queens: 101 logical declarations; 77 theorem declarations; 0 unsafe runtime declarations
+  ADWH.Chapter15.QueensBitCounting: 38 logical declarations; 27 theorem declarations; 0 unsafe runtime declarations
+  ADWH.Chapter15.QueensBitMoves: 33 logical declarations; 24 theorem declarations; 0 unsafe runtime declarations
+  ADWH.Chapter15.QueensBitRepresentation: 98 logical declarations; 81 theorem declarations; 0 unsafe runtime declarations
+  ADWH.Chapter15.QueensBitsPrimitives: 89 logical declarations; 80 theorem declarations; 0 unsafe runtime declarations
+  ADWH.Chapter15.QueensFastCounting: 29 logical declarations; 16 theorem declarations; 0 unsafe runtime declarations
+  ADWH.Chapter15.QueensNatCounting: 42 logical declarations; 24 theorem declarations; 0 unsafe runtime declarations
+  ADWH.Chapter15.QueensSearch: 54 logical declarations; 39 theorem declarations; 0 unsafe runtime declarations
+  ADWH.Chapter15.QueensVariants: 103 logical declarations; 79 theorem declarations; 0 unsafe runtime declarations
+Excluded from logical roots: 0 kernel-unsafe runtime declarations.
+Transitive axiom union: [propext, Classical.choice, Quot.sound]
+Proof audit PASSED: every kernel-safe project declaration uses only the three permitted foundational axioms.

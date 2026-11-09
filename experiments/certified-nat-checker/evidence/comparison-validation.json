@@ -1,0 +1,76 @@
+{
+  "comparison": {
+    "candidate": "f6f2fb91eeaabf6a3e636250f8f4906cecbd890a",
+    "selected_archived_modules": 29,
+    "compiler": {
+      "path": "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+      "commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+      "sha256": "395833c033f0b77af16c277767d5e5fceaf8e19f8ab414d8110ca82b3cc50b0b"
+    },
+    "input_hashes": {
+      "experiments/certified-nat-checker/selection-comparison.json": "2f8a386bd99dcaa90896807682f10f2e911373e8fdf08436252bf98aab3d895a",
+      "experiments/certified-nat-checker/reproduce.py": "116166933bfeb8fbe7f4e6821788999662fa4eabf2ae29a762ae1576a1f57c10",
+      "experiments/certified-nat-checker/CheckerClient.lean": "de9c3ecce44e1dd755c4ecc5da6916e81fcf9a00f4b688ade850c19f5d06e13f",
+      "experiments/relative-graph/reproduce-acceptance.py": "5637c0f69c6282860afac2f9744ae949fe22f9de02426cfb982ef846db57ade2",
+      "experiments/relative-graph/ClosureAudit.lean": "11a59f3e918b863944180db940a741d7c8939f809cafaa040957bce36b15e593",
+      "scripts/check.py": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+      "Squares.lean": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+      "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "flake.nix": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+      "flake.lock": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f",
+      "experiments/certified-nat-checker/ReflectionClient.lean": "ebf728d5fb25828402bf81d03c382860461504caba0ed7484f52ea16aecee4d1"
+    },
+    "compile_commands": 34,
+    "all_compile_commands_passed": true,
+    "elapsed_seconds": 13.74311670201132,
+    "peak_child_rss_kib": 1571452,
+    "audit": "Closure audit PASSED: 32 modules, 1462 kernel-safe roots, 0 unsafe runtime declarations; axioms [Quot.sound,\n Classical.choice,\n propext]",
+    "limits": {
+      "virtual_address_gib": 8,
+      "seconds_per_process": 120,
+      "total_seconds": 1200,
+      "compiler_processes": 1,
+      "threads": 1
+    },
+    "native_checker_executed": false,
+    "n16_computed": false
+  },
+  "checker": {
+    "candidate": "f6f2fb91eeaabf6a3e636250f8f4906cecbd890a",
+    "selected_archived_modules": 20,
+    "compiler": {
+      "path": "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+      "commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+      "sha256": "395833c033f0b77af16c277767d5e5fceaf8e19f8ab414d8110ca82b3cc50b0b"
+    },
+    "input_hashes": {
+      "experiments/certified-nat-checker/selection.json": "f9fa98ba727a798cbcca521f7513c466113c53248f576ed11a380f24cf223302",
+      "experiments/certified-nat-checker/reproduce.py": "116166933bfeb8fbe7f4e6821788999662fa4eabf2ae29a762ae1576a1f57c10",
+      "experiments/certified-nat-checker/CheckerClient.lean": "de9c3ecce44e1dd755c4ecc5da6916e81fcf9a00f4b688ade850c19f5d06e13f",
+      "experiments/relative-graph/reproduce-acceptance.py": "5637c0f69c6282860afac2f9744ae949fe22f9de02426cfb982ef846db57ade2",
+      "experiments/relative-graph/ClosureAudit.lean": "11a59f3e918b863944180db940a741d7c8939f809cafaa040957bce36b15e593",
+      "scripts/check.py": "80794fe95dd2f15ac872da3b6908921ef2898635911832ce0993176308288a29",
+      "Squares.lean": "2556c4c895a747bc0092239b5dc5b220e8a6d4d6cf8a6f9fe66ab96fa2462dc7",
+      "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "flake.nix": "0dc6835949ecc2a9e28e9fff16aeb4fa46eca74d1a92132d9a3a236974409f37",
+      "flake.lock": "8489579a33350261a210f64e54d9442fece9c04fedf7ce8e6c5543010471238f"
+    },
+    "compile_commands": 24,
+    "all_compile_commands_passed": true,
+    "elapsed_seconds": 11.051784290000796,
+    "peak_child_rss_kib": 1571540,
+    "audit": "Closure audit PASSED: 22 modules, 1263 kernel-safe roots, 0 unsafe runtime declarations; axioms [Quot.sound,\n Classical.choice,\n propext]",
+    "limits": {
+      "virtual_address_gib": 8,
+      "seconds_per_process": 120,
+      "total_seconds": 1200,
+      "compiler_processes": 1,
+      "threads": 1
+    },
+    "native_checker_executed": false,
+    "n16_computed": false
+  },
+  "scope": "Measured before the documentation-only receipt commit; input hashes identify exact tested code. Final candidate receipt is retained by implementation review."
+}

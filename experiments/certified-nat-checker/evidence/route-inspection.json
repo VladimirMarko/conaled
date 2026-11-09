@@ -1,0 +1,398 @@
+{
+  "snapshot": "adwh-checkpoint-233",
+  "inspection_kind": "source contracts and supplied status evidence; no kernel route executed",
+  "references": [
+    {
+      "id": "reflection-corrected",
+      "member": "next-iteration/reflection-proof-corrections/source/FirstRowReflection.lean",
+      "sha256": "da7315a78be246379d44b8a96af917f1a6d251ef8a09fc6f966e27367103f1cf",
+      "bytes": 10494,
+      "inspection_scope": "complete source and exact proof edit replay"
+    },
+    {
+      "id": "reflection-source",
+      "member": "next-iteration/first-row-reflection/source/FirstRowReflectionSource.lean",
+      "sha256": "8a1e24ec4e3dde9b41a8f8e45af3cb2d5ee0807c1254ce56063d8c599c66ce2e",
+      "bytes": 3898,
+      "inspection_scope": "complete source and original Word16 bridge"
+    },
+    {
+      "id": "reflection-edits",
+      "member": "next-iteration/reflection-proof-corrections/PROOF-CORRECTION.json",
+      "sha256": "d28a82a19f9f959034efac629764686cc4bac46ae1e3f410d4bdef882b3218dd",
+      "bytes": 13169,
+      "inspection_scope": "three exact proof edits"
+    },
+    {
+      "id": "reflection-success",
+      "member": "next-iteration/reflection-proof-corrections/native-gate/attempts/complete-01/report.json",
+      "sha256": "bfb829741652a52e126bf0288cb292e991157c958f8027f43eb96454c06a3ed0",
+      "bytes": 382273,
+      "inspection_scope": "recorded universal proof plus native result, not replayed"
+    },
+    {
+      "id": "checkpoint-scope",
+      "member": "next-iteration/checkpoint233-current-state.md",
+      "sha256": "18f7ea07699f2a2d469628fed5441af92ea57a1cfb2f1ffe30d41eb04034a285",
+      "bytes": 11673,
+      "inspection_scope": "latest supplied route status"
+    },
+    {
+      "id": "installed-guards",
+      "member": "next-iteration/kernel-nat-only-installed-guards/bundled/source/KernelNatOnlyInstalledGuards.lean",
+      "sha256": "d6d698e72caaee7de0eb60b9e9bbe042978d7c3e37ed722c441e9c667ca28443",
+      "bytes": 21067,
+      "inspection_scope": "stored definition/recursor/arithmetic and prefix recognizer contracts"
+    },
+    {
+      "id": "installed-api",
+      "member": "next-iteration/kernel-eventual-last-mile-assessment/context/ConLeche/Cached/Installed.lean",
+      "sha256": "7ba12e5273637766d32cce2aa6ebd78d6b19a582687d4b042775f93b999aaf80",
+      "bytes": 27222,
+      "inspection_scope": "InstallRun, InstalledEnv, GroupChecked, FullyChecked and fold contracts"
+    },
+    {
+      "id": "installed-simulation",
+      "member": "next-iteration/kernel-eventual-last-mile-assessment/context/ConLeche/Verify/Cached/InstalledC.lean",
+      "sha256": "905edec773e27a49bf9ce8495b6a7b0e4dc004bfc505f328b778d3922ad78064",
+      "bytes": 13730,
+      "inspection_scope": "annotConstantValC_run/checkPending_run hypotheses and conclusions"
+    },
+    {
+      "id": "last-mile",
+      "member": "next-iteration/kernel-eventual-last-mile-assessment/ASSESSMENT.md",
+      "sha256": "1d65aab887843f3a507389a5d8a6687dbc62580bfc37a68fb7e7a98d4c2cb690",
+      "bytes": 12072,
+      "inspection_scope": "retained source analysis, distinguish claims from present implementation"
+    },
+    {
+      "id": "word-adjacency",
+      "member": "next-iteration/kernel-word-major-adjacency/source/KernelWordMajorAdjacency.lean",
+      "sha256": "ad97d46d792304fed47bb42e6f6625e0fc80244f8d593cfcd24a905a3da1b240",
+      "bytes": 21136,
+      "inspection_scope": "packed key/payload/bounds/first-record contracts and failed scopes"
+    },
+    {
+      "id": "word-transposition",
+      "member": "next-iteration/kernel-word-major-transposition-proof-repair/source/KernelWordMajorTransposition.lean",
+      "sha256": "0a74004b30e2ffd74f1b2d81a984572cf72ccaf593fc8e532d48604b3ece6492",
+      "bytes": 14981,
+      "inspection_scope": "source identity of accepted corrected prefix"
+    },
+    {
+      "id": "interpreter-physical",
+      "member": "next-iteration/kernel-cached-eventual-iota-equation-repair/source/KernelCachedEventualInterpreter.lean",
+      "sha256": "611ece23121c54c99a8f1a5fc2e4951f15be73c7e6743bde45295c5c7481e358",
+      "bytes": 209696,
+      "inspection_scope": "failure source identity and physical diagnostic scopes"
+    },
+    {
+      "id": "interpreter-contracts",
+      "member": "next-iteration/kernel-cached-eventual-iota-equation-repair/logical-source/KernelCachedOperationalContracts.lean",
+      "sha256": "f657ae191ae791940a241106113f12b228d553965ea815c399d2b4a34b04b23c",
+      "bytes": 34809,
+      "inspection_scope": "explicit state/run/fuel/iota contract and failed continuation scopes"
+    },
+    {
+      "id": "strong-checker",
+      "member": "next-iteration/kernel-strong-csp-quotient/source/KernelStrongCSPQuotient.lean",
+      "sha256": "9e5bf4bada6b1f4e306212987de8d6861651c335d46b793659b945c8c9555ae0",
+      "bytes": 9524,
+      "inspection_scope": "complete generic checker contracts, branch occurrences and prior known entries"
+    },
+    {
+      "id": "strong-source",
+      "member": "next-iteration/kernel-strong-csp-source-endpoint/source/SourceBridge.lean",
+      "sha256": "fe36c1f2d1780709ca76a2151ae5ef58ec9b072c3f6dc7e062bb33f0d03b2709",
+      "bytes": 9219,
+      "inspection_scope": "complete source-table bridge and duplication/domain premises"
+    },
+    {
+      "id": "strong-target",
+      "member": "next-iteration/kernel-strong-csp-producer/source/StrongCSPFirstTarget.lean",
+      "sha256": "b13230736daa100a3a94cb0d1556bd5417bb2ca5a49641701c9c8e84bf45f8d4",
+      "bytes": 739,
+      "inspection_scope": "exact missing generated import and actual n8 target"
+    },
+    {
+      "id": "kernel-word-major-infrastructure112-report",
+      "member": "next-iteration/kernel-word-major-infrastructure112/gate/attempts/complete-01/report.json",
+      "sha256": "747a0c825aa1446e9e84aa44f6e05999c6b81c55fc4d8cb324a579cee90caf56",
+      "bytes": 284292,
+      "inspection_scope": "recorded complete-selection failure; not rerun"
+    },
+    {
+      "id": "kernel-word-major-infrastructure112-disposition",
+      "member": "next-iteration/kernel-word-major-infrastructure112/gate/RESULT-AND-NEXT.md",
+      "sha256": "f8ef7591ccbea05899031d0fc3c6223fdabed9ef78427853e3edb28f9a58a37f",
+      "bytes": 2411,
+      "inspection_scope": "diagnostic disposition"
+    },
+    {
+      "id": "kernel-word-major-transposition-proof-repair-report",
+      "member": "next-iteration/kernel-word-major-transposition-proof-repair/gate/attempts/complete-01/report.json",
+      "sha256": "2ba9621c503218037fbf079472a5f9cba9729f0cb48537418b74a015d57df27e",
+      "bytes": 346920,
+      "inspection_scope": "recorded complete-selection failure; not rerun"
+    },
+    {
+      "id": "kernel-word-major-transposition-proof-repair-disposition",
+      "member": "next-iteration/kernel-word-major-transposition-proof-repair/gate/RESULT-AND-NEXT.md",
+      "sha256": "e65c7403d08dd717a1fb13c61052b726af03ae57b69bd1d1953d1205911bb81e",
+      "bytes": 3127,
+      "inspection_scope": "diagnostic disposition"
+    },
+    {
+      "id": "kernel-cached-eventual-iota-equation-repair-report",
+      "member": "next-iteration/kernel-cached-eventual-iota-equation-repair/gate/attempts/complete-01/report.json",
+      "sha256": "fe09ca2275ec960a331b99c202004c3c64dcb2202889b85dfebf75310b7a0710",
+      "bytes": 1067195,
+      "inspection_scope": "recorded complete-selection failure; not rerun"
+    },
+    {
+      "id": "kernel-cached-eventual-iota-equation-repair-disposition",
+      "member": "next-iteration/kernel-cached-eventual-iota-equation-repair/gate/RESULT-AND-NEXT.md",
+      "sha256": "4432997d0ca56101a5dd3239ef53766e2877bab3407219f55b9ba56b184ac34d",
+      "bytes": 2809,
+      "inspection_scope": "diagnostic disposition"
+    },
+    {
+      "id": "kernel-word-major-infrastructure112-diagnostics",
+      "member": "next-iteration/kernel-word-major-infrastructure112/gate/attempts/complete-01/KernelWordMajorTransposition.stdout.log",
+      "sha256": "ed1b2b10667060473f85cff90901d9761f03a9a05da9ea439d8daaeb2cd80c49",
+      "bytes": 2304,
+      "inspection_scope": "Actual failed module diagnostic headers and contexts; not rerun"
+    },
+    {
+      "id": "kernel-word-major-transposition-proof-repair-diagnostics",
+      "member": "next-iteration/kernel-word-major-transposition-proof-repair/gate/attempts/complete-01/KernelWordMajorAdjacency.stdout.log",
+      "sha256": "cbeae26d25b03a57db6fd7683898285bdd81d9f3c5ebcdea75ec1e1cef35ed45",
+      "bytes": 3366,
+      "inspection_scope": "Actual failed module diagnostic headers and contexts; not rerun"
+    },
+    {
+      "id": "kernel-cached-eventual-iota-equation-repair-diagnostics",
+      "member": "next-iteration/kernel-cached-eventual-iota-equation-repair/gate/attempts/complete-01/KernelCachedEventualInterpreter.stdout.log",
+      "sha256": "2d9d6d929a5cf59dbe45be29c5726eeb3f145b9e409639f2f7426a9f33bba03c",
+      "bytes": 28714,
+      "inspection_scope": "Actual failed module diagnostic headers and contexts; not rerun"
+    }
+  ],
+  "failed_runs": [
+    {
+      "status": "failed",
+      "accepted_axiom_report_count": 79,
+      "observed_axiom_report_count": 93,
+      "source_fingerprint": "60a40315a09947384bf26bffede38421461768fb36b9a46f2c0e0bb72a6b28ba",
+      "route": "kernel-word-major-infrastructure112",
+      "seconds": 4.663276732004306,
+      "peak_child_rss_kib": 508648,
+      "failure": {
+        "message": "Fresh module/axiom/output/resource failure: KernelWordMajorTransposition",
+        "type": "ValueError"
+      },
+      "modules": [
+        {
+          "module": "RoutedLookup",
+          "exit_code": 0,
+          "seconds": 0.3381542330025695,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "IndexedPackets",
+          "exit_code": 0,
+          "seconds": 0.3047027889988385,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "PackedSwitch",
+          "exit_code": 0,
+          "seconds": 0.3845748379972065,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "MaskCheck",
+          "exit_code": 0,
+          "seconds": 0.24512453799979994,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "WordMajorRouting",
+          "exit_code": 0,
+          "seconds": 0.73132001599879,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "KernelWordMajorAddition",
+          "exit_code": 0,
+          "seconds": 0.8162647479985026,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "KernelWordMajorMaskIntegration",
+          "exit_code": 0,
+          "seconds": 0.379905106005026,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "PackedAdjacency",
+          "exit_code": 0,
+          "seconds": 0.3992956570000388,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "Network",
+          "exit_code": 0,
+          "seconds": 0.2727793300000485,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "KernelWordMajorTransposition",
+          "exit_code": 1,
+          "seconds": 0.5022479339968413,
+          "status": "failed",
+          "limit_exceeded": null
+        }
+      ]
+    },
+    {
+      "status": "failed",
+      "accepted_axiom_report_count": 93,
+      "observed_axiom_report_count": 112,
+      "source_fingerprint": "1cdba7f19b794e47fcf02245454677f4e21a7f7549a53c807b1d47e938c7f698",
+      "route": "kernel-word-major-transposition-proof-repair",
+      "seconds": 5.562896967996494,
+      "peak_child_rss_kib": 508960,
+      "failure": {
+        "message": "Fresh module/axiom/output/resource failure: KernelWordMajorAdjacency",
+        "type": "ValueError"
+      },
+      "modules": [
+        {
+          "module": "RoutedLookup",
+          "exit_code": 0,
+          "seconds": 0.30554711000149837,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "IndexedPackets",
+          "exit_code": 0,
+          "seconds": 0.3083376840004348,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "PackedSwitch",
+          "exit_code": 0,
+          "seconds": 0.3732009110026411,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "MaskCheck",
+          "exit_code": 0,
+          "seconds": 0.2567903529998148,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "WordMajorRouting",
+          "exit_code": 0,
+          "seconds": 0.7821787919965573,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "KernelWordMajorAddition",
+          "exit_code": 0,
+          "seconds": 0.8453943229978904,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "KernelWordMajorMaskIntegration",
+          "exit_code": 0,
+          "seconds": 0.36022344099910697,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "PackedAdjacency",
+          "exit_code": 0,
+          "seconds": 0.4209355970015167,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "Network",
+          "exit_code": 0,
+          "seconds": 0.2853699109982699,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "KernelWordMajorTransposition",
+          "exit_code": 0,
+          "seconds": 0.518230155998026,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "KernelWordMajorAdjacency",
+          "exit_code": 1,
+          "seconds": 0.7729272919968935,
+          "status": "failed",
+          "limit_exceeded": null
+        }
+      ]
+    },
+    {
+      "status": "failed",
+      "accepted_axiom_report_count": 8,
+      "observed_axiom_report_count": 185,
+      "source_fingerprint": "43f7b74d12a8033903f3f95006980b0ad7f92f757812bffab1917cd2e872c035",
+      "route": "kernel-cached-eventual-iota-equation-repair",
+      "seconds": 27.428755360997457,
+      "peak_child_rss_kib": 878672,
+      "failure": {
+        "message": "Fresh module/axiom/output/resource failure: KernelCachedEventualInterpreter",
+        "type": "ValueError"
+      },
+      "modules": [
+        {
+          "module": "KernelCompactCore",
+          "exit_code": 0,
+          "seconds": 9.701875787999597,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "KernelCachedForward",
+          "exit_code": 0,
+          "seconds": 11.80386941699544,
+          "status": "passed",
+          "limit_exceeded": null
+        },
+        {
+          "module": "KernelCachedEventualInterpreter",
+          "exit_code": 1,
+          "seconds": 5.40365288600151,
+          "status": "failed",
+          "limit_exceeded": null
+        }
+      ]
+    }
+  ],
+  "missing_generated_member": "StrongCSPGenerated.lean",
+  "generated_member_found": false
+}
