@@ -140,8 +140,9 @@ that the accepted component theorems are false.
    trigger for reconsideration does not establish active investigation.
 5. **System-level acquisition and execution.** The remaining questions concern
    several connections, not an absence of component composition. The
-   [#392 research and [#416](https://github.com/VladimirMarko/conaled/issues/416) implementation](../approximate-wiring-experiment.md)
-   already derive finite-horizon error bounds through actual feedback wiring.
+   [#392 research](../categorical-systems-approximate-transport.md) led to the
+   [#416 implementation](../approximate-wiring-experiment.md), which derives
+   finite-horizon error bounds through actual feedback wiring.
    They do not supply adapters to FRP, numerical motion or probability, nor
    continuous-flow accuracy, roundoff bounds or physical-device correspondence.
    [Geometry acquisition](../geometry-realization-experiment-results.md) still
