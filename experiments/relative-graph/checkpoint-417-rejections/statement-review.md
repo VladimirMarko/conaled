@@ -1,5 +1,7 @@
 # #417 malformed controls statement review
 
+**Final status:** all three unconditional exported rejection controls are checked. The intermediate-premise descriptions below preserve checkpoint history; the final `CachedRejections` module discharges record 7 with `CachedPending7.accepted`.
+
 Base: `5f69973bff7697e90e077f392c2102e4ba38f385`. The initial checkpoint contains five checked modules; `CachedRejections.lean` is a separate, unfinished whole-checker join and is excluded from this checkpoint commit.
 
 - `CachedRejectionsBody.pc/decl`, `installed`, `rejected`, `rejected_final`: the actual forward constant header is retained and only its body becomes a loose bound variable. Installation is universally quantified over the incoming pending array and preserves the canonical environment. Rejection invokes actual fixed-fuel `Cached.checkPending`, not pure rejection. The final-prefix application supplies the canonical visibility bound; no response-agreement hypothesis occurs.
@@ -24,3 +26,9 @@ The whole exported checkDecls rejection remains pending until earlier pending-va
 - Each `*_pending` composes those successes and the first malformed emitted record's actual failure; the backward record is installed but its value is unreachable. Each `*_rejected` applies `run_error` to the checked installation. Reported positions are 12 for changed body/type and 11 after omission.
 
 Direct concrete rewriting generated proofs quickly but checking those proof terms exceeded the 30-second cap. Named `skip`, `stop`, and `run_error` remove the costly definitional joins without changing checker fuel, inputs, result, or assumptions. The complete conditional composition module checks in about 1.12 seconds. Its three unconditional wrapper applications remain outside this checkpoint until `CachedPending7.accepted` is available and they compile.
+
+## Final unconditional endpoints
+
+`CachedRejections.body_rejected`, `type_rejected`, and `missing_rejected` apply the previously checked composition to the author's actual `CachedPending7.accepted` proof. These statements have no acceptance hypotheses, no SetTheory premises, no response-agreement assumption, and no pure-to-cached inference. Each runs exported `ConLeche.Cached.checkDecls .verified []` on the entire precisely modified canonical family. Body/type errors report position 12; omission reports position 11. Earlier values check from fresh memo under their exact prefix views; installed state is retained. The missing-helper error stays the exact opaque formatter expression. The source-binding theorems in Families identify the original declaration changes independently of the endpoint proofs.
+
+The final seven-module cohort at source commit `5c5c0dc` completed with exit 0 for every module, each including #audit_graph_module and only the three allowed axioms. Source and output hashes and the checked pending7 dependency identity are in measurements.json. This is a focused source-bound check using existing dependency outputs, not the root-owned final fresh closure receipt. Independent full-candidate reviews and portable fresh reproduction remain the enclosing implementation loop's gates.
