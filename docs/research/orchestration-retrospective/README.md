@@ -94,7 +94,8 @@ to exclude noncomputable specifications.
 a [pure-term substitution argument applied to mixed syntax with runtime continuations](../semantic-traditions-first-wave.md),
 and an [SDT plan](../internal-selected-certificate-solver.md) that confused separate
 pointwise witnesses with one tracked construction working uniformly over a context. Corrected code and rejecting examples now record the
-repairs. Finite examples alone would not have caught every omission.
+repairs. The successful examples we had did not expose every omission; the
+repairs required checking the intended laws and the scope of the arguments.
 
 ## What received less attention than the ambition requires
 
