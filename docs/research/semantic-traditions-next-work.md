@@ -39,11 +39,14 @@ Conversely, a familiar framework name does not justify a universal port. The
 size and uncertainty of the next deliverable determine whether it is a checked
 construction or a research task with an implementation decision at acceptance.
 
-The prior studies often required a second consumer before any new experiment.
-That is a reasonable gate for broad infrastructure adoption, but an overly
-restrictive gate for discovery: alternatives then cannot demonstrate capabilities
-absent from the current client set. The new tasks supply concrete probes. They
-do not assert that earlier reuse or productivity conditions have already been met.
+Some earlier recommendations required a second consumer before introducing
+particular shared infrastructure: the [relational registration adapter](relational-proof-transfer.md)
+and [shared bound-indexed interface](ordered-quantitative-observations.md).
+These do not establish a repository-wide prerequisite for research. Applying
+such adoption conditions to discovery would prevent alternatives from
+showing capabilities absent from the current client set. The tasks below supply
+concrete probes without asserting that infrastructure reuse or productivity
+conditions have already been met.
 
 | Direction | Evidence and reason for the next task |
 |---|---|
@@ -153,3 +156,23 @@ obligation, without constructing general probabilistic bind, conditioning or
 recursion; their ownership remains #200/#36. Native kernels and seeded sampling
 remain available directly. Exact integration acceptance is recorded separately
 by the orchestration.
+
+## Scheduled exploratory successors after the retrospective
+
+The user approved two bounded investigations. Both are ready for agent work and
+may proceed independently; neither requires a second existing consumer or an
+adapter to the current architecture before investigation.
+
+- [#424: local-universes coherence](https://github.com/VladimirMarko/conaled/issues/424)
+  attempts a concrete weakly stable model and its required hypotheses, comparing
+  the resulting substitution coherence with direct strict construction. It
+  follows #366's unconstructed route; it does not repeat that closed comparison.
+- [#425: modal access with higher identity](https://github.com/VladimirMarko/conaled/issues/425)
+  investigates one dependent construction needing both restricted access and
+  retained higher cells. Separate modal and higher examples do not settle it.
+
+These are research tasks, not adoption decisions or a restart of the broad
+implementation waves. Their reports must distinguish missing constructions
+from impossibility results and propose bounded implementation successors only
+when warranted. #289 owns both, coordinated with #36/#235. Existing paused
+source-transfer and independent-author tests retain their gates.

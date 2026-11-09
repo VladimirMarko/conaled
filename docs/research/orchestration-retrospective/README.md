@@ -126,15 +126,18 @@ that the accepted component theorems are false.
    review and maintenance costs are not captured by short client proofs.
    The dedicated equivalent-task Lean/Felix caller-effort comparison ([#25](https://github.com/VladimirMarko/conaled/issues/25)) also
    remains open. Local upstream comparisons do not settle that broader benchmark.
-4. **Alternatives that change the questions.** The earlier requirement for a
-   second existing library client before investigating an alternative was a
-   documented discovery bias. Probability,
-   SDT, nominal binding, support, control and games reduced that bias.
-   The sample still favors finite generated syntax and selected outputs.
-   Matching logic, local universes, richer modal/higher combinations and other
-   deferred traditions remain possibilities, not disproved approaches. Assigning a broad
-   tracking issue and a trigger for reconsideration does not establish that
-   anyone is actively investigating the direction.
+4. **Alternatives that change the questions.** Some earlier recommendations
+   conditioned further shared infrastructure on a second consumer: for example,
+   [relational registration](../relational-proof-transfer.md) and
+   [shared numerical bounds](../ordered-quantitative-observations.md). Those were
+   conditions for particular infrastructure proposals, not a repository-wide
+   rule against investigating alternatives. Applying them to exploratory research
+   would disadvantage capabilities absent from the existing client set. Later
+   probability, SDT, nominal binding, support, control and game studies broadened
+   the evidence, but the sample still favors finite generated syntax and selected
+   outputs. Matching logic, local universes and richer modal/higher combinations
+   were not disproved by the bounded studies. Assigning a tracking issue and a
+   trigger for reconsideration does not establish active investigation.
 5. **System-level acquisition and execution.** Bounded runtimes exist, but proving
    that inputs satisfy a model’s assumptions, choosing useful numerical
    representations, connecting formal operations to real devices, and combining
@@ -181,8 +184,9 @@ weak native baseline.
 
 Review a small sample of dormant alternatives for capabilities outside the
 current client set. Requiring an adapter to the incumbent design would recreate
-the discovery bias that later waves reduced by admitting independently motivated
-alternatives.
+a discovery barrier: alternatives need room to demonstrate capabilities absent
+from the current client set. This risk does not establish that the earlier
+infrastructure conditions were a blanket research policy.
 
 These are assessment recommendations, not new tickets or implementation
 authorization. At this assessment snapshot, further implementation scheduling
