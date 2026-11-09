@@ -1,4 +1,5 @@
 import Applications.Geometry.RadialBranches
+import Applications.Geometry.RadialTaylor
 
 /-! A nonzero ordinary client of the actual local exponential/log branch. -/
 noncomputable section
