@@ -52,3 +52,82 @@ the complete And installer, Exists, helpers, actual emitted declaration family,
 final environment, model construction or Cached.checkDecls acceptance. Root is
 audited before expanding to those tasks. Development uses inherited pinned
 upstream outputs; final fresh isolated dependency closure remains required.
+
+## Retained reproducible run
+
+Commit `b98c45a` was checked with global `Elab.async=false` and the same setting
+on measured declaration insertion. Run ID `1794202357144968044-AndAcceptanceRoot`
+retains inputs.json, the exact source, output.log and result.json in the #135
+review evidence. Unlike the initial transcript observations, this log is not
+replaced by later runs. Source hashes include the measurement helper and all
+experiment sources. Whole-file time was 0.840400s; exit 0; the 107-root audit passed.
+
+| Declaration | Generation | Checked insertion | Type rendering | Tree nodes |
+|---|---:|---:|---:|---:|
+| constructors | 9.034523ms | 0.955126ms | 1.583780ms | 6964 |
+| root | 2.580351ms | 0.269323ms | 0.704991ms | 141 |
+
+The global asynchronous-elaboration setting differs from the initial run, so
+these numbers are separate observations, not evidence of a kernel speedup.
+
+The complete And installer pass, including class reading, field-sort checks and
+seed processing, also passed its 181-root audit in run
+`1794202357988887396-AndInstallation`. Its final symbolic pass composition used
+427 tree nodes, 3.423275ms generation and 0.479981ms checked insertion. This still
+does not include the installer's recursor and projection-table tail.
+
+For a repeatedly unfolded class-reading result, `checked_normal_form` records
+both a reduced data definition and a kernel-checked equation from the original
+expression to that definition. It uses proof-producing `cbv`; it does not execute
+an unchecked acceptance test. The helper's separate normalization timing includes
+checked definition/theorem insertion and code generation, and is labelled as
+such. Kernel acceptance remains an equality of the actual checker operation.
+A development failure from adding a generated definition without compiling its
+IR is retained; using checked `addAndCompile` supplies the needed code-generation
+registration. No upstream checker or main dependency changes were needed.
+
+The exported cached-checker equation remains open in [#417](https://github.com/VladimirMarko/conaled/issues/417).
+The pure-route model work does not establish it.
+
+## Complete And installation checkpoint
+
+`AndInstallerAcceptance.accepted` proves the actual pure operation
+`checkDecl .verified (fueledOps .verified 32) [] eqEnv (.indDecl andPin 2) = .ok andEnv`.
+`eqEnv` is the preserved equality basis environment. `andEnv` is the complete
+predicted environment: the reversed stored And records followed by those equality
+records, and exactly `[GraphEnvironment.andTable]`. Equality includes constructor
+metadata, generated recursor type and rules, projection guards and the table.
+There is no lookup-only or type-equivalence substitute for this final equality.
+
+The recursor proof checks the stream constant, class normal forms, class
+constructors, former types, generated prefix, generated constant, its definitional
+equality to the stream type, and generated rules in the exact rule-less recursor
+environment. `genRec_of_facts` sequences those actual operations symbolically.
+`tail_of_facts` then composes index sorts, constructor insertion, recursor checks,
+recursor insertion and projection-table checks. `block_of_facts` retains the
+constructor/member uniqueness guard and actual pass result. The final declaration
+proof also establishes ordinary-route dispatch, parameter count and block parsing.
+
+[Committed measurement records](../../experiments/relative-graph/checkpoint-135-and/measurements.json)
+retain source SHA256 identities, upstream revision, toolchain, invocation, run IDs,
+all stage measurements and audit outputs. The earlier reproducible root run is
+included separately with its original measurement-source hash. The final And
+installer file compiled in 0.963 seconds and audited 177 safe roots. This is a
+whole-file observation using prepared dependencies, not an isolated kernel timing
+or a fresh dependency-closure validation. The records distinguish proof generation,
+synchronous checked declaration insertion, type rendering, and normalization's
+combined checked insertion/code generation. Expression tree node counts are
+`sizeWithoutSharing`, not stored bytes, allocation or peak memory.
+
+[Bounded failed attempts](../../experiments/relative-graph/checkpoint-135-and/failed-attempts.json)
+retain exact attempted sources, identities, exits and capped diagnostics. Whole
+recursor/type reductions exceeded generation heartbeats. A concrete composition
+rewrite exceeded its wall limit without captured stage output, so that failure
+has no attributed kernel cost. The successful symbolic composition is a new
+attempt, not a reinterpretation of those failures.
+
+Statement review for the checkpoint is [recorded alongside the sources](../../experiments/relative-graph/checkpoint-135-and/statement-review.md).
+Exists, the native helper list, the actual emitted declarations, their complete
+family environment and the relative model remain unproved at this checkpoint.
+Final acceptance still requires the isolated fresh build and exhaustive upstream
+and native dependency audits. Cached acceptance remains separately open in #417.

@@ -1,4 +1,4 @@
-import Lean
+import ArtifactAudit
 
 /-! Experimental timing command for #135. Generated proof terms are inserted
 through Lean's checked addDecl, with no native acceptance oracle. -/
@@ -46,6 +46,8 @@ elab "checked_normal_form " n:ident " : " ty:term " := " val:term : command => d
       | .rfl .. => mkEqRefl original
       | .step _ proof .. => pure proof
     return (← instantiateMVars type,original,result,proof)
+  if type.hasSorry || original.hasSorry || result.hasSorry || proof.hasSorry then
+    throwError "Normalization failed; refusing an admitted declaration"
   let generated ← IO.monoNanosNow
   let name := (← getCurrNamespace) ++ n.getId
   let decl := Declaration.defnDecl { name, levelParams := [], type, value := result, hints := .abbrev, safety := .safe }
@@ -55,3 +57,5 @@ elab "checked_normal_form " n:ident " : " ty:term " := " val:term : command => d
     { name := name.appendAfter "_eq", levelParams := [], type := eqType, value := proof }
   let checked ← IO.monoNanosNow
   IO.println s!"normal_form {name}: generation_ns={generated-start}; checked_insertions_and_codegen_ns={checked-generated}; result_tree_nodes={result.sizeWithoutSharing}"
+
+#audit_graph_module
