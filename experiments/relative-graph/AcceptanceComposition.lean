@@ -9,6 +9,18 @@ theorem bind_ok {α β ε : Type} (a : Except ε α) (k : α → Except ε β)
     (x : α) (y : β) (ha : a = .ok x) (hk : k x = .ok y) :
     (a >>= k) = .ok y := by rw [ha]; exact hk
 
+theorem fold_cons {α β ε : Type} (f : β → α → Except ε β) (a : α) (ds : List α) (s0 s1 s2 : β)
+    (ha : f s0 a = .ok s1) (hs : ds.foldlM f s1 = .ok s2) :
+    (a :: ds).foldlM f s0 = .ok s2 := by
+  simp only [List.foldlM_cons, ha, bind, Except.bind]
+  exact hs
+
+theorem fold_append {α β ε : Type} (f : β → α → Except ε β) (as bs : List α) (s0 s1 s2 : β)
+    (ha : as.foldlM f s0 = .ok s1) (hb : bs.foldlM f s1 = .ok s2) :
+    (as ++ bs).foldlM f s0 = .ok s2 := by
+  rw [List.foldlM_append, ha]
+  exact hb
+
 theorem fold_three {α β ε : Type} (f : β → α → Except ε β) (a b c : α) (s0 s1 s2 s3 : β)
     (ha : f s0 a = .ok s1) (hb : f s1 b = .ok s2) (hc : f s2 c = .ok s3) :
     [a,b,c].foldlM f s0 = .ok s3 := by
