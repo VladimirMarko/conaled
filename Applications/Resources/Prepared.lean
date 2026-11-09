@@ -6,9 +6,12 @@ Work is a declared primitive tariff; storage and physical elapsed time are not
 additive work observations. -/
 namespace Resources.Prepared
 
-variable {S Q A R T B U D C : Type}
+universe uS uQ uA uR uT uB uU uD uC uP uX
 
-structure Ops (S Q A R : Type) where
+variable {S : Type uS} {Q : Type uQ} {A : Type uA} {R : Type uR}
+  {T : Type uT} {B : Type uB} {U : Type uU} {D : Type uD} {C : Type uC}
+
+structure Ops (S : Type uS) (Q : Type uQ) (A : Type uA) (R : Type uR) where
   prepare : S → Measured R Nat
   answer : R → Q → Measured A Nat
 
@@ -22,7 +25,7 @@ theorem agreement {f : S → Q → A} {p : Ops S Q A R} {V : S → R → Prop}
     (p.answer (p.prepare s).1 q).1 = f s q := h.answer s _ (h.prepare s) q
 
 /-- Bounds are indexed by static input, so size changes remain visible. -/
-structure Profile (S : Type) where
+structure Profile (S : Type uS) where
   preparation : S → Nat
   query : S → Nat
   maintenance : S → Nat
@@ -30,7 +33,7 @@ structure Profile (S : Type) where
   peak : S → Nat
 
 /-- Storage is supplied by a backend interpretation, separately from work. -/
-structure Storage (S R : Type) where
+structure Storage (S : Type uS) (R : Type uR) where
   retained : R → Nat
   preparePeak : S → Nat
   queryPeak : R → Nat
@@ -162,7 +165,8 @@ theorem maintenance_deadline {p : Ops S Q A R} {V : S → R → Prop}
 
 /-- A charged query reduction retains translation state X, such as an Euler
 first-occurrence array. Neither runtime queries nor their answers reach setup. -/
-structure Reduction (S Q A T P B X : Type) where
+structure Reduction (S : Type uS) (Q : Type uQ) (A : Type uA)
+    (T : Type uT) (P : Type uP) (B : Type uB) (X : Type uX) where
   convert : S → Measured (X × T) Nat
   encode : X → Q → Measured P Nat
   decode : X → B → Measured A Nat
@@ -230,7 +234,8 @@ theorem Reduction.preparation_bound (e : Reduction S Q A T P B X)
 /-- Abstract-cell observations for translation. Conversion includes its live
 source and output; encode/decode peaks include their own input/output temporaries.
 The caller retains X and R throughout each query. -/
-structure Reduction.Arena (S X T P B : Type) where
+structure Reduction.Arena (S : Type uS) (X : Type uX) (T : Type uT)
+    (P : Type uP) (B : Type uB) where
   translatorCells : X → Nat
   inputCells : T → Nat
   queryCells : P → Nat
@@ -356,7 +361,7 @@ theorem selected (h : select catalog profile req s objective = some c) :
 
 /-- The selected witness carries its own semantic law; selection cannot make
 an unproved candidate valid. -/
-theorem selected_agreement {Rep : C → Type} (realize : (c : C) → Ops S Q A (Rep c))
+theorem selected_agreement {Rep : C → Type uR} (realize : (c : C) → Ops S Q A (Rep c))
     (valid : (c : C) → S → Rep c → Prop) (law : ∀ c ∈ catalog, Laws f (realize c) (valid c))
     (h : select catalog profile req s objective = some c) (q : Q) :
     ((realize c).answer ((realize c).prepare s).1 q).1 = f s q :=

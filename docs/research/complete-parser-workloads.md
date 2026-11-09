@@ -185,12 +185,13 @@ counts without changing the semantic proof.
 
 The caller chooses the parser instance, depth, lifetime and synchronous output
 consumer. Native parsing imposes none of the retained-depth or lifetime
-obligations. A future #263 adapter must preserve parser-instance identity,
-indexed exact decisions, visible-depth validity, the snapshot build/lookup
-contract and these ownership/cost observations. No accepted generic shared
-interface was available at the starting revision; this remains a bounded client,
-not a second memoization framework. #235 owns broader preservation-interface
-adoption. Arbitrary witness closures, richer parser constructors, consumer
+obligations. #309 now instantiates the shared prepared-query and finite-catalog selection
+contracts for these four policies, with universal bounds over an explicit
+request envelope. See [parser policy selection](parser-policy-selection.md).
+#263 supplies homogeneous compositional memoization; it does not replace these
+word-indexed decisions. Parser-instance identity, exact selected decisions,
+visible-depth validity and ownership observations remain required for any
+further adapter. #235 owns broader preservation-interface adoption. Arbitrary witness closures, richer parser constructors, consumer
 retention, alternative arena reclamation and concrete Lean performance need
 separate cost/refinement evidence.
 
