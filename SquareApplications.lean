@@ -554,4 +554,6 @@ import Applications.Sequences.LCA.TargetBackend
 import Applications.Sequences.LCA.TargetSelection
 import Examples.LCATarget
 
+import Examples.AtlasIsotropy
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
