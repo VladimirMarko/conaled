@@ -1,15 +1,17 @@
 # Canonicity obligations for executable fragments
 
 [#395](https://github.com/VladimirMarko/conaled/issues/395) recommends a bounded
-canonicity theorem for the omega-free part of the existing weak machine. Its
-operational semantics, ground-value form, and adequacy results already supply
-most of the required interface. The missing result is totality of that chosen
-subfragment, not another sound model. Keep the existing partial language and
-its divergence results available unchanged.
+canonicity interface for the omega-free part of the existing weak machine.
+The embedded total fragment already has a checked operational return theorem.
+Reuse that bridge: the proposed additions are a structural admission/coverage
+API, substitution closure, and packaging with uniqueness and sufficient fuel,
+plus an opaque-stuck control. Keep the existing partial language and its
+divergence results available unchanged.
 
 This is a research deliverable, not a new Lean development. Local declarations
 were inspected at `28f8643141055dc194b22f59c210fb4b089e7062` on 2026-11-09.
-Statements labelled **checked** refer to existing integrated Lean declarations;
+The report was refreshed onto accepted `f67e7fe`; the audited machine and
+total-fragment bridge are unchanged there. Statements labelled **checked** refer to existing integrated Lean declarations;
 **proposed** statements and the opaque-extension counterexample below have not
 been formalized here. The historical Harper discussion is background, not the
 source of the literature claims.
@@ -153,13 +155,56 @@ host functions representing arrow values. `comparison` and `weak_eq_denote`
 are **checked** semantic agreements. At closed ground type its result is a
 host natural number; this is an existing executable route.
 
-That route does not by itself give a reduction trace to a source literal.
-There is no full normal-form reifier in this file. Literal tags also mean
-source syntax has two representations of the same ground meaning; a canonical
-syntax interface would need either a chosen tag or an equivalence contract.
-For the first machine-canonicity experiment, reuse `WeakMachine`, whose literal
-form has no tag, rather than silently identifying distinct syntax or claiming
-that host-function evaluation already normalizes open lambda terms.
+The cross-file bridge is also **checked**. In
+[`WeakHigherOrder.lean`](../../SquareKit/WeakHigherOrder.lean), `embed` maps this
+total syntax into the partial syntax, explicitly discarding literal tags.
+`TotalRel` relates total and partial values; at arrows it requires related
+inputs to yield a finite `done` computation with related result and the total
+computation's latent cost. `TotalEnv` supplies the environment hypothesis.
+`recovery` constructs that result by induction, and `recovery_ground` and
+`recovery_meaning` specialize it to closed ground terms.
+
+Crucially, [`Examples/WeakMachine.lean`](../../Examples/WeakMachine.lean)'s
+`recovered` already proves, for every closed total ground term `t`, a finite
+machine reduction from `embed t` to the literal denoting `t`. It composes
+`recovery_meaning` with `return_denotation`. Thus canonicity on the embedded
+image is already supported operationally, not merely by host evaluation.
+`terminal_unique` and `execute_sufficient` can package uniqueness and sufficient
+fuel from that existing return result. No new totality relation or duplicate
+fundamental theorem is needed for this image.
+
+What is not supplied by these declarations is a structural `NoOmega`
+characterization of the image, its closure API, or an executable extraction of
+a fuel bound. A proposed back-translation can choose a fixed literal tag and
+prove `embed (back t h) = t` for `h : NoOmega t`. The reverse composition need
+not recover the original tags. This assesses the actual remaining reuse work;
+there is still no general open-term normal-form reifier in these files.
+
+### Sufficient admission is not necessary termination
+
+`NoOmega` would be an optional sufficient condition for the selected total
+interface, not a restriction on all library expressions, settings, or source
+specifications. It is not intended to characterize every terminating program.
+The partial language already admits values whose function bodies diverge:
+`Examples.WeakMachine` checks that `loopingFunction` is terminal at zero fuel
+and proves that invoking it diverges.
+
+Even a closed ground result can return with syntactic `omega` present. Under
+the current call-by-value rules, the schematic term `(λf. 0) (λx. omega)` takes
+one beta step to zero: the argument lambda is already a value and its body is
+not forced. This is a direct derivation from existing `Step.beta` and
+`Value.lam`, not a newly added named Lean theorem. A structural `NoOmega` test
+would reject it. In contrast, existing `discardLoop = (λx. 0) omega` has the
+checked `discard_infinite` proof because call-by-value evaluates its argument.
+
+The user's `fst ((), undefined)` example raises the same demand question for
+a lazy pair interface: if projection demands only the first component, a
+partial second component need not prevent that observation. The current machine
+has neither pairs nor call-by-need rules, so it should not be presented as an
+implementation of that example. A future lazy/pair fragment must state its own
+value, demand, and reduction contracts. Neither strict evaluation of every
+field nor whole-program termination follows from specifying the meaning of a
+pair. Observation-specific definedness and total-fragment admission can coexist.
 
 ### The bounded cubical interpretation is semantic evidence
 
@@ -252,47 +297,50 @@ it would retain its different advertised guarantee.
 
 ## Bounded construction plan
 
-**Recommended next implementation:** omega-free ground canonicity for the
-existing substitution machine, with a checked opaque-extension rejection.
-No full cubical theory, new kernel axiom, audit exception, or ordinary-client
-migration is needed for this experiment.
+**Recommended next implementation:** expose the existing embedded-image
+ground-canonicity result through a structural omega-free admission interface,
+with a checked opaque-extension rejection. No full cubical theory, new kernel
+axiom, audit exception, or ordinary-client migration is needed.
 
 1. Define structural `NoOmega` on existing `WeakHigherOrder.Term`. Prove
-   renaming/substitution closure under admitted substitutions, including binder
-   lifting. Establish that the existing machine steps preserve the restriction.
-2. Define a total-value logical relation over the existing `V`/`Comp` carriers.
-   At ground type every returned natural is admissible. At arrow type, require
-   that applying the value to any total related input returns a finite `done`
-   computation with a total output. A total computation consists of such a
-   `done` witness. This must be constructed by induction for `NoOmega` terms
-   and total environments; do not assume totality as a global model field.
-3. Specialize to the empty environment. Combine the resulting `run = done`
-   evidence with `closed_fundamental` or `return_agreement` to obtain a source
-   reduction to `.lit n`. Use `terminal_unique` for numeral uniqueness and
-   `execute_sufficient` for success at every fuel above a derived bound.
-   Keep operational steps distinct from the existing semantic beta counter;
-   equality of those counts is not required or assumed.
-4. State the consumer-facing result as: admitted closed ground terms have a
-   unique numeral, a finite reduction trace, and a sufficient evaluator bound.
-   Exercise nested beta reduction under binders, duplicated arguments, zero
-   fuel on values, insufficient fuel on a returning term, and the `omega`
-   exclusion. If the proof stores only an existential in `Prop`, do not call
-   it an extracted executable bound; returning a computable bound requires
-   computational proof data or a separately justified algorithm.
+   `NoOmega (embed t)` by induction. Construct a back-translation for admitted
+   terms into `HigherOrderComparison.Term`, choosing one fixed literal tag;
+   prove `embed (back t h) = t`. These proposed coverage results identify the
+   admission predicate with the embedded image without equating distinct tags.
+2. Prove renaming/substitution closure under admitted substitutions, including
+   binder lifting, and preservation by existing machine steps. Reuse existing
+   substitution machinery and check compatibility of `embed`/back-translation
+   with it. These are proposed closure/coverage laws, not new totality axioms.
+3. Apply existing `recovery`/`TotalRel` and `Examples.WeakMachine.recovered` to
+   the back-translated term, then rewrite by the coverage equation. This gives
+   a source reduction to the numeral independently denoted by the total term.
+   Use `terminal_unique` for uniqueness and `execute_sufficient` for every
+   sufficiently large fuel. Do not construct a second logical relation unless
+   an additional consumer exposes a specific obligation this route cannot meet.
+4. Package the consumer result: admitted closed ground terms have a unique
+   numeral, finite reduction, and sufficient evaluator bound. Exercise nested
+   beta reduction under binders, duplicated arguments, zero fuel on values,
+   insufficient fuel on a returning term, and `omega` exclusion. Include a
+   returning term with an unforced omega-bearing lambda to demonstrate that
+   the predicate is conservative. The semantic beta count and machine steps
+   have different contracts; no count equality is required. If bound existence
+   is proved only in `Prop`, do not call it an extracted executable bound;
+   executable extraction requires computational proof data or a separately
+   justified algorithm.
 5. Implement the `κ` control in a separate test extension. Prove its typing,
    semantic assignment, no-step fact, and non-value fact. Demonstrate that a
    primitive operational-realization policy rejects it until a real evaluator
    clause is supplied. Do not modify the current machine's `no_stuck` contract.
 6. Recover existing direct APIs and examples unchanged. Add statement review,
    runtime tests for the selected evaluator interface, the required full
-   compilation/proof audit, and independent reviews. Report the fragment,
+   compilation/proof audit, and independent reviews. Report the admission and
    closure policy, strategy, fuel behavior, and unsupported extensions.
 
-This plan uses the existing adequacy theorem rather than re-proving an
-unrelated interpreter and calling it the same execution. An embedding from
-`HigherOrderComparison.Term` may later connect its total route to the machine,
-but must explicitly erase the presentation tag and prove the selected behavior
-comparison. That adapter is optional for the first theorem.
+The existing image theorem may first be exposed through a small public facade;
+that packaging need not wait for the structural coverage proof. Conversely,
+canonicity for the image does not establish all proposed `NoOmega` laws or
+classify every returning partial term. No new embedding is needed: the
+implemented embedding and recovery are the starting point.
 
 For a later cubical experiment, first freeze a rule and declaration slice
 from #321 with an independently specified source reduction relation, canonical
@@ -307,7 +355,7 @@ blocker for the weak-machine theorem.
 
 | Owner | Concrete handoff | Dependency policy |
 | --- | --- | --- |
-| [#36](https://github.com/VladimirMarko/conaled/issues/36), [#235](https://github.com/VladimirMarko/conaled/issues/235) | Schedule the bounded `NoOmega`/opaque-control implementation if accepted; retain the full partial machine. | No blanket wait for cubical foundation work. |
+| [#36](https://github.com/VladimirMarko/conaled/issues/36), [#235](https://github.com/VladimirMarko/conaled/issues/235) | Schedule structural coverage and public packaging of existing embedded-image canonicity, plus the opaque control; retain the full partial machine. | No blanket wait for cubical foundation work. |
 | [#321](https://github.com/VladimirMarko/conaled/issues/321) and its future coverage owners | Reuse constructed semantics; name a future operational rule slice and provider policy separately. | The closed bounded model ticket is not reopened or relabelled as a canonicity proof. |
 | [#214](https://github.com/VladimirMarko/conaled/issues/214) | Reuse staging/quotation where useful. | Its accepted staging deliverable is not missing NbE work. |
 | [#396](https://github.com/VladimirMarko/conaled/issues/396) | Compare an opaque term with value-plus-identity recovery, retaining the witness and source-execution distinction. | A different useful guarantee, not a prerequisite for machine canonicity. |
