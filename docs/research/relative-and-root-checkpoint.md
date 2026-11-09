@@ -131,3 +131,19 @@ Exists, the native helper list, the actual emitted declarations, their complete
 family environment and the relative model remain unproved at this checkpoint.
 Final acceptance still requires the isolated fresh build and exhaustive upstream
 and native dependency audits. Cached acceptance remains separately open in #417.
+
+## Primitive stream continuation
+
+`ExistsInstallerAcceptance.accepted` now checks the preserved Exists block after
+And, producing exactly `GraphEnvironment.environment`, including its dependent
+projection-table fields and levels. `PrimitiveAcceptance.accepted` composes the
+actual pure Eq basis step with both installers from the empty environment.
+The dependent witness/predicate positivity proof uses its computed walk fuel
+1028 and keeps the complete output state. The same symbolic recursor and tail
+assemblers apply without changed premises.
+
+[Exists statement review](../../experiments/relative-graph/checkpoint-135-exists/statement-review.md)
+and [source-bound measurements](../../experiments/relative-graph/checkpoint-135-exists/measurements.json)
+record this later checkpoint. The native helpers and actual emitted family are
+still outstanding here; this extends the earlier And checkpoint's scope without
+turning either development run into final fresh validation.
