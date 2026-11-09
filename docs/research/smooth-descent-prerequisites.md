@@ -51,6 +51,27 @@ deformation. Its base is exactly the existing constructed descended object.
 This is one actual primitive context-extension instance of the closure lemma;
 it is not the induction over every generated source context.
 
+## Fixed-cover sections
+
+`SectionDescent` reconstructs a complete section from a base equivalence and
+natural fiber comparisons whose components are equivalences. It pulls the
+supplied section's lift through the total equivalence, then uses the existing
+section normalization to make its projection strictly the identity. No
+reconstructed section is an input. Recovery is a natural isomorphism of the
+whole section functors. Its components project to identity arrows in the
+compared base, so it is vertical. `sectionVerticalEquiv` gives an equivalence
+of the sets of selected vertical natural transformations between sections;
+its inverse laws retain the transformations themselves.
+
+`SmoothQuotientDescentSections` applies this construction to the actual
+local-to-descended deformation fiber comparison over the full quotient cocycle
+groupoid. The input assigns a matching local deformation to every cocycle and
+acts naturally on every compatible local arrow. The output constructs a section of descended deformation fibers, with
+vertical recovery through the actual gluing comparison.
+The base of this specialization is still the cocycle groupoid. Transport onward
+to the global quotient context and compatibility as parameters and covers vary
+remain obligations for generated interpretation descent.
+
 ## Checked cases and statement review
 
 `Examples.DescentClosure` changes a two-representative contractible groupoid to
@@ -73,6 +94,22 @@ with ineffective action, without a global trivialization. Its loop statement
 retains any pair of distinct selected arrows; the independent integer-loop
 example supplies a concrete rejection of forgetting those distinctions.
 
+`Examples.SectionDescent` supplies two sections of a constant integer-loop
+family with equal object assignments but different arrow actions. It also
+constructs a nonidentity vertical loop transformation of the stationary
+section and proves that inverse transport distinguishes it from the identity.
+This rejects an object-only section contract and checks that the accepted
+comparison preserves selected transformations. Another specialization transports
+a loop-valued section across the base equivalence that collapses the two
+contractible context representatives.
+
+The section theorem quantifies over all source and target base categories and
+all groupoid-valued families in the stated universes. Its input is one complete
+section with functorial arrow data, not unrelated objects at each context.
+The component-equivalence hypothesis is explicit; it is proved from the
+existing deformation gluing equivalence in the smooth specialization. Recovery
+is a vertical natural isomorphism, not equality of section representations.
+
 The general extension statement quantifies over arbitrary categories and
 functor-valued families, with independent base and fiber universe parameters.
 The identity comparison quantifies over arbitrary endpoints and actual arrows.
@@ -93,12 +130,12 @@ a direct proof of its target equality is insufficient.
 
 Section descent has two useful layers. A section supplied over the full
 context-descent groupoid includes its action on all compatible arrows; a fixed
-cover transport theorem can reconstruct it with vertical-isomorphism recovery.
+cover transport theorem now reconstructs it with vertical-isomorphism recovery.
 Arbitrary locally supplied sections require additional compatibility over
 sheaf parameters and covers pulled back to those parameters. A section over
-one parameter alone does not provide that contract. Neither layer is proved
-by the extension equivalence alone, and this checkpoint does not claim either
-section-gluing result.
+one parameter alone does not provide that contract. The fixed-cover result above proves the first layer from the extension
+equivalence and normalization. The second layer remains unproved; the current
+result does not supply arbitrary local-section gluing.
 
 The boundary-fiber equivalence and classical chart comparison remain existing
 consumer interfaces. Their compatibility with generated descent must be
