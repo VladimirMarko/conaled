@@ -5,6 +5,15 @@ asks for a generic finite-action proper étale presentation, extracted from the
 existing quarter-turn disk construction. This is a concrete consumer request for
 reusable geometry. It does not require a joint higher/cohesive model first.
 
+## Implementation update
+
+The later [finite-action extraction](finite-action-presentation.md) implements
+#435, including direct noncompact ineffective and noncommuting geometric
+controls. The initial source-inspection findings below describe the earlier
+revision; their proposed extraction is no longer outstanding. The internal
+properness comparison and general manifold quotient-arrow comparison remain
+separate obligations.
+
 ## Evidence and provenance
 
 The feedback is preserved byte-for-byte. Its SHA-256 is
