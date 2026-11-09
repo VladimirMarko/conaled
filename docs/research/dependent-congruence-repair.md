@@ -1,5 +1,11 @@
 # Dependent congruence repair: incomplete implementation
 
+Subsequent implementation: the approved [guarded repair](guarded-dependent-authoring-repair.md)
+now records the general left-path associativity derivation, fresh source
+substitution, and its interpretation consumers. The original checkpoint below
+remains historical evidence; current acceptance and #108 handoff are tracked in
+the subsequent report.
+
 Current status (2026-11-09): the owner has resumed #107. The checkpoint and
 validation below remain historical evidence, not a completed repair or freeze.
 The [resumed structural comparison](dependent-congruence-resumption.md) now
