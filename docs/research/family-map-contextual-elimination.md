@@ -5,6 +5,10 @@ arrow-model and derivation-indexed approaches. It implements neither approach.
 The prior all-torsor smooth interpretation and descent milestones are recorded
 in [smooth-source-interpretation.md](smooth-source-interpretation.md).
 
+This document records checkpoint `81c4784`. The subsequent construction of
+path and changing-tail squares is recorded in
+[changing-family-contractions.md](changing-family-contractions.md).
+
 ## Result and precise inputs
 
 `Internal.PathTransport.FamilyMapElimination` proves strict equality of functors
@@ -97,7 +101,7 @@ change this interface or the other route's prospective implementation.
 
 The experiment removes one uncertainty: a noninvertible motive transformation
 is compatible with the selected normalization by strict equality. It does not
-settle the remaining architecture. Both routes still need construction of the
+settle the remaining architecture. At this checkpoint, both routes still needed construction of the
 path-contraction comparison for changing signature families, propagation
 through changing dependent tails, and the relevant section/substitution and
 conversion comparisons. The arrow-model route additionally needs its complete
@@ -105,7 +109,7 @@ model/projection construction; the derivation-indexed route needs coherent
 comparison choices across shared indices. Generated smooth context/family/
 section descent remains required under either route.
 
-No claim is made that full shared arbitrary-family-and-tail compatibility,
+This first checkpoint makes no claim that full shared arbitrary-family-and-tail compatibility,
 parameter-indexed smooth-model closure, or #433 is complete. The parent workflow
 owns the fresh acceptance build, exhaustive audit, public coverage and independent
 review. Focused commands and selected-root audits are recorded in the external
