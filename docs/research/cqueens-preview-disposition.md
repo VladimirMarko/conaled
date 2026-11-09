@@ -3,7 +3,9 @@
 The corrected first-row reflection route has a complete available source
 closure. The [portable comparison profile](../../experiments/certified-nat-checker/README.md#reflected-first-row-comparison)
 reproduces its 27 modules and audits the actual source comparison, while reusing
-the previously accepted natural-number checker client. The broader preview
+the previously accepted natural-number checker client. The separate native
+profile freshly builds its full 31-module executable closure and reproduces
+the canonical original-source numerical acceptance, as recorded below. The broader preview
 contains incomplete kernel experiments and a missing generated CSP proof. Their
 contracts and failure evidence are recorded here without repairing or adopting
 them. This is an intake and comparison result under #137, not a resumption of
@@ -12,8 +14,8 @@ them. This is an intake and comparison result under #137, not a resumption of
 [Route inspection metadata](../../experiments/certified-nat-checker/evidence/route-inspection.json)
 records exact checkpoint-233 member paths, hashes, inspection scopes and failed
 run results. References below use its short IDs. These are preserved source
-contracts and recorded outcomes. Only the selected comparison closure is
-compiled by this slice; the kernel and CSP contracts are inspected statically.
+contracts and recorded outcomes. The comparison and native profiles compile
+their selected closures; the kernel and CSP contracts are inspected statically.
 The inventory is finite and tied to this snapshot, rather than a claim to have
 accepted every historical experiment or independently rechecked upstream kernel
 metatheory.
@@ -62,8 +64,8 @@ acceptance, using 21 prepared objects for seven original modules. The external
 call took 7.666948686004616 seconds; peak RSS was 796,004 KiB. These are supplied
 single-run measurements, not local repeated benchmarks. The corrected report
 explicitly leaves concrete Lean acceptance, the stock numeral theorem and kernel
-extension false. The current comparison does not rerun C generation, linking,
-native CLI or n16. [reflection-success]
+extension false. The comparison profile itself does not run C generation, linking,
+native CLI or n16; the separate native reproduction is recorded below. [reflection-success]
 
 ## Fresh comparison evidence
 
