@@ -183,9 +183,11 @@ proof; it cannot be obtained by renaming the same inputs.
 **Semantic versus syntactic claims.** The construction is conditional on
 supplied compatible models. It is not an all-model expansion theorem for
 arbitrary side theories: one side may impose a new equation on common
-operations that the other model violates. Semantic conservativity needs an
-expansion for every old model, as the existing extension work explicitly
-proves. Syntactic conservativity additionally concerns a specified calculus
+operations that the other model violates. Expansion of every old model is the
+stronger model-conservativity property; it suffices to reflect old semantic
+consequences, as in the existing extension work, but is not generally necessary
+for that consequence-level property. This conditional construction establishes
+neither property for arbitrary side theories. Syntactic conservativity concerns a specified calculus
 and its proof relation; no completeness bridge is supplied here. Interpreting
 a source derivation in C is another step requiring a sound interpretation of
 its fragment. Constructing C alone does not translate proof objects, recover
