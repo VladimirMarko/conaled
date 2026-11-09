@@ -263,6 +263,7 @@ import Examples.JetScan
 import Examples.MatrixStack
 import Examples.CountedStack
 import Examples.CountedStackRun
+import Examples.RadialFlow
 import Examples.Run
 import Examples.OrderCertificate
 import Examples.NumericalMotion
