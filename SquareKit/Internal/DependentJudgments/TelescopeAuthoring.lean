@@ -180,6 +180,16 @@ def weakenSection (ht : Ty (Ω := Ω) Γ B) (hx : Tm (Ω := Ω) Γ A x) : Equal 
     (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))) ht hx
 end Ty
 
+namespace Ty
+def weakenLift (hB : Ty (Ω := Ω) Γ B) (hA : Ty (Ω := Ω) Γ A)
+    (hs : Sub (Ω := Ω) Δ Γ σ) : Equal (Ω := Ω)
+    (subTy (subTy B (Contextual.weaken Γ A)) (liftSyntax Δ A σ))
+    (subTy (subTy B σ) (Contextual.weaken Δ (subTy A σ))) :=
+  (hB.subComp hA.weaken (hs.lift hA)).transitive
+    ((Equal.subTy (.reflexive _) (hs.liftWeaken hA)).transitive
+      (hB.subComp hs (hA.substitute hs).weaken).symmetric)
+end Ty
+
 namespace Tm
 /-- Substitution beneath a dependent binder is derived from its display square. -/
 def weakenLift (ht : Tm (Ω := Ω) Γ B t) (hA : Ty (Ω := Ω) Γ A)
@@ -222,4 +232,125 @@ def weakenPairType (hB : Ty (Ω := Ω) Γ B) (hA : Ty (Ω := Ω) Γ A)
   (hB.subComp hA.weaken (Sub.pair hA hs hv)).transitive
     (Equal.subTy (.reflexive _) (hA.weakenPair hs hv))
 end Ty
+
+namespace Equal
+def pair {a a' b b' c c' : Expression V} (ha : Equal (Ω := Ω) a a')
+    (hb : Equal (Ω := Ω) b b') (hc : Equal (Ω := Ω) c c') :
+    Equal (Ω := Ω) (Contextual.pair a b c) (Contextual.pair a' b' c') :=
+  ternary (Contextual.Equal.pair (.hypothesis List.mem_cons_self)
+    (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))
+    (.hypothesis (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ List.mem_cons_self)))) ha hb hc
+end Equal
+namespace Ty
+def pairComp (hA : Ty (Ω := Ω) Γ A) (hs : Sub (Ω := Ω) Δ Γ σ)
+    (ht : Tm (Ω := Ω) Δ (subTy A σ) t) (hτ : Sub (Ω := Ω) Θ Δ τ) : Equal (Ω := Ω)
+    (Contextual.comp (Contextual.pair A σ t) τ)
+    (Contextual.pair A (Contextual.comp σ τ) (subTm t τ)) :=
+  quaternary (Contextual.Ty.pairComp (.hypothesis List.mem_cons_self)
+    (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))
+    (.hypothesis (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ List.mem_cons_self)))
+    (.hypothesis (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ List.mem_cons_self))))) hA hs ht hτ
+end Ty
+namespace Tm
+def rootDef (hx : Tm (Ω := Ω) Γ A x) : Equal (Ω := Ω) (Contextual.root A x)
+    (Contextual.pair (Contextual.pathFamily Γ A x) (sectionSub Γ A x) (Contextual.reflexivity A x)) :=
+  unary (Contextual.Tm.rootDef (.hypothesis List.mem_cons_self)) hx
+end Tm
+namespace Sub
+/-- A display-map lift commutes with pairing, including dependent components. -/
+def liftPair (hs : Sub (Ω := Ω) Δ Γ σ) (hA : Ty (Ω := Ω) Γ A)
+    (hτ : Sub (Ω := Ω) Θ Δ τ) (hv : Tm (Ω := Ω) Θ (subTy (subTy A σ) τ) t) :
+    Equal (Ω := Ω) (Contextual.comp (liftSyntax Δ A σ) (Contextual.pair (subTy A σ) τ t))
+      (Contextual.pair A (Contextual.comp σ τ) t) := by
+  let hB := hA.substitute hs
+  let hp := Sub.pair hB hτ hv
+  have first := hA.pairComp (hs.comp hB.weaken)
+    (hB.generic.convert (hA.subComp hs hB.weaken)) hp
+  have base := (hs.assoc hB.weaken hp).transitive
+    (Equal.comp (.reflexive _) (hB.weakenPair hτ hv))
+  exact first.transitive (Equal.pair (.reflexive _) base (hB.variablePair hτ hv))
+end Sub
+
+/-- Import a five-premise derived source operation into the named extension. -/
+def quinary {a b c d e f : Judgment V}
+    (h : Derivation Contextual.theory [a,b,c,d,e] f)
+    (ha : Derivation theory Ω a) (hb : Derivation theory Ω b) (hc : Derivation theory Ω c)
+    (hd : Derivation theory Ω d) (he : Derivation theory Ω e) : Derivation theory Ω f :=
+  importProof h (by
+    classical
+    intro j hj
+    simp at hj
+    by_cases h : j = a
+    · subst j; exact ha
+    · by_cases h' : j = b
+      · subst j; exact hb
+      · by_cases h'' : j = c
+        · subst j; exact hc
+        · by_cases hlastCase : j = d
+          · subst j; exact hd
+          · have hlast := (((hj.resolve_left h).resolve_left h').resolve_left h'').resolve_left hlastCase
+            subst j; exact he)
+
+namespace Equal
+/-- Congruence of a recipe is derived structurally from generated equalities. -/
+def recipe {W : Type} (r : Expression W) (s t : W → Expression V)
+    (h : ∀ w, Equal (Ω := Ω) (s w) (t w)) : Equal (Ω := Ω) (r.subst s) (r.subst t) := by
+  induction r with
+  | leaf w => exact h w
+  | node op args ih => exact Derivation.congruence op ih
+def extend {a a' b b' : Expression V} (ha : Equal (Ω := Ω) a a') (hb : Equal (Ω := Ω) b b') :
+    Equal (Ω := Ω) (Contextual.extend a b) (Contextual.extend a' b') :=
+  binary (Contextual.Equal.extend (.hypothesis List.mem_cons_self)
+    (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))) ha hb
+def weaken {a a' b b' : Expression V} (ha : Equal (Ω := Ω) a a') (hb : Equal (Ω := Ω) b b') :
+    Equal (Ω := Ω) (Contextual.weaken a b) (Contextual.weaken a' b') :=
+  binary (Contextual.Equal.weaken (.hypothesis List.mem_cons_self)
+    (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))) ha hb
+
+def generic {a a' b b' : Expression V} (ha : Equal (Ω := Ω) a a') (hb : Equal (Ω := Ω) b b') :
+    Equal (Ω := Ω) (Contextual.generic a b) (Contextual.generic a' b') :=
+  binary (Contextual.Equal.generic (.hypothesis List.mem_cons_self)
+    (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))) ha hb
+def liftSyntax {a a' b b' c c' : Expression V} (ha : Equal (Ω := Ω) a a')
+    (hb : Equal (Ω := Ω) b b') (hc : Equal (Ω := Ω) c c') :
+    Equal (Ω := Ω) (Contextual.liftSyntax a b c) (Contextual.liftSyntax a' b' c') := by
+  unfold Contextual.liftSyntax
+  exact Equal.pair hb (Equal.comp hc (Equal.weaken ha (Equal.subTy hb hc)))
+    (Equal.generic ha (Equal.subTy hb hc))
+def telNil {a a' : Expression V} (ha : Equal (Ω := Ω) a a') :
+    Equal (Ω := Ω) (Contextual.telNil a) (Contextual.telNil a') := by
+  have e := recipe (Contextual.telNil (.var 0) : Expression (Fin 1)) ![a] ![a']
+    (Fin.cases ha (fun i => nomatch i))
+  simpa using e
+def telCons {a a' b b' : Expression V} (ha : Equal (Ω := Ω) a a')
+    (hb : Equal (Ω := Ω) b b') :
+    Equal (Ω := Ω) (Contextual.telCons a b) (Contextual.telCons a' b') := by
+  have e := recipe (Contextual.telCons (.var 0) (.var 1) : Expression (Fin 2)) ![a,b] ![a',b']
+    (Fin.cases ha (Fin.cases hb (fun i => nomatch i)))
+  simpa using e
+
+end Equal
+namespace Tm
+def pathSub (hx : Tm (Ω := Ω) Γ A x) (hs : Sub (Ω := Ω) Δ Γ σ) :
+    Sub (Ω := Ω) (Contextual.path (subTy A σ) (subTm x σ)) (Contextual.path A x) (Contextual.pathSub A x σ) :=
+  binary (Contextual.Tm.pathSub (.hypothesis List.mem_cons_self)
+    (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))) hx hs
+def pathSubProjection (hx : Tm (Ω := Ω) Γ A x) (hs : Sub (Ω := Ω) Δ Γ σ) :
+    Equal (Ω := Ω) (comp (Contextual.weaken (Contextual.extend Γ A) (Contextual.pathFamily Γ A x)) (Contextual.pathSub A x σ))
+      (comp (liftSyntax Δ A σ) (Contextual.weaken (Contextual.extend Δ (subTy A σ)) (Contextual.pathFamily Δ (subTy A σ) (subTm x σ)))) :=
+  binary (Contextual.Tm.pathSubProjection (.hypothesis List.mem_cons_self)
+    (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))) hx hs
+def jSub (hx : Tm (Ω := Ω) Γ A x) (hT : Tel (Ω := Ω) n (Contextual.path A x) T)
+    (hD : Ty (Ω := Ω) (total T) D)
+    (hd : Tm (Ω := Ω) (total (pullback T (Contextual.root A x))) (subTy D (rootTail A x T)) d)
+    (hs : Sub (Ω := Ω) Δ Γ σ) :
+    Equal (Ω := Ω) (subTm (Contextual.j A x T D d) (Contextual.pathTailMap A x T σ))
+      (Contextual.j (subTy A σ) (subTm x σ) (Contextual.pathTail A x T σ)
+        (subTy D (Contextual.pathTailMap A x T σ)) (reindexBranch A x T σ D d)) :=
+  quinary (Contextual.Tm.jSub (.hypothesis List.mem_cons_self)
+    (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))
+    (.hypothesis (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ List.mem_cons_self)))
+    (.hypothesis (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ List.mem_cons_self))))
+    (.hypothesis (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ List.mem_cons_self)))))) hx hT hD hd hs
+end Tm
 end SquareKit.Internal.DependentJudgments.Contextual.TelescopePresentation
