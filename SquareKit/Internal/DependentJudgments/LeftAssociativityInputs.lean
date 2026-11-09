@@ -73,5 +73,14 @@ def rootBranch {σ : Expression V} (hs : Sub (Ω := Ω) Δ Γ σ) (R : Reflexive
   ((C.substitute hs).leftTyped.reflexivity.convert
     (Equal.identity (.reflexive _) (.reflexive _) ((C.substitute hs).reflexiveCase R.endpoint R.path))).convert
       (C.motiveSub hs).symmetric
+def motiveCongr {D : ThreePaths Ω Γ}
+    (hA : Equal (Ω := Ω) C.first.A D.first.A) (hx : Equal (Ω := Ω) C.first.x D.first.x)
+    (hy : Equal (Ω := Ω) C.first.y D.first.y) (hz : Equal (Ω := Ω) C.z D.z)
+    (hw : Equal (Ω := Ω) C.w D.w) (hp : Equal (Ω := Ω) C.first.p D.first.p)
+    (hq : Equal (Ω := Ω) C.q D.q) (hr : Equal (Ω := Ω) C.r D.r) : Equal (Ω := Ω) C.motive D.motive :=
+  Equal.identity (Equal.identity hA hx hw)
+    (Equal.leftConcat (.reflexive _) hA hx hz hw (Equal.leftConcat (.reflexive _) hA hx hy hz hp hq) hr)
+    (Equal.leftConcat (.reflexive _) hA hx hy hw hp (Equal.leftConcat (.reflexive _) hA hy hz hw hq hr))
+
 end ThreePaths
 end SquareKit.Internal.DependentJudgments.Contextual.TelescopePresentation
