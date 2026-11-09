@@ -28,3 +28,24 @@ No new axiom, admission, native-decision shortcut or runtime source identity is
 introduced. The axioms of these claims are checked by the isolated exhaustive
 audit. The report keeps native execution and broader preview inspection outside
 this slice.
+
+## Reflected source comparison
+
+`ReflectionClient` adds one specialization of the accepted endpoint adapter and
+four cases for previously untested properties. The original checker cases are
+reused through its import; they are not copied or weakened.
+
+| Declaration(s) | Intended statement and checked connection |
+| --- | --- |
+| `Reflection.endpoint`, `thenSuccessor`, `source_comparison` | The actual corrected reflected source implements the actual original Word16 `cqueens` on every natural input. `SourceBridge.cqueens_eq` supplies the existing endpoint law; `endpointSquare` and `Squares.compose` carry it through the existing successor consumer. No n16 computation, model-soundness shortcut or claimed mathematical correctness beyond the original width semantics is involved. |
+| `odd_constant_weight` | Five columns of weight three total fifteen. The proof consumes `paired_sum` with its symmetry premise proved by reflexivity. An odd center must be counted once. |
+| `even_constant_weight` | Four columns of weight three total twelve through the same public law. There is no center contribution. |
+| `empty_weight_sum` | Zero columns give zero weighted sum through `paired_sum`. This is distinct from the source's one empty terminal board; it does not remove the `0 < n` premise of `solutionsQ_empty_sum`. |
+| `outside_column_not_involutive` | At n=5 and q=7, truncated subtraction breaks the unrestricted involution claim. This checked negative boundary keeps the legal-column premise visible. |
+
+The archived reflection proofs preserve list permutations and multiplicities,
+not order or a set quotient. The source wrapper retains the Word16 fast-path
+bound, zero branch and exact fallback. No archived definition or proof was edited.
+The new selector verifies correction provenance separately from compiling the
+corrected source and its complete dependencies. The generic six-module slice
+alone would not check that source wrapper; the comparison profile includes it.

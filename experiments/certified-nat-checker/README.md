@@ -45,3 +45,27 @@ local validation records, not a proof of executable-binary correctness or a
 replacement for independent review. No native checker, queens numeral workload,
 or modified kernel runs. Normal main-repository `check.sh` does not import this
 isolated experiment; its fresh reproduction and audit are separate requirements.
+
+## Reflected first-row comparison
+
+Select the comparison profile to reproduce the corrected reflection and exact
+masked-source route:
+
+```sh
+flock /tmp/conaled-369-orchestration/build.lock \
+  direnv exec . python3 experiments/certified-nat-checker/reproduce.py \
+  --selection comparison --out /tmp/checker-137-comparison-fresh
+```
+
+`selection-comparison.json` contains the complete 27-module source-comparison
+closure plus the two archived parser/endpoint modules needed by the already
+accepted `CheckerClient`. It therefore extracts 29 archived modules, then adds
+`Squares`, `CheckerClient` and `ReflectionClient`. All 32 mathematical/client
+modules are audited. No archived CLI or native numerical workload is executed.
+The default `checker` selection retains the original 20-module profile.
+
+Preparation also replays the three proof corrections from the failed reflection
+predecessor, checking every intermediate hash and the exact corrected bytes.
+The [route disposition](../../docs/research/cqueens-preview-disposition.md)
+distinguishes this source reproduction from supplied runtime evidence, failed
+complete kernel selections and the missing strong-CSP generated input.

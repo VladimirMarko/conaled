@@ -1,0 +1,321 @@
+{
+  "roots": [
+    "FirstRowReflectionSource"
+  ],
+  "order": [
+    "ADWH.Chapter01.Lists",
+    "ADWH.Chapter01.Permutations",
+    "ADWH.Chapter15.Queens",
+    "ADWH.Chapter15.QueensVariants",
+    "ADWH.Chapter15.QueensSearch",
+    "FirstRowReflection",
+    "SaturatingUInt64",
+    "FiniteFold",
+    "FirstOrderNat",
+    "UInt64MaskOps",
+    "UInt64SaturatingCount",
+    "UInt64PowerTwoOps",
+    "UInt64MaskedCount",
+    "UInt64ExactEvaluator",
+    "UInt64MaskedExact",
+    "SymbolicWord16Core",
+    "SymbolicWord16Recurrence",
+    "ADWH.Chapter15.QueensBitsPrimitives",
+    "ADWH.Chapter15.QueensBitRepresentation",
+    "ADWH.Chapter15.QueensBitMoves",
+    "ADWH.Chapter15.QueensBitCounting",
+    "ADWH.Chapter15.QueensFastCounting",
+    "ADWH.Chapter15.QueensNatCounting",
+    "FirstOrderNatSource",
+    "UInt64SourceBridge",
+    "UInt64MaskedSource",
+    "FirstRowReflectionSource",
+    "CertifiedNatChecker",
+    "QueensNatChecker"
+  ],
+  "sources": [
+    {
+      "module": "ADWH.Chapter01.Lists",
+      "member": "project/adwh-lean/ADWH/Chapter01/Lists.lean",
+      "sha256": "6f08454e2deeb5fe00df14e997b9d7f24bd53ba979546c8636bc3254e4a151b0",
+      "bytes": 20583,
+      "imports": [
+        "Std"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter01.Permutations",
+      "member": "project/adwh-lean/ADWH/Chapter01/Permutations.lean",
+      "sha256": "1a95de12dbf6de945bb5fe0785a593bade9da61fb34d8562d784a46d1a50d64b",
+      "bytes": 17480,
+      "imports": [
+        "ADWH.Chapter01.Lists"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter15.Queens",
+      "member": "project/adwh-lean/ADWH/Chapter15/Queens.lean",
+      "sha256": "a33743f6936503169c71f5e46ef8d8577511360b385cbc18a111a8172ea22e60",
+      "bytes": 11387,
+      "imports": [
+        "ADWH.Chapter01.Permutations"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter15.QueensVariants",
+      "member": "project/adwh-lean/ADWH/Chapter15/QueensVariants.lean",
+      "sha256": "ec3c0599cbd0cab58201f215283babc4ac4987edca24c83977f808765aecb504",
+      "bytes": 12960,
+      "imports": [
+        "ADWH.Chapter15.Queens"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter15.QueensSearch",
+      "member": "project/adwh-lean/ADWH/Chapter15/QueensSearch.lean",
+      "sha256": "5ec0ac30b2d4df556bd25bc0da29827026973e224ac3615ab19705d6842bbe06",
+      "bytes": 7381,
+      "imports": [
+        "ADWH.Chapter15.QueensVariants"
+      ]
+    },
+    {
+      "module": "FirstRowReflection",
+      "member": "next-iteration/reflection-proof-corrections/source/FirstRowReflection.lean",
+      "sha256": "da7315a78be246379d44b8a96af917f1a6d251ef8a09fc6f966e27367103f1cf",
+      "bytes": 10494,
+      "imports": [
+        "ADWH.Chapter15.QueensSearch",
+        "Init.Data.List.Nat.Range",
+        "Init.Data.List.Nat.Sum"
+      ]
+    },
+    {
+      "module": "SaturatingUInt64",
+      "member": "next-iteration/uint64-saturating-evaluator/source/SaturatingUInt64.lean",
+      "sha256": "34c0c329d485ab4e17644c5d85535a028a1d57225b24efb1a8a364c9a77cf4b6",
+      "bytes": 3608,
+      "imports": [
+        "Init.Data.UInt.Lemmas",
+        "Init.Omega"
+      ]
+    },
+    {
+      "module": "FiniteFold",
+      "member": "next-iteration/finite-fold-evaluator/source/FiniteFold.lean",
+      "sha256": "25d84a52adca5f4c60163640aee8f31ded88322b8bd98c27f96d1aeb0c8b5d4e",
+      "bytes": 8612,
+      "imports": [
+        "Init"
+      ]
+    },
+    {
+      "module": "FirstOrderNat",
+      "member": "next-iteration/first-order-nat-evaluator/source/FirstOrderNat.lean",
+      "sha256": "e453954c94771eddda4d21ce52a7befb07093c9117202f886844a3507a02da1b",
+      "bytes": 7348,
+      "imports": [
+        "FiniteFold"
+      ]
+    },
+    {
+      "module": "UInt64MaskOps",
+      "member": "next-iteration/uint64-saturating-evaluator/source/UInt64MaskOps.lean",
+      "sha256": "858b6c93ef1db6d478f5d5fa2d2074dbed35cf4c1dbd4422c40165033e60c964",
+      "bytes": 7230,
+      "imports": [
+        "SaturatingUInt64",
+        "FirstOrderNat",
+        "Init.Data.UInt.Bitwise"
+      ]
+    },
+    {
+      "module": "UInt64SaturatingCount",
+      "member": "next-iteration/uint64-saturating-evaluator/source/UInt64SaturatingCount.lean",
+      "sha256": "1aa51c003d37835050c0aee851a2b164ea881520e4b2cf8c68a167882a173042",
+      "bytes": 9579,
+      "imports": [
+        "UInt64MaskOps"
+      ]
+    },
+    {
+      "module": "UInt64PowerTwoOps",
+      "member": "next-iteration/uint64-power-two-ops/source/UInt64PowerTwoOps.lean",
+      "sha256": "16b6e11fbb9e8a96530aee0c408a4a36321f459be417936156f04b63bcf1500a",
+      "bytes": 2433,
+      "imports": [
+        "UInt64MaskOps"
+      ]
+    },
+    {
+      "module": "UInt64MaskedCount",
+      "member": "next-iteration/uint64-masked-count-lintfix/source/UInt64MaskedCount.lean",
+      "sha256": "ca3cce089bc0f672e85fa1f05057e2ca4a9d6c29d224168b9af258498d63e71d",
+      "bytes": 10798,
+      "imports": [
+        "UInt64SaturatingCount",
+        "UInt64PowerTwoOps"
+      ]
+    },
+    {
+      "module": "UInt64ExactEvaluator",
+      "member": "next-iteration/uint64-saturating-evaluator/source/UInt64ExactEvaluator.lean",
+      "sha256": "4b0ffcd4b7aa67305a6f37893223bfe0f9142ec5ece27d29b1e6e9b70afd50cd",
+      "bytes": 2957,
+      "imports": [
+        "UInt64SaturatingCount"
+      ]
+    },
+    {
+      "module": "UInt64MaskedExact",
+      "member": "next-iteration/uint64-masked-evaluator/source/UInt64MaskedExact.lean",
+      "sha256": "6d013e3eda4c573e3899421326efa03e417710736f97d585d3dceb188bd304e9",
+      "bytes": 3202,
+      "imports": [
+        "UInt64MaskedCount",
+        "UInt64ExactEvaluator"
+      ]
+    },
+    {
+      "module": "SymbolicWord16Core",
+      "member": "next-iteration/legacy-list-clause-compatibility/count-migration/source/SymbolicWord16Core.lean",
+      "sha256": "7c061f1df05760c080cd54fb4f08107f852ba7a8d03d08a45289aa1b7002a7b7",
+      "bytes": 2566,
+      "imports": [
+        "Init.Data.BitVec.Bitblast"
+      ]
+    },
+    {
+      "module": "SymbolicWord16Recurrence",
+      "member": "next-iteration/legacy-list-clause-compatibility/count-migration/source/SymbolicWord16Recurrence.lean",
+      "sha256": "29a969e114ef7caffcaf42eb0f3349b70c56d517c40f9c76efd534c7b1a446ea",
+      "bytes": 7343,
+      "imports": [
+        "SymbolicWord16Core"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter15.QueensBitsPrimitives",
+      "member": "next-iteration/legacy-list-clause-compatibility/count-migration/source/ADWH/Chapter15/QueensBitsPrimitives.lean",
+      "sha256": "15c80d8d531f5a0b7cc52b4ad1d0fb69b14b75734c66430b98175eef761b1df6",
+      "bytes": 23852,
+      "imports": [
+        "SymbolicWord16Recurrence",
+        "ADWH.Chapter15.QueensSearch",
+        "Init.Data.BitVec.Bitblast"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter15.QueensBitRepresentation",
+      "member": "project/adwh-lean/ADWH/Chapter15/QueensBitRepresentation.lean",
+      "sha256": "eb261d73bd9de53a8dd493a9772fea3a5580bb6f42ba22dabe81dd1c3eacc918",
+      "bytes": 10751,
+      "imports": [
+        "ADWH.Chapter15.QueensSearch",
+        "Init.Data.BitVec.Bitblast"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter15.QueensBitMoves",
+      "member": "project/adwh-lean/ADWH/Chapter15/QueensBitMoves.lean",
+      "sha256": "bed3f9a6d2402446f07b1b51308d0fb5b68b19c453a57be37428fb7228cf5d5f",
+      "bytes": 4778,
+      "imports": [
+        "ADWH.Chapter15.QueensBitRepresentation"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter15.QueensBitCounting",
+      "member": "next-iteration/legacy-list-clause-compatibility/count-migration/source/ADWH/Chapter15/QueensBitCounting.lean",
+      "sha256": "3e9d4f4226eeddd9aadd42a9926e7ddecedce7a6c8f2953014c6a33b0f6b2b84",
+      "bytes": 6069,
+      "imports": [
+        "ADWH.Chapter15.QueensBitsPrimitives",
+        "ADWH.Chapter15.QueensBitMoves"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter15.QueensFastCounting",
+      "member": "project/adwh-lean/ADWH/Chapter15/QueensFastCounting.lean",
+      "sha256": "b8bd1e73532ad77520c17e6c68f88e7f7fae3ade7070c7d28b343dd897d18ad0",
+      "bytes": 2408,
+      "imports": [
+        "ADWH.Chapter15.QueensBitCounting"
+      ]
+    },
+    {
+      "module": "ADWH.Chapter15.QueensNatCounting",
+      "member": "project/adwh-lean/ADWH/Chapter15/QueensNatCounting.lean",
+      "sha256": "5c5e7255bc919e27746e7b55bf71c1171fde5e438b8b09b1002fde8525d6a72c",
+      "bytes": 3537,
+      "imports": [
+        "ADWH.Chapter15.QueensFastCounting"
+      ]
+    },
+    {
+      "module": "FirstOrderNatSource",
+      "member": "next-iteration/first-order-nat-evaluator/source/FirstOrderNatSource.lean",
+      "sha256": "187d06ec3cdd74cce8181e99a25cadf4ed3e302b22b79a48ba5414c81a59aef6",
+      "bytes": 3090,
+      "imports": [
+        "FirstOrderNat",
+        "ADWH.Chapter15.QueensNatCounting"
+      ]
+    },
+    {
+      "module": "UInt64SourceBridge",
+      "member": "next-iteration/uint64-saturating-evaluator/source/UInt64SourceBridge.lean",
+      "sha256": "97359dfe8dc3f9c9571a80260e3995e89a3a84489c381446b496495819618643",
+      "bytes": 1690,
+      "imports": [
+        "UInt64ExactEvaluator",
+        "FirstOrderNatSource"
+      ]
+    },
+    {
+      "module": "UInt64MaskedSource",
+      "member": "next-iteration/uint64-masked-evaluator/source/UInt64MaskedSource.lean",
+      "sha256": "6cc8b4fb8f36efa9669c6eeac22c4d6f7b98a96d1eb5330c807555a34a791174",
+      "bytes": 1761,
+      "imports": [
+        "UInt64MaskedExact",
+        "UInt64SourceBridge"
+      ]
+    },
+    {
+      "module": "FirstRowReflectionSource",
+      "member": "next-iteration/first-row-reflection/source/FirstRowReflectionSource.lean",
+      "sha256": "8a1e24ec4e3dde9b41a8f8e45af3cb2d5ee0807c1254ce56063d8c599c66ce2e",
+      "bytes": 3898,
+      "imports": [
+        "FirstRowReflection",
+        "UInt64MaskedSource"
+      ]
+    },
+    {
+      "module": "CertifiedNatChecker",
+      "member": "next-iteration/restricted-nat-checker/source/CertifiedNatChecker.lean",
+      "sha256": "d1874a7be774cc9eaff20046141ff15c6d64638b21ce9a39bf29764668bbc9dc",
+      "imports": [
+        "Std.Data.String.ToNat"
+      ],
+      "source_kind": "selected"
+    },
+    {
+      "module": "QueensNatChecker",
+      "member": "next-iteration/restricted-nat-checker/source/QueensNatChecker.lean",
+      "sha256": "9fc8716dee7c4362543f6bc6a9f4dee822923c0fb8b0096ecea8e46d689eeeeb",
+      "imports": [
+        "CertifiedNatChecker",
+        "FirstOrderNatSource"
+      ],
+      "source_kind": "selected"
+    }
+  ],
+  "snapshot": "adwh-checkpoint-233",
+  "comparison_closure_modules": 27,
+  "support_for_existing_client": [
+    "CertifiedNatChecker",
+    "QueensNatChecker"
+  ]
+}

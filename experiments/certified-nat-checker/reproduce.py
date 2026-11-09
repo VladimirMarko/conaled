@@ -54,19 +54,41 @@ def verify_inverse(archive, rows):
     return True
 
 
-def prepare(out, archive_path):
+def verify_reflection_correction(archive):
+    correction = json.loads(archive.read(
+        'next-iteration/reflection-proof-corrections/PROOF-CORRECTION.json'))
+    text = archive.read(correction['original']['path']).decode()
+    for edit in correction['exact_source_edits']:
+        if hashlib.sha256(text.encode()).hexdigest() != edit['stage_before_identity']['sha256']:
+            raise RuntimeError('Reflection correction predecessor mismatch')
+        if text.count(edit['before']) != 1:
+            raise RuntimeError('Reflection correction is not unique')
+        text = text.replace(edit['before'], edit['after'])
+        if hashlib.sha256(text.encode()).hexdigest() != edit['stage_after_identity']['sha256']:
+            raise RuntimeError('Reflection correction successor mismatch')
+    if text.encode() != archive.read(correction['candidate']['path']):
+        raise RuntimeError('Reflection correction does not reproduce candidate')
+    return True
+
+
+def selection_file(selection):
+    return HERE / ('selection-comparison.json' if selection == 'comparison' else 'selection.json')
+
+
+def prepare(out, archive_path, profile):
     if sha(archive_path) != ARCHIVE_SHA:
         raise RuntimeError('Archive hash mismatch')
     out.mkdir()  # Refuse existing output directories, including stale receipts.
     source = out / 'source'
     source.mkdir()
-    selection = json.loads((HERE / 'selection.json').read_text())
+    selection = json.loads(selection_file(profile).read_text())
     rows = selection['sources']
     names = [r['module'] for r in rows]
     if names != selection['order'] or len(set(names)) != len(names):
         raise RuntimeError('Selection must give unique modules in compilation order')
     with zipfile.ZipFile(archive_path) as archive:
         inverse = verify_inverse(archive, rows)
+        correction = verify_reflection_correction(archive) if profile == 'comparison' else None
         seen = set()
         for row in rows:
             name = row['module']
@@ -88,7 +110,8 @@ def prepare(out, archive_path):
                 raise RuntimeError(f'Forbidden source construct: {name}')
             seen.add(name)
     return {'complete': False, 'archive_sha256': ARCHIVE_SHA, 'selected': rows,
-            'inverse_correspondence': inverse}
+            'inverse_correspondence': inverse, 'selection': profile,
+            'reflection_correction': correction}
 
 
 def main():
@@ -96,11 +119,12 @@ def main():
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--archive', type=Path, default=ARCHIVE)
     parser.add_argument('--prepare-only', action='store_true')
+    parser.add_argument('--selection', choices=['checker', 'comparison'], default='checker')
     args = parser.parse_args()
     out = args.out.resolve()
     if out == ROOT or ROOT in out.parents:
         raise RuntimeError('Output must be outside the checkout')
-    receipt = prepare(out, args.archive)
+    receipt = prepare(out, args.archive, args.selection)
     receipt_path = out / 'provenance.json'
     receipt_path.write_text(json.dumps(receipt, indent=2) + '\n')
     if args.prepare_only:
@@ -108,10 +132,13 @@ def main():
         return
     try:
         candidate = shared.clean_commit(ROOT)
-        inputs = [HERE / 'selection.json', HERE / 'reproduce.py', HERE / 'CheckerClient.lean',
+        local_clients = ['Squares', 'CheckerClient'] + (['ReflectionClient'] if args.selection == 'comparison' else [])
+        inputs = [selection_file(args.selection), HERE / 'reproduce.py', HERE / 'CheckerClient.lean',
                   SHARED / 'reproduce-acceptance.py', SHARED / 'ClosureAudit.lean',
                   ROOT / 'scripts/check.py', ROOT / 'Squares.lean', ROOT / 'lean-toolchain',
                   ROOT / 'flake.nix', ROOT / 'flake.lock']
+        if args.selection == 'comparison':
+            inputs.append(HERE / 'ReflectionClient.lean')
         tracked = set(subprocess.check_output(['git', 'ls-files', '-z'], cwd=ROOT).decode().split('\0'))
         for path in inputs:
             if str(path.relative_to(ROOT)) not in tracked:
@@ -130,12 +157,13 @@ def main():
                     'total_seconds': 1200, 'compiler_processes': 1, 'threads': 1})
         source, output = out / 'source', out / 'output'
         output.mkdir()
-        for name, original in [('Squares', ROOT / 'Squares.lean'),
-                               ('CheckerClient', HERE / 'CheckerClient.lean'),
-                               ('ClosureAudit', SHARED / 'ClosureAudit.lean')]:
+        local_sources = {name: (ROOT if name == 'Squares' else HERE) / f'{name}.lean'
+                         for name in local_clients}
+        local_sources['ClosureAudit'] = SHARED / 'ClosureAudit.lean'
+        for name, original in local_sources.items():
             (source / f'{name}.lean').write_bytes(original.read_bytes())
-        names = [r['module'] for r in receipt['selected']] + ['Squares', 'CheckerClient']
-        for name in ['Squares', 'CheckerClient']:
+        names = [r['module'] for r in receipt['selected']] + local_clients
+        for name in local_clients:
             if shared.FORBIDDEN.search(shared.executable_source((source / f'{name}.lean').read_text())):
                 raise RuntimeError(f'Forbidden local source construct: {name}')
         audit = '\n'.join('import ' + name for name in names + ['ClosureAudit'])

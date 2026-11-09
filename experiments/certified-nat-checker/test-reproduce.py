@@ -25,6 +25,19 @@ class SelectionTests(unittest.TestCase):
             self.assertTrue(receipt['inverse_correspondence'])
             self.assertFalse((out / 'output').exists())
 
+    def test_comparison_selects_corrected_proof_and_retains_client_support(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp) / 'comparison'
+            result = self.invoke('--selection', 'comparison', '--out', out)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            receipt = json.loads((out / 'provenance.json').read_text())
+            self.assertEqual(len(receipt['selected']), 29)
+            self.assertTrue(receipt['reflection_correction'])
+            self.assertIn('proof-corrections/source/FirstRowReflection.lean',
+                          next(r['member'] for r in receipt['selected']
+                               if r['module'] == 'FirstRowReflection'))
+            self.assertFalse(receipt['complete'])
+
     def test_reject_corrupt_archive(self):
         with tempfile.TemporaryDirectory() as tmp:
             bad = Path(tmp) / 'bad.zip'
