@@ -1,5 +1,7 @@
 import AcceptanceComposition
 import AcceptanceMeasurement
+/-! Experimental #135 exact And checkpoint.
+See [scope and measurement report](../../docs/research/relative-and-root-checkpoint.md). -/
 namespace AndAcceptanceRoot
 open ConLeche AcceptanceStages.Reference AndPositivityStages AcceptanceComposition
 set_option maxRecDepth 100000

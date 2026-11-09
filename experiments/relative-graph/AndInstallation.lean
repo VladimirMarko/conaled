@@ -1,4 +1,6 @@
 import AndAcceptanceRoot
+/-! Experimental #135 exact And checkpoint.
+See [scope and measurement report](../../docs/research/relative-and-root-checkpoint.md). -/
 namespace AndInstallation
 open ConLeche AcceptanceStages.Reference AndPositivityStages
 set_option maxRecDepth 100000
