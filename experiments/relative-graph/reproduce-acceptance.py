@@ -22,7 +22,7 @@ import time
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
-from check import executable_source, FORBIDDEN
+from check import executable_source, FORBIDDEN, candidate_identity, compiler_version, clean_commit
 
 PIN = '8e166ca53cd1f864b63c13cc1d326d38316d00ea'
 IMPORT = re.compile(r'^[ \t]*(?:(?:public|meta)\s+)*import[ \t]+([^\n]+)', re.MULTILINE)
@@ -115,7 +115,12 @@ class Commands:
             selector.close()
             if failure:
                 os.killpg(process.pid, signal.SIGKILL)
-            code = process.wait()
+            try:
+                code = process.wait(timeout=max(0.001, timeout - (time.monotonic() - start)))
+            except subprocess.TimeoutExpired:
+                failure = 'timeout'
+                os.killpg(process.pid, signal.SIGKILL)
+                code = process.wait()
         record.update(exit=code, failure=failure, wall_seconds=time.monotonic() - start,
                       retained_output_bytes=len(data))
         (self.directory / (label + '.log')).write_bytes(data)
@@ -139,9 +144,11 @@ def main():
         return
     if args.run_dir is None:
         parser.error('--run-dir is required unless --plan is used')
-    candidate = output(['git', 'rev-parse', 'HEAD'])
-    if output(['git', 'status', '--porcelain']):
-        raise RuntimeError('Acceptance requires a clean committed candidate')
+    identity = candidate_identity('HEAD')
+    candidate = identity['candidate']
+    tracked = set(output(['git', 'ls-files']).splitlines())
+    if any(str(p.relative_to(ROOT)) not in tracked for p in sources.values()):
+        raise RuntimeError('Every isolated source must be tracked in the candidate')
     for name, source in sources.items():
         bad = FORBIDDEN.search(executable_source(source.read_text()))
         if bad:
@@ -158,10 +165,13 @@ def main():
     env['LEAN_NUM_THREADS'] = '2'
     commands = Commands(run / 'logs', env)
     lean = output(['elan', 'which', 'lean'])
+    env['LEAN'] = lean
+    compiler = compiler_version(True, env)
     lake = str(Path(lean).with_name('lake'))
     upstream = run / 'con-leche'
     provenance = {'candidate': candidate, 'source_hashes': inputs, 'plan': plan,
-                  'lean': lean, 'compiler': output([lean, '--version']), 'upstream_pin': PIN,
+                  'lean': lean, 'compiler': compiler, 'upstream_pin': PIN,
+                  'candidate_identity': identity,
                   'external_outputs_reused': True, 'lean_num_threads': 2, 'complete': False}
     manifest = run / 'provenance.json'
     manifest.write_text(json.dumps(provenance, indent=2) + '\n')
@@ -179,7 +189,11 @@ def main():
                               for p in upstream_out.rglob('*.olean'))
     if not upstream_modules or any(not n.startswith('ConLeche.') for n in upstream_modules):
         raise RuntimeError('Unexpected or empty upstream output inventory')
-    dependency_paths = sorted((ROOT / '.lake/packages').glob('*/.lake/build/lib/lean'))
+    dependency_manifest = json.loads((ROOT / 'lake-manifest.json').read_text())
+    dependency_paths = [ROOT / dependency_manifest['packagesDir'] / p['name'] / '.lake/build/lib/lean'
+                        for p in dependency_manifest['packages']]
+    if any(not p.is_dir() for p in dependency_paths):
+        raise RuntimeError('A manifest dependency output directory is missing')
     if not (ROOT / '.lake/packages/mathlib/.lake/build/lib/lean/Mathlib').is_dir():
         raise RuntimeError('External package outputs missing; run lake exe cache get first')
     native_out, graph_out = run / 'native', run / 'graph'
@@ -204,8 +218,10 @@ def main():
     commands.run('closure-audit', [lean, '-D', 'Elab.async=false', str(audit)], ROOT, 600)
     if inputs != hashes(ROOT / p for p in inputs):
         raise RuntimeError('Candidate source changed during acceptance')
-    if output(['git', 'rev-parse', 'HEAD']) != candidate or output(['git', 'status', '--porcelain']):
-        raise RuntimeError('Candidate changed during acceptance')
+    if candidate_identity(candidate) != identity or compiler_version(True, env) != compiler:
+        raise RuntimeError('Candidate, dependency or compiler identity changed during acceptance')
+    if clean_commit(upstream) != PIN:
+        raise RuntimeError('Upstream source changed during acceptance')
     provenance['complete'] = True
     manifest.write_text(json.dumps(provenance, indent=2) + '\n')
     print(f'Isolated acceptance PASSED: {candidate}; evidence {run}', flush=True)

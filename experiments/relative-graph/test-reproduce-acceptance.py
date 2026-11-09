@@ -3,6 +3,8 @@
 from pathlib import Path
 import os
 import json
+import importlib.util
+import time
 import subprocess
 import sys
 import tempfile
@@ -13,6 +15,19 @@ LEAN = subprocess.check_output(['elan', 'which', 'lean'], cwd=HERE, text=True).s
 
 
 class AcceptanceControls(unittest.TestCase):
+    def test_command_deadline_applies_after_output_closes(self):
+        spec = importlib.util.spec_from_file_location('acceptance_runner', HERE / 'reproduce-acceptance.py')
+        runner = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(runner)
+        with tempfile.TemporaryDirectory() as tmp:
+            commands = runner.Commands(Path(tmp) / 'logs', dict(os.environ))
+            start = time.monotonic()
+            with self.assertRaisesRegex(RuntimeError, 'timeout'):
+                commands.run('closed-output', [sys.executable, '-c',
+                    'import os,time; os.close(1); os.close(2); time.sleep(2)'],
+                    cwd=Path(tmp), timeout=0.1)
+            self.assertLess(time.monotonic() - start, 1.5)
+
     def test_plan_includes_actual_emission_and_native_dependencies(self):
         result = subprocess.run([sys.executable, str(HERE / 'reproduce-acceptance.py'), '--plan'],
                                 cwd='/', capture_output=True, text=True, timeout=10)
