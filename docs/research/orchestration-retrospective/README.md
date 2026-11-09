@@ -106,6 +106,8 @@ that the accepted component theorems are false.
    One author per route, coupled scale dimensions and unmeasured prior design
    effort prevent causal or asymptotic claims. Discovery, setup, model admission,
    review and maintenance costs are not captured by short client proofs.
+   The dedicated equivalent-task Lean/Felix caller-effort comparison (#25) also
+   remains open. Local upstream comparisons do not settle that broader benchmark.
 4. **Alternatives that change the questions.** The earlier requirement for a
    second incumbent consumer was a documented discovery bias. Probability,
    SDT, nominal binding, support, control and games materially corrected it.
