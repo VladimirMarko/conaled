@@ -8,7 +8,7 @@ compared. It does not discover policies or optimize beyond this catalog.
 
 ## Caller contract
 
-`ParserSelection.ops` prepares an immutable source `Spine` at a fixed depth.
+`ParserSelection.rawOps` prepares an immutable source `Spine` at a fixed depth.
 Its state contains both that original source and the actual existing `Setup`.
 `Valid` requires source identity and equality with the setup produced for that
 source and policy. Recognition equivalence between two parsers is insufficient:
@@ -18,7 +18,10 @@ parser requires another preparation; zero maintenance is not a free update law.
 The caller separately chooses maximum view depth and maximum word length.
 `Request` encodes all requests within this envelope using a finite view and a
 finite Boolean vector. `Request.ofRaw_raw` proves that every raw request
-satisfying the two size bounds is recovered exactly. The envelope may exceed
+satisfying the two size bounds is recovered exactly. The service accepts a borrowed raw list through `AdmittedRequest`, so vector
+materialization is not hidden inside its charged query. `raw_laws` and
+`raw_bounds` connect this service to the same profile; `ops` is the finite
+encoding adapter used during enumeration. The envelope may exceed
 preparation depth. The examples prepare to depth two but admit views and words
 through three, so both rejected depths and rejected word lengths occur inside
 the theorem's domain. Their word-length traversal, comparisons and result
@@ -78,7 +81,36 @@ unknown batch. The same feasible-catalog theorem applies to both objectives.
 objective minimality. `choose_none_iff` says that `none` means every catalog
 entry is infeasible. Equal objectives retain the first feasible catalog entry,
 following the shared selector. `chosen_correct` preserves the exact native
-`Decision`; `chosen_deadline` and `raw_deadline` retain the full query tariff.
+`Decision`; `chosen_resources` connects startup and capacity limits to actual
+prepared work and live arenas. `chosen_deadline` and `raw_deadline` retain the full query tariff.
+
+## Checked choices
+
+For the eight-map source with payload `[true,false]`, preparation depth two
+and admission bounds three, the exhaustive unit-tariff profiles are:
+
+| Policy | Setup work | Maximum query work | Retained slots | Peak slots |
+|---|---:|---:|---:|---:|
+| Ordinary | 0 | 259 | 33 | 202 |
+| Retained | 1221 | 7 | 821 | 822 |
+| Normalized | 46 | 114 | 60 | 124 |
+| Combined | 728 | 7 | 449 | 450 |
+
+The known twenty-query workload selects combined under roomy limits; the
+single short query selects normalized. The already-simple parser selects
+retention without normalization. A capacity and peak limit of 200 excludes
+the repeated-workload winner and selects normalized. A query deadline of seven
+excludes both direct policies and selects combined even for the short batch.
+A deadline of two admits no policy. A zero-query objective selects ordinary;
+its actual empty-session peak is 33 slots, compared with 449 for combined.
+
+The hundred-element witness still incurs 5729 map work units and 11621 retained
+slots under combined retention. These observations prevent the selection
+experiment from treating witness maps or persistent setup intermediates as
+free. They are abstract event/slot counts, not elapsed-time measurements.
+The profile table is separate from the older workload table because maximum
+query cost quantifies over the admission envelope rather than the supplied
+batch alone.
 
 ## Selected witnesses and shared-interface fit
 

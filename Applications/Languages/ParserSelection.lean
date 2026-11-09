@@ -103,6 +103,35 @@ theorem bounds (d v w : Nat) (t : Tariff) (c : Policy) :
     rcases h with ⟨rfl,rfl⟩
     exact Nat.le_refl _
 
+/-- Public service accepts the borrowed raw word with its admission evidence.
+The finite vector encoding is needed only for profile synthesis. -/
+abbrev AdmittedRequest (v w : Nat) :=
+  {q : RetainedSnapshot.Request // q.1 ≤ v ∧ q.2.length ≤ w}
+
+def rawOps (d v w : Nat) (t : Tariff) (c : Policy) :
+    Ops Spine (AdmittedRequest v w) (Option (Decision Payload)) (State d) where
+  prepare := (ops d v w t c).prepare
+  answer r q := let a := r.prepared.query q.val; (a.1, cost t a.2)
+
+theorem raw_laws (d v w : Nat) (t : Tariff) (c : Policy) :
+    Laws (fun p q => if admissible d q.val then some (p.native.parse q.val.2) else none)
+      (rawOps d v w t c) (Valid d c) where
+  prepare _ := ⟨rfl,rfl⟩
+  answer p r h q := by
+    change (r.prepared.query q.val).1 = _
+    rw [h.2, setup_query_result, session_exact]
+
+theorem raw_bounds (d v w : Nat) (t : Tariff) (c : Policy) :
+    Bounds (rawOps d v w t c) (Valid d c) (storage d v w c) (profile d v w t c) where
+  preparation := (bounds d v w t c).preparation
+  query p r h q := by
+    have hq := (bounds d v w t c).query p r h
+      (Request.ofRaw q.val q.property.1 q.property.2)
+    simpa only [ops, rawOps, Request.ofRaw_raw] using hq
+  retained := (bounds d v w t c).retained
+  preparePeak := (bounds d v w t c).preparePeak
+  queryPeak := (bounds d v w t c).queryPeak
+
 def catalog : List Policy := [.ordinary, .retained, .normalized, .combined]
 
 /-- No future words are supplied to this count-bounded objective. -/
@@ -122,6 +151,28 @@ theorem chosen_deadline {d v w t req p objective c}
     (h : choose d v w t req p objective = some c) (q : Request v w) :
     ((ops d v w t c).answer ((ops d v w t c).prepare p).1 q).2 ≤ req.deadline :=
   response_deadline (bounds d v w t c) (selected h).1.2 ((laws d v w t c).prepare p) q
+
+theorem chosen_raw_correct {d v w t req p objective c}
+    (h : choose d v w t req p objective = some c) (q : AdmittedRequest v w) :
+    ((rawOps d v w t c).answer ((rawOps d v w t c).prepare p).1 q).1 =
+      if admissible d q.val then some (p.native.parse q.val.2) else none :=
+  selected_agreement (rawOps d v w t) (Valid d) (fun c _ => raw_laws d v w t c) h q
+
+/-- Constraints apply to actual prepared work and live arenas, not just the
+numbers inspected by the selector. Query deadlines are proved separately. -/
+theorem chosen_resources {d v w t req p objective c}
+    (h : choose d v w t req p objective = some c) :
+    (∀ limit ∈ req.startup, ((ops d v w t c).prepare p).2 ≤ limit) ∧
+    (storage d v w c).retained ((ops d v w t c).prepare p).1 ≤ req.capacity ∧
+    (storage d v w c).preparePeak p ≤ req.peak ∧
+    (storage d v w c).queryPeak ((ops d v w t c).prepare p).1 ≤ req.peak := by
+  have hf := (selected h).1.2
+  have hb := bounds d v w t c
+  have hv := (laws d v w t c).prepare p
+  exact ⟨fun limit hl => (hb.preparation p).trans (hf.1 limit hl),
+    (hb.retained p _ hv).trans hf.2.2.2.1,
+    (hb.preparePeak p).trans hf.2.2.2.2,
+    (hb.queryPeak p _ hv).trans hf.2.2.2.2⟩
 
 /-- A raw request needs only the public envelope hypotheses. No assumption
 that the parser will accept the requested view or word is used. -/
@@ -183,12 +234,12 @@ theorem batchCost_unit (r : Run) : batchCost (fun _ => 1) r = r.work := by
       (es.map (cost (fun _ => 1))).sum =
         (kinds.map fun k => (es.map fun t => t.count k).sum).sum := by
     induction es with
-    | nil => simp [cost, kinds]
+    | nil => simp [kinds]
     | cons e es ih =>
       simp only [List.map_cons, List.sum_cons, ih, cost, one_mul]
       rw [List.sum_map_add]
-  simp only [batchCost, sums, cost, one_mul, Run.work, Run.count]
-  rw [List.sum_map_add]
+  simp only [batchCost, sums, cost, one_mul, Run.work]
+  rw [← List.sum_map_add]
   rfl
 
 theorem queries_cost (d v w t c p) (qs : List (Request v w)) :

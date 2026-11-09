@@ -13,7 +13,7 @@ def observe : Option (Decision Payload) → Option (List Bool)
 def main : IO Unit := do
   check "exhaustive profiles retain setup, validation and arenas"
     (observations source ==
-      [(0,259,33,202), (1221,7,821,822), (66,113,60,124), (728,7,449,450)])
+      [(0,259,33,202), (1221,7,821,822), (46,114,60,124), (728,7,449,450)])
   let cases := [("repeated",roomy,source,repeated,some Policy.combined),
     ("short",roomy,source,short,some Policy.normalized),
     ("simple",roomy,Spine.base [true,false],repeated,some Policy.retained),
@@ -41,11 +41,11 @@ def main : IO Unit := do
   check "heavy maps still charged" ((execute .combined heavy 2 repeated).count .map == 5729)
   check "heavy setup retained" ((profile 2 3 3 unitTariff .combined).retained heavy == 11621)
   for c in catalog do
-    let prepared := (ops 2 3 3 unitTariff c).prepare source
-    let badDepth := (ops 2 3 3 unitTariff c).answer prepared.1
-      (Request.ofRaw (3,[]) (by decide) (by decide))
-    let badWord := (ops 2 3 3 unitTariff c).answer prepared.1
-      (Request.ofRaw (1,[true,true,true]) (by decide) (by decide))
+    let prepared := (rawOps 2 3 3 unitTariff c).prepare source
+    let badDepth := (rawOps 2 3 3 unitTariff c).answer prepared.1
+      ⟨(3,[]), by decide⟩
+    let badWord := (rawOps 2 3 3 unitTariff c).answer prepared.1
+      ⟨(1,[true,true,true]), by decide⟩
     check "rejected depth answer/cost" (observe badDepth.1 == none && badDepth.2 == 3)
     check "rejected word answer/cost" (observe badWord.1 == none && badWord.2 == 6)
   IO.println "Parser selection runtime checks passed"

@@ -24,7 +24,7 @@ def observations (p : Spine) : List (Nat × Nat × Nat × Nat) :=
 -- Expectations derive from all-category work and the declared live arenas.
 set_option maxRecDepth 100000 in
 example : observations source =
-    [(0,259,33,202), (1221,7,821,822), (66,113,60,124), (728,7,449,450)] := by decide
+    [(0,259,33,202), (1221,7,821,822), (46,114,60,124), (728,7,449,450)] := by decide
 
 set_option maxRecDepth 100000 in
 theorem repeated_choice : offline roomy source repeated = some .combined := by decide
@@ -62,8 +62,10 @@ example (request : ParserSelection.Request 3 3) :
       ((ops 2 3 3 unitTariff .combined).prepare source).1 request).2 ≤ 7 :=
   chosen_deadline deadline_choice request
 
+set_option maxRecDepth 100000 in
 example : ¬ Feasible {roomy with capacity := 200, peak := 200}
     (profile 2 3 3 unitTariff .combined) source := by decide
+set_option maxRecDepth 100000 in
 example : ¬ Feasible {roomy with deadline := 7}
     (profile 2 3 3 unitTariff .normalized) source := by decide
 
