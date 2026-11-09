@@ -16,6 +16,16 @@ total-fragment bridge are unchanged there. Statements labelled **checked** refer
 been formalized here. The historical Harper discussion is background, not the
 source of the literature claims.
 
+## Implemented successor
+
+[#410](https://github.com/VladimirMarko/conaled/issues/410) now supplies structural
+coverage and closure, the public unique-return/sufficient-fuel theorem, and the
+separate demanded/unforced opaque controls. See [the implementation report](structural-canonicity-controls.md).
+The inspection and proposed-work passages below preserve #395's original
+research snapshot; its bounded weak-machine proposal is now implemented.
+Computable fuel extraction and the separate cubical/open-normalization work
+remain outside that successor's scope.
+
 ## What must a canonicity claim specify?
 
 For this work, an operational ground-data claim has the shape

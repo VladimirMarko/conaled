@@ -1,4 +1,5 @@
 import Examples.WeakMachine
+import Examples.WeakCanonicity
 import Examples.Memoization
 import Examples.SamplerSubstitution
 import Examples.ClassicalControl
