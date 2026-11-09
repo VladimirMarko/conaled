@@ -45,6 +45,7 @@ elab "measured_theorem " n:ident " : " ty:term " := " val:term : command => do
 /-- Freeze a computed intermediate representation together with its checked
 normalization equation. This is proof-producing cbv, not native evaluation. -/
 elab "checked_normal_form " n:ident " : " ty:term " := " val:term : command => do
+  liftIO <| recordAcceptanceMeasurement s!"start_normal_form_generation {n.getId}"
   let start ← IO.monoNanosNow
   let (type,original,result,proof) ← liftTermElabM do
     let type ← Term.elabType ty
@@ -61,6 +62,7 @@ elab "checked_normal_form " n:ident " : " ty:term " := " val:term : command => d
     throwError "Normalization failed; refusing an admitted declaration"
   let generated ← IO.monoNanosNow
   let name := (← getCurrNamespace) ++ n.getId
+  liftIO <| recordAcceptanceMeasurement s!"normal_form_generated {name}: generation_ns={generated-start}; result_tree_nodes={result.sizeWithoutSharing}"
   let decl := Declaration.defnDecl { name, levelParams := [], type, value := result, hints := .abbrev, safety := .safe }
   liftCoreM <| withOptions (Elab.async.set · false) <| addAndCompile decl
   let eqType ← liftTermElabM <| mkEq original (mkConst name)

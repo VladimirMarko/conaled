@@ -1,8 +1,8 @@
 # Cached acceptance of the canonical emitted graph family
 
-The bounded And former phase is proved. The complete cached endpoint in [#417](https://github.com/VladimirMarko/conaled/issues/417) remains under implementation. The accepted [pure-route report](relative-emitted-acceptance.md) supplies the canonical artifact and exact expected environment; pure success does not imply cached success.
+The complete cached And installer is proved. The complete cached endpoint in [#417](https://github.com/VladimirMarko/conaled/issues/417) remains under implementation. The accepted [pure-route report](relative-emitted-acceptance.md) supplies the canonical artifact and exact expected environment; pure success does not imply cached success.
 
-At ConLeche pin `8e166ca53cd1f864b63c13cc1d326d38316d00ea` and Lean4.35.0, `CachedAndStages.former` checks the actual And former with `sharedOpsC .verified`, the existing `checkFuel = 2^62`, and fresh memo state. It returns the expected indexed environment/former/shape tuple and exact memo state. Constructor/recursor installation, the remaining family, pending prefix checks, and the exported equation are not yet established.
+At ConLeche pin `8e166ca53cd1f864b63c13cc1d326d38316d00ea` and Lean4.35.0, `CachedAndStages.former` checks the actual And former with `sharedOpsC .verified`, the existing `checkFuel = 2^62`, and fresh memo state. It returns the expected indexed environment/former/shape tuple and exact memo state. The remaining family, pending prefix checks, and the exported equation are not yet established.
 
 [The bounded checkpoint](../../experiments/relative-graph/checkpoint-417-and-former/statement-review.md) records statement review, source-bound measurements, and failed attempts. The final former theorem generated in4.204ms, underwent synchronous checked insertion in0.487ms, and rendered in0.841ms in its retained run. These are theorem construction/checking measurements, not checker runtime bounds. Its full focused module took0.762s, including its preceding declarations and current-module audit.
 
@@ -28,3 +28,5 @@ the complete `BlockPass FEnv` and memo state. Its
 [source-bound measurements](../../experiments/relative-graph/checkpoint-417-and-pass/measurements.json)
 cover focused module checks. Recursor generation and the installer tail are
 still outside this checkpoint, as are the remaining family obligations.
+
+The [complete And installer checkpoint](../../experiments/relative-graph/checkpoint-417-and-installer/statement-review.md) proves the generated recursor/rule checks, installer tail, full canonical index and projection table, and actual declaration step from position 1 to 2 with empty pending queue. Its [source-bound measurements](../../experiments/relative-graph/checkpoint-417-and-installer/measurements.json) and retained failed attempts distinguish generation, checked insertion and rendering. This is the And prefix only; complete cached emitted-family acceptance remains pending.

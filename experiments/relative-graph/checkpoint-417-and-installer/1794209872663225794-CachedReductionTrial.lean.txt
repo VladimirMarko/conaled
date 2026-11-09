@@ -1,0 +1,14 @@
+import CachedAndStages
+namespace CachedReductionTrial
+open ConLeche ConLeche.Cached CachedAndFormer
+set_option maxRecDepth 100000
+set_option maxHeartbeats 1000000
+set_option cbv.maxSteps 1000000
+set_option pp.deepTerms.threshold 4
+attribute [local cbv_opaque] coreKnotI
+attribute [local cbv_eval] coreKnotI_infer_succ coreKnotI_whnf_succ coreKnotI_whnfCore_succ
+measured_theorem infer_former :
+    (coreKnotI .verified (mkFEnv AcceptanceStages.equalityEnvironment) checkFuel).infer
+      0 (.sort .zero) {} = .ok (.sort (.succ .zero), CachedCoreStages.sortMemo) := by cbv
+end CachedReductionTrial
+#audit_graph_module
