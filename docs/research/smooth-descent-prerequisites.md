@@ -34,6 +34,23 @@ isomorphisms or bijections on object representations. Actual hom equivalences
 supply the identity comparison, including conjugation by the endpoint recovery
 isomorphisms.
 
+`SmoothQuotientDeformationDescentMaps` proves preservation and reflection of
+local deformation compatibility along the selected quotient arrows. Its
+`CocycleDatum.Fiber` contains a local deformation and its matching equations;
+there is no supplied global deformation. `fiberEquivalence` constructs the
+global deformation and both inverse laws from the existing cocycle gluing
+and uniqueness theorems. `fiberFamily` makes these local fibers a functor on
+the quotient cocycle category. Its action is proved equal to transport along
+`Map.localArrow`, and `fiberComparison` is a natural isomorphism with the
+descended global deformation family.
+
+`SmoothQuotientDescentExtension` applies the generic extension theorem to
+these comparisons. It gives an equivalence between a quotient cocycle extended
+by its compatible deformation and a global quotient object extended by its
+deformation. Its base is exactly the existing constructed descended object.
+This is one actual primitive context-extension instance of the closure lemma;
+it is not the induction over every generated source context.
+
 ## Checked cases and statement review
 
 `Examples.DescentClosure` changes a two-representative contractible groupoid to
@@ -48,6 +65,14 @@ The accepted identity comparison retains the distinct zero and one loops.
 Thus discreteness of an identity family must not be confused with discarding
 its arrow-valued objects.
 
+`Examples.SmoothDescentMaps` accepts arbitrary local cocycles and compatible
+maps, checks preservation and reflection, and checks that the extension
+comparison returns the constructed descended deformation. It specializes
+recovery and the actual hom comparison to the existing doubled-origin torsor
+with ineffective action, without a global trivialization. Its loop statement
+retains any pair of distinct selected arrows; the independent integer-loop
+example supplies a concrete rejection of forgetting those distinctions.
+
 The general extension statement quantifies over arbitrary categories and
 functor-valued families, with independent base and fiber universe parameters.
 The identity comparison quantifies over arbitrary endpoints and actual arrows.
@@ -60,7 +85,7 @@ stored as an assumed conclusion in local descent data.
 
 The generic extension lemma is not yet instantiated as an equivalence between
 local *generated-context* cocycles and their Grothendieck decomposition. That
-requires relative-family descent, generated parameter comparisons and their
+requires relative-family closure beyond the primitive deformation family, generated parameter comparisons and their
 coherence. Identity, substitution, conversion, path contexts and arbitrary
 finite dependent tails must then be covered together. The unchanged source
 transport-composition derivation must be connected through those constructions;

@@ -589,3 +589,4 @@ import Examples.WiredNumericalMotion
 
 import Examples.DescentClosure
 import SquareKit.SheafActionQuotientDescentDisplay
+import Examples.SmoothDescentMaps
