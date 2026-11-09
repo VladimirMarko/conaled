@@ -577,6 +577,7 @@ import Examples.BudgetDiskDriver
 import Examples.GuardedLeftAuthoring
 import Examples.GuardedLeftConcatenation
 import Examples.GuardedLeftAssociativity
+import Examples.GuardedLeftTransportComposition
 import SquareKit.Internal.DependentJudgments.TelescopeTransport
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

@@ -71,6 +71,36 @@ well-formed declarations. A source derivation is interpreted conditionally on
 all its source hypotheses holding. The repair adds no reverse translation,
 equality reflection, or new adequacy theorem for unrestricted assumptions.
 
+## Transport-composition reuse
+
+`LeftTransportComposition.Inputs.composition` accepts arbitrary `p : x = y`,
+`q : y = z`, a dependent family `B` over `Γ.A`, and `u : B(x)`. It constructs
+
+```text
+Id (B(z)) (transport (leftConcat p q) u)
+            (transport q (transport p u)).
+```
+
+The proof again eliminates the first path, now retaining the dependent tail
+`z,q,u`. It reuses `Presented.eliminate`, `ReflexiveRoot.under`,
+`PathArguments.under`, and fresh left-concatenation substitution. Existing
+transport typing, computation, and substitution derivations are imported from
+the contextual theory. Lift composition and identity laws normalize the
+reindexed dependent family; the author does not supply those conversions.
+
+The [ordinary caller](../../Examples/GuardedLeftTransportComposition.lean)
+spells out the transport endpoints for independently supplied `Γ,A,B,x,y,z,p,q,u`.
+Its two substitution cases distinguish constructing a fresh certificate from
+reindexing the original certificate to the fresh motive. Both are typed;
+equality of their selected proof terms is not asserted. `Frame.beta` does retain
+the computation equation for the constructed certificate and its selected root
+branch. `certificate_evaluates` applies soundness to that exact source term.
+
+The legacy first proof is retained. The new proof preserves its first-path
+strategy and mathematical statement. This repair does not prove equality of
+the new transport certificate with the legacy certificate in every model. That
+is distinct from the checked selected-path comparison for concatenation below.
+
 ## Interpretation and retained clients
 
 `LeftSemantics.Groupoid.eval_composite` identifies this left-path recipe with
@@ -109,6 +139,7 @@ The statement review checked the quantifiers and the routes through the code:
 | Fresh substitution | Arbitrary source contexts, endpoints, paths, and typed object substitution; the result names the fresh recipe. | Repeated fresh-substitution caller and associativity branch normalization. |
 | Associativity | Arbitrary `p,q,r`, all four dependent tail declarations, generated application to caller arguments. | Explicit source type in `Examples.GuardedLeftAssociativity.source`. |
 | Interpretation | Same source derivation; assumptions validated before applying soundness; actual evaluated witness retained. | General groupoid theorem and faithful/ineffective labeled C4 examples. |
+| Transport composition | Arbitrary dependent family, element at the initial endpoint, both paths, and retained `z,q,u` tail. | Ordinary caller, fresh/substituted motive callers, and exact certificate soundness. |
 | Argument comparison | Source lookup/computation laws through each dependent binder. | `PathArguments.under` at every associativity argument. |
 
 The retained
