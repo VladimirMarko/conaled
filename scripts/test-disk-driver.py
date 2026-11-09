@@ -48,6 +48,8 @@ assert r['elapsed'] == ['1', '1024'], r
 assert r['final']['error'] == ['160251', '8589934592'], r
 assert r['work']['attempted'] == 3 and r['work']['charged'] == 5, r
 assert r['trace'][0]['subdivisions'] == 2, r
+assert [a['status'] for a in r['searches'][0]['attempts']] == ['failed', 'accepted'], r
+assert [a['failure'] for a in r['searches'][0]['attempts']] == ['accuracy-unmet', None], r
 # Accuracy retry spends real work but commits neither its clock nor its packet.
 r = run(request(rounds=1), 'failure')
 assert r['failure'] == 'accuracy-unmet' and r['work']['attempted'] == 1, r
@@ -97,6 +99,10 @@ for bad in (request(initial='unproved'), request(rounds=0), request(commands=[di
             request(tolerance=['1','0']), request(commands=[{'kind':'unknown'}]), request(work=129), request(commands=[dict(move,velocity=[['2','1'],['0','1']])]),
             request(commands=[{'kind':'relabel','quarter_turns':4}])):
     run(bad, 'input_error')
+r = run(request(commands=[move, dict(move, duration=['-1','2'])]), 'input_error')
+assert r['reason'] == 'commands[1]: negative duration', r
+r = run(request(commands=[move, {'kind':'relabel','quarter_turns':4}]), 'input_error')
+assert r['reason'] == 'commands[1]: quarter_turns must be 0, 1, 2 or 3', r
 # Invalid JSON and oversized byte frames are rejected before mathematical execution.
 for raw in ('{not json', ' ' * 65537):
     with tempfile.NamedTemporaryFile(mode='w', suffix='.json') as f:

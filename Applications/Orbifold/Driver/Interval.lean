@@ -17,11 +17,16 @@ structure Selected (c : Tick) (q : Packet) (tolerance : ℚ) where
 
 def Selected.subdivisions {c q tolerance} (s : Selected c q tolerance) := s.predecessor+1
 
+inductive AttemptOutcome where
+  | accepted
+  | failed (reason : Failure)
+  deriving Repr
+
 structure AttemptLog where
   subdivisions : Nat
   counts : AttemptCounts
   finalError : Option ℚ
-  reason : Failure
+  outcome : AttemptOutcome
   deriving Repr
 
 structure SearchReport (c : Tick) (q : Packet) (tolerance : ℚ) where
@@ -43,18 +48,18 @@ def searchCandidates (cap : Nat) (tolerance : ℚ) (c : Tick) (q : Packet) :
       let r := a.accepted.get ha
       if ht : r.final.error ≤ tolerance then
         ⟨some ⟨n,r,guarded_sound cap (schedule c n) q (Option.some_get ha).symm,ht⟩,
-          a.counts,n+2,[⟨n+1,a.counts,some r.final.error,.accuracy⟩],.accuracy⟩
+          a.counts,n+2,[⟨n+1,a.counts,some r.final.error,.accepted⟩],.accuracy⟩
       else
         let rest := searchCandidates cap tolerance c q ns (fuel-(n+2)) .accuracy
         ⟨rest.accepted,a.counts+rest.counts,n+2+rest.charged,
-          ⟨n+1,a.counts,some r.final.error,.accuracy⟩::rest.attempts,rest.failure⟩
+          ⟨n+1,a.counts,some r.final.error,.failed .accuracy⟩::rest.attempts,rest.failure⟩
     else
       if a.failure == .packetBits then
-        ⟨none,a.counts,n+2,[⟨n+1,a.counts,none,.packetBits⟩],.packetBits⟩
+        ⟨none,a.counts,n+2,[⟨n+1,a.counts,none,.failed .packetBits⟩],.packetBits⟩
       else
         let rest := searchCandidates cap tolerance c q ns (fuel-(n+2)) a.failure
         ⟨rest.accepted,a.counts+rest.counts,n+2+rest.charged,
-          ⟨n+1,a.counts,none,a.failure⟩::rest.attempts,rest.failure⟩
+          ⟨n+1,a.counts,none,.failed a.failure⟩::rest.attempts,rest.failure⟩
 
 def searchInterval (limits : Limits) (tolerance : ℚ) (fuel : Nat) (c : Tick) (q : Packet) :
     SearchReport c q tolerance :=

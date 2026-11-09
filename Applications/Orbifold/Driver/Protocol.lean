@@ -50,7 +50,8 @@ def parseRequest (j : Json) : Except String Request := do
   if initializer != "negative-axis" then throw "unsupported initializer; no arbitrary Approx assertion accepted"
   let xs ← (← j.getObjVal? "commands").getArr?
   if xs.size > 16 then throw "at most 16 command/event inputs"
-  let events ← xs.toList.mapM parseEvent
+  let events ← xs.toList.zipIdx.mapM fun (j,i) =>
+    (parseEvent j).mapError (fun reason => s!"commands[{i}]: {reason}")
   let tolerance ← parseRat (← j.getObjVal? "tolerance")
   if tolerance < 0 || tolerance > 1 then throw "tolerance must lie in [0,1]"
   let work ← (← j.getObjVal? "work").getNat?
@@ -107,7 +108,8 @@ def traceJson : List Observation → Nat → ℚ → List Json
 def attemptJson (a : AttemptLog) : Json := Json.mkObj [
   ("subdivisions",toJson a.subdivisions),("work",countsJson a.counts (a.subdivisions+1)),
   ("final_error",a.finalError.map ratJson |>.getD Json.null),
-  ("check",toJson (failureText a.reason))]
+  ("status",toJson (match a.outcome with | .accepted => "accepted" | .failed _ => "failed")),
+  ("failure",match a.outcome with | .accepted => Json.null | .failed reason => toJson (failureText reason))]
 
 def reportJson (r : Report) : Json := Json.mkObj [
   ("status",toJson (if r.failure.isNone then "success" else "failure")),
