@@ -262,6 +262,7 @@ import Examples.DiscreteSmoothMapping
 import Examples.SmoothQuotientArcs
 import Examples.SmoothSourceTransport
 import Examples.ChangingFamilyTails
+import Examples.GroupoidComparison
 import Examples.QuarterTurnArcs
 import Examples.JetScan
 import Examples.MatrixStack
