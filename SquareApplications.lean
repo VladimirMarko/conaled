@@ -508,6 +508,7 @@ import Examples.ModalComprehension
 
 import Examples.OpenSystemWiring
 import Examples.WiringApproximation
+import Examples.WiringApproximationControls
 import Examples.AssemblyCertificates
 import Examples.AssemblyPartialMaps
 import Examples.AssemblyLifting

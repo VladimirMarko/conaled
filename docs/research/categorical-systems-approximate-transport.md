@@ -6,6 +6,11 @@ Code inspection baseline: `68c85372b1754658786614bf2cc295ea9ec1293a`.
 This document specifies an experiment; it adds no Lean declarations and reports
 no new checked approximation theorem.
 
+The bounded discrete follow-up is now recorded in
+[Finite approximate transport through feedback wiring](approximate-wiring-experiment.md).
+It retains this assessment as the research specification and states the
+implemented comparison and remaining continuous-flow boundary separately.
+
 Myers provides a useful exact account of systems, their interfaces and behavior
 composition. Adopt that account as a design test, and extend the existing finite
 wiring experiment with a separate quantitative comparison. Do not retrofit all

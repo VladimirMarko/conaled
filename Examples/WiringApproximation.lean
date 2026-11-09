@@ -29,6 +29,16 @@ theorem euler_hierarchy (h : ℝ) (s : (ℝ × ℝ) × ℝ) (u : One → ℝ) :
   obtain ⟨hf, hr⟩ := hierarchy s u
   exact ⟨by simpa [euler, map_add, map_smul] using congrArg (coordinates s + h • ·) hf, hr⟩
 
+/-- Discretization distributes through the existing two-stage wiring hierarchy. -/
+theorem discretize_components (h : ℝ) : euler h right =
+    ((euler h A).parallel (((euler h B).parallel (euler h C)).wire bc.toRouting)).wire close.toRouting := by
+  rw [right, euler_wire, euler_parallel, BC, euler_wire, euler_parallel]
+
+theorem discretize_rewire {S I O J P K Q : Type} [Add S] [SMul ℝ S]
+    (h : ℝ) (f : System S I O) (w : Routing I O J P) (v : Routing J P K Q) :
+    euler h ((f.wire w).wire v) = (euler h f).wire (w.comp v) := by
+  rw [System.wire_comp, euler_wire]
+
 abbrev State := ℝ × ℝ × ℝ
 
 def source (h : ℝ) (s : State) : State := (euler h right).field s (fun _ => 0)
@@ -49,6 +59,13 @@ def decode (s : State) : State := (Cubic.decode s.1, s.2)
 def transformedA : System ℝ Two One where
   field q i := (1+3*(Cubic.decode q)^2)*(-Cubic.decode q+i 0+i 1)
   readout q _ := Cubic.decode q
+
+/-- The component transformation uses the actual analytic derivative of the
+coordinate map; its input/readout interface still carries the original x. -/
+theorem transformedA_derivative (x : ℝ) (i : Two → ℝ) :
+    transformedA.field (Cubic.encode x) i = deriv Cubic.encode x * A.field x i := by
+  rw [(Cubic.derivative x).deriv]
+  simp [transformedA, A]
 
 def transformed := (transformedA.parallel BC).wire close.toRouting
 
@@ -76,7 +93,8 @@ theorem transport_defect (h : ℝ) (s : State) :
       (3*s.1*h^2*(-s.1+s.2.2)^2+h^3*(-s.1+s.2.2)^3, 0, 0) := by
   rw [source_eq, target_eq]
   simp only [interpret, Cubic.decode_encode, Prod.mk_sub_mk]
-  ext <;> simp [Cubic.encode] <;> ring
+  ext <;> simp [Cubic.encode]
+  ring
 
 theorem defect_nonzero : interpret (source (1/4) (1,0,0)) -
     target (1/4) (interpret (1,0,0)) = ((11/64:ℝ),0,0) := by
@@ -289,6 +307,18 @@ theorem comparison_restart {R h e : ℝ} (hR : 0 ≤ R) (hh : 0 ≤ h) (hh' : h 
   rw [orbit_add, orbit_add]
   exact comparison hR hh hh' (source_orbit_box hR hh hh' hs n)
     (target_orbit_box hR hh hh' ht n) (comparison hR hh hh' hs ht he n n le_rfl) m m le_rfl
+
+/-- Native restart on the same intermediate states and budget as comparison_restart. -/
+theorem comparison_restart_native {R h e : ℝ} (hR : 0 ≤ R) (hh : 0 ≤ h) (hh' : h ≤ 1/3)
+    {s t : State} (hs : s ∈ sourceBox R) (ht : t ∈ targetBox R)
+    (he : dist (interpret s) t ≤ e) (n m : ℕ) :
+    dist (interpret (orbit (source h) s (n+m))) (orbit (target h) t (n+m)) ≤
+      budget (stepGain R h) (defectBudget R h)
+        (budget (stepGain R h) (defectBudget R h) e n) m := by
+  rw [orbit_add, orbit_add]
+  exact comparison_native hR hh hh' (source_orbit_box hR hh hh' hs n)
+    (target_orbit_box hR hh hh' ht n)
+    (comparison_native hR hh hh' hs ht he n n le_rfl) m m le_rfl
 
 /-- Nonzero admitted finite specialization; the same certificate covers every sample. -/
 theorem fixture_comparison (n : ℕ) (hn : n ≤ 3) :
