@@ -278,6 +278,14 @@ than divergent. The proposed ground-canonicity conclusion fails even though
 semantic meaning is supplied. An equation proving its meaning equals zero
 does not add an operational rule.
 
+The counterexample concerns `κ` itself, or an execution that reaches and demands
+it. Its mere occurrence in a larger term does not imply stuckness. For example,
+`(λf. 0) (λx. κ)` returns zero under the same call-by-value strategy because the
+argument lambda is a value and its body is never evaluated. A demanded `κ`
+would instead block execution. This paper-level control therefore follows the
+demand distinction above; it does not require rejecting every expression that
+contains an opaque constant.
+
 | Control | Closed? | Can step? | Ground numeral/value? | Outcome |
 | --- | --- | --- | --- | --- |
 | Current `.lit 0` | Yes | No | Yes | Terminal canonical data. |
