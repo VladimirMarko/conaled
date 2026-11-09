@@ -20,3 +20,11 @@ sort checks reuse the memo entries produced by constructor inference. The
 [retained measurements](../../experiments/relative-graph/checkpoint-417-and-constructor/measurements.json)
 bind these focused checks to source hashes. The complete cached And installer
 and whole emitted-family acceptance remain pending.
+
+The [complete And pass checkpoint](../../experiments/relative-graph/checkpoint-417-and-pass/statement-review.md)
+adds the exact former flush, indexed constructor stage, class check, cached
+positivity root, abstracted-field sorts and seeds. `CachedAndPass.pass` returns
+the complete `BlockPass FEnv` and memo state. Its
+[source-bound measurements](../../experiments/relative-graph/checkpoint-417-and-pass/measurements.json)
+cover focused module checks. Recursor generation and the installer tail are
+still outside this checkpoint, as are the remaining family obligations.

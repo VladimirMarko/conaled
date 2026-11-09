@@ -95,5 +95,18 @@ measured_theorem pis_app : ∀ (r : CoreFnsI) (d fuel : Nat) (a b : Expr)
   intro r d fuel a b k fvs stk
   cases fuel <;> rfl
 
+measured_theorem pis_fvar : ∀ (r : CoreFnsI) (d fuel i : Nat) (ty : Expr)
+    (k : Nat) (fvs : Array Expr) (stk : List Level),
+    inferPisI r d fuel (.fvar i ty) k fvs stk = inferPisLeafI r d (.fvar i ty) k fvs stk := by
+  intro r d fuel i ty k fvs stk
+  cases fuel <;> rfl
+
+measured_theorem inst_fvar : ∀ (i : Nat) (ty : Expr) (vs : Array Expr) (s : CState),
+    instListRevM (.fvar i ty) vs 0 s = .ok (.fvar i ty,s) := by
+  intro i ty vs s
+  unfold instListRevM Expr.instantiateRev
+  simp [Expr.bvarB, Expr.bvarBRaw_fvar, satRange]
+  rfl
+
 end CachedBinderComposition
 #audit_graph_module

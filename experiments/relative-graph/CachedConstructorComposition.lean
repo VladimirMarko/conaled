@@ -75,5 +75,23 @@ measured_theorem constructor_of_runs : ∀ (ops : CheckerOps CheckCM) (fe₀ fe 
   refine bind_ok _ _ s2 s3 s3 sorts _ hsort ?_
   rfl
 
+measured_theorem constructors_singleton : ∀ (ops : CheckerOps CheckCM) (fe₀ fe : FEnv)
+    (p : BlockShape) (ms : MemberShape) (cvTa cvC : ConstantVal) (nF : Nat)
+    (sorts : List Level) (s s1 : CState),
+    ms.ctors = [(cvC,nF)] →
+    checkSumCtorF ops fe₀ fe ms.cvT.name p.lps p.nP ms.nIdx p.resSort p.isProp p.large
+      cvC nF cvTa s = .ok ((cvC,sorts),s1) →
+    checkBlockCtorsF ops fe₀ fe p [(ms,cvTa)] s = .ok (([[(cvC,nF)]],[[sorts]]),s1) := by
+  intro ops fe₀ fe p ms cvTa cvC nF sorts s s1 hm hc
+  unfold checkBlockCtorsF
+  rw [hm]
+  have hs : checkSumCtorsF ops fe₀ fe ms.cvT.name p.lps p.nP ms.nIdx p.resSort p.isProp p.large
+      cvTa [(cvC,nF)] s = .ok (([(cvC,nF)],[sorts]),s1) := by
+    unfold checkSumCtorsF
+    refine bind_ok _ _ s s1 s1 (cvC,sorts) _ hc ?_
+    rfl
+  refine bind_ok _ _ s s1 s1 ([(cvC,nF)],[sorts]) _ hs ?_
+  rfl
+
 end CachedConstructorComposition
 #audit_graph_module

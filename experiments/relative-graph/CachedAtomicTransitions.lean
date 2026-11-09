@@ -77,7 +77,7 @@ measured_theorem const_type_miss : ∀ (fe : FEnv) (n : Name) (us : List Level)
   intro fe n us ci ty s hm hf hi
   unfold constTyAtM
   simp only [bind, StateT.bind, modifyGet, MonadStateOf.modifyGet, StateT.modifyGet,
-    pure, StateT.pure, Except.pure, Except.bind]
+    pure, Except.pure, Except.bind]
   rw [hm]
   dsimp only
   rw [hf]
@@ -108,6 +108,54 @@ measured_theorem const_miss : ∀ (env : Env) (f d : Nat) (n : Name)
   apply memo_miss (s' := insertConstType s n us ty)
   · exact hm
   · exact const_body _ _ _ _ _ _ _ _ _ hf hl (const_type_miss _ _ _ _ _ _ hc hf hi)
+
+measured_theorem whnf_core_fvar_body : ∀ (mode : CheckMode) (r : CoreFnsI)
+    (fe : FEnv) (cheap : Bool) (d : Nat) (i : Nat) (ty : Expr),
+    whnfCoreBodyI mode r fe cheap d (.fvar i ty) = pure (.fvar i ty) := by
+  intro mode r fe cheap d i ty
+  unfold whnfCoreBodyI whnfCoreLoopFuel
+  rfl
+
+measured_theorem whnf_fvar_body : ∀ (r : CoreFnsI) (fe : FEnv) (d : Nat)
+    (i : Nat) (ty : Expr) (s s' : CState),
+    r.whnfCore false d (.fvar i ty) s = .ok (.fvar i ty,s') →
+    whnfBodyI r fe d (.fvar i ty) s = .ok (.fvar i ty,s') := by
+  intro r fe d i ty s s' h
+  unfold whnfBodyI whnfLoopFuel
+  change (r.whnfCore false d (.fvar i ty) >>= _) s = _
+  simp only [bind, StateT.bind]
+  rw [h]
+  rfl
+
+def insertCoreFvar (s : CState) (i : Nat) (ty : Expr) : CState :=
+  { s with whnfCoreC := s.whnfCoreC.insert (.fvar i ty) (.fvar i ty) }
+
+def insertWhnfFvar (s : CState) (i : Nat) (ty : Expr) : CState :=
+  { s with whnfC := s.whnfC.insert (.fvar i ty) (.fvar i ty) }
+
+measured_theorem core_fvar_whnf_miss : ∀ (env : Env) (f d : Nat) (i : Nat) (ty : Expr) (s : CState),
+    s.whnfCoreC[Expr.fvar i ty]? = none →
+    (coreKnotI .verified (mkFEnv env) (f + 1)).whnfCore false d (.fvar i ty) s =
+      .ok (.fvar i ty, insertCoreFvar s i ty) := by
+  intro env f d i ty s hm
+  rw [coreKnotI_whnfCore_succ]
+  simp only [Bool.false_eq_true, ↓reduceIte]
+  apply memo_miss (s' := s)
+  · exact hm
+  · rw [whnf_core_fvar_body]
+    rfl
+
+measured_theorem whnf_fvar_whnf_miss : ∀ (env : Env) (f d : Nat) (i : Nat) (ty : Expr) (s : CState),
+    s.whnfC[Expr.fvar i ty]? = none → s.whnfCoreC[Expr.fvar i ty]? = none →
+    (coreKnotI .verified (mkFEnv env) ((f + 1) + 1)).whnf d (.fvar i ty) s =
+      .ok (.fvar i ty, insertWhnfFvar (insertCoreFvar s i ty) i ty) := by
+  intro env f d i ty s hm hc
+  rw [coreKnotI_whnf_succ]
+  apply memo_miss (s' := insertCoreFvar s i ty)
+  · exact hm
+  · apply whnf_fvar_body
+    exact core_fvar_whnf_miss env f d i ty s hc
+
 
 end CachedAtomicTransitions
 #audit_graph_module
