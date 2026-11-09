@@ -165,4 +165,7 @@ Whole-run failure retains work already spent and stops before the suffix.
 Erasure recovers `Numerical.run` exactly; its existing sample, error and clock
 contracts apply on success. Event tariffs exclude rational bit cost, validation,
 allocation and runtime, and remain distinct from physical command duration.
-Subdivision/retry accounting remains a later #49 consumer.
+The [budget-driven command driver](budget-disk-driver.md) consumes this adapter
+for subdivision selection and retry accounting, retaining failed work and
+committing only successful command observations. Its bounded JSON executable
+adds explicit representative events and resource cutoffs.

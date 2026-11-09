@@ -39,16 +39,16 @@ def searchCandidates (cap : Nat) (tolerance : ℚ) (c : Tick) (q : Packet) :
   | n::ns, fuel, _ =>
     if n+2 > fuel then ⟨none,0,0,[],.work⟩ else
     let a := guarded cap (schedule c n) q
-    match ha : a.accepted with
-    | some r =>
+    if ha : a.accepted.isSome then
+      let r := a.accepted.get ha
       if ht : r.final.error ≤ tolerance then
-        ⟨some ⟨n,r,guarded_sound cap (schedule c n) q ha,ht⟩,
+        ⟨some ⟨n,r,guarded_sound cap (schedule c n) q (Option.some_get ha).symm,ht⟩,
           a.counts,n+2,[⟨n+1,a.counts,some r.final.error,.accuracy⟩],.accuracy⟩
       else
         let rest := searchCandidates cap tolerance c q ns (fuel-(n+2)) .accuracy
         ⟨rest.accepted,a.counts+rest.counts,n+2+rest.charged,
           ⟨n+1,a.counts,some r.final.error,.accuracy⟩::rest.attempts,rest.failure⟩
-    | none =>
+    else
       if a.failure == .packetBits then
         ⟨none,a.counts,n+2,[⟨n+1,a.counts,none,.packetBits⟩],.packetBits⟩
       else
