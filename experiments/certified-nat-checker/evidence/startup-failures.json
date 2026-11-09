@@ -1,0 +1,98 @@
+{
+  "scope": "Initial investigation, before the durable runner and new client",
+  "virtual_address_gib": 4,
+  "diagnostic": "failed to create thread: Resource temporarily unavailable",
+  "attempts": [
+    {
+      "compiler": {
+        "compiler": "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "sha256": "395833c033f0b77af16c277767d5e5fceaf8e19f8ab414d8110ca82b3cc50b0b",
+        "version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)"
+      },
+      "commands": [
+        {
+          "name": "SymbolicWord16Core",
+          "command": [
+            "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+            "-j1",
+            "-DautoImplicit=false",
+            "-DwarningAsError=true",
+            "-DElab.async=false",
+            "-R",
+            "/tmp/conaled-369-orchestration/137-reproduction/source",
+            "-o",
+            "/tmp/conaled-369-orchestration/137-reproduction/output/SymbolicWord16Core.olean",
+            "/tmp/conaled-369-orchestration/137-reproduction/source/SymbolicWord16Core.lean"
+          ],
+          "exit_code": 1,
+          "status": "failed",
+          "elapsed_seconds": 0.03349874299601652,
+          "input_sha256": "7c061f1df05760c080cd54fb4f08107f852ba7a8d03d08a45289aa1b7002a7b7",
+          "output_sha256": null
+        }
+      ],
+      "complete": false
+    },
+    {
+      "compiler": {
+        "compiler": "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "sha256": "395833c033f0b77af16c277767d5e5fceaf8e19f8ab414d8110ca82b3cc50b0b",
+        "version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)"
+      },
+      "commands": [
+        {
+          "name": "SymbolicWord16Core",
+          "command": [
+            "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+            "-j1",
+            "-DautoImplicit=false",
+            "-DwarningAsError=true",
+            "-DElab.async=false",
+            "-R",
+            "/tmp/conaled-369-orchestration/137-reproduction/source",
+            "-o",
+            "/tmp/conaled-369-orchestration/137-reproduction/output/SymbolicWord16Core.olean",
+            "/tmp/conaled-369-orchestration/137-reproduction/source/SymbolicWord16Core.lean"
+          ],
+          "exit_code": 1,
+          "status": "failed",
+          "elapsed_seconds": 0.03307123499689624,
+          "input_sha256": "7c061f1df05760c080cd54fb4f08107f852ba7a8d03d08a45289aa1b7002a7b7",
+          "output_sha256": null
+        }
+      ],
+      "complete": false
+    },
+    {
+      "compiler": {
+        "compiler": "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "sha256": "395833c033f0b77af16c277767d5e5fceaf8e19f8ab414d8110ca82b3cc50b0b",
+        "version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)"
+      },
+      "commands": [
+        {
+          "name": "SymbolicWord16Core",
+          "command": [
+            "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+            "-j1",
+            "-DautoImplicit=false",
+            "-DwarningAsError=true",
+            "-DElab.async=false",
+            "-R",
+            "/tmp/conaled-369-orchestration/137-reproduction/source",
+            "-o",
+            "/tmp/conaled-369-orchestration/137-reproduction/output/SymbolicWord16Core.olean",
+            "/tmp/conaled-369-orchestration/137-reproduction/source/SymbolicWord16Core.lean"
+          ],
+          "exit_code": 1,
+          "status": "failed",
+          "elapsed_seconds": 0.03321077098371461,
+          "input_sha256": "7c061f1df05760c080cd54fb4f08107f852ba7a8d03d08a45289aa1b7002a7b7",
+          "output_sha256": null
+        }
+      ],
+      "complete": false
+    }
+  ],
+  "disposition": "Coordinator authorized 8 GiB virtual cap; succeeding measurement remains separate."
+}

@@ -1,0 +1,522 @@
+{
+  "complete": true,
+  "source_identity_checked_after": true,
+  "compiler_identity_checked_after": true,
+  "compiler": {
+    "compiler": "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+    "sha256": "395833c033f0b77af16c277767d5e5fceaf8e19f8ab414d8110ca82b3cc50b0b",
+    "version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)"
+  },
+  "compile_commands": [
+    {
+      "name": "SymbolicWord16Core",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/SymbolicWord16Core.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/SymbolicWord16Core.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.16560105798998848,
+      "cumulative_children_peak_rss_kib": 472208,
+      "input_sha256": "7c061f1df05760c080cd54fb4f08107f852ba7a8d03d08a45289aa1b7002a7b7",
+      "output_sha256": "c33f7fc3a2323dfacc87509f8749e70bcdb523c7c637cf45345dcf14bccd5bc3"
+    },
+    {
+      "name": "SymbolicWord16Recurrence",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/SymbolicWord16Recurrence.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/SymbolicWord16Recurrence.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.26609829399967566,
+      "cumulative_children_peak_rss_kib": 472208,
+      "input_sha256": "29a969e114ef7caffcaf42eb0f3349b70c56d517c40f9c76efd534c7b1a446ea",
+      "output_sha256": "853f701852790715c03867e1f3e7e25a95f3153f77500ee6c56dcf6769f27ea9"
+    },
+    {
+      "name": "ADWH.Chapter01.Lists",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/ADWH/Chapter01/Lists.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/ADWH/Chapter01/Lists.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.7173066160175949,
+      "cumulative_children_peak_rss_kib": 767400,
+      "input_sha256": "6f08454e2deeb5fe00df14e997b9d7f24bd53ba979546c8636bc3254e4a151b0",
+      "output_sha256": "dff77cd5d1fdaee2980a75acdf11ce6e3f8fb2c5f4eb79bc9562f7371e632457"
+    },
+    {
+      "name": "ADWH.Chapter01.Permutations",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/ADWH/Chapter01/Permutations.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/ADWH/Chapter01/Permutations.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.5672105160192586,
+      "cumulative_children_peak_rss_kib": 767400,
+      "input_sha256": "1a95de12dbf6de945bb5fe0785a593bade9da61fb34d8562d784a46d1a50d64b",
+      "output_sha256": "07588e62c8f7055c4a0c04ddcb4e7f161ad67dda93254471107d814e73ec086d"
+    },
+    {
+      "name": "ADWH.Chapter15.Queens",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/ADWH/Chapter15/Queens.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/ADWH/Chapter15/Queens.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.5663717449933756,
+      "cumulative_children_peak_rss_kib": 767400,
+      "input_sha256": "a33743f6936503169c71f5e46ef8d8577511360b385cbc18a111a8172ea22e60",
+      "output_sha256": "aefa04f0e4e9d16fdf7fc3251647e18ff9669d5ceb4b229c23e50133d2f20d2e"
+    },
+    {
+      "name": "ADWH.Chapter15.QueensVariants",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/ADWH/Chapter15/QueensVariants.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/ADWH/Chapter15/QueensVariants.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.6169697650184389,
+      "cumulative_children_peak_rss_kib": 767400,
+      "input_sha256": "ec3c0599cbd0cab58201f215283babc4ac4987edca24c83977f808765aecb504",
+      "output_sha256": "3fa565c4c95190a0312390aac0268518a2cf2e456de7c3f2287e0ebb531324c4"
+    },
+    {
+      "name": "ADWH.Chapter15.QueensSearch",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/ADWH/Chapter15/QueensSearch.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/ADWH/Chapter15/QueensSearch.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.36633274200721644,
+      "cumulative_children_peak_rss_kib": 767400,
+      "input_sha256": "5ec0ac30b2d4df556bd25bc0da29827026973e224ac3615ab19705d6842bbe06",
+      "output_sha256": "7d41b768b922bb7ad3cc18a5e4062c7a1d88861982387493e4c6287281423e3c"
+    },
+    {
+      "name": "ADWH.Chapter15.QueensBitsPrimitives",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/ADWH/Chapter15/QueensBitsPrimitives.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/ADWH/Chapter15/QueensBitsPrimitives.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.5667746450053528,
+      "cumulative_children_peak_rss_kib": 767400,
+      "input_sha256": "15c80d8d531f5a0b7cc52b4ad1d0fb69b14b75734c66430b98175eef761b1df6",
+      "output_sha256": "7c2c17074140e456df4e42a5d7bb23fb6aa2e0d68dd8537d0391152b0d36b413"
+    },
+    {
+      "name": "ADWH.Chapter15.QueensBitRepresentation",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/ADWH/Chapter15/QueensBitRepresentation.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/ADWH/Chapter15/QueensBitRepresentation.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.8179128629853949,
+      "cumulative_children_peak_rss_kib": 770664,
+      "input_sha256": "eb261d73bd9de53a8dd493a9772fea3a5580bb6f42ba22dabe81dd1c3eacc918",
+      "output_sha256": "b78d2cf1311a23f38007a728256fcafc3860a9fd98f2eeef7fc5f9a9b6e7f727"
+    },
+    {
+      "name": "ADWH.Chapter15.QueensBitMoves",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/ADWH/Chapter15/QueensBitMoves.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/ADWH/Chapter15/QueensBitMoves.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.31588498601922765,
+      "cumulative_children_peak_rss_kib": 770664,
+      "input_sha256": "bed3f9a6d2402446f07b1b51308d0fb5b68b19c453a57be37428fb7228cf5d5f",
+      "output_sha256": "b275193dfed76477aa53f8e0f59a39417622b76b67746a9a974ee01d0a4cd05d"
+    },
+    {
+      "name": "ADWH.Chapter15.QueensBitCounting",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/ADWH/Chapter15/QueensBitCounting.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/ADWH/Chapter15/QueensBitCounting.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.31652789199142717,
+      "cumulative_children_peak_rss_kib": 770664,
+      "input_sha256": "3e9d4f4226eeddd9aadd42a9926e7ddecedce7a6c8f2953014c6a33b0f6b2b84",
+      "output_sha256": "dec814bcf6825ff1560f3e0828cf3d4886a7717ca0cd175b8d4a55a47706133d"
+    },
+    {
+      "name": "ADWH.Chapter15.QueensFastCounting",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/ADWH/Chapter15/QueensFastCounting.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/ADWH/Chapter15/QueensFastCounting.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.26589734901790507,
+      "cumulative_children_peak_rss_kib": 770664,
+      "input_sha256": "b8bd1e73532ad77520c17e6c68f88e7f7fae3ade7070c7d28b343dd897d18ad0",
+      "output_sha256": "bf419f3eba17c7c2f0d68d2012ce56226e97400cb63e9721d10056f13b58a37d"
+    },
+    {
+      "name": "ADWH.Chapter15.QueensNatCounting",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/ADWH/Chapter15/QueensNatCounting.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/ADWH/Chapter15/QueensNatCounting.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.2656132340198383,
+      "cumulative_children_peak_rss_kib": 770664,
+      "input_sha256": "5c5e7255bc919e27746e7b55bf71c1171fde5e438b8b09b1002fde8525d6a72c",
+      "output_sha256": "8ff4f07f176c5717d76f1a48a1a1bcf0a7bf45b3fc570281144bea959050f88c"
+    },
+    {
+      "name": "FiniteFold",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/FiniteFold.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/FiniteFold.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.21629141800804064,
+      "cumulative_children_peak_rss_kib": 770664,
+      "input_sha256": "25d84a52adca5f4c60163640aee8f31ded88322b8bd98c27f96d1aeb0c8b5d4e",
+      "output_sha256": "0f0128b0ce2b0a55a68150fe5483acad91e26677681d059c7187f4e8b112d53c"
+    },
+    {
+      "name": "FirstOrderNat",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/FirstOrderNat.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/FirstOrderNat.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.26618599699577317,
+      "cumulative_children_peak_rss_kib": 770664,
+      "input_sha256": "e453954c94771eddda4d21ce52a7befb07093c9117202f886844a3507a02da1b",
+      "output_sha256": "02002dd6fb6277e4d3b0c919ce6215e6d40522609d45e085f2c731d4668eea87"
+    },
+    {
+      "name": "FirstOrderNatSource",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/FirstOrderNatSource.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/FirstOrderNatSource.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.21558894400368445,
+      "cumulative_children_peak_rss_kib": 770664,
+      "input_sha256": "187d06ec3cdd74cce8181e99a25cadf4ed3e302b22b79a48ba5414c81a59aef6",
+      "output_sha256": "9abfad479a76226f547279c7561d3dfe2b51cfb609f700f1da5a3262a6e4be3b"
+    },
+    {
+      "name": "FirstOrderNatSourceAudit",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/FirstOrderNatSourceAudit.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/FirstOrderNatSourceAudit.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.1655133340100292,
+      "cumulative_children_peak_rss_kib": 770664,
+      "input_sha256": "6704cfdb14d1d4d0f1bc0b2431085350577c43f2ba6786ef281cf59a89dc438e",
+      "output_sha256": "f63e97f6552cdcbdcba99b0cb8268b1c692ac8f5fa1f20b16b4199d7ec66687e"
+    },
+    {
+      "name": "CertifiedNatChecker",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/CertifiedNatChecker.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/CertifiedNatChecker.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.21586766597465612,
+      "cumulative_children_peak_rss_kib": 770664,
+      "input_sha256": "d1874a7be774cc9eaff20046141ff15c6d64638b21ce9a39bf29764668bbc9dc",
+      "output_sha256": "bb38d17ec2646408287b9394b59fc0448a5dc02d536ca24c3a339f11871ec559"
+    },
+    {
+      "name": "QueensNatChecker",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/QueensNatChecker.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/QueensNatChecker.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.16570849798154086,
+      "cumulative_children_peak_rss_kib": 770664,
+      "input_sha256": "9fc8716dee7c4362543f6bc6a9f4dee822923c0fb8b0096ecea8e46d689eeeeb",
+      "output_sha256": "4abeb2988e3832e43eec09ee95013755bc51f4527a0f3f7188f8f29c8471e004"
+    },
+    {
+      "name": "RestrictedNatCheckerMain",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DwarningAsError=true",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "-o",
+        "/tmp/conaled-369-orchestration/137-reproduction/output/RestrictedNatCheckerMain.olean",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/RestrictedNatCheckerMain.lean"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.16543445500428788,
+      "cumulative_children_peak_rss_kib": 770664,
+      "input_sha256": "15483541307191d411e452f122899400af8af22347708ef7bc1b73e9ab06a7d6",
+      "output_sha256": "8d7436d0f05c9e9c36e9ca84fdd4d743f372f24d79495d97b6ff8c9c52a7c439"
+    }
+  ],
+  "audit": {
+    "commands": [
+      {
+        "name": "SelectedAudit",
+        "command": [
+          "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+          "-j1",
+          "-DautoImplicit=false",
+          "-DwarningAsError=true",
+          "-DElab.async=false",
+          "-R",
+          "/tmp/conaled-369-orchestration/137-reproduction/source",
+          "/tmp/conaled-369-orchestration/137-reproduction/source/SelectedAudit.lean"
+        ],
+        "exit_code": 0,
+        "status": "passed",
+        "elapsed_seconds": 0.567022047995124,
+        "cumulative_children_peak_rss_kib": 1569416,
+        "input_sha256": "db41aea10c70614a7ddc9df2899aff47d5772d2a46fcf5dfb4d5a0a6a256e069",
+        "output_sha256": null
+      }
+    ],
+    "complete": true
+  },
+  "controls": [
+    {
+      "name": "ControlAxiom",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/ControlAxiom.lean"
+      ],
+      "exit_code": 1,
+      "expected": "Forbidden transitive axioms",
+      "passed": true,
+      "elapsed_seconds": 0.566012998984661,
+      "source_sha256": "456ddb3920a35d359a2beed53813385fb2e54cba55e9480179f0916a69d3abed"
+    },
+    {
+      "name": "ControlAdmission",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/ControlAdmission.lean"
+      ],
+      "exit_code": 1,
+      "expected": "sorryAx",
+      "passed": true,
+      "elapsed_seconds": 0.5664617620059289,
+      "source_sha256": "1015ba267a037690c266f1b7b6ac3da2509c5a27b89c73e6ce96511b0cdc4619"
+    },
+    {
+      "name": "ControlUnsafe",
+      "command": [
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j1",
+        "-DautoImplicit=false",
+        "-DElab.async=false",
+        "-R",
+        "/tmp/conaled-369-orchestration/137-reproduction/source",
+        "/tmp/conaled-369-orchestration/137-reproduction/source/ControlUnsafe.lean"
+      ],
+      "exit_code": 1,
+      "expected": "unsafe declarations with source ranges",
+      "passed": true,
+      "elapsed_seconds": 0.5668638190254569,
+      "source_sha256": "353e336f24fb91171f4f40eff5117fb2493f741366459bf95122d5a238c5d6d0"
+    }
+  ],
+  "fresh_modules": 20,
+  "compile_seconds": 7.225092017062707,
+  "peak_child_rss_kib": 1569416,
+  "caps": {
+    "virtual_address_bytes": 8589934592,
+    "seconds_per_process": 120,
+    "seconds_per_compilation_pipeline": 1200,
+    "compiler_processes": 1,
+    "threads": 1,
+    "cpu_affinity_count": 1
+  },
+  "source_bytes": 160747,
+  "output_bytes": 7439080
+}

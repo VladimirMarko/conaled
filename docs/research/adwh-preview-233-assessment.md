@@ -324,3 +324,12 @@ audit and demonstrate reuse through public results. The assessment introduces
 no new formal claims. It establishes a source inventory, concrete reconstruction
 opportunities and an implementation order; full-library certification and the
 migration itself remain work under #149.
+
+## Restricted natural-number checker reproduction
+
+The bounded [checker reproduction and independent client](certified-nat-checker-preview.md)
+select the parser/source-agreement route and its complete original prerequisites.
+The portable runner preserves original bytes, verifies scoped inverse edits,
+rebuilds the isolated closure and audits every safe declaration. This is one
+selected route; the report retains `EXT-137-001` and the other experimental
+inspection/reproduction obligations explicitly.
