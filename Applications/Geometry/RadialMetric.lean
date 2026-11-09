@@ -16,6 +16,13 @@ def scale (z : ℂ) : ℝ := Real.exp (normSq z)
 def gradient (z : ℂ) : ℝ × ℝ := (2*z.re,2*z.im)
 def gamma (z u v : ℂ) : ℂ := 2 * conj z * u * v
 
+theorem scale_positive (z : ℂ) : 0 < scale z := Real.exp_pos _
+
+theorem metric_factor (z : ℂ) : scale z^2 = Real.exp (2*normSq z) := by
+  rw [scale,pow_two,← Real.exp_add]
+  congr 1
+  ring
+
 theorem gamma_coords (z u v : ℂ) : coords (gamma z u v) =
     Orbifold.ConnectionAssessment.gamma (gradient z) (coords u) (coords v) := by
   ext <;> simp [coords, gamma, gradient, Orbifold.ConnectionAssessment.gamma,

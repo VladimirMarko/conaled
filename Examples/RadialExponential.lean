@@ -25,4 +25,13 @@ theorem moving_inverse_client : ∃ ε : ℝ, 0 < ε ∧
     linarith
   exact ⟨r/2,hpos,hm,branch_source_actual hm,log_exp hm⟩
 
+/-- Varying only initial velocity gives the identity derivative at the rest origin. -/
+theorem velocity_derivative : HasFDerivAt (fun v : ℂ => expMap (0,v))
+    (ContinuousLinearMap.id ℝ ℂ) 0 := by
+  have h := expMap_derivative.comp (0 : ℂ) (ContinuousLinearMap.inr ℝ ℂ ℂ).hasFDerivAt
+  convert! h using 1
+  apply ContinuousLinearMap.ext
+  intro v
+  simp [expDerivative]
+
 end Examples.RadialExponential

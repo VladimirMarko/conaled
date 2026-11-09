@@ -115,4 +115,35 @@ theorem radialParallel_selected {y : ℂ} (hy : (0,y) ∈ branch.target) (v : �
   change (boundedFlow ⟨weight (0,originLog y),(log_admitted hy).1⟩ 1).1 = y at hl
   simp only [originParallel,hl,radialParallel]
 
+/-- The selected radial solution is unique among parallel fields with that initial vector. -/
+theorem originParallel_unique (p : Initial) (hp : p.val.1 = 0) (v : ℂ) (V : ℝ → ℂ)
+    (hV : ContinuousOn V (Icc (0 : ℝ) 1))
+    (hd : ∀ t ∈ Ico (0 : ℝ) 1, HasDerivWithinAt V
+      (-gamma (boundedFlow p t).1 ((boundedFlow p t).2/2) (V t)) (Ici t) t)
+    (h0 : V 0 = v) : EqOn V (fun t => originParallel p t v) (Icc (0 : ℝ) 1) := by
+  have hc (t : ℝ) (w : ℂ) :
+      -gamma (boundedFlow p t).1 ((boundedFlow p t).2/2) w = -radialMomentum p t*w := by
+    simp only [gamma,radialMomentum]
+    ring
+  apply ODE_solution_unique_of_mem_Icc_right
+    (v := fun t w => -gamma (boundedFlow p t).1 ((boundedFlow p t).2/2) w)
+    (s := fun _ => univ) (K := 1/16)
+  · intro t _
+    apply LipschitzOnWith.of_dist_le_mul
+    intro a _ b _
+    rw [hc,hc,dist_eq_norm,dist_eq_norm,← mul_sub,norm_mul,norm_neg]
+    exact mul_le_mul_of_nonneg_right (radialMomentum_bound p t) (norm_nonneg (a-b))
+  · exact hV
+  · exact hd
+  · intros; trivial
+  · have h : Continuous (fun t => originParallel p t v) := by
+      unfold originParallel
+      have hz := (boundedFlow_continuous p).fst
+      fun_prop
+    exact h.continuousOn
+  · intro t ht
+    exact (originParallel_derivative p hp v ⟨ht.1,ht.2.le⟩).hasDerivWithinAt
+  · intros; trivial
+  · rw [h0,originParallel_initial p hp]
+
 end RadialMetric

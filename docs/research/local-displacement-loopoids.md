@@ -15,6 +15,11 @@ performance comparison, universal loopoid library or backend replacement was
 performed. The [motion reassessment](orbifold-motion-reassessment.md) supplies
 the original comparison questions.
 
+The subsequent [fixed radial-metric implementation](radial-metric-local-displacement.md)
+constructs the selected flow, inverse branches and an actual nonassociative
+client for the metric discussed here. The source-comparison claims below retain
+their original research status.
+
 ## What the published contracts require
 
 Grabowski–Ravanpak use target α, source β, units M, and composable pairs

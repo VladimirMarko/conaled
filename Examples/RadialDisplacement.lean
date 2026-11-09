@@ -1,5 +1,6 @@
 import Applications.Geometry.RadialDivision
 import Applications.Geometry.RadialAngular
+import Applications.Geometry.RadialNonassociative
 
 /-! Parenthesized local clients retain every intermediate domain. The theorem
 below supplies a positive ordinary input; it does not assert associativity. -/
@@ -56,5 +57,12 @@ theorem selected_radial_transport {y : ℂ} (hy : (0,y) ∈ branch.target) (v : 
   refine ⟨originParallel_initial _ rfl v,radialParallel_selected hy v,?_⟩
   intro t ht
   exact originParallel_derivative _ rfl v ht
+
+/-- An ordinary three-input client, with both parenthesizations defined and unequal. -/
+theorem nonassociative_client : ∃ t : ℝ, 0 < t ∧
+    DisplacementDomain (firstPair t) ∧ DisplacementDomain (secondPair t) ∧
+    DisplacementDomain (leftPair t) ∧ DisplacementDomain (rightPair t) ∧
+    displacement (leftPair t) ≠ displacement (rightPair t) :=
+  RadialMetric.Nonassociative.positive_nonassociative_client
 
 end Examples.RadialDisplacement
