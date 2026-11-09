@@ -1,0 +1,19 @@
+import SquareKit.Internal.PathTransport.SourceReindex
+
+-- Deliberately rejected diagnostic. This is not a library theorem.
+-- Failure of rfl does not establish impossibility or the need for a new rule.
+namespace Experiments.DependentCongruenceResumption
+open SquareKit.Internal.PathTransport
+open SquareKit.Internal.PathTransport.Typed
+open SquareKit.Internal.PathTransport.Typed.Authoring
+set_option backward.isDefEq.respectTransparency false
+set_option backward.defeqAttrib.useBackward true
+
+example (hΓ : CtxDeriv Γ γ) (hΔ : CtxDeriv Δ δ)
+    {x y z : BasePoint Γ γ} (p : Path x y) (q : Path y z)
+    (hs : SubDeriv Δ δ Γ γ σ s) :
+    ((concat hΓ p q).reindex hΓ hs).code =
+      (concat hΔ (p.reindex hΓ hs) (q.reindex hΓ hs)).code := by
+  rfl
+
+end Experiments.DependentCongruenceResumption
