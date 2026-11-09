@@ -68,9 +68,20 @@ local-to-descended deformation fiber comparison over the full quotient cocycle
 groupoid. The input assigns a matching local deformation to every cocycle and
 acts naturally on every compatible local arrow. The output constructs a section of descended deformation fibers, with
 vertical recovery through the actual gluing comparison.
-The base of this specialization is still the cocycle groupoid. Transport onward
-to the global quotient context and compatibility as parameters and covers vary
-remain obligations for generated interpretation descent.
+The base of this specialization is the cocycle groupoid.
+
+`SectionBaseEquivalence` extends such a section along a base equivalence, using
+existing normalization and Mathlib's `Grothendieck.preEquivalence`. It proves
+vertical recovery after restricting back to the original base, as a natural
+isomorphism of complete section lifts. `SmoothQuotientGlobalSections` applies
+this result to `quotientDescentEquivalence`. Its `globalSection` is a section
+over the actual `Object a X` context. After reindexing and the actual deformation
+fiber comparison, `globalSectionRecovery` recovers the supplied local section
+on objects and arrows. Its base components are identity arrows, and the
+naturality equation is exposed for every compatible local map.
+`globalSection_recoverFiber` identifies its object recovery with the original
+`fiberEquivalence`, including the supplied matching local deformation. Compatibility
+as parameters and covers vary remains a separate obligation.
 
 ## Checked cases and statement review
 
@@ -102,6 +113,15 @@ This rejects an object-only section contract and checks that the accepted
 comparison preserves selected transformations. Another specialization transports
 a loop-valued section across the base equivalence that collapses the two
 contractible context representatives.
+
+`Examples.GlobalSectionDescent` constructs a usable complete local section from
+constant deformation data, proves its arrow compatibility, and reconstructs a
+global section. It evaluates that section on the existing doubled-origin torsor
+with ineffective action, without a chart choice. The lifted section retains
+any distinct selected loops of that object, and its recovery over the canonical
+cocycle presentation is vertical. The constant case witnesses usable inputs;
+the reconstruction theorem accepts every complete local section, not just this
+case or restrictions of a previously supplied global section.
 
 The section theorem quantifies over all source and target base categories and
 all groupoid-valued families in the stated universes. Its input is one complete
