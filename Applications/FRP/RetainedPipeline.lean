@@ -1,6 +1,8 @@
 import Applications.FRP.RetainedLifecycle
 
-/-! Continued consumers use the existing tagged optional-response adapter.
+/-! Experimental implementation (#237). See the [retention report](../../docs/research/frp-query-retention.md).
+
+Continued consumers use the existing tagged optional-response adapter.
 Retention notices do not become fabricated empty batches. -/
 namespace FRPSpec.Frontier.Retention.Pipeline
 open Trace Progress

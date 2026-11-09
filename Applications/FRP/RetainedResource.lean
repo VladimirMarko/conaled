@@ -1,6 +1,8 @@
 import Applications.FRP.RetainedLifecycle
 
-/-! Retained-list accounting for natural timestamps. Entry density includes
+/-! Experimental implementation (#237). See the [retention report](../../docs/research/frp-query-retention.md).
+
+Retained-list accounting for natural timestamps. Entry density includes
 empty fragments; payload and timestamp costs are independent assumptions. -/
 namespace FRPSpec.Frontier.Retention.Resource
 open Trace

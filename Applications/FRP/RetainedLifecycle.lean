@@ -1,7 +1,9 @@
 import Applications.FRP.RetainedSource
 import Applications.FRP.LifecyclePipeline
 
-/-! Optional admission and reclamation around the identified lifecycle.
+/-! Experimental implementation (#237). See the [retention report](../../docs/research/frp-query-retention.md).
+
+Optional admission and reclamation around the identified lifecycle.
 The full-history state appears only in the simulation relation. -/
 namespace FRPSpec.Frontier.Retention
 open Trace

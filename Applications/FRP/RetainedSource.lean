@@ -1,6 +1,8 @@
 import Applications.FRP.Engine
 
-/-! Retained source observations have a lower admission boundary as well as the
+/-! Experimental implementation (#237). See the [retention report](../../docs/research/frp-query-retention.md).
+
+Retained source observations have a lower admission boundary as well as the
 existing strict upper frontier. Cropping does not certify erased history. -/
 namespace FRPSpec.Frontier.Retention
 open Trace

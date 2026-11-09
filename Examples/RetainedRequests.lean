@@ -2,7 +2,9 @@ import Applications.FRP.RetainedPipeline
 import Applications.FRP.RetainedResource
 import Examples.RequestLifecycle
 
-/-! Literal request/consumer expectations and retention failure controls. -/
+/-! Experimental implementation (#237). See the [retention report](../docs/research/frp-query-retention.md).
+
+Literal request/consumer expectations and retention failure controls. -/
 namespace Examples.RetainedRequests
 open FRPSpec.Frontier FRPSpec.Reactive Progress
 open Retention
