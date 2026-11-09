@@ -192,8 +192,9 @@ def main():
     dependency_manifest = json.loads((ROOT / 'lake-manifest.json').read_text())
     dependency_paths = [ROOT / dependency_manifest['packagesDir'] / p['name'] / '.lake/build/lib/lean'
                         for p in dependency_manifest['packages']]
-    if any(not p.is_dir() for p in dependency_paths):
-        raise RuntimeError('A manifest dependency output directory is missing')
+    absent_outputs = [package['name'] for package, path in zip(dependency_manifest['packages'], dependency_paths)
+                      if not path.is_dir()]
+    dependency_paths = [path for path in dependency_paths if path.is_dir()]
     if not (ROOT / '.lake/packages/mathlib/.lake/build/lib/lean/Mathlib').is_dir():
         raise RuntimeError('External package outputs missing; run lake exe cache get first')
     native_out, graph_out = run / 'native', run / 'graph'
@@ -201,6 +202,7 @@ def main():
     graph_out.mkdir()
     env['LEAN_PATH'] = os.pathsep.join(map(str, [graph_out, native_out, upstream_out, *dependency_paths]))
     provenance.update(lean_path=env['LEAN_PATH'], upstream_modules=upstream_modules,
+                      manifest_packages_without_outputs=absent_outputs,
                       upstream_manifest=json.loads((upstream / 'lake-manifest.json').read_text()))
     manifest.write_text(json.dumps(provenance, indent=2) + '\n')
     for kind, dest, source_root in [('native', native_out, ROOT), ('graph', graph_out, HERE)]:
