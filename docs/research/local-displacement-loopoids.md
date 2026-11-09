@@ -313,3 +313,12 @@ The 1964 scan was inspected through web PDF extraction, not replayed in a
 proof assistant. No inaccessible 2004 follow-up is used as evidence.
 Documentation validation checks local links and repository cleanliness;
 independent Standards and Spec review owns acceptance of this research.
+
+## Bounded implementation successor
+
+[#413](https://github.com/VladimirMarko/conaled/issues/413) constructs the strict-domain
+Möbius example, nonassociative tree controls, explicit division branches, and
+selected alignment/derivative descent. See [the implementation result](local-displacement-implementation.md).
+It does not construct the radial variable-curvature exponential product proposed
+above; that independent analytic work is owned by
+[#415](https://github.com/VladimirMarko/conaled/issues/415).
