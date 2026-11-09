@@ -318,6 +318,7 @@ import Examples.GuardedSigmaReindexing
 import Examples.ProofRequirementReference
 import Examples.ProofRequirementComparison
 import Examples.ParserWorkload
+import Examples.ParserSelection
 import Examples.NestedSetting
 import Examples.DependentAuthorTrialReplay
 import Examples.TwoGroupoidPath
