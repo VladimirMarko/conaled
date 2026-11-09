@@ -2,6 +2,9 @@
 
 Current status (2026-11-09): the owner has resumed #107. The checkpoint and
 validation below remain historical evidence, not a completed repair or freeze.
+The [resumed structural comparison](dependent-congruence-resumption.md) now
+records checked fixed-template callers and a proposed migration decision. It
+does not complete the repair or authorize a #108 freeze.
 The pause allowed time for better abstractions and possible frontend alternatives
 to manual DSL transcription. The [revised scheduling decision](next-assessment-work.md#resumed-repair-and-revised-dependencies)
 retains #108's independent test but removes a favorable retest as a blanket

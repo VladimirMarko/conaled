@@ -1,0 +1,21 @@
+direnv: loading /tmp/conaled-resumed-orchestration/107/.envrc
+direnv: using flake
+direnv: nix-direnv: Using cached dev shell
+experiments/dependent-congruence-resumption/FreshAnnotation.lean.txt:17:2: error: Tactic `rfl` failed: The left-hand side
+  (Path.reindex hΓ (concat hΓ p q) hs).code
+is not definitionally equal to the right-hand side
+  (concat hΔ (Path.reindex hΓ p hs) (Path.reindex hΓ q hs)).code
+
+Γ : RawCtx
+γ : CtxCode
+Δ : RawCtx
+δ : CtxCode
+σ : RawSub
+s : SubCode δ γ
+hΓ : CtxDeriv Γ γ
+hΔ : CtxDeriv Δ δ
+x y z : BasePoint Γ γ
+p : Path x y
+q : Path y z
+hs : SubDeriv Δ δ Γ γ σ s
+⊢ (Path.reindex hΓ (concat hΓ p q) hs).code = (concat hΔ (Path.reindex hΓ p hs) (Path.reindex hΓ q hs)).code
