@@ -221,6 +221,7 @@ import Applications.Parallel.Scan
 import Applications.Parallel.ScanPlan
 import Applications.Parallel.Shape
 import Applications.Stack.Machine
+import Applications.Stack.Measured
 import Applications.Timing.Adders
 import Applications.Timing.Digital
 import Applications.Timing.Examples
@@ -259,6 +260,8 @@ import Examples.SmoothQuotientArcs
 import Examples.QuarterTurnArcs
 import Examples.JetScan
 import Examples.MatrixStack
+import Examples.CountedStack
+import Examples.CountedStackRun
 import Examples.Run
 import Examples.OrderCertificate
 import Examples.NumericalMotion
