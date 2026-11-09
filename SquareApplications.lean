@@ -265,6 +265,8 @@ import Examples.SmoothSourceTransport
 import Examples.ChangingFamilyTails
 import Examples.GroupoidComparison
 import Examples.GroupoidComparisonJ
+import Examples.GroupoidComparisonInterpretation
+import Examples.SmoothComparisonInterpretation
 import Examples.QuarterTurnArcs
 import Examples.JetScan
 import Examples.MatrixStack
