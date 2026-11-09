@@ -1,7 +1,7 @@
 {
   "scope": "Development runs with prepared private upstream and native outputs; not final fresh acceptance.",
-  "source_base": "51df3473eac15ed90b51badaac675aa9cf95d750",
-  "source_identity": "Per-file hashes identify the pending sources committed with this record.",
+  "source_base": "86604e0e1a1ca8ae64abda1a37bc9678a1807775",
+  "source_identity": "Per-file hashes identify sources after three whitespace-only module-header corrections; previous runs retained separately.",
   "toolchain": "leanprover/lean4:v4.35.0",
   "upstream_revision": "8e166ca53cd1f864b63c13cc1d326d38316d00ea",
   "lean_invocation": "lean -D Elab.async=false -R <candidate>/experiments/relative-graph -o <private-build>/<Module>.olean <candidate>/experiments/relative-graph/<Module>.lean",
@@ -125,30 +125,30 @@
       "output": "start_generation helper_list\ngeneration_ns=68480883; expression_nodes=24747985\nkernel_declaration_ns=111099172\nrender_ns=589291; rendered_chars=94; proposition=EmittedEnvironment.helpers =\n  [NativeHelper0.decl, NativeHelper1.decl, NativeHelper2.decl, \u22ef]\nstart_generation helpers\ngeneration_ns=3978414; expression_nodes=1265\nkernel_declaration_ns=462366\nrender_ns=612408; rendered_chars=172; proposition=List.foldlM (checkDecl CheckMode.verified (fueledOps CheckMode.verified \u22ef) [])\n    GraphEnvironment.environment EmittedEnvironment.helpers =\n  Except.ok NativeHelper8.after\nstart_generation graph_list\ngeneration_ns=127296169; expression_nodes=101895012\nkernel_declaration_ns=54799751\nrender_ns=496221; rendered_chars=104; proposition=EmittedEnvironment.graphDeclarations =\n  [EmittedForwardAcceptance.decl, EmittedBackwardAcceptance.decl]\nstart_generation graph\ngeneration_ns=2272388; expression_nodes=551\nkernel_declaration_ns=369682\nrender_ns=600921; rendered_chars=185; proposition=List.foldlM (checkDecl CheckMode.verified (fueledOps CheckMode.verified \u22ef) [])\n    NativeHelper8.after EmittedEnvironment.graphDeclarations =\n  Except.ok EmittedBackwardAcceptance.after\nstart_generation environment_eq\ngeneration_ns=125406565; expression_nodes=1199045662\nkernel_declaration_ns=200392523\nrender_ns=308381; rendered_chars=64; proposition=EmittedBackwardAcceptance.after = EmittedEnvironment.environment\nstart_generation accepted\ngeneration_ns=26244953; expression_nodes=747\nkernel_declaration_ns=8902323\nrender_ns=595105; rendered_chars=151; proposition=checkDeclsPure CheckMode.verified (fueledOps CheckMode.verified 32) []\n    EmittedEnvironment.declarations =\n  Except.ok EmittedEnvironment.environment\nGraph artifact audit: 82 safe roots; axioms [Quot.sound, Classical.choice, propext]\n"
     },
     {
-      "run_id": "1794204446027207310-AcceptedEmission",
+      "run_id": "1794204588320299877-AcceptedEmission",
       "module": "AcceptedEmission",
-      "source_sha256": "1efa0b87ef56fe4ae4ddfa6078eee2eaedc57045169fb7bd59fbf27e84d4638a",
+      "source_sha256": "ae415940c7473a1ef6370c68d3e3464a48cb2ded09b8151b3a699b1352aa89e7",
       "measurement_sha256": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
       "exit": 0,
-      "wall_seconds": 0.5338619190151803,
+      "wall_seconds": 0.5474744729872327,
       "output": "Graph artifact audit: 4 safe roots; axioms [Quot.sound, Classical.choice, propext]\n"
     },
     {
-      "run_id": "1794204446563957429-EmittedApplications",
+      "run_id": "1794204588870947431-EmittedApplications",
       "module": "EmittedApplications",
-      "source_sha256": "7c9fee305c8fe2a0cade603c441e359e8a75b264af51f504d919d42ce1a91304",
+      "source_sha256": "4fe152736fecff44d2e85530aabe943792c2fd52527d08ecd90d2a500c26ad59",
       "measurement_sha256": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
       "exit": 0,
-      "wall_seconds": 0.552852533000987,
+      "wall_seconds": 0.5633309910190292,
       "output": "Graph artifact audit: 2 safe roots; axioms [Quot.sound, Classical.choice, propext]\n"
     },
     {
-      "run_id": "1794204447119864150-ValueRejectionComposition",
+      "run_id": "1794204589437469653-ValueRejectionComposition",
       "module": "ValueRejectionComposition",
-      "source_sha256": "f9f3cf578edc8bafbb4af66bb7f1656acf629dfc42fb313b3fcc7e80041fa847",
+      "source_sha256": "afde9df2fd31ebbd28cf5c5a8b46fb8532f61e347c3e1446143df375b50410c0",
       "measurement_sha256": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
       "exit": 0,
-      "wall_seconds": 0.5213876269990578,
+      "wall_seconds": 0.4992891559959389,
       "output": "Graph artifact audit: 4 safe roots; axioms [Quot.sound, Classical.choice, propext]\n"
     },
     {
@@ -168,6 +168,38 @@
       "exit": 0,
       "wall_seconds": 0.5553217869892251,
       "output": "Graph artifact audit: 10 safe roots; axioms [Quot.sound, Classical.choice, propext]\n"
+    }
+  ],
+  "previous_header_runs": [
+    {
+      "run_id": "1794204446027207310-AcceptedEmission",
+      "module": "AcceptedEmission",
+      "source_sha256": "1efa0b87ef56fe4ae4ddfa6078eee2eaedc57045169fb7bd59fbf27e84d4638a",
+      "measurement_sha256": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
+      "exit": 0,
+      "wall_seconds": 0.5338619190151803,
+      "output": "Graph artifact audit: 4 safe roots; axioms [Quot.sound, Classical.choice, propext]\n",
+      "source_commit": "86604e0e1a1ca8ae64abda1a37bc9678a1807775"
+    },
+    {
+      "run_id": "1794204446563957429-EmittedApplications",
+      "module": "EmittedApplications",
+      "source_sha256": "7c9fee305c8fe2a0cade603c441e359e8a75b264af51f504d919d42ce1a91304",
+      "measurement_sha256": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
+      "exit": 0,
+      "wall_seconds": 0.552852533000987,
+      "output": "Graph artifact audit: 2 safe roots; axioms [Quot.sound, Classical.choice, propext]\n",
+      "source_commit": "86604e0e1a1ca8ae64abda1a37bc9678a1807775"
+    },
+    {
+      "run_id": "1794204447119864150-ValueRejectionComposition",
+      "module": "ValueRejectionComposition",
+      "source_sha256": "f9f3cf578edc8bafbb4af66bb7f1656acf629dfc42fb313b3fcc7e80041fa847",
+      "measurement_sha256": "8bd5397f3e698fa4b17ff9fb3559f8749dd3e7a0074073e2d659c16bb12c36a1",
+      "exit": 0,
+      "wall_seconds": 0.5213876269990578,
+      "output": "Graph artifact audit: 4 safe roots; axioms [Quot.sound, Classical.choice, propext]\n",
+      "source_commit": "86604e0e1a1ca8ae64abda1a37bc9678a1807775"
     }
   ]
 }

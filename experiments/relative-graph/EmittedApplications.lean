@@ -1,6 +1,6 @@
 import AcceptedEmission
 /-! Experimental #135 applications of the accepted actual emitted records.
-The relative applications retain their explicit SetTheory and membership assumptions. 
+The relative applications retain their explicit SetTheory and membership assumptions.
 See [scope report](../../docs/research/relative-emitted-acceptance.md). -/
 namespace EmittedApplications
 open ConLeche ConLeche.SetTheory ConLeche.SetModel

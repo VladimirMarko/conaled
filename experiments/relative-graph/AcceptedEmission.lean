@@ -2,7 +2,7 @@ import EmittedAcceptance
 import EmittedClosed
 import ConLeche.Model.Fold
 /-! Experimental #135 model and general comparisons from proved canonical-family acceptance.
-SetTheory remains an explicit assumption. Cached acceptance is separate (#417). 
+SetTheory remains an explicit assumption. Cached acceptance is separate (#417).
 See [scope report](../../docs/research/relative-emitted-acceptance.md). -/
 namespace AcceptedEmission
 open SquareKit.Internal ConLeche ConLeche.SetTheory ConLeche.SetModel

@@ -1,6 +1,6 @@
 import AcceptanceComposition
 import ConLeche.Verify.CheckerSplit
-/-! Experimental #135 negative control: explicit successful guards followed by type mismatch. 
+/-! Experimental #135 negative control: explicit successful guards followed by type mismatch.
 See [scope report](../../docs/research/relative-emitted-acceptance.md). -/
 namespace ValueRejectionComposition
 open ConLeche
