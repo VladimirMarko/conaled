@@ -1,4 +1,5 @@
 import SquareKit.WeakMachine.Adequacy
+import SquareKit.WeakMachine.Canonicity
 
 namespace Examples.WeakMachine
 open SquareKit.HigherOrderComparison (Ty Ctx Var Env extend empty)
@@ -79,6 +80,6 @@ theorem bound_operational (n : Nat) :
 /-- The pre-existing total fragment remains available through its embedding. -/
 theorem recovered (t : SquareKit.HigherOrderComparison.Term [] .ground) :
     SquareKit.WeakMachine.Returns (embed t) (SquareKit.HigherOrderComparison.denote t empty) :=
-  (return_denotation _ _).mpr (recovery_meaning t)
+  embedded_returns t
 
 end Examples.WeakMachine
