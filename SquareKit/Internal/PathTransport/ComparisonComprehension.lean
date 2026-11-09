@@ -14,7 +14,7 @@ private theorem pre_eqToHom {C D : Type u} [Category.{u} C] [Category.{u} D]
   cases h
   rw [eqToHom_refl, Grothendieck.map_id_eq, CategoryTheory.Functor.id_comp]
 
-private theorem whisker_eq {C D E : Type*} [Category* C] [Category* D] [Category* E]
+theorem whisker_eq {C D E : Type*} [Category* C] [Category* D] [Category* E]
     {F G : C ⥤ D} (h : F = G) (K : D ⥤ E) :
     whiskerRight (eqToHom h) K = eqToHom (congrArg (· ⋙ K) h) := by
   cases h
