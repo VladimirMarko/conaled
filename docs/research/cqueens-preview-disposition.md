@@ -65,6 +65,25 @@ explicitly leaves concrete Lean acceptance, the stock numeral theorem and kernel
 extension false. The current comparison does not rerun C generation, linking,
 native CLI or n16. [reflection-success]
 
+## Fresh comparison evidence
+
+The [recorded fresh validation](../../experiments/certified-nat-checker/evidence/comparison-validation.json)
+identifies the measured code candidate and every runner/client input. The
+comparison run compiled 29 archived modules: the complete 27-module source
+comparison plus two modules needed to reuse the accepted checker client.
+Together with `Squares`, `CheckerClient` and `ReflectionClient`, the exhaustive
+audit covered 32 modules and 1,462 safe declarations, with zero unsafe exclusions
+and only the three permitted axioms. The default checker profile was also
+rebuilt with the extended runner and retained its 22-module/1,263-root audit.
+Both runs used fresh private outputs, one compiler/thread, the 8-GiB virtual cap,
+120-second per-process deadline and 20-minute total deadline.
+
+The measured code precedes only the commit recording these measurements; final
+candidate receipts belong to the review handoff. All eight black-box tests
+passed: four selection/extraction controls and four reused executor/auditor
+controls. This is fresh proof compilation and exhaustive audit, not a native
+checker benchmark. No kernel or CSP route listed below was compiled by this run.
+
 ## Operational recognizers do not prove installation
 
 `DefinitionPins` records exact internal name, empty universe parameters,
