@@ -1,5 +1,11 @@
 # Resumed dependent-authoring repair: structural comparison
 
+Subsequent implementation: the approved [guarded repair](guarded-dependent-authoring-repair.md)
+now records the general left-path associativity derivation, fresh source
+substitution, and its interpretation consumers. The original checkpoint below
+remains historical evidence; current acceptance and #108 handoff are tracked in
+the subsequent report.
+
 This is partial evidence for [#107](https://github.com/VladimirMarko/conaled/issues/107),
 starting at `a95a5efd8370b9005fcf4a3b2bdac5f0dfc3bff2`. It is not a successful
 repair, a general associativity derivation, or a frozen interface for #108.

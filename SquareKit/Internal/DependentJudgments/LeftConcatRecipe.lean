@@ -42,7 +42,8 @@ theorem telNil_subst (σ : V → Expression W) (a : Expression V) :
     (telNil a).subst σ = telNil (a.subst σ) := by
   apply congrArg (@FinitaryTerm.node signature.Operation signature.arity W (.inr .telNil))
   funext i
-  fin_cases i <;> rfl
+  fin_cases i
+  rfl
 
 theorem pair_subst (σ : V → Expression W) (a b c : Expression V) :
     (Contextual.pair a b c).subst σ = Contextual.pair (a.subst σ) (b.subst σ) (c.subst σ) := by
@@ -84,7 +85,8 @@ theorem identitySub_subst (σ : V → Expression W) (a : Expression V) :
     (identitySub a).subst σ = identitySub (a.subst σ) := by
   apply congrArg (@FinitaryTerm.node signature.Operation signature.arity W (.inl .id))
   funext i
-  fin_cases i <;> rfl
+  fin_cases i
+  rfl
 
 theorem j_subst (σ : V → Expression W) (a b c d e : Expression V) :
     (Contextual.j a b c d e).subst σ = Contextual.j (a.subst σ) (b.subst σ) (c.subst σ) (d.subst σ) (e.subst σ) := by
@@ -96,7 +98,7 @@ theorem leftConcat_subst (σ : V → Expression W) (g a x y z p q : Expression V
     (leftConcat g a x y z p q).subst σ =
       leftConcat (g.subst σ) (a.subst σ) (x.subst σ) (y.subst σ) (z.subst σ)
         (p.subst σ) (q.subst σ) := by
-  simp only [leftConcat, LeftConcatFrame.tail, Reference.Tail.code, Reference.Tail.map,
+  simp only [leftConcat, Reference.Tail.code, Reference.Tail.map,
     LeftConcatFrame.motive, LeftConcatFrame.q, LeftConcatFrame.finalType,
     LeftConcatFrame.finalFixed, LeftConcatFrame.finalZ, LeftConcatFrame.qProjection,
     LeftConcatFrame.withZ, LeftConcatFrame.pathType, LeftConcatFrame.pathProjection,
