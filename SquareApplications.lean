@@ -571,4 +571,6 @@ import Examples.AtlasIsotropy
 import Examples.LocalDisplacement
 import Examples.KineticLegendre
 
+import Examples.BudgetDiskDriver
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
