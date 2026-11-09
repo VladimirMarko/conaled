@@ -561,7 +561,7 @@ import Examples.LCATarget
 
 import Examples.AtlasIsotropy
 import Examples.LocalDisplacement
+import Examples.KineticLegendre
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 
-import Examples.KineticLegendre
