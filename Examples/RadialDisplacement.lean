@@ -1,4 +1,5 @@
 import Applications.Geometry.RadialDivision
+import Applications.Geometry.RadialAngular
 
 /-! Parenthesized local clients retain every intermediate domain. The theorem
 below supplies a positive ordinary input; it does not assert associativity. -/
@@ -44,5 +45,16 @@ theorem positive_parenthesized_client : ∃ t : ℝ, 0 < t ∧
   refine ⟨r/2,half_pos hr,hball ?_⟩
   rw [mem_ball,dist_zero_right,Real.norm_eq_abs,abs_of_pos (half_pos hr)]
   linarith
+
+/-- The exact selected origin geodesic, including its admitted-flow witness. -/
+theorem selected_radial_transport {y : ℂ} (hy : (0,y) ∈ branch.target) (v : ℂ) :
+    let p : Initial := ⟨weight (0,originLog y),(log_admitted hy).1⟩
+    originParallel p 0 v = v ∧ originParallel p 1 v = radialParallel y v ∧
+    ∀ t ∈ Icc (0 : ℝ) 1, HasDerivAt (fun s => originParallel p s v)
+      (-gamma (boundedFlow p t).1 ((boundedFlow p t).2/2) (originParallel p t v)) t := by
+  dsimp only
+  refine ⟨originParallel_initial _ rfl v,radialParallel_selected hy v,?_⟩
+  intro t ht
+  exact originParallel_derivative _ rfl v ht
 
 end Examples.RadialDisplacement

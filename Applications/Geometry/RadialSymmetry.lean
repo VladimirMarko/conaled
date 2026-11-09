@@ -123,4 +123,16 @@ theorem rotation_domain_near_zero (g : ℂ) : ∀ᶠ p in 𝓝 (0 : State), Rota
   filter_upwards [displacement_domain_near_zero,hrot,hin] with p hp hq hr
   exact ⟨hp,hq,hr⟩
 
+/-- A common local domain for every chosen C4 alignment. -/
+def C4Domain (p : State) : Prop :=
+  ∀ g : Orbifolds.QuarterTurn.C4, RotationDomain (g.val : ℂ) p
+
+open scoped Topology in
+theorem c4_domain_near_zero : ∀ᶠ p in 𝓝 (0 : State), C4Domain p := by
+  exact Filter.eventually_all.mpr (fun g => rotation_domain_near_zero (g.val : ℂ))
+
+theorem displacement_c4 (g : Orbifolds.QuarterTurn.C4) {p : State} (hp : C4Domain p) :
+    displacement ((g.val : ℂ) • p) = (g.val : ℂ)*displacement p :=
+  displacement_rotation _ (c4_normSq g) (hp g)
+
 end RadialMetric
