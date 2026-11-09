@@ -103,3 +103,22 @@ a fresh targeted Agda replay and statement review. The approved extraction is
 [#435](https://github.com/VladimirMarko/conaled/issues/435), independent of
 #426/#428/#433. Its external properness theorem must not be advertised as the
 unrestricted internal properness needed by the Agda source.
+
+## Prepared consumer and authoring assessments
+
+The [monodromy connection assessment](monodromy-consumer-path.md) for #428 traces
+actual source declarations through the missing target constructions. Prioritize
+#115's selected declaration inspection alongside #419's classifier and #421's
+circle. #420 follows #419; #422 combines their results with the separately owed
+indexed-identity/conversion admission. The source's `step = refl` crosses the
+Path/inductive-identity boundary, so Glue alone cannot close that obligation.
+Independent construction need not wait for a general exporter or this assessment.
+
+The [#429 pilot protocol](dependent-conversion-authoring-protocol.md) compares
+#423's optional service with existing direct helpers on one frozen embedded
+fragment. It includes setup, admission, scale, legitimate repair, invalid
+assumptions and maintenance. Execution awaits the reviewed converter, checked
+fixtures and frozen model/resource manifest; no trial or productivity result is
+claimed. Surface comparisons can reuse the protocol once executable surfaces
+exist. Neither assessment consumes #108's fresh theorem or imposes a favorable
+author result on #433.
