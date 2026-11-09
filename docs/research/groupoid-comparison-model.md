@@ -169,3 +169,26 @@ uses the family equality to recover each selected C4 arrow and proves
 injectivity on those selected identity objects. These applications and the
 library module pass focused compilation. This supplies the identity-family
 case needed by the remaining generated composition argument.
+
+`ComparisonDiagonalMap` constructs a signature map from each direct groupoid
+model to its diagonal comparison model. Its structural laws use the preceding
+diagonal laws. J preservation follows by applying the existing two model
+projections, each of which composes with the diagonal structural map to the
+identity. Joint reflection of section equality then proves the required J
+comparison. The reflection helper is private; callers supply no new J law.
+
+`GeneratedComparisonIdentity` applies generic signature preservation to prove
+that every generated context and family has diagonal comparison data. The
+extracted context functor equals identity on the same semantic context code.
+The extracted family transformation is HEq to identity, since its target is
+indexed by that extracted context functor. These statements compare the full
+functors and transformations, including arrow actions. They do not merely
+compare their object functions.
+
+`SmoothQuotientGeneratedIdentity` specializes both results to identity
+restriction of the unchanged `SmoothQuotientSource.model`. The generated J
+example with the two-binder dependent tail exercises the constructed signature
+map, and its context and motive exercise the identity laws. Statement review
+checks that the generic preservation theorem covers arbitrary finite tails,
+substitution and conversion; the example is a concrete application, not the
+generality claim. Generated parameter composition and descent remain open.

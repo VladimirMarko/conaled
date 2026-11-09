@@ -1,6 +1,6 @@
 import Examples.SignatureInterpretationMaps
 import Examples.GroupoidComparison
-import SquareKit.SmoothQuotientComparisonCoherence
+import SquareKit.SmoothQuotientGeneratedIdentity
 import SquareKit.Internal.PathTransport.GeneratedComparisonLaws
 
 /-! Whole-section restriction for the fresh dependent J caller and the
@@ -49,6 +49,19 @@ example (S : Comparison.Signature.{0}) :
       totalMap (generatedContextMap S context)
         (generatedFamilyMap S context (TyDeriv.fiber point.deriv)) :=
   generatedContextMap_extend S context (TyDeriv.fiber point.deriv)
+
+/-- The identity comparison preserves the actual J result with its dependent tail. -/
+example (C : Grpd.{0,0}) (B : C ⥤ Type) :
+    HEq ((diagonalSignatureMap C B).mapTm (interpretTm (Instance.fullModel C B) generic))
+      (interpretTm (Comparison.fullModel (Comparison.Signature.diagonal C B)) generic) :=
+  (diagonalSignatureMap C B).interpretTm generic
+
+example (C : Grpd.{0,0}) (B : C ⥤ Type) :
+    generatedContextMap (Comparison.Signature.diagonal C B) withFiber = 𝟭 _ :=
+  generatedContextMap_identity C B withFiber
+
+example (C : Grpd.{0,0}) (B : C ⥤ Type) :=
+  generatedFamilyMap_identity C B withFiber command.motive.typing
 
 open SmoothOpenSite SheafActionQuotient
 variable {H : Type} [Group H] {M X Y Z : Sheaf topology Type}
