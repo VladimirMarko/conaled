@@ -31,8 +31,11 @@ open converter. #115 owns Agda declaration inspection, #116 surface design and
 frontend tickets were opened.
 
 The monodromy checkpoint does not complete #100's higher/smooth/classical
-programme. #102/#103 keep their conditions, #107 remains user-paused, and #108's
-fresh-theorem selection must not be consumed by another trial. #429 prepares a
+programme. The owner has resumed #107. #108 still needs its reviewed freeze and
+independent fresh theorem; other trials must not consume that theorem. #103 now
+separates [technical smooth interpretation (#433)](https://github.com/VladimirMarko/conaled/issues/433)
+from [authoring-evidence assessment (#434)](https://github.com/VladimirMarko/conaled/issues/434).
+A favorable author trial is not a prerequisite for the technical construction. #429 prepares a
 protocol; executing it requires its declared prerequisites and resources.
 
 ## What the experiments must distinguish
@@ -68,3 +71,23 @@ proofs of the statements supplied to it; a true statement with the wrong scope
 can still fail its intended application. Automated lint can help select review
 candidates, but cannot certify that correspondence. The audit must publish its
 coverage and distinguish paper errors, weak statements and misleading prose.
+
+## Resumed repair and revised dependencies
+
+The #107 pause gave time to seek better abstractions and infrastructure, including
+frontends that might avoid manual Agda transcription through a Lean DSL. The
+owner has now approved resumption. Compare the existing bounded repair options
+against newer evidence; do not treat the current embedding as the required final
+surface. A frontend can change author work without eliminating the need for a
+sound target representation and substitution laws.
+
+#433 may reconcile interfaces and proceed using reviewed technical prerequisites.
+If it needs an unfinished #107 operation, name that operation and the blocked
+caller. #434 consumes the independent #108 evidence, including failure or an
+inconclusive result, and assesses further investment. Neither assessment success
+nor #102 closure is a blanket gate on #433. The #103 parent retains both children.
+
+#117 protocol preparation may proceed before executable surfaces are available;
+its execution requirements remain. #195 Phase 1 is available, while its Lean
+migration keeps its interaction-contract prerequisite. #418's diagnostic work is
+eligible for scheduling. These priority choices do not imply a new broad wave.

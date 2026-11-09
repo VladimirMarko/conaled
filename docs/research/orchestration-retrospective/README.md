@@ -112,9 +112,8 @@ that the accepted component theorems are false.
    dependent smooth-interpretation checkpoint intact. Adjacent positive results do not complete it.
 2. **Authoring and frontend access.** The large language ambition is still ahead
    of the implemented fragments. Source acquisition and surface studies remain
-   [#115](https://github.com/VladimirMarko/conaled/issues/115)–[#117](https://github.com/VladimirMarko/conaled/issues/117). The [#107](https://github.com/VladimirMarko/conaled/issues/107) repair is user-paused. The [#108](https://github.com/VladimirMarko/conaled/issues/108) fresh-agent test
-   awaits a reviewed interface freeze and an unprepared fresh theorem. Neither
-   may be silently resumed or described as completed by other author trials.
+   [#115](https://github.com/VladimirMarko/conaled/issues/115)–[#117](https://github.com/VladimirMarko/conaled/issues/117). The [#107](https://github.com/VladimirMarko/conaled/issues/107) repair has been resumed after a pause to seek better abstractions and frontend options. The [#108](https://github.com/VladimirMarko/conaled/issues/108) fresh-agent test
+   awaits a reviewed interface freeze and an unprepared fresh theorem. Other author trials do not complete either obligation.
 3. **Scaling of total effort.** In the [scaling trial for #358](../dependent-operation-scaling.md),
    both fresh agent authors completed three cumulative task stages and a repair.
    Across their reported task intervals, the native route took less summed time;
@@ -217,8 +216,10 @@ constitute an executed author trial.
 The [successor map](../next-assessment-work.md) also tracks the TwoFamily and
 local-universes experiments, a numerical systems adapter, restricted constructive
 model combinations and a historical statement audit. These are scoped tickets,
-not evidence that their obligations have been discharged. #107 remains paused;
-#108's independent fresh-theorem gate and #102/#103's source-transfer conditions
-remain intact. The earlier stop after #417/#128 describes that completed wave;
+not evidence that their obligations have been discharged. #107 is resumed;
+#108 retains its reviewed freeze and independent fresh-theorem safeguards.
+#103 now has separate technical and assessment children, #433 and #434. The
+technical construction no longer waits for a favorable author retest; actual
+missing source or model operations remain technical dependencies. The earlier stop after #417/#128 describes that completed wave;
 new ticket creation does not start another implementation wave. #418 and #195
 retain their separate diagnostic and measurement-tooling scopes.

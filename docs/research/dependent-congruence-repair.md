@@ -1,5 +1,14 @@
 # Dependent congruence repair: incomplete implementation
 
+Current status (2026-11-09): the owner has resumed #107. The checkpoint and
+validation below remain historical evidence, not a completed repair or freeze.
+The pause allowed time for better abstractions and possible frontend alternatives
+to manual DSL transcription. The [revised scheduling decision](next-assessment-work.md#resumed-repair-and-revised-dependencies)
+retains #108's independent test but removes a favorable retest as a blanket
+prerequisite for #103's technical smooth construction. Older pause/entry-gate
+language below is superseded by that decision.
+
+
 This is framework-authored work for [#107], starting at
 `429c7cc0418ccb6665520bce63422103cc60b61f`. It does not complete the general
 associativity derivation or freeze an interface for #108. The #106 archive,

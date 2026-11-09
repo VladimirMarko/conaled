@@ -90,6 +90,7 @@ and would not itself answer where local universes outperform direct families.
 The approved successors are [#426](https://github.com/VladimirMarko/conaled/issues/426)
 for the TwoFamily experiment and [#427](https://github.com/VladimirMarko/conaled/issues/427)
 for the weakly stable model study, in that priority order. Their specifications
-are tracked; implementation has not started as part of this scheduling update. The #102/#103 source-transfer gates, #107 pause and #108 independent-author
-test remain unchanged. The component reports give source versions, detailed
+are tracked; implementation has not started as part of this scheduling update. The later scheduling decision resumes #107 and separates #103 into technical
+construction #433 and assessment #434. #108 retains its reviewed-freeze and
+independent-author safeguards. The component reports give source versions, detailed
 calculations, local-code comparisons and validation boundaries.
