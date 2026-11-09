@@ -92,3 +92,36 @@ Gluing a section on a fixed-cover descent-context groupoid and gluing
 parameter-compatible local sections are distinct remaining obligations. The
 previous all-torsor deformation, boundary-fiber, classical C4 comparison and
 source-consuming milestones remain in place; full #433 remains open.
+
+## Restriction extraction and coherence preparation
+
+`GeneratedComparisonRestriction` extracts functors and family transformations
+between the same generated codes in the two direct models. It transports the
+indices using proved projection equalities. `generatedTerm_commutes` states an
+equality of whole sections, and `generatedSubstitution_commutes` states an
+equality of whole functors. These results cover all generated terms and
+substitutions, including J and conversion, through signature preservation.
+They do not reduce compatibility to equality of objects.
+
+`SmoothQuotientComparisonCoherence` proves identity and composition of the
+primitive smooth signatures. Both are definitional equalities with the exact
+lift adapter. `ComparisonComposition` proves identity and composition of the
+actual comprehension map, and `GeneratedComparisonLaws` identifies extracted
+empty/extended context maps and the base-family transformation with those
+operations. The extension result applies to an arbitrary dependent family.
+
+`Examples.GeneratedComparisonRestriction` applies whole-section compatibility
+to the fresh J caller with a two-binder dependent tail, applies the substitution
+square to an open weakening, and checks the noninvertible signature, dependent
+extension and primitive smooth coherence. The focused command is
+`nix develop --command taskset -c 0,1 lake build Examples.GeneratedComparisonRestriction`.
+
+This preparation does not yet prove the joint generated identity/composition
+closure. In particular, equality of the primitive composite signature does not
+by itself show that interpreting a context code in that signature yields the
+composite of its two separately interpreted comparison functors. The remaining
+invariant must relate those context functors and their family transformations,
+then propagate through reindexing, identity families and arbitrary telescopes.
+The existing endpoint-preservation and whole-section results supply the term
+and substitution comparisons for that induction. Generated descent follows
+that closure and remains separate from fixed-cover section transport.

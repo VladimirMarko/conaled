@@ -267,6 +267,7 @@ import Examples.GroupoidComparison
 import Examples.GroupoidComparisonJ
 import Examples.GroupoidComparisonInterpretation
 import Examples.SmoothComparisonInterpretation
+import Examples.GeneratedComparisonRestriction
 import Examples.QuarterTurnArcs
 import Examples.JetScan
 import Examples.MatrixStack
