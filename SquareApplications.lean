@@ -171,6 +171,7 @@ import Examples.InternalRelations
 import Examples.InternalGraphs
 import Examples.DiskRealizations
 import Examples.LorentzMotion
+import Examples.CliffordMotion
 import Examples.OrbifoldComparison
 import Examples.ClosedTransport
 import Examples.FRPDemand
