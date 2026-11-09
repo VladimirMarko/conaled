@@ -159,3 +159,13 @@ the identity and fiber statements. The focused
 `nix develop --command taskset -c 0,1 lake build Examples.HorizontalComparison`
 passes with these applications. Joint generated identity/composition closure
 and generated parameter-compatible descent remain outstanding.
+
+`ComparisonHorizontalIdentity` adds the horizontal identity-family law for
+arbitrary comparison contexts, families and compatible sections. Its proof
+tracks the selected arrow through endpoint equality transports and functor
+composition. The hypotheses require composable middle data, with no
+invertibility or faithfulness assumption. `Examples.HorizontalComparison`
+uses the family equality to recover each selected C4 arrow and proves
+injectivity on those selected identity objects. These applications and the
+library module pass focused compilation. This supplies the identity-family
+case needed by the remaining generated composition argument.
