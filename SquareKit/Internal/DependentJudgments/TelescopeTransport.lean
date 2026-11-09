@@ -74,4 +74,26 @@ def Ty.sectionLift (hB : Ty (Ω := Ω) (Contextual.extend Γ A) B)
     (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))
     (.hypothesis (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ List.mem_cons_self)))) hB hs hx
 
+variable {Θ τ : Expression V}
+def Sub.liftComp (hs : Sub (Ω := Ω) Δ Γ σ) (ht : Sub (Ω := Ω) Θ Δ τ) (hA : Ty (Ω := Ω) Γ A) :
+    Equal (Ω := Ω) (Contextual.comp (liftSyntax Δ A σ) (liftSyntax Θ (subTy A σ) τ)) (liftSyntax Θ A (Contextual.comp σ τ)) :=
+  ternary (Contextual.Sub.liftComp (.hypothesis List.mem_cons_self)
+    (.hypothesis (List.mem_cons_of_mem _ List.mem_cons_self))
+    (.hypothesis (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ List.mem_cons_self)))) hs ht hA
+def Ty.liftId (hA : Ty (Ω := Ω) Γ A) :
+    Equal (Ω := Ω) (liftSyntax Γ A (Contextual.identitySub Γ)) (identitySub (Contextual.extend Γ A)) :=
+  unary (Contextual.Ty.liftId (.hypothesis List.mem_cons_self)) hA
+/-- Reindexing a family twice through lifted substitutions equals lifting
+composed substitution. This law is independent of transport's motive. -/
+def Ty.liftSubComp (hB : Ty (Ω := Ω) (Contextual.extend Γ A) B) (hA : Ty (Ω := Ω) Γ A)
+    (hs : Sub (Ω := Ω) Δ Γ σ) (ht : Sub (Ω := Ω) Θ Δ τ) : Equal (Ω := Ω)
+    (subTy (subTy B (liftSyntax Δ A σ)) (liftSyntax Θ (subTy A σ) τ))
+    (subTy B (liftSyntax Θ A (Contextual.comp σ τ))) :=
+  (hB.subComp (hs.lift hA) (ht.lift (hA.substitute hs))).transitive
+    (Equal.subTy (.reflexive _) (hs.liftComp ht hA))
+
+def Tm.sectionWeaken (hx : Tm (Ω := Ω) Γ A x) :
+    Equal (Ω := Ω) (Contextual.comp (Contextual.weaken Γ A) (sectionSub Γ A x)) (Contextual.identitySub Γ) :=
+  unary (Contextual.Tm.sectionWeaken (.hypothesis List.mem_cons_self)) hx
+
 end SquareKit.Internal.DependentJudgments.Contextual.TelescopePresentation
