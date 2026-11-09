@@ -35,6 +35,38 @@ the reconstruction without replacing earlier evidence. See the
 [assessment and reconstruction plan](../research/adwh-preview-233-assessment.md)
 for current reuse recommendations and validation limits.
 
+## Computational HoTT and Harper’s foundational distinction
+
+[The supplied ChatGPT Pro discussion](harper-hott-computational-interpretation.md)
+is preserved byte for byte on 2026-11-09. The original conversation date is not
+recorded in the supplied file. It discusses computational univalence,
+canonicity, normalization, computational type theory, and Harper’s distinction
+between type theory as algebra and as program specification/verification.
+
+This transcript records research leads and historical interpretations, not
+independently verified claims or adopted architecture. Its citations and quoted
+positions require primary-source checking. Follow-up investigations are tracked
+in the issues below. The existing
+[Harper assessment](../research/harper-methods-and-adaptation.md) and
+[cubical construction record](../research/cubical-model-construction.md) describe
+related local work and its scope.
+
+- [#393: Computational univalence](https://github.com/VladimirMarko/conaled/issues/393)
+- [#394: Judgmental and propositional equality](https://github.com/VladimirMarko/conaled/issues/394)
+- [#395: Canonicity](https://github.com/VladimirMarko/conaled/issues/395)
+- [#396: Homotopy canonicity](https://github.com/VladimirMarko/conaled/issues/396)
+- [#397: Strict Rezk completion](https://github.com/VladimirMarko/conaled/issues/397)
+- [#398: Open-term normalization](https://github.com/VladimirMarko/conaled/issues/398)
+- [#399: Typed NbE and bidirectional elaboration](https://github.com/VladimirMarko/conaled/issues/399)
+- [#400: Computational meaning explanations](https://github.com/VladimirMarko/conaled/issues/400)
+- [#401: Exact equality and controlled reflection](https://github.com/VladimirMarko/conaled/issues/401)
+- [#402: Fibrancy and Kan capabilities](https://github.com/VladimirMarko/conaled/issues/402)
+- [#403: Internal universes and Glue](https://github.com/VladimirMarko/conaled/issues/403)
+- [#404: Computational higher inductive types](https://github.com/VladimirMarko/conaled/issues/404)
+- [#405: Cubical-theory compatibility](https://github.com/VladimirMarko/conaled/issues/405)
+- [#406: Transport execution costs](https://github.com/VladimirMarko/conaled/issues/406)
+- [#407: Type theory as algebra versus program specification, especially for compilers](https://github.com/VladimirMarko/conaled/issues/407)
+
 ## Internal-language frontend experiment (#36)
 
 [Frontend.lean](internal-language-frontends/Frontend.lean) preserves the checked
