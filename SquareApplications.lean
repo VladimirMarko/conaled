@@ -1,3 +1,4 @@
+import Examples.TensorOperations
 import Examples.WeakMachine
 import Examples.WeakCanonicity
 import Examples.Memoization
