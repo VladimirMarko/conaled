@@ -129,6 +129,53 @@ matching are not asserted by these declarations. The dependent-tail induction
 in the selected comparison supplies these local maps uniformly, but does not
 by itself prove the remaining effectiveness induction.
 
+## Selected overlap restriction and diagonal
+
+`SmoothQuotientCechGeneratedOverlap` proves that restriction of the selected
+comparison agrees with the comparison obtained from the restricted primitive
+square. It identifies the three vertex maps on the triple overlap and proves
+the selected comparison on the diagonal is the identity. The generic
+`SelectedIsoTransport` lemmas express the equality transports explicitly.
+`SmoothQuotientCechGeneratedMatching.generatedOverlap_diagonal` then proves the
+diagonal law in the actual generated restriction diagram.
+
+Statement review: these laws concern every supplied context derivation and
+retain the selected overlap. They impose no faithfulness or invertibility on
+the local evaluation functor. The triple-overlap law and effective descent are
+still separate obligations. `Examples.CechMatchingCone` checks that a coherent
+cone preserves a nonidentity integer loop and distinguishes it from identity.
+
+## Actual generated relative diagram
+
+`SmoothQuotientGeneratedRelativeDiagram` supplies the generic comprehension
+construction with the interpreted local, double, and triple families and their
+six actual generated family restrictions. `relativeFamilyCoherence` proves all
+five total-diagram equations using `generatedContextMap_extend` and the existing
+strict context restriction laws. `relativeMatchingEquivalence` identifies this
+total diagram's matching groupoid with matching for the actual extended context.
+Its two strict diagram maps are identity functors at each level, with explicit
+restriction comparison equations.
+
+Statement review: this specializes to every `CtxDeriv` and `TyDeriv`, retains
+arbitrary local objects and overlap arrows, and requires no cover surjectivity
+or effectiveness premise. It identifies the total diagram; effectiveness of
+local evaluation and identification of each generated fiber are still pending.
+
+## Explicit generated relative fibers and comprehension
+
+`SmoothQuotientGeneratedRelativeMatching.relativeMatchingFamily` now specializes
+the explicit relative fiber construction to the actual generated family. A fiber
+contains its local fiber object, total overlap arrow, diagonal and triple laws,
+and prescribed base overlap. Its morphisms retain vertical local arrows.
+`dependentComprehensionEquivalence` reconstructs every independent matching datum
+of the extended context, and `dependentComprehensionProjection` identifies its
+base with the supplied datum naturally on all arrows.
+
+Statement review: this is the requested independent matching-family and
+comprehension decomposition, with no assumed effectiveness or family equivalence.
+The remaining constructor induction must compare interpreted generated fibers
+with these explicit matching fibers; this theorem does not assert that comparison.
+
 ## Work remaining for #445
 
 - Identify matching data for a generated comprehension with a base datum and

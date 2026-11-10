@@ -57,4 +57,23 @@ theorem overlap_square : firstFiber a A ≫
   intro b
   exact b.property
 
+/-- Restricting the supplied overlap to the diagonal gives its identity. -/
+theorem overlap_diagonal :
+    isoWhiskerRight (overlap a A) (restriction (SplitSheaf.Cech.diagonal A)) =
+      Iso.refl (SheafActionQuotient.Cech.localFunctor (a := a) (A := A)) := by
+  apply Iso.ext
+  apply NatTrans.ext
+  funext d
+  exact d.diagonal
+
+/-- The two supplied overlap arrows compose to the direct overlap on triples. -/
+theorem overlap_cocycle :
+    isoWhiskerRight (overlap a A) (restriction (SplitSheaf.Cech.firstSecond A)) ≪≫
+      isoWhiskerRight (overlap a A) (restriction (SplitSheaf.Cech.secondThird A)) =
+    isoWhiskerRight (overlap a A) (restriction (SplitSheaf.Cech.firstThird A)) := by
+  apply Iso.ext
+  apply NatTrans.ext
+  funext d
+  exact d.cocycle
+
 end SquareKit.SmoothQuotientCechLocal
