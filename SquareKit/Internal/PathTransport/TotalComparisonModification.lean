@@ -28,5 +28,13 @@ def vertical (m : TotalModification η α β) :
 def modification (m : TotalModification η α β) : Modification η α β :=
   m.vertical.modification
 
+/-- Extracting coherent fiber components and rebuilding comprehension preserves
+all selected total arrows, not only their base components. -/
+theorem modification_total (m : TotalModification η α β) :
+    Modification.totalIso η m.modification = m.total := by
+  simp only [Modification.totalIso, modification, TotalFamilyModification.modification_total]
+  simp [vertical]
+
+
 end TotalModification
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

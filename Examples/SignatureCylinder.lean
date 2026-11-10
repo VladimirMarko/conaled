@@ -62,7 +62,7 @@ example : (Comparison.SignatureCylinder.evaluation left).map
 
 /-- The chosen comparison respects the selected counit for a two-binder
 root/tail contraction whose second binder depends on the first. -/
-def dependentCounit := Comparison.SignatureCylinder.contextComparison_rootTail_counit
+example := Comparison.SignatureCylinder.contextComparison_rootTail_counit
   left before comparison after alpha beta rfl
   SignatureInterpretationMaps.DependentTail.context
   (.base SignatureInterpretationMaps.DependentTail.context)
@@ -71,8 +71,12 @@ def dependentCounit := Comparison.SignatureCylinder.contextComparison_rootTail_c
 
 /-- The actual generic contextual-J section commutes with the selected
 comparison; the term is produced by the existing path-command authoring API. -/
-def dependentJ := Comparison.SignatureCylinder.contextComparison_section
-  left before comparison after alpha beta rfl
+theorem dependentJ : Comparison.SignatureCylinder.SectionCoherence
+    left before comparison after alpha beta rfl
+    SignatureInterpretationMaps.DependentTail.withFiber
+    SignatureInterpretationMaps.DependentTail.command.motive.typing
+    SignatureInterpretationMaps.DependentTail.generic :=
+  Comparison.SignatureCylinder.sectionCoherence left before comparison after alpha beta rfl
   SignatureInterpretationMaps.DependentTail.withFiber
   SignatureInterpretationMaps.DependentTail.command.motive.typing
   SignatureInterpretationMaps.DependentTail.generic
