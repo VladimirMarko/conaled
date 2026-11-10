@@ -592,7 +592,6 @@ import SquareKit.Internal.DependentJudgments.TelescopeTransport
 import Examples.ModalHigher
 import Examples.WiredNumericalMotion
 
-/-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
 import Examples.GeneratedComparisonComposition
 
 import Examples.DescentClosure
@@ -611,3 +610,5 @@ import Examples.ParameterSectionRejection
 
 import Examples.CechDeformationDescent
 import Examples.CechOverlapRejection
+
+/-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
