@@ -2,6 +2,12 @@ import Examples.CechMatchingIdentity
 import Examples.GeneratedSelectedComparison
 import Examples.SmoothSelectedComparison
 import Examples.CechMatchingComprehension
+import SquareKit.SmoothQuotientCechGeneratedEmpty
+import SquareKit.SmoothQuotientCechGeneratedSubstitution
+import Examples.GeneratedRelativeMatching
+import Examples.CechMatchingCone
+import SquareKit.SmoothQuotientCechGeneratedCone
+import SquareKit.Internal.PathTransport.AlignedSignatureSubstitution
 import Examples.SignatureCylinder
 import Examples.WeakMachine
 import Examples.WeakCanonicity

@@ -33,7 +33,8 @@ primitive cylinder.
 
 The selected comparison is an isomorphism between two interpreted maps; it
 does not make either map an equivalence or imply that either reflects equality
-of arrows. `GeneratedEquivalenceMaps.generatedContextMap_equivalence` requires
+of arrows. `Comparison.generatedContextMap_equivalence` in
+`GeneratedEquivalenceMaps.lean` requires
 an equivalence for `S.base.map` and a bijection for each primitive
 `S.fiberMap.app c`. Under those hypotheses it proves that every supported
 generated context map is an equivalence, hence fully faithful and reflecting

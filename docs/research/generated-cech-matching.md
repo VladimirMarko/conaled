@@ -145,6 +145,87 @@ the local evaluation functor. The triple-overlap law and effective descent are
 still separate obligations. `Examples.CechMatchingCone` checks that a coherent
 cone preserves a nonidentity integer loop and distinguishes it from identity.
 
+## Actual generated relative diagram
+
+`SmoothQuotientGeneratedRelativeDiagram` supplies the generic comprehension
+construction with the interpreted local, double, and triple families and their
+six actual generated family restrictions. `relativeFamilyCoherence` proves all
+five total-diagram equations using `generatedContextMap_extend` and the existing
+strict context restriction laws. `relativeMatchingEquivalence` identifies this
+total diagram's matching groupoid with matching for the actual extended context.
+Its two strict diagram maps are identity functors at each level, with explicit
+restriction comparison equations.
+
+Statement review: this specializes to every `CtxDeriv` and `TyDeriv`, retains
+arbitrary local objects and overlap arrows, and requires no cover surjectivity
+or effectiveness premise. It identifies the total diagram; effectiveness of
+local evaluation and identification of each generated fiber are still pending.
+
+## Explicit generated relative fibers and comprehension
+
+`SmoothQuotientGeneratedRelativeMatching.relativeMatchingFamily` now specializes
+the explicit relative fiber construction to the actual generated family. A fiber
+contains its local fiber object, total overlap arrow, diagonal and triple laws,
+and prescribed base overlap. Its morphisms retain vertical local arrows.
+`dependentComprehensionEquivalence` reconstructs every independent matching datum
+of the extended context, and `dependentComprehensionProjection` identifies its
+base with the supplied datum naturally on all arrows.
+
+Statement review: this is the requested independent matching-family and
+comprehension decomposition, with no assumed effectiveness or family equivalence.
+The remaining constructor induction must compare interpreted generated fibers
+with these explicit matching fibers; this theorem does not assert that comparison.
+
+## Full generated local-evaluation cone
+
+`SmoothQuotientCechGeneratedCone.matchingEvaluation` is a functor from the
+interpretation over primitive matching to the independent generated matching
+groupoid, for every context derivation. `generatedConeLaws` proves both Čech
+laws in the actual restriction diagram. The local functor is exactly `localMap`,
+and the selected overlap is exactly the generated comparison's component.
+The proof first presents each triangle vertex by its composite parameter map,
+then uses the generic selected-comparison cocycle with explicit transports.
+`AlignedSignatureSubstitution` provides the corresponding selected comparison
+law for arbitrary generated substitutions.
+
+Statement review: no matching equivalence, faithfulness, surjectivity, or
+invertibility of local evaluation is assumed. The result constructs matching
+objects and arrows uniformly, including contexts with dependent tails; the
+constructor induction proving evaluation effective is still outstanding.
+`Examples.GeneratedRelativeMatching` checks exact local-fiber recovery, distinct
+arrow preservation, and specialization after arbitrary finite tails.
+
+## Empty context and selected substitution square
+
+`SmoothQuotientCechGeneratedEmpty.emptyEvaluationEquivalence` proves effectiveness
+for the actual empty-context evaluation. The proof uses contractibility of its
+source and local groupoids and thinness of the double-overlap groupoid, without
+normalizing the implementation of the evaluation functor.
+`SmoothQuotientCechGeneratedSubstitution` proves strict local and parameter-map
+substitution equations and the selected overlap square for every generated
+substitution, including weakening, root, and path-tail substitutions.
+
+Statement review: this establishes the empty case and comparison coherence.
+It does not yet establish effectiveness for extensions or identify complete
+sections through the full generated evaluation.
+
+## Evaluation on dependent fibers
+
+`matchingEvaluation_substitution` now proves the full functor equation for every
+checked generated substitution, including the selected overlap and arrow action.
+`SmoothQuotientCechGeneratedFamilyEvaluation` uses its weakening case to construct
+`familyEvaluation` into the independently defined relative matching fiber over
+the evaluated base datum. `familyEvaluation_total` recovers the complete total
+matching evaluation naturally on every vertical arrow.
+
+The generic `Comprehension.fixedBaseFunctor` extracts such a relative fiber from
+a total matching functor with a specified constant projection. Its local fiber
+is the supplied one with its base transported. The construction assumes neither
+faithfulness nor effectiveness. The checked examples retain arbitrary supplied
+fiber values and vertical arrows. Statement review: this constructs the actual
+fiber comparison; proving it an equivalence for all type constructors remains
+part of the pending effectiveness induction.
+
 ## Work remaining for #445
 
 - Identify matching data for a generated comprehension with a base datum and
