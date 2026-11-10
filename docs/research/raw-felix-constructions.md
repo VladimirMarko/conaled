@@ -289,3 +289,8 @@ The final committed candidate still requires isolated candidate acceptance and
 independent Standards/Spec review. This report does not claim a full acceptance
 receipt. R2 does not close #8: selected trace, restrictions/setoids, computational
 witnesses, and inactive monoidal/Boolean proposals retain their separate owners.
+
+The CAT cartesian functor adapter retains both `ProductMapLaws` and
+`TerminalMapLaws`, including the source's `F-!` obligation. The checked
+`quiv_cartesian_identity` consumer supplies both comparisons and both
+preservation records. Binary-product preservation alone is not this contract.
