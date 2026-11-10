@@ -598,3 +598,6 @@ import Examples.DeformationDescentBaseChange
 import Examples.LocalDeformationSections
 import Examples.ParameterDeformationSections
 import Examples.ParameterSectionRejection
+
+import Examples.CechDeformationDescent
+import Examples.CechOverlapRejection

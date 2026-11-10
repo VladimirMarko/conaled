@@ -222,6 +222,52 @@ instantiated bad smooth-cover parameter family. The latter remains a useful
 stronger regression case. This primitive construction does not establish
 generated-context or higher-family descent.
 
+## Independent primitive Čech data
+
+`SheafActionQuotientCech` defines the input independently of the cocycle
+interpretation. It consists of a quotient object on `Ext A`, an actual overlap
+isomorphism on the split double intersection, and diagonal and triple-overlap
+equations. Its maps are local quotient arrows with commuting overlap squares.
+Their inverses satisfy those squares, giving a groupoid without a cover or
+effectivity assumption. `SplitSheafCech` supplies the split intersections and
+projections; it does not replace an arbitrary cover by a chosen section.
+
+`SheafActionQuotientCechTransport` extracts pointwise torsor transport from the
+overlap arrow. Its naturality, equivariance, identity, cocycle and value laws
+follow from the supplied arrow and overlap equations. The reverse presentation
+uses the existing `Datum.overlapArrow`. `SheafActionQuotientCechEquivalence`
+proves both object round trips and a categorical equivalence, retaining the
+selected local arrows. The overlap inverse is recovered by uniqueness of the
+inverse, rather than an assumption that its chosen representation is identical.
+
+`SmoothQuotientCechFibers` independently defines a matching deformation by
+`transport overlap (restrict first h) = restrict second h`. Its action on a
+matching-context arrow is transport along that arrow's local quotient map.
+Both directions of `fiberEquiv` preserve the local deformation and prove that
+the overlap equation is equivalent to the existing pointwise cocycle equation.
+The family laws use local transport; gluing is not part of their definition.
+Only the natural isomorphism to the older gluing-defined `fiberFamily` requires
+a locally surjective cover. That comparison uses the proved local-arrow
+formula for the older family, including its action on arrows.
+
+`Examples.CechDeformationDescent` checks recovery of independent data and
+selected arrows, supplies constant matching deformations, and applies them
+to the ineffective doubled-origin torsor. Its nontriviality is the existing
+`c ≠ 1` obstruction, not a new proof in this increment.
+`Examples.CechOverlapRejection` uses an actual ineffective C4 quarter-turn
+arrow as a constant overlap on the identity display. It fails the diagonal
+law even though it preserves the quotient value. Thus endpoint and value
+checks cannot replace the matching equations. The positive constant
+deformation example does not test nonconstant deformation behavior.
+
+Statement review: the input quantifies over all local overlap points and all
+compatible arrows; it contains no descended object, effectiveness field or
+assumed global deformation. No locally-surjective premise occurs in the
+Čech/cocycle equivalence or independent matching family. The later comparison
+to the existing effective family states that premise explicitly. The retained
+fiber is discrete because it is the primitive deformation family; this gives
+no license to replace arbitrary generated family isomorphisms by equality.
+
 ## Remaining work
 
 The generic extension lemma is not yet instantiated as an equivalence between
