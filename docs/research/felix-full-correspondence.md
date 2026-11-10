@@ -320,3 +320,13 @@ The checked comma prototype and law transport retain witnesses; explicit
 erasure recovers the existing proposition-valued adapters. Distinct Boolean
 witnesses and nonassociative transitivity delimit the contract. Full package
 acceptance remains pending; higher coherence and broad retrofits are separate.
+
+## Tensor and Boolean disposition (#454)
+
+The [factoring record](monoidal-and-boolean-disposition.md) separates raw tensor
+operations and semantic bifunctor laws from copying/discarding. It includes
+Mathlib adapters, generic cartesian recovery and a checked noncartesian resource
+consumer. The commented Boolean families receive an explicit operation,
+closure and preservation contract with the required conditional naturality;
+this is a mathematical disposition, not a claim of checked generic Boolean
+instances. Full package acceptance remains pending.
