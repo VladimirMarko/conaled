@@ -114,6 +114,21 @@ distinct selected arrows, arbitrary primitive effectivity, and the doubled-origi
 ineffective-action torsor's matching deformation. The existing no-global-chart
 result for that torsor remains applicable.
 
+## Generated local evaluation
+
+`SmoothQuotientCechLocalSignature` provides local evaluation from arbitrary
+primitive Čech data, the actual overlap natural isomorphism, and the deformation
+square supplied by each matching value. `SmoothQuotientCechGeneratedLocal`
+lifts these to every context derivation using the selected comparison from #446.
+Its `localMap_restriction` identifies the composite with actual parameter
+restriction; `generatedOverlap` retains the generated selected overlap arrow.
+
+Statement review: this constructs local evaluation and its overlap comparison.
+The diagonal/triple equations and equivalence with independent generated
+matching are not asserted by these declarations. The dependent-tail induction
+in the selected comparison supplies these local maps uniformly, but does not
+by itself prove the remaining effectiveness induction.
+
 ## Work remaining for #445
 
 - Identify matching data for a generated comprehension with a base datum and

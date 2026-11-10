@@ -623,3 +623,6 @@ import Examples.GeneratedMatchingFibers
 import SquareKit.SheafActionQuotientCechMatching
 import SquareKit.SmoothQuotientCechMatchingFibers
 import Examples.PrimitiveCechMatching
+
+import SquareKit.SmoothQuotientCechLocalSignature
+import SquareKit.SmoothQuotientCechGeneratedLocal
