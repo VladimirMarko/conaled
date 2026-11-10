@@ -1,3 +1,4 @@
+import SquareKit.Internal.PathTransport.CechMatchingComprehensionLocalIdentity
 import SquareKit.Internal.PathTransport.CechMatchingMapComposition
 import SquareKit.Internal.PathTransport.CechMatchingSetReindex
 import SquareKit.Internal.PathTransport.CechMatchingComprehensionDiscrete
@@ -285,5 +286,12 @@ example {D E : StrictDiagram.{0,0}} (h : (Comprehension.Constant.data D E).Coher
     Comprehension.Constant.toDatum D E h (Fiber.transport f x) =
       Comprehension.Constant.toDatum D E h x :=
   Comprehension.Constant.transport_toDatum D E h f x
+
+/-- Specifying a local fiber path still distinguishes a nonidentity loop. -/
+example : (Comprehension.Identity.localArrowEquiv loopRelative loopRelative).symm relativeLoop ≠
+    (Comprehension.Identity.localArrowEquiv loopRelative loopRelative).symm (𝟙 loopRelative) := by
+  intro hh
+  exact relativeLoop_nonidentity
+    ((Comprehension.Identity.localArrowEquiv loopRelative loopRelative).symm.injective hh)
 
 end Examples.CechMatchingComprehension

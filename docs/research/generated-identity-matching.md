@@ -91,3 +91,19 @@ endpoint transport determined by the two generated term comparisons. The
 open identity type in `Authoring.CongruenceCaller` specializes the constructor
 formula. The theorem assumes neither reflexive identity objects nor a
 faithful primitive comparison.
+
+`GeneratedIdentitySetMap` retains the selected local arrow before
+discretization, with exactly the endpoint transport from the generated term
+comparisons. Discretizing this natural transformation recovers the complete
+generated identity-family map. `SmoothQuotientGeneratedIdentityMatching`
+therefore supplies the actual relative identity matching as a discrete set
+of local identity arrows satisfying the actual overlap equation. Its recovery
+theorem retains the supplied local arrow, including nonidentity arrows.
+
+`Comprehension.Identity.LocalPaths` specifies a local fiber arrow and the
+equation with both actual total overlaps. `localArrowEquiv` identifies these
+data with the relative fiber's arrows and recovers their local lift exactly.
+The integer-loop consumer distinguishes a nonidentity local path from the
+identity. These results do not yet identify the actual identity-type evaluation
+functor with the fully faithful hom map on its endpoint evaluations; that
+constructor-effectivity step remains separate.

@@ -1,3 +1,4 @@
+import SquareKit.SmoothQuotientGeneratedIdentityMatching
 import SquareKit.SmoothQuotientCechBaseTermEvaluation
 import SquareKit.Internal.PathTransport.GeneratedPrimitiveFiber
 import SquareKit.SmoothQuotientComparison
@@ -51,5 +52,15 @@ example (A : SplitSheaf.Ty X)
     (z : (SmoothQuotientGeneratedMatching.primitiveCoefficientValues a A).obj d) :
     (SmoothQuotientGeneratedMatching.coefficientValueEquiv a A d z).down.val = z.val.down :=
   SmoothQuotientGeneratedMatching.coefficientValueEquiv_value a A d z
+
+/-- Matching an identity type keeps the supplied local identity arrow. -/
+example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
+    (hx : Typed.TmDeriv.{2} Γ γ B b x ξ) (hy : Typed.TmDeriv.{2} Γ γ B b y η)
+    (A : SplitSheaf.Ty X) (d : SmoothQuotientGeneratedMatching.Datum a hΓ A)
+    (z : (SmoothQuotientGeneratedMatching.relativeMatchingFamily a hΓ
+      (.identity hB hx hy) A).obj d) :
+    HEq (((SmoothQuotientGeneratedMatching.identityMatchingEquivalence a hΓ hB hx hy A d).functor.obj z).as.val)
+      z.localFiber.as :=
+  SmoothQuotientGeneratedMatching.identityMatchingEquivalence_value a hΓ hB hx hy A d z
 
 end Examples.GeneratedFamilyConstructors
