@@ -14,5 +14,6 @@ and checks the selected projections and componentwise symmetry. These statements
 compare the actual witness values. They do not identify all witnesses or impose
 higher coherence on equivalence operations.
 
-The remaining construction families, source declaration mapping, full validation
-and independent review are pending. This checkpoint does not complete #456.
+The [complete construction inventory](computational-construction-witnesses.md)
+extends this initial product checkpoint through the other active construction
+families and records their source correspondence and validation boundary.
