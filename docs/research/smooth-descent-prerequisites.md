@@ -138,6 +138,31 @@ cocycle compatibility, without assuming a trivialization or effective action.
 Its equivalence is constructed from existing gluing theorems, rather than
 stored as an assumed conclusion in local descent data.
 
+## Quotient descent under parameter change
+
+`SheafActionQuotientDescentBaseChange` pulls local quotient objects, cocycles
+and compatible maps back along an arbitrary sheaf parameter map. This
+construction uses the supplied local data directly. Local surjectivity of the
+split cover is proved to survive that pullback.
+
+The descended pullback and the pullback of the descended object are compared
+by a constructed arrow. Its restriction recovers the original chosen local
+comparison exactly. Uniqueness follows from separatedness along the cover;
+it yields naturality in all compatible cocycle maps and identity and
+composition coherence in parameter maps. `baseChangeComparison` packages the
+whole-arrow square as a natural isomorphism. No equivalence or faithfulness
+of arbitrary parameter restriction is assumed.
+
+`Examples.QuotientDescentBaseChange` exercises arbitrary local data, the
+existing ineffective doubled-origin torsor and distinct selected loops under
+identity parameter change. The example does not claim that every restriction
+of a nontrivial torsor remains nontrivial, or that arbitrary restriction
+preserves every pair of distinct arrows.
+
+This is a prerequisite for parameter-compatible section gluing. Deformation
+cocycle base change, its compatibility with the chosen quotient comparison,
+and the assembly of compatible local sections remain to be constructed.
+
 ## Remaining work
 
 The generic extension lemma is not yet instantiated as an equivalence between
