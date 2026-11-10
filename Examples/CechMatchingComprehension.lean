@@ -1,3 +1,5 @@
+import SquareKit.Internal.PathTransport.CechMatchingMapComposition
+import SquareKit.Internal.PathTransport.CechMatchingSetReindex
 import SquareKit.Internal.PathTransport.CechMatchingComprehensionDiscrete
 import SquareKit.Internal.PathTransport.CechMatchingComprehensionProducts
 import SquareKit.Internal.PathTransport.CechMatchingComprehensionSets
@@ -138,6 +140,12 @@ example :
     ((twoPatch.discreteEquivalence twoPatchCoherence pointDatum).functor.obj
       agreeingRelative).as = agreeingValues :=
   twoPatch.toSet_fromSet _ _ _
+
+/-- Diagram reindexing retains the supplied two-patch matching value. -/
+example :
+    (SetFamily.pullEquiv (StrictMap.id pointDisplay) twoPatch.localFamily
+      twoPatch.doubleFamily twoPatch.first twoPatch.second pointDatum agreeingValues).val =
+      agreeingValues.val := rfl
 
 /-- Unequal local patch values fail the actual overlap equation. -/
 theorem mismatched_values_rejected :
