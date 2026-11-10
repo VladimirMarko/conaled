@@ -702,8 +702,6 @@ import Examples.ObjectReindex
 import Examples.PredicatesAndSetoids
 import Examples.MorphismRestriction
 
-/-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
-
 import SquareKit.SmoothQuotientGeneratedMatchingFibers
 import SquareKit.Internal.PathTransport.CechMatchingSetFamily
 import Examples.GeneratedMatchingFibers
@@ -725,3 +723,5 @@ import SquareKit.SmoothQuotientCoverFamilyNaturality
 import SquareKit.SmoothQuotientCoverSourceSection
 import Examples.OriginalCoverGeneratedSections
 import SquareKit.SmoothQuotientCoverSectionNaturality
+
+/-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
