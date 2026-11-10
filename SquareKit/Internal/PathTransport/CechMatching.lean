@@ -9,13 +9,13 @@ namespace SquareKit.Internal.PathTransport.CechMatching
 open CategoryTheory
 set_option backward.isDefEq.respectTransparency false
 set_option backward.defeqAttrib.useBackward true
-universe u
+universe u v w
 
 /-- The part of a parameter diagram needed to state overlap matching. -/
 structure Diagram where
-  localCategory : Grpd.{u,u}
-  doubleCategory : Grpd.{u,u}
-  tripleCategory : Grpd.{u,u}
+  localCategory : Grpd.{u,v}
+  doubleCategory : Grpd.{u,v}
+  tripleCategory : Grpd.{u,v}
   first : localCategory ⥤ doubleCategory
   second : localCategory ⥤ doubleCategory
   diagonal : doubleCategory ⥤ localCategory
@@ -30,9 +30,9 @@ structure Diagram where
 
 /-- A diagram whose endpoint comparisons come from strict restriction laws. -/
 structure StrictDiagram where
-  localCategory : Grpd.{u,u}
-  doubleCategory : Grpd.{u,u}
-  tripleCategory : Grpd.{u,u}
+  localCategory : Grpd.{u,v}
+  doubleCategory : Grpd.{u,v}
+  tripleCategory : Grpd.{u,v}
   first : localCategory ⥤ doubleCategory
   second : localCategory ⥤ doubleCategory
   diagonal : doubleCategory ⥤ localCategory
@@ -45,7 +45,7 @@ structure StrictDiagram where
   tripleMiddle : second ⋙ firstSecond = first ⋙ secondThird
   tripleLast : second ⋙ firstThird = second ⋙ secondThird
 
-def StrictDiagram.toDiagram (D : StrictDiagram.{u}) : Diagram.{u} where
+def StrictDiagram.toDiagram (D : StrictDiagram.{u,v}) : Diagram.{u,v} where
   localCategory := D.localCategory
   doubleCategory := D.doubleCategory
   tripleCategory := D.tripleCategory
@@ -61,7 +61,7 @@ def StrictDiagram.toDiagram (D : StrictDiagram.{u}) : Diagram.{u} where
   tripleMiddle := eqToIso D.tripleMiddle
   tripleLast := eqToIso D.tripleLast
 
-variable (D : Diagram.{u})
+variable (D : Diagram.{u,v})
 
 /-- A supplied local object with an actual overlap isomorphism and its laws. -/
 structure Datum where
@@ -76,7 +76,7 @@ structure Datum where
 
 /-- Equality of restrictions supplies the canonical overlap. Its coherence
 uses only equality transport; no effectivity or faithfulness is assumed. -/
-def StrictDiagram.equalDatum (D : StrictDiagram.{u}) (x : D.localCategory)
+def StrictDiagram.equalDatum (D : StrictDiagram.{u,v}) (x : D.localCategory)
     (h : D.first.obj x = D.second.obj x) : Datum D.toDiagram where
   localObject := x
   overlap := eqToIso h
@@ -164,7 +164,7 @@ theorem localArrow_eq_iff {d e : Datum D} (f g : d ⟶ e) :
 end Datum
 
 /-- A functor with equal overlap restrictions has a canonical matching lift. -/
-def StrictDiagram.equalFunctor (D : StrictDiagram.{u}) {C : Type u} [Category.{u} C]
+def StrictDiagram.equalFunctor (D : StrictDiagram.{u,v}) {C : Type w} [Category.{u} C]
     (F : C ⥤ D.localCategory) (h : F ⋙ D.first = F ⋙ D.second) :
     C ⥤ Datum D.toDiagram where
   obj x := D.equalDatum (F.obj x) (Functor.congr_obj h x)
