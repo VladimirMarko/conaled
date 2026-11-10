@@ -29,9 +29,11 @@ residual `pre ++ post`; `gstepP_firstSafe` is an iff without a validity premise.
 Stable sorting reuses `Kruskal.sortEdges`. `gstepP_least` combines ordered
 first-safe selection with sortedness, while `step_edge_permutation` retains
 the exact chosen-plus-pending multiset. Duplicate occurrences are not silently
-collapsed. The existing `ForestKruskalSource.Occurrences.picks` supplies branch
-enumeration and its exact ordered output. `untilBranches_eq_branch` and
-`spatsP_fixed` preserve source branch order and multiplicity; no theorem here
+collapsed. The existing `ForestKruskalSource.Occurrences.picks` compatibility
+interface forwards to the shared `Sequences.Occurrences.picks`, supplying branch
+enumeration and its exact ordered output. Its decomposition law has the same
+shared owner; no permutation-generation module is imported.
+`untilBranches_eq_branch` and `spatsP_fixed` preserve source branch order and multiplicity; no theorem here
 claims that `spatsP` enumerates every spanning tree.
 
 `untilP_eq_apply` proves guarded/fixed agreement at the state level for enough
