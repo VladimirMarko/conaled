@@ -5,6 +5,7 @@ import Examples.GeneratedRelativeMatching
 import Examples.CechMatchingCone
 import SquareKit.SmoothQuotientCechGeneratedCone
 import SquareKit.Internal.PathTransport.AlignedSignatureSubstitution
+import Examples.GeneratedBaseMatching
 import Examples.CechMatchingIdentity
 import Examples.CechMatchingComprehension
 import Examples.GeneratedSelectedComparison

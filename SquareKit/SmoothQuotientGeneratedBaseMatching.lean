@@ -99,9 +99,14 @@ def baseCoefficientIso : Grpd.of (AsSmall.{0} (SheafActionQuotient.Cech.Datum (a
   liftedCoefficientIso a A ≪≫
     CechMatching.Comprehension.Constant.diagramIsoOfEq (baseDiagram_eq a A).symm
 
+def baseCoefficientComparison : CechMatching.Comprehension.Constant.DiagramComparison
+    (liftedCoefficientIso a A) (baseDiagram a A).toDiagram :=
+  CechMatching.Comprehension.Constant.diagramComparison
+    (baseDiagram_eq a A).symm (liftedCoefficientIso a A)
+
 def baseCoefficientEquivalence : AsSmall.{0} (SheafActionQuotient.Cech.Datum (a := a) A) ≌
     CechMatching.Datum (baseDiagram a A).toDiagram :=
-  CechMatching.Comprehension.Constant.equivalenceOfGrpdIso (baseCoefficientIso a A)
+  (baseCoefficientComparison a A).equivalence
 
 /-- The base binder's relative family is naturally the primitive matching
 category, with its fixed universe lift. -/
