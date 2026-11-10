@@ -612,6 +612,7 @@ import Examples.CechDeformationDescent
 import Examples.CechOverlapRejection
 import Examples.ArbitraryCoverSections
 import Examples.OriginalCoverRejection
+import Examples.OriginalCoverMatching
 import SquareKit.SheafCoverCech
 import Examples.GeneratedCechMatching
 import Examples.GeneratedMatchingMaps

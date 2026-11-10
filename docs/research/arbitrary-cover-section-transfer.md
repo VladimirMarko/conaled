@@ -38,8 +38,21 @@ assumed inequality or hypothetical cover.
 
 `SheafCoverCech` constructs the original map’s categorical double and triple
 pullbacks. `splitDoubleIso` and `splitTripleIso` identify them with the split
-overlaps, preserving the diagonal and all three pair projections. Their
-generated matching-functor specialization remains the next step.
+overlaps, preserving the diagonal and all three pair projections. `SmoothQuotientCoverMatching.matchingEquivalence` uses those maps to transfer
+actual generated local objects, overlap isomorphisms and arrows in both
+directions. The identity and composition laws for arbitrary parameter squares
+hold on complete matching functors; `matchingEquivalence_natural` compares the
+selected split square with the original square. `splitSquareMap_local` checks
+that this is the same local map used by parameter-compatible sections.
+`restriction_toSplit` identifies the original global restriction followed by
+presentation transfer with the existing split restriction functor.
+
+`Examples.OriginalCoverMatching` exercises those results on the actual two-sheet
+cover for every supported generated context, on arbitrary local matching data
+without a global-extension premise, and on the generated base context of the
+nontrivial doubled-origin torsor. Presentation transfer reflects equality of
+selected matching arrows. The helper `StrictMap.equalFunctor_map` proves the
+canonical-overlap comparison independently of effectivity.
 
 Statement review keeps the fiber boundary explicit: these are discrete
 deformation sections. Their equality does not establish equality of arbitrary
@@ -51,7 +64,8 @@ assumed.
 Focused Lean checking passed for the new library module and its examples using
 the pinned shell and unchanged heartbeat/trust settings. Full candidate
 validation and independent review remain pending. This is not completion of
-#447: matching objects/arrows across the two cover presentations, generated
-family/section closure from #445/#446 remain required. Identity/composition
-coherence is proved for commuting-square transfer; the generated matching
-comparison must preserve the corresponding selected cover maps.
+#447: effective generated family/section recovery from #445/#446 remains required.
+The matching-equivalence construction depends on the checked #445 interface
+checkpoints `60b73ac` and `c5a37a9`, incorporated into this worker branch before
+final integration. Neither those dependency checkpoints nor these focused
+checks constitute full #433 acceptance.
