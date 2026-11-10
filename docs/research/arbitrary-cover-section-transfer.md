@@ -1,6 +1,6 @@
 # Original-cover parameter sections
 
-This partial #447 construction defines `CoverSectionFamily f` on the original
+The #447 construction defines `CoverSectionFamily f` on the original
 sheaf map `f : Y ⟶ X`. It supplies full deformation sections at every parameter
 into Y, naturality under further restriction, and matching for maps with equal
 composites to X. Its inputs contain no global quotient object or glued section.
@@ -56,30 +56,73 @@ nontrivial doubled-origin torsor. Presentation transfer reflects equality of
 selected matching arrows. The helper `StrictMap.equalFunctor_map` proves the
 canonical-overlap comparison independently of effectivity.
 
-Statement review keeps the fiber boundary explicit: these are discrete
-deformation sections. Their equality does not establish equality of arbitrary
-groupoid-valued families. Quotient context arrows remain data in the lifted
-sections; the examples retain distinct arrows even when they act identically.
-Neither a section of the cover nor invertibility of parameter restriction is
-assumed.
+## Generated dependent families and full sections
 
-Focused Lean checking passed for the new library module and its examples using
-the pinned shell and unchanged heartbeat/trust settings. Full candidate
-validation and independent review remain pending. This is not completion of
-#447: effective generated family/section recovery from #445/#446 remains required.
-The matching-equivalence construction depends on the checked #445 interface
-checkpoints `60b73ac` and `c5a37a9`, incorporated into this worker branch before
-final integration. Neither those dependency checkpoints nor these focused
-checks constitute full #433 acceptance.
+`SmoothQuotientCoverMatching.restriction_isEquivalence` discharges the earlier
+conditional split-effectivity premise using #445. The only cover hypothesis is
+local surjectivity of the original sheaf map. `descentEquivalence` retains the
+actual original canonical restriction, and `descentSquare` compares chosen
+gluing along arbitrary commuting cover squares by a selected natural iso.
+Neither square map is assumed invertible. `descentRecovery_natural` retains
+every matching arrow in the chosen counit recovery.
+`gluedSectionLift_natural` applies the selected extended-context descent square
+to complete supplied matching-section lifts and their local comparison. It
+compares whole gluings before normalization of their matching base; normalized
+section reconstruction is separately supplied by `sectionDescent`.
 
-`SmoothQuotientCoverDescent` now supplies the effectivity transfer step. Given
-an equivalence for the actual split restriction functor,
-`restriction_equivalence_of_split` proves the original restriction is an
-equivalence, using `restriction_toSplit`. `descentEquivalenceOfSplit` retains
-that exact forward functor. Its counit recovers arbitrary matching data and
-`recovery_natural` retains every supplied matching arrow.
-`descentSquareOfSplit` compares chosen gluing under arbitrary original cover
-squares by the explicit unit/counit construction from the two equivalences.
-It does not require the parameter maps to be invertible. These results still
-require the generated split effectivity instance from #445; the conditional
-transfer is not evidence that instance has been constructed.
+The independent `relativeMatchingFamily` stores a local fiber object, actual
+total overlap arrows, their Čech laws and their prescribed base projections.
+`dependentComprehensionEquivalence` identifies its Grothendieck total category
+with matching for the extended typed context. This covers all typed families,
+including identities, substituted families and the finite/pulled/path-reindexed
+tails discharged by #445. Nonidentity vertical arrows are retained.
+
+`sectionDescent` reconstructs a complete global section from a supplied section
+of that independent original-cover matching family. Its `recovery` is a natural
+isomorphism of entire lifted sections, `recovery_base` specifies its selected
+base component, and `verticalEquiv` gives unique recovery of all vertical
+transformations. It assumes no global extension of the supplied local objects.
+The earlier discrete deformation-section equalities remain specialized results;
+they are not used to identify arbitrary groupoid-valued sections by equality.
+
+`presentationTotalEquivalence` transfers independent relative matching through
+the original/split extended-context equivalence. Its projection comparison uses
+`toSplit_substitution` specialized to weakening. `presentationSections` and
+`inversePresentationSections` transfer whole sections in both directions, with
+selected recovery and vertical-transformation bijections. They require no cover
+hypothesis because presentation change itself is an equivalence.
+
+`relativeSquareMap` and `familySquare` act on independent relative matching
+under arbitrary parameter-cover squares. `relativeSquare_projection` supplies
+the actual base square; `familySquare_recovery` and its arrow naturality retain
+the full total comparison. Identity/composition are strict at the total matching
+functor level, while fixed-fiber normalization uses selected isomorphisms.
+`relativeMatchingEquivalence_square` connects this family action to the original
+extended-context square. No injectivity or equivalence of parameter restriction
+is assumed.
+
+`sourceSection_totalRestriction` connects an interpreted typed term directly to
+the original canonical matching restriction, on objects and arrows.
+`universalTransfer_restriction` specializes it to the unchanged source proof
+used by the classical quarter-turn tangent consumer. The generated examples
+also exercise the dependent-tail J caller, full section recovery/vertical
+uniqueness on the two-sheet cover, and arbitrary parameter pullback of an
+independent matching fiber. The existing nontrivial-torsor, ineffective-arrow,
+compatible gluing and incompatible slope-zero/slope-one examples remain part
+of this suite.
+
+## Statement review and acceptance
+
+The construction distinguishes canonical restriction equality, presentation
+category equivalence and section recovery isomorphism. Cover surjectivity is
+used for effectiveness, not presentation transfer or arbitrary-square maps.
+Independent matching inputs contain overlap data and do not contain an assumed
+global extension or desired equivalence. The negative two-sheet example fails
+an actual overlap contract, rather than postulating inconsistency.
+
+Focused checks use the pinned shell and unchanged kernel/trust limits. Final
+fresh combined #433 validation and independent review remain required; the
+implementation handoff records their status. Earlier conditional #447 and
+partial #445 checkpoints are superseded by these actual effectiveness APIs.
+This result concerns ordinary Čech descent for the stated generated fragment;
+it does not claim hypercover descent or the broader modal/properness programme.

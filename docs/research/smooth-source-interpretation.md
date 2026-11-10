@@ -1,17 +1,14 @@
-# Smooth source interpretation: checked construction checkpoint
+# Smooth source interpretation and generated descent
 
-This is a partial implementation record for [#433], based on accepted integration
-`3bbf8083f94629fdedc1a438112f78d6d97a3196`. The original first-path
-transport-composition proof is interpreted on every smooth quotient groupoid,
-with a constructed family of torsor deformations. That family has parameter
-restriction, a comparison with the actual boundary fiber, and effective descent
-over each fixed quotient object and through quotient torsor cocycles. Its chart specialization gives the existing
-fixed-lift transport and classical quarter-turn composition.
-
-The remaining requirement is restriction and descent of the generated source
-contexts and sections. The declarations below do not yet constitute the complete
-parameter-indexed source model requested by #433. In particular, a model at every
-parameter plus descent of its primitive family is not a proof of that closure.
+This report supersedes the earlier partial #433 construction checkpoint.
+The unchanged first-path transport-composition derivation is interpreted in
+`SmoothQuotientSource.model a X` for every sheaf parameter X. Its external base
+is the entire quotient torsor groupoid and its external fiber is the constructed
+deformation family. The generated context, family, substitution and full-section
+descent obligations are implemented by #445, their selected comparison coherence
+by #446, and original-cover transfer by #447. Final integrated fresh validation
+and independent review remain acceptance gates; focused checks alone do not
+close #433.
 
 ## The retained source proof
 
@@ -96,7 +93,7 @@ then uses `origin_forward_classical` to obtain the composition of the actual
 classical manifold derivatives. The comparison with those derivatives uses the
 existing coordinate and fixed-lift theorems; it is not definitional equality.
 
-## Family descent and its current boundary
+## Primitive family descent
 
 For any locally surjective sheaf map `f : Y → X` and fixed arbitrary quotient
 object `P`, `DescentDatum P f` contains a deformation on `P|Y` and the matching
@@ -113,24 +110,64 @@ local deformation invariant under that cocycle. The descended quotient object
 is constructed by the existing quotient descent theorem. `CocycleDatum.descend`
 then constructs its deformation; `recover` recovers the local deformation via
 the quotient comparison arrow, and `unique` proves uniqueness on that descended
-object. No global quotient object is an input. Closure for generated contexts
-remains work.
+object. No global quotient object is an input.
 
-The next interface must supply parameter maps between interpretations of
-*generated* contexts and their dependent families, preserving variables,
-substitution, identity, and the contextual-J construction used by the source.
-The existing `Typed.StructuralMap` maps all semantic contexts strictly between
-two models. A restriction of the external quotient/fiber signature does not
-immediately give such a map on every arbitrary groupoid context. A suitable
-construction needs context-indexed functors or relations, built from base/fiber
-restriction through identity formation and context extension, together with
-descent closure. This is a semantic construction requirement, not evidence that
-a new source rule is necessary.
+## Generated contexts, families and complete sections
 
-Proving only naturality of the two evaluated transport endpoints, or uniqueness
-of the final discrete equality witness, would not by itself discharge those
-context and section obligations. The full issue remains open pending that work,
-public coverage/audit integration, fresh validation, and independent review.
+`SmoothQuotientGeneratedMatching.descentEquivalence` has the actual canonical
+restriction functor as its forward map. Its only covering hypothesis is local
+surjectivity. `SmoothQuotientCechLocal.familyEvaluation_isEquivalence` proves
+all typed-family constructors, including identities and arbitrary substitution;
+`matchingEvaluation_isEquivalence` proves every typed context. Telescope and
+context normalization retain the original raw context and semantic code and
+cover finite dependent tails, pulled tails and path-reindexed tails. These are
+constructor proofs, not an assumed matching equivalence or a list of closed
+examples.
+
+The independent relative matching family stores local fiber objects, actual
+overlap arrows, diagonal and triple laws, and their prescribed base projections.
+Its comprehension equivalence reconstructs the matching groupoid of the extended
+context. Thus nonidentity vertical arrows survive even when a primitive
+deformation family is discrete. `SmoothQuotientGeneratedMatching.sectionDescent`
+reconstructs complete sections, gives a natural recovery isomorphism with its
+selected base component, and gives a bijection on all vertical transformations.
+The inputs do not require local objects to extend globally.
+
+For an original locally surjective sheaf map f, the corresponding public APIs
+are `SmoothQuotientCoverMatching.descentEquivalence`, `relativeMatchingFamily`
+and `sectionDescent`. Their Čech diagram uses f's actual categorical double and
+triple pullbacks. `restriction_toSplit` identifies canonical restriction with
+the split presentation; `matchingEquivalence` recovers all local objects,
+overlaps and arrows in both directions. The presentation section comparison
+uses an equivalence of total dependent matching categories and its explicit
+base projection comparison, rather than equality of arbitrary groupoid objects.
+
+`sourceSection_totalRestriction` and `universalTransfer_restriction` connect
+the exact interpreted source section to the original-cover total matching
+restriction on objects and arrows. `Examples.OriginalCoverGeneratedSections`
+specializes this to the disk action and the dependent-tail J caller.
+`restriction_substitution` is a whole-functor equation for every generated
+substitution. `SmoothQuotientCechFamilyTransport.familyEvaluation_transport`
+retains the selected natural fiber comparison and its identity/composition
+laws. The #446 context/family comparisons have identity, composition and both
+whiskering laws; section coherence includes the generated dependent-J case.
+`SmoothQuotientGeneratedBaseChange.universalTransfer_square` applies that
+selected square to the exact `Typed.Authoring.UniversalTransfer.proof`, with
+its original context and type. `Examples.SmoothSelectedComparison` specializes
+it to the same disk action used by `origin_classical_composition`, the ineffective
+action, and an independent dependent-tail J caller. These comparisons retain
+actual arrows; uniqueness of a final discrete equality is not their premise.
+
+## Scope
+
+The result supplies this source interpretation and its stated generated descent
+fragment. It does not establish all of Myers's modal foundations, general
+microlinearity, Weil–Kock–Lawvere theory, transverse pullbacks, proper étale
+presentations, univalence, cohesion, crisp judgments or new source syntax.
+The external properness theorem and the separate internal properness obstruction
+retain their own statements. The construction is not completion of the broader
+#36 programme. These known-theorem consumers do not measure independent author
+productivity; that remains a separate investigation.
 
 ## Checked cases and statement review
 
@@ -160,7 +197,9 @@ Typed first proof, old Contextual proof and existing ordinary clients remain
 unchanged. No #108 preparation or broader modal/properness comparison is included.
 
 Focused development checks and named-root axiom results are recorded in the
-external #433 handoff. They are not a fresh full-library build or exhaustive
-audit, and no completion of #433 is claimed here.
+#445/#447 implementation handoffs. The final combined candidate must pass the
+fresh full-library build, exhaustive audit and independent Standards/Spec
+reviews before #433 acceptance. Earlier checkpoint results are not substitutes
+for that receipt.
 
 [#433]: https://github.com/VladimirMarko/conaled/issues/433
