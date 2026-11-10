@@ -46,4 +46,19 @@ def alignedFamilyComparison (h : α ≫ whiskerRight η.hom Q = β)
   SignatureCylinder.familyComparison _ _ (alignedBaseIso η P Q α β) _ _ _
     (alignedFiber_square η P Q α β h) hΓ hA
 
+def AlignedSectionCoherence (h : α ≫ whiskerRight η.hom Q = β)
+    (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ)
+    (hA : Typed.TyDeriv.{max u v w + 1} Γ γ A a)
+    (hx : Typed.TmDeriv.{max u v w + 1} Γ γ A a t x) : Prop :=
+  SignatureCylinder.SectionCoherence _ _ (alignedBaseIso η P Q α β) _ _ _
+    (alignedFiber_square η P Q α β h) hΓ hA hx
+
+theorem alignedSectionCoherence (h : α ≫ whiskerRight η.hom Q = β)
+    (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ)
+    (hA : Typed.TyDeriv.{max u v w + 1} Γ γ A a)
+    (hx : Typed.TmDeriv.{max u v w + 1} Γ γ A a t x) :
+    AlignedSectionCoherence η P Q α β h hΓ hA hx :=
+  SignatureCylinder.sectionCoherence _ _ (alignedBaseIso η P Q α β) _ _ _
+    (alignedFiber_square η P Q α β h) hΓ hA hx
+
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

@@ -38,4 +38,17 @@ theorem contextComparison_section (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
   contextComparison_substitution F P η Q α β h (.ext hΓ hA) hΓ
     (.pair hA (.id hΓ) (.sub hx (.id hΓ)))
 
+/-- Named proposition for source callers whose elaborated code is large. -/
+def SectionCoherence (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
+    (hA : Typed.TyDeriv.{u+1} Γ γ A a) (_hx : Typed.TmDeriv.{u+1} Γ γ A a t x) : Prop :=
+    isoWhiskerLeft (x L).down.lift (contextComparison F P η Q α β h (.ext hΓ hA)) ≪≫
+        eqToIso (generatedSection_commutes T hΓ hA _hx) =
+      eqToIso (generatedSection_commutes S hΓ hA _hx) ≪≫
+        isoWhiskerRight (contextComparison F P η Q α β h hΓ) (x R).down.lift
+
+theorem sectionCoherence (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
+    (hA : Typed.TyDeriv.{u+1} Γ γ A a) (hx : Typed.TmDeriv.{u+1} Γ γ A a t x) :
+    SectionCoherence F P η Q α β h hΓ hA hx :=
+  contextComparison_section F P η Q α β h hΓ hA hx
+
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison.SignatureCylinder

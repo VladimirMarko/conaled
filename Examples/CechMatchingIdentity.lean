@@ -1,3 +1,4 @@
+import SquareKit.Internal.PathTransport.CechMatchingConeMap
 import SquareKit.Internal.PathTransport.CechMatchingAsSmall
 import SquareKit.Internal.PathTransport.CechMatchingContractible
 import SquareKit.Internal.PathTransport.CechMatchingComprehensionIdentity
@@ -9,6 +10,8 @@ noncomputable section
 namespace Examples.CechMatchingIdentity
 open CategoryTheory SquareKit.Internal.PathTransport
 open CechMatching
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
 
 abbrev Loops := SingleObj (Multiplicative ℤ)
 abbrev star := SingleObj.star (Multiplicative ℤ)
@@ -100,5 +103,23 @@ example :
 /-- The inverse reads back every supplied lifted local matching arrow. -/
 example (D : Diagram.{0,1}) {d e : Datum (UniverseLift.diagram.{0,1,1} D)} (f : d ⟶ e) :
     ((UniverseLift.equivalence D).inverse.map f).localArrow = f.localArrow.down := rfl
+
+/-- The identity diagram map retains an arbitrary supplied coherent overlap. -/
+example {D : StrictDiagram.{0,0}} {B : Type} [Category B]
+    (L : B ⥤ D.localCategory) (η : L ⋙ D.first ≅ L ⋙ D.second)
+    (h : ConeLaws (D := D.toDiagram) L η) :
+    coneFunctor L η h ⋙ (StrictMap.id D).functor = (𝟭 B) ⋙ coneFunctor L η h := by
+  apply ConeMap.coneFunctor_map (StrictMap.id D) L L (𝟭 B) η η h h rfl
+  ext b
+  simp [ConeMap.transportedOverlap, ConeMap.mappedOverlap, StrictMap.id]
+
+/-- An endpoint square normalizes without requiring the overlap to be an identity. -/
+example {D : StrictDiagram.{0,0}} {B : Type} [Category B]
+    (L : B ⥤ D.localCategory) (η : L ⋙ D.first ≅ L ⋙ D.second) :
+    ConeMap.transportedOverlap (StrictMap.id D) L L (𝟭 B) η rfl =
+      CategoryTheory.Functor.isoWhiskerLeft (𝟭 B) η := by
+  apply ConeMap.transportedOverlap_of_square (StrictMap.id D) L L (𝟭 B) η η rfl rfl rfl
+  ext b
+  simp [StrictMap.id]
 
 end Examples.CechMatchingIdentity
