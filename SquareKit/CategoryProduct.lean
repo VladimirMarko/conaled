@@ -91,6 +91,31 @@ theorem sndProducts_laws {H : HomEquiv D} (DL : CategoryLaws D H)
     (P : ProductOps C) (T : ProductOps D) : ProductMapLaws H (sndProducts P T) :=
   ⟨H.symm (DL.comp_id _), H.symm (DL.comp_id _), fun _ _ => H.symm (DL.id_comp _)⟩
 
+def fstTerminal (T : TerminalOps C) (U : TerminalOps D) : TerminalMap fst (terminal T U) T :=
+  Comparison.id C T.unit
+def sndTerminal (T : TerminalOps C) (U : TerminalOps D) : TerminalMap snd (terminal T U) U :=
+  Comparison.id D U.unit
+
+theorem fstTerminal_laws {E : HomEquiv C} (CL : CategoryLaws C E)
+    (T : TerminalOps C) (U : TerminalOps D) : TerminalMapLaws E (fstTerminal T U) :=
+  ⟨E.symm (CL.id_comp _)⟩
+theorem sndTerminal_laws {H : HomEquiv D} (DL : CategoryLaws D H)
+    (T : TerminalOps C) (U : TerminalOps D) : TerminalMapLaws H (sndTerminal T U) :=
+  ⟨H.symm (DL.id_comp _)⟩
+
+theorem fstProducts_inverse {E : HomEquiv C} (CL : CategoryLaws C E)
+    (P : ProductOps C) (T : ProductOps D) (a b : O × Q) : ComparisonLaws E (fstProducts P T a b) :=
+  Comparison.id_laws CL _
+theorem sndProducts_inverse {H : HomEquiv D} (DL : CategoryLaws D H)
+    (P : ProductOps C) (T : ProductOps D) (a b : O × Q) : ComparisonLaws H (sndProducts P T a b) :=
+  Comparison.id_laws DL _
+theorem fstTerminal_inverse {E : HomEquiv C} (CL : CategoryLaws C E)
+    (T : TerminalOps C) (U : TerminalOps D) : ComparisonLaws E (fstTerminal T U) :=
+  Comparison.id_laws CL _
+theorem sndTerminal_inverse {H : HomEquiv D} (DL : CategoryLaws D H)
+    (T : TerminalOps C) (U : TerminalOps D) : ComparisonLaws H (sndTerminal T U) :=
+  Comparison.id_laws DL _
+
 /-- The lawful product adapter keeps exactly the two input arrows. -/
 def toMathlib [CategoryTheory.Category.{v} O] [CategoryTheory.Category.{z} Q] :
     RawMap (ops (ofCategory O) (ofCategory Q)) (ofCategory (O × Q)) where
@@ -108,6 +133,18 @@ theorem toMathlib_laws [CategoryTheory.Category.{v} O] [CategoryTheory.Category.
   · rintro _ _ f g ⟨h,k⟩; exact Prod.ext h k
   · intro; rfl
   · intros; rfl
+
+theorem fromMathlib_laws [CategoryTheory.Category.{v} O] [CategoryTheory.Category.{z} Q] :
+    MapLaws (fromMathlib (O := O) (Q := Q)) (equality _)
+      (equiv _ _ (equality _) (equality _)) := by
+  constructor
+  · intro a b f g h; exact ⟨congrArg Prod.fst h,congrArg Prod.snd h⟩
+  · intro; exact ⟨rfl,rfl⟩
+  · intros; exact ⟨rfl,rfl⟩
+
+@[simp] theorem mathlib_roundtrip [CategoryTheory.Category.{v} O] [CategoryTheory.Category.{z} Q]
+    {a b : O × Q} (f : (ofCategory (O × Q)).Hom a b) :
+    toMathlib.map (fromMathlib.map f) = f := rfl
 
 @[simp] theorem roundtrip [CategoryTheory.Category.{v} O] [CategoryTheory.Category.{z} Q]
     {a b : O × Q} (f : (ops (ofCategory O) (ofCategory Q)).Hom a b) :

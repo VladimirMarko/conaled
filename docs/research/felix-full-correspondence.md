@@ -281,3 +281,12 @@ obligations. Consequently this document completes the module/source inventory
 and identifies bounded residuals, but does not certify the programme's final
 criterion that every upstream item has a checked counterpart or mathematical
 resolution.
+
+## R2 implementation addendum (#450)
+
+The [raw-construction recovery report](raw-felix-constructions.md) records the
+operation-only products, squared interpretation, arbitrary arrows, setoid
+monoids, fixed-universe Quiv, independent-level ULift, and per-declaration
+Cartesian/reasoning/preservation recovery. It preserves the original inventory
+as a historical assessment. Candidate acceptance and independent review remain
+required; R3–R6 continue under their own issues.
