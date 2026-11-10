@@ -66,3 +66,11 @@ splitting-preservation claim and requires no strict natural transformation
 between extracted fibers. The integer-loop example uses projection to a point,
 so the projection itself is not assumed faithful. This helper proves only
 faithfulness, not fullness or effective descent.
+
+`GroupoidFiberFull.full_of_vertical` supplies the complementary fullness step.
+Its base functor is full, the source projection lifts each base arrow to a
+selected isomorphism, and every target arrow over an equality of base objects
+has a source preimage. Factoring by the selected lift leaves a vertical arrow.
+The complete square controls the equality transports; the theorem does not
+assert that extracted fiber functors commute strictly with base transport.
+The point-projection example retains arbitrary integer-loop arrows.

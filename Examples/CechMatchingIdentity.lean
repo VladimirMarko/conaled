@@ -1,3 +1,4 @@
+import SquareKit.Internal.PathTransport.GroupoidFiberFull
 import SquareKit.Internal.PathTransport.GroupoidFiberFaithful
 import SquareKit.Internal.PathTransport.CechMatchingConeMap
 import SquareKit.Internal.PathTransport.CechMatchingAsSmall
@@ -129,5 +130,14 @@ example : (𝟭 Loops).Faithful :=
     ((CategoryTheory.Functor.const Loops).obj (Discrete.mk PUnit.unit))
     ((CategoryTheory.Functor.const Loops).obj (Discrete.mk PUnit.unit))
     (𝟭 (Discrete PUnit.{1})) rfl (fun _ _ _ h => h)
+
+/-- Fullness retains arbitrary integer loops over the point projection. -/
+example : (𝟭 Loops).Full :=
+  GroupoidFiberFull.full_of_vertical (𝟭 Loops)
+    ((CategoryTheory.Functor.const Loops).obj (Discrete.mk PUnit.unit))
+    ((CategoryTheory.Functor.const Loops).obj (Discrete.mk PUnit.unit))
+    (𝟭 (Discrete PUnit.{1})) rfl
+    (fun x _ _ => ⟨x, Iso.refl x, rfl, Subsingleton.elim _ _⟩)
+    (fun _ _ _ p _ => ⟨p,rfl⟩)
 
 end Examples.CechMatchingIdentity
