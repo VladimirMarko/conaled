@@ -29,6 +29,22 @@ isomorphism, with explicit endpoint normalizations.
 This is recovery from the generated comparison, beyond recovery inside the
 primitive cylinder.
 
+## Reflection boundary
+
+The selected comparison is an isomorphism between two interpreted maps; it
+does not make either map an equivalence or imply that either reflects equality
+of arrows. `GeneratedEquivalenceMaps.generatedContextMap_equivalence` requires
+an equivalence for `S.base.map` and a bijection for each primitive
+`S.fiberMap.app c`. Under those hypotheses it proves that every supported
+generated context map is an equivalence, hence fully faithful and reflecting
+arrow equality. `generatedFamilyMap_equivalences` proves pointwise equivalence
+of the corresponding generated family maps under the same hypotheses.
+`generatedContextEquivalence` packages the context equivalence and retains the
+original forward map. These are additional sufficient hypotheses for reflection
+and invertibility of the interpreted maps, not premises of the external
+comparison, its coherence laws or its section squares. The nonfaithful-base
+and noninjective-fiber examples explicitly retain this distinction.
+
 ## Coherence and dependent families
 
 The public context laws are:
