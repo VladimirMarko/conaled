@@ -195,6 +195,20 @@ constructor induction proving evaluation effective is still outstanding.
 `Examples.GeneratedRelativeMatching` checks exact local-fiber recovery, distinct
 arrow preservation, and specialization after arbitrary finite tails.
 
+## Empty context and selected substitution square
+
+`SmoothQuotientCechGeneratedEmpty.emptyEvaluationEquivalence` proves effectiveness
+for the actual empty-context evaluation. The proof uses contractibility of its
+source and local groupoids and thinness of the double-overlap groupoid, without
+normalizing the implementation of the evaluation functor.
+`SmoothQuotientCechGeneratedSubstitution` proves strict local and parameter-map
+substitution equations and the selected overlap square for every generated
+substitution, including weakening, root, and path-tail substitutions.
+
+Statement review: this establishes the empty case and comparison coherence.
+It does not yet establish effectiveness for extensions or identify complete
+sections through the full generated evaluation.
+
 ## Work remaining for #445
 
 - Identify matching data for a generated comprehension with a base datum and

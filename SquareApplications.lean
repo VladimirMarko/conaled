@@ -1,3 +1,5 @@
+import SquareKit.SmoothQuotientCechGeneratedEmpty
+import SquareKit.SmoothQuotientCechGeneratedSubstitution
 import Examples.GeneratedRelativeMatching
 import Examples.CechMatchingCone
 import SquareKit.SmoothQuotientCechGeneratedCone
