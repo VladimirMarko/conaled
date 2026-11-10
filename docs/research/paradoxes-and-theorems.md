@@ -167,3 +167,93 @@ proofs for a claimed counterexample would itself describe that counterexample
 too briefly. Soundness is a sufficient assumption here; sharper formulations
 weaken it. [Chaitin's own exposition](https://arxiv.org/html/chao-dyn/9406002)
 develops this connection.
+
+## Research direction: preserving argument structure
+
+The investigation tracked in
+[#444](https://github.com/VladimirMarko/conaled/issues/444), under
+[#290](https://github.com/VladimirMarko/conaled/issues/290), asks whether the
+framework can retain a common argument construction, recover its paradoxical
+presentation by forgetting specified distinctions, and certify which
+interpretation laws make the construction yield a valid theorem. This is a
+research direction; the connections described here are not an implemented
+paradox-to-theorem compiler.
+
+### Representations and observations
+
+An expression or derivation retains bindings, substitutions, dependencies,
+rule uses, and constructed witnesses. Its interpretation in a setting assigns
+meaning to those operations and rules. Its final logical consequence records
+less information: different constructions can establish the same proposition,
+including a contradiction. Even a list of hypotheses need not retain the
+construction that makes an argument reusable.
+
+Investigate connections at the level carrying that structure, with explicit
+observations and equivalences. A map from a useful theorem construction toward
+a paradoxical presentation could forget quotation/evaluation distinctions,
+modalities, universe levels, or restrictions on self-application. Each such
+map needs a defined domain and a stated preservation contract. Calling it a
+functor would additionally require categories and identity/composition laws;
+that organization is a hypothesis to test.
+
+### Interpretation and completion of a square
+
+A proposed diagram might have a theorem derivation and a paradoxical argument
+at the top, a structure-forgetting map between them, and interpretation maps
+below. Both vertical arrows require justification. A paradox can demonstrate
+that the proposed interpretation rules have no jointly sound realization;
+its syntax and rule applications can still be represented and analyzed.
+Deriving falsity under those rules does not supply a sound total evaluator.
+
+The lower comparison must state what it preserves. A function sending a true
+value to a false value is possible without a truth-preservation requirement.
+An obstruction arises only from the additional specified contracts, such as
+preserving valid judgments and falsehood into a consistent target. A failed
+proof of commutativity alone establishes no obstruction. The investigation
+should prove which law cannot coexist with the others, rather than silently
+complete the square or assume its right-hand interpretation exists.
+
+Two routes remain eligible:
+
+- A shared construction with different interpretations: specialize the common
+  construction to obtain a theorem, and prove that the proposed paradoxical
+  interpretation would require incompatible properties.
+- A forgetful map: recover the paradoxical presentation while preserving named
+  structural operations, then determine which additional interpretation laws
+  cannot be preserved. Its failure to support a stronger semantic comparison
+  can itself be a mathematical result.
+
+These routes retain the conditional contradiction argument while also
+preserving the construction behind it. Adaptation may need revised logical
+rules; a uniform replacement of truth by provability does not supply those
+rules or their certificates.
+
+### Existing support and experimental questions
+
+The inspected library supplies useful mechanisms with narrower contracts:
+
+| Mechanism | Established scope and remaining obligation |
+| --- | --- |
+| Mathlib `Function.exists_fixed_point_of_surjective` in `Mathlib/Logic/Function/Basic.lean` | A direct set-based diagonal theorem to reuse as the baseline. A new representation still needs a connection to its construction and hypotheses. |
+| [Compiler soundness](../../Compiler.lean) | `compile_sound` preserves meaning under its supplied Set-valued soundness interface. It does not infer or automatically transport representability or logical rules. |
+| [Theory maps](../../SquareKit/DependentTheoryMaps.lean) | Local target derivations for source rules generate whole-derivation transport, with composition laws. Constructing those local certificates remains necessary. |
+| [Proof interpretation comparisons](../../SquareKit/Institutions/Capabilities.lean) | `ProofMap` requires proof translation to commute with interpretation; the interface packages that evidence rather than constructing it for a new logic. |
+| [Uniform operations](../../SquareKit/UniformOperations.lean) and [assembly iteration](../../SquareKit/AssemblyCutFold.lean) | Existing clients use fixed-point obstruction and recursion-theorem constructions respectively. They are comparison evidence, not already connected presentations of the paradoxes above. |
+
+The first experiment uses the diagonal construction with a fixed-point
+conclusion and a Cantor-style impossibility consequence. It must retain
+observable construction or witness data and identify an interpretation law
+that fails. Compare direct Mathlib specialization with the framework route;
+additional machinery must earn its cost in reused proofs or exposed obligations.
+Curry-to-Löb supplies a further test of changing reasoning principles, where
+self-reference, provability, and reflection require separate justification.
+Issue #444 owns the detailed acceptance criteria and subsequent work.
+
+Discovery support is a further question. Dependency inspection, candidate
+interpretations, and explicit missing obligations could help an author find an
+abstraction. Checked replay validates a proposed connection; it does not show
+that the system found it or computed weakest assumptions. The existing
+[proof-requirement trial](proof-requirement-author-trial.md) used prepared
+ledgers and native Lean replay. Any stronger discovery or productivity claim
+needs its own evidence. A different architecture remains eligible if it retains
+the intended construction more faithfully than current transport interfaces.
