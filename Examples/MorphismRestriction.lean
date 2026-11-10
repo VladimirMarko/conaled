@@ -30,4 +30,25 @@ theorem forgotten_composition (m n : Bool) (x : Nat) :
     (SquareKit.MorphismRestriction.forget closure).map
       ((SquareKit.MorphismRestriction.ops closure).comp (chosen m) (chosen n)) x = x+2 := rfl
 
+def productClosure : SquareKit.MorphismRestriction.ProductClosure
+    (M := admissible) FunctionCategory.products where
+  fst := false
+  snd := false
+  pair a b := a && b
+
+def restrictedProducts := SquareKit.MorphismRestriction.products closure FunctionCategory.products productClosure
+
+theorem restricted_product_laws : ProductLaws
+    (SquareKit.MorphismRestriction.equiv closure (equality FunctionCategory.ops)) restrictedProducts :=
+  SquareKit.MorphismRestriction.productLaws closure FunctionCategory.products productClosure FunctionCategory.productLaws
+
+theorem product_witness_not_lawful_raw :
+    ((SquareKit.MorphismRestriction.ops closure).comp restrictedProducts.snd
+      (restrictedProducts.pair (chosen false) (chosen true))).sat ≠ (chosen true).sat := by change false ≠ true; decide
+
+theorem product_semantic_recovery :
+    (SquareKit.MorphismRestriction.equiv closure (equality FunctionCategory.ops)).Rel
+      ((SquareKit.MorphismRestriction.ops closure).comp restrictedProducts.snd
+        (restrictedProducts.pair (chosen false) (chosen true))) (chosen true) :=
+  restricted_product_laws.snd_pair _ _
 end Examples.MorphismRestriction

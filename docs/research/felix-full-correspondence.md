@@ -311,3 +311,12 @@ setoid counterexample explains the unfinished source congruence obligation;
 explicit selected-output congruence and output uniqueness give sufficient
 repairs. The guarded-stream connection proves independence only under actual
 guardedness. Package acceptance remains pending; this is not completion of #8.
+
+## R4 implementation addendum (#452)
+
+The [restrictions, predicates and setoids report](restrictions-predicates-setoids.md)
+records declaration-level recovery for both subcategory constructions, exact
+Type-valued PRED, and the proof-erased setoid instance. It includes the explicit
+RelationalCategory/Assembly comparisons and discriminating checked consumers.
+The historical inventory is preserved; candidate acceptance and independent
+review remain required.

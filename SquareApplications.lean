@@ -616,4 +616,8 @@ import Examples.CechOverlapRejection
 
 import Examples.RawConstructions
 
+import Examples.ObjectReindex
+import Examples.PredicatesAndSetoids
+import Examples.MorphismRestriction
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

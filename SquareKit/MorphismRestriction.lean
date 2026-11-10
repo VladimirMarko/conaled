@@ -70,4 +70,26 @@ theorem productLaws (K : CategoryClosure C M) (P : ProductOps C)
   ⟨fun f g => L.fst_pair f.arrow g.arrow,
     fun f g => L.snd_pair f.arrow g.arrow, fun f => L.pair_eta f.arrow⟩
 
+def terminalComparison (K : CategoryClosure C M) (T : TerminalOps C)
+    (KT : TerminalClosure (M := M) T) : TerminalMap (forget K) (terminal K T KT) T := Comparison.id C T.unit
+
+def productComparison (K : CategoryClosure C M) (P : ProductOps C)
+    (KP : ProductClosure (M := M) P) : ProductMap (forget K) (products K P KP) P :=
+  fun a b => Comparison.id C (P.prod a b)
+
+theorem forget_terminal (K : CategoryClosure C M) (T : TerminalOps C)
+    (KT : TerminalClosure (M := M) T) {E : HomEquiv C} (L : CategoryLaws C E) :
+    TerminalMapLaws E (terminalComparison K T KT) := ⟨E.symm (L.id_comp _)⟩
+
+theorem forget_products (K : CategoryClosure C M) (P : ProductOps C)
+    (KP : ProductClosure (M := M) P) {E : HomEquiv C} (L : CategoryLaws C E) :
+    ProductMapLaws E (productComparison K P KP) :=
+  ⟨E.symm (L.comp_id _),E.symm (L.comp_id _),fun _ _ => E.symm (L.id_comp _)⟩
+
+theorem terminalComparison_inverse (K : CategoryClosure C M) (T : TerminalOps C)
+    (KT : TerminalClosure (M := M) T) {E : HomEquiv C} (L : CategoryLaws C E) :
+    ComparisonLaws E (terminalComparison K T KT) := Comparison.id_laws L _
+theorem productComparison_inverse (K : CategoryClosure C M) (P : ProductOps C)
+    (KP : ProductClosure (M := M) P) {E : HomEquiv C} (L : CategoryLaws C E) (a b : O) :
+    ComparisonLaws E (productComparison K P KP a b) := Comparison.id_laws L _
 end SquareKit.MorphismRestriction
