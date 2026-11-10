@@ -91,6 +91,29 @@ loop groupoid and the set-family matching equation on identity displays. These
 checks supplement, but do not replace, the dependent-tail effectiveness cases
 still required below.
 
+## Primitive quotient and deformation bridge
+
+`SheafActionQuotientCechMatching` defines the generic diagram using the actual
+quotient restriction functors on the split double and triple overlaps.
+`matchingEquivalence` identifies its matching groupoid with the previously
+accepted independent primitive Čech groupoid. Both directions retain exactly
+the supplied local object, overlap isomorphism and local arrow. Its unit and
+counit are identity isomorphisms. `matchingDescentEquivalence` then composes the
+existing primitive Čech-to-cocycle and cocycle-to-global equivalences. The latter
+requires local surjectivity; the matching definition and identification do not.
+
+`SmoothQuotientCechMatchingFibers.matchingFamily` specializes the generic
+set-family equation to actual deformations. It agrees with the previously
+accepted primitive deformation matching family, including arrow action, and
+has its natural comparison to the cocycle deformation family.
+
+Statement review: these are primitive results, not generated-context effectivity.
+The equivalence consumes arbitrary supplied local objects and actual overlaps.
+`Examples.PrimitiveCechMatching` checks overlap preservation, preservation of
+distinct selected arrows, arbitrary primitive effectivity, and the doubled-origin
+ineffective-action torsor's matching deformation. The existing no-global-chart
+result for that torsor remains applicable.
+
 ## Work remaining for #445
 
 - Identify matching data for a generated comprehension with a base datum and

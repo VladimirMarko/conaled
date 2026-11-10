@@ -618,3 +618,7 @@ import Examples.GeneratedMatchingMaps
 import SquareKit.SmoothQuotientGeneratedMatchingFibers
 import SquareKit.Internal.PathTransport.CechMatchingSetFamily
 import Examples.GeneratedMatchingFibers
+
+import SquareKit.SheafActionQuotientCechMatching
+import SquareKit.SmoothQuotientCechMatchingFibers
+import Examples.PrimitiveCechMatching
