@@ -129,6 +129,22 @@ matching are not asserted by these declarations. The dependent-tail induction
 in the selected comparison supplies these local maps uniformly, but does not
 by itself prove the remaining effectiveness induction.
 
+## Selected overlap restriction and diagonal
+
+`SmoothQuotientCechGeneratedOverlap` proves that restriction of the selected
+comparison agrees with the comparison obtained from the restricted primitive
+square. It identifies the three vertex maps on the triple overlap and proves
+the selected comparison on the diagonal is the identity. The generic
+`SelectedIsoTransport` lemmas express the equality transports explicitly.
+`SmoothQuotientCechGeneratedMatching.generatedOverlap_diagonal` then proves the
+diagonal law in the actual generated restriction diagram.
+
+Statement review: these laws concern every supplied context derivation and
+retain the selected overlap. They impose no faithfulness or invertibility on
+the local evaluation functor. The triple-overlap law and effective descent are
+still separate obligations. `Examples.CechMatchingCone` checks that a coherent
+cone preserves a nonidentity integer loop and distinguishes it from identity.
+
 ## Work remaining for #445
 
 - Identify matching data for a generated comprehension with a base datum and
