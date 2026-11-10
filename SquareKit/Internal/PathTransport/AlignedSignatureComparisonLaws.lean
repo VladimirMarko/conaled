@@ -33,6 +33,45 @@ theorem alignedContextComparison_trans (η : F ≅ G) (θ : G ≅ K)
   simp only [alignedBaseIso, isoWhiskerRight_trans, isoWhiskerLeft_trans]
   apply SignatureCylinder.contextComparison_trans
 
+/-- Equality of primitive fiber maps induces equality of the generated maps,
+without reducing the full generated interpretation. -/
+theorem alignedGenerated_fiber_eq {α β : P ⟶ F ⋙ Q} (h : α = β)
+    (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ) :
+    generatedContextMap (alignedUniverseSignature F P Q α) hΓ =
+      generatedContextMap (alignedUniverseSignature F P Q β) hΓ := by
+  cases h
+  rfl
+
+theorem alignedContextComparison_congr (η θ : F ≅ G)
+    {α α' : P ⟶ F ⋙ Q} {β β' : P ⟶ G ⋙ Q}
+    (hη : η = θ) (hα : α = α') (hβ : β = β')
+    (h : α ≫ whiskerRight η.hom Q = β)
+    (h' : α' ≫ whiskerRight θ.hom Q = β')
+    (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ) :
+    alignedContextComparison η P Q α β h hΓ =
+      eqToIso (alignedGenerated_fiber_eq P Q hα hΓ) ≪≫
+        alignedContextComparison θ P Q α' β' h' hΓ ≪≫
+        (eqToIso (alignedGenerated_fiber_eq P Q hβ hΓ)).symm := by
+  cases hη
+  cases hα
+  cases hβ
+  simp
+
+theorem alignedContextComparison_trans_transport (η : F ≅ G) (θ : G ≅ K)
+    (α : P ⟶ F ⋙ Q) (β β' : P ⟶ G ⋙ Q) (δ : P ⟶ K ⋙ Q)
+    (he : β = β')
+    (hη : α ≫ whiskerRight η.hom Q = β)
+    (hθ : β' ≫ whiskerRight θ.hom Q = δ)
+    (hηθ : α ≫ whiskerRight (η ≪≫ θ).hom Q = δ)
+    (hΓ : Typed.CtxDeriv.{max u v w + 1} Γ γ) :
+    alignedContextComparison η P Q α β hη hΓ ≪≫
+      eqToIso (alignedGenerated_fiber_eq P Q he hΓ) ≪≫
+      alignedContextComparison θ P Q β' δ hθ hΓ =
+    alignedContextComparison (η ≪≫ θ) P Q α δ hηθ hΓ := by
+  cases he
+  simp only [eqToIso_refl, Iso.refl_trans]
+  exact (alignedContextComparison_trans P Q η θ α β δ hη hθ hηθ hΓ).symm
+
 variable {E : Type u} [Groupoid.{v} E] (L : D ⥤ E) (R : E ⥤ Type w)
 
 theorem alignedGenerated_comp (α : P ⟶ F ⋙ Q) (κ : Q ⟶ L ⋙ R)

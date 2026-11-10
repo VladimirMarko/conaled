@@ -29,6 +29,13 @@ def parameterSignature (f : Y ⟶ SplitSheaf.Ext A) :=
     (SmoothQuotientDeformations.Cech.family (a := a) (A := A))
     (family a Y) (parameterFiber a A f)
 
+/-- A named direct endpoint keeps the interpreted context independent of the
+presentation of a composite primitive restriction. -/
+def parameterMap (hΓ : Typed.CtxDeriv.{2} Γ γ) (f : Y ⟶ SplitSheaf.Ext A) :
+    (show Grpd.{1,1} from γ (model a A)) ⥤
+      SmoothQuotientGeneratedMatching.context a hΓ Y :=
+  generatedContextMap (parameterSignature a A f) hΓ
+
 /-- Restriction after local evaluation is the generated composite signature. -/
 theorem localMap_restriction (hΓ : Typed.CtxDeriv.{2} Γ γ) (f : Y ⟶ SplitSheaf.Ext A) :
     localMap a A hΓ ⋙ SmoothQuotientGeneratedMatching.restriction a hΓ f =
