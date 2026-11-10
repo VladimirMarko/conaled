@@ -340,3 +340,14 @@ quotient groupoid, including its nonidentity arrows. These results identify
 the two source interpretations; the comparison with the canonical matching
 restriction functor and its overlap square are still to be proved. They do
 not by themselves establish generated matching effectivity.
+
+
+`SmoothQuotientCechGlobalRestriction` now supplies the strict generated
+composition equation and selected `restrictionComparison`. Its primitive
+`localComparison_overlap` follows the actual torsor evaluation/transport law;
+no overlap arrow is replaced by identity. The `recoveryTriangle` packages this
+square and all six primitive family endpoints for the existing generated
+comparison calculus. The module and arbitrary-datum selected-arrow consumer
+pass focused checks. Normalizing the resulting generated triangle to the
+canonical matching cone is still in progress; no direct-restriction
+equivalence is claimed at this checkpoint.

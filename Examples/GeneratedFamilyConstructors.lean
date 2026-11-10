@@ -1,5 +1,6 @@
 import SquareKit.SmoothQuotientCechPrimitiveEffectivity
 import SquareKit.SmoothQuotientCechGlobalEquivalence
+import SquareKit.SmoothQuotientCechGlobalRestriction
 import SquareKit.Internal.PathTransport.GeneratedPrimitiveFiber
 import SquareKit.SmoothQuotientComparison
 
@@ -75,5 +76,11 @@ example (A : SplitSheaf.Ty X)
     (hΓ : Typed.CtxDeriv.{2} Γ γ) :
     (generatedContextMap (SmoothQuotientCechGlobal.signature a A) (.ext hΓ (.base hΓ))).IsEquivalence :=
   (SmoothQuotientCechGlobal.contextEquivalence a A (.ext hΓ (.base hΓ))).isEquivalence_functor
+
+/-- The recovery comparison retains the selected arrow for an arbitrary datum. -/
+example (A : SplitSheaf.Ty X)
+    [Presheaf.IsLocallySurjective topology (SplitSheaf.p A).hom]
+    (d : SheafActionQuotient.Cech.Datum (a := a) A) :
+    (SmoothQuotientCechGlobal.localComparison a A).hom.app d = d.toDescent.comparison := rfl
 
 end Examples.GeneratedFamilyConstructors
