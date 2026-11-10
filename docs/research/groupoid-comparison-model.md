@@ -85,136 +85,106 @@ contextual J, substitution, the full model and both model maps report only
 `propext`, `Classical.choice` and `Quot.sound`. Full fresh validation, exhaustive
 acceptance audit and independent review belong to the enclosing workflow.
 
-This checkpoint constructs an ordinary-groupoid comparison model. It does not
-complete smooth parameter identity/composition coherence or generated descent.
-An arbitrary section at one parameter is not automatically parameter-natural.
-Gluing a section on a fixed-cover descent-context groupoid and gluing
-parameter-compatible local sections are distinct remaining obligations. The
+This checkpoint constructs the ordinary-groupoid comparison model and proves
+generated smooth parameter identity/composition coherence. Generated descent
+remains open. An arbitrary section at one parameter is not automatically
+parameter-natural. Fixed-cover section transport and gluing parameter-compatible
+local sections are distinct obligations. The
 previous all-torsor deformation, boundary-fiber, classical C4 comparison and
 source-consuming milestones remain in place; full #433 remains open.
 
-## Restriction extraction and coherence preparation
+## Generated restriction and parameter coherence
 
 `GeneratedComparisonRestriction` extracts functors and family transformations
-between the same generated codes in the two direct models. It transports the
-indices using proved projection equalities. `generatedTerm_commutes` states an
-equality of whole sections, and `generatedSubstitution_commutes` states an
-equality of whole functors. These results cover all generated terms and
-substitutions, including J and conversion, through signature preservation.
-They do not reduce compatibility to equality of objects.
+between the same generated codes in the two direct models, using proved
+projection equalities to transport indices. `generatedTerm_commutes` is an
+equality of whole sections; `generatedSubstitution_commutes` is an equality of
+whole functors. Both include arrow actions and cover J and conversion.
 
-`SmoothQuotientComparisonCoherence` proves identity and composition of the
-primitive smooth signatures. Both are definitional equalities with the exact
-lift adapter. `ComparisonComposition` proves identity and composition of the
-actual comprehension map, and `GeneratedComparisonLaws` identifies extracted
-empty/extended context maps and the base-family transformation with those
-operations. The extension result applies to an arbitrary dependent family.
+`ComparisonDiagonal` proves the identity comparison's comprehension,
+reindexing, identity-family and primitive-fiber laws. `ComparisonDiagonalMap`
+constructs its signature map from each direct model. J preservation follows
+through the existing two projection model maps: each composite with the
+diagonal structural map is identity, and the projections jointly reflect
+section equality. The private reflection helper is applied to proved facts;
+callers supply no J assumption. `GeneratedComparisonIdentity` then applies
+generic signature preservation. The extracted context functor equals identity
+on the same context code. The family transformation is HEq to identity because
+its target functor is indexed by that extracted context map.
 
-`Examples.GeneratedComparisonRestriction` applies whole-section compatibility
-to the fresh J caller with a two-binder dependent tail, applies the substitution
-square to an open weakening, and checks the noninvertible signature, dependent
-extension and primitive smooth coherence. The focused command is
-`nix develop --command taskset -c 0,1 lake build Examples.GeneratedComparisonRestriction`.
+`ComparisonHorizontal` constructs composition on the existing context, family,
+section and substitution records. `ComparisonHorizontalReindex`,
+`ComparisonHorizontalIdentity`, `ComparisonHorizontalSignature` and
+`ComparisonHorizontalFiber` prove the corresponding operation laws. The
+identity-family law tracks selected arrows through endpoint equality transports;
+the fiber law uses the actual composed base section. Their middle-data
+hypotheses impose no invertibility or faithfulness on either comparison.
 
-This preparation does not yet prove the joint generated identity/composition
-closure. In particular, equality of the primitive composite signature does not
-by itself show that interpreting a context code in that signature yields the
-composite of its two separately interpreted comparison functors. The remaining
-invariant must relate those context functors and their family transformations,
-then propagate through reindexing, identity families and arbitrary telescopes.
-The existing endpoint-preservation and whole-section results supply the term
-and substitution comparisons for that induction. Generated descent follows
-that closure and remains separate from fixed-cover section transport.
+`ComparisonCompositionRelations` records horizontal composition as predicates
+on three existing comparisons. It proves closure under comprehension,
+reindexing, identity families and primitive base/fiber families. Retained
+endpoint sections and substitutions determine their full comparison once the
+context/family relation is known. `ComparisonCompositionBinders` proves
+weakening, variable, binder-lift and section-reindexing preservation.
+`ComparisonTelescopeComposition` propagates the relation through arbitrary
+finite dependent telescopes, including total contexts, pullbacks and induced
+total substitutions. These are laws and predicates for the existing model,
+not another source interpretation.
 
-`ComparisonHorizontal` now constructs horizontal composition directly on the
-existing context, family, section and substitution records. The middle data
-are identified by equality or HEq; section composition derives compatibility
-from the two original whole-section equations. `Family.horizontal_extend`
-proves comprehension preservation. `ComparisonHorizontalReindex` proves
-reindexing preservation, including the equality transports from both strict
-substitution squares. These are operations and laws for the current model,
-not a new source interpretation.
+`GeneratedHorizontalEndpoints` constructs equality of the relevant direct
+signature interpretations and applies existing generated projection
+preservation. `GeneratedComparisonComposition` establishes the composition
+invariant by mutual induction over all five generated derivation families.
+It covers path and branch contexts, dependent telescopes and their pullbacks,
+all primitive types, both instantiated elimination forms, generic J, reindexed
+J branches, path-tail substitutions and conversion. Its internal
+`generatedTmType` establishes the family invariant; the public `generatedTm`
+combines this with the already-proved endpoint interpretation to obtain full
+section composition. `generatedSub` similarly obtains whole-substitution
+composition. No new J proof or source rule is introduced. The private
+source-context helper derives a context judgment from existing substitution
+constructors.
 
-`Examples.HorizontalComparison` composes the noninvertible fixture with its
-identity comparison, retains each selected C4 arrow, composes its compatible
-section, and applies comprehension and reindexing laws. The focused build
-`nix develop --command taskset -c 0,1 lake build Examples.HorizontalComparison`
-passed. Identity-family and primitive-fiber horizontal laws, followed by the
-joint generated closure, remain outstanding at this milestone.
+`GeneratedComparisonCompositionMaps` converts those relations to normalized
+functor equality and natural-transformation HEq. In
+`SmoothQuotientGeneratedIdentity` and `SmoothQuotientGeneratedComposition`,
+these become `generatedContextMap_id`, `generatedFamilyMap_id`,
+`generatedContextMap_comp` and `generatedFamilyMap_comp`. They quantify over
+all supported generated contexts/families and arbitrary parameter maps. The
+endpoints are the same semantic codes in the unchanged
+`SmoothQuotientSource.model`. Context laws are strict equalities of entire
+functors. Family laws are HEq of entire natural transformations; the context
+laws identify their indexed target functors. No object-language paths are
+identified by these metatheoretic transports.
 
-The next checkpoint supplies horizontal primitive-signature and fiber laws in
-`ComparisonHorizontalSignature` and `ComparisonHorizontalFiber`. The fiber law
-uses the composed base section and proves equality of the entire comparison
-family, including its natural transformation. Its hypotheses identify only the
-shared middle context, primitive family and section; they impose no invertibility
-on either comparison. The example composes the Bool-to-unit primitive map and
-checks that its two inputs still have the same output.
+Statement review checks the full arrow-level conclusion, the absence of
+invertibility assumptions, and the separation between generated codes and
+arbitrary model-indexed functions. `Examples.HorizontalComparison` uses the
+noninvertible selected-C4 fixture, preserves each chosen identity arrow and
+checks a second binder whose identity family depends on the first variable.
+It applies total-context, pullback and induced-substitution composition.
+`Examples.GeneratedComparisonComposition` applies the generated theorem to
+the existing two-binder J caller, its reindexed branch and its whole tail map,
+then specializes normalized smooth context/family composition to that caller.
+The examples supplement the universal induction; they do not establish its
+generality by themselves.
 
-`ComparisonDiagonal` constructs identity comparison data and proves its
-comprehension, reindexing, identity-family and primitive-fiber laws. Checked
-applications use the same selected-arrow fixture. These are laws about existing
-comparison records, not a second interpretation model. Statement review checks
-that equality covers the full family map and that the chosen sections appear in
-the identity and fiber statements. The focused
-`nix develop --command taskset -c 0,1 lake build Examples.HorizontalComparison`
-passes with these applications. Joint generated identity/composition closure
-and generated parameter-compatible descent remain outstanding.
+Focused checks use:
 
-`ComparisonHorizontalIdentity` adds the horizontal identity-family law for
-arbitrary comparison contexts, families and compatible sections. Its proof
-tracks the selected arrow through endpoint equality transports and functor
-composition. The hypotheses require composable middle data, with no
-invertibility or faithfulness assumption. `Examples.HorizontalComparison`
-uses the family equality to recover each selected C4 arrow and proves
-injectivity on those selected identity objects. These applications and the
-library module pass focused compilation. This supplies the identity-family
-case needed by the remaining generated composition argument.
+```sh
+nix develop --command taskset -c 0,1 lake build Examples.HorizontalComparison
+nix develop --command taskset -c 0,1 lake build Examples.GeneratedComparisonRestriction
+nix develop --command taskset -c 0,1 lake build Examples.GeneratedComparisonComposition
+```
 
-`ComparisonDiagonalMap` constructs a signature map from each direct groupoid
-model to its diagonal comparison model. Its structural laws use the preceding
-diagonal laws. J preservation follows by applying the existing two model
-projections, each of which composes with the diagonal structural map to the
-identity. Joint reflection of section equality then proves the required J
-comparison. The reflection helper is private; callers supply no new J law.
+These pass. Selected axiom checks of the identity/composition constructions and
+applications report only `propext`, `Classical.choice` and `Quot.sound`.
+The two context-aware extensionality helpers now live in `ComparisonReindex`
+for reuse by identity and composition arguments; their proofs are unchanged.
 
-`GeneratedComparisonIdentity` applies generic signature preservation to prove
-that every generated context and family has diagonal comparison data. The
-extracted context functor equals identity on the same semantic context code.
-The extracted family transformation is HEq to identity, since its target is
-indexed by that extracted context functor. These statements compare the full
-functors and transformations, including arrow actions. They do not merely
-compare their object functions.
-
-`SmoothQuotientGeneratedIdentity` specializes both results to identity
-restriction of the unchanged `SmoothQuotientSource.model`. The generated J
-example with the two-binder dependent tail exercises the constructed signature
-map, and its context and motive exercise the identity laws. Statement review
-checks that the generic preservation theorem covers arbitrary finite tails,
-substitution and conversion; the example is a concrete application, not the
-generality claim. Generated parameter composition and descent remain open.
-
-The next composition checkpoint introduces `Context.Composes`,
-`Family.Composes`, `Section.Composes` and `Substitution.Composes` as predicates
-on three existing comparisons. They state the horizontal-composition invariant;
-they are not new interpretation models or assumptions added to the existing
-model. `ComparisonCompositionRelations` proves preservation by comprehension,
-reindexing, identity families and primitive base/fiber families. Endpoint
-comparisons determine the section and substitution relations once the required
-context/family relations are established.
-
-`ComparisonCompositionBinders` proves weakening, variable and binder-lift
-preservation. `ComparisonTelescopeComposition` defines the corresponding
-relation over the existing finite dependent telescopes and proves total-context,
-pullback and induced-substitution preservation by induction. The induction
-allows arbitrary families at every binder. The example uses the noninvertible
-comparison and a second binder containing the identity family at the first
-binder's variable, then applies both pullback and induced-substitution results.
-Selected C4 arrows remain checked by the same example module.
-
-Statement review distinguishes these conditional closure lemmas from the
-remaining generated-composition theorem: the latter must establish the
-invariant from typed derivations and existing endpoint preservation. No such
-generated conclusion or smooth descent conclusion is claimed by this checkpoint.
-The two context-aware extensionality helpers were moved unchanged from
-`ComparisonDiagonalMap` to `ComparisonReindex` for reuse by both identity and
-composition arguments.
+Generated parameter-compatible descent remains a separate obligation.
+Identity/composition coherence and restriction of whole generated sections do
+not themselves construct gluing from compatible local data. Fixed-cover
+section transport, primitive quotient/deformation descent, and their parameter
+base-change comparisons still need to be connected to the generated context,
+family and section constructions. Full #433 remains open.
