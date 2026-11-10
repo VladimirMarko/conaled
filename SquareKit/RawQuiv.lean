@@ -43,7 +43,11 @@ def toRawMap {O P : Type u} {C : CategoryOps.{u,v} O} {D : CategoryOps.{u,v} P}
 abbrev FunctorLaws {O P : Type u} {C : CategoryOps.{u,v} O} {D : CategoryOps.{u,v} P}
     (F : ops.Hom (ofOps C) (ofOps D)) (E : HomEquiv C) (H : HomEquiv D) :=
   MapLaws (toRawMap F) E H
-abbrev CartesianFunctorLaws {O P : Type u} {C : CategoryOps.{u,v} O} {D : CategoryOps.{u,v} P}
+structure CartesianFunctorLaws {O P : Type u} {C : CategoryOps.{u,v} O} {D : CategoryOps.{u,v} P}
     (F : ops.Hom (ofOps C) (ofOps D)) {S : ProductOps C} {T : ProductOps D}
-    (H : HomEquiv D) (i : ProductMap (toRawMap F) S T) := ProductMapLaws H i
+    {U : TerminalOps C} {V : TerminalOps D}
+    (H : HomEquiv D) (i : ProductMap (toRawMap F) S T)
+    (e : TerminalMap (toRawMap F) U V) : Prop where
+  products : ProductMapLaws H i
+  terminal : TerminalMapLaws H e
 end SquareKit.RawQuiv
