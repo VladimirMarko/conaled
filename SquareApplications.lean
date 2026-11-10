@@ -1,3 +1,4 @@
+import Examples.GeneratedBaseMatching
 import Examples.CechMatchingIdentity
 import Examples.CechMatchingComprehension
 import Examples.SignatureCylinder
