@@ -357,4 +357,41 @@ def equivalenceOfGrpdIso {C D : Grpd.{u,u}} (i : C ≅ D) : C ≌ D where
   functor_unitIso_comp _ := by
     simp only [eqToIso.hom, eqToHom_app, eqToHom_map, eqToHom_trans, eqToHom_refl]
 
+theorem comparison_local {D E : Diagram.{u,u}} (q : D = E)
+    {C : Grpd.{u,u}} (i : C ≅ Grpd.of (Datum D)) (x : C) :
+    HEq (((equivalenceOfGrpdIso (i ≪≫ diagramIsoOfEq q)).functor.obj x).localObject)
+      ((i.hom.obj x).localObject) := by
+  subst E
+  rfl
+
+theorem comparison_overlap {D E : Diagram.{u,u}} (q : D = E)
+    {C : Grpd.{u,u}} (i : C ≅ Grpd.of (Datum D)) (x : C) :
+    HEq (((equivalenceOfGrpdIso (i ≪≫ diagramIsoOfEq q)).functor.obj x).overlap.hom)
+      ((i.hom.obj x).overlap.hom) := by
+  subst E
+  rfl
+
+theorem comparison_arrow {D E : Diagram.{u,u}} (q : D = E)
+    {C : Grpd.{u,u}} (i : C ≅ Grpd.of (Datum D)) {x y : C} (f : x ⟶ y) :
+    HEq (((equivalenceOfGrpdIso (i ≪≫ diagramIsoOfEq q)).functor.map f).localArrow)
+      ((i.hom.map f).localArrow) := by
+  subst E
+  rfl
+
+/-- An equivalence together with recovery of the original selected local data. -/
+structure DiagramComparison {C : Grpd.{u,u}} {D : Diagram.{u,u}}
+    (i : C ≅ Grpd.of (Datum D)) (E : Diagram.{u,u}) where
+  equivalence : C ≌ Datum E
+  localObject : ∀ x, HEq (equivalence.functor.obj x).localObject (i.hom.obj x).localObject
+  overlap : ∀ x, HEq (equivalence.functor.obj x).overlap.hom (i.hom.obj x).overlap.hom
+  localArrow : ∀ {x y} (f : x ⟶ y),
+    HEq (equivalence.functor.map f).localArrow (i.hom.map f).localArrow
+
+def diagramComparison {D E : Diagram.{u,u}} (q : D = E)
+    {C : Grpd.{u,u}} (i : C ≅ Grpd.of (Datum D)) : DiagramComparison i E where
+  equivalence := equivalenceOfGrpdIso (i ≪≫ diagramIsoOfEq q)
+  localObject := comparison_local q i
+  overlap := comparison_overlap q i
+  localArrow := comparison_arrow q i
+
 end SquareKit.Internal.PathTransport.CechMatching.Comprehension.Constant

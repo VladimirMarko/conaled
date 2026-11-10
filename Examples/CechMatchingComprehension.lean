@@ -1,5 +1,6 @@
 import SquareKit.Internal.PathTransport.CechMatchingComprehensionDiscrete
 import SquareKit.Internal.PathTransport.CechMatchingComprehensionProducts
+import SquareKit.Internal.PathTransport.CechMatchingComprehensionConstant
 import SquareKit.Internal.PathTransport.CechMatchingComprehensionSets
 import SquareKit.Internal.PathTransport.CechMatchingComprehensionIdentity
 import Mathlib.CategoryTheory.SingleObj
@@ -251,5 +252,30 @@ example {D : StrictDiagram.{0,0}} {A : FamilyData D} {h : A.Coherence}
     g.matchingArrow.localArrow ≫ (Fiber.lift f y).localArrow =
       (Fiber.lift f x).localArrow ≫ (Fiber.transportMap f g).matchingArrow.localArrow :=
   congrArg Datum.Hom.localArrow (Fiber.lift_naturality f g)
+
+/-- The generic constant comparison admits a non-discrete coefficient groupoid. -/
+theorem constantLoopCoherence : (Comprehension.Constant.data
+    (identityDisplay loopCategory) (identityDisplay loopCategory)).Coherence := loopCoherence
+
+def independentLoopDatum : Datum (identityDisplay loopCategory).toDiagram :=
+  constantDatum loopCategory star
+
+/-- An independently supplied coefficient loop is recovered exactly, for every
+base datum; no choice of global extension is involved. -/
+example (d : Datum (identityDisplay loopCategory).toDiagram) :
+    ((Comprehension.Constant.toFunctor _ _ constantLoopCoherence d).map
+      (Comprehension.Constant.fromArrow _ _ constantLoopCoherence d
+        ((constantFunctor loopCategory).map loop))).localArrow = loop := rfl
+
+example {D E : StrictDiagram.{0,0}} (h : (Comprehension.Constant.data D E).Coherence)
+    (d : Datum D.toDiagram) (e : Datum E.toDiagram) :
+    Comprehension.Constant.toDatum D E h (Comprehension.Constant.fromDatum D E h d e) = e :=
+  Comprehension.Constant.toDatum_fromDatum D E h d e
+
+example {D E : StrictDiagram.{0,0}} (h : (Comprehension.Constant.data D E).Coherence)
+    {d e : Datum D.toDiagram} (f : d ⟶ e) (x : Fiber (Comprehension.Constant.data D E) h d) :
+    Comprehension.Constant.toDatum D E h (Fiber.transport f x) =
+      Comprehension.Constant.toDatum D E h x :=
+  Comprehension.Constant.transport_toDatum D E h f x
 
 end Examples.CechMatchingComprehension
