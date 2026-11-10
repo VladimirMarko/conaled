@@ -170,8 +170,23 @@ from local recovery and uniqueness, not assumed parameter coherence fields.
 
 `Examples.DeformationDescentBaseChange` checks further restriction of arbitrary
 matching local data, successive restriction, and the fiber square at the
-ineffective doubled-origin torsor. The assembly of compatible local sections
-remains to be constructed; the base-change theorems do not supply that assembly.
+ineffective doubled-origin torsor. `SmoothQuotientLocalSections` packages the fiber square as equality of entire
+natural transformations, retaining the quotient natural isomorphism in one
+route. It also constructs `LocalSection.onCocycles` from a section on the
+covering context and explicit local cocycle matching equations. Naturality
+on all cocycle arrows follows from the supplied section's arrow action.
+`glue` then uses the fixed-cover reconstruction; `glue_recover` recovers its
+value at every supplied local cocycle. `glue_baseChange` compares two such
+assemblies whenever their local values agree under parameter restriction.
+The checked constant-section example supplies matching from the quotient's
+value equation and applies the construction to the ineffective nontrivial torsor.
+
+This assembly does not yet derive the matching equations from a family of
+sections over every parameter into the cover and its overlap comparisons.
+Its recovery theorem concerns local objects equipped with a cocycle. Recovery
+at local objects not supplied with such data remains required. The stronger
+parameter-compatible local-section theorem, including that recovery and a
+two-sheet incompatible-data rejection, remains unfinished.
 
 ## Remaining work
 

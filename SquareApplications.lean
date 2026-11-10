@@ -595,3 +595,4 @@ import SquareKit.SmoothQuotientDescentSections
 import Examples.GlobalSectionDescent
 import Examples.QuotientDescentBaseChange
 import Examples.DeformationDescentBaseChange
+import Examples.LocalDeformationSections
