@@ -314,3 +314,16 @@ base-term coherence statement, not an assumed matching equivalence or global
 extension. The arbitrary-deformation consumer checks the selected value
 recovery. At this checkpoint the unconditional base-term coherence theorem is
 being integrated separately.
+
+
+The selected base-term square is now checked in
+`SmoothQuotientCechBaseTermSquare`: `matchingEvaluation_baseTerm` compares
+complete functors and `evaluatedBaseTerm_eq_source` recovers the original
+primitive datum. Consequently `primitiveEvaluation_isEquivalence` is
+unconditional for every generated base term and every source context object.
+It neither assumes context evaluation is an equivalence nor imposes a global
+extension on local matching data. The retained generated consumer checks this
+stronger statement. The base-term module, primitive effectivity module and
+consumer pass focused Lean checks at default limits. Other constructors,
+telescope closure and complete direct-restriction/section descent remain
+separate obligations.

@@ -1,5 +1,5 @@
 import SquareKit.SmoothQuotientCechPrimitiveEvaluation
-import SquareKit.SmoothQuotientCechBaseTermEvaluation
+import SquareKit.SmoothQuotientCechBaseTermSquare
 
 /-! Primitive effectivity from the selected generated base-term comparison. -/
 noncomputable section
@@ -41,5 +41,11 @@ theorem primitiveEvaluation_isEquivalence_of_baseTerm :
     Functor.isEquivalence_of_iso (primitiveEvaluationRecovery a A hΓ hx c q).symm
   exact Functor.isEquivalence_of_comp_right (familyEvaluation a A hΓ (.fiber hx) c)
     (primitiveRecoveryEquivalence a A hΓ hx c q).functor
+
+/-- Primitive matching is effective for every generated base term. -/
+theorem primitiveEvaluation_isEquivalence :
+    (familyEvaluation a A hΓ (.fiber hx) c).IsEquivalence :=
+  primitiveEvaluation_isEquivalence_of_baseTerm a A hΓ hx c
+    (Functor.congr_obj (evaluatedBaseTerm_eq_source a A hΓ hx) c)
 
 end SquareKit.SmoothQuotientCechLocal

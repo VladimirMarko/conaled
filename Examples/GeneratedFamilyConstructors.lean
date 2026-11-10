@@ -61,4 +61,11 @@ example (A : SplitSheaf.Ty X) (hΓ : Typed.CtxDeriv.{2} Γ γ)
       (ULift.up.{1} z.as.down.val) :=
   SmoothQuotientCechLocal.primitiveEvaluation_value_heq a A hΓ hx c z
 
+/-- Effectivity imposes no extra equation on the generated base term. -/
+example (A : SplitSheaf.Ty X) (hΓ : Typed.CtxDeriv.{2} Γ γ)
+    (hx : Typed.TmDeriv.{2} Γ γ .base (Typed.baseCode γ) x ξ)
+    (c : (show Grpd.{1,1} from γ (SmoothQuotientCechLocal.model a A))) :
+    (SmoothQuotientCechLocal.familyEvaluation a A hΓ (.fiber hx) c).IsEquivalence :=
+  SmoothQuotientCechLocal.primitiveEvaluation_isEquivalence a A hΓ hx c
+
 end Examples.GeneratedFamilyConstructors
