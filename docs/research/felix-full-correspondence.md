@@ -281,3 +281,12 @@ obligations. Consequently this document completes the module/source inventory
 and identifies bounded residuals, but does not certify the programme's final
 criterion that every upstream item has a checked counterpart or mathematical
 resolution.
+
+## Computational equivalence recovery (#453)
+
+The [witness-equivalence design](computational-equivalence-witnesses.md)
+recovers `Equivalent q` and induced relations with computational witnesses.
+The checked comma prototype and law transport retain witnesses; explicit
+erasure recovers the existing proposition-valued adapters. Distinct Boolean
+witnesses and nonassociative transitivity delimit the contract. Full package
+acceptance remains pending; higher coherence and broad retrofits are separate.
