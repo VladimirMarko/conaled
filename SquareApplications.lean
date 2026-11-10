@@ -1,5 +1,6 @@
 import SquareKit.SmoothQuotientCechGeneratedEffectivity
 import Examples.GeneratedBaseMatching
+import Examples.GeneratedFamilyConstructors
 import SquareKit.SmoothQuotientCechGeneratedEmpty
 import SquareKit.SmoothQuotientCechGeneratedSubstitution
 import Examples.GeneratedRelativeMatching

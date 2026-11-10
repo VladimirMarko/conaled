@@ -84,3 +84,10 @@ chosen isomorphisms and impose no equality between object representatives.
 Grothendieck projections. It uses the existing `transportIso`; its base component
 recovers the supplied arrow exactly. The checked integer-loop case works for
 any fiber family and a supplied fiber object, retaining the nonidentity label.
+`GeneratedIdentityFamilyMap` extracts the identity-type constructor on the
+complete family comparison. `generatedIdentityMap_arrow` applies it to every
+supplied identity arrow: first use the component functor's map, then the
+endpoint transport determined by the two generated term comparisons. The
+open identity type in `Authoring.CongruenceCaller` specializes the constructor
+formula. The theorem assumes neither reflexive identity objects nor a
+faithful primitive comparison.

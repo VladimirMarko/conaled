@@ -226,6 +226,52 @@ fiber values and vertical arrows. Statement review: this constructs the actual
 fiber comparison; proving it an equivalence for all type constructors remains
 part of the pending effectiveness induction.
 
+`SetData.discreteEquivalence` also identifies the entire relative matching
+fiber groupoid of a set-valued diagram with its discrete matching-value set.
+Its functor retains the supplied local value; vertical arrows are identified
+using the proved equality criterion. The coherent two-patch example checks
+recovery through this categorical equivalence. This does not assume discreteness
+of the base, double-overlap, or triple-overlap groupoids.
+
+`GeneratedFamilyReindex.generatedFamilyMap_sub` and
+`GeneratedPrimitiveFiber.generatedFamilyMap_fiber` expose the actual whole
+natural transformations for substitution and primitive-fiber constructors.
+The latter uses the checked base-term commuting square; no replacement term
+or pointwise-only comparison is introduced. `Examples.GeneratedFamilyConstructors`
+specializes both equations to smooth quotient restriction. Local recovery
+adapters keep the extended-context comparison and extracted local fiber visible
+without unfolding the generated model. Statement review: these are constructor
+map equations, not yet equivalence proofs for their matching fibers.
+
+`SmoothQuotientGeneratedPrimitiveMatching` constructs the actual set-valued
+restriction diagram for each generated primitive fiber and proves that its
+relative matching groupoid is the discrete set of local matching values.
+`SmoothQuotientGeneratedBaseTerm` constructs all six commuting restriction
+squares for the supplied base term. `SmoothQuotientGeneratedPrimitiveReindex`
+then identifies the whole relative fiber with primitive coefficient matching
+at that term's matching datum, preserving its supplied local value.
+
+The generic `SetFamily.pullFamilyIso` proves natural reindexing of matching sets
+along any strict diagram map. It retains the original value and conjugates only
+the overlap by the specified restriction squares. Checked cases include the
+coherent two-patch matching value and arbitrary generated primitive local data.
+Statement review: these results identify independent matching categories; the
+comparison with the source primitive family and its actual evaluation remains
+to finish before the primitive effectiveness case is established.
+
+`SmoothQuotientPrimitiveCoefficientValues` now identifies primitive coefficient
+matching naturally with the existing Čech deformation family. Its
+`coefficientDatumFunctor` removes universe wrappers and retains the actual
+local object, overlap, and local-arrow action. `coefficientValueFamilyIso`
+recovers the supplied deformation and commutes with all matching arrows.
+`primitiveCechMatchingEquivalence` combines this with the preceding reduction.
+
+`SmoothQuotientCechBaseTermEvaluation.evaluatedBaseTerm_local` proves equality
+of the complete local-object functors for source and evaluated base terms.
+Statement review: the selected overlap comparison, hence equality or natural
+isomorphism of their complete primitive data, remains to finish. The current
+results do not yet prove the actual primitive `familyEvaluation` effective.
+
 ## Work remaining for #445
 
 - Identify matching data for a generated comprehension with a base datum and
