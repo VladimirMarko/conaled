@@ -615,5 +615,6 @@ import Examples.CechOverlapRejection
 
 import Examples.PolicyChoiceClients
 import Examples.PolicyChoiceDriver
+import Examples.RawConstructions
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
