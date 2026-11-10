@@ -352,3 +352,15 @@ erasure recovers the unchanged semantic APIs. Distinct reflection choices and
 nonidentity comparisons are checked in `Examples/WitnessStructure.lean`.
 This extends #453's category-only prototype; full #8 acceptance also requires
 the separate comma/instance witness packages and the orchestration's reviews.
+
+## Computational constructions (#456)
+
+The [construction witness correspondence](computational-construction-witnesses.md)
+accounts for every indexed active Product, Squared, Monoid, Comma, Arrow,
+Identity and subcategory declaration at the pinned revision. It extends the
+separate computational layer with structural laws, selected preservation,
+induced-law transport and explicit erased recovery. Component relations and
+square witnesses remain distinguishable. The checked non-involutive transpose
+example prevents importing proof-irrelevant square equality into this layer.
+The existing selected-feedback constructions are reused with their #451
+congruence boundary. Full #8 acceptance remains an orchestration decision.

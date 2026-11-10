@@ -831,3 +831,8 @@ Reproduction: enumerate `git ls-tree -r --name-only <pin> -- src/Felix`,
 compare the module headings, verify each SHA-256 against the pinned blob, and
 inspect signature/record/pattern starts plus the inferred `Zoid` alias. Comments
 are not active declarations. No upstream Agda compilation is claimed here.
+
+The [#456 computational construction inventory](computational-construction-witnesses.md)
+maps each active locator for Product, Squared, Monoid, Comma, Arrow, Identity,
+and both subcategories to its selected-witness implementation or shared raw
+constructor. It records the erasure and transpose-coherence boundaries.

@@ -18,6 +18,17 @@ example : (WitnessProduct.fst_laws witnesses witnesses).congr
 example : (WitnessProduct.snd_laws witnesses witnesses).congr
     (a := ((),())) (b := ((),())) (f := ((),())) (g := ((),())) (true,false) = false := rfl
 
+def universalLeft : SquareKit.WitnessEquivalence.ProductUniversal (E := witnesses) products :=
+  ⟨fun h => (h,!h),fun h => h.1⟩
+def universalRight : SquareKit.WitnessEquivalence.ProductUniversal (E := witnesses) products :=
+  ⟨fun h => (!h,h),fun h => h.2⟩
+example : (WitnessProduct.productUniversal universalLeft universalRight).forward
+    (a := ((),())) (b := ((),())) (c := ((),()))
+    (f := ((),())) (g := ((),())) (k := ((),())) (true,false) =
+      ((true,true),(false,false)) := rfl
+example : (SquareKit.WitnessEquivalence.Preservation.id witnesses).congr
+    (a := ()) (b := ()) (f := ()) (g := ()) true = true := rfl
+
 def commaRelation := WitnessComma.equiv congruence laws preserves preserves
 example : commaRelation.Rel (square false) (square true) := (true,false)
 example : square false ≠ square true := squares_distinct

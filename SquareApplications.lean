@@ -1,3 +1,4 @@
+import Examples.WitnessConstructions
 import Examples.WitnessProduct
 import Examples.WitnessStructure
 import Examples.InitialTransport
