@@ -226,6 +226,13 @@ fiber values and vertical arrows. Statement review: this constructs the actual
 fiber comparison; proving it an equivalence for all type constructors remains
 part of the pending effectiveness induction.
 
+`SetData.discreteEquivalence` also identifies the entire relative matching
+fiber groupoid of a set-valued diagram with its discrete matching-value set.
+Its functor retains the supplied local value; vertical arrows are identified
+using the proved equality criterion. The coherent two-patch example checks
+recovery through this categorical equivalence. This does not assume discreteness
+of the base, double-overlap, or triple-overlap groupoids.
+
 ## Work remaining for #445
 
 - Identify matching data for a generated comprehension with a base datum and
