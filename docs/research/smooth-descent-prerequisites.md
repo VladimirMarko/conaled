@@ -159,9 +159,19 @@ identity parameter change. The example does not claim that every restriction
 of a nontrivial torsor remains nontrivial, or that arbitrary restriction
 preserves every pair of distinct arrows.
 
-This is a prerequisite for parameter-compatible section gluing. Deformation
-cocycle base change, its compatibility with the chosen quotient comparison,
-and the assembly of compatible local sections remain to be constructed.
+`SmoothQuotientDeformationBaseChange` now constructs deformation cocycle
+restriction from the local deformation and its matching equation. Gluing
+commutes with this operation through the actual quotient comparison.
+`fiberBaseChange` is natural on all compatible cocycle arrows, and
+`fiberBaseChange_comparison` states its square with the fiber gluing
+equivalences. The chosen quotient comparisons act coherently on every
+deformation under identity and composite parameter maps. These are proved
+from local recovery and uniqueness, not assumed parameter coherence fields.
+
+`Examples.DeformationDescentBaseChange` checks further restriction of arbitrary
+matching local data, successive restriction, and the fiber square at the
+ineffective doubled-origin torsor. The assembly of compatible local sections
+remains to be constructed; the base-change theorems do not supply that assembly.
 
 ## Remaining work
 
