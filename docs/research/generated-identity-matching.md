@@ -37,3 +37,11 @@ These hypotheses construct full faithfulness and essential surjectivity for
 any supplied restriction functor. A checked discrete-unit specialization uses
 an arbitrary such functor. This does not replace the unrestricted matching
 construction or impose thinness on nonempty generated contexts.
+
+`CechMatchingAsSmall` lifts an arbitrary matching diagram and constructs
+`UniverseLift.asSmallEquivalence` from `AsSmall (Datum D)` to matching in the
+lifted diagram. It wraps the original local objects, overlaps and arrows,
+with checked inverse functors and exact projection/arrow formulas. The tests
+include the primitive hom-universe-0/object-universe-1 shape and a selected
+nonidentity integer loop. No quotient, discreteness premise or effectivity
+assumption is introduced by universe lifting.
