@@ -1,4 +1,4 @@
-import SquareKit.SmoothQuotientCechContextEffectivity
+import SquareKit.SmoothQuotientGeneratedSectionDescent
 
 /-! General dependent-tail consumers of actual canonical restriction descent. -/
 noncomputable section
@@ -47,5 +47,27 @@ example (hΓ : Typed.CtxDeriv.{2} Γ γ)
     (SmoothQuotientGeneratedMatching.restrictionFunctor a hΓ A).obj
       ((SmoothQuotientGeneratedMatching.descentEquivalence a A hΓ).inverse.obj d) ≅ d :=
   (SmoothQuotientGeneratedMatching.descentEquivalence a A hΓ).counitIso.app d
+
+/-- Full matching sections descend to the original direct global model. -/
+example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
+    (s : Section (SmoothQuotientGeneratedMatching.relativeMatchingFamily a hΓ hB A)) :
+    Section (b (SmoothQuotientSource.model a X)) :=
+  (SmoothQuotientGeneratedMatching.sectionDescent a A hΓ hB).reconstruct s
+
+/-- Recovery is an isomorphism of complete lifted sections through actual restriction. -/
+example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
+    (s : Section (SmoothQuotientGeneratedMatching.relativeMatchingFamily a hΓ hB A)) :
+    ((SmoothQuotientGeneratedMatching.sectionDescent a A hΓ hB).reconstruct s).lift ⋙
+        (SmoothQuotientGeneratedMatching.sectionTotalEquivalence a A hΓ hB).functor ≅
+      SmoothQuotientGeneratedMatching.restrictionFunctor a hΓ A ⋙ s.lift :=
+  (SmoothQuotientGeneratedMatching.sectionDescent a A hΓ hB).recovery s
+
+/-- A supplied vertical transformation has exactly one descended preimage. -/
+example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
+    (s t : Section (SmoothQuotientGeneratedMatching.relativeMatchingFamily a hΓ hB A))
+    (η : {η : s.lift ⟶ t.lift // ∀ d, (η.app d).base = 𝟙 d}) :
+    ∃! ξ, (SmoothQuotientGeneratedMatching.sectionDescent a A hΓ hB).verticalEquiv s t ξ = η := by
+  let e := (SmoothQuotientGeneratedMatching.sectionDescent a A hΓ hB).verticalEquiv s t
+  exact ⟨e.symm η, e.apply_symm_apply η, fun ξ h => e.injective (h.trans (e.apply_symm_apply η).symm)⟩
 
 end Examples.GeneratedDescentClosure

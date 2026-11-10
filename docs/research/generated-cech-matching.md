@@ -5,7 +5,9 @@ The current checked result proves effective matching for every supported generat
 context and family, including arbitrary dependent telescopes, pullbacks,
 path-reindexed tails, substitutions, and selected identity arrows. It identifies
 the actual canonical restriction functor as an equivalence under local
-surjectivity. Final section specialization and integrated acceptance remain
+surjectivity. Full sections now descend to the original direct global model,
+with recovery through canonical restriction and a bijection on selected vertical
+transformations. Fresh integrated acceptance and independent reviews remain
 outstanding.
 
 The construction checkpoints below retain their original scope boundaries;
@@ -463,3 +465,39 @@ consumers quantify over arbitrary lengths, dependent tails, and substitutions;
 they also exercise path reindexing, reflexive branches, and complete matching
 recovery. Full section specialization and fresh integrated acceptance are still
 required before closing #445.
+
+
+## Full sections through canonical restriction
+
+`SmoothQuotientGeneratedSectionDescent` proves the complete
+`restriction_substitution` equality for every generated substitution, using the
+actual local restriction square. It constructs `totalRestriction` on extended
+matching data and proves its projection equation. The section equivalence uses
+the already proved canonical restriction equivalence for the extended context,
+the independent relative matching equivalence, and the generic comprehension
+equivalence. Its source family is interpreted in `SmoothQuotientSource.model a X`,
+the original direct global model.
+
+`sectionDescent` takes no recursive effectivity input. Under the fixed display's
+local-surjectivity hypothesis, its result reconstructs a section from any
+supplied section of the independent relative matching family. Recovery is a
+natural isomorphism of complete lifted sections through the selected total
+restriction comparison; its base component is the selected projection
+comparison. `verticalEquiv` preserves and reflects every selected vertical
+natural transformation. The checked consumer proves that any supplied vertical
+transformation has exactly one preimage. The statement does not replace
+vertical isomorphisms by equality of groupoid-valued sections.
+
+The imported `SmoothQuotientCechFamilyTransport` retains genuine family
+naturality of the actual evaluation, with selected transport comparisons and
+identity/composition laws. The family equivalence theorem supplies its
+pointwise effectiveness; naturality is a separate proved construction.
+
+Statement review: the global section source is the direct model, the base
+functor is actual canonical restriction, and matching inputs do not include a
+global extension witness. The only cover premise is local surjectivity. Checked
+consumers cover complete section recovery and uniqueness of selected vertical
+transformations, alongside arbitrary dependent tails. This completes the
+implementation obligations tracked here; the orchestrator still owns fresh
+integrated build/audit and independent Standards/Spec acceptance of #445 and its
+integration into #433.
