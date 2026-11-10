@@ -1,0 +1,16 @@
+{
+  "cycle": 24,
+  "category": "validation",
+  "purpose": "Check finalized caller with repository-relative source license notice",
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "experiments/independent-guarded-authoring/trial/work/Attempt.lean"
+  ],
+  "cwd": "/tmp/conaled-108-independent",
+  "started": "2026-11-09T21:41:45.937924+00:00",
+  "exit_code": 0,
+  "seconds": 2.575778172000355,
+  "ended": "2026-11-09T21:41:48.513765+00:00"
+}

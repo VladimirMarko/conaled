@@ -1,0 +1,11 @@
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:426:99: error: unsolved goals
+B : C4 ⥤ Type
+n : ZMod 4
+⊢ inv (Multiplicative.ofAdd n) = (Multiplicative.ofAdd n)⁻¹
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:430:101: warning: This simp argument is unused:
+  SingleObj.inv_as_inv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [inverseSection, Examples.GuardedLeftConcatenation.labeled, Examples.GroupoidTransport.label]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

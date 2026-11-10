@@ -1,0 +1,18 @@
+{
+  "cycle": 26,
+  "category": "validation",
+  "purpose": "Full fresh build and exhaustive proof audit of exact isolated candidate; invocation 1 of 2",
+  "command": [
+    "taskset",
+    "-c",
+    "0,1",
+    "./check.sh",
+    "--candidate",
+    "ec027e79f612ef1bf21c9968c91639dcfae0f554",
+    "--fresh",
+    "--jobs",
+    "2"
+  ],
+  "cwd": "/tmp/conaled-108-independent/experiments/independent-guarded-authoring/validation/checkout",
+  "started": "2026-11-10T00:22:19.553420+00:00"
+}
