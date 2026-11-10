@@ -130,6 +130,10 @@ theorem datum_injective : Function.Injective (datum (A := A) (h := h) (d := d)) 
       rfl
 
 
+@[simp] theorem ofDatum_datum (x : Fiber A h d) :
+    ofDatum x.datum (projection_datum x) = x :=
+  datum_injective (datum_ofDatum _ _)
+
 def forget : Fiber A h d ⥤ Datum (A.total h).toDiagram where
   obj := datum
   map f := f.matchingArrow
