@@ -1,5 +1,6 @@
 import SquareKit.Internal.PathTransport.GeneratedCylinderTerms
 import SquareKit.Internal.PathTransport.GeneratedCylinderContraction
+import SquareKit.Internal.PathTransport.GeneratedBaseTermComparison
 import Examples.SignatureInterpretationMaps
 import SquareKit.Internal.PathTransport.SelectedLiftIso
 import Mathlib.CategoryTheory.CodiscreteCategory
@@ -52,6 +53,13 @@ def context : CtxDeriv [.base] (extendCode emptyCode.{1} (baseCode emptyCode)) :
 /-- The public generated result is applicable despite both separating cases. -/
 def generated := Comparison.SignatureCylinder.contextComparison left before comparison
   after alpha beta rfl context
+
+/-- The base variable retains the supplied unequal-endpoint comparison, even
+when the primitive coefficient map identifies distinct values. -/
+example := Comparison.SignatureCylinder.contextComparison_baseTerm
+  left before comparison after alpha beta rfl
+  SignatureInterpretationMaps.DependentTail.context
+  SignatureInterpretationMaps.DependentTail.point.deriv
 
 /-- Evaluation retains the chosen base component, rather than choosing a new
 arrow after discarding it in the projection. -/
