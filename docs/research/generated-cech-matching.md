@@ -233,6 +233,16 @@ using the proved equality criterion. The coherent two-patch example checks
 recovery through this categorical equivalence. This does not assume discreteness
 of the base, double-overlap, or triple-overlap groupoids.
 
+`GeneratedFamilyReindex.generatedFamilyMap_sub` and
+`GeneratedPrimitiveFiber.generatedFamilyMap_fiber` expose the actual whole
+natural transformations for substitution and primitive-fiber constructors.
+The latter uses the checked base-term commuting square; no replacement term
+or pointwise-only comparison is introduced. `Examples.GeneratedFamilyConstructors`
+specializes both equations to smooth quotient restriction. Local recovery
+adapters keep the extended-context comparison and extracted local fiber visible
+without unfolding the generated model. Statement review: these are constructor
+map equations, not yet equivalence proofs for their matching fibers.
+
 ## Work remaining for #445
 
 - Identify matching data for a generated comprehension with a base datum and
