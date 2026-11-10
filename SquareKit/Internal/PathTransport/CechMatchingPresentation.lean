@@ -17,6 +17,13 @@ theorem coneFunctor_heq (q : D = E)
   cases eq_of_heq qη
   rfl
 
+theorem functor_equivalence_iff (q : D = E)
+    {F : C ⥤ Datum D} {G : C ⥤ Datum E} (qF : HEq F G) :
+    F.IsEquivalence ↔ G.IsEquivalence := by
+  subst E
+  cases eq_of_heq qF
+  rfl
+
 theorem mappedFunctor_heq {D E T U : StrictDiagram.{u,v}}
     (q : D = E) (r : T = U)
     {F : C ⥤ Datum D.toDiagram} {G : C ⥤ Datum E.toDiagram} (qF : HEq F G)

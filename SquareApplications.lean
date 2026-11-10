@@ -1,8 +1,7 @@
+import Examples.GeneratedDescentClosure
 import SquareKit.SmoothQuotientCechGeneratedEffectivity
 import Examples.GeneratedBaseMatching
 import Examples.GeneratedFamilyConstructors
-import SquareKit.SmoothQuotientCechGeneratedEffectivity
-import Examples.GeneratedBaseMatching
 import SquareKit.SmoothQuotientCechGeneratedEmpty
 import SquareKit.SmoothQuotientCechGeneratedSubstitution
 import Examples.GeneratedRelativeMatching

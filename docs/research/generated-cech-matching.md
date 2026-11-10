@@ -1,8 +1,18 @@
 # Generated Čech matching input
 
-This is an intermediate construction for [#445](https://github.com/VladimirMarko/conaled/issues/445).
-It defines independent matching data and the actual global-to-local functor.
-It does not yet prove effective descent for generated contexts or families.
+This records the construction for [#445](https://github.com/VladimirMarko/conaled/issues/445).
+The current checked result proves effective matching for every supported generated
+context and family, including arbitrary dependent telescopes, pullbacks,
+path-reindexed tails, substitutions, and selected identity arrows. It identifies
+the actual canonical restriction functor as an equivalence under local
+surjectivity. Final section specialization and integrated acceptance remain
+outstanding.
+
+The construction checkpoints below retain their original scope boundaries;
+statements about work pending at an earlier checkpoint are superseded by the
+later family-induction result at the end of this report.
+
+## Construction checkpoints
 
 `Internal.PathTransport.CechMatching.Diagram` records local, double-overlap and
 triple-overlap groupoids, their restriction functors and selected endpoint
@@ -272,7 +282,7 @@ Statement review: the selected overlap comparison, hence equality or natural
 isomorphism of their complete primitive data, remains to finish. The current
 results do not yet prove the actual primitive `familyEvaluation` effective.
 
-## Work remaining for #445
+## Initial work plan, superseded by later checkpoints
 
 - Identify matching data for a generated comprehension with a base datum and
   its independently specified matching fiber, retaining its projection and
@@ -421,3 +431,35 @@ arbitrary compatible local identity arrows, primitive deformation values, and
 nonfaithful substitution discriminator. Context and telescope induction, the
 unconditional section application, and fresh integrated acceptance remain
 separate obligations of the overall #445 integration.
+
+
+## Context and telescope closure
+
+`TypedTelescopeNormalization` expands a telescope derivation into `PlainTelDeriv`,
+whose constructors are nil and dependent cons. Pullback uses the existing typed
+lifted substitution at each binder. Path reindexing uses the actual path
+substitution, obtained from the nil-tail instance of `SubDeriv.pathTailMap`.
+The normalized telescope retains its original raw tail, length, and semantic
+code. This handles arbitrarily nested pullbacks without assuming that a base
+substitution is an equivalence.
+
+`TypedContextNormalization` then expands path, telescope, and branch contexts
+into `PlainCtxDeriv`, whose constructors are empty and dependent extension.
+Again both the raw context and its semantic code are unchanged. The family
+induction discharges every binder premise. The checked derivation comparison
+transfers effectiveness back to the original supplied context derivation.
+
+`SmoothQuotientCechContextEffectivity.matchingEvaluation_isEquivalence` has no
+effectivity premise. `SmoothQuotientGeneratedMatching.restriction_isEquivalence`
+requires only the fixed display's stated local surjectivity and proves that the
+actual canonical restriction is an equivalence. `descentEquivalence` bundles
+that functor with its inverse and selected unit/counit. The counit recovers the
+complete independent matching datum, including its overlap arrow.
+
+Statement review: normalization preserves the source judgment and code rather
+than replacing a parameter-dependent tail by a list of unrelated fibers. The
+induction covers every constructor of `CtxDeriv` and `TelDeriv`. The public
+consumers quantify over arbitrary lengths, dependent tails, and substitutions;
+they also exercise path reindexing, reflexive branches, and complete matching
+recovery. Full section specialization and fresh integrated acceptance are still
+required before closing #445.
