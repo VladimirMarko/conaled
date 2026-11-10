@@ -1,3 +1,4 @@
+import SquareKit.Internal.PathTransport.CechMatchingAsSmall
 import SquareKit.Internal.PathTransport.CechMatchingContractible
 import SquareKit.Internal.PathTransport.CechMatchingComprehensionIdentity
 import SquareKit.Internal.PathTransport.CechMatchingConstant
@@ -86,5 +87,18 @@ example (R : Discrete PUnit.{1} ⥤ Datum (constant (Grpd.of (Discrete PUnit.{1}
       change Discrete PUnit.{1} at x y
       change Subsingleton (x ⟶ y)
       infer_instance)
+
+/-- The primitive quotient universe shape (hom 0, objects 1) lifts to a small diagram. -/
+example (D : Diagram.{0,1}) : AsSmall.{1} (Datum D) ≌
+    Datum (UniverseLift.diagram.{0,1,1} D) := UniverseLift.asSmallEquivalence D
+
+/-- Universe lifting preserves the selected nonidentity loop exactly. -/
+example :
+    ((UniverseLift.asSmallEquivalence.{0,0,1} (constant C)).functor.map
+      (AsSmall.up.map ((constantFunctor C).map loop))).localArrow.down = loop := rfl
+
+/-- The inverse reads back every supplied lifted local matching arrow. -/
+example (D : Diagram.{0,1}) {d e : Datum (UniverseLift.diagram.{0,1,1} D)} (f : d ⟶ e) :
+    ((UniverseLift.equivalence D).inverse.map f).localArrow = f.localArrow.down := rfl
 
 end Examples.CechMatchingIdentity
