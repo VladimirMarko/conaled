@@ -1,3 +1,4 @@
+import Examples.SignatureCylinder
 import Examples.WeakMachine
 import Examples.WeakCanonicity
 import Examples.Memoization

@@ -16,7 +16,7 @@ The component isomorphisms and their base naturality are retained. -/
 abbrev Modification (α : A ⟶ F ⋙ B) (β : A ⟶ G ⋙ B) :=
   FamilyModification (α ≫ whiskerRight η.hom B) β
 
-private def transportTotal (α : A ⟶ F ⋙ B) :
+def transportTotal (α : A ⟶ F ⋙ B) :
     totalMap F α ≅ totalMap G (α ≫ whiskerRight η.hom B) :=
   isoWhiskerLeft (Grothendieck.map (whiskerRight α Grpd.forgetToCat))
     (Grothendieck.preNatIso (B ⋙ Grpd.forgetToCat) η) ≪≫ eqToIso (by
