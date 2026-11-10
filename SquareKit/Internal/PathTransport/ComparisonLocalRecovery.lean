@@ -16,4 +16,10 @@ theorem totalMap_obj_fiber_heq (R : C ⥤ D) (α : A ⟶ R ⋙ B)
   cases hE
   rfl
 
+theorem type_comp_eqToHom_apply_heq {Z : Type u} [Category.{u} Z]
+    {F G K : Z ⥤ Type u} (α : F ⟶ G) (q : G = K) (c : Z) (x : F.obj c) :
+    HEq ((α ≫ eqToHom q).app c x) (α.app c x) := by
+  subst K
+  rfl
+
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison

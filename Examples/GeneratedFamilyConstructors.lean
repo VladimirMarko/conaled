@@ -1,4 +1,4 @@
-import SquareKit.SmoothQuotientCechBaseTermEvaluation
+import SquareKit.SmoothQuotientCechPrimitiveEffectivity
 import SquareKit.Internal.PathTransport.GeneratedPrimitiveFiber
 import SquareKit.SmoothQuotientComparison
 
@@ -51,5 +51,14 @@ example (A : SplitSheaf.Ty X)
     (z : (SmoothQuotientGeneratedMatching.primitiveCoefficientValues a A).obj d) :
     (SmoothQuotientGeneratedMatching.coefficientValueEquiv a A d z).down.val = z.val.down :=
   SmoothQuotientGeneratedMatching.coefficientValueEquiv_value a A d z
+
+/-- Actual evaluation keeps an arbitrary source matching deformation. -/
+example (A : SplitSheaf.Ty X) (hΓ : Typed.CtxDeriv.{2} Γ γ)
+    (hx : Typed.TmDeriv.{2} Γ γ .base (Typed.baseCode γ) x ξ)
+    (c : (show Grpd.{1,1} from γ (SmoothQuotientCechLocal.model a A)))
+    (z : ((Typed.fiberCode ξ) (SmoothQuotientCechLocal.model a A)).obj c) :
+    HEq ((SmoothQuotientCechLocal.familyEvaluation a A hΓ (.fiber hx) c).obj z).localFiber.as
+      (ULift.up.{1} z.as.down.val) :=
+  SmoothQuotientCechLocal.primitiveEvaluation_value_heq a A hΓ hx c z
 
 end Examples.GeneratedFamilyConstructors

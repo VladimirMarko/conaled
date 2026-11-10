@@ -301,3 +301,16 @@ local matching projection; no kernel limits are raised. The retained relative
 matching consumer checks the complete formula. This identifies evaluation's
 local action; constructor effectivity and the remaining section descent claims
 still require their separate arguments.
+
+`SmoothQuotientCechPrimitiveEvaluation` identifies the complete independent
+primitive matching value produced by actual evaluation with the supplied
+source Čech deformation, retaining its overlap equation. The selected
+`primitiveEvaluationRecovery` in `SmoothQuotientCechPrimitiveEffectivity`
+compares evaluation followed by the independent matching equivalence with the
+identity functor. Its sole remaining input is equality of the evaluated and
+source base-term data; `primitiveEvaluation_isEquivalence_of_baseTerm` then
+proves equivalence of the actual primitive fiber evaluation. That input is a
+base-term coherence statement, not an assumed matching equivalence or global
+extension. The arbitrary-deformation consumer checks the selected value
+recovery. At this checkpoint the unconditional base-term coherence theorem is
+being integrated separately.
