@@ -188,3 +188,59 @@ not themselves construct gluing from compatible local data. Fixed-cover
 section transport, primitive quotient/deformation descent, and their parameter
 base-change comparisons still need to be connected to the generated context,
 family and section constructions. Full #433 remains open.
+
+## Fixed-cover generated equivalences
+
+`ComparisonEquivalence` adds conditional laws to the existing comparison
+operations. A context equivalence and pointwise family equivalences induce an
+equivalence of comprehension, using `GrothendieckEquivalence.extendEquivalence`.
+Identity-family components are equivalences because the component functor is
+fully faithful on actual arrows. Reindexing preserves pointwise equivalence
+for any simultaneous substitution; the substitution need not be invertible.
+`ComparisonTelescopeEquivalence` propagates this condition through arbitrary
+finite dependent tails and their pullbacks.
+
+`GeneratedComparisonEquivalence` proves the context, family and telescope
+invariants jointly by induction on the existing derivations. The hypotheses
+are equivalence of the primitive base functor and bijectivity of each primitive
+set-valued fiber map. `GeneratedEquivalenceMaps` transports the result through
+the established endpoint projection equalities. Its context equivalence has
+exactly `generatedContextMap` as its forward functor; its family theorem proves
+equivalence of every actual `generatedFamilyMap` component. It does not replace
+the endpoints with new interpretations. Existing generated term and
+substitution comparisons supply their commuting squares, including J and
+conversion, without another source rule or elimination proof.
+
+`SmoothQuotientGeneratedDescentEquivalence` instantiates those hypotheses with
+`Descent.descentFunctor`, the actual quotient cocycle groupoid,
+`CocycleDatum.fiberFamily`, and `fiberComparison.inv`. The forward direction is
+local cocycle data to the global quotient interpretation. The right endpoint
+is the unchanged `SmoothQuotientSource.model`; the left is its ordinary-model
+construction instantiated with the cocycle groupoid and compatible local
+deformation family. The universe lifts preserve these direct endpoints.
+
+Statement review checks that the output is categorical equivalence, rather
+than equality of object representations or a bijection of isomorphism classes.
+The selected functor retains arrows. The primitive fiber bijectivity hypothesis
+is justified by actual deformation descent in the smooth application. The
+theorem does not require arbitrary parameter restriction to be an equivalence.
+`Examples.GeneratedDescentEquivalence` applies it to the existing two-binder
+dependent tail, its path reindexing, its J motive, and the concrete fixed-cover
+signature. The interpreted J section uses existing generated comparison.
+A diagonal C4 signature supplies a satisfiable selected-arrow instance, and the
+resulting generated equivalence reflects arrows. The Bool-collapse signature
+is rejected because its primitive fiber map is not injective. These cases
+check use and boundaries; arbitrary finite-tail scope follows from induction.
+
+Focused validation uses `lake build Examples.GeneratedDescentEquivalence`
+inside the Nix shell. Selected axiom inspection covers operation closure,
+the generated induction, normalized and concrete equivalences, and the
+retained example theorems. Full acceptance checks and independent review remain
+with the enclosing workflow.
+
+This checkpoint establishes equivalence between the two specified generated
+interpretations. Identifying the local interpretation with matching local data
+for every generated context remains a separate construction. So do propagation
+of the selected parameter natural-isomorphism squares and gluing of
+parameter-compatible local sections. No generated descent or full #433
+completion follows from the equivalence theorem alone.
