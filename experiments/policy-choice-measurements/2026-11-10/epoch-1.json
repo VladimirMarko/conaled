@@ -1,0 +1,219 @@
+{
+  "context": {
+    "catalog": [
+      "c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),l))))))",
+      "c(c(c(c(c(c(l,p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l))"
+    ],
+    "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+    "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+    "requirements": [
+      64
+    ],
+    "site": "scan:",
+    "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+    "workload": "scan:powers:6:17:32:0"
+  },
+  "repetitions": 5,
+  "samples": [
+    {
+      "candidate": "c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),l))))))",
+      "context": {
+        "catalog": [
+          "c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),l))))))",
+          "c(c(c(c(c(c(l,p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          64
+        ],
+        "site": "scan:",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:powers:6:17:32:0"
+      },
+      "elapsedNs": 353633,
+      "repetition": 0,
+      "success": true
+    },
+    {
+      "candidate": "c(c(c(c(c(c(l,p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l))",
+      "context": {
+        "catalog": [
+          "c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),l))))))",
+          "c(c(c(c(c(c(l,p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          64
+        ],
+        "site": "scan:",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:powers:6:17:32:0"
+      },
+      "elapsedNs": 215381,
+      "repetition": 0,
+      "success": true
+    },
+    {
+      "candidate": "c(c(c(c(c(c(l,p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l))",
+      "context": {
+        "catalog": [
+          "c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),l))))))",
+          "c(c(c(c(c(c(l,p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          64
+        ],
+        "site": "scan:",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:powers:6:17:32:0"
+      },
+      "elapsedNs": 219030,
+      "repetition": 1,
+      "success": true
+    },
+    {
+      "candidate": "c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),l))))))",
+      "context": {
+        "catalog": [
+          "c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),l))))))",
+          "c(c(c(c(c(c(l,p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          64
+        ],
+        "site": "scan:",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:powers:6:17:32:0"
+      },
+      "elapsedNs": 378160,
+      "repetition": 1,
+      "success": true
+    },
+    {
+      "candidate": "c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),l))))))",
+      "context": {
+        "catalog": [
+          "c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),l))))))",
+          "c(c(c(c(c(c(l,p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          64
+        ],
+        "site": "scan:",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:powers:6:17:32:0"
+      },
+      "elapsedNs": 384163,
+      "repetition": 2,
+      "success": true
+    },
+    {
+      "candidate": "c(c(c(c(c(c(l,p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l))",
+      "context": {
+        "catalog": [
+          "c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),l))))))",
+          "c(c(c(c(c(c(l,p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          64
+        ],
+        "site": "scan:",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:powers:6:17:32:0"
+      },
+      "elapsedNs": 238229,
+      "repetition": 2,
+      "success": true
+    },
+    {
+      "candidate": "c(c(c(c(c(c(l,p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l))",
+      "context": {
+        "catalog": [
+          "c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),l))))))",
+          "c(c(c(c(c(c(l,p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          64
+        ],
+        "site": "scan:",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:powers:6:17:32:0"
+      },
+      "elapsedNs": 214109,
+      "repetition": 3,
+      "success": true
+    },
+    {
+      "candidate": "c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),l))))))",
+      "context": {
+        "catalog": [
+          "c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),l))))))",
+          "c(c(c(c(c(c(l,p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          64
+        ],
+        "site": "scan:",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:powers:6:17:32:0"
+      },
+      "elapsedNs": 385496,
+      "repetition": 3,
+      "success": true
+    },
+    {
+      "candidate": "c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),l))))))",
+      "context": {
+        "catalog": [
+          "c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),l))))))",
+          "c(c(c(c(c(c(l,p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          64
+        ],
+        "site": "scan:",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:powers:6:17:32:0"
+      },
+      "elapsedNs": 398972,
+      "repetition": 4,
+      "success": true
+    },
+    {
+      "candidate": "c(c(c(c(c(c(l,p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l))",
+      "context": {
+        "catalog": [
+          "c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),c(p(l,l),l))))))",
+          "c(c(c(c(c(c(l,p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l)),p(l,l))"
+        ],
+        "implementation": "d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112:Lean-4.35.0",
+        "protocol": "phased-conversion-prepare-query-v1;rotated-order;one-warmup",
+        "requirements": [
+          64
+        ],
+        "site": "scan:",
+        "target": "captiva:Linux:6.18.58:x86_64:lean-run",
+        "workload": "scan:powers:6:17:32:0"
+      },
+      "elapsedNs": 233266,
+      "repetition": 4,
+      "success": true
+    }
+  ]
+}

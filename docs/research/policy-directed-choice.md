@@ -2,7 +2,7 @@
 
 Issue #436, implementation baseline `ab51385a10d1936b55e48f18d791b3cfe2af91e1`.
 The [PetaBricks assessment](petabricks-architecture.md) supplies motivation.
-This record distinguishes implemented contracts from pending runtime evidence.
+This record distinguishes implemented contracts, measured runtime evidence and pending acceptance.
 
 The direct library route now supplies finite admission before ranking,
 context-checked offline evidence, and selection inside existing composites.
@@ -71,9 +71,8 @@ laws do not automatically establish tuner correctness.
 Focused development checks have passed for `Examples.PolicyChoiceDriver` and
 its dependency closure using the Nix shell, restricted to CPUs 0 and 1. The nine
 runtime tests pass, including the regression that rejects an observation whose
-context differs from the current request. Full candidate build/audit,
-independent review and controlled empirical evidence remain pending. No
-performance claim is made. The public entrypoint imports the examples and
+context differs from the current request. Controlled empirical evidence is recorded below. Full candidate build/audit
+and final review reconciliation remain pending. The public entrypoint imports the examples and
 their modules.
 
 ## Executable caller and evidence files
@@ -114,7 +113,7 @@ order, and imported evidence is checked against the current admitted list.
 Context equality is a consistency check on declared metadata, not proof that
 a physical host or a reported clock behaved as claimed.
 
-When a quiet execution slot is assigned, run:
+To reproduce the controlled measurement protocol, run:
 
 ```sh
 direnv exec . python3 scripts/benchmark-choice.py /tmp/choice-results --repetitions 5
@@ -193,7 +192,31 @@ needs a source-linked state correspondence and transfer operation. Unrestricted
 recursive switching needs a shared progress argument. Current finite nested
 composition and immutable sessions do not supply those capabilities.
 
-Controlled empirical results, the full committed-candidate build/audit,
-independent Standards/Spec review and originator review remain pending. The
-coordinator retains their scheduling and review record. No #108 trial material
-was used in this work.
+Controlled empirical results are recorded below. Full committed-candidate
+build/audit, final Standards/Spec review and originator review remain pending.
+The coordinator retains their scheduling and review record. No #108 trial
+material was used in this work.
+
+## Measured execution on 2026-11-10
+
+The preserved [raw report](../../experiments/policy-choice-measurements/2026-11-10/report.json) records seven workloads at source commit `6a64bf059ad25bb0590dc4498f383be15a597e03` and source hash `d42c35116d14b9eed26dc5660de5b9f15cd49921be4caaff75239a998b614112`. The nine runtime tests passed before measurement. The run used Lean 4.35.0 `--run` on the recorded Linux x86-64 host, pinned to CPUs 0 and 1. Competing orchestration builds were excluded using the shared build lock; ordinary desktop activity was not disabled. Each candidate received one warmup and five measured training repetitions in rotated order. Five subsequent comparisons per policy used alternating order. Full output checks succeeded throughout; each saved epoch was reloaded and accepted.
+
+Times below are arithmetic means in milliseconds for the five comparison calls. End-to-end includes the named driver phases; request wall time additionally includes transport and serialization. Training is the entire training/persistence interval for that workload. These are observations from one run, without confidence intervals or a general speedup claim.
+
+| Workload | Fixed → trained choice | Fixed / trained end-to-end ms | Fixed / trained request wall ms | Training ms |
+|---|---|---:|---:|---:|
+| scan nested | same recipe | 0.234 / 0.313 | 0.289 / 0.466 | 7.766 |
+| scan powers 2^6 | changed recipe | 4.815 / 4.785 | 4.893 / 4.972 | 109.577 |
+| scan powers 2^8 | changed recipe | 53.132 / 52.535 | 53.279 / 52.811 | 1201.576 |
+| star tree, 17 nodes / 1 queries | direct → direct | 5.762 / 5.862 | 5.848 / 6.053 | 137.141 |
+| star tree, 17 nodes / 1024 queries | sparse → sparse | 42.029 / 42.072 | 42.294 / 42.440 | 732.271 |
+| chain tree, 65 nodes / 32 queries | sparse → direct | 25.629 / 24.857 | 25.763 / 25.115 | 539.660 |
+| branching tree, 65 nodes / 1024 queries | sparse → sparse | 212.547 / 212.416 | 212.864 / 212.827 | 3443.444 |
+
+Training changed both power-scan choices and selected direct interval scanning instead of sparse preparation for the 65-node/32-query chain. The nested scan and both star workloads were slower with trained evidence in this run. For the 64-element scan, the small internal end-to-end reduction did not survive request-wall accounting. Cases choosing the same realization still differ because evidence validation and measurement noise remain. The five comparison calls did not repay training costs for any workload; this run does not establish amortized benefit.
+
+Feature construction and repeated admission/selection work dominate several small kernels. For the 256-element scan, fixed-policy feature and selection means were 17.024 ms and 34.157 ms, versus 53.132 ms total end-to-end. The trained means were 17.010 ms and 34.325 ms. The measured selector therefore needs workload-aware amortization or cheaper repeated admission before it can be presented as a low-overhead runtime facility. That is an engineering follow-up, not a failure of policy-independent semantic preservation.
+
+Startup and initial handshake took 1228.229 ms, separately from all workload totals. Raw responses retain conversion, preparation, kernel/query, validation, feature, selection, residual and instrumentation-probe durations. The empty-phase probe is diagnostic and was not subtracted. The full report also retains persistence and training costs, successful outputs, and each complete epoch. No native-code, hardware-parallel, optimality or human-productivity claim follows from these measurements.
+
+The measurements close the empirical-evidence gap in the earlier checkpoint. Exact-candidate build/audit, independent Standards/Spec reconciliation and the assigned originator review remain acceptance obligations.
