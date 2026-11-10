@@ -148,6 +148,16 @@ consumers with direct semantic transport calculations.
 
 ## Validation boundary
 
+`GeneratedBaseTermComparison.contextComparison_baseTerm` extends the selected
+square to every generated base term. The conclusion compares whole natural
+isomorphisms, including the chosen morphism components and the actual strict
+base-term restriction equalities. It uses the auxiliary fully faithful cylinder
+projection; neither endpoint signature map is assumed invertible or faithful.
+The existing unequal-base-functor, noninjective-coefficient example now consumes
+this theorem at an open base variable. This is the comparison needed when
+identifying primitive matching fibers along a generated base term. It does not
+by itself establish their effective descent.
+
 All added modules and examples receive focused checks with the repository's
 pinned toolchain and default heartbeat limits. The root application imports
 both new regression files, so integrated acceptance includes their declarations.
