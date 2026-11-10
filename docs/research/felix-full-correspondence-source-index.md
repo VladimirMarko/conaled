@@ -507,6 +507,10 @@ Inactive signatures, unfinished proposals and maintenance notes (including aband
 
 ## Laws.agda
 
+Computational law and preservation recovery for every active declaration in
+this section and the `Homomorphism.agda` / `MakeLawful.agda` sections is mapped
+in [#455 computational structural witnesses](computational-structural-witnesses.md).
+
 [Complete pinned source](https://github.com/conal/felix/blob/6f36d28097db7ea5f5df3263db3e8be08f74e490/src/Felix/Laws.agda), 344 lines, SHA-256 `266b128c0ff0b45e0e0b76e42210ab997af79cbc02cf83212b10a29be921ee0c`.
 
 | Declaration / source locator |

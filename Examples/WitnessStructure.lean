@@ -1,5 +1,7 @@
 import Examples.WitnessEquivalence
-import SquareKit.WitnessCartesianMap
+import SquareKit.WitnessErasure
+import SquareKit.WitnessDistributionMap
+import SquareKit.WitnessSourceNormalization
 
 namespace Examples.WitnessStructure
 open SquareKit
@@ -52,4 +54,43 @@ theorem selected_inverse_witnesses_differ :
   decide
 theorem nonidentity_erasure_recovers : SquareKit.ProductMapLaws arrowWitnesses.erase
     nonidentity := nonidentityPreservation.erase
+def arrowCongr : arrowWitnesses.Congr := ⟨fun p q => p && q⟩
+def arrowLaws : arrowWitnesses.Laws := ⟨fun _ => false, fun _ => false, fun _ _ _ => false⟩
+def native : SquareKit.WitnessEquivalence.CartesianH (H := arrowWitnesses) nonidentity :=
+  nonidentityPreservation.felix arrowCongr arrowLaws nonidentityInverse
+def nativeComposition := SquareKit.WitnessEquivalence.CartesianH.compose
+  (SquareKit.WitnessEquivalence.Preservation.id arrowWitnesses) arrowCongr arrowLaws native native
+
+theorem composed_comparison_computes :
+    (SquareKit.ProductMap.comp nonidentity nonidentity () ()).hom = false := rfl
+theorem composed_witness_computes :
+    nativeComposition.pair (a := ()) (b := ()) (c := ()) true false = true := rfl
+
+def closed : ClosedOps one products := ⟨fun _ _ => (), (), fun _ => ()⟩
+def closedUniversal : SquareKit.WitnessEquivalence.ClosedUniversal (E := witnesses) closed :=
+  ⟨fun p => p, fun p => !p⟩
+def closedLaws := closedUniversal.laws congruence laws productCongr (productLaws false)
+  (⟨fun p => p⟩ : SquareKit.WitnessEquivalence.ClosedCongr witnesses products closed)
+theorem closed_selected_beta : closedLaws.beta (x := ()) (a := ()) (b := ()) () = true := rfl
+theorem closed_selected_eta : closedLaws.eta (x := ()) (a := ()) (b := ()) () = false := rfl
+
+def sums : CoproductOps one := ⟨fun _ _ => (), (), (), fun _ _ => ()⟩
+def distribution : DistributionOps one products sums := ⟨()⟩
+def distributionWitnesses : SquareKit.WitnessEquivalence.DistributionLaws witnesses products sums distribution :=
+  ⟨fun _ _ _ => true, fun _ _ _ => false⟩
+theorem distribution_witnesses_distinct : distributionWitnesses.collect_distribute () () () ≠
+    distributionWitnesses.distribute_collect () () () := by
+  change true ≠ false
+  decide
+theorem distribution_erasure : SquareKit.DistributionLaws one witnesses.erase products sums distribution :=
+  distributionWitnesses.erase
+
+def sourceClosed := closedUniversal.source congruence laws productCongr
+def normalizedAgain := sourceClosed.normalized congruence laws productCongr
+theorem normalization_is_not_a_witness_inverse :
+    normalizedAgain.forward (x := ()) (a := ()) (b := ()) (f := ()) (g := ()) false ≠
+      closedUniversal.forward (x := ()) (a := ()) (b := ()) (f := ()) (g := ()) false := by
+  change true ≠ false
+  decide
+
 end Examples.WitnessStructure

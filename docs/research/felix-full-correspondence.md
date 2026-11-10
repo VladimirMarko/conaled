@@ -339,3 +339,16 @@ Type-valued PRED, and the proof-erased setoid instance. It includes the explicit
 RelationalCategory/Assembly comparisons and discriminating checked consumers.
 The historical inventory is preserved; candidate acceptance and independent
 review remain required.
+
+
+## Computational structural-law recovery (#455)
+
+[Computational structural witnesses](computational-structural-witnesses.md)
+maps every active pinned declaration in `Laws.agda`, `Homomorphism.agda` and
+`MakeLawful.agda` to selected witness-producing APIs. The package includes
+native preservation squares, comparison inverse witnesses, derived Cartesian
+equations, universal-property adapters and target-law transport. Explicit
+erasure recovers the unchanged semantic APIs. Distinct reflection choices and
+nonidentity comparisons are checked in `Examples/WitnessStructure.lean`.
+This extends #453's category-only prototype; full #8 acceptance also requires
+the separate comma/instance witness packages and the orchestration's reviews.
