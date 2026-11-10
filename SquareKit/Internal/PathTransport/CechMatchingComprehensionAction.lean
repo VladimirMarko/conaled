@@ -72,6 +72,13 @@ def transportMap (f : d ⟶ e) {x y : Fiber A h d} (g : x ⟶ y) :
     exact (congrArg (fun k => inv f.localArrow ≫ k)
       (Category.id_comp f.localArrow)).trans (IsIso.inv_hom_id f.localArrow)
 
+/-- Transport of arrows commutes with the canonical local-family lifts. -/
+theorem lift_naturality (f : d ⟶ e) {x y : Fiber A h d} (g : x ⟶ y) :
+    g.matchingArrow ≫ lift f y = lift f x ≫ (transportMap f g).matchingArrow := by
+  change g.matchingArrow ≫ lift f y =
+    lift f x ≫ inv (lift f x) ≫ g.matchingArrow ≫ lift f y
+  simp
+
 def transportFunctor (f : d ⟶ e) : Fiber A h d ⥤ Fiber A h e where
   obj := transport f
   map := transportMap f
