@@ -107,3 +107,19 @@ The integer-loop consumer distinguishes a nonidentity local path from the
 identity. These results do not yet identify the actual identity-type evaluation
 functor with the fully faithful hom map on its endpoint evaluations; that
 constructor-effectivity step remains separate.
+
+Generated term endpoints now descend independently through `termDiagram`, whose
+three components are the interpreted section lifts. All six restriction squares
+come from `generatedSectionLift_commutes`; its proof uses the existing generated
+term equality. Projection is the identity, and `termFiber_local` recovers the
+literal local term value over any supplied matching context.
+
+`sectionTotalMatchingEvaluation` compares actual evaluation with this descended
+section as a whole functor. It applies the existing typed section substitution
+and whole-functor substitution theorem. `familyEvaluation_termComparison`
+packages the natural comparison and exact fiber endpoint equality through a
+generic record. A direct concrete endpoint proof exceeded the default kernel
+budget; the packaged proof checks without increasing limits. The consumer
+accesses its endpoint field for an arbitrary generated term. This establishes
+endpoint recovery, while identity-overlap compatibility still requires its own
+comparison with the local path square.

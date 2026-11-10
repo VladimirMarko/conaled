@@ -1,3 +1,4 @@
+import SquareKit.SmoothQuotientCechTermEvaluation
 import SquareKit.SmoothQuotientGeneratedIdentityMatching
 import SquareKit.SmoothQuotientCechBaseTermEvaluation
 import SquareKit.Internal.PathTransport.GeneratedPrimitiveFiber
@@ -62,5 +63,11 @@ example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
     HEq (((SmoothQuotientGeneratedMatching.identityMatchingEquivalence a hΓ hB hx hy A d).functor.obj z).as.val)
       z.localFiber.as :=
   SmoothQuotientGeneratedMatching.identityMatchingEquivalence_value a hΓ hB hx hy A d z
+
+/-- The endpoint recovery is available for any generated section and source context. -/
+example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
+    (hx : Typed.TmDeriv.{2} Γ γ B b x ξ) (A : SplitSheaf.Ty X)
+    (c : (show Grpd.{1,1} from γ (SmoothQuotientCechLocal.model a A))) :=
+  (SmoothQuotientCechLocal.familyEvaluation_termComparison a A hΓ hB hx).endpoint c
 
 end Examples.GeneratedFamilyConstructors
