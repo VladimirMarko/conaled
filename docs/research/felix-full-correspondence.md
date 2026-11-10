@@ -10,11 +10,23 @@ and declaration, field, helper and unfinished-proposal locators. The historical
 [implementation record](felix-parity-implementation.md) remain unchanged.
 
 The existing category/comparison/comma infrastructure should be reused. The
-next implementation should complete initial-object and right-distribution
-support, then raw product/reindexing constructions and their clients. Selected
+R1 implementation supplies initial-object and right-distribution support;
+raw product/reindexing constructions and their clients remain subsequent work. Selected
 fixed-point witnesses need a separate interface from initialized stream
 feedback. The full-port issue remains open: this source assessment supplies
 neither new formal proofs nor a final acceptance build.
+
+## R1 implementation update
+
+[#449](https://github.com/VladimirMarko/conaled/issues/449) now supplies the
+initial-object and right-distribution interfaces described in R1. The
+[implementation report](initial-and-right-distribution.md) maps the new
+operations, transport, quotient and Mathlib adapters to source fields, with
+checked empty-carrier, raw-code, nonidentity-comparison and composed consumers.
+The module table below retains the original `65e2d67` assessment; references to
+R1 in those rows are resolved by this addendum. R2–R6 remain separate work,
+and the accepted #37/#333 results retain their contracts. Integrated acceptance
+and review status belongs to #449's orchestration record.
 
 ## Reading the dispositions
 
