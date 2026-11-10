@@ -1,5 +1,6 @@
 import SquareKit.Internal.PathTransport.Authoring
 import SquareKit.Internal.PathTransport.GeneratedIdentityFamilyMap
+import SquareKit.Internal.PathTransport.GroupoidFiberFaithful
 import SquareKit.Internal.PathTransport.CechMatchingConeMap
 import SquareKit.Internal.PathTransport.CechMatchingAsSmall
 import SquareKit.Internal.PathTransport.CechMatchingContractible
@@ -128,5 +129,11 @@ example {D : StrictDiagram.{0,0}} {B : Type} [Category B]
 example (S : GroupoidModel.Comparison.Signature.{0}) := GroupoidModel.Comparison.generatedFamilyMap_identityType S
   Typed.Authoring.CongruenceCaller.context Typed.Authoring.CongruenceCaller.base
   Typed.Authoring.CongruenceCaller.point Typed.Authoring.CongruenceCaller.point
+/-- Vertical-kernel detection applies with a nonfaithful projection to a point. -/
+example : (𝟭 Loops).Faithful :=
+  GroupoidFiberFaithful.faithful_of_vertical_kernel (𝟭 Loops)
+    ((CategoryTheory.Functor.const Loops).obj (Discrete.mk PUnit.unit))
+    ((CategoryTheory.Functor.const Loops).obj (Discrete.mk PUnit.unit))
+    (𝟭 (Discrete PUnit.{1})) rfl (fun _ _ _ h => h)
 
 end Examples.CechMatchingIdentity

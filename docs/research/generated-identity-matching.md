@@ -66,3 +66,10 @@ endpoint transport determined by the two generated term comparisons. The
 open identity type in `Authoring.CongruenceCaller` specializes the constructor
 formula. The theorem assumes neither reflexive identity objects nor a
 faithful primitive comparison.
+`GroupoidFiberFaithful` reduces faithfulness of a groupoid functor to its
+endomorphism kernels. In a commuting square with faithful base comparison,
+`faithful_of_vertical_kernel` needs only the vertical kernel. It makes no
+splitting-preservation claim and requires no strict natural transformation
+between extracted fibers. The integer-loop example uses projection to a point,
+so the projection itself is not assumed faithful. This helper proves only
+faithfulness, not fullness or effective descent.
