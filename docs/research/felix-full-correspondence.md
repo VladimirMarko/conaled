@@ -364,3 +364,12 @@ square witnesses remain distinguishable. The checked non-involutive transpose
 example prevents importing proof-irrelevant square equality into this layer.
 The existing selected-feedback constructions are reused with their #451
 congruence boundary. Full #8 acceptance remains an orchestration decision.
+
+## Computational relation setoids (#457)
+
+The [computational instance](computational-relation-setoids.md) retains Type-valued
+relation and congruence witnesses from the pinned Setoids module. It supplies
+all active raw structures, selected universal-property operations and law
+packages, with explicit erasure comparisons into the existing Prop-valued
+instance. Multiple-witness examples inspect composition, curry and both
+distributions. Independent review and full candidate validation remain pending.
