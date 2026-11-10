@@ -1,3 +1,4 @@
+import Examples.CechMatchingIdentity
 import Examples.CechMatchingComprehension
 import Examples.SignatureCylinder
 import Examples.WeakMachine
