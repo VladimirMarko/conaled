@@ -140,3 +140,24 @@ chosen overlap. The construction does not replace the matching equation by
 reflexivity, discard endpoint transports, or assume a matching equivalence.
 Identifying the actual identity evaluation with the underlying family's hom
 map remains a separate obligation before claiming constructor effectivity.
+
+The actual constructor obligation is now discharged by
+`SmoothQuotientCechLocal.identityEvaluation_isEquivalence`. Its only hypotheses
+are full faithfulness of the underlying actual `familyEvaluation` at the supplied
+source context. It does not require essential surjectivity of that functor or
+assume effectivity of the identity type. `identityEvaluationValues_local` recovers
+the actual generated map on the supplied identity arrow. The generic criterion
+combines that local recovery with restriction conjugation and exact total-arrow
+recovery, then uses the underlying functor's hom equivalence. Cancellation of
+the independently constructed discrete matching equivalence gives effectivity
+of the original identity evaluation functor.
+
+The endpoint equalities are proved through `sectionFiberEndpoint`, whose generic
+statement uses the literal fixed-base inclusion. Stating this adapter separately
+avoids normalizing the entire generated matching construction at each use. The
+intermediate criterion accepts endpoint equalities as parameters; the final
+constructor theorem supplies both from actual section evaluation. All these
+proofs use the default kernel limits. The public generated consumer checks the
+final theorem. A separate integer-loop component inclusion is fully faithful,
+retains a nonidentity arrow, and misses a second component; it exercises the
+weaker hypothesis without assuming equivalence of the underlying categories.

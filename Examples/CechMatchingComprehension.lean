@@ -1,3 +1,4 @@
+import SquareKit.Internal.PathTransport.DiscreteHomEvaluation
 import SquareKit.Internal.PathTransport.CechMatchingComprehensionLocalIdentity
 import SquareKit.Internal.PathTransport.CechMatchingMapComposition
 import SquareKit.Internal.PathTransport.CechMatchingSetReindex
@@ -293,5 +294,33 @@ example : (Comprehension.Identity.localArrowEquiv loopRelative loopRelative).sym
   intro hh
   exact relativeLoop_nonidentity
     ((Comprehension.Identity.localArrowEquiv loopRelative loopRelative).symm.injective hh)
+
+/-- Full faithfulness can hold without reaching another component. -/
+def loopComponent : Loops ⥤ Loops × Discrete Bool where
+  obj c := (c, Discrete.mk false)
+  map f := (f, 𝟙 _)
+
+instance : loopComponent.Faithful where
+  map_injective h := congrArg Prod.fst h
+
+instance : loopComponent.Full where
+  map_surjective f := ⟨f.1, Prod.ext rfl (Subsingleton.elim _ _)⟩
+
+example : (𝟭 (Discrete (star ⟶ star))).IsEquivalence :=
+  SquareKit.Internal.PathTransport.discreteHomEvaluation_isEquivalence loopComponent star star
+    rfl rfl ((Functor.FullyFaithful.ofFullyFaithful loopComponent).homEquiv)
+    (𝟭 _) (fun _ => by
+      simp only [Functor.id_obj, eqToHom_refl, Category.id_comp, Category.comp_id]
+      rfl)
+
+example : loopComponent.map loop ≠ loopComponent.map (𝟙 star) := by
+  intro h
+  have hh := congrArg (fun f => Multiplicative.toAdd f.1) h
+  exact (by decide : (1 : ℤ) ≠ 0) hh
+
+example : ¬ Nonempty (loopComponent.obj star ≅ (star, Discrete.mk true)) := by
+  rintro ⟨i⟩
+  have hh := Discrete.eq_of_hom i.hom.2
+  exact Bool.noConfusion hh
 
 end Examples.CechMatchingComprehension

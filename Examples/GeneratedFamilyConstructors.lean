@@ -1,3 +1,4 @@
+import SquareKit.SmoothQuotientCechIdentityEvaluation
 import SquareKit.SmoothQuotientCechTermEvaluation
 import SquareKit.SmoothQuotientGeneratedIdentityMatching
 import SquareKit.SmoothQuotientGeneratedIdentityPaths
@@ -78,5 +79,15 @@ example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
     (A : SplitSheaf.Ty X) (d : SmoothQuotientGeneratedMatching.Datum a hΓ A)
     (p : (SmoothQuotientGeneratedMatching.identitySetData a hΓ hB hx hy A).MatchingSet d) :=
   SmoothQuotientGeneratedMatching.identityDatumArrowEquiv_local a hΓ hB hx hy A d p
+
+/-- Actual identity evaluation needs only full faithfulness of the underlying
+family evaluation, including all its nonidentity arrows. -/
+example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
+    (hx : Typed.TmDeriv.{2} Γ γ B b x ξ) (hy : Typed.TmDeriv.{2} Γ γ B b y η)
+    (A : SplitSheaf.Ty X) (c : (show Grpd.{1,1} from γ (SmoothQuotientCechLocal.model a A)))
+    [ (SmoothQuotientCechLocal.familyEvaluation a A hΓ hB c).Full]
+    [ (SmoothQuotientCechLocal.familyEvaluation a A hΓ hB c).Faithful] :
+    (SmoothQuotientCechLocal.familyEvaluation a A hΓ (.identity hB hx hy) c).IsEquivalence :=
+  SmoothQuotientCechLocal.identityEvaluation_isEquivalence a A hΓ hB hx hy c
 
 end Examples.GeneratedFamilyConstructors

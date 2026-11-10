@@ -65,4 +65,14 @@ def familyEvaluation_termComparison :=
     (termDiagram a hΓ hB hx A).functor (termMatching_projection a hΓ hB hx A)
     (sectionTotalMatchingEvaluation a A hΓ hB hx)
 
+/-- The section endpoint expressed in the actual fixed-base total functor. -/
+theorem sectionFiberEndpoint (c : (show Grpd.{1,1} from γ (model a A))) :
+    (fiberTotalEvaluation a A hΓ hB c).obj ((ξ (model a A)).down.obj c) =
+      (termDiagram a hΓ hB hx A).functor.obj ((matchingEvaluation a A hΓ).obj c) :=
+  CechMatching.Comprehension.sectionFiberEndpoint
+    (relativeFamilyData a hΓ hB A) (relativeFamilyCoherence a hΓ hB A)
+    (b (model a A)) (totalMatchingEvaluation a A hΓ hB) (matchingEvaluation a A hΓ)
+    (ξ (model a A)).down (termDiagram a hΓ hB hx A).functor
+    (sectionTotalMatchingEvaluation a A hΓ hB hx) c
+
 end SquareKit.SmoothQuotientCechLocal

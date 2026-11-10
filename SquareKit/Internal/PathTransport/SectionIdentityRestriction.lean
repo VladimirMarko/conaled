@@ -52,5 +52,23 @@ theorem generatedIdentity_included (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
     (ξ L).down (η L).down ((ξ T).down.reindex _) ((η T).down.reindex _)
     (generatedTerm_commutes S hΓ hA hx) (generatedTerm_commutes S hΓ hA hy) c p
 
+/-- The same selected identity arrow after any equal presentation of the total map. -/
+theorem generatedIdentity_conjugate (hΓ : Typed.CtxDeriv.{u+1} Γ γ)
+    (hA : Typed.TyDeriv.{u+1} Γ γ F f)
+    (hx : Typed.TmDeriv.{u+1} Γ γ F f xx ξ) (hy : Typed.TmDeriv.{u+1} Γ γ F f yy η)
+    (Q : Extend (f L) ⥤ Extend (f T))
+    (hQ : Q = totalMap (generatedContextMap S hΓ) (generatedFamilyMap S hΓ hA))
+    (c : (show Grpd.{u,u} from γ L))
+    (ex : Q.obj ((ξ L).down.lift.obj c) = (ξ T).down.lift.obj ((generatedContextMap S hΓ).obj c))
+    (ey : Q.obj ((η L).down.lift.obj c) = (η T).down.lift.obj ((generatedContextMap S hΓ).obj c))
+    (p : (ξ L).down.obj c ⟶ (η L).down.obj c) :
+    (Grothendieck.ι (f T ⋙ Grpd.forgetToCat) ((generatedContextMap S hΓ).obj c)).map
+        ((generatedIdentitySetMap S hΓ hA hx hy).app c p) =
+      eqToHom ex.symm ≫ Q.map ((Grothendieck.ι (f L ⋙ Grpd.forgetToCat) c).map p) ≫ eqToHom ey := by
+  subst Q
+  have hh := generatedIdentity_included S hΓ hA hx hy c p
+  have hh' := congrArg (fun k => eqToHom ex.symm ≫ k) hh
+  simpa only [Category.assoc, eqToHom_trans_assoc, eqToHom_refl, Category.id_comp] using hh'.symm
+
 end Comparison
 end SquareKit.Internal.PathTransport.GroupoidModel

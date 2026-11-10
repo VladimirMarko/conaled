@@ -31,4 +31,9 @@ def termEvaluationComparison (naturality : s.lift ⋙ E = R ⋙ T) :
     rw [Fiber.datum_ofDatum, Fiber.datum_ofDatum]
     exact Functor.congr_obj naturality c
 
+/-- Section evaluation expressed with the literal fixed-base inclusion. -/
+theorem sectionFiberEndpoint (naturality : s.lift ⋙ E = R ⋙ T) (c : C) :
+    (Grothendieck.ι (F ⋙ Grpd.forgetToCat) c ⋙ E).obj (s.obj c) = T.obj (R.obj c) :=
+  Functor.congr_obj naturality c
+
 end SquareKit.Internal.PathTransport.CechMatching.Comprehension
