@@ -1,4 +1,4 @@
-import SquareKit.SmoothQuotientCoverMatchingNaturality
+import SquareKit.SmoothQuotientCoverDescent
 import Examples.ArbitraryCoverSections
 
 /-! Actual two-sheet matching data and original-cover presentation recovery. -/

@@ -71,3 +71,15 @@ The matching-equivalence construction depends on the checked #445 interface
 checkpoints `60b73ac` and `c5a37a9`, incorporated into this worker branch before
 final integration. Neither those dependency checkpoints nor these focused
 checks constitute full #433 acceptance.
+
+`SmoothQuotientCoverDescent` now supplies the effectivity transfer step. Given
+an equivalence for the actual split restriction functor,
+`restriction_equivalence_of_split` proves the original restriction is an
+equivalence, using `restriction_toSplit`. `descentEquivalenceOfSplit` retains
+that exact forward functor. Its counit recovers arbitrary matching data and
+`recovery_natural` retains every supplied matching arrow.
+`descentSquareOfSplit` compares chosen gluing under arbitrary original cover
+squares by the explicit unit/counit construction from the two equivalences.
+It does not require the parameter maps to be invertible. These results still
+require the generated split effectivity instance from #445; the conditional
+transfer is not evidence that instance has been constructed.
