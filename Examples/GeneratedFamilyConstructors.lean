@@ -1,4 +1,4 @@
-import SquareKit.SmoothQuotientGeneratedPrimitiveReindex
+import SquareKit.SmoothQuotientCechBaseTermEvaluation
 import SquareKit.Internal.PathTransport.GeneratedPrimitiveFiber
 import SquareKit.SmoothQuotientComparison
 
@@ -44,5 +44,12 @@ example (hΓ : Typed.CtxDeriv.{2} Γ γ)
     HEq (((SmoothQuotientGeneratedMatching.primitiveCoefficientMatchingEquivalence a hΓ hx A d).functor.obj z).as.val)
       z.localFiber.as :=
   SmoothQuotientGeneratedMatching.primitiveCoefficientMatchingEquivalence_value a hΓ hx A d z
+
+/-- Forgetting universe wrappers retains the supplied matching deformation. -/
+example (A : SplitSheaf.Ty X)
+    (d : CechMatching.Datum (SmoothQuotientGeneratedMatching.baseDiagram a A).toDiagram)
+    (z : (SmoothQuotientGeneratedMatching.primitiveCoefficientValues a A).obj d) :
+    (SmoothQuotientGeneratedMatching.coefficientValueEquiv a A d z).down.val = z.val.down :=
+  SmoothQuotientGeneratedMatching.coefficientValueEquiv_value a A d z
 
 end Examples.GeneratedFamilyConstructors
