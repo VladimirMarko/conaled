@@ -147,7 +147,7 @@ the exact interpreted source section to the original-cover total matching
 restriction on objects and arrows. `Examples.OriginalCoverGeneratedSections`
 specializes this to the disk action and the dependent-tail J caller.
 `restriction_substitution` is a whole-functor equation for every generated
-substitution. `SmoothQuotientCechFamilyTransport.familyEvaluation_transport`
+substitution. `SmoothQuotientCechLocal.familyEvaluation_transport`
 retains the selected natural fiber comparison and its identity/composition
 laws. The #446 context/family comparisons have identity, composition and both
 whiskering laws; section coherence includes the generated dependent-J case.
