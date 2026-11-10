@@ -159,7 +159,8 @@ theorem recover_local {Y : Sheaf topology Type} (g : Y ⟶ SplitSheaf.Ext A)
       s.matching (𝟙 _ ≫ SplitSheaf.lift A f) (q ≫ g) rfl (reindex P q)
     _ = restrict q (((s.sections g).obj P).as) := (s.natural g q P).symm
 
-private theorem setSection_ext {Γ : Type*} [Category* Γ] (F : Γ ⥤ Type*)
+/-- Sections of a discrete family are determined by their object values. -/
+theorem setSection_ext {Γ : Type*} [Category* Γ] (F : Γ ⥤ Type*)
     {s t : Section (setFamily F)} (h : ∀ γ, (s.obj γ).as = (t.obj γ).as) : s = t := by
   cases s with
   | mk so sm si sc =>

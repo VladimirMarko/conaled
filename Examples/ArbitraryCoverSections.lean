@@ -69,4 +69,19 @@ example (K : Type) [Group K] (c : K) :
   (constantFamily (a := ActionQuotientEvidence.ineffective K)
     (twoSheet SmoothClutching.base)).glue_restrict _
 
+/-- Pulling back the actual two-sheet cover along any parameter map retains
+full-section naturality; no invertibility of the parameter map is required. -/
+example (u : Y ⟶ X) :
+    restrictSection u ((constantFamily (a := a) (twoSheet X)).glue) =
+      ((constantFamily (a := a) (twoSheet X)).baseChange u).glue.reindex
+        (SheafActionQuotient.restriction u) :=
+  (constantFamily (a := a) (twoSheet X)).glue_baseChange_section u
+
+/-- Covering values determine the full section, including its quotient arrows. -/
+example (t : Section (setFamily (family a X)))
+    (h : ∀ P, restrict (twoSheet X) ((t.obj P).as) =
+      constant (reindex P (twoSheet X))) :
+    t = (constantFamily (a := a) (twoSheet X)).glue :=
+  (constantFamily (a := a) (twoSheet X)).glue_unique t h
+
 end Examples.ArbitraryCoverSections

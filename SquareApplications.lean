@@ -611,5 +611,7 @@ import Examples.ParameterSectionRejection
 import Examples.CechDeformationDescent
 import Examples.CechOverlapRejection
 import Examples.ArbitraryCoverSections
+import Examples.OriginalCoverRejection
+import SquareKit.SheafCoverCech
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
