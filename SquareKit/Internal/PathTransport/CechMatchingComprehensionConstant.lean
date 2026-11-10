@@ -9,7 +9,7 @@ open SquareKit.Internal.PathTransport.GroupoidModel
 set_option backward.isDefEq.respectTransparency false
 set_option backward.isDefEq.respectTransparency.types false
 set_option backward.defeqAttrib.useBackward true
-universe u
+universe u v
 variable (D E : StrictDiagram.{u,u})
 
 def data : FamilyData D where
@@ -284,5 +284,77 @@ def familyIso : family (data D E) h ≅
     simp only [Datum.eqToHom_localArrow, ← Category.assoc, eqToHom_trans, eqToHom_refl,
       Category.id_comp]
     exact hp.symm)
+
+/-- Changing a presentation by equality transports the family without changing
+its selected fiber objects or arrows. -/
+def familyIsoOfEq {D : StrictDiagram.{u,u}} {A B : FamilyData D}
+    (q : A = B) (ha : A.Coherence) (hb : B.Coherence) : family A ha ≅ family B hb :=
+  eqToIso (by subst B; rfl)
+
+theorem familyIsoOfEq_localFiber {D : StrictDiagram.{u,u}} {A B : FamilyData D}
+    (q : A = B) (ha : A.Coherence) (hb : B.Coherence) (d : Datum D.toDiagram)
+    (x : Fiber A ha d) :
+    HEq (((familyIsoOfEq q ha hb).hom.app d).obj x).localFiber x.localFiber := by
+  subst B
+  rfl
+
+theorem familyIsoOfEq_overlap {D : StrictDiagram.{u,u}} {A B : FamilyData D}
+    (q : A = B) (ha : A.Coherence) (hb : B.Coherence) (d : Datum D.toDiagram)
+    (x : Fiber A ha d) :
+    HEq (((familyIsoOfEq q ha hb).hom.app d).obj x).overlap.hom.fiber x.overlap.hom.fiber := by
+  subst B
+  rfl
+
+theorem familyIsoOfEq_arrow {D : StrictDiagram.{u,u}} {A B : FamilyData D}
+    (q : A = B) (ha : A.Coherence) (hb : B.Coherence) (d : Datum D.toDiagram)
+    {x y : Fiber A ha d} (f : x ⟶ y) :
+    HEq (((familyIsoOfEq q ha hb).hom.app d).map f).matchingArrow.localArrow.fiber
+      f.matchingArrow.localArrow.fiber := by
+  subst B
+  rfl
+
+/-- A strict natural isomorphism of groupoid families preserves their total
+categories and the entire base projection. -/
+def totalFamilyEquivalence {B : Type u} [Groupoid.{u} B]
+    {F G : B ⥤ Grpd.{u,u}} (i : F ≅ G) : Extend F ≌ Extend G where
+  functor := Grothendieck.map (whiskerRight i.hom Grpd.forgetToCat)
+  inverse := Grothendieck.map (whiskerRight i.inv Grpd.forgetToCat)
+  unitIso := eqToIso (by
+    rw [← Grothendieck.map_comp_eq, ← whiskerRight_comp, i.hom_inv_id,
+      whiskerRight_id', Grothendieck.map_id_eq])
+  counitIso := eqToIso (by
+    rw [← Grothendieck.map_comp_eq, ← whiskerRight_comp, i.inv_hom_id,
+      whiskerRight_id', Grothendieck.map_id_eq])
+  functor_unitIso_comp x := by
+    simp only [eqToIso.hom, eqToHom_app, eqToHom_map, eqToHom_trans, eqToHom_refl]
+
+/-- Equality of diagrams transports matching data and every selected arrow. -/
+def diagramIsoOfEq {D E : Diagram.{u,u}} (q : D = E) :
+    Grpd.of (Datum D) ≅ Grpd.of (Datum E) :=
+  eqToIso (congrArg (fun K => Grpd.of (Datum K)) q)
+
+theorem diagramIsoOfEq_local {D E : Diagram.{u,u}} (q : D = E) (x : Datum D) :
+    HEq ((diagramIsoOfEq q).hom.obj x).localObject x.localObject := by
+  subst E
+  rfl
+
+theorem diagramIsoOfEq_overlap {D E : Diagram.{u,u}} (q : D = E) (x : Datum D) :
+    HEq ((diagramIsoOfEq q).hom.obj x).overlap.hom x.overlap.hom := by
+  subst E
+  rfl
+
+theorem diagramIsoOfEq_arrow {D E : Diagram.{u,u}} (q : D = E)
+    {x y : Datum D} (f : x ⟶ y) :
+    HEq ((diagramIsoOfEq q).hom.map f).localArrow f.localArrow := by
+  subst E
+  rfl
+
+def equivalenceOfGrpdIso {C D : Grpd.{u,u}} (i : C ≅ D) : C ≌ D where
+  functor := i.hom
+  inverse := i.inv
+  unitIso := eqToIso i.hom_inv_id.symm
+  counitIso := eqToIso i.inv_hom_id
+  functor_unitIso_comp _ := by
+    simp only [eqToIso.hom, eqToHom_app, eqToHom_map, eqToHom_trans, eqToHom_refl]
 
 end SquareKit.Internal.PathTransport.CechMatching.Comprehension.Constant

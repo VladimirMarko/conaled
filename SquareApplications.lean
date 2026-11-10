@@ -2,6 +2,7 @@ import Examples.CechMatchingIdentity
 import Examples.GeneratedSelectedComparison
 import Examples.SmoothSelectedComparison
 import Examples.CechMatchingComprehension
+import Examples.GeneratedFamilyConstructors
 import SquareKit.SmoothQuotientCechGeneratedEmpty
 import SquareKit.SmoothQuotientCechGeneratedSubstitution
 import Examples.GeneratedRelativeMatching

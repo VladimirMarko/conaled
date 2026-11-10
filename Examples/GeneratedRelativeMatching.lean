@@ -1,4 +1,4 @@
-import SquareKit.SmoothQuotientCechGeneratedFamilyEvaluation
+import SquareKit.SmoothQuotientCechFamilyEvaluationRecovery
 
 /-! Independent relative matching recovers the supplied local generated fiber. -/
 noncomputable section

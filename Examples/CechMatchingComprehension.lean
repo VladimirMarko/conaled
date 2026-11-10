@@ -1,3 +1,4 @@
+import SquareKit.Internal.PathTransport.CechMatchingComprehensionDiscrete
 import SquareKit.Internal.PathTransport.CechMatchingComprehensionProducts
 import SquareKit.Internal.PathTransport.CechMatchingComprehensionSets
 import SquareKit.Internal.PathTransport.CechMatchingComprehensionIdentity
@@ -130,6 +131,12 @@ def agreeingRelative : Fiber twoPatch.toFamilyData twoPatchCoherence pointDatum 
   twoPatch.fromSet twoPatchCoherence pointDatum agreeingValues
 
 example : twoPatch.setEquiv twoPatchCoherence pointDatum agreeingRelative = agreeingValues :=
+  twoPatch.toSet_fromSet _ _ _
+
+/-- The categorical equivalence recovers the same supplied coherent patch values. -/
+example :
+    ((twoPatch.discreteEquivalence twoPatchCoherence pointDatum).functor.obj
+      agreeingRelative).as = agreeingValues :=
   twoPatch.toSet_fromSet _ _ _
 
 /-- Unequal local patch values fail the actual overlap equation. -/
