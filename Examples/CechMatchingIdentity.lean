@@ -1,3 +1,4 @@
+import SquareKit.Internal.PathTransport.CechMatchingContractible
 import SquareKit.Internal.PathTransport.CechMatchingComprehensionIdentity
 import SquareKit.Internal.PathTransport.CechMatchingConstant
 import Mathlib.CategoryTheory.SingleObj
@@ -62,5 +63,28 @@ example {D : StrictDiagram.{0,0}} {A : Comprehension.FamilyData D} {h : A.Cohere
       ((Comprehension.Identity.restrictionIso R X Y).inv.app b p) = p :=
   ConcreteCategory.congr_hom
     ((Comprehension.Identity.restrictionIso R X Y).inv_hom_id_app b) p
+
+local instance : Groupoid (Discrete PUnit.{1}) := Groupoid.ofIsGroupoid
+
+/-- Empty-context effectivity does not require unfolding the chosen functor. -/
+example (R : Discrete PUnit.{1} ⥤ Datum (constant (Grpd.of (Discrete PUnit.{1})))) :
+    R.IsEquivalence :=
+  restriction_equivalence_of_contractible R (Discrete.mk PUnit.unit)
+    (fun x y => eqToHom (Subsingleton.elim x y))
+    (fun _ _ => inferInstance)
+    (by
+      intro x y
+      change Discrete PUnit.{1} at x y
+      exact eqToHom (Subsingleton.elim x y))
+    (by
+      intro x y
+      change Discrete PUnit.{1} at x y
+      change Subsingleton (x ⟶ y)
+      infer_instance)
+    (by
+      intro x y
+      change Discrete PUnit.{1} at x y
+      change Subsingleton (x ⟶ y)
+      infer_instance)
 
 end Examples.CechMatchingIdentity

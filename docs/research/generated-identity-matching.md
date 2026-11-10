@@ -28,3 +28,12 @@ these selected arrows. The latter requires full faithfulness of relative
 restriction; this module does not assume or prove full generated effectivity.
 Checked generic consumers recover the entire supplied vertical path and its
 identity base action.
+
+`CechMatching.restriction_equivalence_of_contractible` supplies
+an empty-context helper without unfolding the restriction implementation. Its
+source is inhabited with exactly one arrow between each pair of objects;
+the local category has the same property, and the overlap category is thin.
+These hypotheses construct full faithfulness and essential surjectivity for
+any supplied restriction functor. A checked discrete-unit specialization uses
+an arbitrary such functor. This does not replace the unrestricted matching
+construction or impose thinness on nonempty generated contexts.
