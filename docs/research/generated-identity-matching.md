@@ -18,3 +18,13 @@ from reflexivity, recovery of arbitrary supplied local paths, and the general
 conjugation formula. The non-discrete example rules out interpreting identity
 as equality of endpoint objects. The module and examples pass focused checks
 at unchanged limits. Full #445 integration, audit and review remain pending.
+
+`CechMatchingComprehensionIdentity` supplies the dependent specialization.
+Its input is a local total arrow satisfying both the actual overlap square and
+identity action on the supplied base datum. `arrowEquiv` identifies this data
+with vertical arrows of the explicit relative matching groupoid. Its natural
+comparison, reindexing law, conjugation formula and `restrictionIso` retain
+these selected arrows. The latter requires full faithfulness of relative
+restriction; this module does not assume or prove full generated effectivity.
+Checked generic consumers recover the entire supplied vertical path and its
+identity base action.
