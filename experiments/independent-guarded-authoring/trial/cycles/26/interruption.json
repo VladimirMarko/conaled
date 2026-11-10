@@ -1,0 +1,20 @@
+{
+  "observed_at": "2026-11-10T00:28:32.387012+00:00",
+  "disposition": "interrupted; no completion receipt",
+  "exit_code": null,
+  "last_completed_compilation_step": 202,
+  "compilation_steps_total": 2256,
+  "evidence": [
+    "Tool session 46437 returns Unknown process id 46437.",
+    "Runner PID 426269 and checker PID 426372 are absent.",
+    "Original check-01.json has no exit_code, seconds or ended fields.",
+    "Retained log stops after compilation step 202, without a PASS or failed-command summary.",
+    "Candidate checkout is clean; .lake/verification.json is absent."
+  ],
+  "cause": "Unknown. Worker-idle process cleanup is a possibility raised by orchestration, not established by these observations.",
+  "full_fresh_invocations_consumed": 1,
+  "full_fresh_invocations_remaining": 1,
+  "next_invocation_started": false,
+  "original_metadata_sha256": "c931de4bddd790ce87500dcc12921513688ae15d5098aca88e87b942938452c2",
+  "retained_log_sha256": "6fdaa46d3b8d10ea6f6917598ed2c504c59c81451724a08d10fefa5e605323e2"
+}

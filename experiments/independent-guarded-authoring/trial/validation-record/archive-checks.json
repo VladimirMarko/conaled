@@ -1,0 +1,40 @@
+[
+  {
+    "name": "archive-whitespace",
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "exit_code": 2,
+    "output": "validation-record/archive-whitespace.txt"
+  },
+  {
+    "name": "authored-whitespace",
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--check",
+      "--",
+      "experiments/independent-guarded-authoring",
+      ":!experiments/independent-guarded-authoring/trial/cycles",
+      ":!experiments/independent-guarded-authoring/trial/inputs",
+      ":!experiments/independent-guarded-authoring/trial/phase1",
+      ":!experiments/independent-guarded-authoring/trial/validation-record/cycle27-runner-console.txt"
+    ],
+    "exit_code": 0,
+    "output": "validation-record/authored-whitespace.txt"
+  },
+  {
+    "name": "phase1-lock-and-bytes",
+    "result": "passed",
+    "definition": "Every original manifest entry, manifest digest and selected dossier digest checked against locked values."
+  },
+  {
+    "name": "raw-output-retention",
+    "result": "preserved",
+    "definition": "Full archive whitespace diagnostics concern unmodified compiler output and runner console; authored-file whitespace check passes. No raw evidence bytes were rewritten."
+  }
+]

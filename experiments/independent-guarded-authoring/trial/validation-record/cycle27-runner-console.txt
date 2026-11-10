@@ -1,0 +1,110 @@
+direnv: loading /tmp/conaled-108-independent/.envrc
+direnv: using flake
+direnv: nix-direnv: Using cached dev shell
+{"cycle": 27, "category": "validation", "purpose": "Full fresh build and exhaustive proof audit of exact isolated candidate; invocation 2 of 2; root-owned process", "command": ["taskset", "-c", "0,1", "./check.sh", "--candidate", "ec027e79f612ef1bf21c9968c91639dcfae0f554", "--fresh", "--jobs", "2"], "cwd": "/tmp/conaled-108-independent/experiments/independent-guarded-authoring/validation/checkout", "started": "2026-11-10T00:30:04.404972+00:00", "exit_code": 0, "seconds": 5266.132155822999, "ended": "2026-11-10T01:57:50.537696+00:00"}
+rongComposition: 6 logical declarations; 6 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.TwoStrongCongr: 4 logical declarations; 4 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.TwoStrongData: 2 logical declarations; 2 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.TwoStrongFaithful: 3 logical declarations; 3 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.TwoStrongInverse: 26 logical declarations; 24 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.TwoStrongInverseCancellation: 7 logical declarations; 7 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.TwoStrongInverseIdentity: 8 logical declarations; 8 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.TwoStrongInverseSubstitution: 3 logical declarations; 3 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.TwoStrongPrecomp: 6 logical declarations; 5 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.TwoStrongPrecomposition: 3 logical declarations; 3 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.TwoStrongReflect: 18 logical declarations; 16 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.TwoStrongTransport: 5 logical declarations; 3 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.Typed: 883 logical declarations; 487 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.PathTransport.UniversalTransfer: 31 logical declarations; 17 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.Comprehension: 147 logical declarations; 85 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.CoreTheory: 62 logical declarations; 19 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.FillingAlgebra: 28 logical declarations; 6 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.FillingEvaluation: 42 logical declarations; 40 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.FillingLiftEvaluation: 4 logical declarations; 3 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.FillingRestrictedEvaluation: 3 logical declarations; 3 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.FillingStructuralRules: 10 logical declarations; 10 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.FillingSubstitutionInputs: 2 logical declarations; 2 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.FillingSubstitutionSyntax: 23 logical declarations; 7 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.FillingSyntax: 125 logical declarations; 23 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.FillingTermEvaluation: 4 logical declarations; 4 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.FillingTheory: 72 logical declarations; 25 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.FillingValues: 24 logical declarations; 15 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.HcompEnvironment: 2 logical declarations; 1 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.HcompInputs: 1 logical declarations; 1 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.HcompRules: 3 logical declarations; 3 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.HcompSubstitutionRule: 1 logical declarations; 1 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.IntervalsAlgebra: 18 logical declarations; 8 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.IntervalsRules: 7 logical declarations; 7 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.IntervalsSyntax: 46 logical declarations; 8 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.IntervalsTheory: 56 logical declarations; 21 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.NaturalsAlgebra: 29 logical declarations; 12 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.NaturalsInputs: 7 logical declarations; 7 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.NaturalsRules: 20 logical declarations; 16 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.NaturalsSyntax: 74 logical declarations; 12 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.NaturalsTheory: 50 logical declarations; 14 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.PathsAlgebra: 29 logical declarations; 15 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.PathsInputs: 6 logical declarations; 6 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.PathsRules: 6 logical declarations; 6 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.PathsSubstitutionInputs: 3 logical declarations; 3 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.PathsSubstitutionRules: 4 logical declarations; 4 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.PathsSyntax: 69 logical declarations; 10 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.PathsTheory: 54 logical declarations; 19 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.ProductsAlgebra: 44 logical declarations; 22 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.ProductsInputs: 8 logical declarations; 8 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.ProductsRules: 14 logical declarations; 11 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.ProductsSyntax: 65 logical declarations; 10 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.ProductsTheory: 49 logical declarations; 16 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.Semantics: 22 logical declarations; 9 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.StructuralRules: 48 logical declarations; 28 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.SumsAlgebra: 25 logical declarations; 12 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.SumsRules: 8 logical declarations; 8 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.SumsSubstitutionRules: 13 logical declarations; 9 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.SumsSyntax: 60 logical declarations; 8 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.SumsTheory: 49 logical declarations; 13 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.TransportEnvironment: 2 logical declarations; 1 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.TransportInputs: 1 logical declarations; 1 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.TransportRules: 3 logical declarations; 3 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.Cubical.Judgments.TransportSubstitutionRule: 1 logical declarations; 1 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PrimitiveSigma.Capability: 60 logical declarations; 31 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PrimitiveSigma.Comparison: 12 logical declarations; 9 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PrimitiveSigma.ConstantContextual: 28 logical declarations; 12 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PrimitiveSigma.ConstantFamilies: 20 logical declarations; 15 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PrimitiveSigma.ConstantStable: 6 logical declarations; 5 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PrimitiveSigma.Maps: 57 logical declarations; 24 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PrimitiveSigma.Operations: 51 logical declarations; 21 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PrimitiveSigma.Pairing: 20 logical declarations; 15 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PrimitiveSigma.Recovery: 9 logical declarations; 6 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PrimitiveSigma.Reindexing: 82 logical declarations; 34 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PrimitiveSigma.Rules: 22 logical declarations; 17 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PrimitiveSigma.Separation: 18 logical declarations; 10 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PrimitiveSigma.Specification: 62 logical declarations; 42 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PrimitiveSigma.Stability: 51 logical declarations; 22 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PrimitiveSigma.Substitution: 10 logical declarations; 10 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PrimitiveSigma.Syntax: 58 logical declarations; 8 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.PrimitiveSigma.Theory: 46 logical declarations; 10 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Authoring: 67 logical declarations; 54 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Capability: 30 logical declarations; 14 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Composition: 23 logical declarations; 9 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.DerivedEliminationLaws: 69 logical declarations; 62 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Maps: 40 logical declarations; 22 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Native: 56 logical declarations; 24 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Operations: 48 logical declarations; 20 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.PairStability: 5 logical declarations; 4 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Pairing: 20 logical declarations; 15 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Recovery: 6 logical declarations; 4 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.ReindexAuthoring: 233 logical declarations; 186 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Reindexing: 98 logical declarations; 40 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Rejection: 22 logical declarations; 14 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Rules: 19 logical declarations; 15 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.SourceMaps: 118 logical declarations; 53 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Stability: 36 logical declarations; 21 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Substitution: 17 logical declarations; 17 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Syntax: 61 logical declarations; 8 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Internal.DependentJudgments.Sigma.Theory: 55 logical declarations; 13 theorem declarations; 0 unsafe runtime declarations
+Excluded from logical roots: 0 kernel-unsafe runtime declarations.
+Transitive axiom union: [propext, Classical.choice, Quot.sound]
+Proof audit PASSED: every kernel-safe project declaration uses only the three permitted foundational axioms.
+Proof audit: 39.71s
+Candidate ec027e79f612ef1bf21c9968c91639dcfae0f554 recorded in .lake/verification.json.
+PASS: all 2257 modules checked; exhaustive axiom audit passed. Total: 5266.05s
+

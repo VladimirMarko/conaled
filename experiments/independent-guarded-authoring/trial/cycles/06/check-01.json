@@ -1,0 +1,17 @@
+{
+  "cycle": 6,
+  "category": "dependency investigation",
+  "purpose": "Inspect nil-tail J substitution and source frame equations",
+  "command": [
+    "rg",
+    "-n",
+    "def |theorem |abbrev ",
+    "SquareKit/Internal/DependentJudgments/NilReindexRules.lean",
+    "SquareKit/Internal/DependentJudgments/DerivedReindexing.lean",
+    "SquareKit/Internal/DependentJudgments/TransportReindexing.lean"
+  ],
+  "started": "2026-11-09T21:28:23.236481+00:00",
+  "exit_code": 0,
+  "seconds": 0.02391761199942266,
+  "ended": "2026-11-09T21:28:23.260477+00:00"
+}
