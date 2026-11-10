@@ -5,6 +5,11 @@ import SquareKit.SmoothQuotientCechGlobalMatching
 import SquareKit.SmoothQuotientCechBaseEffectivity
 import SquareKit.SmoothQuotientCechGeneratedEffectivity
 import SquareKit.SmoothQuotientCechGeneratedEmpty
+import SquareKit.SmoothQuotientCechIdentityEvaluation
+import SquareKit.SmoothQuotientCechTermEvaluation
+import SquareKit.SmoothQuotientGeneratedIdentityMatching
+import SquareKit.SmoothQuotientGeneratedIdentityPaths
+import SquareKit.SmoothQuotientCechBaseTermEvaluation
 import SquareKit.Internal.PathTransport.GeneratedPrimitiveFiber
 import SquareKit.SmoothQuotientComparison
 
@@ -105,5 +110,38 @@ example (A : SplitSheaf.Ty X)
     (c : (show Grpd.{1,1} from γ (SmoothQuotientCechLocal.model a A))) :
     ((SmoothQuotientCechGlobal.matchingComparison a A hΓ).hom.app c).localArrow =
       (SmoothQuotientCechGlobal.restrictionComparison a A hΓ).hom.app c := rfl
+/-- Matching an identity type keeps the supplied local identity arrow. -/
+example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
+    (hx : Typed.TmDeriv.{2} Γ γ B b x ξ) (hy : Typed.TmDeriv.{2} Γ γ B b y η)
+    (A : SplitSheaf.Ty X) (d : SmoothQuotientGeneratedMatching.Datum a hΓ A)
+    (z : (SmoothQuotientGeneratedMatching.relativeMatchingFamily a hΓ
+      (.identity hB hx hy) A).obj d) :
+    HEq (((SmoothQuotientGeneratedMatching.identityMatchingEquivalence a hΓ hB hx hy A d).functor.obj z).as.val)
+      z.localFiber.as :=
+  SmoothQuotientGeneratedMatching.identityMatchingEquivalence_value a hΓ hB hx hy A d z
+
+/-- The endpoint recovery is available for any generated section and source context. -/
+example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
+    (hx : Typed.TmDeriv.{2} Γ γ B b x ξ) (A : SplitSheaf.Ty X)
+    (c : (show Grpd.{1,1} from γ (SmoothQuotientCechLocal.model a A))) :=
+  (SmoothQuotientCechLocal.familyEvaluation_termComparison a A hΓ hB hx).endpoint c
+
+/-- An independently supplied compatible identity arrow becomes precisely its
+included local arrow in matching; it need not be reflexivity. -/
+example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
+    (hx : Typed.TmDeriv.{2} Γ γ B b x ξ) (hy : Typed.TmDeriv.{2} Γ γ B b y η)
+    (A : SplitSheaf.Ty X) (d : SmoothQuotientGeneratedMatching.Datum a hΓ A)
+    (p : (SmoothQuotientGeneratedMatching.identitySetData a hΓ hB hx hy A).MatchingSet d) :=
+  SmoothQuotientGeneratedMatching.identityDatumArrowEquiv_local a hΓ hB hx hy A d p
+
+/-- Actual identity evaluation needs only full faithfulness of the underlying
+family evaluation, including all its nonidentity arrows. -/
+example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
+    (hx : Typed.TmDeriv.{2} Γ γ B b x ξ) (hy : Typed.TmDeriv.{2} Γ γ B b y η)
+    (A : SplitSheaf.Ty X) (c : (show Grpd.{1,1} from γ (SmoothQuotientCechLocal.model a A)))
+    [ (SmoothQuotientCechLocal.familyEvaluation a A hΓ hB c).Full]
+    [ (SmoothQuotientCechLocal.familyEvaluation a A hΓ hB c).Faithful] :
+    (SmoothQuotientCechLocal.familyEvaluation a A hΓ (.identity hB hx hy) c).IsEquivalence :=
+  SmoothQuotientCechLocal.identityEvaluation_isEquivalence a A hΓ hB hx hy c
 
 end Examples.GeneratedFamilyConstructors

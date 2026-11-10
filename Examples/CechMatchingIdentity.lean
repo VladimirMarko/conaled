@@ -1,9 +1,9 @@
 import SquareKit.Internal.PathTransport.GrothendieckProjectionLifts
-import SquareKit.Internal.PathTransport.Authoring
-import SquareKit.Internal.PathTransport.GeneratedIdentityFamilyMap
 import SquareKit.Internal.PathTransport.GroupoidFiberEssential
 import SquareKit.Internal.PathTransport.GroupoidFiberFull
 import SquareKit.Internal.PathTransport.GroupoidFiberFaithful
+import SquareKit.Internal.PathTransport.Authoring
+import SquareKit.Internal.PathTransport.GeneratedIdentityFamilyMap
 import SquareKit.Internal.PathTransport.CechMatchingConeMap
 import SquareKit.Internal.PathTransport.CechMatchingAsSmall
 import SquareKit.Internal.PathTransport.CechMatchingContractible
@@ -128,6 +128,35 @@ example {D : StrictDiagram.{0,0}} {B : Type} [Category B]
   ext b
   simp [StrictMap.id]
 
+/-- Vertical-kernel detection applies with a nonfaithful projection to a point. -/
+example : (𝟭 Loops).Faithful :=
+  GroupoidFiberFaithful.faithful_of_vertical_kernel (𝟭 Loops)
+    ((CategoryTheory.Functor.const Loops).obj (Discrete.mk PUnit.unit))
+    ((CategoryTheory.Functor.const Loops).obj (Discrete.mk PUnit.unit))
+    (𝟭 (Discrete PUnit.{1})) rfl (fun _ _ _ h => h)
+
+/-- Fullness retains arbitrary integer loops over the point projection. -/
+example : (𝟭 Loops).Full :=
+  GroupoidFiberFull.full_of_vertical (𝟭 Loops)
+    ((CategoryTheory.Functor.const Loops).obj (Discrete.mk PUnit.unit))
+    ((CategoryTheory.Functor.const Loops).obj (Discrete.mk PUnit.unit))
+    (𝟭 (Discrete PUnit.{1})) rfl
+    (fun x _ _ => ⟨x, Iso.refl x, rfl, Subsingleton.elim _ _⟩)
+    (fun _ _ _ p _ => ⟨p,rfl⟩)
+
+/-- Target transport to the base image suffices without chosen object equality. -/
+example : (𝟭 Loops).EssSurj :=
+  GroupoidFiberEssential.essSurj_of_fibers (𝟭 Loops)
+    ((CategoryTheory.Functor.const Loops).obj (Discrete.mk PUnit.unit))
+    (𝟭 (Discrete PUnit.{1}))
+    (fun y _b _ => ⟨y, Subsingleton.elim _ _, ⟨Iso.refl y⟩⟩)
+    (fun _ z _ => ⟨z, ⟨Iso.refl z⟩⟩)
+
+/-- Lifting a selected integer loop retains its base label for any fiber family. -/
+example (F : Loops ⥤ Cat.{0,0}) (x : F.obj star) :
+    ∃ (z : Grothendieck F) (e : (⟨star,x⟩ : Grothendieck F) ≅ z)
+      (h : z.base = star), e.hom.base ≫ eqToHom h = loop :=
+  GrothendieckProjectionLifts.lift_base F ⟨star,x⟩ ⟨star,x⟩ loop
 /-- The extracted constructor formula applies to a checked open identity type. -/
 example (S : GroupoidModel.Comparison.Signature.{0}) := GroupoidModel.Comparison.generatedFamilyMap_identityType S
   Typed.Authoring.CongruenceCaller.context Typed.Authoring.CongruenceCaller.base
