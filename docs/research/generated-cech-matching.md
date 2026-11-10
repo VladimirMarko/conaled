@@ -327,3 +327,16 @@ stronger statement. The base-term module, primitive effectivity module and
 consumer pass focused Lean checks at default limits. Other constructors,
 telescope closure and complete direct-restriction/section descent remain
 separate obligations.
+
+
+`SmoothQuotientCechGlobalEquivalence` composes the independent primitive Čech
+presentation equivalence with quotient descent and its natural deformation
+comparison. It yields a generated context equivalence for every derivation,
+under the existing local-surjectivity assumption. `localComparison` keeps the
+selected descent recovery arrow, and `localComparison_square` recovers each
+supplied deformation through that arrow. `contextLocalComparison` lifts this
+square to generated contexts. The base-binder consumer retains the full
+quotient groupoid, including its nonidentity arrows. These results identify
+the two source interpretations; the comparison with the canonical matching
+restriction functor and its overlap square are still to be proved. They do
+not by themselves establish generated matching effectivity.

@@ -1,4 +1,5 @@
 import SquareKit.SmoothQuotientCechPrimitiveEffectivity
+import SquareKit.SmoothQuotientCechGlobalEquivalence
 import SquareKit.Internal.PathTransport.GeneratedPrimitiveFiber
 import SquareKit.SmoothQuotientComparison
 
@@ -67,5 +68,12 @@ example (A : SplitSheaf.Ty X) (hΓ : Typed.CtxDeriv.{2} Γ γ)
     (c : (show Grpd.{1,1} from γ (SmoothQuotientCechLocal.model a A))) :
     (SmoothQuotientCechLocal.familyEvaluation a A hΓ (.fiber hx) c).IsEquivalence :=
   SmoothQuotientCechLocal.primitiveEvaluation_isEquivalence a A hΓ hx c
+
+/-- A base binder retains the full quotient groupoid under global recovery. -/
+example (A : SplitSheaf.Ty X)
+    [Presheaf.IsLocallySurjective topology (SplitSheaf.p A).hom]
+    (hΓ : Typed.CtxDeriv.{2} Γ γ) :
+    (generatedContextMap (SmoothQuotientCechGlobal.signature a A) (.ext hΓ (.base hΓ))).IsEquivalence :=
+  (SmoothQuotientCechGlobal.contextEquivalence a A (.ext hΓ (.base hΓ))).isEquivalence_functor
 
 end Examples.GeneratedFamilyConstructors
