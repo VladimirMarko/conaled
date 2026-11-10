@@ -81,3 +81,8 @@ has a source preimage. Factoring by the selected lift leaves a vertical arrow.
 The complete square controls the equality transports; the theorem does not
 assert that extracted fiber functors commute strictly with base transport.
 The point-projection example retains arbitrary integer-loop arrows.
+
+`GroupoidFiberEssential.essSurj_of_fibers` isolates the essential-surjectivity
+step: lift a target along a base isomorphism into a fiber over the base functor's
+image, then use that fiber's essential-image witness. The hypotheses retain the
+chosen isomorphisms and impose no equality between object representatives.
