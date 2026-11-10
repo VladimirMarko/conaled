@@ -52,3 +52,9 @@ after the explicit first/second/local comparison transports. Neither effectivity
 nor faithfulness is a premise. An identity-diagram specialization retains an
 arbitrary coherent selected overlap; generated substitution uses the same
 interface with its separately constructed comparison square.
+
+`transportedOverlap_of_square` converts the endpoint-square equation into
+that normalized overlap equality. Its hypotheses retain both endpoint
+equalities and the full natural-isomorphism square; proof irrelevance only
+normalizes equality transports. The checked identity-map case allows an
+arbitrary overlap, so no identity-overlap premise is hidden in the adapter.

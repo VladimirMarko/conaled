@@ -113,4 +113,13 @@ example {D : StrictDiagram.{0,0}} {B : Type} [Category B]
   ext b
   simp [ConeMap.transportedOverlap, ConeMap.mappedOverlap, StrictMap.id]
 
+/-- An endpoint square normalizes without requiring the overlap to be an identity. -/
+example {D : StrictDiagram.{0,0}} {B : Type} [Category B]
+    (L : B ⥤ D.localCategory) (η : L ⋙ D.first ≅ L ⋙ D.second) :
+    ConeMap.transportedOverlap (StrictMap.id D) L L (𝟭 B) η rfl =
+      CategoryTheory.Functor.isoWhiskerLeft (𝟭 B) η := by
+  apply ConeMap.transportedOverlap_of_square (StrictMap.id D) L L (𝟭 B) η η rfl rfl rfl
+  ext b
+  simp [StrictMap.id]
+
 end Examples.CechMatchingIdentity
