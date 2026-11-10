@@ -132,22 +132,27 @@ reconciliation remains part of the capability audit. Check each source contract
 against current code before implementing, and record retained equivalents as
 such rather than duplicating them.
 
-| Family | Current reuse and outstanding distinction |
-|---|---|
-| LIST-COST | ListExecution/ListAppend/ListFusion and Growth exist; reconcile exact best/worst witnesses and uniform concatenation bounds. |
-| DEMAND | CollapseDemand, Progress and partial-spine observations exist; preserve actual cache transitions, ordered requests and charged consumption. |
-| CONTEXT-LISTS | Finite lists, accumulation and permutations exist; reconcile delayed callbacks, outer construction and complete payload observation. |
-| CONCAT-HEAD | Partial concat and collapse owners exist; connect deferred append histories, early head consumption and finite/partial negative cases. |
-| PRUNE | SuffixTrim is an element-predicate operation; whole-list predicate trim/prune, closure premises and exact squared-potential costs need separate reconciliation. |
-| ARRAY / ARRAY-EAGER | Fixed-capacity buffers and store updates exist; resizing policies, full copy windows, arbitrary trace prices and policy-specific potential laws remain. |
-| DIGIT | Search and finite-sum foundations exist; actual first-hit cost, ordered population and the corrected finite-uniform expectation remain. |
-| COUNTER | BinaryCounter already owns value/representation/workload/potential laws; independent geometric derivation, observed-state indexing and token-output costs remain. |
-| REUSE | Reconcile Timing/Amortized source rows to existing generic execution and counter owners; do not create another executor, potential or counter theory. |
-| SELECTION-COST | Pure occurrences/permutations exist; actual measured removal/selection generation and exact pair correspondence remain. |
-| INSERTION-COST | Pure insertion order exists; delayed construction, forcing, outer count and complete observation costs remain. |
-| PERMUTATION-GROWTH | Finite sums/growth exist; derive growth from the actual measured generators and specified observers, retaining finite exact identities. |
+These descriptive subjects are used for maintained work. The archive labels
+are the external agent’s private planning identifiers, sometimes prefixed
+`CH02-`; they are not conaled naming conventions or established textbook terms.
+They are retained here only to locate historical drafts.
 
-A useful implementation sequence is to reconcile LIST-COST first, then choose
+| Subject | Historical planning label | Current reuse and outstanding distinction |
+|---|---|---|
+| List costs and concatenation bounds | `LIST-COST` | ListExecution/ListAppend/ListFusion and Growth exist; reconcile exact best/worst witnesses and uniform concatenation bounds. |
+| Composition and demand | `DEMAND` | CollapseDemand, Progress and partial-spine observations exist; preserve actual cache transitions, ordered requests and charged consumption. |
+| Delayed list construction | `CONTEXT-LISTS` | Finite lists, accumulation and permutations exist; reconcile delayed callbacks, outer construction and complete payload observation. |
+| Head of concatenation | `CONCAT-HEAD` | Partial concat and collapse owners exist; connect deferred append histories, early head consumption and finite/partial negative cases. |
+| List-predicate trim and prune | `PRUNE` | SuffixTrim is an element-predicate operation; whole-list predicate trim/prune, closure premises and exact squared-potential costs need separate reconciliation. |
+| Literal and eager dynamic arrays | `ARRAY / ARRAY-EAGER` | Fixed-capacity buffers and store updates exist; resizing policies, full copy windows, arbitrary trace prices and policy-specific potential laws remain. |
+| Digit search and finite averages | `DIGIT` | Search and finite-sum foundations exist; actual first-hit cost, ordered population and the corrected finite-uniform expectation remain. |
+| Counter geometry and output | `COUNTER` | BinaryCounter already owns value/representation/workload/potential laws; independent geometric derivation, observed-state indexing and token-output costs remain. |
+| Existing execution and counter contracts | `REUSE` | Reconcile Timing/Amortized source rows to existing generic execution and counter owners; do not create another executor, potential or counter theory. |
+| Selection-based permutation costs | `SELECTION-COST` | Pure occurrences/permutations exist; actual measured removal/selection generation and exact pair correspondence remain. |
+| Insertion-based permutation costs | `INSERTION-COST` | Pure insertion order exists; delayed construction, forcing, outer count and complete observation costs remain. |
+| Permutation growth bounds | `PERMUTATION-GROWTH` | Finite sums/growth exist; derive growth from the actual measured generators and specified observers, retaining finite exact identities. |
+
+A useful implementation sequence is to reconcile list costs and concatenation bounds first, then choose
 bounded demand or array work according to an actual consumer. The shared
 varying-callback mapper needed by selection, insertion and counter output
 should have one owner. This is a dependency recommendation, not the abandoned

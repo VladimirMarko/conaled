@@ -118,7 +118,7 @@ executes. Value equality of prune and trim does not imply equal costs.
 
 ## Dynamic front arrays: literal and eager resizing
 
-Recovered sources: `DynamicArray`, `DynamicArrayEager`; latest ARRAY/EAGER drafts
+Recovered sources: `DynamicArray`, `DynamicArrayEager`; latest literal/eager array drafts
 and their independent design challenges.
 
 Use a common storage/event owner and distinct insertion policies. Existing
@@ -193,12 +193,12 @@ an arbitrary input distribution.
 
 ## Counter geometry and output
 
-Recovered sources: `CounterGeometric`, `CounterOutput`; latest COUNTER draft,
+Recovered sources: `CounterGeometric`, `CounterOutput`; latest counter draft,
 independent challenge, and `chapter02-reuse-author-candidate-r2.md`.
 
 The existing `Resources.BinaryCounter`, workload and potential owners already
 supply increment, finite prefixes, representation bridges, measured execution
-and potential bounds. The REUSE research identifies correspondence obligations;
+and potential bounds. The execution and counter reuse research identifies correspondence obligations;
 it does not justify copying those APIs. Keep all Boolean representations where
 the source allows them. Canonicality is a separate conditional invariant.
 An encountered malformed integer digit differs from an untouched malformed
@@ -232,7 +232,8 @@ absent from the supplied source archive. Its old acceptance label is not evidenc
 
 ## Permutation execution, forcing and growth
 
-Recovered drafts: SELECTION-COST, INSERTION-COST and PERMUTATION-GROWTH, with
+Recovered drafts: selection-based costs, insertion-based costs and permutation
+growth, with
 independent design challenges and latest author candidates.
 
 Reuse `Sequences.Occurrences` and `Sequences.Permutations`. Keep positional
@@ -264,7 +265,8 @@ cannot silently be generalized to noncommutative traces.
 
 ## Already integrated numerical research
 
-The recovered EXACT, SUMS, DISCRETE, GROWTH and RECURRENCES drafts overlap the
+The recovered exact-arithmetic, finite-sum, discrete-estimate, growth and
+recurrence drafts overlap the
 maintained [exact arithmetic](adwh-exact-arithmetic.md),
 [finite sums](adwh-finite-sums.md), [discrete estimates](adwh-discrete-estimates.md),
 [growth](adwh-resource-growth.md), and [recurrence](adwh-recurrences.md) notes.
