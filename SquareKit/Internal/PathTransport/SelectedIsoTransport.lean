@@ -50,4 +50,19 @@ theorem tripleRelabel {A₁ A₂ B₁ B₂ C₁ C₂ X₁ X₂ Y₁ Y₂ Z₁ Z�
   subst X₁; subst X₂; subst Y₁; subst Y₂; subst Z₁; subst Z₂
   simpa using h
 
+/-- The final Čech comparison is conventionally oriented from 13 to 23. -/
+theorem tripleRelabelForward {A₁ A₂ B₁ B₂ C₁ C₂ X₁ X₂ Y₁ Y₂ Z₁ Z₂ : C}
+    (a : A₁ ≅ A₂) (b : B₁ ≅ B₂) (c : C₁ ≅ C₂)
+    (p₁ : X₁ = A₁) (p₂ : X₂ = A₂) (q₁ : Y₁ = B₁) (q₂ : Y₂ = B₂)
+    (r₁ : Z₁ = C₁) (r₂ : Z₂ = C₂)
+    (hm : A₂ = B₁) (hf : A₁ = C₁) (hl : B₂ = C₂)
+    (em : X₂ = Y₁) (ef : X₁ = Z₁) (el : Z₂ = Y₂)
+    (h : a ≪≫ eqToIso hm ≪≫ b = eqToIso hf ≪≫ c ≪≫ (eqToIso hl).symm) :
+    (eqToIso p₁ ≪≫ a ≪≫ (eqToIso p₂).symm) ≪≫ eqToIso em ≪≫
+      (eqToIso q₁ ≪≫ b ≪≫ (eqToIso q₂).symm) =
+    eqToIso ef ≪≫ (eqToIso r₁ ≪≫ c ≪≫ (eqToIso r₂).symm) ≪≫ eqToIso el := by
+  subst X₁; subst X₂; subst Y₁; subst Y₂; subst Z₁; subst Z₂
+  cases hl
+  simpa using h
+
 end SquareKit.Internal.PathTransport
