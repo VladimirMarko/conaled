@@ -1,3 +1,4 @@
+import SquareKit.SmoothQuotientCechBaseTermEvaluation
 import SquareKit.Internal.PathTransport.GeneratedPrimitiveFiber
 import SquareKit.SmoothQuotientComparison
 
@@ -34,5 +35,21 @@ example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hΔ : Typed.CtxDeriv.{2} Δ δ)
         eqToHom (congrArg (· ⋙ (show (show Grpd.{1,1} from γ R) ⥤ Grpd.{1,1} from b R))
           (generatedSubstitution_commutes S hΓ hΔ hs)) :=
   generatedFamilyMap_sub S hΓ hΔ hB hs
+
+/-- Independent primitive matching recovers an arbitrary supplied local value. -/
+example (hΓ : Typed.CtxDeriv.{2} Γ γ)
+    (hx : Typed.TmDeriv.{2} Γ γ .base (Typed.baseCode γ) x ξ)
+    (A : SplitSheaf.Ty X) (d : SmoothQuotientGeneratedMatching.Datum a hΓ A)
+    (z : (SmoothQuotientGeneratedMatching.relativeMatchingFamily a hΓ (.fiber hx) A).obj d) :
+    HEq (((SmoothQuotientGeneratedMatching.primitiveCoefficientMatchingEquivalence a hΓ hx A d).functor.obj z).as.val)
+      z.localFiber.as :=
+  SmoothQuotientGeneratedMatching.primitiveCoefficientMatchingEquivalence_value a hΓ hx A d z
+
+/-- Forgetting universe wrappers retains the supplied matching deformation. -/
+example (A : SplitSheaf.Ty X)
+    (d : CechMatching.Datum (SmoothQuotientGeneratedMatching.baseDiagram a A).toDiagram)
+    (z : (SmoothQuotientGeneratedMatching.primitiveCoefficientValues a A).obj d) :
+    (SmoothQuotientGeneratedMatching.coefficientValueEquiv a A d z).down.val = z.val.down :=
+  SmoothQuotientGeneratedMatching.coefficientValueEquiv_value a A d z
 
 end Examples.GeneratedFamilyConstructors
