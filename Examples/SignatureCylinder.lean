@@ -1,4 +1,6 @@
-import SquareKit.Internal.PathTransport.GeneratedCylinder
+import SquareKit.Internal.PathTransport.GeneratedCylinderTerms
+import SquareKit.Internal.PathTransport.GeneratedCylinderContraction
+import Examples.SignatureInterpretationMaps
 import SquareKit.Internal.PathTransport.SelectedLiftIso
 import Mathlib.CategoryTheory.CodiscreteCategory
 
@@ -57,5 +59,22 @@ example : (Comparison.SignatureCylinder.evaluation left).map
     ((Comparison.SignatureCylinder.endpointIso left comparison).hom.app (Discrete.mk PUnit.unit)) =
       comparison.hom.app (Discrete.mk PUnit.unit) :=
   Comparison.SignatureCylinder.endpointIso_evaluation left comparison _
+
+/-- The chosen comparison respects the selected counit for a two-binder
+root/tail contraction whose second binder depends on the first. -/
+def dependentCounit := Comparison.SignatureCylinder.contextComparison_rootTail_counit
+  left before comparison after alpha beta rfl
+  SignatureInterpretationMaps.DependentTail.context
+  (.base SignatureInterpretationMaps.DependentTail.context)
+  SignatureInterpretationMaps.DependentTail.point.deriv
+  SignatureInterpretationMaps.DependentTail.tail
+
+/-- The actual generic contextual-J section commutes with the selected
+comparison; the term is produced by the existing path-command authoring API. -/
+def dependentJ := Comparison.SignatureCylinder.contextComparison_section
+  left before comparison after alpha beta rfl
+  SignatureInterpretationMaps.DependentTail.withFiber
+  SignatureInterpretationMaps.DependentTail.command.motive.typing
+  SignatureInterpretationMaps.DependentTail.generic
 
 end Examples.SignatureCylinder

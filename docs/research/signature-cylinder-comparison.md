@@ -41,26 +41,40 @@ uses that transformation's naturality. The example's unequal base functors
 and noninjective fiber map establish that the input contract does not silently
 require equivalence of the compared signatures.
 
-Focused Lean checks pass for the three new library modules and the example.
+Focused Lean checks pass for the cylinder, generated substitution/family/section,
+selected contraction/counit modules and the dependent-J example. The actual
+smooth base-change context and family comparisons also check against
+`Descent.baseChangeComparison` and `CocycleDatum.fiberBaseChange_square`.
 The generated dependency build passed (872 jobs). The focused axiom inspection
 covers the public context comparison, primitive recovery, lifting composition
 and example results. Full integrated fresh build, exhaustive audit and
 independent review remain owned by the parent orchestration.
 
+## Generated preservation checkpoint
+
+`contextComparison_substitution` proves an isomorphism-valued square with the
+existing strict generated substitution maps for every supported substitution.
+`familyComparison` extracts a dependent family modification from the actual
+comprehension comparison: its base is the selected context component and its
+fiber naturality is proved using total-category naturality. It does not assume
+faithfulness of the compared maps.
+
+`contextComparison_section` uses the generated pairing substitution for the
+actual term section. It therefore covers the existing contextual-J interpreter.
+`generatedRootTail_square` identifies the native root/tail contractions at both
+direct endpoints, including their chosen inverse functors and counits.
+`contextComparison_rootTail_counit` derives the external chosen-counit square
+from the root substitution square. The example specializes both results to an
+existing path command with two tail binders, the second depending on the first.
+These conclusions require only the primitive square; no generated contraction,
+counit, or J compatibility is supplied by a caller.
+
 ## Remaining #446 work
 
-- Prove generated substitution coherence for the selected lifted components
-  by faithfulness of generated projection; include root and finite-tail maps.
-- Extract coherent fiber-component natural isomorphisms from comparison of
-  comprehension, retaining compatibility with the selected base component.
-- Prove section/term coherence, and actual contraction, selected-counit and
-  compared-branch compatibility. Derive the isomorphism-valued J square.
-  Existing strict J preservation is used inside generated composition, but
-  this checkpoint does not itself prove the requested external J square.
 - Connect vertical composition and horizontal whiskering of primitive squares
   to the generated comparisons, including explicit endpoint transports.
-- Apply to `Descent.baseChangeComparison` and the deformation fiber square,
-  then retain parameter identity/composition, the unchanged source wrapper,
-  C4 arrows, dependent-J caller, and classical/ineffective consumers.
+- Connect the checked smooth comparison to composed signatures and
+  retain parameter identity/composition, the unchanged source wrapper,
+  C4 arrows, and classical/ineffective consumers.
 - Retain rejection of incoherent objectwise choices, and complete fresh
   acceptance and independent review together with #445/#447/#433.
