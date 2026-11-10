@@ -68,6 +68,29 @@ exercise generated effective descent on a nontrivial torsor. The primitive
 nontrivial torsor and ineffective-action cases remain in
 `Examples.CechDeformationDescent` and `Examples.CechOverlapRejection`.
 
+## Relative matching fibers
+
+`GroupoidFiberDecomposition` constructs a natural groupoid-valued fiber family
+for any groupoid functor. A fiber object contains a domain object and a selected
+base arrow. Fiber morphisms satisfy the corresponding square. Its total category
+is equivalent to the domain, with a natural comparison of base projections.
+`SmoothQuotientGeneratedMatchingFibers` applies this construction to the actual
+matching projection of a generated comprehension. No cover hypothesis is needed.
+
+This is a homotopy-fiber decomposition of independent local matching data. It
+does not identify those fibers with generated type semantics and therefore does
+not prove effective descent. `CechMatchingSetFamily` separately specifies local
+values satisfying an equation along the supplied overlap arrow and proves their
+naturality under all matching-context arrows. Neither construction assumes that
+local data extend globally.
+
+Statement review: the fiber projection comparison retains the supplied base
+isomorphism; the full and faithful total forgetful functor retains every domain
+arrow. `Examples.GeneratedMatchingFibers` checks the construction on an integer
+loop groupoid and the set-family matching equation on identity displays. These
+checks supplement, but do not replace, the dependent-tail effectiveness cases
+still required below.
+
 ## Work remaining for #445
 
 - Identify matching data for a generated comprehension with a base datum and

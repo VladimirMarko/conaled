@@ -614,3 +614,7 @@ import Examples.GeneratedCechMatching
 import Examples.GeneratedMatchingMaps
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
+
+import SquareKit.SmoothQuotientGeneratedMatchingFibers
+import SquareKit.Internal.PathTransport.CechMatchingSetFamily
+import Examples.GeneratedMatchingFibers
