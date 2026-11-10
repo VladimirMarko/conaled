@@ -375,3 +375,26 @@ consumer pass focused Lean checks at default limits. Arbitrary type and
 context/telescope induction, followed by complete section specialization,
 remain the final closure obligations; this checkpoint does not claim their
 completion.
+
+## Derivation presentation and family induction
+
+`GeneratedDerivationInvariance` proves that the normalized generated context and
+family maps depend on their interpreted codes, independently of which typing
+derivation presents those codes. Its selected comparison theorem also preserves
+the cylinder comparison itself. `SmoothQuotientCechDerivationInvariance` carries
+this equality through the strict diagram, selected overlap, matching evaluation,
+and relative total evaluation. The resulting `familyEvaluation_derivation_iff`
+transfers effectiveness between presentations of the same typed family.
+`CechMatchingPresentation` supplies the dependent equality adapters used here;
+it assumes equality of the diagrams or family data and heterogeneous equality
+of the actual maps, rather than an equivalence of their matching categories.
+
+`TypedContexts` recovers context witnesses from supplied type, term, and
+substitution derivations. It includes contextual J, reindexed branches, and
+path-tail substitutions. These witnesses let the family induction apply its
+recursive hypothesis at the source of an arbitrary substitution.
+
+Statement review: the presentation adapters retain the selected overlap, not
+just its endpoints or isomorphism class. Their conclusions compare the actual
+evaluation functors. They introduce no effectivity premise and do not replace
+the independent relative matching groupoid with a source fiber.
