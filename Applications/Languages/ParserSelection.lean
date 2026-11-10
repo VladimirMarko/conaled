@@ -207,8 +207,8 @@ theorem chosen_minimal {d v w t req p objective c}
 theorem choose_none_iff (d v w t req p objective) :
     choose d v w t req p objective = none ↔
       ∀ c ∈ catalog, ¬ Feasible req (profile d v w t c) p := by
-  simp [choose, select, Optimization.Thinning.argmin_eq_none_iff,
-    List.filter_eq_nil_iff]
+  exact Optimization.Choice.select_none_iff catalog
+    (fun c => Feasible req (profile d v w t c) p) objective
 
 /-- Exact batch tariff; future words are explicitly present in offline input. -/
 def batchCost (t : Tariff) (r : Run) : Nat :=

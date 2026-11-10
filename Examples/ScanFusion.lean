@@ -94,10 +94,48 @@ theorem prefix_decimal :
   rw [scanl_prefix_values]
   rfl
 
+theorem source_inits :
+    ([1, 2, 3] : List Nat).inits = [[], [1], [1, 2], [1, 2, 3]] :=
+  (inits_eq_range_take _).trans (by rfl)
+
+theorem source_tails :
+    ([1, 2, 3] : List Nat).tails = [[1, 2, 3], [2, 3], [3], []] :=
+  (tails_eq_range_drop _).trans (by rfl)
+
+/-- Literal prefix folds retain a nonidentity seed and decimal digit order. -/
+theorem prefix_decimal_seed :
+    ([2, 7] : List Nat).inits.map (List.foldl (fun n d => 10 * n + d) 5) =
+      [5, 52, 527] :=
+  (foldl_inits_eq_scanl _ _ _).trans (by rfl)
+
+/-- Elements and accumulator states can have different types. -/
+theorem prefix_ordered_accumulator :
+    ([2, 7] : List Nat).inits.map (List.foldl (fun acc x => acc ++ [x]) [9]) =
+      [[9], [9, 2], [9, 2, 7]] :=
+  (foldl_inits_eq_scanl _ _ _).trans (by rfl)
+
 /-- Odd states are discarded; all states reached by `doubleStep` from zero are even. -/
 def replaceOdd (x : Int) : Int := if x % 2 = 0 then x else 0
 
 def doubleStep (x y : Int) : Int := 2 * x + y
+
+/-- The fold's independent arithmetic meaning includes negative integers. -/
+theorem doubleStep_foldr (xs : List Int) :
+    xs.foldr doubleStep 0 = 2 * xs.sum := by
+  induction xs with
+  | nil => rfl
+  | cons x xs ih =>
+      rw [List.foldr_cons, List.sum_cons]
+      change 2 * x + xs.foldr doubleStep 0 = 2 * (x + xs.sum)
+      rw [ih, Int.mul_add]
+
+theorem doubleStep_foldr_even (xs : List Int) : (xs.foldr doubleStep 0) % 2 = 0 := by
+  rw [doubleStep_foldr]
+  simp
+
+/-- The source divisibility test is the existing remainder test. -/
+theorem replaceOdd_dvd (x : Int) : replaceOdd x = if (2 : Int) ∣ x then x else 0 := by
+  simp only [replaceOdd, Int.dvd_iff_emod_eq_zero]
 
 theorem doubleStep_even (x y : Int) (hy : y % 2 = 0) :
     doubleStep x y % 2 = 0 := by
@@ -118,11 +156,13 @@ theorem restricted_foldr_via_context (xs : List Int) :
     replaceOdd (xs.foldr doubleStep 0) = xs.foldr doubleStep 0 := by
   apply (foldr_iff doubleStep doubleStep replaceOdd 0).mpr _ xs
   intro x ys
-  have even : (ys.foldr doubleStep 0) % 2 = 0 := by
-    induction ys with
-    | nil => decide
-    | cons y ys ih => exact doubleStep_even y _ ih
-  exact replaceOdd_step x _ even
+  exact replaceOdd_step x _ (doubleStep_foldr_even ys)
+
+theorem signed_doubleStep : ([-3, 4, 2] : List Int).foldr doubleStep 0 = 6 :=
+  (doubleStep_foldr _).trans (by rfl)
+
+theorem signed_replacement : replaceOdd (([-3, 4, 2] : List Int).foldr doubleStep 0) = 6 :=
+  (restricted_foldr _).trans signed_doubleStep
 
 /-- The left-fold version preserves the same invariant at every prefix. -/
 theorem restricted_scanl (xs : List Int) :
