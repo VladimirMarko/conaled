@@ -1,3 +1,4 @@
+import SquareKit.Internal.PathTransport.GrothendieckProjectionLifts
 import SquareKit.Internal.PathTransport.GroupoidFiberEssential
 import SquareKit.Internal.PathTransport.GroupoidFiberFull
 import SquareKit.Internal.PathTransport.GroupoidFiberFaithful
@@ -148,5 +149,11 @@ example : (𝟭 Loops).EssSurj :=
     (𝟭 (Discrete PUnit.{1}))
     (fun y _b _ => ⟨y, Subsingleton.elim _ _, ⟨Iso.refl y⟩⟩)
     (fun _ z _ => ⟨z, ⟨Iso.refl z⟩⟩)
+
+/-- Lifting a selected integer loop retains its base label for any fiber family. -/
+example (F : Loops ⥤ Cat.{0,0}) (x : F.obj star) :
+    ∃ (z : Grothendieck F) (e : (⟨star,x⟩ : Grothendieck F) ≅ z)
+      (h : z.base = star), e.hom.base ≫ eqToHom h = loop :=
+  GrothendieckProjectionLifts.lift_base F ⟨star,x⟩ ⟨star,x⟩ loop
 
 end Examples.CechMatchingIdentity

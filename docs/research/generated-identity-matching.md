@@ -79,3 +79,8 @@ The point-projection example retains arbitrary integer-loop arrows.
 step: lift a target along a base isomorphism into a fiber over the base functor's
 image, then use that fiber's essential-image witness. The hypotheses retain the
 chosen isomorphisms and impose no equality between object representatives.
+
+`GrothendieckProjectionLifts` discharges the lift hypotheses for actual
+Grothendieck projections. It uses the existing `transportIso`; its base component
+recovers the supplied arrow exactly. The checked integer-loop case works for
+any fiber family and a supplied fiber object, retaining the nonidentity label.
