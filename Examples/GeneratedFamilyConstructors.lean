@@ -1,6 +1,10 @@
 import SquareKit.SmoothQuotientCechPrimitiveEffectivity
 import SquareKit.SmoothQuotientCechGlobalEquivalence
 import SquareKit.SmoothQuotientCechGlobalRestriction
+import SquareKit.SmoothQuotientCechGlobalMatching
+import SquareKit.SmoothQuotientCechBaseEffectivity
+import SquareKit.SmoothQuotientCechGeneratedEffectivity
+import SquareKit.SmoothQuotientCechGeneratedEmpty
 import SquareKit.Internal.PathTransport.GeneratedPrimitiveFiber
 import SquareKit.SmoothQuotientComparison
 
@@ -82,5 +86,24 @@ example (A : SplitSheaf.Ty X)
     [Presheaf.IsLocallySurjective topology (SplitSheaf.p A).hom]
     (d : SheafActionQuotient.Cech.Datum (a := a) A) :
     (SmoothQuotientCechGlobal.localComparison a A).hom.app d = d.toDescent.comparison := rfl
+
+/-- Canonical direct restriction is effective for a full quotient base binder. -/
+example (A : SplitSheaf.Ty X)
+    [Presheaf.IsLocallySurjective topology (SplitSheaf.p A).hom] :
+    (SmoothQuotientGeneratedMatching.restrictionFunctor a
+      (.ext .empty (.base .empty)) A).IsEquivalence := by
+  have : (SmoothQuotientCechLocal.matchingEvaluation a A
+      (.ext .empty (.base .empty))).IsEquivalence :=
+    SmoothQuotientCechLocal.matchingEvaluation_ext_isEquivalence a A .empty (.base .empty)
+      (SmoothQuotientCechLocal.familyEvaluation_base_isEquivalence a A .empty)
+  exact SmoothQuotientCechGlobal.restrictionFunctor_isEquivalence a A _
+
+/-- The full matching comparison retains its selected local recovery arrow. -/
+example (A : SplitSheaf.Ty X)
+    [Presheaf.IsLocallySurjective topology (SplitSheaf.p A).hom]
+    (hΓ : Typed.CtxDeriv.{2} Γ γ)
+    (c : (show Grpd.{1,1} from γ (SmoothQuotientCechLocal.model a A))) :
+    ((SmoothQuotientCechGlobal.matchingComparison a A hΓ).hom.app c).localArrow =
+      (SmoothQuotientCechGlobal.restrictionComparison a A hΓ).hom.app c := rfl
 
 end Examples.GeneratedFamilyConstructors

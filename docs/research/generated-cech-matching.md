@@ -351,3 +351,27 @@ comparison calculus. The module and arbitrary-datum selected-arrow consumer
 pass focused checks. Normalizing the resulting generated triangle to the
 canonical matching cone is still in progress; no direct-restriction
 equivalence is claimed at this checkpoint.
+
+
+The direct restriction bridge is now checked. Generic `alignedRecovery_square`
+normalizes the selected generated recovery triangle before concrete model
+specialization. `SmoothQuotientCechGlobalCoherence.contextLocalComparison_overlap`
+then proves the actual overlap square. `matchingComparison` in
+`SmoothQuotientCechGlobalMatching` identifies the complete functors
+`contextEquivalence.functor ⋙ restrictionFunctor` and `matchingEvaluation` by
+a selected natural isomorphism whose local component is the recovery arrow.
+The generic `precomposedCanonicalComparison` retains that component and all
+arrow actions, rather than comparing only object isomorphism classes.
+
+`restrictionFunctor_isEquivalence` now transfers equivalence of the actual
+matching evaluation to the canonical direct restriction functor. Its sole
+effectivity input is that evaluation's equivalence; the independent source
+equivalence is constructed from existing quotient/deformation descent under
+local surjectivity. The retained base-binder consumer discharges that input
+using empty-context and base-family effectivity, obtaining actual canonical
+descent for the full quotient base groupoid. Another consumer checks exact
+selected-arrow recovery. All four new modules and the combined generated
+consumer pass focused Lean checks at default limits. Arbitrary type and
+context/telescope induction, followed by complete section specialization,
+remain the final closure obligations; this checkpoint does not claim their
+completion.
