@@ -192,3 +192,29 @@ map, and its context and motive exercise the identity laws. Statement review
 checks that the generic preservation theorem covers arbitrary finite tails,
 substitution and conversion; the example is a concrete application, not the
 generality claim. Generated parameter composition and descent remain open.
+
+The next composition checkpoint introduces `Context.Composes`,
+`Family.Composes`, `Section.Composes` and `Substitution.Composes` as predicates
+on three existing comparisons. They state the horizontal-composition invariant;
+they are not new interpretation models or assumptions added to the existing
+model. `ComparisonCompositionRelations` proves preservation by comprehension,
+reindexing, identity families and primitive base/fiber families. Endpoint
+comparisons determine the section and substitution relations once the required
+context/family relations are established.
+
+`ComparisonCompositionBinders` proves weakening, variable and binder-lift
+preservation. `ComparisonTelescopeComposition` defines the corresponding
+relation over the existing finite dependent telescopes and proves total-context,
+pullback and induced-substitution preservation by induction. The induction
+allows arbitrary families at every binder. The example uses the noninvertible
+comparison and a second binder containing the identity family at the first
+binder's variable, then applies both pullback and induced-substitution results.
+Selected C4 arrows remain checked by the same example module.
+
+Statement review distinguishes these conditional closure lemmas from the
+remaining generated-composition theorem: the latter must establish the
+invariant from typed derivations and existing endpoint preservation. No such
+generated conclusion or smooth descent conclusion is claimed by this checkpoint.
+The two context-aware extensionality helpers were moved unchanged from
+`ComparisonDiagonalMap` to `ComparisonReindex` for reuse by both identity and
+composition arguments.

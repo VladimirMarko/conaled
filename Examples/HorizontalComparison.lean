@@ -1,6 +1,6 @@
 import Examples.GroupoidComparison
 import SquareKit.Internal.PathTransport.ComparisonDiagonal
-import SquareKit.Internal.PathTransport.ComparisonHorizontalIdentity
+import SquareKit.Internal.PathTransport.ComparisonTelescopeComposition
 
 /-! Horizontal composition retains the chosen arrows of the noninvertible
 comparison fixture and composes its actual compatible section. -/
@@ -104,5 +104,52 @@ example : Function.Injective (fun g : p ⟶ p =>
       (Discrete.mk PUnit.unit)).obj (Discrete.mk (selected false g))) := by
   intro g h e
   exact congrArg Discrete.as ((identity_selected g).symm.trans (e.trans (identity_selected h)))
+
+/-- The induction relation includes the actual noninvertible family map. -/
+theorem familyComposition : family.Composes remaining (family.horizontal remaining rfl HEq.rfl) :=
+  ⟨⟨rfl, rfl⟩, HEq.rfl, HEq.rfl⟩
+
+theorem sectionComposition : chosenSection.Composes remainingSection compositeSection :=
+  Section.Composes.of_endpoints familyComposition chosenSection remainingSection compositeSection
+    HEq.rfl HEq.rfl HEq.rfl
+
+example : family.extend.Composes remaining.extend
+    (family.horizontal remaining rfl HEq.rfl).extend := familyComposition.extend
+
+example : (family.identity chosenSection chosenSection).Composes
+    (remaining.identity remainingSection remainingSection)
+    ((family.horizontal remaining rfl HEq.rfl).identity compositeSection compositeSection) :=
+  sectionComposition.identity sectionComposition
+
+example : (signature.fiber basePoint).Composes (remainingSignature.fiber remainingPoint)
+    ((signature.horizontal remainingSignature rfl HEq.rfl).fiber compositePoint) :=
+  signature.fiber_composes remainingSignature rfl HEq.rfl
+    (Section.Composes.of_endpoints
+      (signature.baseFamily_composes remainingSignature rfl HEq.rfl ⟨rfl, rfl⟩)
+      basePoint remainingPoint compositePoint HEq.rfl HEq.rfl HEq.rfl)
+
+/-- The second binder is an identity family at the first binder's variable. -/
+def identityTail {Γ : Comparison.Context.{0}} (A : Comparison.Family Γ) :
+    Comparison.Family A.extend :=
+  (A.reindex A.weaken).identity A.variable A.variable
+
+theorem dependentTailComposition :
+    TelescopeComposes signature remainingSignature (signature.horizontal remainingSignature rfl HEq.rfl)
+      (SquareKit.Internal.PathTransport.Typed.StructuralModel.Telescope.cons family
+        (.cons (identityTail family) .nil))
+      (SquareKit.Internal.PathTransport.Typed.StructuralModel.Telescope.cons remaining
+        (.cons (identityTail remaining) .nil))
+      (SquareKit.Internal.PathTransport.Typed.StructuralModel.Telescope.cons (family.horizontal remaining rfl HEq.rfl)
+        (.cons (identityTail (family.horizontal remaining rfl HEq.rfl)) .nil)) := by
+  have hsecond := familyComposition.variable.identity familyComposition.variable
+  exact .cons familyComposition (.cons hsecond (.nil hsecond.extend))
+
+theorem identityComposition : (Substitution.id context).Composes (Substitution.id middle)
+    (Substitution.id (context.horizontal middle rfl)) :=
+  Substitution.Composes.of_endpoints ⟨rfl, rfl⟩ ⟨rfl, rfl⟩ _ _ _ HEq.rfl HEq.rfl HEq.rfl
+
+example := dependentTailComposition.total
+example := dependentTailComposition.pullback identityComposition
+example := dependentTailComposition.liftSub identityComposition
 
 end Examples.HorizontalComparison

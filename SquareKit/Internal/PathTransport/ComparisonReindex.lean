@@ -99,5 +99,18 @@ theorem reindex_comp {Θ : Context.{u}} (s : Section A)
   hext (A.reindex_comp σ τ) HEq.rfl HEq.rfl
 
 end Section
+theorem Section.context_hext {Γ Δ : Context.{u}} (hΓ : Γ = Δ)
+    {A : Family Γ} {B : Family Δ} (hA : HEq A B)
+    {s : Section A} {t : Section B} (hl : HEq s.left t.left) (hr : HEq s.right t.right) :
+    HEq s t := by
+  cases hΓ
+  exact Section.hext (eq_of_heq hA) hl hr
+
+theorem Substitution.context_hext {Γ Γ' Δ Δ' : Context.{u}}
+    (hΓ : Γ = Γ') (hΔ : Δ = Δ') {σ : Substitution Δ Γ} {τ : Substitution Δ' Γ'}
+    (hl : HEq σ.left τ.left) (hr : HEq σ.right τ.right) : HEq σ τ := by
+  cases hΓ; cases hΔ
+  exact heq_of_eq (Substitution.ext (eq_of_heq hl) (eq_of_heq hr))
+
 end Comparison
 end SquareKit.Internal.PathTransport.GroupoidModel
