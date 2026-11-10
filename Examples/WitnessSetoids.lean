@@ -38,4 +38,20 @@ example : (rightDistribution.distribute (a := tagged) (b := tagged) (c := tagged
     (x := (Sum.inl false,false)) (y := (Sum.inl true,true)) (true,false) =
     (true,false) := rfl
 
+/-- Direct universal-property operations retain the supplied Boolean witnesses. -/
+example : (product_universal.forward
+    (fun _ => (true,false) : equiv.Rel (products.pair keep keep) (products.pair keep keep))).1 false = true := rfl
+example : coproduct_universal.backward (k := coproducts.copair keep keep)
+    (f := keep) (g := keep) ⟨yes,no⟩
+    (Sum.inr false) = false := rfl
+example {A B C D : Obj} (h : Hom C D) (g : Hom B C) (f : Hom A B) :
+    SetoidCategory.equiv.Rel (eraseHom (ops.comp (ops.comp h g) f))
+      (eraseHom (ops.comp h (ops.comp g f))) := erase_relation (laws.assoc h g f)
+
+/-- An existing generic derived Cartesian operation specializes without re-proving its law. -/
+example (f g : Hom tagged tagged) :
+    equiv.Rel (ops.comp (SquareKit.Cartesian.swap products)
+      (products.pair f g)) (products.pair g f) :=
+  WitnessEquivalence.Cartesian.swap_pair congr laws product_congr product_laws f g
+
 end Examples.WitnessSetoids

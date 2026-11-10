@@ -109,4 +109,40 @@ theorem erase_curry {X A B : Obj.{u,u}} (f : Hom (prod X A) B) :
     SetoidCategory.ops.comp (eraseExponential A B) (eraseHom (closed.curry f)) =
       SetoidCategory.closed.curry (SetoidCategory.ops.comp (eraseHom f) (eraseProductInv X A)) := rfl
 
+theorem erase_product_roundtrip (A B : Obj.{u,v}) :
+    SetoidCategory.ops.comp (eraseProductInv A B) (eraseProduct A B) =
+      SetoidCategory.ops.ident := rfl
+
+theorem erase_sum_roundtrip (A B : Obj.{u,v}) :
+    SetoidCategory.ops.comp (eraseSumInv A B) (eraseSum A B) =
+      SetoidCategory.ops.ident := rfl
+
+/-- Selected laws map to erased pointwise relations, with no choice operation. -/
+theorem erase_relation {A B : Obj.{u,v}} {f g : Hom A B} (h : equiv.Rel f g) :
+    SetoidCategory.equiv.Rel (eraseHom f) (eraseHom g) := fun x => ⟨h x⟩
+
+theorem erase_terminal (A : Obj.{u,v}) :
+    (eraseHom (terminal.terminal (a := A))).toFun =
+      (SetoidCategory.terminal.terminal (a := eraseObj A)).toFun := rfl
+
+theorem erase_initial (A : Obj.{u,v}) :
+    (eraseHom (initial.initial (a := A))).toFun =
+      (SetoidCategory.initial.initial (a := eraseObj A)).toFun := rfl
+
+theorem erase_distribution (A B C : Obj.{u,v}) :
+    (eraseHom (distribution.distribute (a := A) (b := B) (c := C))).toFun =
+      (SetoidCategory.distribution.distribute
+        (a := eraseObj A) (b := eraseObj B) (c := eraseObj C)).toFun := by
+  funext p
+  rcases p with ⟨x,y⟩
+  cases y <;> rfl
+
+theorem erase_rightDistribution (A B C : Obj.{u,v}) :
+    (eraseHom (rightDistribution.distribute (a := A) (b := B) (c := C))).toFun =
+      (SetoidCategory.rightDistribution.distribute
+        (a := eraseObj A) (b := eraseObj B) (c := eraseObj C)).toFun := by
+  funext p
+  rcases p with ⟨x,y⟩
+  cases x <;> rfl
+
 end SquareKit.WitnessSetoids

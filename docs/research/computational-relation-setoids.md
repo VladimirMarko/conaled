@@ -39,6 +39,29 @@ Erased equalities compare Prop-level congruent functions, whose proof fields are
 irrelevant. No higher coherence or uniqueness is assumed. The selected-feedback
 congruence boundary from #451 remains unchanged.
 
-This is an implementation checkpoint. Right-distribution witness laws, the
-remaining operation/law recovery checks, the derived-declaration inventory,
-independent review and full candidate validation are still pending.
+The direct universal-property packages preserve the source's chosen witness
+operations: product projection/pairing, sum restriction/case analysis, and
+closed symmetry/uncurrying. Both distribution inverse-law packages are present.
+`erase_relation` maps every selected law to its pointwise erased relation;
+`erase_ident` and `erase_comp` additionally give exact arrow equalities.
+`erase_terminal`, `erase_initial`, `erase_distribution` and
+`erase_rightDistribution` check exact underlying operations. Product/sum
+round trips recover arrows, and evaluation/curry use the comparison maps
+explicitly. Generic derived structural reasoning is inherited from #455;
+the checked swap/pair specialization exercises it on this instance.
+
+| Pinned declaration | Checked computational instance |
+| --- | --- |
+| `Zoid`, `_⟶_` | `Obj`, `Hom` |
+| `products`, `coproducts`, `exponentials` | `unit`, `prod`, `zero`, `sum`, `exponential` |
+| `rawCategory`, `equivalent`, `category` | `ops`, `equiv`, `congr`, `laws` |
+| `rawCartesian`, `cartesian` | `terminal`, `products`, their congruence/laws, `product_universal` |
+| `rawCocartesian`, `cocartesian` | `initial`, `coproducts`, their congruence/laws, `coproduct_universal` |
+| `rawCartesianClosed`, `cartesianClosed` | `closed`, `closed_congr`, `closed_laws`, `closed_universal` |
+| `rawDistributive`, `distributive` | `distribution`, `rightDistribution`, both witness law packages |
+| inherited active structural reasoning | #455 generic operations, laws, preservation and transport specialized to these packages |
+
+The source contains no additional active indexed declarations in this instance
+module. Its commented trace remains subject to #451's explicit selected-feedback
+and congruence contract. This checkpoint does not claim full #8 acceptance.
+Independent review and exact-candidate full validation remain pending.

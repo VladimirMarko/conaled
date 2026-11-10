@@ -339,3 +339,12 @@ Type-valued PRED, and the proof-erased setoid instance. It includes the explicit
 RelationalCategory/Assembly comparisons and discriminating checked consumers.
 The historical inventory is preserved; candidate acceptance and independent
 review remain required.
+
+## Computational relation setoids (#457)
+
+The [computational instance](computational-relation-setoids.md) retains Type-valued
+relation and congruence witnesses from the pinned Setoids module. It supplies
+all active raw structures, selected universal-property operations and law
+packages, with explicit erasure comparisons into the existing Prop-valued
+instance. Multiple-witness examples inspect composition, curry and both
+distributions. Independent review and full candidate validation remain pending.
