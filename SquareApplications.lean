@@ -613,5 +613,7 @@ import Examples.CechOverlapRejection
 import Examples.ArbitraryCoverSections
 import Examples.OriginalCoverRejection
 import SquareKit.SheafCoverCech
+import Examples.GeneratedCechMatching
+import Examples.GeneratedMatchingMaps
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
