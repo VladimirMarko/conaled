@@ -36,4 +36,20 @@ theorem factorLift_unique (k : x.datum ⟶ y.datum)
   apply (cancel_epi (lift f x)).1
   exact hr.trans (lift_factorLift f k hk).symm
 
+/-- Relabel the base identity before using the canonical lift identity law. -/
+theorem lift_id_cast {d : Datum D.toDiagram} {f : d ⟶ d} (hf : f = 𝟙 d)
+    (x : Fiber A h d) (q : transport f x = x) :
+    lift f x ≫ eqToHom (congrArg datum q) = 𝟙 _ := by
+  subst f
+  rw [lift_id]
+  simp
+
+/-- Relabel a composite base arrow without reducing dependent object casts. -/
+theorem lift_comp_cast {d e k : Datum D.toDiagram}
+    (f : d ⟶ e) (g : e ⟶ k) {fg : d ⟶ k} (hfg : fg = f ≫ g)
+    (x : Fiber A h d) (q : transport fg x = transport g (transport f x)) :
+    lift fg x ≫ eqToHom (congrArg datum q) = lift f x ≫ lift g (transport f x) := by
+  subst fg
+  exact lift_comp f g x
+
 end SquareKit.Internal.PathTransport.CechMatching.Comprehension.Fiber
