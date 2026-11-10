@@ -1,3 +1,4 @@
+import SquareKit.Internal.PathTransport.GrothendieckProjectionLifts
 import SquareKit.Internal.PathTransport.Authoring
 import SquareKit.Internal.PathTransport.GeneratedIdentityFamilyMap
 import SquareKit.Internal.PathTransport.GroupoidFiberEssential
@@ -155,5 +156,11 @@ example : (𝟭 Loops).EssSurj :=
 example (S : GroupoidModel.Comparison.Signature.{0}) := GroupoidModel.Comparison.generatedFamilyMap_identityType S
   Typed.Authoring.CongruenceCaller.context Typed.Authoring.CongruenceCaller.base
   Typed.Authoring.CongruenceCaller.point Typed.Authoring.CongruenceCaller.point
+
+/-- Lifting a selected integer loop retains its base label for any fiber family. -/
+example (F : Loops ⥤ Cat.{0,0}) (x : F.obj star) :
+    ∃ (z : Grothendieck F) (e : (⟨star,x⟩ : Grothendieck F) ≅ z)
+      (h : z.base = star), e.hom.base ≫ eqToHom h = loop :=
+  GrothendieckProjectionLifts.lift_base F ⟨star,x⟩ ⟨star,x⟩ loop
 
 end Examples.CechMatchingIdentity

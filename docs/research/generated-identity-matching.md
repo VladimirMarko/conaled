@@ -87,3 +87,8 @@ endpoint transport determined by the two generated term comparisons. The
 open identity type in `Authoring.CongruenceCaller` specializes the constructor
 formula. The theorem assumes neither reflexive identity objects nor a
 faithful primitive comparison.
+
+`GrothendieckProjectionLifts` discharges the lift hypotheses for actual
+Grothendieck projections. It uses the existing `transportIso`; its base component
+recovers the supplied arrow exactly. The checked integer-loop case works for
+any fiber family and a supplied fiber object, retaining the nonidentity label.
