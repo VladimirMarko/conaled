@@ -76,6 +76,28 @@ theorem glue_recover (d : Descent.Datum (a := a) A) :
       (((glue s hs).obj d.object).as)) = (s.obj d.localObject).as :=
   congrArg Subtype.val (CocycleDatum.globalSection_recoverFiber (onCocycles s hs) d)
 
+/-- Recovery also holds on the restriction of every global quotient object,
+using its canonical cocycle and the section's actual arrow action. -/
+theorem glue_restrict (P : Object a X) :
+    restrict (SplitSheaf.p A) (((glue s hs).obj P).as) =
+      (s.obj (reindex P (SplitSheaf.p A))).as := by
+  have hn : transport (Descent.canonicalEmbedding A P) (((glue s hs).obj P).as) =
+      (((glue s hs).obj (Descent.canonicalDatum A P).object).as) :=
+    Discrete.eq_of_hom ((glue s hs).map (Descent.canonicalEmbedding A P))
+  have he := glue_recover s hs (Descent.canonicalDatum A P)
+  rw [← hn, transport_restrict, ← transport_comp] at he
+  have hc : ((Descent.canonicalEmbedding A P).reindex (SplitSheaf.p A)).comp
+      (Descent.canonicalDatum A P).comparison =
+        Arrow.ident (reindex P (SplitSheaf.p A)) := by
+    apply SheafActionQuotient.Arrow.ext
+    apply SheafTorsor.Arrow.ext
+    exact congrArg (fun k => k.iso.hom)
+      (SheafTorsor.Descent.canonicalEmbedding_evaluation A P.torsor)
+  change transport (((Descent.canonicalEmbedding A P).reindex (SplitSheaf.p A)).comp
+    (Descent.canonicalDatum A P).comparison) _ = _ at he
+  rw [hc] at he
+  exact (transport_id _).symm.trans he
+
 /-- At a descended context, the assembled section is precisely deformation
 gluing of the supplied local section value. -/
 theorem glue_eq_descend (d : Descent.Datum (a := a) A) :

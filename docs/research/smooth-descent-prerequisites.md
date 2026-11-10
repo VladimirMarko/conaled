@@ -181,12 +181,46 @@ assemblies whenever their local values agree under parameter restriction.
 The checked constant-section example supplies matching from the quotient's
 value equation and applies the construction to the ineffective nontrivial torsor.
 
-This assembly does not yet derive the matching equations from a family of
-sections over every parameter into the cover and its overlap comparisons.
-Its recovery theorem concerns local objects equipped with a cocycle. Recovery
-at local objects not supplied with such data remains required. The stronger
-parameter-compatible local-section theorem, including that recovery and a
-two-sheet incompatible-data rejection, remains unfinished.
+## Parameter-local deformation section gluing
+
+`SmoothQuotientParameterSections` supplies the next primitive connection.
+`LocalSection.ParameterFamily` takes a complete deformation section for every
+sheaf parameter mapping into the cover. The sections must commute with further
+parameter restriction. They must also agree for maps into the cover with the
+same composite to the base. These are equations of deformation values in a
+set-valued family. Context sections still include every actual quotient arrow.
+For this discrete family, equality proofs supply overlap unit and composition
+coherence; this is not a contract for arbitrary higher families.
+
+`SheafActionQuotientDescentOverlap` constructs the actual cocycle arrow on the
+double cover, with inverse from the torsor cocycle laws. Section naturality
+along this arrow, parameter naturality and overlap matching imply the local
+matching equation. Thus the new `glue` no longer assumes that equation or an
+already assembled section on cocycle data. `baseChange` supplies the family
+at every pulled-back cover, with identity and composition laws.
+
+`glue_natural_section` proves compatibility of the complete glued sections
+under parameter change. `recover_local_section` recovers the complete original
+section at every parameter into the cover. In particular, its argument may be
+any quotient object at that local parameter; it need not be supplied with a
+cocycle or assumed to extend to the original base. The proof compares values
+after restriction to the pulled-back cover and uses separatedness. `glue_unique`
+proves uniqueness of the whole section from its covering values. Equality of
+these sections is justified by their discrete fibers, while their lifted maps
+retain the selected context arrows.
+
+`Examples.ParameterDeformationSections` constructs the constant family at all
+parameters, proves both input compatibility laws, and checks whole-section
+recovery, further restriction, selected loop retention, and an explicit
+identity-display specialization at the ineffective doubled-origin torsor.
+`Examples.ParameterSectionRejection` gives a bounded rejection at the actual
+internal scalar-function fiber: two overlapping copies assign slope-zero and
+slope-one arcs with equal zero boundary, but coefficient extraction proves
+that they have no common overlap value. This tests why boundary agreement
+cannot replace matching. It is a stage-level obstruction, not a fully
+instantiated bad smooth-cover parameter family. The latter remains a useful
+stronger regression case. This primitive construction does not establish
+generated-context or higher-family descent.
 
 ## Remaining work
 
@@ -199,13 +233,14 @@ transport-composition derivation must be connected through those constructions;
 a direct proof of its target equality is insufficient.
 
 Section descent has two useful layers. A section supplied over the full
-context-descent groupoid includes its action on all compatible arrows; a fixed
-cover transport theorem now reconstructs it with vertical-isomorphism recovery.
-Arbitrary locally supplied sections require additional compatibility over
-sheaf parameters and covers pulled back to those parameters. A section over
-one parameter alone does not provide that contract. The fixed-cover result above proves the first layer from the extension
-equivalence and normalization. The second layer remains unproved; the current
-result does not supply arbitrary local-section gluing.
+context-descent groupoid includes its action on all compatible arrows; the
+fixed-cover transport theorem reconstructs it with vertical-isomorphism
+recovery. The parameter-local construction above proves the stronger layer
+for the primitive set-valued deformation family over split covers. Extending
+it to generated relative families, with their appropriate non-discrete
+comparisons and coherent parameter maps, remains required. The arbitrary-cover
+split-display equivalence also needs its parameter-local section compatibility;
+its existence alone does not establish that compatibility.
 
 The boundary-fiber equivalence and classical chart comparison remain existing
 consumer interfaces. Their compatibility with generated descent must be

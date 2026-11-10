@@ -596,3 +596,5 @@ import Examples.GlobalSectionDescent
 import Examples.QuotientDescentBaseChange
 import Examples.DeformationDescentBaseChange
 import Examples.LocalDeformationSections
+import Examples.ParameterDeformationSections
+import Examples.ParameterSectionRejection
