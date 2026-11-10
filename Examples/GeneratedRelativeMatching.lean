@@ -51,4 +51,11 @@ example (c : (show Grpd.{1,1} from γ (SmoothQuotientCechLocal.model a A)))
         (SmoothQuotientCechLocal.fiberTotalEvaluation a A hΓ hB c).map f :=
   (SmoothQuotientCechLocal.familyEvaluation_total a A hΓ hB c).hom.naturality f
 
+/-- The extracted value is the actual generated family-map component. -/
+example (c : (show Grpd.{1,1} from γ (SmoothQuotientCechLocal.model a A)))
+    (x : (b (SmoothQuotientCechLocal.model a A)).obj c) :
+    HEq ((SmoothQuotientCechLocal.familyEvaluation a A hΓ hB c).obj x).localFiber
+      (((SmoothQuotientCechLocal.localFamilyMap a A hΓ hB).app c).obj x) :=
+  SmoothQuotientCechLocal.familyEvaluation_localComponent a A hΓ hB c x
+
 end Examples.GeneratedRelativeMatching

@@ -80,6 +80,10 @@ step: lift a target along a base isomorphism into a fiber over the base functor'
 image, then use that fiber's essential-image witness. The hypotheses retain the
 chosen isomorphisms and impose no equality between object representatives.
 
+`GrothendieckProjectionLifts` discharges the lift hypotheses for actual
+Grothendieck projections. It uses the existing `transportIso`; its base component
+recovers the supplied arrow exactly. The checked integer-loop case works for
+any fiber family and a supplied fiber object, retaining the nonidentity label.
 `GeneratedIdentityFamilyMap` extracts the identity-type constructor on the
 complete family comparison. `generatedIdentityMap_arrow` applies it to every
 supplied identity arrow: first use the component functor's map, then the
@@ -87,8 +91,98 @@ endpoint transport determined by the two generated term comparisons. The
 open identity type in `Authoring.CongruenceCaller` specializes the constructor
 formula. The theorem assumes neither reflexive identity objects nor a
 faithful primitive comparison.
+`GroupoidFiberFaithful` reduces faithfulness of a groupoid functor to its
+endomorphism kernels. In a commuting square with faithful base comparison,
+`faithful_of_vertical_kernel` needs only the vertical kernel. It makes no
+splitting-preservation claim and requires no strict natural transformation
+between extracted fibers. The integer-loop example uses projection to a point,
+so the projection itself is not assumed faithful. This helper proves only
+faithfulness, not fullness or effective descent.
+
+`GroupoidFiberFull.full_of_vertical` supplies the complementary fullness step.
+Its base functor is full, the source projection lifts each base arrow to a
+selected isomorphism, and every target arrow over an equality of base objects
+has a source preimage. Factoring by the selected lift leaves a vertical arrow.
+The complete square controls the equality transports; the theorem does not
+assert that extracted fiber functors commute strictly with base transport.
+The point-projection example retains arbitrary integer-loop arrows.
+
+`GroupoidFiberEssential.essSurj_of_fibers` isolates the essential-surjectivity
+step: lift a target along a base isomorphism into a fiber over the base functor's
+image, then use that fiber's essential-image witness. The hypotheses retain the
+chosen isomorphisms and impose no equality between object representatives.
 
 `GrothendieckProjectionLifts` discharges the lift hypotheses for actual
 Grothendieck projections. It uses the existing `transportIso`; its base component
 recovers the supplied arrow exactly. The checked integer-loop case works for
 any fiber family and a supplied fiber object, retaining the nonidentity label.
+
+`GeneratedIdentitySetMap` retains the selected local arrow before
+discretization, with exactly the endpoint transport from the generated term
+comparisons. Discretizing this natural transformation recovers the complete
+generated identity-family map. `SmoothQuotientGeneratedIdentityMatching`
+therefore supplies the actual relative identity matching as a discrete set
+of local identity arrows satisfying the actual overlap equation. Its recovery
+theorem retains the supplied local arrow, including nonidentity arrows.
+
+`Comprehension.Identity.LocalPaths` specifies a local fiber arrow and the
+equation with both actual total overlaps. `localArrowEquiv` identifies these
+data with the relative fiber's arrows and recovers their local lift exactly.
+The integer-loop consumer distinguishes a nonidentity local path from the
+identity. These results do not yet identify the actual identity-type evaluation
+functor with the fully faithful hom map on its endpoint evaluations; that
+constructor-effectivity step remains separate.
+
+Generated term endpoints now descend independently through `termDiagram`, whose
+three components are the interpreted section lifts. All six restriction squares
+come from `generatedSectionLift_commutes`; its proof uses the existing generated
+term equality. Projection is the identity, and `termFiber_local` recovers the
+literal local term value over any supplied matching context.
+
+`sectionTotalMatchingEvaluation` compares actual evaluation with this descended
+section as a whole functor. It applies the existing typed section substitution
+and whole-functor substitution theorem. `familyEvaluation_termComparison`
+packages the natural comparison and exact fiber endpoint equality through a
+generic record. A direct concrete endpoint proof exceeded the default kernel
+budget; the packaged proof checks without increasing limits. The consumer
+accesses its endpoint field for an arbitrary generated term. This establishes
+endpoint recovery, while identity-overlap compatibility still requires its own
+comparison with the local path square.
+
+`SmoothQuotientGeneratedIdentityPaths.identityValue_square` now identifies the
+actual identity matching equation with the square between the two descended
+term diagrams. The proof first converts identity transport to the square of
+section lifts, then uses `generatedIdentity_included` to retain the selected
+vertical arrow under restriction and its explicit endpoint transports.
+`identityDatumArrowEquiv` gives a bijection with vertical matching arrows;
+`identityFiberArrowEquiv` reconstructs the same arrows in the relative fiber.
+The local recovery theorem and supplied-matching-value consumer retain the
+original arrow. No effectivity assumption enters these bijections.
+
+Statement review: the endpoints are the independently descended generated
+terms over an arbitrary supplied matching context; the overlap is the actual
+chosen overlap. The construction does not replace the matching equation by
+reflexivity, discard endpoint transports, or assume a matching equivalence.
+Identifying the actual identity evaluation with the underlying family's hom
+map remains a separate obligation before claiming constructor effectivity.
+
+The actual constructor obligation is now discharged by
+`SmoothQuotientCechLocal.identityEvaluation_isEquivalence`. Its only hypotheses
+are full faithfulness of the underlying actual `familyEvaluation` at the supplied
+source context. It does not require essential surjectivity of that functor or
+assume effectivity of the identity type. `identityEvaluationValues_local` recovers
+the actual generated map on the supplied identity arrow. The generic criterion
+combines that local recovery with restriction conjugation and exact total-arrow
+recovery, then uses the underlying functor's hom equivalence. Cancellation of
+the independently constructed discrete matching equivalence gives effectivity
+of the original identity evaluation functor.
+
+The endpoint equalities are proved through `sectionFiberEndpoint`, whose generic
+statement uses the literal fixed-base inclusion. Stating this adapter separately
+avoids normalizing the entire generated matching construction at each use. The
+intermediate criterion accepts endpoint equalities as parameters; the final
+constructor theorem supplies both from actual section evaluation. All these
+proofs use the default kernel limits. The public generated consumer checks the
+final theorem. A separate integer-loop component inclusion is fully faithful,
+retains a nonidentity arrow, and misses a second component; it exercises the
+weaker hypothesis without assuming equivalence of the underlying categories.

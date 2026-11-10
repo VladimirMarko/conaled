@@ -3,6 +3,13 @@ import Examples.CechMatchingIdentity
 import Examples.GeneratedSelectedComparison
 import Examples.SmoothSelectedComparison
 import Examples.CechMatchingComprehension
+import Examples.GeneratedNontrivialDescent
+import Examples.GeneratedDescentClosure
+import SquareKit.SmoothQuotientCechGeneratedEffectivity
+import SquareKit.SmoothQuotientCechBaseEffectivity
+import SquareKit.SmoothQuotientCechFamilyTransport
+import SquareKit.SmoothQuotientCechSectionDescent
+import Examples.GeneratedBaseSectionDescent
 import Examples.GeneratedFamilyConstructors
 import SquareKit.SmoothQuotientCechGeneratedEmpty
 import SquareKit.SmoothQuotientCechGeneratedSubstitution
@@ -11,6 +18,20 @@ import Examples.CechMatchingCone
 import SquareKit.SmoothQuotientCechGeneratedCone
 import SquareKit.Internal.PathTransport.AlignedSignatureSubstitution
 import Examples.SignatureCylinder
+import Examples.WitnessConstructions
+import Examples.WitnessProduct
+import Examples.WitnessStructure
+import SquareKit.WitnessInitialMap
+import Examples.WitnessSetoids
+import Examples.InitialTransport
+import Examples.RightDistribution
+
+import Examples.SelectedFeedback
+
+import Examples.WitnessEquivalence
+
+import Examples.TensorOperations
+
 import Examples.WeakMachine
 import Examples.WeakCanonicity
 import Examples.Memoization
@@ -630,16 +651,6 @@ import SquareKit.SheafCoverCech
 import Examples.GeneratedCechMatching
 import Examples.GeneratedMatchingMaps
 
-import Examples.WitnessConstructions
-import Examples.WitnessProduct
-import Examples.WitnessStructure
-import SquareKit.WitnessInitialMap
-import Examples.WitnessSetoids
-import Examples.InitialTransport
-import Examples.RightDistribution
-import Examples.SelectedFeedback
-import Examples.WitnessEquivalence
-import Examples.TensorOperations
 import Applications.Resources.Recurrences
 import Examples.Accumulation
 import Examples.CollapseResources

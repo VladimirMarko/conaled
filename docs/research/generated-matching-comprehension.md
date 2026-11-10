@@ -105,3 +105,13 @@ includes all eight comprehension modules and both consumer modules. Report
 links and `git diff --check` pass. Full fresh #445/#433 acceptance and independent reviews
 are owned by the coordinating implementation loop; this record does not claim
 that those integration checks have finished.
+
+`CechMatchingCanonicalFiber` accepts a total matching datum, its exact base
+projection and an equality presenting its local object with a supplied fiber
+value. It rebases the selected overlap along that equality and returns a
+relative matching fiber whose local value equals the supplied value. The
+selected `canonicalFiberIso` compares it with the ordinary `Fiber.ofDatum`
+extraction. The construction retains arbitrary overlap arrows and does not
+assume discrete fibers or effectivity. Checked consumers specialize it to an
+arbitrary existing relative matching object. This is a representation adapter;
+it does not itself establish the generated primitive evaluation equivalence.

@@ -1,9 +1,9 @@
 import SquareKit.Internal.PathTransport.GrothendieckProjectionLifts
-import SquareKit.Internal.PathTransport.Authoring
-import SquareKit.Internal.PathTransport.GeneratedIdentityFamilyMap
 import SquareKit.Internal.PathTransport.GroupoidFiberEssential
 import SquareKit.Internal.PathTransport.GroupoidFiberFull
 import SquareKit.Internal.PathTransport.GroupoidFiberFaithful
+import SquareKit.Internal.PathTransport.Authoring
+import SquareKit.Internal.PathTransport.GeneratedIdentityFamilyMap
 import SquareKit.Internal.PathTransport.CechMatchingConeMap
 import SquareKit.Internal.PathTransport.CechMatchingAsSmall
 import SquareKit.Internal.PathTransport.CechMatchingContractible
@@ -152,15 +152,14 @@ example : (𝟭 Loops).EssSurj :=
     (fun y _b _ => ⟨y, Subsingleton.elim _ _, ⟨Iso.refl y⟩⟩)
     (fun _ z _ => ⟨z, ⟨Iso.refl z⟩⟩)
 
-/-- The extracted constructor formula applies to a checked open identity type. -/
-example (S : GroupoidModel.Comparison.Signature.{0}) := GroupoidModel.Comparison.generatedFamilyMap_identityType S
-  Typed.Authoring.CongruenceCaller.context Typed.Authoring.CongruenceCaller.base
-  Typed.Authoring.CongruenceCaller.point Typed.Authoring.CongruenceCaller.point
-
 /-- Lifting a selected integer loop retains its base label for any fiber family. -/
 example (F : Loops ⥤ Cat.{0,0}) (x : F.obj star) :
     ∃ (z : Grothendieck F) (e : (⟨star,x⟩ : Grothendieck F) ≅ z)
       (h : z.base = star), e.hom.base ≫ eqToHom h = loop :=
   GrothendieckProjectionLifts.lift_base F ⟨star,x⟩ ⟨star,x⟩ loop
+/-- The extracted constructor formula applies to a checked open identity type. -/
+example (S : GroupoidModel.Comparison.Signature.{0}) := GroupoidModel.Comparison.generatedFamilyMap_identityType S
+  Typed.Authoring.CongruenceCaller.context Typed.Authoring.CongruenceCaller.base
+  Typed.Authoring.CongruenceCaller.point Typed.Authoring.CongruenceCaller.point
 
 end Examples.CechMatchingIdentity

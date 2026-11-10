@@ -1,8 +1,20 @@
 # Generated Čech matching input
 
-This is an intermediate construction for [#445](https://github.com/VladimirMarko/conaled/issues/445).
-It defines independent matching data and the actual global-to-local functor.
-It does not yet prove effective descent for generated contexts or families.
+This records the construction for [#445](https://github.com/VladimirMarko/conaled/issues/445).
+The current checked result proves effective matching for every supported generated
+context and family, including arbitrary dependent telescopes, pullbacks,
+path-reindexed tails, substitutions, and selected identity arrows. It identifies
+the actual canonical restriction functor as an equivalence under local
+surjectivity. Full sections now descend to the original direct global model,
+with recovery through canonical restriction and a bijection on selected vertical
+transformations. Fresh integrated acceptance and independent reviews remain
+outstanding.
+
+The construction checkpoints below retain their original scope boundaries;
+statements about work pending at an earlier checkpoint are superseded by the
+later family-induction result at the end of this report.
+
+## Construction checkpoints
 
 `Internal.PathTransport.CechMatching.Diagram` records local, double-overlap and
 triple-overlap groupoids, their restriction functors and selected endpoint
@@ -272,7 +284,7 @@ Statement review: the selected overlap comparison, hence equality or natural
 isomorphism of their complete primitive data, remains to finish. The current
 results do not yet prove the actual primitive `familyEvaluation` effective.
 
-## Work remaining for #445
+## Initial work plan, superseded by later checkpoints
 
 - Identify matching data for a generated comprehension with a base datum and
   its independently specified matching fiber, retaining its projection and
@@ -290,3 +302,219 @@ results do not yet prove the actual primitive `familyEvaluation` effective.
 Focused checks use the pinned shell and unchanged trust and heartbeat settings.
 Independent review, the parent fresh build and exhaustive audit remain part of
 candidate acceptance. This checkpoint does not close #445 or #433.
+
+The actual extracted `familyEvaluation` now has checked local-component
+recovery: `familyEvaluation_localComponent` identifies its supplied local fiber
+with the component of `localFamilyMap`, which is the original
+`generatedFamilyMap` for the local signature. This applies to every generated
+family and every supplied source fiber object, without a discreteness premise.
+The proof separates comprehension-map recovery from the definitionally equal
+local matching projection; no kernel limits are raised. The retained relative
+matching consumer checks the complete formula. This identifies evaluation's
+local action; constructor effectivity and the remaining section descent claims
+still require their separate arguments.
+
+`SmoothQuotientCechPrimitiveEvaluation` identifies the complete independent
+primitive matching value produced by actual evaluation with the supplied
+source Čech deformation, retaining its overlap equation. The selected
+`primitiveEvaluationRecovery` in `SmoothQuotientCechPrimitiveEffectivity`
+compares evaluation followed by the independent matching equivalence with the
+identity functor. Its sole remaining input is equality of the evaluated and
+source base-term data; `primitiveEvaluation_isEquivalence_of_baseTerm` then
+proves equivalence of the actual primitive fiber evaluation. That input is a
+base-term coherence statement, not an assumed matching equivalence or global
+extension. The arbitrary-deformation consumer checks the selected value
+recovery. At this checkpoint the unconditional base-term coherence theorem is
+being integrated separately.
+
+
+The selected base-term square is now checked in
+`SmoothQuotientCechBaseTermSquare`: `matchingEvaluation_baseTerm` compares
+complete functors and `evaluatedBaseTerm_eq_source` recovers the original
+primitive datum. Consequently `primitiveEvaluation_isEquivalence` is
+unconditional for every generated base term and every source context object.
+It neither assumes context evaluation is an equivalence nor imposes a global
+extension on local matching data. The retained generated consumer checks this
+stronger statement. The base-term module, primitive effectivity module and
+consumer pass focused Lean checks at default limits. Other constructors,
+telescope closure and complete direct-restriction/section descent remain
+separate obligations.
+
+
+`SmoothQuotientCechGlobalEquivalence` composes the independent primitive Čech
+presentation equivalence with quotient descent and its natural deformation
+comparison. It yields a generated context equivalence for every derivation,
+under the existing local-surjectivity assumption. `localComparison` keeps the
+selected descent recovery arrow, and `localComparison_square` recovers each
+supplied deformation through that arrow. `contextLocalComparison` lifts this
+square to generated contexts. The base-binder consumer retains the full
+quotient groupoid, including its nonidentity arrows. These results identify
+the two source interpretations; the comparison with the canonical matching
+restriction functor and its overlap square are still to be proved. They do
+not by themselves establish generated matching effectivity.
+
+
+`SmoothQuotientCechGlobalRestriction` now supplies the strict generated
+composition equation and selected `restrictionComparison`. Its primitive
+`localComparison_overlap` follows the actual torsor evaluation/transport law;
+no overlap arrow is replaced by identity. The `recoveryTriangle` packages this
+square and all six primitive family endpoints for the existing generated
+comparison calculus. The module and arbitrary-datum selected-arrow consumer
+pass focused checks. Normalizing the resulting generated triangle to the
+canonical matching cone is still in progress; no direct-restriction
+equivalence is claimed at this checkpoint.
+
+
+The direct restriction bridge is now checked. Generic `alignedRecovery_square`
+normalizes the selected generated recovery triangle before concrete model
+specialization. `SmoothQuotientCechGlobalCoherence.contextLocalComparison_overlap`
+then proves the actual overlap square. `matchingComparison` in
+`SmoothQuotientCechGlobalMatching` identifies the complete functors
+`contextEquivalence.functor ⋙ restrictionFunctor` and `matchingEvaluation` by
+a selected natural isomorphism whose local component is the recovery arrow.
+The generic `precomposedCanonicalComparison` retains that component and all
+arrow actions, rather than comparing only object isomorphism classes.
+
+`restrictionFunctor_isEquivalence` now transfers equivalence of the actual
+matching evaluation to the canonical direct restriction functor. Its sole
+effectivity input is that evaluation's equivalence; the independent source
+equivalence is constructed from existing quotient/deformation descent under
+local surjectivity. The retained base-binder consumer discharges that input
+using empty-context and base-family effectivity, obtaining actual canonical
+descent for the full quotient base groupoid. Another consumer checks exact
+selected-arrow recovery. All four new modules and the combined generated
+consumer pass focused Lean checks at default limits. Arbitrary type and
+context/telescope induction, followed by complete section specialization,
+remain the final closure obligations; this checkpoint does not claim their
+completion.
+
+## Derivation presentation and family induction
+
+`GeneratedDerivationInvariance` proves that the normalized generated context and
+family maps depend on their interpreted codes, independently of which typing
+derivation presents those codes. Its selected comparison theorem also preserves
+the cylinder comparison itself. `SmoothQuotientCechDerivationInvariance` carries
+this equality through the strict diagram, selected overlap, matching evaluation,
+and relative total evaluation. The resulting `familyEvaluation_derivation_iff`
+transfers effectiveness between presentations of the same typed family.
+`CechMatchingPresentation` supplies the dependent equality adapters used here;
+it assumes equality of the diagrams or family data and heterogeneous equality
+of the actual maps, rather than an equivalence of their matching categories.
+
+`TypedContexts` recovers context witnesses from supplied type, term, and
+substitution derivations. It includes contextual J, reindexed branches, and
+path-tail substitutions. These witnesses let the family induction apply its
+recursive hypothesis at the source of an arbitrary substitution.
+
+Statement review: the presentation adapters retain the selected overlap, not
+just its endpoints or isomorphism class. Their conclusions compare the actual
+evaluation functors. They introduce no effectivity premise and do not replace
+the independent relative matching groupoid with a source fiber.
+
+`SmoothQuotientCechFamilyEffectivity.familyEvaluation_isEquivalence` closes the
+family induction. For every supplied `TyDeriv Γ γ B b`, every context derivation
+at the same `Γ, γ`, and every object of the cocycle-model context, the actual
+`familyEvaluation` is an equivalence to the independently defined relative
+matching fiber. There is no assumed context equivalence, recursive family
+equivalence, fullness, or faithfulness in this theorem. The identity case uses
+the recursively obtained full faithfulness. The substitution case uses the
+recursive result at the image of the supplied base object, without requiring
+the substitution to be an equivalence.
+
+`TypedFamilyInduction` separates the structural recursion from the concrete
+categorical predicate. This keeps kernel checking within the default limits.
+The presentation adapter handles the base constructor when its stored context
+derivation differs from the externally supplied one.
+
+The new checked consumers instantiate a substituted identity family without any
+recursive assumptions and discharge all fiber premises of the actual context
+extension criterion. Earlier consumers retain the concrete nonidentity loops,
+arbitrary compatible local identity arrows, primitive deformation values, and
+nonfaithful substitution discriminator. Context and telescope induction, the
+unconditional section application, and fresh integrated acceptance remain
+separate obligations of the overall #445 integration.
+
+
+## Context and telescope closure
+
+`TypedTelescopeNormalization` expands a telescope derivation into `PlainTelDeriv`,
+whose constructors are nil and dependent cons. Pullback uses the existing typed
+lifted substitution at each binder. Path reindexing uses the actual path
+substitution, obtained from the nil-tail instance of `SubDeriv.pathTailMap`.
+The normalized telescope retains its original raw tail, length, and semantic
+code. This handles arbitrarily nested pullbacks without assuming that a base
+substitution is an equivalence.
+
+`TypedContextNormalization` then expands path, telescope, and branch contexts
+into `PlainCtxDeriv`, whose constructors are empty and dependent extension.
+Again both the raw context and its semantic code are unchanged. The family
+induction discharges every binder premise. The checked derivation comparison
+transfers effectiveness back to the original supplied context derivation.
+
+`SmoothQuotientCechContextEffectivity.matchingEvaluation_isEquivalence` has no
+effectivity premise. `SmoothQuotientGeneratedMatching.restriction_isEquivalence`
+requires only the fixed display's stated local surjectivity and proves that the
+actual canonical restriction is an equivalence. `descentEquivalence` bundles
+that functor with its inverse and selected unit/counit. The counit recovers the
+complete independent matching datum, including its overlap arrow.
+
+Statement review: normalization preserves the source judgment and code rather
+than replacing a parameter-dependent tail by a list of unrelated fibers. The
+induction covers every constructor of `CtxDeriv` and `TelDeriv`. The public
+consumers quantify over arbitrary lengths, dependent tails, and substitutions;
+they also exercise path reindexing, reflexive branches, and complete matching
+recovery. Full section specialization and fresh integrated acceptance are still
+required before closing #445.
+
+
+## Full sections through canonical restriction
+
+`SmoothQuotientGeneratedSectionDescent` proves the complete
+`restriction_substitution` equality for every generated substitution, using the
+actual local restriction square. It constructs `totalRestriction` on extended
+matching data and proves its projection equation. The section equivalence uses
+the already proved canonical restriction equivalence for the extended context,
+the independent relative matching equivalence, and the generic comprehension
+equivalence. Its source family is interpreted in `SmoothQuotientSource.model a X`,
+the original direct global model.
+
+`sectionDescent` takes no recursive effectivity input. Under the fixed display's
+local-surjectivity hypothesis, its result reconstructs a section from any
+supplied section of the independent relative matching family. Recovery is a
+natural isomorphism of complete lifted sections through the selected total
+restriction comparison; its base component is the selected projection
+comparison. `verticalEquiv` preserves and reflects every selected vertical
+natural transformation. The checked consumer proves that any supplied vertical
+transformation has exactly one preimage. The statement does not replace
+vertical isomorphisms by equality of groupoid-valued sections.
+
+The imported `SmoothQuotientCechFamilyTransport` retains genuine family
+naturality of the actual evaluation, with selected transport comparisons and
+identity/composition laws. The family equivalence theorem supplies its
+pointwise effectiveness; naturality is a separate proved construction.
+
+Statement review: the global section source is the direct model, the base
+functor is actual canonical restriction, and matching inputs do not include a
+global extension witness. The only cover premise is local surjectivity. Checked
+consumers cover complete section recovery and uniqueness of selected vertical
+transformations, alongside arbitrary dependent tails. This completes the
+implementation obligations tracked here; the orchestrator still owns fresh
+integrated build/audit and independent Standards/Spec acceptance of #445 and its
+integration into #433.
+
+
+`Examples.GeneratedNontrivialDescent` embeds the accepted doubled-origin
+ineffective-action torsor's primitive Čech datum into the generated base-binder
+matching groupoid through the independent relative family and comprehension
+comparison. It exercises the final canonical restriction counit on that complete
+generated datum and proves that distinct selected generated matching arrows stay
+distinct under descent. For a nonidentity clutching label, the retained primitive
+consumer rules out a global chart; the generated theorem does not assume one.
+
+Focused validation passed the combined constructor, comprehension, normalization,
+context, and section consumers (3,701 Lake jobs), with unchanged trust and kernel
+limits. Targeted axiom queries for family effectivity, context effectivity,
+canonical restriction, full section descent, and coherent family transport use
+only `propext`, `Classical.choice`, and `Quot.sound`. The final concrete torsor
+consumer also passed direct Lean checking; the orchestrator's fresh exhaustive
+acceptance remains required.
