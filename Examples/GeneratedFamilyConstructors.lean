@@ -1,3 +1,4 @@
+import SquareKit.SmoothQuotientCechFamilyEffectivity
 import SquareKit.SmoothQuotientCechPrimitiveEffectivity
 import SquareKit.SmoothQuotientCechGlobalEquivalence
 import SquareKit.SmoothQuotientCechGlobalRestriction
@@ -165,5 +166,23 @@ example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
       (.sub hB (.weaken hΓ hC)) c).IsEquivalence :=
   SmoothQuotientCechLocal.substitutionEvaluation_isEquivalence a A hΓ (.ext hΓ hC)
     hB (.weaken hΓ hC) c
+
+/-- A substituted identity family is effective without any recursive
+fullness, faithfulness, or equivalence hypotheses. -/
+example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hΔ : Typed.CtxDeriv.{2} Δ δ)
+    (hB : Typed.TyDeriv.{2} Γ γ B b) (hx : Typed.TmDeriv.{2} Γ γ B b x ξ)
+    (hy : Typed.TmDeriv.{2} Γ γ B b y η) (hs : Typed.SubDeriv.{2} Δ δ Γ γ σ s)
+    (A : SplitSheaf.Ty X) (c : (show Grpd.{1,1} from δ (SmoothQuotientCechLocal.model a A))) :
+    (SmoothQuotientCechLocal.familyEvaluation a A hΔ (.sub (.identity hB hx hy) hs) c).IsEquivalence :=
+  SmoothQuotientCechLocal.familyEvaluation_isEquivalence a A _ hΔ c
+
+/-- Any generated binder extends an effective context. All recursive family
+premises of the total matching criterion are discharged by the induction. -/
+example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
+    (A : SplitSheaf.Ty X)
+    [(SmoothQuotientCechLocal.matchingEvaluation a A hΓ).IsEquivalence] :
+    (SmoothQuotientCechLocal.matchingEvaluation a A (.ext hΓ hB)).IsEquivalence :=
+  SmoothQuotientCechLocal.matchingEvaluation_ext_isEquivalence a A hΓ hB
+    (SmoothQuotientCechLocal.familyEvaluation_isEquivalence a A hB hΓ)
 
 end Examples.GeneratedFamilyConstructors

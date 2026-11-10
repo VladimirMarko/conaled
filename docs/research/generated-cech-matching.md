@@ -398,3 +398,26 @@ Statement review: the presentation adapters retain the selected overlap, not
 just its endpoints or isomorphism class. Their conclusions compare the actual
 evaluation functors. They introduce no effectivity premise and do not replace
 the independent relative matching groupoid with a source fiber.
+
+`SmoothQuotientCechFamilyEffectivity.familyEvaluation_isEquivalence` closes the
+family induction. For every supplied `TyDeriv Γ γ B b`, every context derivation
+at the same `Γ, γ`, and every object of the cocycle-model context, the actual
+`familyEvaluation` is an equivalence to the independently defined relative
+matching fiber. There is no assumed context equivalence, recursive family
+equivalence, fullness, or faithfulness in this theorem. The identity case uses
+the recursively obtained full faithfulness. The substitution case uses the
+recursive result at the image of the supplied base object, without requiring
+the substitution to be an equivalence.
+
+`TypedFamilyInduction` separates the structural recursion from the concrete
+categorical predicate. This keeps kernel checking within the default limits.
+The presentation adapter handles the base constructor when its stored context
+derivation differs from the externally supplied one.
+
+The new checked consumers instantiate a substituted identity family without any
+recursive assumptions and discharge all fiber premises of the actual context
+extension criterion. Earlier consumers retain the concrete nonidentity loops,
+arbitrary compatible local identity arrows, primitive deformation values, and
+nonfaithful substitution discriminator. Context and telescope induction, the
+unconditional section application, and fresh integrated acceptance remain
+separate obligations of the overall #445 integration.
