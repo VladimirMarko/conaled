@@ -290,3 +290,14 @@ results do not yet prove the actual primitive `familyEvaluation` effective.
 Focused checks use the pinned shell and unchanged trust and heartbeat settings.
 Independent review, the parent fresh build and exhaustive audit remain part of
 candidate acceptance. This checkpoint does not close #445 or #433.
+
+The actual extracted `familyEvaluation` now has checked local-component
+recovery: `familyEvaluation_localComponent` identifies its supplied local fiber
+with the component of `localFamilyMap`, which is the original
+`generatedFamilyMap` for the local signature. This applies to every generated
+family and every supplied source fiber object, without a discreteness premise.
+The proof separates comprehension-map recovery from the definitionally equal
+local matching projection; no kernel limits are raised. The retained relative
+matching consumer checks the complete formula. This identifies evaluation's
+local action; constructor effectivity and the remaining section descent claims
+still require their separate arguments.
