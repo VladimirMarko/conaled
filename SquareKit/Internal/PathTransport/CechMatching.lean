@@ -90,6 +90,13 @@ def StrictDiagram.equalDatum (D : StrictDiagram.{u}) (x : D.localCategory)
 namespace Datum
 variable {D}
 
+@[ext] theorem ext {d e : Datum D} (h : d.localObject = e.localObject)
+    (hh : HEq d.overlap e.overlap) : d = e := by
+  cases d; cases e
+  cases h
+  cases eq_of_heq hh
+  rfl
+
 /-- An arrow is its complete local action, with the overlap square. -/
 structure Hom (d e : Datum D) where
   localArrow : d.localObject ⟶ e.localObject
@@ -130,6 +137,15 @@ instance : Groupoid (Datum D) where
   inv := Hom.inverse
   inv_comp _f := Hom.ext _ _ (IsIso.inv_hom_id _)
   comp_inv _f := Hom.ext _ _ (IsIso.hom_inv_id _)
+
+@[simp] theorem comp_localArrow {d e f : Datum D} (h : d ⟶ e) (k : e ⟶ f) :
+    (h ≫ k).localArrow = h.localArrow ≫ k.localArrow := rfl
+
+@[simp] theorem id_localArrow (d : Datum D) : (𝟙 d : d ⟶ d).localArrow = 𝟙 d.localObject := rfl
+
+@[simp] theorem eqToHom_localArrow {d e : Datum D} (h : d = e) :
+    (eqToHom h).localArrow = eqToHom (congrArg Datum.localObject h) := by
+  cases h; rfl
 
 /-- The forgetful functor keeps every selected local arrow. -/
 def localFunctor : Datum D ⥤ D.localCategory where

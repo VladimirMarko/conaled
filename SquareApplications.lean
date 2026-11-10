@@ -611,5 +611,6 @@ import Examples.ParameterSectionRejection
 import Examples.CechDeformationDescent
 import Examples.CechOverlapRejection
 import Examples.GeneratedCechMatching
+import Examples.GeneratedMatchingMaps
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

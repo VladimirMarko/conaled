@@ -27,6 +27,20 @@ isomorphism. This uniform construction applies to telescope and branch
 contexts as well as ordinary extensions. It does not establish the induction
 identifying these data with an interpretation over primitive quotient cocycles.
 
+`CechMatching.StrictMap` maps the local, double and triple groupoids with
+six strict restriction squares. Its induced matching functor preserves actual
+local arrows; the diagonal and cocycle proofs follow from those squares.
+Identity and composition are functor equalities. Strict inverse diagrams give
+an equivalence of matching categories, with no assumed matching equivalence.
+This supports cover-presentation isomorphisms whose restriction laws are strict;
+it does not assert the same construction for arbitrary weak diagram maps.
+
+`SmoothQuotientGeneratedMatchingSubstitution` instantiates all six squares
+using generated substitution preservation. It supplies matching substitution
+functors, including the comprehension projection, with their exact local
+object and arrow action. Relative-family identification and effective descent
+still require further work.
+
 ## Statement review and checked cases
 
 The matching input permits arbitrary local objects with arbitrary overlap
@@ -43,6 +57,11 @@ loops: the selected one loop remains distinct from the identity arrow, but
 using it as an identity-display overlap violates the diagonal equation. The
 same example module checks the actual smooth object and arrow restriction
 formulas and accepts any finite telescope derivation.
+
+`Examples.GeneratedMatchingMaps` swaps the two objects of a discrete groupoid
+at all three diagram levels. Its matching functor moves the false representative
+to the true representative, and the proved strict inverse constructs the
+matching equivalence.
 
 These cases test the matching input and canonical restriction. They do not
 exercise generated effective descent on a nontrivial torsor. The primitive
