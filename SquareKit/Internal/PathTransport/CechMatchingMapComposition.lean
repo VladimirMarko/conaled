@@ -6,8 +6,8 @@ namespace SquareKit.Internal.PathTransport.CechMatching.StrictMap
 open CategoryTheory
 set_option backward.isDefEq.respectTransparency false
 set_option backward.defeqAttrib.useBackward true
-universe u
-variable {D E K : StrictDiagram.{u}}
+universe u v
+variable {D E K : StrictDiagram.{u,v}}
 
 @[ext] theorem ext (F G : StrictMap D E) (h0 : F.localMap = G.localMap)
     (h1 : F.doubleMap = G.doubleMap) (h2 : F.tripleMap = G.tripleMap) : F = G := by
@@ -15,7 +15,7 @@ variable {D E K : StrictDiagram.{u}}
   cases h0; cases h1; cases h2
   rfl
 
-def id (D : StrictDiagram.{u}) : StrictMap D D where
+def id (D : StrictDiagram.{u,v}) : StrictMap D D where
   localMap := 𝟭 _
   doubleMap := 𝟭 _
   tripleMap := 𝟭 _

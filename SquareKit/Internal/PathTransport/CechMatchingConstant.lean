@@ -7,10 +7,10 @@ namespace SquareKit.Internal.PathTransport.CechMatching
 open CategoryTheory
 set_option backward.isDefEq.respectTransparency false
 set_option backward.defeqAttrib.useBackward true
-universe u
+universe u v
 
 /-- The Čech diagram of an identity parameter display. -/
-def constant (C : Grpd.{u,u}) : Diagram.{u} where
+def constant (C : Grpd.{u,v}) : Diagram.{u,v} where
   localCategory := C
   doubleCategory := C
   tripleCategory := C
@@ -26,7 +26,7 @@ def constant (C : Grpd.{u,u}) : Diagram.{u} where
   tripleMiddle := Iso.refl _
   tripleLast := Iso.refl _
 
-variable (C : Grpd.{u,u})
+variable (C : Grpd.{u,v})
 
 /-- Every object supplies identity-display matching, without a discreteness premise. -/
 def constantDatum (x : C) : Datum (constant C) where

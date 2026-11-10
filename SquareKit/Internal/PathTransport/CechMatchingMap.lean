@@ -7,11 +7,11 @@ namespace SquareKit.Internal.PathTransport.CechMatching
 open CategoryTheory
 set_option backward.isDefEq.respectTransparency false
 set_option backward.defeqAttrib.useBackward true
-universe u
+universe u v
 
 /-- A map of the truncated strict diagrams. The equations concern restriction
 functors, rather than assumptions about their categories of matching data. -/
-structure StrictMap (D E : StrictDiagram.{u}) where
+structure StrictMap (D E : StrictDiagram.{u,v}) where
   localMap : D.localCategory ⥤ E.localCategory
   doubleMap : D.doubleCategory ⥤ E.doubleCategory
   tripleMap : D.tripleCategory ⥤ E.tripleCategory
@@ -23,7 +23,7 @@ structure StrictMap (D E : StrictDiagram.{u}) where
   secondThird : doubleMap ⋙ E.secondThird = D.secondThird ⋙ tripleMap
 
 namespace StrictMap
-variable {D E : StrictDiagram.{u}} (F : StrictMap D E)
+variable {D E : StrictDiagram.{u,v}} (F : StrictMap D E)
 
 def overlap (d : Datum D.toDiagram) :
     E.first.obj (F.localMap.obj d.localObject) ≅
