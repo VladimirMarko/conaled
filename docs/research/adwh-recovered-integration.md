@@ -21,7 +21,7 @@ workflow's acceptance labels.
 | Exact arithmetic and growth | `NonnegativeArithmetic`, `ExactGrowthBounds`, existing relational compilation and interval semantics | [ExactArithmeticPipeline](../../Examples/ExactArithmeticPipeline.lean), [ExactGrowthApplications](../../Examples/ExactGrowthApplications.lean), [contracts](adwh-exact-arithmetic.md) |
 | Finite and uniform recurrence bounds | `FiniteRecurrences`, `Resources.Recurrences` | [ResourceRecurrences](../../Examples/ResourceRecurrences.lean), [RecurrenceScans](../../Examples/RecurrenceScans.lean), [contracts](adwh-recurrences.md) |
 
-These results cover the supplied Chapter 1 scope, selected Chapter 2 material,
+These results address the selected Chapter 1 developments, selected Chapter 2 material,
 and generic search counting. They do not complete Chapter 2, the textbook, or
 [#149](https://github.com/VladimirMarko/conaled/issues/149). The concrete
 queens-16 numeral proof is excluded. Resource theorems price their declared
@@ -65,3 +65,11 @@ declaration; statement review checks the intended claims and their assumptions.
 Existing connected cases cover the recovered claims, including noncommutative
 scan order, unknown versus completed list ends, invalid arithmetic versus zero,
 zero toll/base recurrence boundaries, and uniform versus pointwise growth.
+
+## Research and remaining ownership
+
+The [continuation handoff](adwh-recovered-handoff.md) reconciles all 46 private
+tickets, preserves [useful unimplemented research](adwh-recovered-research.md),
+and records the remaining capability audit. The integration review did not
+establish exhaustive Chapter 1 or checkpoint-335 capability parity. GitHub #149
+owns completion; historical cloud acceptance labels and phase gates are retired.

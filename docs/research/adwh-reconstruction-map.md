@@ -203,3 +203,12 @@ ledgers extend the historical routing map above; that generated checkpoint-233
 map remains a record of its original scoped tasks. These additions do not close
 Chapter 2 or the textbook umbrella. The successor inventory stores only changed
 and added source records, reusing unchanged predecessor identities.
+
+## Recovered continuation research
+
+The [external continuation handoff](adwh-recovered-handoff.md) records the
+retired private-ticket dispositions, remaining Chapter 2 designs, later-chapter
+research questions and capability-audit requirements. Its
+[research synthesis](adwh-recovered-research.md) preserves counterexamples and
+observation contracts. These notes supplement the existing declaration map;
+they do not mark deferred rows accepted or certify whole-chapter parity.
