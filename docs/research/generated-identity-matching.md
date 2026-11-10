@@ -45,3 +45,10 @@ with checked inverse functors and exact projection/arrow formulas. The tests
 include the primitive hom-universe-0/object-universe-1 shape and a selected
 nonidentity integer loop. No quotient, discreteness premise or effectivity
 assumption is introduced by universe lifting.
+
+`CechMatchingConeMap` proves whole-functor compatibility with a strict diagram
+map. Inputs are the local functor equation and equality of the selected overlap
+after the explicit first/second/local comparison transports. Neither effectivity
+nor faithfulness is a premise. An identity-diagram specialization retains an
+arbitrary coherent selected overlap; generated substitution uses the same
+interface with its separately constructed comparison square.
