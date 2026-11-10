@@ -68,6 +68,83 @@ exercise generated effective descent on a nontrivial torsor. The primitive
 nontrivial torsor and ineffective-action cases remain in
 `Examples.CechDeformationDescent` and `Examples.CechOverlapRejection`.
 
+## Relative matching fibers
+
+`GroupoidFiberDecomposition` constructs a natural groupoid-valued fiber family
+for any groupoid functor. A fiber object contains a domain object and a selected
+base arrow. Fiber morphisms satisfy the corresponding square. Its total category
+is equivalent to the domain, with a natural comparison of base projections.
+`SmoothQuotientGeneratedMatchingFibers` applies this construction to the actual
+matching projection of a generated comprehension. No cover hypothesis is needed.
+
+This is a homotopy-fiber decomposition of independent local matching data. It
+does not identify those fibers with generated type semantics and therefore does
+not prove effective descent. `CechMatchingSetFamily` separately specifies local
+values satisfying an equation along the supplied overlap arrow and proves their
+naturality under all matching-context arrows. Neither construction assumes that
+local data extend globally.
+
+Statement review: the fiber projection comparison retains the supplied base
+isomorphism; the full and faithful total forgetful functor retains every domain
+arrow. `Examples.GeneratedMatchingFibers` checks the construction on an integer
+loop groupoid and the set-family matching equation on identity displays. These
+checks supplement, but do not replace, the dependent-tail effectiveness cases
+still required below.
+
+## Primitive quotient and deformation bridge
+
+`SheafActionQuotientCechMatching` defines the generic diagram using the actual
+quotient restriction functors on the split double and triple overlaps.
+`matchingEquivalence` identifies its matching groupoid with the previously
+accepted independent primitive Čech groupoid. Both directions retain exactly
+the supplied local object, overlap isomorphism and local arrow. Its unit and
+counit are identity isomorphisms. `matchingDescentEquivalence` then composes the
+existing primitive Čech-to-cocycle and cocycle-to-global equivalences. The latter
+requires local surjectivity; the matching definition and identification do not.
+
+`SmoothQuotientCechMatchingFibers.matchingFamily` specializes the generic
+set-family equation to actual deformations. It agrees with the previously
+accepted primitive deformation matching family, including arrow action, and
+has its natural comparison to the cocycle deformation family.
+
+Statement review: these are primitive results, not generated-context effectivity.
+The equivalence consumes arbitrary supplied local objects and actual overlaps.
+`Examples.PrimitiveCechMatching` checks overlap preservation, preservation of
+distinct selected arrows, arbitrary primitive effectivity, and the doubled-origin
+ineffective-action torsor's matching deformation. The existing no-global-chart
+result for that torsor remains applicable.
+
+## Generated local evaluation
+
+`SmoothQuotientCechLocalSignature` provides local evaluation from arbitrary
+primitive Čech data, the actual overlap natural isomorphism, and the deformation
+square supplied by each matching value. `SmoothQuotientCechGeneratedLocal`
+lifts these to every context derivation using the selected comparison from #446.
+Its `localMap_restriction` identifies the composite with actual parameter
+restriction; `generatedOverlap` retains the generated selected overlap arrow.
+
+Statement review: this constructs local evaluation and its overlap comparison.
+The diagonal/triple equations and equivalence with independent generated
+matching are not asserted by these declarations. The dependent-tail induction
+in the selected comparison supplies these local maps uniformly, but does not
+by itself prove the remaining effectiveness induction.
+
+## Selected overlap restriction and diagonal
+
+`SmoothQuotientCechGeneratedOverlap` proves that restriction of the selected
+comparison agrees with the comparison obtained from the restricted primitive
+square. It identifies the three vertex maps on the triple overlap and proves
+the selected comparison on the diagonal is the identity. The generic
+`SelectedIsoTransport` lemmas express the equality transports explicitly.
+`SmoothQuotientCechGeneratedMatching.generatedOverlap_diagonal` then proves the
+diagonal law in the actual generated restriction diagram.
+
+Statement review: these laws concern every supplied context derivation and
+retain the selected overlap. They impose no faithfulness or invertibility on
+the local evaluation functor. The triple-overlap law and effective descent are
+still separate obligations. `Examples.CechMatchingCone` checks that a coherent
+cone preserves a nonidentity integer loop and distinguishes it from identity.
+
 ## Work remaining for #445
 
 - Identify matching data for a generated comprehension with a base datum and

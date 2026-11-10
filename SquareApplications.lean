@@ -1,5 +1,6 @@
 import Examples.GeneratedSelectedComparison
 import Examples.SmoothSelectedComparison
+import Examples.CechMatchingComprehension
 import Examples.SignatureCylinder
 import Examples.WeakMachine
 import Examples.WeakCanonicity
@@ -621,3 +622,14 @@ import Examples.GeneratedCechMatching
 import Examples.GeneratedMatchingMaps
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
+
+import SquareKit.SmoothQuotientGeneratedMatchingFibers
+import SquareKit.Internal.PathTransport.CechMatchingSetFamily
+import Examples.GeneratedMatchingFibers
+
+import SquareKit.SheafActionQuotientCechMatching
+import SquareKit.SmoothQuotientCechMatchingFibers
+import Examples.PrimitiveCechMatching
+
+import SquareKit.SmoothQuotientCechLocalSignature
+import SquareKit.SmoothQuotientCechGeneratedLocal
