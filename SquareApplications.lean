@@ -1,3 +1,4 @@
+import Examples.CechMatchingIdentity
 import Examples.GeneratedSelectedComparison
 import Examples.SmoothSelectedComparison
 import Examples.CechMatchingComprehension
