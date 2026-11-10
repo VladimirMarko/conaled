@@ -145,6 +145,22 @@ the local evaluation functor. The triple-overlap law and effective descent are
 still separate obligations. `Examples.CechMatchingCone` checks that a coherent
 cone preserves a nonidentity integer loop and distinguishes it from identity.
 
+## Actual generated relative diagram
+
+`SmoothQuotientGeneratedRelativeDiagram` supplies the generic comprehension
+construction with the interpreted local, double, and triple families and their
+six actual generated family restrictions. `relativeFamilyCoherence` proves all
+five total-diagram equations using `generatedContextMap_extend` and the existing
+strict context restriction laws. `relativeMatchingEquivalence` identifies this
+total diagram's matching groupoid with matching for the actual extended context.
+Its two strict diagram maps are identity functors at each level, with explicit
+restriction comparison equations.
+
+Statement review: this specializes to every `CtxDeriv` and `TyDeriv`, retains
+arbitrary local objects and overlap arrows, and requires no cover surjectivity
+or effectiveness premise. It identifies the total diagram; effectiveness of
+local evaluation and identification of each generated fiber are still pending.
+
 ## Work remaining for #445
 
 - Identify matching data for a generated comprehension with a base datum and
