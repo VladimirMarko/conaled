@@ -1,4 +1,5 @@
 import SquareKit.SmoothQuotientCechGeneratedCone
+import SquareKit.Internal.PathTransport.CechMatchingConeMap
 import SquareKit.Internal.PathTransport.AlignedSignatureSubstitution
 import SquareKit.SmoothQuotientGeneratedMatchingSubstitution
 
@@ -55,5 +56,25 @@ theorem generatedOverlap_substitution :
     (parameterMap_substitution a A hΓ hΔ hs (SplitSheaf.Cech.second A))
     (localComposite_substitution a A hΓ hΔ hs (SplitSheaf.Cech.first A))
     (localComposite_substitution a A hΓ hΔ hs (SplitSheaf.Cech.second A)) h
+
+/-- Complete matching evaluation, including its overlap, commutes with substitution. -/
+theorem matchingEvaluation_substitution :
+    matchingEvaluation a A hΔ ⋙
+      SmoothQuotientGeneratedMatching.substitution a hΓ hΔ hs A =
+    (s (model a A)).down ⋙ matchingEvaluation a A hΓ := by
+  apply CechMatching.ConeMap.coneFunctor_map
+    (SmoothQuotientGeneratedMatching.substitutionDiagram a hΓ hΔ hs A)
+    (localMap a A hΔ) (localMap a A hΓ) (s (model a A)).down
+    (generatedOverlap a A hΔ) (generatedOverlap a A hΓ)
+    (generatedConeLaws a A hΔ) (generatedConeLaws a A hΓ)
+    (localMap_substitution a A hΓ hΔ hs).symm
+  exact CechMatching.ConeMap.transportedOverlap_of_square
+    (SmoothQuotientGeneratedMatching.substitutionDiagram a hΓ hΔ hs A)
+    (localMap a A hΔ) (localMap a A hΓ) (s (model a A)).down
+    (generatedOverlap a A hΔ) (generatedOverlap a A hΓ)
+    (localMap_substitution a A hΓ hΔ hs).symm
+    (localComposite_substitution a A hΓ hΔ hs (SplitSheaf.Cech.first A))
+    (localComposite_substitution a A hΓ hΔ hs (SplitSheaf.Cech.second A))
+    (generatedOverlap_substitution a A hΓ hΔ hs)
 
 end SquareKit.SmoothQuotientCechLocal

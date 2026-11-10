@@ -1,4 +1,4 @@
-import SquareKit.SmoothQuotientGeneratedRelativeMatching
+import SquareKit.SmoothQuotientCechGeneratedFamilyEvaluation
 
 /-! Independent relative matching recovers the supplied local generated fiber. -/
 noncomputable section
@@ -34,5 +34,21 @@ example {n Δ T} (hT : Typed.TelDeriv.{2} Γ γ n Δ T) :
       (.base (.telescope hΓ hT)) A ⋙ Grpd.forgetToCat) ≌
       Datum a (.ext (.telescope hΓ hT) (.base (.telescope hΓ hT))) A :=
   dependentComprehensionEquivalence a (.telescope hΓ hT) (.base (.telescope hΓ hT)) A
+
+/-- Actual evaluation retains the entire total matching datum of each fiber value. -/
+example (c : (show Grpd.{1,1} from γ (SmoothQuotientCechLocal.model a A)))
+    (x : (b (SmoothQuotientCechLocal.model a A)).obj c) :
+    ((SmoothQuotientCechLocal.familyEvaluation a A hΓ hB c).obj x).datum ≅
+      (SmoothQuotientCechLocal.fiberTotalEvaluation a A hΓ hB c).obj x :=
+  (SmoothQuotientCechLocal.familyEvaluation_total a A hΓ hB c).app x
+
+/-- Recovery is natural for every supplied vertical arrow, not just objects. -/
+example (c : (show Grpd.{1,1} from γ (SmoothQuotientCechLocal.model a A)))
+    {x y : (b (SmoothQuotientCechLocal.model a A)).obj c} (f : x ⟶ y) :
+    ((SmoothQuotientCechLocal.familyEvaluation a A hΓ hB c).map f).matchingArrow ≫
+        ((SmoothQuotientCechLocal.familyEvaluation_total a A hΓ hB c).app y).hom =
+      ((SmoothQuotientCechLocal.familyEvaluation_total a A hΓ hB c).app x).hom ≫
+        (SmoothQuotientCechLocal.fiberTotalEvaluation a A hΓ hB c).map f :=
+  (SmoothQuotientCechLocal.familyEvaluation_total a A hΓ hB c).hom.naturality f
 
 end Examples.GeneratedRelativeMatching

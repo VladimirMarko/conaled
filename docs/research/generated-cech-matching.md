@@ -209,6 +209,23 @@ Statement review: this establishes the empty case and comparison coherence.
 It does not yet establish effectiveness for extensions or identify complete
 sections through the full generated evaluation.
 
+## Evaluation on dependent fibers
+
+`matchingEvaluation_substitution` now proves the full functor equation for every
+checked generated substitution, including the selected overlap and arrow action.
+`SmoothQuotientCechGeneratedFamilyEvaluation` uses its weakening case to construct
+`familyEvaluation` into the independently defined relative matching fiber over
+the evaluated base datum. `familyEvaluation_total` recovers the complete total
+matching evaluation naturally on every vertical arrow.
+
+The generic `Comprehension.fixedBaseFunctor` extracts such a relative fiber from
+a total matching functor with a specified constant projection. Its local fiber
+is the supplied one with its base transported. The construction assumes neither
+faithfulness nor effectiveness. The checked examples retain arbitrary supplied
+fiber values and vertical arrows. Statement review: this constructs the actual
+fiber comparison; proving it an equivalence for all type constructors remains
+part of the pending effectiveness induction.
+
 ## Work remaining for #445
 
 - Identify matching data for a generated comprehension with a base datum and
