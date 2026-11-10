@@ -83,4 +83,3 @@ theorem horizontal_identity (A : Family Γ) (B : Family Δ)
 
 end Family
 end SquareKit.Internal.PathTransport.GroupoidModel.Comparison
-
