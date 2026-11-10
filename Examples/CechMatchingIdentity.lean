@@ -1,4 +1,4 @@
-import SquareKit.Internal.PathTransport.CechMatchingIdentity
+import SquareKit.Internal.PathTransport.CechMatchingComprehensionIdentity
 import SquareKit.Internal.PathTransport.CechMatchingConstant
 import Mathlib.CategoryTheory.SingleObj
 import Mathlib.Algebra.Group.Int.Defs
@@ -38,5 +38,29 @@ example {D : Diagram.{0,0}} {B : Type} [Category B]
     ((Identity.family X Y).map f p).val =
       inv (X.map f).localArrow ≫ p.val ≫ (Y.map f).localArrow :=
   Identity.map_localArrow X Y f p
+
+/-- In a relative fiber, recovery includes the supplied vertical matching arrow. -/
+example {D : StrictDiagram.{0,0}} {A : Comprehension.FamilyData D} {h : A.Coherence}
+    {d : Datum D.toDiagram} {x y : Comprehension.Fiber A h d}
+    (p : Comprehension.Identity.Paths x y) :
+    ((Comprehension.Identity.arrowEquiv x y) p).matchingArrow.localArrow = p.val.val := rfl
+
+/-- The reconstructed arrow is vertical over the specified base datum. -/
+example {D : StrictDiagram.{0,0}} {A : Comprehension.FamilyData D} {h : A.Coherence}
+    {d : Datum D.toDiagram} {x y : Comprehension.Fiber A h d}
+    (p : Comprehension.Identity.Paths x y) :
+    ((Comprehension.Identity.arrowEquiv x y) p).matchingArrow.localArrow.base =
+      𝟙 d.localObject := p.property
+
+/-- Fully faithful relative restriction recovers every supplied vertical path. -/
+example {D : StrictDiagram.{0,0}} {A : Comprehension.FamilyData D} {h : A.Coherence}
+    {d : Datum D.toDiagram} {G B : Type} [Groupoid G] [Category B]
+    (R : G ⥤ Comprehension.Fiber A h d) [R.Full] [R.Faithful]
+    (X Y : B ⥤ G) (b : B)
+    (p : Comprehension.Identity.Paths ((X ⋙ R).obj b) ((Y ⋙ R).obj b)) :
+    (Comprehension.Identity.restrictionIso R X Y).hom.app b
+      ((Comprehension.Identity.restrictionIso R X Y).inv.app b p) = p :=
+  ConcreteCategory.congr_hom
+    ((Comprehension.Identity.restrictionIso R X Y).inv_hom_id_app b) p
 
 end Examples.CechMatchingIdentity
