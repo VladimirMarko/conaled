@@ -1,3 +1,5 @@
+import SquareKit.Internal.PathTransport.Authoring
+import SquareKit.Internal.PathTransport.GeneratedIdentityFamilyMap
 import SquareKit.Internal.PathTransport.CechMatchingConeMap
 import SquareKit.Internal.PathTransport.CechMatchingAsSmall
 import SquareKit.Internal.PathTransport.CechMatchingContractible
@@ -121,5 +123,10 @@ example {D : StrictDiagram.{0,0}} {B : Type} [Category B]
   apply ConeMap.transportedOverlap_of_square (StrictMap.id D) L L (𝟭 B) η η rfl rfl rfl
   ext b
   simp [StrictMap.id]
+
+/-- The extracted constructor formula applies to a checked open identity type. -/
+example (S : GroupoidModel.Comparison.Signature.{0}) := GroupoidModel.Comparison.generatedFamilyMap_identityType S
+  Typed.Authoring.CongruenceCaller.context Typed.Authoring.CongruenceCaller.base
+  Typed.Authoring.CongruenceCaller.point Typed.Authoring.CongruenceCaller.point
 
 end Examples.CechMatchingIdentity

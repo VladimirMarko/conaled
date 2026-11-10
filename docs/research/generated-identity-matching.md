@@ -58,3 +58,11 @@ that normalized overlap equality. Its hypotheses retain both endpoint
 equalities and the full natural-isomorphism square; proof irrelevance only
 normalizes equality transports. The checked identity-map case allows an
 arbitrary overlap, so no identity-overlap premise is hidden in the adapter.
+
+`GeneratedIdentityFamilyMap` extracts the identity-type constructor on the
+complete family comparison. `generatedIdentityMap_arrow` applies it to every
+supplied identity arrow: first use the component functor's map, then the
+endpoint transport determined by the two generated term comparisons. The
+open identity type in `Authoring.CongruenceCaller` specializes the constructor
+formula. The theorem assumes neither reflexive identity objects nor a
+faithful primitive comparison.
