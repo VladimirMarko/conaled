@@ -1,3 +1,4 @@
+import SquareKit.SmoothQuotientCechGeneratedEffectivity
 import Examples.GeneratedBaseMatching
 import SquareKit.SmoothQuotientCechGeneratedEmpty
 import SquareKit.SmoothQuotientCechGeneratedSubstitution
