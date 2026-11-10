@@ -53,6 +53,36 @@ theorem lastTripleFiberHEq :
       (secondRestrictionFiber a A (SplitSheaf.Cech.firstThird A)) :=
   heq_of_eq (lastRestrictionFiber_triple a A)
 
+/-- Use the composite parameter map as the primitive endpoint before generation. -/
+def parameterOverlap {Y : Sheaf topology Type} (f : Y ⟶ SplitSheaf.Cech.double A) :
+    SheafActionQuotient.Cech.localFunctor ⋙ restriction (a := a) (f ≫ SplitSheaf.Cech.first A) ≅
+      SheafActionQuotient.Cech.localFunctor ⋙ restriction (f ≫ SplitSheaf.Cech.second A) :=
+  isoWhiskerRight (overlap a A) (restriction f)
+
+theorem parameterOverlap_square {Y : Sheaf topology Type} (f : Y ⟶ SplitSheaf.Cech.double A) :
+    parameterFiber a A (f ≫ SplitSheaf.Cech.first A) ≫
+      whiskerRight (parameterOverlap a A f).hom (family a Y) =
+    parameterFiber a A (f ≫ SplitSheaf.Cech.second A) :=
+  overlapRestriction_square a A f
+
+theorem parameterFunctor_eq {Y : Sheaf topology Type}
+    {f g : Y ⟶ SplitSheaf.Ext A} (h : f = g) :
+    SheafActionQuotient.Cech.localFunctor ⋙ restriction (a := a) f =
+      SheafActionQuotient.Cech.localFunctor ⋙ restriction g := by cases h; rfl
+
+theorem parameterFiber_heq {Y : Sheaf topology Type}
+    {f g : Y ⟶ SplitSheaf.Ext A} (h : f = g) :
+    HEq (parameterFiber a A f) (parameterFiber a A g) := by cases h; rfl
+
+theorem parameterTriangle_cocycle :
+    parameterOverlap a A (SplitSheaf.Cech.firstSecond A) ≪≫
+      eqToIso (parameterFunctor_eq a A (SplitSheaf.Cech.firstSecond_second A)) ≪≫
+      parameterOverlap a A (SplitSheaf.Cech.secondThird A) =
+    eqToIso (parameterFunctor_eq a A (SplitSheaf.Cech.firstSecond_first A)) ≪≫
+      parameterOverlap a A (SplitSheaf.Cech.firstThird A) ≪≫
+      (eqToIso (parameterFunctor_eq a A (SplitSheaf.Cech.firstThird_second A).symm)).symm :=
+  triplePrimitive_cocycle a A
+
 def primitiveTriangle : AlignedTriangle
     (SmoothQuotientDeformations.Cech.family (a := a) (A := A))
     (family a (SplitSheaf.Cech.triple A)) where
@@ -62,24 +92,24 @@ def primitiveTriangle : AlignedTriangle
   G₂ := _
   H₁ := _
   H₂ := _
-  η := isoWhiskerRight (overlap a A) (restriction (SplitSheaf.Cech.firstSecond A))
-  θ := isoWhiskerRight (overlap a A) (restriction (SplitSheaf.Cech.secondThird A))
-  ζ := isoWhiskerRight (overlap a A) (restriction (SplitSheaf.Cech.firstThird A))
-  α := firstRestrictionFiber a A (SplitSheaf.Cech.firstSecond A)
-  β := secondRestrictionFiber a A (SplitSheaf.Cech.firstSecond A)
-  β' := firstRestrictionFiber a A (SplitSheaf.Cech.secondThird A)
-  δ := secondRestrictionFiber a A (SplitSheaf.Cech.secondThird A)
-  α' := firstRestrictionFiber a A (SplitSheaf.Cech.firstThird A)
-  δ' := secondRestrictionFiber a A (SplitSheaf.Cech.firstThird A)
-  hm := tripleMiddlePrimitive a A
-  hf := tripleFirstPrimitive a A
-  hl := tripleLastPrimitive a A
-  ha := firstTripleFiberHEq a A
-  hb := middleTripleFiberHEq a A
-  hd := lastTripleFiberHEq a A
-  cocycle := triplePrimitive_cocycle a A
-  squareη := overlapRestriction_square a A (SplitSheaf.Cech.firstSecond A)
-  squareθ := overlapRestriction_square a A (SplitSheaf.Cech.secondThird A)
-  squareζ := overlapRestriction_square a A (SplitSheaf.Cech.firstThird A)
+  η := parameterOverlap a A (SplitSheaf.Cech.firstSecond A)
+  θ := parameterOverlap a A (SplitSheaf.Cech.secondThird A)
+  ζ := parameterOverlap a A (SplitSheaf.Cech.firstThird A)
+  α := parameterFiber a A (SplitSheaf.Cech.firstSecond A ≫ SplitSheaf.Cech.first A)
+  β := parameterFiber a A (SplitSheaf.Cech.firstSecond A ≫ SplitSheaf.Cech.second A)
+  β' := parameterFiber a A (SplitSheaf.Cech.secondThird A ≫ SplitSheaf.Cech.first A)
+  δ := parameterFiber a A (SplitSheaf.Cech.secondThird A ≫ SplitSheaf.Cech.second A)
+  α' := parameterFiber a A (SplitSheaf.Cech.firstThird A ≫ SplitSheaf.Cech.first A)
+  δ' := parameterFiber a A (SplitSheaf.Cech.firstThird A ≫ SplitSheaf.Cech.second A)
+  hm := parameterFunctor_eq a A (SplitSheaf.Cech.firstSecond_second A)
+  hf := parameterFunctor_eq a A (SplitSheaf.Cech.firstSecond_first A)
+  hl := parameterFunctor_eq a A (SplitSheaf.Cech.firstThird_second A).symm
+  ha := parameterFiber_heq a A (SplitSheaf.Cech.firstSecond_first A)
+  hb := parameterFiber_heq a A (SplitSheaf.Cech.firstSecond_second A)
+  hd := parameterFiber_heq a A (SplitSheaf.Cech.firstThird_second A).symm
+  cocycle := parameterTriangle_cocycle a A
+  squareη := parameterOverlap_square a A (SplitSheaf.Cech.firstSecond A)
+  squareθ := parameterOverlap_square a A (SplitSheaf.Cech.secondThird A)
+  squareζ := parameterOverlap_square a A (SplitSheaf.Cech.firstThird A)
 
 end SquareKit.SmoothQuotientCechLocal

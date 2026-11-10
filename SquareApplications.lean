@@ -1,3 +1,7 @@
+import Examples.GeneratedRelativeMatching
+import Examples.CechMatchingCone
+import SquareKit.SmoothQuotientCechGeneratedCone
+import SquareKit.Internal.PathTransport.AlignedSignatureSubstitution
 import Examples.CechMatchingIdentity
 import Examples.CechMatchingComprehension
 import Examples.SignatureCylinder

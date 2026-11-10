@@ -176,6 +176,25 @@ comprehension decomposition, with no assumed effectiveness or family equivalence
 The remaining constructor induction must compare interpreted generated fibers
 with these explicit matching fibers; this theorem does not assert that comparison.
 
+## Full generated local-evaluation cone
+
+`SmoothQuotientCechGeneratedCone.matchingEvaluation` is a functor from the
+interpretation over primitive matching to the independent generated matching
+groupoid, for every context derivation. `generatedConeLaws` proves both Čech
+laws in the actual restriction diagram. The local functor is exactly `localMap`,
+and the selected overlap is exactly the generated comparison's component.
+The proof first presents each triangle vertex by its composite parameter map,
+then uses the generic selected-comparison cocycle with explicit transports.
+`AlignedSignatureSubstitution` provides the corresponding selected comparison
+law for arbitrary generated substitutions.
+
+Statement review: no matching equivalence, faithfulness, surjectivity, or
+invertibility of local evaluation is assumed. The result constructs matching
+objects and arrows uniformly, including contexts with dependent tails; the
+constructor induction proving evaluation effective is still outstanding.
+`Examples.GeneratedRelativeMatching` checks exact local-fiber recovery, distinct
+arrow preservation, and specialization after arbitrary finite tails.
+
 ## Work remaining for #445
 
 - Identify matching data for a generated comprehension with a base datum and
