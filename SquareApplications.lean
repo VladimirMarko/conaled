@@ -1,5 +1,9 @@
 import Examples.GeneratedDescentClosure
 import SquareKit.SmoothQuotientCechGeneratedEffectivity
+import SquareKit.SmoothQuotientCechBaseEffectivity
+import SquareKit.SmoothQuotientCechFamilyTransport
+import SquareKit.SmoothQuotientCechSectionDescent
+import Examples.GeneratedBaseSectionDescent
 import Examples.GeneratedBaseMatching
 import Examples.GeneratedFamilyConstructors
 import SquareKit.SmoothQuotientCechGeneratedEmpty
