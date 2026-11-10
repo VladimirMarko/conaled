@@ -1,4 +1,6 @@
 import Examples.WitnessStructure
+import SquareKit.WitnessInitialMap
+import Examples.WitnessSetoids
 import Examples.InitialTransport
 import Examples.RightDistribution
 

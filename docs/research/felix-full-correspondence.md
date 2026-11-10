@@ -352,3 +352,11 @@ erasure recovers the unchanged semantic APIs. Distinct reflection choices and
 nonidentity comparisons are checked in `Examples/WitnessStructure.lean`.
 This extends #453's category-only prototype; full #8 acceptance also requires
 the separate comma/instance witness packages and the orchestration's reviews.
+## Computational relation setoids (#457)
+
+The [computational instance](computational-relation-setoids.md) retains Type-valued
+relation and congruence witnesses from the pinned Setoids module. It supplies
+all active raw structures, selected universal-property operations and law
+packages, with explicit erasure comparisons into the existing Prop-valued
+instance. Multiple-witness examples inspect composition, curry and both
+distributions. Independent review and full candidate validation remain pending.
