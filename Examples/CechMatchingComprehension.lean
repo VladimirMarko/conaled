@@ -1,5 +1,5 @@
 import SquareKit.Internal.PathTransport.CechMatchingComprehensionProducts
-import SquareKit.Internal.PathTransport.CechMatchingComprehensionRebase
+import SquareKit.Internal.PathTransport.CechMatchingComprehensionAction
 import Mathlib.CategoryTheory.SingleObj
 import Mathlib.Algebra.Group.Int.Defs
 
@@ -30,5 +30,20 @@ theorem vertical_loop_survives (D : Diagram.{0,0}) (d : Datum D) :
 theorem rebase_keeps_selected_arrow {D : Diagram.{u,v}} (d : Datum D)
     {y : D.localCategory} (i : d.localObject ≅ y) :
     (Datum.rebaseIso d i).hom.localArrow = i.hom := Datum.rebaseIso_local d i
+
+/-- Relative transport uses the declared local-family map, even for nonidentity arrows. -/
+theorem relative_transport_local {D : StrictDiagram.{u,u}}
+    {A : Comprehension.FamilyData D} {h : A.Coherence}
+    {d e : Datum D.toDiagram} (f : d ⟶ e) (x : Comprehension.Fiber A h d) :
+    (Comprehension.Fiber.transport f x).localFiber =
+      (A.localFamily.map f.localArrow).obj x.localFiber :=
+  Comprehension.Fiber.transport_localFiber f x
+
+/-- Reconstruction retains the independently supplied base overlap. -/
+theorem relative_reconstruction {D : StrictDiagram.{u,u}}
+    {A : Comprehension.FamilyData D} {h : A.Coherence}
+    {d : Datum D.toDiagram} (x : Comprehension.Fiber A h d) :
+    (A.projection h).mapDatum x.datum = d :=
+  Comprehension.Fiber.projection_datum x
 
 end Examples.CechMatchingComprehension
