@@ -1,3 +1,4 @@
+import Examples.WitnessEquivalence
 import Examples.WeakMachine
 import Examples.WeakCanonicity
 import Examples.Memoization
@@ -612,4 +613,3 @@ import Examples.CechDeformationDescent
 import Examples.CechOverlapRejection
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
-import Examples.WitnessEquivalence
