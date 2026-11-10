@@ -1,3 +1,4 @@
+import Examples.WitnessStructure
 import Examples.InitialTransport
 import Examples.RightDistribution
 
