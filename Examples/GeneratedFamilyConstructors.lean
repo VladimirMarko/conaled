@@ -5,6 +5,7 @@ import SquareKit.SmoothQuotientCechGlobalMatching
 import SquareKit.SmoothQuotientCechBaseEffectivity
 import SquareKit.SmoothQuotientCechGeneratedEffectivity
 import SquareKit.SmoothQuotientCechGeneratedEmpty
+import SquareKit.SmoothQuotientCechSubstitutionEvaluation
 import SquareKit.SmoothQuotientCechIdentityEvaluation
 import SquareKit.SmoothQuotientCechTermEvaluation
 import SquareKit.SmoothQuotientGeneratedIdentityMatching
@@ -143,5 +144,26 @@ example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
     [ (SmoothQuotientCechLocal.familyEvaluation a A hΓ hB c).Faithful] :
     (SmoothQuotientCechLocal.familyEvaluation a A hΓ (.identity hB hx hy) c).IsEquivalence :=
   SmoothQuotientCechLocal.identityEvaluation_isEquivalence a A hΓ hB hx hy c
+
+/-- Arbitrary substitutions preserve the actual fiber evaluation equivalence. -/
+example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hΔ : Typed.CtxDeriv.{2} Δ δ)
+    (hB : Typed.TyDeriv.{2} Γ γ B b) (hs : Typed.SubDeriv.{2} Δ δ Γ γ σ s)
+    (A : SplitSheaf.Ty X) (c : (show Grpd.{1,1} from δ (SmoothQuotientCechLocal.model a A)))
+    [(SmoothQuotientCechLocal.familyEvaluation a A hΓ hB
+      ((s (SmoothQuotientCechLocal.model a A)).down.obj c)).IsEquivalence] :
+    (SmoothQuotientCechLocal.familyEvaluation a A hΔ (.sub hB hs) c).IsEquivalence :=
+  SmoothQuotientCechLocal.substitutionEvaluation_isEquivalence a A hΓ hΔ hB hs c
+
+/-- Weakening applies to an arbitrary extended context, without an equivalence
+hypothesis on the projection substitution. -/
+example (hΓ : Typed.CtxDeriv.{2} Γ γ) (hB : Typed.TyDeriv.{2} Γ γ B b)
+    (hC : Typed.TyDeriv.{2} Γ γ C t) (A : SplitSheaf.Ty X)
+    (c : (show Grpd.{1,1} from (Typed.extendCode γ t) (SmoothQuotientCechLocal.model a A)))
+    [(SmoothQuotientCechLocal.familyEvaluation a A hΓ hB
+      ((Typed.weakenCode γ t (SmoothQuotientCechLocal.model a A)).down.obj c)).IsEquivalence] :
+    (SmoothQuotientCechLocal.familyEvaluation a A (.ext hΓ hC)
+      (.sub hB (.weaken hΓ hC)) c).IsEquivalence :=
+  SmoothQuotientCechLocal.substitutionEvaluation_isEquivalence a A hΓ (.ext hΓ hC)
+    hB (.weaken hΓ hC) c
 
 end Examples.GeneratedFamilyConstructors

@@ -1,4 +1,5 @@
 import SquareKit.Internal.PathTransport.CechMatchingCanonicalFiber
+import SquareKit.Internal.PathTransport.CechMatchingComprehensionPullFull
 import SquareKit.Internal.PathTransport.DiscreteHomEvaluation
 import SquareKit.Internal.PathTransport.CechMatchingComprehensionLocalIdentity
 import SquareKit.Internal.PathTransport.CechMatchingMapComposition
@@ -338,5 +339,38 @@ example : ¬ Nonempty (loopComponent.obj star ≅ (star, Discrete.mk true)) := b
   rintro ⟨i⟩
   have hh := Discrete.eq_of_hom i.hom.2
   exact Bool.noConfusion hh
+
+/-- Fiber full faithfulness does not assume faithfulness of the base map. -/
+example {D E : StrictDiagram.{0,0}} (S : StrictMap D E) (A : FamilyData E)
+    (h : A.Coherence) (hp : (Comprehension.Pull.data S A).Coherence) (d : Datum D.toDiagram) :
+    (Comprehension.Pull.toFiber S A h hp d).Full ∧
+      (Comprehension.Pull.toFiber S A h hp d).Faithful := ⟨inferInstance,inferInstance⟩
+
+abbrev collapseLoops : loopCategory ⥤ pointCategory := (Functor.const _).obj point
+abbrev pointLoopFamily : pointCategory ⥤ Cat := (Functor.const _).obj (Cat.of Loops)
+abbrev collapsedTotal : Grothendieck (collapseLoops ⋙ pointLoopFamily) := ⟨star,star⟩
+
+def horizontalLoop : collapsedTotal ⟶ collapsedTotal := ⟨loop,𝟙 star⟩
+def verticalLoop : collapsedTotal ⟶ collapsedTotal := ⟨𝟙 star,loop⟩
+
+/-- The total map loses a base loop, so a claim of total faithfulness would fail. -/
+example : (Grothendieck.pre pointLoopFamily collapseLoops).map horizontalLoop =
+    (Grothendieck.pre pointLoopFamily collapseLoops).map (𝟙 collapsedTotal) := by
+  apply Grothendieck.ext _ _ rfl
+  rfl
+
+example : horizontalLoop ≠ 𝟙 collapsedTotal := by
+  intro h
+  have hh := congrArg (fun f => Multiplicative.toAdd f.base) h
+  exact (by decide : (1 : ℤ) ≠ 0) hh
+
+/-- The same map still retains the selected vertical loop. -/
+example : (Grothendieck.pre pointLoopFamily collapseLoops).map verticalLoop ≠
+    (Grothendieck.pre pointLoopFamily collapseLoops).map (𝟙 collapsedTotal) := by
+  intro h
+  have hh := SquareKit.Internal.PathTransport.GrothendieckPreFiber.map_injective_of_base
+    pointLoopFamily collapseLoops verticalLoop (𝟙 collapsedTotal) rfl h
+  have hhh := congrArg (fun f => Multiplicative.toAdd f.fiber) hh
+  exact (by decide : (1 : ℤ) ≠ 0) hhh
 
 end Examples.CechMatchingComprehension
