@@ -187,5 +187,19 @@ successor declaration and assumptions. A changed path with identical bytes can
 reuse the source identity link after relocation review; a changed declaration
 needs semantic comparison and checked examples. Preserve old provenance and add
 the new snapshot identity, equivalence/correction evidence and acceptance issue.
-No real successor was available for this delivery. The fixtures and self-check
-exercise reconciliation mechanics only.
+No real successor was available when that tooling was delivered. The current
+[checkpoint-335 intake](adwh-checkpoint-335-intake.md) compares the supplied
+compact recovery payload against the checked-in predecessor inventory, keeping
+this historical map intact. The fixtures and self-check still exercise the ZIP
+comparison mechanics; they do not by themselves validate the nested successor
+format or its Lean proofs.
+
+## Recovered Chapter 1 and Chapter 2 integration
+
+The [recovered integration](adwh-recovered-integration.md) adds list/partial-list,
+numeral/floating, resource/growth, exact-arithmetic and recurrence results, plus
+generic search counting from checkpoint 335. Its per-development declaration
+ledgers extend the historical routing map above; that generated checkpoint-233
+map remains a record of its original scoped tasks. These additions do not close
+Chapter 2 or the textbook umbrella. The successor inventory stores only changed
+and added source records, reusing unchanged predecessor identities.
