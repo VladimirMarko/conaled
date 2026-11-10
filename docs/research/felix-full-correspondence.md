@@ -311,3 +311,12 @@ setoid counterexample explains the unfinished source congruence obligation;
 explicit selected-output congruence and output uniqueness give sufficient
 repairs. The guarded-stream connection proves independence only under actual
 guardedness. Package acceptance remains pending; this is not completion of #8.
+
+## Computational equivalence recovery (#453)
+
+The [witness-equivalence design](computational-equivalence-witnesses.md)
+recovers `Equivalent q` and induced relations with computational witnesses.
+The checked comma prototype and law transport retain witnesses; explicit
+erasure recovers the existing proposition-valued adapters. Distinct Boolean
+witnesses and nonassociative transitivity delimit the contract. Full package
+acceptance remains pending; higher coherence and broad retrofits are separate.

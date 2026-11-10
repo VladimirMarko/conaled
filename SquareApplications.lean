@@ -2,6 +2,8 @@ import Examples.InitialTransport
 import Examples.RightDistribution
 
 import Examples.SelectedFeedback
+
+import Examples.WitnessEquivalence
 import Examples.WeakMachine
 import Examples.WeakCanonicity
 import Examples.Memoization
