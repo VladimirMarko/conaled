@@ -12,7 +12,7 @@ universe u
 variable {C D : Grpd.{u,u}} (F : C ⥤ D)
 variable {A : C ⥤ Grpd.{u,u}} {B : D ⥤ Grpd.{u,u}}
 
- theorem inclusion_totalMap (α : A ⟶ F ⋙ B) (c : C) :
+theorem inclusion_totalMap (α : A ⟶ F ⋙ B) (c : C) :
     Grothendieck.ι (A ⋙ Grpd.forgetToCat) c ⋙ totalMap F α =
       (α.app c : A.obj c ⥤ B.obj (F.obj c)) ⋙
         Grothendieck.ι (B ⋙ Grpd.forgetToCat) (F.obj c) := by
@@ -93,6 +93,19 @@ natural isomorphism of total maps, even when the base functor is nonfaithful. -/
 def modification (m : TotalFamilyModification F α β) : FamilyModification α β where
   app := m.component
   naturality := m.component_naturality
+
+/-- Rebuilding the total comparison recovers the selected original arrows. -/
+theorem modification_total (m : TotalFamilyModification F α β) :
+    isoWhiskerRight (FamilyModification.totalIso m.modification)
+      (Grothendieck.pre (B ⋙ Grpd.forgetToCat) F) = m.total := by
+  ext x
+  trans (Grothendieck.ι (B ⋙ Grpd.forgetToCat) (F.obj x.base)).map
+    ((m.component x.base).hom.app x.fiber)
+  · fapply Grothendieck.ext
+    · simp [FamilyModification.totalIso, FamilyModification.totalComponent]
+    · simp [FamilyModification.totalIso, FamilyModification.totalComponent,
+        Grothendieck.ι, modification]
+  · exact m.component_total x.base x.fiber
 
 end TotalFamilyModification
 end SquareKit.Internal.PathTransport.GroupoidModel

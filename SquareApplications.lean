@@ -6,6 +6,8 @@ import SquareKit.SmoothQuotientCechGeneratedCone
 import SquareKit.Internal.PathTransport.AlignedSignatureSubstitution
 import Examples.CechMatchingIdentity
 import Examples.CechMatchingComprehension
+import Examples.GeneratedSelectedComparison
+import Examples.SmoothSelectedComparison
 import Examples.SignatureCylinder
 import Examples.WeakMachine
 import Examples.WeakCanonicity
