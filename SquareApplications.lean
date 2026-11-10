@@ -1,3 +1,4 @@
+import Examples.WitnessSetoids
 import Examples.InitialTransport
 import Examples.RightDistribution
 
