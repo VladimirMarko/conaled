@@ -1,3 +1,4 @@
+import Examples.SelectedFeedback
 import Examples.InitialTransport
 import Examples.RightDistribution
 import Examples.WeakMachine

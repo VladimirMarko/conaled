@@ -302,3 +302,12 @@ monoids, fixed-universe Quiv, independent-level ULift, and per-declaration
 Cartesian/reasoning/preservation recovery. It preserves the original inventory
 as a historical assessment. Candidate acceptance and independent review remain
 required; R3–R6 continue under their own issues.
+
+## Selected feedback recovery (#451)
+
+The [selected-feedback record](selected-admissible-feedback.md) maps the raw,
+function, product and object-reindexing declarations to checked Lean APIs. Its
+setoid counterexample explains the unfinished source congruence obligation;
+explicit selected-output congruence and output uniqueness give sufficient
+repairs. The guarded-stream connection proves independence only under actual
+guardedness. Package acceptance remains pending; this is not completion of #8.
