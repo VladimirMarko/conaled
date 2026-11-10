@@ -1,5 +1,6 @@
 import SquareKit.SelectedFeedback
 import SquareKit.CategoryProduct
+import SquareKit.ObjectReindexBasic
 
 namespace SquareKit.SelectedFeedback
 universe u v w u' v' w' r
@@ -14,11 +15,8 @@ def product {O : Type u} {Q : Type u'} {C : CategoryOps.{u,v} O}
   trace f h := (T.trace f.1 h.1, U.trace f.2 h.2)
 
 /-- Pull back raw arrows along an object function, without quotienting objects. -/
-def reindexed {O : Type u} {J : Type r} (C : CategoryOps.{u,v} O)
-    (F : J → O) : CategoryOps J where
-  Hom a b := C.Hom (F a) (F b)
-  ident := C.ident
-  comp := C.comp
+abbrev reindexed {O : Type u} {J : Type r} (C : CategoryOps.{u,v} O)
+    (F : J → O) : CategoryOps J := ObjectReindex.ops C F
 
 /-- The two comparison arrows need no inverse laws to define raw feedback. -/
 def reindex {O : Type u} {J : Type r} {C : CategoryOps.{u,v} O}

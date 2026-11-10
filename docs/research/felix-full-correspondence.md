@@ -330,3 +330,12 @@ consumer. The commented Boolean families receive an explicit operation,
 closure and preservation contract with the required conditional naturality;
 this is a mathematical disposition, not a claim of checked generic Boolean
 instances. Full package acceptance remains pending.
+
+## R4 implementation addendum (#452)
+
+The [restrictions, predicates and setoids report](restrictions-predicates-setoids.md)
+records declaration-level recovery for both subcategory constructions, exact
+Type-valued PRED, and the proof-erased setoid instance. It includes the explicit
+RelationalCategory/Assembly comparisons and discriminating checked consumers.
+The historical inventory is preserved; candidate acceptance and independent
+review remain required.

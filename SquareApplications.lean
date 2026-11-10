@@ -6,6 +6,7 @@ import Examples.SelectedFeedback
 import Examples.WitnessEquivalence
 
 import Examples.TensorOperations
+
 import Examples.WeakMachine
 import Examples.WeakCanonicity
 import Examples.Memoization
@@ -622,5 +623,9 @@ import Examples.CechOverlapRejection
 import Examples.PolicyChoiceClients
 import Examples.PolicyChoiceDriver
 import Examples.RawConstructions
+
+import Examples.ObjectReindex
+import Examples.PredicatesAndSetoids
+import Examples.MorphismRestriction
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
