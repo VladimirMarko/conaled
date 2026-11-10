@@ -53,6 +53,15 @@ example (u : Y ⟶ X) :
   SmoothQuotientCoverMatching.squareFunctor a hΓ u
     (Limits.pullback.fst (ArbitraryCoverSections.twoSheet X) u) Limits.pullback.condition
 
+/-- The pullback square preserves complete canonical matching restrictions. -/
+example (u : Y ⟶ X) :
+    SmoothQuotientCoverMatching.restrictionFunctor a hΓ (ArbitraryCoverSections.twoSheet X) ⋙
+      SmoothQuotientCoverMatching.squareFunctor a hΓ u
+        (Limits.pullback.fst (ArbitraryCoverSections.twoSheet X) u) Limits.pullback.condition =
+    restriction a hΓ u ⋙ SmoothQuotientCoverMatching.restrictionFunctor a hΓ
+      (Limits.pullback.snd (ArbitraryCoverSections.twoSheet X) u) :=
+  SmoothQuotientCoverMatching.restriction_square a hΓ u _ Limits.pullback.condition
+
 abbrev baseContext : Typed.CtxDeriv.{2} [.base]
     (Typed.extendCode Typed.emptyCode (Typed.baseCode Typed.emptyCode)) :=
   .ext .empty (.base .empty)

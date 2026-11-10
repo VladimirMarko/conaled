@@ -44,7 +44,9 @@ directions. The identity and composition laws for arbitrary parameter squares
 hold on complete matching functors; `matchingEquivalence_natural` compares the
 selected split square with the original square. `splitSquareMap_local` checks
 that this is the same local map used by parameter-compatible sections.
-`restriction_toSplit` identifies the original global restriction followed by
+`restriction_square` proves that canonical global restriction commutes with
+every original cover square as a complete matching functor, and the actual
+two-sheet pullback specializes this equation. `restriction_toSplit` identifies the original global restriction followed by
 presentation transfer with the existing split restriction functor.
 
 `Examples.OriginalCoverMatching` exercises those results on the actual two-sheet

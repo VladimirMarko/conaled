@@ -112,4 +112,25 @@ theorem matchingEquivalence_natural :
     (squareMap a hΓ u v square).functor ⋙ (toSplitMap a hΓ k).functor
   rw [← CechMatching.StrictMap.functor_comp, toSplit_square, CechMatching.StrictMap.functor_comp]
 
+/-- Global restriction commutes with every original cover square, retaining
+canonical overlap data and all local arrows. -/
+theorem restriction_square :
+    restrictionFunctor a hΓ f ⋙ squareFunctor a hΓ u v square =
+      restriction a hΓ u ⋙ restrictionFunctor a hΓ k := by
+  have hl : restriction a hΓ f ⋙ (squareMap a hΓ u v square).localMap =
+      restriction a hΓ u ⋙ restriction a hΓ k := by
+    change restriction a hΓ f ⋙ restriction a hΓ v = _
+    rw [restriction_comp, restriction_comp, square]
+  have he : (restriction a hΓ f ⋙ (squareMap a hΓ u v square).localMap) ⋙
+      (strictDiagram a hΓ k).first =
+      (restriction a hΓ f ⋙ (squareMap a hΓ u v square).localMap) ⋙
+        (strictDiagram a hΓ k).second := by
+    rw [hl, Functor.assoc, Functor.assoc, restrictionOverlap_eq]
+  have hm := (squareMap a hΓ u v square).equalFunctor_map
+    (restriction a hΓ f) (restrictionOverlap_eq a hΓ f) he
+  change (strictDiagram a hΓ f).equalFunctor _ _ ⋙ (squareMap a hΓ u v square).functor = _
+  rw [hm]
+  simp only [hl]
+  rfl
+
 end SquareKit.SmoothQuotientCoverMatching
