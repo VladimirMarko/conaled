@@ -99,7 +99,7 @@ def evaluationFiber : projection F ⋙ P ⟶ evaluation F ⋙ Q where
 def evaluationSignature : Signature.{u} :=
   ⟨⟨Grpd.of (Cylinder F), D, evaluation F⟩, projection F ⋙ P, Q, evaluationFiber F P Q α⟩
 
-private theorem signature_eq {C D : Grpd.{u,u}} {P : C ⥤ Type u} {Q : D ⥤ Type u}
+theorem signature_eq {C D : Grpd.{u,u}} {P : C ⥤ Type u} {Q : D ⥤ Type u}
     {F G : C ⥤ D} {α : P ⟶ F ⋙ Q} {β : P ⟶ G ⋙ Q}
     (h : F = G) (hα : α ≫ eqToHom (congrArg (fun K => K ⋙ Q) h) = β) :
     (⟨⟨C, D, F⟩, P, Q, α⟩ : Signature) = ⟨⟨C, D, G⟩, P, Q, β⟩ := by

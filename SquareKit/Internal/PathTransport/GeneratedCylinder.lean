@@ -65,7 +65,7 @@ def generatedComparison (Q : D ⥤ Type u) (α : P ⟶ F ⋙ Q)
   isoWhiskerRight (generatedEndpointIso F P η hΓ)
     (generatedContextMap (evaluationSignature F P Q α) hΓ)
 
-private theorem generatedContextMap_heq {S T : Signature.{u}} (h : S = T)
+theorem generatedContextMap_heq {S T : Signature.{u}} (h : S = T)
     (hΓ : Typed.CtxDeriv.{u+1} Γ γ) :
     HEq (generatedContextMap S hΓ) (generatedContextMap T hΓ) := by
   cases h

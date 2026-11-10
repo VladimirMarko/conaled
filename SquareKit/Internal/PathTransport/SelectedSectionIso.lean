@@ -44,6 +44,34 @@ theorem selectedSectionIso_square (P : B ⥤ A) [P.Full] [P.Faithful]
   rw [hh]
   simp [selectedSectionIso_map, eqToHom_map]
 
+theorem selectedSectionIso_trans (P : B ⥤ A) [P.Full] [P.Faithful]
+    (I J K : A ⥤ B) (hI : I ⋙ P = 𝟭 A) (hJ : J ⋙ P = 𝟭 A)
+    (hK : K ⋙ P = 𝟭 A) :
+    selectedSectionIso P I K hI hK =
+      selectedSectionIso P I J hI hJ ≪≫ selectedSectionIso P J K hJ hK := by
+  ext x
+  apply P.map_injective
+  simp [selectedSectionIso_map]
+
+theorem selectedSectionIso_transport (P : B ⥤ A) [P.Full] [P.Faithful]
+    {B' : Type u} [Category.{v} B'] (Q : B' ⥤ A) [Q.Full] [Q.Faithful]
+    (I J : A ⥤ B) (I' J' : A ⥤ B')
+    (hI : I ⋙ P = 𝟭 A) (hJ : J ⋙ P = 𝟭 A)
+    (hI' : I' ⋙ Q = 𝟭 A) (hJ' : J' ⋙ Q = 𝟭 A)
+    (t : B' ⥤ B) (ht : t ⋙ P = Q) (hi : I' ⋙ t = I) (hj : J' ⋙ t = J) :
+    selectedSectionIso P I J hI hJ =
+      (eqToIso hi).symm ≪≫ isoWhiskerRight (selectedSectionIso Q I' J' hI' hJ') t ≪≫
+        eqToIso hj := by
+  have hh := selectedSectionIso_square P Q I J I' J' hI hJ hI' hJ'
+    (𝟭 A) t ht hi.symm hj.symm
+  ext x
+  have he := congrArg (fun k => k.hom.app x) hh
+  simp only [Iso.trans_hom, NatTrans.comp_app, isoWhiskerLeft_hom,
+    whiskerLeft_app, isoWhiskerRight_hom, whiskerRight_app, eqToIso.hom,
+    eqToHom_app] at he
+  have hf := congrArg (fun f => f ≫ eqToHom (congrArg (fun K => K.obj x) hj)) he
+  simpa [Category.assoc] using hf
+
 /-- Postcomposition transports a selected square across a strictly commuting
 square of target functors. All endpoint identifications are explicit. -/
 theorem isoSquare_postcompose {E E' : Type u} [Category.{v} E] [Category.{v} E']
