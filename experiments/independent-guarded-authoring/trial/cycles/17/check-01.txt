@@ -1,0 +1,12 @@
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:260:14: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:260:18: warning: Unused tactic linter: `rfl` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:260:18: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:382:42: error(lean.unknownIdentifier): Unknown identifier `C`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:382:44: error(lean.unknownIdentifier): Unknown identifier `B`
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:382:9: error: Tactic `rcases` failed: `x✝ : ?m.36` is not an inductive datatype

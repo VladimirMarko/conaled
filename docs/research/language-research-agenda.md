@@ -223,3 +223,21 @@ assistance actually supplied, not an unimplemented extraction tool.
 The initial studies were started by a separate user instruction. Their results
 do not reopen completed issues, resume #107's paused work, activate #260 or make
 a custom frontend a prerequisite.
+
+## Argument structure behind paradox-to-theorem connections
+
+[#444](https://github.com/VladimirMarko/conaled/issues/444), under #290 and
+coordinated with #235/#200/#36, investigates shared argument constructions and
+maps that recover paradoxical presentations by forgetting specified distinctions.
+The [research direction](paradoxes-and-theorems.md#research-direction-preserving-argument-structure)
+separates derivation structure, interpretation, and final consequences. It keeps
+both shared-construction and forgetful-map routes open, with explicit laws for
+any semantic comparison and rejection evidence when those laws cannot coexist.
+
+The first task combines a checked diagonal fixture with a bounded Curry–Löb
+adaptation assessment. Direct Mathlib specialization is the comparison baseline;
+existing compiler soundness and proof transport are candidate mechanisms rather
+than a required architecture. #444 owns acceptance criteria and follow-ups.
+#109's recursion/compiler work and #443's size obligations provide related
+contexts, not scheduling prerequisites. No automatic theorem discovery or
+universal paradox interpretation is claimed.

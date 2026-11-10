@@ -1,0 +1,23 @@
+SquareKit/Internal/DependentJudgments/DerivedReindexing.lean:12:abbrev lift (Δ A σ : Expression V) : Expression V :=
+SquareKit/Internal/DependentJudgments/DerivedReindexing.lean:15:def Sub.lift (hσ : Sub (Ω := Ω) Δ Γ σ) (hA : Ty (Ω := Ω) Γ A) :
+SquareKit/Internal/DependentJudgments/DerivedReindexing.lean:20:def Sub.liftSection (hσ : Sub (Ω := Ω) Δ Γ σ) (hx : Tm (Ω := Ω) Γ A x) :
+SquareKit/Internal/DependentJudgments/DerivedReindexing.lean:37:def Ty.sectionLift (hB : Ty (Ω := Ω) (Contextual.extend Γ A) B) (hσ : Sub (Ω := Ω) Δ Γ σ)
+SquareKit/Internal/DependentJudgments/DerivedReindexing.lean:44:def Equal.j {A A' x x' T T' D D' d d' : Expression V}
+SquareKit/Internal/DependentJudgments/DerivedReindexing.lean:51:def Tm.basedJSub {D d : Expression V} (hx : Tm (Ω := Ω) Γ A x)
+SquareKit/Internal/DependentJudgments/TransportReindexing.lean:12:def Sub.liftWeaken (hσ : Sub (Ω := Ω) Δ Γ σ) (hA : Ty (Ω := Ω) Γ A) :
+SquareKit/Internal/DependentJudgments/TransportReindexing.lean:17:def Sub.liftGeneric (hσ : Sub (Ω := Ω) Δ Γ σ) (hA : Ty (Ω := Ω) Γ A) :
+SquareKit/Internal/DependentJudgments/TransportReindexing.lean:22:def Tm.pathFamilyLift (hx : Tm (Ω := Ω) Γ A x) (hσ : Sub (Ω := Ω) Δ Γ σ) :
+SquareKit/Internal/DependentJudgments/TransportReindexing.lean:35:def Tm.pathSubType (hx : Tm (Ω := Ω) Γ A x) (hσ : Sub (Ω := Ω) Δ Γ σ) :
+SquareKit/Internal/DependentJudgments/TransportReindexing.lean:44:def Tm.pathSubProjection (hx : Tm (Ω := Ω) Γ A x) (hσ : Sub (Ω := Ω) Δ Γ σ) :
+SquareKit/Internal/DependentJudgments/TransportReindexing.lean:51:def Tm.pathSubEndpoint (hx : Tm (Ω := Ω) Γ A x) (hy : Tm (Ω := Ω) Γ A y)
+SquareKit/Internal/DependentJudgments/TransportReindexing.lean:71:def Ty.transportMotiveSub (hB : Ty (Ω := Ω) (Contextual.extend Γ A) B) (hx : Tm (Ω := Ω) Γ A x)
+SquareKit/Internal/DependentJudgments/TransportReindexing.lean:79:def Tm.transportSub (hB : Ty (Ω := Ω) (Contextual.extend Γ A) B) (hx : Tm (Ω := Ω) Γ A x)
+SquareKit/Internal/DependentJudgments/TransportReindexing.lean:95:def Equal.transportFamily {Γ A B B' x y p u : Expression V} (hB : Equal (Ω := Ω) B B') :
+SquareKit/Internal/DependentJudgments/TransportReindexing.lean:99:def Tm.concatSub (hx : Tm (Ω := Ω) Γ A x) (hy : Tm (Ω := Ω) Γ A y)
+SquareKit/Internal/DependentJudgments/NilReindexRules.lean:10:theorem jSubSchema_valid_length (M : PathTransport.Typed.Model.{u}) (n : Nat)
+SquareKit/Internal/DependentJudgments/NilReindexRules.lean:44:abbrev pathTailNilRule := tailSubSchema 0 (.eq
+SquareKit/Internal/DependentJudgments/NilReindexRules.lean:47:abbrev pathTailMapNilRule := tailSubSchema 0 (.eq
+SquareKit/Internal/DependentJudgments/NilReindexRules.lean:49:abbrev reindexBranchNilRule := jSubSchema 0 (.eq
+SquareKit/Internal/DependentJudgments/NilReindexRules.lean:52:theorem pathTailNil_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pathTailNilRule := by
+SquareKit/Internal/DependentJudgments/NilReindexRules.lean:59:theorem pathTailMapNil_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) pathTailMapNilRule := by
+SquareKit/Internal/DependentJudgments/NilReindexRules.lean:67:theorem reindexBranchNil_valid (M : PathTransport.Typed.Model.{u}) : Satisfies (algebra M) reindexBranchNilRule := by

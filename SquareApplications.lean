@@ -131,6 +131,7 @@ import Examples.AgdaTransferModels
 import Examples.AgdaTransferDiagnostics
 import Examples.PathTransportUniqueness
 import Examples.TypedPathTransport
+import Examples.SignatureInterpretationMaps
 import Examples.GroupoidTransport
 import Examples.GroupoidRoutes
 import Examples.FiniteUniverse
@@ -260,6 +261,14 @@ import Examples.SmoothTorsors
 import Examples.QuotientDescent
 import Examples.DiscreteSmoothMapping
 import Examples.SmoothQuotientArcs
+import Examples.SmoothSourceTransport
+import Examples.ChangingFamilyTails
+import Examples.GroupoidComparison
+import Examples.GroupoidComparisonJ
+import Examples.GroupoidComparisonInterpretation
+import Examples.SmoothComparisonInterpretation
+import Examples.GeneratedComparisonRestriction
+import Examples.HorizontalComparison
 import Examples.QuarterTurnArcs
 import Examples.JetScan
 import Examples.MatrixStack
@@ -581,6 +590,26 @@ import Examples.GuardedLeftAssociativity
 import Examples.GuardedLeftTransportComposition
 import SquareKit.Internal.DependentJudgments.TelescopeTransport
 import Examples.ModalHigher
+import Examples.WiredNumericalMotion
+
+import Examples.GeneratedComparisonComposition
+
+import Examples.DescentClosure
+import SquareKit.SheafActionQuotientDescentDisplay
+import Examples.SmoothDescentMaps
+import Examples.SectionDescent
+import SquareKit.SmoothQuotientDescentSections
+import Examples.GlobalSectionDescent
+import Examples.QuotientDescentBaseChange
+import Examples.GeneratedDescentEquivalence
+import Examples.ComparisonModification
+import Examples.DeformationDescentBaseChange
+import Examples.LocalDeformationSections
+import Examples.ParameterDeformationSections
+import Examples.ParameterSectionRejection
+
+import Examples.CechDeformationDescent
+import Examples.CechOverlapRejection
 
 import Examples.PolicyChoiceClients
 import Examples.PolicyChoiceDriver

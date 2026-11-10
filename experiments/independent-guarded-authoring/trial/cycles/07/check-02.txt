@@ -1,0 +1,73 @@
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:19:46: error: unsolved goals
+V : Type
+Ω : List (Judgment V)
+Γ Δ A x y p σ D d : Expression V
+hx : Tm Γ A x
+hD : Ty (path A x) D
+hd : Tm Γ (subTy D (root A x)) d
+⊢ ?m.18 = Γ ∨
+    Sum.inl Predicate.term = Sum.inl Predicate.family ∧ ![?m.18, A, x] ≍ ![path A x, D] ∨
+      ?m.18 = Γ ∧ A = subTy D (root A x) ∧ x = d
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:20:18: error: unsolved goals
+V : Type
+Ω : List (Judgment V)
+Γ Δ A x y p σ D d : Expression V
+hx : Tm Γ A x
+hD : Ty (path A x) D
+hd : Tm Γ (subTy D (root A x)) d
+⊢ ?m.18 = Γ ∧ subTy D (root A x) = A ∧ d = x ∨
+    Sum.inl Predicate.term = Sum.inl Predicate.family ∧ ![?m.18, subTy D (root A x), d] ≍ ![path A x, D] ∨ ?m.18 = Γ
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:25:50: error: unsolved goals
+V : Type
+Ω : List (Judgment V)
+Γ Δ A x y p σ D d : Expression V
+hx : Tm Γ A x
+hD : Ty (path A x) D
+hd : Tm Γ (subTy D (root A x)) d
+⊢ ?m.19 = Γ ∨
+    Sum.inl Predicate.term = Sum.inl Predicate.family ∧ ![?m.19, A, x] ≍ ![path A x, D] ∨
+      ?m.19 = Γ ∧ A = subTy D (root A x) ∧ x = d
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:26:18: error: unsolved goals
+V : Type
+Ω : List (Judgment V)
+Γ Δ A x y p σ D d : Expression V
+hx : Tm Γ A x
+hD : Ty (path A x) D
+hd : Tm Γ (subTy D (root A x)) d
+⊢ ?m.19 = Γ ∧ subTy D (root A x) = A ∧ d = x ∨
+    Sum.inl Predicate.term = Sum.inl Predicate.family ∧ ![?m.19, subTy D (root A x), d] ≍ ![path A x, D] ∨ ?m.19 = Γ
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:32:52: error: unsolved goals
+V : Type
+Ω : List (Judgment V)
+Γ Δ A x y p σ D d : Expression V
+hx : Tm Γ A x
+hD : Ty (path A x) D
+hd : Tm Γ (subTy D (root A x)) d
+hs : Sub Δ Γ σ
+⊢ ?m.27 = Γ ∨
+    Sum.inl Predicate.term = Sum.inl Predicate.family ∧ ![?m.27, A, x] ≍ ![path A x, D] ∨
+      ?m.27 = Γ ∧ A = subTy D (root A x) ∧ x = d ∨
+        Sum.inl Predicate.term = Sum.inl Predicate.substitution ∧ ?m.27 = Δ ∧ A = Γ ∧ x = σ
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:33:18: error: unsolved goals
+V : Type
+Ω : List (Judgment V)
+Γ Δ A x y p σ D d : Expression V
+hx : Tm Γ A x
+hD : Ty (path A x) D
+hd : Tm Γ (subTy D (root A x)) d
+hs : Sub Δ Γ σ
+⊢ ?m.27 = Γ ∧ subTy D (root A x) = A ∧ d = x ∨
+    Sum.inl Predicate.term = Sum.inl Predicate.family ∧ ![?m.27, subTy D (root A x), d] ≍ ![path A x, D] ∨
+      ?m.27 = Γ ∨ Sum.inl Predicate.term = Sum.inl Predicate.substitution ∧ ?m.27 = Δ ∧ subTy D (root A x) = Γ ∧ d = σ
+experiments/independent-guarded-authoring/trial/work/Attempt.lean:33:42: error: unsolved goals
+V : Type
+Ω : List (Judgment V)
+Γ Δ A x y p σ D d : Expression V
+hx : Tm Γ A x
+hD : Ty (path A x) D
+hd : Tm Γ (subTy D (root A x)) d
+hs : Sub Δ Γ σ
+⊢ Sum.inl Predicate.substitution = Sum.inl Predicate.term ∧ ?m.28 = Γ ∧ ?m.27 = A ∧ σ = x ∨
+    Sum.inl Predicate.substitution = Sum.inl Predicate.family ∧ ![?m.28, ?m.27, σ] ≍ ![path A x, D] ∨
+      Sum.inl Predicate.substitution = Sum.inl Predicate.term ∧ ?m.28 = Γ ∧ ?m.27 = subTy D (root A x) ∧ σ = d ∨
+        ?m.28 = Δ ∧ ?m.27 = Γ

@@ -1,0 +1,56 @@
+./docs/research/adwh-huffman-provenance.tsv:45:adwh-checkpoint-233	project/adwh-lean/ADWH/Chapter08/HuffmanExchange.lean	34c9448f2082a6cdf6cb3e76e99306bc615284867f7062f63161d3ab43a8939d	ADWH.Chapter08.HuffmanExchange.swap_involutive	Applications/Huffman/Exchange.lean	Huffman.swap_involutive	standard-library-bridge	Equiv.swap replaces bespoke transposition; source-shaped statements expose its apply/involution/injection facts.
+./Applications/Uncomputation/Schedules.lean:87:  left_inv := g.involutive h
+./Applications/Uncomputation/Schedules.lean:88:  right_inv := g.involutive h
+./docs/research/construction-observation-followups.md:131:   A bounded child of #235, coordinated with #117's methodology, should compare
+./docs/research/construction-observation-followups.md:135:   waiting for #117's alternative-surface experiment or #116's surface design.
+./Applications/Uncomputation/Coordinates.lean:44:  simp only [coordinates_entry, Matrix.conjTranspose_apply, Equiv.symm_symm]
+./experiments/construction-observation-authoring/protocol.md:4:methodology follows #249/#117. These trials concern existing Lean interfaces,
+./docs/research/construction-observation-author-trials.md:16:#117's methodology and #36. It tests existing Lean interfaces, not alternative
+./docs/research/bounded-elaboration.md:137:For [#116](https://github.com/VladimirMarko/conaled/issues/116), an additional
+./docs/research/bounded-elaboration.md:142:[#117](https://github.com/VladimirMarko/conaled/issues/117), these checked
+./docs/research/constructor-destructor-transposition.md:301:human-usability result. No trial was launched under #117. Exact model build,
+./docs/research/constructor-destructor-transposition.md:304:performance. Future independent trials belong with #117's coordinated protocol.
+./docs/research/constructor-destructor-transposition.md:306:For #116, these results support offering alternative organizations when both
+./Examples/ProofRequirementManual.lean:22:      congrArg (fun t => f (m t (m y z))) (h.involutive x).symm
+./docs/research/toolkit-author-effectiveness.md:29:[#117](https://github.com/VladimirMarko/conaled/issues/117) supplies a prospective
+./docs/research/toolkit-author-effectiveness.md:31:investigation it remains blocked on surface design (#116), with no completed
+./docs/research/dependent-conversion-authoring-protocol.md:177:[#116](https://github.com/VladimirMarko/conaled/issues/116) owns surface designs
+./docs/research/dependent-conversion-authoring-protocol.md:180:syntax is source-review evidence only. [#117](https://github.com/VladimirMarko/conaled/issues/117)
+./docs/research/orchestration-retrospective/use-initial.md:27:Earlier trials provide different evidence rather than replications of the same scaling result. Toolkit authors could use existing DList helpers and extend to a reverse-list representation, but they still owed decode laws (`docs/research/toolkit-author-effectiveness.md:97`). Requirement-discovery authors could publish reusable requirements and reject missing laws; the manual author found a weaker witness-observation requirement than the supplied sufficient interface (`docs/research/proof-requirement-author-trial.md:137`). This is evidence that prepared tooling can also steer authors toward stronger assumptions. No general claim about humans, cheaper models, source-language ergonomics or automated extraction follows. #107 is paused, #108's independent task is unselected, and the broader surface comparison remains #116/#117.
+./Examples/ProofRequirementAssisted.lean:19:      congrArg (fun t => f (m t (m y z))) (involutive x).symm
+./docs/research/orchestration-retrospective/README.md:115:   [#115](https://github.com/VladimirMarko/conaled/issues/115)–[#117](https://github.com/VladimirMarko/conaled/issues/117). The [#107](https://github.com/VladimirMarko/conaled/issues/107) repair has been resumed after a pause to seek better abstractions and frontend options. The [#108](https://github.com/VladimirMarko/conaled/issues/108) fresh-agent test
+./docs/research/orchestration-retrospective/README.md:213:#423 with the source and surface studies #115–#117. Protocol preparation does not
+./docs/research/codata-elaboration-termination-contracts.md:252:[#116](https://github.com/VladimirMarko/conaled/issues/116), a superficial
+./docs/research/next-assessment-work.md:14:| Measure recurring author work | [#429](https://github.com/VladimirMarko/conaled/issues/429): prepare a total-effort protocol around #423's conversion fragment, coordinating #115–#117 and #25 |
+./docs/research/next-assessment-work.md:29:open converter. #115 owns Agda declaration inspection, #116 surface design and
+./docs/research/next-assessment-work.md:30:#117 the separate surface-authoring comparison. No duplicate construction or
+./docs/research/next-assessment-work.md:90:#117 protocol preparation may proceed before executable surfaces are available;
+./docs/research/language-architecture-research.md:159:| slean and Agda-like surfaces with superficial translation | [#116](https://github.com/VladimirMarko/conaled/issues/116) |
+./docs/research/language-architecture-research.md:160:| LLM authoring comparison, with execution dependent on #116 | [#117](https://github.com/VladimirMarko/conaled/issues/117) |
+./docs/research/subtyping-contracts-and-inference.md:448:checked variance/evidence, #260 the conditional elaborator, #116 surface design,
+./docs/research/construction-observation-research-assessment.md:343:reuse #279 as evidence of #293 requirement discovery or expand #117's separate
+./docs/research/preservation-architecture.md:109:or causal productivity claim follows. The protocol follows #117's matched-task,
+./docs/research/language-extension-metatheory.md:274:minimizer. #116 retains surface design and #109 recursion compilation.
+./docs/research/external-discovery-assessment.md:59:#108/#117's existing trial gates intact. #293 supplies the previously missing
+./docs/research/external-discovery-assessment.md:180:   trial, reusing #249's protocol through #117/#235. Adoption, migration and
+./experiments/proof-requirement-authoring/authors/assisted/Attempt01.lean:19:      congrArg (fun t => f (m t (m y z))) (involutive x).symm
+./docs/research/duality-language-directions.md:59:trial. These results discharge #8's omitted-row follow-up and inform #116's
+./docs/research/external-discovery-280/assumptions-comparison.md:17:Read `/tmp/conaled-280/issues.json` by title filtering, then bodies of #280, #254, #249, #248, #210, #140 and #117. An initial unfiltered display was truncated; the body inspections above were explicit bounded reads. The original JSON omitted issue state. Parent checked live state and corrected #248/#252, #210, #249 and #254 to closed; #107, #117 and #235 remain open. The following supersedes any implication that these completed investigations remain active owners. Issue overlap is substantial:
+./docs/research/external-discovery-280/assumptions-comparison.md:23:- **#249 is closed.** Reuse `docs/research/toolkit-author-effectiveness.md` and `experiments/toolkit-authoring/protocol.md`; #117 remains open for surface comparisons. A new trial needs a new scope under #235 or explicit coordination with #117.
+./docs/research/external-discovery-280/assumptions-comparison.md:62:Create a new bounded #235 child, coordinated with #36/#200 and #107/#117. Begin with two calibrated cases: an equational algebraic argument and a constructive witness-producing argument. Compare three routes on identical frozen inputs: manual operation/law interface, explicitly presented theory with total MMT-style views, and proof-derived requirements subsequently edited into a public theory. The latter two can share an implementation boundary; the experiment must still distinguish discovering requirements from packaging them.
+./docs/research/external-discovery-280/assumptions-comparison.md:91:4. Only then scope new author trials through #235/open #117, reusing the completed #249 protocol, with frozen reference solutions and distinct author exposure. Architecture adoption and migration remain separate #235 work.
+./docs/research/symmetric-producer-consumer-assessment.md:204:| #116 multiple surfaces | Optional syntax can share meaning | Elaboration fidelity, typing, substitution and coherence between views remain to be proved |
+./docs/research/symmetric-producer-consumer-assessment.md:221:#116 can compare a consumer surface with ordinary named syntax on the same tasks;
+./experiments/proof-requirement-authoring/authors/assisted/checks/Attempt02/Source.lean:19:      congrArg (fun t => f (m t (m y z))) (involutive x).symm
+./experiments/proof-requirement-authoring/authors/assisted/checks/Attempt01/Source.lean:19:      congrArg (fun t => f (m t (m y z))) (involutive x).symm
+./experiments/proof-requirement-authoring/authors/assisted/Attempt02.lean:19:      congrArg (fun t => f (m t (m y z))) (involutive x).symm
+./experiments/proof-requirement-authoring/authors/manual/Attempt03.lean:22:      congrArg (fun t => f (m t (m y z))) (h.involutive x).symm
+./experiments/proof-requirement-authoring/authors/manual/Attempt01.lean:22:      congrArg (fun t => f (m t (m y z))) (h.involutive x).symm
+./experiments/proof-requirement-authoring/authors/manual/Attempt02.lean:22:      congrArg (fun t => f (m t (m y z))) (h.involutive x).symm
+./experiments/proof-requirement-authoring/authors/manual/checks/Attempt02/Source.lean:22:      congrArg (fun t => f (m t (m y z))) (h.involutive x).symm
+./experiments/proof-requirement-authoring/authors/manual/checks/Attempt03/Source.lean:22:      congrArg (fun t => f (m t (m y z))) (h.involutive x).symm
+./experiments/proof-requirement-authoring/authors/manual/checks/Attempt01/Source.lean:22:      congrArg (fun t => f (m t (m y z))) (h.involutive x).symm
+./experiments/certified-nat-checker/statement-review.md:44:| `outside_column_not_involutive` | At n=5 and q=7, truncated subtraction breaks the unrestricted involution claim. This checked negative boundary keeps the legal-column premise visible. |
+./docs/research/language-research-agenda.md:217:selection. The open [#117 surface comparison](https://github.com/VladimirMarko/conaled/issues/117)
+./docs/research/language-research-agenda.md:218:requires #116's surface-design outcome and executable comparison readiness.
+./docs/research/proof-requirement-comparison.md:371:provide the trial method if #235/#117 later commission an author comparison.

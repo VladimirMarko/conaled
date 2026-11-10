@@ -1,0 +1,558 @@
+Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+Source guard passed: no admissions, source axioms, unsafe/partial definitions, native_decide, or skipped kernel checking.
+Source/coverage/version checks: 2.36s
+Rechecking 2257 local modules from source with 2 workers.
+[1/2256] Squares (1.00s)
+[2/2256] FirstOrder (1.84s)
+'FirstOrderCompiler.compile_sound' depends on axioms: [propext]
+'FirstOrderCompiler.everyTerm_additive' depends on axioms: [propext]
+'FirstOrderCompiler.letExample_all' depends on axioms: [propext]
+'FirstOrderCompiler.no_exponential' depends on axioms: [propext, Quot.sound]
+[3/2256] SquareKit.Relations (0.53s)
+[4/2256] Compiler (4.83s)
+[5/2256] Applications.AD.HigherOrder (2.20s)
+[6/2256] Applications.AD.Core (8.47s)
+[7/2256] Applications.AD.Jets (1.45s)
+[8/2256] Applications.Circuits.Syntax (0.73s)
+[9/2256] SquareKit.Category (1.10s)
+[10/2256] SquareKit.CategoryMap (1.02s)
+[11/2256] Applications.AD.Modes (4.82s)
+[12/2256] SquareKit.Comma (1.08s)
+[13/2256] SquareKit.FunctionCategory (0.73s)
+[14/2256] Applications.AD.Compiler (2.04s)
+[15/2256] SquareKit.CommaExact (1.11s)
+[16/2256] SquareKit.CommaAgreement (1.05s)
+[17/2256] SquareKit.Combinators (1.01s)
+[18/2256] Applications.Linear.Matrix (1.61s)
+[19/2256] Applications.AD.Generalized (4.21s)
+[20/2256] Applications.AD.Verification (1.24s)
+'Applications.AD.DMap.comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.tangent_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.continuation_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.continuation_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.adjoint_square_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.gradient_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.FirstOrder.compile_hasFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.FirstOrder.sharedPolynomial_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.Generalized.compile_differentiable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.Generalized.compile_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.Generalized.compile_reverse_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.Generalized.modes_agree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.Generalized.sharedPolynomial_reverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.HigherOrder.eval_related' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.HigherOrder.compileDual_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.HigherOrder.compileCurveSquare' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.HigherOrder.higherOrder_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.Jets.jet_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.Jets.jet_leibniz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.Jets.towerMulSquare' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.AD.Jets.compile_jet_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+[21/2256] SquareKit.CartesianMap (0.65s)
+[22/2256] Applications.Timing.Intervals (2.67s)
+[23/2256] SquareKit.CommaProducts (0.86s)
+[24/2256] SquareKit.Optional (0.83s)
+[25/2256] SquareKit.CommaProductsExact (1.03s)
+[26/2256] SquareKit.OptionalQuotient (0.89s)
+[27/2256] SquareKit.CommaOptionalExact (1.25s)
+[28/2256] Applications.Convolution.Series (1.74s)
+Applications/Convolution/Series.lean:178:62: warning: This simp argument is unused:
+  epsilonFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[29/2256] SquareKit.RelationalCategory (1.45s)
+[30/2256] Applications.Convolution.Polynomial (1.45s)
+Applications/Convolution/Polynomial.lean:56:30: warning: This simp argument is unused:
+  convolution
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [prepend]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Applications/Convolution/Polynomial.lean:57:21: warning: This simp argument is unused:
+  convolution
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [prepend, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[31/2256] Applications.Timing.Digital (2.76s)
+Applications/Timing/Digital.lean:186:70: warning: This simp argument is unused:
+  mul_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mul_assoc, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[32/2256] Applications.Elaboration.Syntax (2.83s)
+[33/2256] Applications.Circuits.Correctness (1.62s)
+[34/2256] Applications.Elaboration.Constraints (1.64s)
+[35/2256] SquareKit.FirstOrderCategory (0.73s)
+[36/2256] Applications.Elaboration.Elaborator (1.20s)
+[37/2256] SquareKit.FirstOrderNaturality (1.41s)
+[38/2256] Applications.Elaboration.Strategies (1.38s)
+[39/2256] Applications.Incremental.Core (1.31s)
+[40/2256] Applications.Elaboration.Examples (1.21s)
+[41/2256] SquareKit.Arithmetic (0.86s)
+[42/2256] SquareKit.FirstOrder (1.11s)
+[43/2256] Applications.Incremental.Arithmetic (1.26s)
+[44/2256] Applications.Intervals.Arithmetic (1.25s)
+[45/2256] SquareKit.OptionalMap (0.89s)
+[46/2256] SquareKit.STLCCategory (0.79s)
+[47/2256] Applications.Languages.Regex (2.12s)
+Applications/Languages/Regex.lean:98:64: warning: This simp argument is unused:
+  hq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [derive, smartPlus_correct, smartMul_correct, hp, RegularExpression.deriv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Applications/Languages/Regex.lean:99:40: warning: This simp argument is unused:
+  he
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[48/2256] SquareKit.STLCNaturality (1.78s)
+[49/2256] Applications.Languages.Machines (1.13s)
+[50/2256] SquareKit.STLCRelations (1.44s)
+[51/2256] Applications.Languages.ConvolutionBridge (1.17s)
+Applications/Languages/ConvolutionBridge.lean:42:30: warning: This simp argument is unused:
+  ite_eq_left rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [monomialRegex, RegularExpression.matches'_zero, Convolution.monomial_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Applications/Languages/ConvolutionBridge.lean:42:47: warning: This simp argument is unused:
+  RegularExpression.matches'_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [monomialRegex, ite_eq_left rfl, Convolution.monomial_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[52/2256] Applications.Languages.Witnesses (1.17s)
+[53/2256] Applications.Intervals.HigherOrder (1.71s)
+[54/2256] Applications.Languages.Parser (1.17s)
+[55/2256] Applications.Linear.Operations (1.90s)
+[56/2256] Applications.Languages.ParserBridge (1.88s)
+[57/2256] Applications.Linear.Maps (2.32s)
+[58/2256] SquareKit.MatrixCategory (2.50s)
+[59/2256] Applications.Linear.Compiler (1.83s)
+[60/2256] Applications.Linear.FirstOrderNaturality (1.31s)
+[61/2256] Applications.Diffeology.Constructions (1.36s)
+[62/2256] Applications.Diffeology.Manifolds (2.82s)
+[63/2256] Applications.Orbifold.ProjectiveMotion (6.15s)
+[64/2256] Applications.Orbifolds.Equivariant (1.72s)
+[65/2256] Applications.Linear.Similitude (4.28s)
+[66/2256] Applications.Orbifold.StandardForm (2.89s)
+[67/2256] Applications.Parallel.FFT (1.94s)
+[68/2256] Applications.Orbifolds.SmoothComparison (2.39s)
+[69/2256] Applications.Parallel.ComplexFFT (1.33s)
+[70/2256] Applications.Parallel.Shape (1.53s)
+[71/2256] Applications.Parallel.Scan (1.31s)
+Applications/Parallel/Scan.lean:145:31: warning: This simp argument is unused:
+  map_mul_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ih]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Applications/Parallel/Scan.lean:155:17: warning: This simp argument is unused:
+  sequential
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Applications/Parallel/Scan.lean:159:58: warning: This simp argument is unused:
+  List.map_id_fun
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.zipWith_cons_cons, List.flatten_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[72/2256] Applications.Parallel.ScanPlan (1.28s)
+[73/2256] Applications.Parallel.Polynomial (1.33s)
+Applications/Parallel/Polynomial.lean:15:18: warning: This simp argument is unused:
+  sequential
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[74/2256] Applications.Orbifolds.QuarterTurn (7.19s)
+[75/2256] Applications.Parallel.Examples (2.04s)
+([[], [1], [1, 2], [1, 2, 3], [1, 2, 3, 4], [1, 2, 3, 4, 5], [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6, 7]],
+  [1, 2, 3, 4, 5, 6, 7, 8])
+([[], [1], [1, 2], [1, 2, 3], [1, 2, 3, 4], [1, 2, 3, 4, 5], [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6, 7]],
+  [1, 2, 3, 4, 5, 6, 7, 8])
+49
+[10, 7, 15, 6]
+[2, 8, 14, 6, 13, 3, 12, 1]
+'Applications.Parallel.Shape.scan_correct' depends on axioms: [propext, Quot.sound]
+'Applications.Parallel.Shape.scanNestedWith_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.Parallel.ScanPlan.correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.Parallel.Scanner.powers_correct' depends on axioms: [propext, Quot.sound]
+'Applications.Parallel.evaluatePolynomial_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.Parallel.Factor.twiddle_factorization' depends on axioms: [propext]
+'Applications.Parallel.Factor.fft_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.Parallel.Factor.dft_eq_direct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.Parallel.Factor.fft_decode' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.Parallel.Factor.fourierRoot_primitive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.Parallel.Factor.fourier_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.Parallel.Examples.fourOutput_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+[76/2256] Applications.Orbifold.Disk (2.11s)
+[77/2256] Applications.Optimization.Basic (0.84s)
+[78/2256] Applications.Optimization.Relations (0.97s)
+[79/2256] Applications.Progress.Evaluation (3.34s)
+[80/2256] Applications.Orbifold.Pose (5.04s)
+Applications/Orbifold/Pose.lean:167:40: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+[81/2256] Applications.Progress.Streams (1.87s)
+[82/2256] Applications.Progress.Processors (2.17s)
+[83/2256] Applications.Orbifold.ConnectionAssessment (3.52s)
+Applications/Orbifold/ConnectionAssessment.lean:72:28: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Applications/Orbifold/ConnectionAssessment.lean:72:28: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[84/2256] Applications.Progress.Examples (2.06s)
+[85/2256] Applications.Sequences.LCA.BlockShape (1.96s)
+[86/2256] Applications.Sequences.RangeMinimum (1.56s)
+Applications/Sequences/RangeMinimum.lean:30:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [rangeMin, Nat.add_assoc]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+[87/2256] Applications.Sequences.LCA.Padding (1.60s)
+Applications/Sequences/LCA/Padding.lean:25:16: warning: This simp argument is unused:
+  add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hs]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[88/2256] Applications.Resources.Measured (0.90s)
+[89/2256] Applications.Dijkstra.Store (0.40s)
+[90/2256] Applications.Sequences.LCA.Sparse (1.86s)
+[91/2256] Applications.Sequences.LCA.TableExecution (2.11s)
+[92/2256] Applications.Sequences.LCA.Micro (1.64s)
+Applications/Sequences/LCA/Micro.lean:42:31: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Applications/Sequences/LCA/Micro.lean:42:31: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Applications/Sequences/LCA/Micro.lean:47:30: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[93/2256] Applications.Sequences.LCA.ArgminTransport (1.57s)
+[94/2256] Applications.Sequences.LCA.BlockQuery (2.04s)
+[95/2256] Applications.Sequences.LCA.PrefixTable (1.89s)
+[96/2256] Applications.Sequences.LCA.FiniteSparse (2.03s)
+[97/2256] Applications.Sequences.LCA.SharedTable (1.77s)
+[98/2256] Applications.Sequences.LCA.SparseExecution (3.09s)
+[99/2256] Applications.Sequences.LCA.MicroExecution (3.81s)
+Applications/Sequences/LCA/MicroExecution.lean:251:20: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [classify, Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[100/2256] Applications.Sequences.LCA.BlockBounds (2.24s)
+[101/2256] Applications.Sequences.LCA.BlockedRMQ (4.46s)
+[102/2256] Applications.Optimization.Transport (0.80s)
+[103/2256] Applications.Sequences.LCA.Preparation (2.10s)
+[104/2256] Applications.Sequences.LCA.PreparationBounds (2.54s)
+[105/2256] Applications.Optimization.Thinning (1.53s)
+[106/2256] SquareKit.ListFusion (0.76s)
+[107/2256] Applications.Resources.Workload (1.71s)
+[108/2256] Applications.Sequences.LCA.Tree (2.89s)
+[109/2256] Applications.Sequences.LCA.TreeBackend (1.55s)
+[110/2256] Applications.Resources.Prepared (2.88s)
+[111/2256] Applications.Sequences.LCA.TreeEmission (1.14s)
+[112/2256] Applications.Sequences.LCA.Arena (1.75s)
+[113/2256] Applications.Sequences.LCA.TreeMaps (1.71s)
+[114/2256] Applications.Sequences.LCA.TreeStorage (1.55s)
+[115/2256] Applications.Sequences.LCA.Storage (4.26s)
+[116/2256] Applications.Sequences.LCA.TreeReduction (2.65s)
+[117/2256] Applications.Sequences.LCA.Backend (2.45s)
+[118/2256] Applications.Sequences.LCA.Workspace (3.18s)
+[119/2256] Applications.Sequences.LCA.Catalog (2.72s)
+[120/2256] Applications.Sequences.LCA.QueryStorage (4.50s)
+[121/2256] Applications.Sequences.LCA.WordKey (1.94s)
+[122/2256] Applications.Sequences.LCA.WordKeyStorage (2.59s)
+[123/2256] Applications.Sequences.LCA.Control (3.54s)
+[124/2256] Applications.Sequences.LCA.TableTransport (2.08s)
+[125/2256] Applications.Stack.Machine (1.67s)
+[126/2256] Applications.Sequences.LCA.KeyBounds (4.93s)
+[127/2256] Applications.Stack.Measured (1.28s)
+[128/2256] Applications.Sequences.LCA.MachineCapacity (2.04s)
+[129/2256] Applications.Sequences.LCA.BackendBounds (2.07s)
+[130/2256] Applications.Sequences.LCA.FlatTable (4.13s)
+[131/2256] Applications.Sequences.LCA.PreparationInvariants (1.88s)
+Applications/Sequences/LCA/PreparationInvariants.lean:20:31: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Applications/Sequences/LCA/PreparationInvariants.lean:20:31: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Applications/Sequences/LCA/PreparationInvariants.lean:17:107: warning: This simp argument is unused:
+  Fin.val_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[132/2256] Applications.Sequences.LCA.SparseCatalog (2.58s)
+[133/2256] Applications.Sequences.LCA.PackedBackend (3.86s)
+[134/2256] Applications.Sequences.LCA.StrategySelection (1.73s)
+[135/2256] Applications.Timing.Adders (3.87s)
+Applications/Timing/Adders.lean:121:44: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Applications/Timing/Adders.lean:131:15: warning: This simp argument is unused:
+  ← mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [fullAdderTiming, fullAdderMatrix, inputA, inputB, inputC, mul_add]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Applications/Timing/Adders.lean:131:28: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[136/2256] Applications.Timing.Examples (2.21s)
+Applications/Timing/Examples.lean:52:39: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Applications/Timing/Examples.lean:52:39: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+[[(some (1 / 4), some (1 / 4)), (some (1 / 4), some (1 / 4))],
+  [(some (3 / 10), some (3 / 10)), (some (3 / 10), some (3 / 10))]]
+[[(some (1 / 4), some (1 / 4)), (some (1 / 2), some (1 / 2)), (some (1 / 2), some (1 / 2))],
+  [(some (3 / 5), some (3 / 5)), (some (17 / 20), some (3 / 5)), (some (17 / 20), some (3 / 5))]]
+[(0, true), (1 / 2, true), (7 / 10, false), (9 / 10, true), (1, true)]
+'Applications.Timing.Interval.empty_product_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.Timing.Digital.square_compose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.Timing.Digital.timingMatrixSquare' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.Circuits.Circuit.compile_matrix_stable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.Timing.Adders.compiled_fullAdder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.Timing.Adders.fullAdder_addition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.Timing.Adders.fullAdder_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.Timing.Adders.hazard_at_seven_tenths' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Applications.Timing.Adders.carry_path_nonempty_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+[137/2256] Applications.Sequences.LCA.PackedReads (7.54s)
+Applications/Sequences/LCA/PackedReads.lean:32:20: warning: Unused tactic linter: `rfl` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Applications/Sequences/LCA/PackedReads.lean:44:20: warning: Unused tactic linter: `rfl` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Applications/Sequences/LCA/PackedReads.lean:134:15: warning: This simp argument is unused:
+  macroBase
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [retainedSlots, SparseExecution.retainedSlots, FlatTable.words]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Applications/Sequences/LCA/PackedReads.lean:134:69: warning: This simp argument is unused:
+  FlatTable.words
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [macroBase, retainedSlots, SparseExecution.retainedSlots]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Applications/Sequences/LCA/PackedReads.lean:144:6: warning: Unused tactic linter: `unfold macroBase` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Applications/Sequences/LCA/PackedReads.lean:146:2: warning: Unused tactic linter: `all_goals
+  first
+  | rfl
+  | (congr 1; omega)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Applications/Sequences/LCA/PackedReads.lean:146:12: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Applications/Sequences/LCA/PackedReads.lean:161:15: warning: This simp argument is unused:
+  macroBase
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [retainedSlots, SparseExecution.retainedSlots, FlatTable.words]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Applications/Sequences/LCA/PackedReads.lean:161:69: warning: This simp argument is unused:
+  FlatTable.words
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [macroBase, retainedSlots, SparseExecution.retainedSlots]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Applications/Sequences/LCA/PackedReads.lean:171:6: warning: Unused tactic linter: `unfold macroBase` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Applications/Sequences/LCA/PackedReads.lean:173:20: warning: Unused tactic linter: `rfl` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Applications/Sequences/LCA/PackedReads.lean:200:20: warning: Unused tactic linter: `rfl` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Applications/Sequences/LCA/PackedReads.lean:227:20: warning: Unused tactic linter: `rfl` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+[138/2256] Dependent (1.08s)
+[139/2256] Applications.Sequences.LCA.WordMachine (1.69s)
+[140/2256] Applications.Sequences.Symmetric.Core (1.13s)
+[141/2256] Applications.Sequences.LCA.Materialize (2.96s)
+Applications/Sequences/LCA/Materialize.lean:177:71: warning: This simp argument is unused:
+  ia
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [Control.scope, indexM_exact, Resources.bind, ib]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Applications/Sequences/LCA/Materialize.lean:177:74: warning: This simp argument is unused:
+  ib
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all only [Control.scope, indexM_exact, Resources.bind, ia]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+[142/2256] Applications.Sequences.LCA.Installation (3.96s)
+Applications/Sequences/LCA/Installation.lean:26:0: warning: automatically included section variable(s) unused in theorem `Sequences.LCA.Installation.descriptorM_value`:
+  [NeZero cols]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero cols] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Applications/Sequences/LCA/Installation.lean:123:0: warning: automatically included section variable(s) unused in theorem `Sequences.LCA.Installation.inner_fit`:
+  [NeZero cols]
+  [NeZero rows]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero cols] [NeZero rows] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+[143/2256] Applications.Sequences.LCA.WordLoads (2.85s)
+Applications/Sequences/LCA/WordLoads.lean:15:34: warning: Variable name `hi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[144/2256] Applications.Sequences.LCA.PreparationCertificate (8.05s)
+[145/2256] Applications.Sequences.LCA.ResidentInstallation (5.52s)
+Applications/Sequences/LCA/ResidentInstallation.lean:99:13: warning: This simp argument is unused:
+  FlatTable.sharedPack_size
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [dimension] at hs
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Applications/Sequences/LCA/ResidentInstallation.lean:169:10: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Applications/Sequences/LCA/ResidentInstallation.lean:169:14: warning: Unused tactic linter: `first
+| exact hs
+| exact hm
+| rfl` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Applications/Sequences/LCA/ResidentInstallation.lean:169:14: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Applications/Sequences/LCA/ResidentInstallation.lean:230:5: warning: Variable name `fit` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _fit
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Applications/Sequences/LCA/ResidentInstallation.lean:230:55: warning: Variable name `wide` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _wide
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Applications/Sequences/LCA/ResidentInstallation.lean:339:5: warning: Variable name `h` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+[146/2256] Applications.Sequences.LCA.PackingControl (1.90s)
+[147/2256] Applications.Sequences.LCA.PreparationScalars (2.80s)
+[148/2256] Applications.Sequences.LCA.WordSummary (2.84s)
+[149/2256] Applications.Sequences.Symmetric.Prefixes (0.83s)
+[150/2256] Applications.Sequences.Symmetric.Finite (0.88s)
+[151/2256] Applications.Sequences.Symmetric.Observation (0.99s)
+[152/2256] Applications.Sequences.AbstractFIFO (1.06s)
+[153/2256] SquareKit.STLCSubstitution (2.03s)
+[154/2256] Applications.Sequences.AbstractFIFOSyntax (1.08s)
+[155/2256] Examples.AbstractFIFO (1.03s)
+[156/2256] SquareKit.AdjointComparison (0.86s)
+[157/2256] SquareKit.AdjointModes.Resources (0.67s)
+[158/2256] SquareKit.AdjointModes.Category (0.78s)
+[159/2256] SquareKit.AdjointModes.Syntax (0.75s)
+[160/2256] Applications.Sequences.LCA.WordWithin (29.96s)
+[161/2256] SquareKit.AdjointModes.Compiler (1.45s)
+[162/2256] Applications.Sequences.LCA.PreparationMinima (2.77s)
+[163/2256] Applications.Sequences.LCA.TargetPreparation (2.25s)
+[164/2256] SquareKit.AdjointModes.Translation (3.32s)
+[165/2256] Applications.Sequences.LCA.WordQuery (9.92s)
+[166/2256] SquareKit.AdjointModes.Evaluation (3.29s)
+[167/2256] Examples.AdjointModes (1.49s)
+[168/2256] SquareKit.Internal.PathTransport.Syntax (1.17s)
+[169/2256] SquareKit.Internal.PathTransport.RawContext (0.74s)
+[170/2256] SquareKit.Internal.PathTransport.Model (0.80s)
+[171/2256] SquareKit.Internal.PathTransport.ContextualModel (3.12s)
+[172/2256] Applications.Sequences.LCA.WordTrace (11.83s)
+[173/2256] Applications.Sequences.LCA.TargetBackend (2.24s)
+[174/2256] Applications.Sequences.LCA.TargetSelection (2.68s)
+Applications/Sequences/LCA/TargetSelection.lean:102:2: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+[175/2256] Applications.Sequences.LCA.WordLCA (2.94s)
+[176/2256] SquareKit.Internal.PathTransport.SplitFamily (2.20s)
+[177/2256] SquareKit.Internal.PathTransport.ContextualElimination (1.19s)
+[178/2256] SquareKit.Internal.PathTransport.TelescopeElimination (1.98s)
+[179/2256] SquareKit.Internal.PathTransport.PathContext (2.69s)
+[180/2256] SquareKit.Internal.PathTransport.SectionNormalization (1.43s)
+[181/2256] SquareKit.Internal.PathTransport.GroupoidElimination (0.96s)
+[182/2256] SquareKit.Internal.PathTransport.EliminationUniqueness (1.02s)
+[183/2256] SquareKit.Internal.PathTransport.DerivedSemantics (1.43s)
+[184/2256] SquareKit.Internal.PathTransport.JNaturality (4.80s)
+[185/2256] SquareKit.Internal.PathTransport.Typed (33.84s)
+[186/2256] SquareKit.Internal.PathTransport.Authoring (3.70s)
+[187/2256] SquareKit.Internal.PathTransport.Named (1.34s)
+[188/2256] SquareKit.Internal.PathTransport.Endpoints (1.56s)
+[189/2256] SquareKit.Internal.PathTransport.Derived (1.55s)
+[190/2256] SquareKit.Internal.PathTransport.DerivedCoherence (1.52s)
+[191/2256] SquareKit.Internal.PathTransport.Binding (1.44s)
+[192/2256] SquareKit.Internal.PathTransport.Concatenation (1.71s)
+[193/2256] SquareKit.Internal.PathTransport.ConcatenationBeta (2.49s)
+[194/2256] SquareKit.Internal.PathTransport.RawReindex (1.35s)
+[195/2256] SquareKit.Internal.PathTransport.GroupoidSoundness (22.95s)
+[196/2256] SquareKit.Internal.PathTransport.ReindexCoherence (1.60s)
+[197/2256] SquareKit.Internal.PathTransport.SourceReindex (1.34s)
+[198/2256] SquareKit.Internal.PathTransport.TransferFrame (1.62s)
+[199/2256] SquareKit.Internal.PathTransport.StructuralCongruence (1.47s)
+[200/2256] SquareKit.Internal.PathTransport.SourceSemantics (5.21s)
+[201/2256] SquareKit.Internal.PathTransport.TransportCongr (1.72s)
+[202/2256] SquareKit.Internal.PathTransport.TransferBranch (1.15s)
