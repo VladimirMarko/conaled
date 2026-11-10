@@ -1,11 +1,12 @@
 import Examples.GeneratedFamilyConstructors
+import SquareKit.SmoothQuotientCechGeneratedEffectivity
+import Examples.GeneratedBaseMatching
 import SquareKit.SmoothQuotientCechGeneratedEmpty
 import SquareKit.SmoothQuotientCechGeneratedSubstitution
 import Examples.GeneratedRelativeMatching
 import Examples.CechMatchingCone
 import SquareKit.SmoothQuotientCechGeneratedCone
 import SquareKit.Internal.PathTransport.AlignedSignatureSubstitution
-import Examples.GeneratedBaseMatching
 import Examples.CechMatchingIdentity
 import Examples.CechMatchingComprehension
 import Examples.GeneratedSelectedComparison
