@@ -142,4 +142,13 @@ theorem pasted_connector (n : Nat) :
       ⟨Nat,Nat,fun n : Nat => n+1⟩ rfl).connector n = n+2 := by
   change (n+1)+1 = n+2; omega
 theorem pasted_outer_arrow (n : Nat) : pastedSquare.left n = n+2 := rfl
+/-- CAT Cartesian functors preserve both nullary and binary products. -/
+theorem quiv_cartesian_identity :
+    RawQuiv.CartesianFunctorLaws
+      (RawQuiv.ofRawMap (RawMap.id FunctionCategory.ops))
+      (equality FunctionCategory.ops) (ProductMap.id FunctionCategory.products)
+      (TerminalMap.id FunctionCategory.terminal) :=
+  ⟨ProductMap.id_laws FunctionCategory.laws _,
+    TerminalMap.id_laws FunctionCategory.laws _⟩
+
 end Examples.RawConstructions
