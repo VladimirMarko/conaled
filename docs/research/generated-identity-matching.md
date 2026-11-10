@@ -58,3 +58,11 @@ that normalized overlap equality. Its hypotheses retain both endpoint
 equalities and the full natural-isomorphism square; proof irrelevance only
 normalizes equality transports. The checked identity-map case allows an
 arbitrary overlap, so no identity-overlap premise is hidden in the adapter.
+
+`GroupoidFiberFaithful` reduces faithfulness of a groupoid functor to its
+endomorphism kernels. In a commuting square with faithful base comparison,
+`faithful_of_vertical_kernel` needs only the vertical kernel. It makes no
+splitting-preservation claim and requires no strict natural transformation
+between extracted fibers. The integer-loop example uses projection to a point,
+so the projection itself is not assumed faithful. This helper proves only
+faithfulness, not fullness or effective descent.
