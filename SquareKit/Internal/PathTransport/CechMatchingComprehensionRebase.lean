@@ -77,5 +77,22 @@ def rebaseIso (d : Datum D) {y : D.localCategory} (i : d.localObject ≅ y) :
 @[simp] theorem rebaseIso_local (d : Datum D) {y : D.localCategory}
     (i : d.localObject ≅ y) : (rebaseIso d i).hom.localArrow = i.hom := rfl
 
+/-- A matching arrow and its local target determine the target overlap. -/
+theorem target_eq {d e k : Datum D} (f : d ⟶ e) (g : d ⟶ k)
+    (ho : e.localObject = k.localObject) (ha : HEq f.localArrow g.localArrow) : e = k := by
+  cases e with
+  | mk eo ei ed ec =>
+    cases k with
+    | mk ko ki kd kc =>
+      dsimp only at ho
+      subst ko
+      have hh : f.localArrow = g.localArrow := eq_of_heq ha
+      have hi : ei = ki := by
+        apply Iso.ext
+        apply (cancel_epi (D.first.map f.localArrow)).1
+        exact f.commutes.trans (by rw [hh]; exact g.commutes.symm)
+      subst ki
+      rfl
+
 end Datum
 end SquareKit.Internal.PathTransport.CechMatching
