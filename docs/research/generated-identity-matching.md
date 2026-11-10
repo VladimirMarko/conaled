@@ -123,3 +123,20 @@ budget; the packaged proof checks without increasing limits. The consumer
 accesses its endpoint field for an arbitrary generated term. This establishes
 endpoint recovery, while identity-overlap compatibility still requires its own
 comparison with the local path square.
+
+`SmoothQuotientGeneratedIdentityPaths.identityValue_square` now identifies the
+actual identity matching equation with the square between the two descended
+term diagrams. The proof first converts identity transport to the square of
+section lifts, then uses `generatedIdentity_included` to retain the selected
+vertical arrow under restriction and its explicit endpoint transports.
+`identityDatumArrowEquiv` gives a bijection with vertical matching arrows;
+`identityFiberArrowEquiv` reconstructs the same arrows in the relative fiber.
+The local recovery theorem and supplied-matching-value consumer retain the
+original arrow. No effectivity assumption enters these bijections.
+
+Statement review: the endpoints are the independently descended generated
+terms over an arbitrary supplied matching context; the overlap is the actual
+chosen overlap. The construction does not replace the matching equation by
+reflexivity, discard endpoint transports, or assume a matching equivalence.
+Identifying the actual identity evaluation with the underlying family's hom
+map remains a separate obligation before claiming constructor effectivity.
