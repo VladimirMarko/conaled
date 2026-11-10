@@ -1,3 +1,4 @@
+import SquareKit.Internal.PathTransport.CechMatchingCanonicalFiber
 import SquareKit.Internal.PathTransport.CechMatchingMapComposition
 import SquareKit.Internal.PathTransport.CechMatchingSetReindex
 import SquareKit.Internal.PathTransport.CechMatchingComprehensionDiscrete
@@ -285,5 +286,21 @@ example {D E : StrictDiagram.{0,0}} (h : (Comprehension.Constant.data D E).Coher
     Comprehension.Constant.toDatum D E h (Fiber.transport f x) =
       Comprehension.Constant.toDatum D E h x :=
   Comprehension.Constant.transport_toDatum D E h f x
+
+/-- Canonical extraction retains an arbitrary supplied relative local value. -/
+example {D : StrictDiagram.{0,0}} (A : FamilyData D) (h : A.Coherence)
+    (d : Datum D.toDiagram) (z : Fiber A h d) :
+    (Comprehension.canonicalFiber A h z.datum d (Fiber.projection_datum z)
+      z.localFiber rfl).localFiber = z.localFiber :=
+  Comprehension.canonicalFiber_local A h z.datum d (Fiber.projection_datum z)
+    z.localFiber rfl
+
+example {D : StrictDiagram.{0,0}} (A : FamilyData D) (h : A.Coherence)
+    (d : Datum D.toDiagram) (z : Fiber A h d) :
+    Nonempty (Fiber.ofDatum z.datum (Fiber.projection_datum z) ≅
+      Comprehension.canonicalFiber A h z.datum d (Fiber.projection_datum z)
+        z.localFiber rfl) :=
+  ⟨Comprehension.canonicalFiberIso A h z.datum d (Fiber.projection_datum z)
+    z.localFiber rfl⟩
 
 end Examples.CechMatchingComprehension
