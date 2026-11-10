@@ -131,6 +131,7 @@ import Examples.AgdaTransferModels
 import Examples.AgdaTransferDiagnostics
 import Examples.PathTransportUniqueness
 import Examples.TypedPathTransport
+import Examples.SignatureInterpretationMaps
 import Examples.GroupoidTransport
 import Examples.GroupoidRoutes
 import Examples.FiniteUniverse
@@ -262,6 +263,12 @@ import Examples.DiscreteSmoothMapping
 import Examples.SmoothQuotientArcs
 import Examples.SmoothSourceTransport
 import Examples.ChangingFamilyTails
+import Examples.GroupoidComparison
+import Examples.GroupoidComparisonJ
+import Examples.GroupoidComparisonInterpretation
+import Examples.SmoothComparisonInterpretation
+import Examples.GeneratedComparisonRestriction
+import Examples.HorizontalComparison
 import Examples.QuarterTurnArcs
 import Examples.JetScan
 import Examples.MatrixStack
@@ -586,3 +593,14 @@ import Examples.ModalHigher
 import Examples.WiredNumericalMotion
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
+import Examples.GeneratedComparisonComposition
+
+import Examples.DescentClosure
+import SquareKit.SheafActionQuotientDescentDisplay
+import Examples.SmoothDescentMaps
+import Examples.SectionDescent
+import SquareKit.SmoothQuotientDescentSections
+import Examples.GlobalSectionDescent
+import Examples.QuotientDescentBaseChange
+import Examples.GeneratedDescentEquivalence
+import Examples.ComparisonModification
