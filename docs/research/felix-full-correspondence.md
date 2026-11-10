@@ -1,20 +1,64 @@
 # Full Felix correspondence at the orchestration checkpoint
 
 Issue [#8](https://github.com/VladimirMarko/conaled/issues/8) covers the full
-port, beyond the accepted #15 architectural milestone. This assessment compares
-Felix `6f36d28097db7ea5f5df3263db3e8be08f74e490` with local commit
-`65e2d67`. The [source index](felix-full-correspondence-source-index.md) lists
-all 29 modules, including modules outside the explicit imports of `All.agda`,
-and declaration, field, helper and unfinished-proposal locators. The historical
-[baseline inventory](felix-parity.md) and
-[implementation record](felix-parity-implementation.md) remain unchanged.
+port, beyond the accepted #15 architectural milestone. The pinned target is
+Felix `6f36d28097db7ea5f5df3263db3e8be08f74e490`. The
+[source index](felix-full-correspondence-source-index.md) lists all 29 modules,
+including modules outside `All.agda`, and 471 declaration, field, helper and
+unfinished-proposal locators. The [baseline inventory](felix-parity.md) and
+[implementation record](felix-parity-implementation.md) remain historical records.
 
-The existing category/comparison/comma infrastructure should be reused. The
-R1 implementation supplies initial-object and right-distribution support;
-raw product/reindexing constructions and their clients remain subsequent work. Selected
-fixed-point witnesses need a separate interface from initialized stream
-feedback. The full-port issue remains open: this source assessment supplies
-neither new formal proofs nor a final acceptance build.
+## Current implementation and acceptance status
+
+The current implementation checkpoint is `22900e5499537b627abd38eedb69a7d4ad374683`.
+It contains the accepted #449–#454 integration `230f56f9`, the accepted
+#455+#457 integration `7452a19d`, and the #456 construction implementation.
+The #456 checkpoint passed the full 2,431-module build, exhaustive proof audit
+and exact-candidate verification. Its independent Standards and Spec reviews
+are pending at this reconciliation. This documentation edit has no new formal
+build result. Final combined validation and independent full-#8 review are
+still required; the programme is not declared complete here.
+
+The table and R1–R6 contracts below preserve the original `65e2d67` assessment.
+Their missing/future-work labels describe that baseline, not the current
+implementation. The following mapping and implementation addenda supersede
+those labels, while retaining their hypotheses and full source scope.
+
+| Pinned declaration families | Current recovery and boundaries |
+|---|---|
+| Object; Raw; Function Type/Raw/Laws | [#449](initial-and-right-distribution.md) adds initial arrows and both distributions; [#450](raw-felix-constructions.md) supplies equality transport, codiagonal and derived operations. [#451](selected-admissible-feedback.md) supplies selected function feedback, without adding trace axioms. |
+| Equiv; Laws; Reasoning; Homomorphism; MakeLawful | [#450](raw-felix-constructions.md) supplies the checked derived-equation recovery over existing semantic relations. [#453](computational-equivalence-witnesses.md) adds computational equivalence and category witnesses; [#455](computational-structural-witnesses.md) adds the structural laws, derived reasoning, preservation and transport. Existing #37/#333 contracts remain available. |
+| Product; Squared; Monoid; Identity | [#450](raw-felix-constructions.md) supplies raw representatives and semantic laws; [#456](computational-construction-witnesses.md) supplies retained component/induced relations, laws and preservation, reusing #455 identity interfaces. Selected product feedback is in #451. |
+| Prop; Object/Morphism subcategories; Pred | [#452](restrictions-predicates-setoids.md) supplies arbitrary object reindexing, Type-valued admissibility and exact PRED with total underlying functions. [#456](computational-construction-witnesses.md) adds computational relations, laws and preservation over the existing raw subcategory constructions. Admissibility and equivalence witnesses remain separate data. |
+| Comma Type/Raw/Homomorphism/Vertical; Arrow | [#450](raw-felix-constructions.md) supplies semantic recovery and [#453](computational-equivalence-witnesses.md) the retained-square prototype. [#456](computational-construction-witnesses.md) extends this to component relations, category/Cartesian structures and laws, projections, preservation, compatible-middle vertical composition and Arrow specialization. |
+| Setoids | [#452](restrictions-predicates-setoids.md) remains the Prop-valued specialization. [#457](computational-relation-setoids.md) supplies Type-valued element relations and retained congruence functions, pointwise arrow witnesses and structural instances. Its closed structure uses the common universe of the pinned source; other supported structures retain independent carrier/relation universes. The unfinished trace proposal has the #451 counterexample and corrected sufficient assumptions. |
+| Function Lift; CAT | [#450](raw-felix-constructions.md) supplies independent-level lifting and raw Quiv/Prefunctor recovery. Cartesian preservation includes terminal and binary-product preservation. Arbitrary quivers acquire no unsupported category laws. |
+| All; Comma facade; Function facade | Re-export modules add no further mathematical constructions. Their nested modules and modules outside All remain included in the source index. |
+| Monoidal factoring; commented Boolean proposals; maintenance TODOs | [#454](monoidal-and-boolean-disposition.md) supplies tensor factoring, Mathlib correspondence, Cartesian recovery and a noncartesian consumer, plus a precise mathematical disposition of all seven proposed Boolean operations. The maintenance disposition below introduces no extra mathematical theorem. |
+
+The computational layer retains selected Type-valued witnesses without
+assuming uniqueness, involutive symmetry, associative witness transitivity or
+higher coherence. Its explicit erasure adapters recover the existing
+Prop-valued APIs; they do not recover arbitrary witnesses from erasure.
+The #456 examples distinguish component and square witnesses and demonstrate
+why double transposition need not return the original square witness.
+
+Independent full-programme review at `230f56f9` found two residuals, recorded
+as `8-FULL-STD-1`/`8-FULL-SPEC-1` (generic computational structural and
+construction families) and `8-FULL-STD-2`/`8-FULL-SPEC-2` (general computational
+setoids). #455 and #457 have passed their child and combined reviews; #456 is
+implemented and awaiting its independent reviews. These packages provide the
+resolution evidence, but the original full-programme findings remain pending
+explicit disposition by the independent final reviewers. The bounded #453
+prototype remains accepted under its original contract.
+
+Final acceptance must reconcile every indexed source item with its checked
+counterpart or precise mathematical resolution, validate source locators and
+links, preserve affected exact/relational/dependent application contracts, and
+review the final combined candidate against the original full #8 criteria.
+A child pass or a source locator alone does not establish programme completion.
+#25's comparison and #109's broader recursion work remain separate; the
+completed #266, #302/#307 and #309 contracts are not reopened by this ledger.
 
 ## R1 implementation update
 
@@ -24,11 +68,11 @@ initial-object and right-distribution interfaces described in R1. The
 operations, transport, quotient and Mathlib adapters to source fields, with
 checked empty-carrier, raw-code, nonidentity-comparison and composed consumers.
 The module table below retains the original `65e2d67` assessment; references to
-R1 in those rows are resolved by this addendum. R2–R6 remain separate work,
-and the accepted #37/#333 results retain their contracts. Integrated acceptance
-and review status belongs to #449's orchestration record.
+R1 in those rows are resolved by this addendum. R2–R6 have the implementation
+addenda below. The accepted #37/#333 results retain their contracts. #449
+passed independent review and was included in the accepted `230f56f9` integration.
 
-## Reading the dispositions
+## Reading the historical dispositions
 
 - **Covered** means the named local declarations implement the stated portion
   under the assumptions recorded below. It does not override a stated
@@ -49,17 +93,17 @@ operations. The source index provides the individual locations. A family with
 mixed coverage is split below; no blanket module-level coverage is inferred
 from one successful instance.
 
-## Universes, witnesses and validation
+## Baseline universes, witnesses and validation
 
 [CategoryOps](../../SquareKit/Category.lean) separates `Obj : Type u` and
 `Hom : Obj → Obj → Type v`. This matches Felix's independent object/hom levels
 up to the usual Agda `Set`/Lean `Type` translation. But Felix `Equivalent q`
 has a **`Set q`-valued relation**, whereas `HomEquiv.homSetoid` has a
 **`Prop`-valued relation**. Its equivalence witnesses are therefore erased.
-All coverage of generic equivalence, congruence, law transport and commuting
-squares below is for that proof-erased specialization. It does not establish
-recovery of arbitrary computational witnesses or a universe-polymorphic
-`Equivalent q` port. R5 below owns that distinction. This does not reopen #15,
+At `65e2d67`, coverage of generic equivalence, congruence, law transport and
+commuting squares was limited to that proof-erased specialization. The current
+#453/#455/#456/#457 layer supplies separate computational counterparts as
+mapped above; the old `HomEquiv` APIs intentionally retain their Prop contract. This does not reopen #15,
 #37 or #333, whose accepted contracts are the existing Lean interfaces.
 
 A second, independent distinction concerns data stored in arrows. Felix's
@@ -69,8 +113,7 @@ and a `Prop` equivalence on underlying arrows; it need not await an enriched
 hom-equivalence theory. By contrast, an `Exists` in Lean `Prop` cannot supply an
 executable selected witness without changing the contract.
 
-Local declaration statements and consumers were inspected at the revision
-above. Their earlier acceptance provenance is the [#15 record](felix-parity-implementation.md#validation-and-completion-gate),
+The baseline declaration statements and consumers were inspected at `65e2d67`. Their earlier acceptance provenance is the [#15 record](felix-parity-implementation.md#validation-and-completion-gate),
 [#37 addendum](felix-parity-implementation.md#closed-law-transport-37),
 [#333 report](optional-law-transport.md), and the
 [orchestration acceptance record](https://github.com/VladimirMarko/conaled/issues/235#issuecomment-6759580709).
@@ -82,7 +125,7 @@ The product and cancellation declarations below are defined in
 [CartesianMap.lean](../../SquareKit/CartesianMap.lean); the `Comma` product
 declarations are in [CommaProducts.lean](../../SquareKit/CommaProducts.lean).
 
-## Module correspondence
+## Historical module correspondence at 65e2d67
 
 | Pinned module | Construction, local correspondence and residual disposition |
 |---|---|
@@ -116,9 +159,11 @@ declarations are in [CommaProducts.lean](../../SquareKit/CommaProducts.lean).
 | `Instances/Setoids.agda` | Objects `Setoid ℓ ℓ`, congruent functions, pointwise target-setoid equivalence, products/sums/exponentials, both distributions and laws. Lean's `Setoid` alone is not a category of these raw congruent functions. `HomQuotient` quotients arrows, and neither it nor assembly closure proves this correspondence. R4 owns the proof-erased-setoid implementation/recovery; R5 owns arbitrary relation witnesses. The commented trace fails to supply congruence of selected outputs, R3. |
 | `Instances/CAT.agda` | `CAT` stores only objects and homs, not identity/composition/laws. `_⤇_` is object/hom data. Mathlib `Quiv` and `Prefunctor` match this data at fixed object/hom levels; `Cat` imposes extra structure. `toHₒ/toH/it-⤇` correspond to projecting/assembling `RawMap` only after raw operations are separately supplied. Quiver terminal/product recovery and bridges are R2. The experimental `Functor`/`CartesianFunctor` obligations correspond to `MapLaws` and structural preservation; their composition is already supplied locally. |
 
-## Residual contracts and order
+## Original residual contracts and order
 
-These are proposed work packages under #8, not newly published issues. Every
+These contracts were published as #449–#454 after the baseline inventory.
+They are retained here to preserve the full requirements and the distinction
+between the bounded #453 prototype and the later #455–#457 recovery. Every
 formal package needs checked specializations, statement review, integration
 build/audit and independent Standards/Spec review. Preserve existing raw APIs;
 reuse Mathlib for lawful interoperability. The declaration index is the
@@ -268,9 +313,10 @@ additional mathematical theorem; local namespace and explicit-record choices
 already avoid dependence on Agda instance resolution. `Laws`' suggestion to
 generalize functions from level zero is superseded upstream by
 `Function.Type (ℓ : Level)` and locally by `FunctionCategory.ops.{u}`; the separate
-cross-universe lift issue remains R2. Arrow vertical generalization is already
+cross-universe lift is recovered by #450. Arrow vertical generalization is already
 implemented upstream and locally. Closed preservation/transport is #37.
-The monoidal, setoid-trace and commented Boolean proposals remain R6/R3/R6.
+The monoidal and commented Boolean proposals have the #454 disposition;
+the selected-setoid-trace obstruction and correction are recorded in #451.
 
 ## Source and link verification
 
@@ -288,11 +334,10 @@ for existence. Mathlib sources were inspected at the repository's pinned
 - [Universe-lift categories](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/CategoryTheory/Category/ULift.lean), distinct from automatically supplying raw function product comparisons.
 
 A declaration locator is not a proof of equivalence between implementations.
-R2's per-equation recovery and R5's witness analysis are explicit remaining
-obligations. Consequently this document completes the module/source inventory
-and identifies bounded residuals, but does not certify the programme's final
-criterion that every upstream item has a checked counterpart or mathematical
-resolution.
+The implementation reports above now supply R2's per-equation recovery and
+the computational witness counterparts beyond the bounded R5 prototype. Final
+independent assessment must verify these mappings against every indexed item.
+This reconciliation does not itself certify the programme's completion.
 
 ## R2 implementation addendum (#450)
 
@@ -300,8 +345,8 @@ The [raw-construction recovery report](raw-felix-constructions.md) records the
 operation-only products, squared interpretation, arbitrary arrows, setoid
 monoids, fixed-universe Quiv, independent-level ULift, and per-declaration
 Cartesian/reasoning/preservation recovery. It preserves the original inventory
-as a historical assessment. Candidate acceptance and independent review remain
-required; R3–R6 continue under their own issues.
+as a historical assessment. #450 passed independent Standards and Spec review
+and is included in the accepted `230f56f9` integration.
 
 ## Selected feedback recovery (#451)
 
@@ -310,7 +355,8 @@ function, product and object-reindexing declarations to checked Lean APIs. Its
 setoid counterexample explains the unfinished source congruence obligation;
 explicit selected-output congruence and output uniqueness give sufficient
 repairs. The guarded-stream connection proves independence only under actual
-guardedness. Package acceptance remains pending; this is not completion of #8.
+guardedness. #451 passed independent review and is included in `230f56f9`;
+its selected-feedback contract does not assert arbitrary trace laws.
 
 ## Computational equivalence recovery (#453)
 
@@ -318,8 +364,10 @@ The [witness-equivalence design](computational-equivalence-witnesses.md)
 recovers `Equivalent q` and induced relations with computational witnesses.
 The checked comma prototype and law transport retain witnesses; explicit
 erasure recovers the existing proposition-valued adapters. Distinct Boolean
-witnesses and nonassociative transitivity delimit the contract. Full package
-acceptance remains pending; higher coherence and broad retrofits are separate.
+witnesses and nonassociative transitivity delimit the contract. The bounded
+#453 package passed independent review and is included in `230f56f9`.
+#455–#457 supply the later ordinary computational families; higher coherence
+is not an upstream assumption or a condition of this correspondence.
 
 ## Tensor and Boolean disposition (#454)
 
@@ -329,7 +377,7 @@ Mathlib adapters, generic cartesian recovery and a checked noncartesian resource
 consumer. The commented Boolean families receive an explicit operation,
 closure and preservation contract with the required conditional naturality;
 this is a mathematical disposition, not a claim of checked generic Boolean
-instances. Full package acceptance remains pending.
+instances. #454 passed independent review and is included in `230f56f9`.
 
 ## R4 implementation addendum (#452)
 
@@ -337,8 +385,9 @@ The [restrictions, predicates and setoids report](restrictions-predicates-setoid
 records declaration-level recovery for both subcategory constructions, exact
 Type-valued PRED, and the proof-erased setoid instance. It includes the explicit
 RelationalCategory/Assembly comparisons and discriminating checked consumers.
-The historical inventory is preserved; candidate acceptance and independent
-review remain required.
+The historical inventory is preserved. #452 passed independent review and
+completed the accepted `230f56f9` integration. Its completed resumed validation
+run, rather than the earlier interrupted run, supplies acceptance evidence.
 
 
 ## Computational structural-law recovery (#455)
@@ -350,8 +399,9 @@ native preservation squares, comparison inverse witnesses, derived Cartesian
 equations, universal-property adapters and target-law transport. Explicit
 erasure recovers the unchanged semantic APIs. Distinct reflection choices and
 nonidentity comparisons are checked in `Examples/WitnessStructure.lean`.
-This extends #453's category-only prototype; full #8 acceptance also requires
-the separate comma/instance witness packages and the orchestration's reviews.
+This extends #453's category-only prototype. #455 passed independent review
+at `b429abf5` and combined review with #457 at `7452a19d`; the repaired public
+entrypoint is included. Full #8 review also needs the #456 constructions.
 
 ## Computational constructions (#456)
 
@@ -363,7 +413,9 @@ induced-law transport and explicit erased recovery. Component relations and
 square witnesses remain distinguishable. The checked non-involutive transpose
 example prevents importing proof-irrelevant square equality into this layer.
 The existing selected-feedback constructions are reused with their #451
-congruence boundary. Full #8 acceptance remains an orchestration decision.
+congruence boundary. The implementation at `22900e54` passed its full build
+and exhaustive audit; independent #456 review and final full-#8 acceptance
+remain pending.
 
 ## Computational relation setoids (#457)
 
@@ -372,4 +424,6 @@ relation and congruence witnesses from the pinned Setoids module. It supplies
 all active raw structures, selected universal-property operations and law
 packages, with explicit erasure comparisons into the existing Prop-valued
 instance. Multiple-witness examples inspect composition, curry and both
-distributions. Independent review and full candidate validation remain pending.
+distributions. #457 passed independent review at `9da00495` and combined
+review with #455 at `7452a19d`. This resolves its child validation gate, while
+final full-programme review must still dispose of the original setoid findings.
