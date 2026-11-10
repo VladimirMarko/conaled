@@ -24,6 +24,20 @@ def transportedOverlap (hL : L ⋙ S.localMap = T ⋙ K) :
   (isoWhiskerRight (eqToIso hL) E.first).symm ≪≫ mappedOverlap S L η ≪≫
     isoWhiskerRight (eqToIso hL) E.second
 
+/-- A square written with endpoint equalities gives the normalized conjugated overlap. -/
+theorem transportedOverlap_of_square (hL : L ⋙ S.localMap = T ⋙ K)
+    (hl : (T ⋙ K) ⋙ E.first = (L ⋙ D.first) ⋙ S.doubleMap)
+    (hr : (T ⋙ K) ⋙ E.second = (L ⋙ D.second) ⋙ S.doubleMap)
+    (hh : isoWhiskerLeft T θ ≪≫ eqToIso hr =
+      eqToIso hl ≪≫ isoWhiskerRight η S.doubleMap) :
+    transportedOverlap S L K T η hL = isoWhiskerLeft T θ := by
+  apply Iso.ext
+  ext c
+  have hc := congrArg (fun i => i.hom.app c) hh
+  apply (cancel_mono (eqToHom (Functor.congr_obj hr c))).1
+  simpa [transportedOverlap, mappedOverlap, eqToHom_map, eqToHom_app,
+    Category.assoc] using hc.symm
+
 private theorem iso_heq {X Y : E.localCategory} (h : X = Y)
     (p : E.first.obj X ≅ E.second.obj X) (q : E.first.obj Y ≅ E.second.obj Y)
     (hp : (E.first.mapIso (eqToIso h)).symm ≪≫ p ≪≫ E.second.mapIso (eqToIso h) = q) :
