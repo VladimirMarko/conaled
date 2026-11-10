@@ -1,3 +1,4 @@
+import SquareKit.Internal.PathTransport.GroupoidFiberEssential
 import SquareKit.Internal.PathTransport.GroupoidFiberFull
 import SquareKit.Internal.PathTransport.GroupoidFiberFaithful
 import SquareKit.Internal.PathTransport.CechMatchingConeMap
@@ -139,5 +140,13 @@ example : (𝟭 Loops).Full :=
     (𝟭 (Discrete PUnit.{1})) rfl
     (fun x _ _ => ⟨x, Iso.refl x, rfl, Subsingleton.elim _ _⟩)
     (fun _ _ _ p _ => ⟨p,rfl⟩)
+
+/-- Target transport to the base image suffices without chosen object equality. -/
+example : (𝟭 Loops).EssSurj :=
+  GroupoidFiberEssential.essSurj_of_fibers (𝟭 Loops)
+    ((CategoryTheory.Functor.const Loops).obj (Discrete.mk PUnit.unit))
+    (𝟭 (Discrete PUnit.{1}))
+    (fun y _b _ => ⟨y, Subsingleton.elim _ _, ⟨Iso.refl y⟩⟩)
+    (fun _ z _ => ⟨z, ⟨Iso.refl z⟩⟩)
 
 end Examples.CechMatchingIdentity
