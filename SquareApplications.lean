@@ -1,3 +1,4 @@
+import Examples.GeneratedNontrivialDescent
 import Examples.GeneratedDescentClosure
 import SquareKit.SmoothQuotientCechGeneratedEffectivity
 import SquareKit.SmoothQuotientCechBaseEffectivity

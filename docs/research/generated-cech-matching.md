@@ -501,3 +501,20 @@ transformations, alongside arbitrary dependent tails. This completes the
 implementation obligations tracked here; the orchestrator still owns fresh
 integrated build/audit and independent Standards/Spec acceptance of #445 and its
 integration into #433.
+
+
+`Examples.GeneratedNontrivialDescent` embeds the accepted doubled-origin
+ineffective-action torsor's primitive Čech datum into the generated base-binder
+matching groupoid through the independent relative family and comprehension
+comparison. It exercises the final canonical restriction counit on that complete
+generated datum and proves that distinct selected generated matching arrows stay
+distinct under descent. For a nonidentity clutching label, the retained primitive
+consumer rules out a global chart; the generated theorem does not assume one.
+
+Focused validation passed the combined constructor, comprehension, normalization,
+context, and section consumers (3,701 Lake jobs), with unchanged trust and kernel
+limits. Targeted axiom queries for family effectivity, context effectivity,
+canonical restriction, full section descent, and coherent family transport use
+only `propext`, `Classical.choice`, and `Quot.sound`. The final concrete torsor
+consumer also passed direct Lean checking; the orchestrator's fresh exhaustive
+acceptance remains required.
