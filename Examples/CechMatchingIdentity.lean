@@ -1,3 +1,5 @@
+import SquareKit.Internal.PathTransport.Authoring
+import SquareKit.Internal.PathTransport.GeneratedIdentityFamilyMap
 import SquareKit.Internal.PathTransport.GroupoidFiberEssential
 import SquareKit.Internal.PathTransport.GroupoidFiberFull
 import SquareKit.Internal.PathTransport.GroupoidFiberFaithful
@@ -148,5 +150,10 @@ example : (𝟭 Loops).EssSurj :=
     (𝟭 (Discrete PUnit.{1}))
     (fun y _b _ => ⟨y, Subsingleton.elim _ _, ⟨Iso.refl y⟩⟩)
     (fun _ z _ => ⟨z, ⟨Iso.refl z⟩⟩)
+
+/-- The extracted constructor formula applies to a checked open identity type. -/
+example (S : GroupoidModel.Comparison.Signature.{0}) := GroupoidModel.Comparison.generatedFamilyMap_identityType S
+  Typed.Authoring.CongruenceCaller.context Typed.Authoring.CongruenceCaller.base
+  Typed.Authoring.CongruenceCaller.point Typed.Authoring.CongruenceCaller.point
 
 end Examples.CechMatchingIdentity
