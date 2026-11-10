@@ -281,3 +281,12 @@ obligations. Consequently this document completes the module/source inventory
 and identifies bounded residuals, but does not certify the programme's final
 criterion that every upstream item has a checked counterpart or mathematical
 resolution.
+
+## Selected feedback recovery (#451)
+
+The [selected-feedback record](selected-admissible-feedback.md) maps the raw,
+function, product and object-reindexing declarations to checked Lean APIs. Its
+setoid counterexample explains the unfinished source congruence obligation;
+explicit selected-output congruence and output uniqueness give sufficient
+repairs. The guarded-stream connection proves independence only under actual
+guardedness. Package acceptance remains pending; this is not completion of #8.
