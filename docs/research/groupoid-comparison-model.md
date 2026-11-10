@@ -244,3 +244,50 @@ for every generated context remains a separate construction. So do propagation
 of the selected parameter natural-isomorphism squares and gluing of
 parameter-compatible local sections. No generated descent or full #433
 completion follows from the equivalence theorem alone.
+
+## External family modifications
+
+`FamilyModification` records selected natural isomorphisms between the
+component functors of two family maps, with their naturality along every
+base arrow. The naturality equation includes the endpoint transports induced
+by the existing family-map naturality equalities. `totalComponent_naturality`
+combines this equation with the component isomorphism's naturality on fiber
+arrows. Thus `totalIso` is a constructed isomorphism of whole Grothendieck
+functors, not another preservation field supplied by callers.
+
+`ComparisonModification` compares family maps over naturally isomorphic base
+functors. It first transports along the selected base isomorphism, then uses
+the family modification. Its comprehension isomorphism has precisely the
+selected base component, as proved by `Modification.totalIso_base`. Empty
+context, constant base family and primitive set-valued fiber constructors
+are provided. The fiber constructor consumes an actual primitive square;
+it assumes no invertibility or faithfulness of the comparison maps.
+The strict fields of `Comparison.Context`, `Substitution`, `Family` and
+`Section` are unchanged.
+
+Statement review distinguishes a natural isomorphism between component
+functors from equality of those functors, and from an isomorphism of objects
+in the ordinary category `Grpd`. The record retains the additional component
+natural transformations explicitly. Base-arrow naturality is needed to derive
+comprehension naturality; unrelated objectwise isomorphisms would not suffice.
+The resulting comparison makes no assertion that arbitrary maps reflect
+selected arrows.
+
+`Examples.ComparisonModification` uses two functors from the C4 groupoid to
+the codiscrete category on Bool. They choose different objects and are
+naturally isomorphic. Their arrow maps collapse distinct arrows, and the
+primitive Bool-to-singleton fiber map is noninjective. The comprehension extension
+still has a constructed comparison, while its two target objects remain
+unequal. A second dependent fiber example has transport that sends false to
+true along the chosen base isomorphism; it uses the same primitive square and
+comprehension construction. A general application allows arbitrary dependent
+set families. These examples check the bounded interface before J.
+
+Focused validation builds `Examples.ComparisonModification` and inspects the
+axioms of the external constructors, comprehension naturality and examples.
+The root/path contraction counit, J compatibility, vertical-composition and
+whiskering laws, arbitrary-tail closure and full generated induction are not
+implemented in this increment. Matching-data identification and
+parameter-compatible gluing remain separate. The bridge from arbitrary locally
+surjective sheaf maps through their split presentations also remains required;
+the fixed-display milestones do not remove that obligation from #433.

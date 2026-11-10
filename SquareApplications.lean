@@ -603,3 +603,4 @@ import SquareKit.SmoothQuotientDescentSections
 import Examples.GlobalSectionDescent
 import Examples.QuotientDescentBaseChange
 import Examples.GeneratedDescentEquivalence
+import Examples.ComparisonModification
