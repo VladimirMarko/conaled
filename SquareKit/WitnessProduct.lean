@@ -1,5 +1,5 @@
 import SquareKit.CategoryProduct
-import SquareKit.WitnessCartesianMap
+import SquareKit.WitnessFelixPreservation
 
 namespace SquareKit.WitnessProduct
 open CategoryProduct
@@ -80,6 +80,25 @@ def fstTerminal_inverse {E : WitnessEquivalence C} (CL : E.Laws)
 def sndTerminal_inverse {H : WitnessEquivalence D} (DL : H.Laws)
     (T : TerminalOps C) (U : TerminalOps D) : WitnessEquivalence.ComparisonLaws H (sndTerminal T U) :=
   WitnessEquivalence.Comparison.id_laws DL _
+
+/-- The source universal-property functions are applied componentwise, retaining their choices. -/
+def productUniversal {E : WitnessEquivalence C} {H : WitnessEquivalence D}
+    {P : ProductOps C} {T : ProductOps D}
+    (U : WitnessEquivalence.ProductUniversal (E := E) P)
+    (V : WitnessEquivalence.ProductUniversal (E := H) T) :
+    WitnessEquivalence.ProductUniversal (E := equiv C D E H) (products P T) where
+  forward h := ⟨⟨(U.forward h.1).1,(V.forward h.2).1⟩,
+    ⟨(U.forward h.1).2,(V.forward h.2).2⟩⟩
+  backward h := ⟨U.backward ⟨h.1.1,h.2.1⟩, V.backward ⟨h.1.2,h.2.2⟩⟩
+
+def fstCartesian {E : WitnessEquivalence C} (CL : E.Laws)
+    (P : ProductOps C) (T : ProductOps D) :
+    WitnessEquivalence.CartesianH (H := E) (fstProducts P T) :=
+  ⟨fun _ _ => CL.comp_id _,fun _ _ => CL.comp_id _,fun _ _ => E.symm (CL.id_comp _)⟩
+def sndCartesian {H : WitnessEquivalence D} (DL : H.Laws)
+    (P : ProductOps C) (T : ProductOps D) :
+    WitnessEquivalence.CartesianH (H := H) (sndProducts P T) :=
+  ⟨fun _ _ => DL.comp_id _,fun _ _ => DL.comp_id _,fun _ _ => H.symm (DL.id_comp _)⟩
 
 theorem erase_relation (E : WitnessEquivalence C) (H : WitnessEquivalence D)
     {a b} (f g : (ops C D).Hom a b) :

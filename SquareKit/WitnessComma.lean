@@ -1,8 +1,8 @@
 import SquareKit.WitnessEquivalence
 import SquareKit.Comma
 
-/-! A bounded witness-retaining comma prototype for #453. It supplies the raw
-square and its erasure; it does not install a higher category or retrofit Comma. -/
+/-! Raw squares retain their selected commutativity witness. Category, Cartesian
+structure and vertical composition are supplied by the WitnessComma companion modules. -/
 namespace SquareKit.WitnessComma
 universe u₁ v₁ u₂ v₂ u₃ v₃ w
 variable {A : Type u₁} {B : Type u₂} {T : Type u₃}
