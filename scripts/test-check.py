@@ -23,7 +23,7 @@ class FreshVerification(unittest.TestCase):
         (self.root / ".lake").mkdir()
         (self.root / ".lake/packages").symlink_to(ROOT / ".lake/packages")
         (self.root / "lakefile.toml").write_text('name = "fixture"\n[[lean_lib]]\nname = "SquareApplications"\nglobs = ["SquareApplications", "Applications.+", "ProofAudit"]\n')
-        for name in ("check.sh", "lean-toolchain", "scripts/check.py", "scripts/lake_integrity.py", "scripts/lake-output-hashes.lean"):
+        for name in ("check.sh", "lean-toolchain", "scripts/check.py", "scripts/lake_integrity.py", "scripts/lake-output-hashes.lean", "scripts/lean-source-info.lean"):
             shutil.copy2(ROOT / name, self.root / name)
         self.write("SquareApplications", "import Applications.A\nimport Applications.B\n")
         self.write("Applications.A", "def a : Nat := 1\n")
@@ -50,6 +50,54 @@ class FreshVerification(unittest.TestCase):
             subprocess.run(command, cwd=self.root, check=True, capture_output=True)
         return subprocess.check_output(["git", "rev-parse", "HEAD"],
                                        cwd=self.root, text=True).strip()
+
+    def test_import_after_module_documentation_fails_before_compilation(self):
+        self.write("Applications.A", 'import Lean\nrun_cmd IO.FS.writeFile "compiled-too-early" "yes"\n')
+        self.write("SquareApplications", "import Applications.A\n/-! Module documentation. -/\nimport Applications.B\n")
+        result = self.check()
+        self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("import", result.stdout + result.stderr)
+        self.assertIn("SquareApplications", result.stdout + result.stderr)
+        self.assertFalse((self.root / "compiled-too-early").exists(), result.stdout + result.stderr)
+
+    def test_native_header_and_literal_syntax(self):
+        self.write("SquareApplications", "module\npublic import\n  Applications.A\nmeta import Applications.B\n")
+        self.write("Applications.A", '\n'.join([
+            'module',
+            '/- Outer /- sorry -/ axiom -/',
+            '/-- unsafe partial admit native_decide -/',
+            'def harmless := r##"embedded " sorry axiom"##',
+            "def quoteChar : Char := '\"'",
+            'notation "★" => (1 : Nat)',
+            'example : ★ = 1 := rfl',
+            'notation "⁻¹\'" => (1 : Nat)',
+            'example : ⁻¹\' = 1 := rfl',
+            'example : ((1, 2), 3).1.fst = 1 := rfl',
+            '',
+        ]))
+        self.write("Applications.B", "module\ndef b : Nat := 2\n")
+        result = self.check()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertTrue((self.root / "audit-ran").exists())
+
+    def test_native_source_policy_rejects_all_forbidden_constructs(self):
+        cases = {
+            "sorry": "theorem bad : False := by sorry\n",
+            "admit": "theorem bad : False := by admit\n",
+            "axiom": "axiom bad : False\n",
+            "unsafe": "unsafe def bad : Nat := 1\n",
+            "partial": "partial def bad : Nat := bad\n",
+            "native_decide": "example : 1 = 1 := by native_decide\n",
+            "debug.skipKernelTC": "set_option debug.skipKernelTC true\n",
+        }
+        for banned, source in cases.items():
+            with self.subTest(construct=banned):
+                self.write("Applications.A", source)
+                result = self.check()
+                self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
+                self.assertIn("Forbidden source construct", result.stdout + result.stderr)
+                self.assertIn(banned, result.stdout + result.stderr)
+                self.assertFalse((self.root / "audit-ran").exists())
 
     def test_candidate_record_is_bound_to_clean_commit(self):
         candidate = self.commit_candidate()
@@ -345,6 +393,19 @@ run_cmd IO.FS.writeFile "dependent-ran" "yes"
                 result = self.check(fresh=fresh)
                 self.assertNotEqual(result.returncode, 0)
                 self.assertIn("Applications.Omitted", result.stderr)
+                self.assertFalse((self.root / "audit-ran").exists())
+
+    def test_missing_import_and_invalid_header_are_early_failures(self):
+        for source, diagnostic in (
+            ("import Applications.Missing\n", "Applications.Missing"),
+            ("public import Applications.A\n", "without `module`"),
+        ):
+            with self.subTest(source=source):
+                self.write("SquareApplications", source)
+                result = self.check()
+                self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
+                self.assertIn(diagnostic, result.stdout + result.stderr)
+                self.assertNotIn("Rechecking", result.stdout)
                 self.assertFalse((self.root / "audit-ran").exists())
 
     def test_audit_failure_is_not_reported_as_success(self):
