@@ -1,10 +1,20 @@
 # FRP runtime direction and bounded follow-ups
 
-The next semantic milestone should be an executable rational phase fragment
-with strict switching and retained residual state. In parallel, a small FRP
-client can reuse #436 to select a compiled realization before initialization.
-These are proposals for owner selection. This investigation does not authorize
-runtime implementation, choose an external delivery protocol, or create issues.
+**Assessment date: 2026-11-11. Status: research snapshot with proposals for
+owner selection.** Capability gaps, issue states and priorities below describe
+the evidence at that date; this document is not a maintained execution plan.
+Before using a proposal as pending work, check
+[#27](https://github.com/VladimirMarko/conaled/issues/27), its linked follow-up
+issues and the scope owners named below for later decisions and delivery
+records, then check the corresponding source. Issue closure alone does not
+establish that every proposal here was implemented.
+
+The investigation recommended an executable rational phase fragment with strict
+switching and retained residual state as the next semantic milestone relative
+to the inspected baseline. It also proposed a parallel FRP client reusing #436
+to select a compiled realization before initialization. These recommendations
+did not authorize runtime implementation, choose an external delivery protocol,
+or create issues.
 
 The long-term recommendation is a compositional, demand-driven hybrid runtime:
 compiled discrete and continuous phases, explicit event order and knowledge
@@ -21,8 +31,8 @@ The corrected runtime overview at
 was also inspected; this note adds decisions and proposed specifications without
 repeating its edit. GitHub issue bodies, relevant delivery comments, and open
 issue searches were checked on 2026-11-11. In particular,
-[#27's current body](https://github.com/VladimirMarko/conaled/issues/27)
-now distinguishes completed kernel work from unselected runtime proposals.
+[#27's body](https://github.com/VladimirMarko/conaled/issues/27)
+at that date distinguished completed kernel work from unselected runtime proposals.
 
 The repository's [glossary](../../GLOSSARY.md) calls a backend an interpretation
 with preservation obligations. Such a backend need not emit native code.
@@ -158,7 +168,7 @@ effect and its receipt. An FRP frontier does not settle that ambiguity.
 
 ## Proposed implementation specifications for owner decision
 
-The preferred first milestone is A. B is independent and small enough to run
+At the assessment date, the preferred first milestone was A. B was proposed to run
 alongside it. C extends the compiler without depending on general scheduling.
 D builds on A's execution contract; E and F are separately selectable consumers.
 None requires closing #27, #109, #194, #196, #225 or #235.
