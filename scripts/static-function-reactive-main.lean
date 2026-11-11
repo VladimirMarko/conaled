@@ -13,19 +13,28 @@ def status : Status → String
   | .rejectedCapacity => "capacity"
   | .unsupported => "unsupported"
 
+def requireRun (selection : Admission capacity) (current : Option Pair) (inputs : List Pair) :
+    IO (List Pair × Pair) :=
+  match selection.execute current inputs with
+  | some result => pure result
+  | none => throw (IO.userError "expected selected executor")
+
 def main : IO Unit := do
   let configs : List (String × List StaticBody) :=
     [("neg",[negationBody]),("identity",[identityBody]),("mask",[maskBody true]),
      ("nested",[negationBody,negationBody]),("empty",[])]
   for (name,bodies) in configs do
     let compiled := program bodies (false,true)
+    let selection := assess (.static bodies (false,true)) (2 + compiled.body.arena)
+    let seeded ← requireRun selection none [(false,false)]
+    IO.println s!"seeded|{name}|{String.intercalate "," (seeded.1.map pairText)}|{pairText seeded.2}"
     for initial in (List.range 4).map pairOf do
       for n in List.range 5 do
         for word in words n do
           let xs := word.map pairOf
-          let r := run compiled.machine.mealy initial xs
-          let firstRun := run compiled.machine.mealy initial (xs.take 2)
-          let suffix := run compiled.machine.mealy firstRun.2 (xs.drop 2)
+          let r ← requireRun selection (some initial) xs
+          let firstRun ← requireRun selection (some initial) (xs.take 2)
+          let suffix ← requireRun selection (some firstRun.2) (xs.drop 2)
           if (firstRun.1 ++ suffix.1,suffix.2) != r then throw (IO.userError "restart mismatch")
           IO.println s!"run|{name}|{pairText initial}|{String.join (word.map toString)}|{String.intercalate "," (r.1.map pairText)}|{pairText r.2}"
     IO.println s!"cost|{name}|{(measured (stagedBody bodies)).2}|{nodes (measured (stagedBody bodies)).1}|{compiled.body.work}|{compiled.body.arena}"
@@ -40,3 +49,9 @@ def main : IO Unit := do
   let p := program [negationBody] (false,true)
   let capacity := 2 + p.body.arena
   IO.println s!"admission|{status (assess (.static [negationBody] (false,true)) capacity).status}|{status (assess (.static [negationBody] (false,true)) 0).status}|{status (assess (.dynamicFunction Bool.not) capacity).status}|{status (assess (.escapingEnvironment true Bool.xor) capacity).status}|{status (assess .opaqueNative capacity).status}"
+  for selection in [assess (.static [negationBody] (false,true)) 0,
+      assess (.dynamicFunction Bool.not) 0, assess (.escapingEnvironment true Bool.xor) 0,
+      assess .opaqueNative 0] do
+    let answer := selection.execute (some (true,false)) [(false,false),(true,true)]
+    if answer.isSome then throw (IO.userError "negative admission executed")
+    IO.println s!"nonexecution|{status selection.status}|none"

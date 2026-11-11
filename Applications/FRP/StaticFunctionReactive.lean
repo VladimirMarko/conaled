@@ -114,8 +114,8 @@ inductive Status where
 /-- Selected requirements are consumed here: only statically supplied bodies
 with finite first-order state are sent to the circuit backend. -/
 inductive Admission (capacity : Nat) where
-  | accepted (bodies : List StaticBody) (initial : Pair)
-      (fits : cells pairTy + (program bodies initial).body.arena ≤ capacity)
+  | accepted (executable : Indefinite.Program pairTy pairTy pairTy)
+      (fits : cells pairTy + executable.body.arena ≤ capacity)
   | rejectedCapacity (required : Nat) (exceeds : capacity < required)
   | unsupported
 
@@ -123,14 +123,47 @@ def assess (request : Request) (capacity : Nat) : Admission capacity :=
   match request with
   | .static bodies initial =>
       if h : cells pairTy + (program bodies initial).body.arena ≤ capacity then
-        .accepted bodies initial h
+        .accepted (program bodies initial) h
       else .rejectedCapacity _ (Nat.lt_of_not_ge h)
   | _ => .unsupported
 
 def Admission.status : Admission capacity → Status
-  | .accepted _ _ _ => .accepted
+  | .accepted _ _ => .accepted
   | .rejectedCapacity _ _ => .rejectedCapacity
   | .unsupported => .unsupported
+
+/-- Execution consumes the stored admitted circuit and its seed. `some current`
+resumes a continuation; `none` starts at the stored seed. Negative outcomes
+contain no executor and return no execution result. -/
+def Admission.execute (selection : Admission capacity) (current : Option Pair)
+    (inputs : List Pair) : Option (List Pair × Pair) :=
+  match selection with
+  | .accepted executable _ => some (run executable.machine.mealy
+      (current.getD executable.initial) inputs)
+  | .rejectedCapacity _ _ | .unsupported => none
+
+/-- The bound belongs to the same stored executor used by `execute`. -/
+theorem stored_uniform (executable : Indefinite.Program pairTy pairTy pairTy)
+    (fits : cells pairTy + executable.body.arena ≤ capacity)
+    (input : Progress.Stream Pair) (n k : Nat) :
+    Indefinite.Program.retained (Progress.Feedback.state executable.machine input n) +
+      (executable.body.allocations.take k).sum ≤ capacity :=
+  (executable.uniform input n k).trans fits
+
+theorem selected_execution (bodies : List StaticBody) (initial : Pair) (capacity : Nat)
+    (fits : cells pairTy + (program bodies initial).body.arena ≤ capacity)
+    (current : Option Pair) (inputs : List Pair) :
+    (assess (.static bodies initial) capacity).execute current inputs =
+      some (run (native bodies initial).mealy (current.getD initial) inputs) := by
+  simp only [assess, fits, ↓reduceDIte, Admission.execute]
+  have hm := machine_correct bodies initial
+  have hi : (program bodies initial).initial = initial := congrArg Initialized.initial hm
+  rw [hi, hm]
+
+theorem negative_nonexecution (selection : Admission capacity)
+    (negative : selection.status ≠ .accepted) (current : Option Pair) (inputs : List Pair) :
+    selection.execute current inputs = none := by
+  cases selection <;> simp_all [Admission.status, Admission.execute]
 
 theorem admitted_iff (bodies : List StaticBody) (initial : Pair) (capacity : Nat) :
     (assess (.static bodies initial) capacity).status = .accepted ↔

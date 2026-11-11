@@ -85,4 +85,15 @@ theorem capacity_accept : (assess (.static bodies initial)
 
 theorem capacity_reject : (assess (.static bodies initial) 0).status = .rejectedCapacity := by decide
 
+/-- The public admission seam executes the selected stored seed and code. -/
+theorem selected_oracle :
+    (assess (.static bodies initial) (cells pairTy + (program bodies initial).body.arena)).execute
+      none inputs = some (expected,(true,false)) :=
+  (selected_execution bodies initial _ (Nat.le_refl _) none inputs).trans
+    (congrArg some native_oracle)
+
+theorem rejected_nonexecution : (assess (.static bodies initial) 0).execute
+    (some (true,false)) inputs = none :=
+  negative_nonexecution _ (by rw [capacity_reject]; decide) _ _
+
 end Examples.StaticFunctionReactive

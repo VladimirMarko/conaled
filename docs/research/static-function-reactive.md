@@ -68,7 +68,13 @@ runner.
 
 `assess` consumes a request and a logical storage capacity. A static request
 constructs the actual residual circuit and checks retained cells plus its arena.
-Success carries that bound for that executor. Insufficient capacity is a
+Success stores that compiled executor and carries its bound; source bodies are
+not retained in the accepted package. `Admission.execute` consumes the stored
+program and uses its seed when no continuation is supplied. Supplying a current
+state resumes the same stored code. Negative admission variants contain no
+executor and return no execution result. `selected_execution` connects this seam
+to the native ordered run; `stored_uniform` bounds the same stored circuit.
+Insufficient capacity is a
 rejection of the declared bound; semantic correctness remains valid. Dynamic
 function arguments, escaping environments and opaque native functions return
 `unsupported`. This means that this route lacks the required representation or
@@ -136,7 +142,10 @@ configurations, all four starting continuations and every pair-input word of
 length zero through four. Each run also checks a two-input prefix/restart split.
 Four rich-input cases exercise the concrete regional boundary. Positive capacity,
 insufficient capacity, dynamic-function, escaping-environment and unknown-native
-outcomes are checked through the public admission path.
+outcomes are checked through the public admission path. All 6,820 runs and their
+restart checks execute accepted packages. Five additional runs start from the
+stored seed. Four negative-path checks supply nonempty inputs and require no
+execution result; they cannot silently fall back to the direct compiler.
 
 ## Author effort and next contract
 

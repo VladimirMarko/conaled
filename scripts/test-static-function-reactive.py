@@ -11,7 +11,7 @@ class StaticFunctionReactive(unittest.TestCase):
             text=True, capture_output=True, check=False,
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        seen = costs = duplications = regional = 0
+        seen = costs = duplications = regional = seeded = blocked = 0
         for line in result.stdout.splitlines():
             fields = line.split('|')
             if fields[0] == 'run':
@@ -25,6 +25,15 @@ class StaticFunctionReactive(unittest.TestCase):
                 self.assertEqual(outputs, ','.join(expected), (name, word))
                 self.assertEqual(final, state, (name, word))
                 seen += 1
+            elif fields[0] == 'seeded':
+                _, name, output, state = fields
+                self.assertEqual(output, '01')
+                self.assertEqual(state, '11' if name in ('neg', 'mask') else '00')
+                seeded += 1
+            elif fields[0] == 'nonexecution':
+                self.assertIn(fields[1], ('capacity', 'unsupported'))
+                self.assertEqual(fields[2], 'none')
+                blocked += 1
             elif fields[0] == 'cost':
                 self.assertTrue(all(int(n) > 0 for n in fields[2:]))
                 print(line)
@@ -47,6 +56,7 @@ class StaticFunctionReactive(unittest.TestCase):
                 self.fail(f'unexpected output: {line}')
         self.assertEqual(seen, 5 * 4 * sum(4 ** n for n in range(5)))
         self.assertEqual((costs, duplications, regional), (5, 8, 4))
+        self.assertEqual((seeded, blocked), (5, 4))
         self.assertIn('admission|', result.stdout)
         print(f"runs|{seen}")
 
