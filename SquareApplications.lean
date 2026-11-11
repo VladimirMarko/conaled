@@ -1,3 +1,4 @@
+import Examples.BoundedFoldReactive
 import Examples.RegionalPlans
 import Examples.FiniteSumReactive
 import Examples.GeneratedBaseMatching
