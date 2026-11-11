@@ -74,6 +74,10 @@ and records the remaining capability audit. The integration review did not
 establish exhaustive Chapter 1 or checkpoint-335 capability parity. GitHub #149
 owns completion; historical cloud acceptance labels and phase gates are retired.
 
+## Current list-cost disposition
+
+The [R1 reconciliation](adwh-r1-disposition.md) accounts for the selected list-cost family after #468 and #469. Existing generic `ListExecution.head_work` and `reverse_work`, together with the established growth bridge, imply the recovered head/reverse summaries. This is a documented mathematical application of checked contracts, not a newly compiled generic Theta wrapper. R2–R7 remain under #459; printed-book evidence and licensing remain #149. The audit record below retains its original baseline and validation scope.
+
 ## Usefulness and observation audit
 
 The #458 audit at `3c064b11` uses useful built mathematics, corrected book

@@ -227,9 +227,7 @@ contracts. It does not replace them with another declaration inventory. The
 [validation record](adwh-useful-coverage-validation.json) records the source-hash
 checks, primary-source identities and focused elaborated-type inspection.
 The [integration record](adwh-recovered-integration.md#usefulness-and-observation-audit)
-records the retained mathematical distinctions and consumers. The residual
-contracts below remain implementation work owned by #459; recording them is
-not a claim that Chapter 2 or #149 is complete.
+records the retained mathematical distinctions and consumers. The [R1 disposition](adwh-r1-disposition.md) accounts for the selected list-cost family using #468, #469 and existing exact head/reverse contracts. R2–R7 remain implementation work under #459; Chapter 2 and #149 are not complete.
 
 ### Book evidence and corrections
 
@@ -298,7 +296,7 @@ ledger as the entire chapter.
 
 ### Chapter 2 and generic search selection
 
-| Source modules | Disposition at the audited baseline | Reuse or residual owner |
+| Source modules | Audited disposition and subsequent reconciliations | Reuse or residual owner |
 | --- | --- | --- |
 | `Asymptotics` | Retained/adapted in [resource growth](adwh-resource-growth.md); signed one-sided comparison is separate from norm Big O. Anonymous sign/zero controls retained. | `Resources.Growth`, reverse/fold clients. |
 | `FiniteSums`, `GeometricTail` | Retained/adapted in [finite sums](adwh-finite-sums.md), including derivative and quantitative tail statements. | Geometric-sum scan and weighted resources. |
@@ -307,7 +305,7 @@ ledger as the entire chapter.
 | `Recurrences`, `GeneralRecurrences`, `RecurrenceDerivations` | Retained/generalized in [recurrences](adwh-recurrences.md); independent base/tolls, eventual exceptions and uniform two-parameter threshold. | ResourceRecurrences and actual RecurrenceScans. |
 | `Build`, `BuildEquality` | Retained/corrected in [guarded build](adwh-guarded-build.md); failed stopping test counted; lawful-equality run compression preserves nonadjacent occurrences. | GuardedBuild and RunCompression clients; code anchor 549. |
 | `Timing`, `Amortized` | Already reconstructed by #173's [107-row ledger](adwh-potential-accounting-ledger.json), which also includes SymmetricListCosts. The two modules are not an unimplemented prerequisite. | Workload/Potential/BinaryCounter, arbitrary seeds and noncommutative ordered observations; code 579–595. |
-| `BestWorst`, `UniformConcatenation` | [Uniform concatenation](uniform-concatenation.md) (#468) and [takeWhile extrema](takewhile-extrema.md) (#469) now derive the selected exact bounds and executed fold consumers. Generic head/reverse growth remains. | #459 residual R1 below. |
+| `BestWorst`, `UniformConcatenation` | #468 and #469 supply uniform concatenation and attained takeWhile extrema with executed fold consumers. Existing generic exact head/reverse contracts imply the remaining selected growth summaries; no new named Theta wrapper is claimed. | [Accounted R1 disposition](adwh-r1-disposition.md); #459 retains R2–R7. |
 | `CompositionDemand`, `ContextLists`, `ContextConcatenation` | Finite value and partial-spine components exist; complete shared-cache/delayed-construction/append-history cost correspondence is not supplied by them. | #459 R2; code 457, 523, 1000–1022. |
 | `Prune` | SuffixTrim is an element predicate; it does not implement whole-list predicate trim/prune. | #459 R3; code 676. |
 | `DynamicArray`, `DynamicArrayEager` | Fixed buffers/store updates provide reusable mechanisms, not policy-specific resizing and ordered allocation/copy traces. | #459 R4. |
@@ -316,17 +314,16 @@ ledger as the entire chapter.
 | `PermutationConstruction`, `RemovalPermutationCosts`, `InsertionDemand`, `InsertionDemandGrowth`, `PermutationGrowth`, `PermutationObservations`, `PermutationRationalBounds` | Pure occurrence semantics retained; complete measured-pair correspondence, forcing/observation and resulting symbolic growth corrections remain. | #459 R7; code 354–358, 523, 845–851. |
 | `Chapter15.SearchCounting` | All nineteen named source declarations retained/adapted in [search counting](adwh-search-counting.md), with richer decoder/checker clients. | FiniteSearch, SearchCount and Search.Counting. Exact-depth occurrences and checked residual backend; not legal BFS/DFS, distinct-state cardinality or queens-16. |
 
-### Concrete residual contracts under #459
+### R1 disposition and remaining contracts under #459
 
-These refine existing ownership; they are not additional issues or approved
-whole-chapter deferrals. Each needs ordinary checked callers, statement review,
+R1 is accounted for on the evidence linked below. R2–R7 refine existing ownership; they are not additional issues or approved whole-chapter deferrals. Each remaining family needs ordinary checked callers, statement review,
 positive and rejecting cases, the applicable build/audit and independent review.
 The current source-level absence claims concern the complete specified contract,
 not the lack of a similarly named theorem.
 
 | ID | Observable deliverable and acceptance cases | Useful current interface / dependency |
 | --- | --- | --- |
-| R1 | Generic reverse/head growth remains. #468 supplies uniform concatenation in both block count and size, boundary controls and a fold consumer; #469 supplies attained takeWhile minima/maxima, eventual lower obstruction and a prefix-fold consumer. Neither child completes R1. | ListExecution/ListAppend/ListFusion and Growth; [uniform-concatenation dispositions](uniform-concatenation.md), [takeWhile dispositions](takewhile-extrema.md). |
+| R1 | Accounted for: #468 supplies uniform concatenation and its fold consumer; #469 supplies attained takeWhile extrema and its prefix-fold consumer. Existing `head_work` and `reverse_work` subsume the selected head/reverse finite and growth summaries via explicit coefficient/threshold comparisons. | [Source-to-current disposition and boundaries](adwh-r1-disposition.md). No new generic Theta declaration or whole-chapter completion is claimed. |
 | R2 | Execute cached cell requests with ordered history; distinguish delayed outer construction from forcing and first-head consumption from full materialization. Compare actual left append frames with right concatenation; keep unknown-end failure of fallback and infinite first block. | CollapseDemand/CollapseMaterialization and PartialSpine/Progress; source `observeCell`, `initsRun`, `initsAccRun`, `headRight`, `AppendExpr.observe`. Separate subpackages are appropriate when implementation begins. |
 | R3 | Define whole-list-predicate trim/prune with independent longest-prefix specification. No monotonicity for trim; tail closure for identifying folded prune with one trim. Exact guard-priced cost/potential and `Pairwise` specialization; reject predicate accepting only `[1,2]` and adjacent-only test on `[1,2,1]`. | Reuse Workload/Potential and list operations; no replacement of existing SuffixTrim. Source `TrimSpec`, `trimRun_potential_exact` and `prune`. |
 | R4 | One raw storage/event owner with literal and eager policies, copy correctness in arbitrary surrounding windows, full ordered events, every additive list price, grouping and arbitrary initial states/potentials. Distinguish zero-capacity/malformed raw states from layout-valid states. | Existing fixed buffer/store and Resources.run/reweight_run. Three- versus four-insertion examples must show that neither policy is uniformly cheaper. Source `copyInto_layout`, `add`, `adds`, `logical_agreement`. |
@@ -334,8 +331,7 @@ not the lack of a similarly named theorem.
 | R6 | Derive zero-start cost from actual even/odd branches as a floor series with cutoff, plus state-prefix/transition indexing and token-rendering/decode costs. Retain n states versus n−1 increments, arbitrary seed contracts, extending carry and bill order. | Existing BinaryCounter and Workload/Potential; do not reimplement Timing/Amortized. Source `totalCost_floorSeries`, `power_two_exact`, `transitionCosts_sum`, `prefixRun`, `renderState`. |
 | R7 | Measured positional and first-removal generators, full measured-pair adequate-fuel correspondence, ordinary/accumulating insertion with explicit forcing, then one shared complete-spine observer and symbolic rational-constant growth/rejection. Preserve duplicates and each generator's order. | Occurrences/Permutations, FiniteSums/Growth. A varying-callback measured traversal is shared with R6 and must have one owner; constant-price `ListFusion.map` is not that contract. Source `perms2Run`, `perms3Run`, `permutationForce`, `no_rational_shifted_lower`. |
 
-R1 is a small theorem-layer entry point. R2 and R4 require explicit execution
-interfaces and should start with their independent observations. R6/R7 can share
+R1 needs no further theorem implementation for the selected source claims. R2 and R4 require explicit execution interfaces and should start with their independent observations. R6/R7 can share
 one varying-callback traversal without making either depend on unrelated array
 work. No private chapter-order gate is reinstated. Full Stirling expansion,
 GHC timing/space and machine overflow are not silently accepted: they remain

@@ -5,7 +5,10 @@ derives sharp fixed-length producer bounds and an ordered downstream consumer
 from the existing `ListFusion.takeWhile`, `Resources.bind` and
 `ListExecution.foldr`. It supplies the takeWhile portion of #459's residual R1
 under #469. [Uniform concatenation](uniform-concatenation.md) was delivered by
-#468; generic head/reverse growth and the other residual families remain #459.
+#468. At this child’s acceptance, generic head/reverse growth remained assigned
+to #459. The subsequent [R1 disposition](adwh-r1-disposition.md) accounts for it
+through stronger existing exact contracts; R2–R7 remain open. The source table
+below preserves the child’s original scope.
 
 ## Fixed predicate, different demands
 

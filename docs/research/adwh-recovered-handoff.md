@@ -124,13 +124,13 @@ Retaining a rationale does not promote a historical review to current approval.
 - #149 retains later-chapter reconstruction and provenance; #137 retains its
   separate queens/kernel scope. Both new issues are children of #149.
 
-## Remaining Chapter 2 families
+## Chapter 2 family dispositions
 
-These are recovered obligations, not newly implemented results. The current
-owner search and maintained notes establish overlap; complete declaration-level
-reconciliation remains part of the capability audit. Check each source contract
-against current code before implementing, and record retained equivalents as
-such rather than duplicating them.
+The table records accounted source families and remaining obligations. Check
+each remaining source contract against current code before implementing, and
+record retained equivalents rather than duplicating them. The list-cost family
+is accounted for on the evidence below; the other Chapter 2 residuals remain
+under #459.
 
 These descriptive subjects are used for maintained work. The archive labels
 are the external agent’s private planning identifiers, sometimes prefixed
@@ -139,7 +139,7 @@ They are retained here only to locate historical drafts.
 
 | Subject | Historical planning label | Current reuse and outstanding distinction |
 |---|---|---|
-| List costs and concatenation bounds | `LIST-COST` | ListExecution/ListAppend/ListFusion and Growth exist; reconcile exact best/worst witnesses and uniform concatenation bounds. |
+| List costs and concatenation bounds | `LIST-COST` | Accounted for by #468 uniform concatenation, #469 takeWhile extrema, and stronger existing head/reverse exact contracts. See [R1 disposition](adwh-r1-disposition.md); R2–R7 remain open. |
 | Composition and demand | `DEMAND` | CollapseDemand, Progress and partial-spine observations exist; preserve actual cache transitions, ordered requests and charged consumption. |
 | Delayed list construction | `CONTEXT-LISTS` | Finite lists, accumulation and permutations exist; reconcile delayed callbacks, outer construction and complete payload observation. |
 | Head of concatenation | `CONCAT-HEAD` | Partial concat and collapse owners exist; connect deferred append histories, early head consumption and finite/partial negative cases. |
@@ -152,8 +152,7 @@ They are retained here only to locate historical drafts.
 | Insertion-based permutation costs | `INSERTION-COST` | Pure insertion order exists; delayed construction, forcing, outer count and complete observation costs remain. |
 | Permutation growth bounds | `PERMUTATION-GROWTH` | Finite sums/growth exist; derive growth from the actual measured generators and specified observers, retaining finite exact identities. |
 
-A useful implementation sequence is to reconcile list costs and concatenation bounds first, then choose
-bounded demand or array work according to an actual consumer. The shared
+With the selected list-cost family accounted for, choose bounded demand or array work according to an actual consumer. The shared
 varying-callback mapper needed by selection, insertion and counter output
 should have one owner. This is a dependency recommendation, not the abandoned
 agent's strict chapter-order gate. Guarded build, growth, sums, discrete
