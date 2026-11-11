@@ -147,7 +147,7 @@ They are retained here only to locate historical drafts.
 | Literal and eager dynamic arrays | `ARRAY / ARRAY-EAGER` | Fixed-capacity buffers and store updates exist; resizing policies, full copy windows, arbitrary trace prices and policy-specific potential laws remain. |
 | Digit search and finite averages | `DIGIT` | Search and finite-sum foundations exist; actual first-hit cost, ordered population and the corrected finite-uniform expectation remain. |
 | Counter geometry and output | `COUNTER` | BinaryCounter already owns value/representation/workload/potential laws; independent geometric derivation, observed-state indexing and token-output costs remain. |
-| Existing execution and counter contracts | `REUSE` | Reconcile Timing/Amortized source rows to existing generic execution and counter owners; do not create another executor, potential or counter theory. |
+| Existing execution and counter contracts | `REUSE` | Reconciled by #458: #173 already maps Timing/Amortized to Workload/Potential/BinaryCounter. Do not create another executor, potential or counter theory. Independent geometry/output remains #459. |
 | Selection-based permutation costs | `SELECTION-COST` | Pure occurrences/permutations exist; actual measured removal/selection generation and exact pair correspondence remain. |
 | Insertion-based permutation costs | `INSERTION-COST` | Pure insertion order exists; delayed construction, forcing, outer count and complete observation costs remain. |
 | Permutation growth bounds | `PERMUTATION-GROWTH` | Finite sums/growth exist; derive growth from the actual measured generators and specified observers, retaining finite exact identities. |
@@ -184,7 +184,26 @@ its issue receipts remain the starting point for declaration coverage.
 | 15 | Ordinary legal BFS/DFS and generic search contracts beyond counting; keep specialized queens numeral/kernel work under #137. |
 | 16 | Nearest-goal metric heuristics and positive-edge tree search; reconcile existing static/rational search and #111 incremental A* rather than duplicating them. |
 
-## Capability audit acceptance
+## Capability audit reconciliation
+
+The owner-qualified #458 audit at `3c064b11` is recorded in the maintained
+[coverage map](adwh-reconstruction-map.md#useful-recovered-mathematics-audit-458-2026-11-11)
+and [integration audit](adwh-recovered-integration.md#usefulness-and-observation-audit).
+Use useful built mathematics, the book with factual corrections, and conaled
+usefulness to judge replacements and exclusions. Checkpoint 335 and the retired
+private tracker are evidence, not the normative specification. No whole-chapter
+certification is inferred from their completion labels.
+
+The current reconciliation confirms that Timing and Amortized are already
+covered by #173's declaration ledger and existing shared APIs. Their historical
+REUSE task is not a missing implementation prerequisite. Counter floor-series
+and output observations remain separate obligations. Seven concrete residual
+packages in the coverage map refine #459 without introducing duplicate owners.
+The full printed chapters are absent, so a new prose-only chapter certification
+remains a #149 evidence obligation; official extracted code and errata were
+checked directly. The remainder of this section retains the audit discipline,
+not an instruction to reproduce every historical formulation.
+
 
 The follow-up must compare source statement, destination statement and intended
 observation, not just declaration names or successful compilation. For each
@@ -203,9 +222,10 @@ scope decision or a stronger implementation addresses it. The build and proof
 audit certify the chosen formal claims; they do not certify that this comparison
 is complete. Reconcile existing ledgers before generating any new inventory.
 
-This handoff adds no Lean claims and does not undertake that exhaustive audit.
-It makes the missing audit and remaining reconstruction explicit, while keeping
-its research usable independently of the abandoned cloud session.
+This handoff adds no Lean claims. The linked #458 reconciliation records the
+selected audit and remaining reconstruction, while keeping the research usable
+independently of the abandoned cloud session. Full printed-book certification
+and the scoped #459 implementations are not delivered by this handoff.
 
 ## Principal research inputs
 
