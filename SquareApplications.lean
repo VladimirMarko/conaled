@@ -727,4 +727,6 @@ import SquareKit.SmoothQuotientCoverSectionNaturality
 import Examples.OverlappingStrategies
 import Examples.DiagonalConstruction
 
+import Examples.Schreier
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
