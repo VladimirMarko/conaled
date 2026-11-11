@@ -1,0 +1,100 @@
+{
+  "baseline": "3c064b11a5812e38c317601473e6897f65ce2a32",
+  "scope": "Reference/source identity and selected statement inspection, not a whole-book theorem or declaration-count proof of capability preservation",
+  "date": "2026-11-11",
+  "archive": {
+    "path": "docs/history/algorithm-design-haskell/checkpoint-233.zip",
+    "sha256": "8a5e2b2d5535a149a67111c6adf9ba9e173cbbd2a986d63dc702d75178252e63"
+  },
+  "official_code": {
+    "url": "https://www.cs.ox.ac.uk/publications/books/adwh/code.zip",
+    "sha256": "f238e729e782adece8bd084c4a2abea9d0d9af2a6a1414ec5a95ec6e70d9dea1",
+    "members": {
+      "code/part0/chap1.hs": "51bc05fb7aa76ae5fdbb8cdb4e8d8f99d134e1d21dd7a0fff137776268f82711",
+      "code/part0/chap2.hs": "38c84bad66b25307ca01864d0b50048c640a763ff1732361749704592c41a8ea"
+    },
+    "both_members_match_archive": true
+  },
+  "official_errata_url": "https://www.cs.ox.ac.uk/publications/books/adwh/errata.html",
+  "source_hash_check": {
+    "algorithm": "Read existing adwh TSV tables; select Chapter01, Chapter02 and Chapter15.SearchCounting source references; compare recorded full-file SHA256 fields to corresponding immutable archive members. Command/block-span hashes are not compared as file hashes. TSV counts are correspondence rows, not distinct declarations. JSON ledgers and prose-owned earlier slices are separately inspected, not counted here.",
+    "matching_rows": 1747,
+    "tables": 37,
+    "distinct_source_modules": 44,
+    "mismatches": 0,
+    "ledger_sha256": {
+      "adwh-accumulation-provenance.tsv": "cde96363f308a9a5930dc4a8a68ce1c5d3d16cc2f124f615fb568c719dba43e9",
+      "adwh-collapse-resources-declarations.tsv": "4f09686c11a6428a9b9bc4a34afec78d73f54a64f63fc5da04da87819d88d4d4",
+      "adwh-dijkstra-provenance.tsv": "7d51726dd8e3e267d225a9c9af5c2c67ca0bb2057d51a41097d7f30f471379ff",
+      "adwh-directed-limits-provenance.tsv": "af33b75ddd5f25d8ea37ad037b52d63e3f6db8bb3a9d91458a6e2e4e2ee03958",
+      "adwh-discrete-estimates-provenance.tsv": "ff255d189e946c75d044204d5a1434a06379e3a0443dc819f45d0124cddf2e3e",
+      "adwh-exact-arithmetic-provenance.tsv": "b8409871adf183aef1cb5559e4a6fe52872ff214a38801fdbf24bbbdd7cd9ece",
+      "adwh-finite-correspondence-provenance.tsv": "edc23bc9d78732fbc3bc3271384ed0dbb4244ec8d21746aefabf4ae03257efb8",
+      "adwh-finite-lists-declarations.tsv": "4a9c8dccfc479045cb64747424b747fb1d2476a79d91ef3cde9df21898b5e488",
+      "adwh-finite-sums-provenance.tsv": "a308d4517d572ccb0cf4ca38b62eca328d949b65154f968e5ff84f1c0fd3d9c2",
+      "adwh-floating-normalization-provenance.tsv": "3045d82ff5a713918e0186d456cc4467448b770b6f59caf69bdc516614dcc789",
+      "adwh-floating-numeral-bounds-provenance.tsv": "b3d8be2843f36ca034f3afc6d28db4b7e02a62d755afd8fa812d63c2a8616d08",
+      "adwh-floating-numerals-provenance.tsv": "1127b379f6ca21e4647fac690dd43acdda3e8b51bcff0ad5813adbbc57fb7f9e",
+      "adwh-floating-observations-provenance.tsv": "60c44e0c871ac805f8eb60bba713cada1ebd082a86b9db91deca5e70a7919a05",
+      "adwh-floating-packing-provenance.tsv": "9cf1a61a8f88b2c0b5df02f1ff25dbedf4080490ec3770df13cfd03c826ed15f",
+      "adwh-floating-rounding-provenance.tsv": "ae9facb3d30e15a4d18dc268ab101027743cd4a14d0d989429160a6d4a55d141",
+      "adwh-floating-uniform-provenance.tsv": "7d1c0a41587d7e6b3965011d9280f26515f14e0bc941358de6df52f73b1a6f0f",
+      "adwh-forest-kruskal-provenance.tsv": "664904ca1c0fb1d87ee13b4292ad454cf23125c909e8d4fda3f044415c339130",
+      "adwh-guarded-build-provenance.tsv": "d9570e67faf6b06d6d0d960290bdbab1d46ddae306c0d76b569ac860388459c3",
+      "adwh-huffman-provenance.tsv": "0b4482c8f572d9dda20a5e4645b4df6816f4734d2c7e877b739f371693c61956",
+      "adwh-list-resources-provenance.tsv": "f8fa2efa6d384f424a956e02c4471f64627dc5cec9bea47d7ac7d64be86e4ba4",
+      "adwh-numerals-provenance.tsv": "16f25aeaa5fa003ba4690f89cad3140ec226d13336f3ac355286b0f936c789fb",
+      "adwh-partial-append-provenance.tsv": "f3b58aaa52a420b1a5c612868caf0f1d9df5d308cc7717436583c194f6b4d6a5",
+      "adwh-partial-concat-provenance.tsv": "eb623ffd1f8e457649fe86d33d9673801ccc7efec85129fa188706cbb9aa1b25",
+      "adwh-partial-difference-concat-provenance.tsv": "195e2170e548ee7680a1fc7078ea2a9b5a1ce62c1ee284eaac46f05bf8daa61f",
+      "adwh-partial-filter-provenance.tsv": "298af30fa57594286ce0dedb3536c52234409fdee7b6f0bcb5d718e5da45d5d6",
+      "adwh-partial-left-fold-provenance.tsv": "27860d4a52d19314db7f392c444048f7b6f1f7fe2230daa388d4ab463838dbbc",
+      "adwh-partial-map-provenance.tsv": "3baafc6b38b004ff169fedfad5da9387ef0eafbb06cc1a163af38e14c5397391",
+      "adwh-partial-spine-observations-provenance.tsv": "a81086c6dde2303f7f06c834e07e98fafcb39905fb20501ee07668981b0ab86a",
+      "adwh-partial-takewhile-provenance.tsv": "38bb2d7653eef846ca5f7fafba7974b1db790fad8cf7bd2b670e84c78c99df94",
+      "adwh-partial-zip-provenance.tsv": "55003e47c60f5a657072cbb34d83fdb5834d25ef62cba3ec2c4159054e42748a",
+      "adwh-permutations-provenance.tsv": "7a9266b4336e755cf121619efd40c95b46fbde5a994e87a4ba3180ed8b86fd27",
+      "adwh-prim-provenance.tsv": "5909e2ec892a495fe4682b84de9dd4233a628242a2fed25ec7c726c8ebd58d57",
+      "adwh-recurrences-provenance.tsv": "ea14a3de7f4f1d33a71e928cb009522d29db2abc34aadf29a2eac0580a25c808",
+      "adwh-resource-growth-provenance.tsv": "27f736b08618324e9b60d6b4f6a6590ec389b54e7adebc7b232ed6e8e2c20580",
+      "adwh-run-compression-provenance.tsv": "1d1dd75172226f2a939ad1d02c28cdf2d32af400c3867437c54a252643b05382",
+      "adwh-seeded-scans-declarations.tsv": "7411b954d05e4eb5562b95cba0842e0ba0851f4ba74f14b4b68037432667fb07",
+      "adwh-steepness-costs-provenance.tsv": "88847b90cd2afeb295417e3d42e016c84fef6505db688c6336ce59d52a72cfda"
+    }
+  },
+  "module_routing": {
+    "Chapter01": 32,
+    "Chapter02": 33,
+    "SearchCounting": 1,
+    "all_named_in_existing_map_addendum": true
+  },
+  "focused_check": {
+    "command": "direnv exec . flock /tmp/conaled-wave-20261111/build.lock lake build Examples.ExactGrowth",
+    "result": "passed",
+    "lake_jobs_including_dependencies": 2268,
+    "fresh_full_audit": false
+  },
+  "elaborated_type_probe": {
+    "imports": [
+      "Examples.ExactGrowth"
+    ],
+    "options": [
+      "pp.explicit true",
+      "pp.universes true (first check)"
+    ],
+    "checks": [
+      "@Examples.ExactGrowth.eventually_value_eq_default",
+      "@Examples.ExactGrowth.growth_iff_default_isBigO"
+    ],
+    "result": "passed",
+    "observed_payload": "WithBot.unbotD NNReal; wrapped with WithBot.some NNReal; both eventual-validity premises retained for growth",
+    "source_sha256": "0f4fd9dbe1713dc6d682e98e1c00615fdf58332169e98c04b7fee02ae08c67d8",
+    "output_sha256": "1ff6585751045da2ede86086f0851214ceab74bd1ee518fb7e488e9ea2dddc32"
+  },
+  "formal_changes": false,
+  "limitations": [
+    "Full printed book/PDF is absent; prose-only page and exercise attributions inherited, not freshly certified.",
+    "Residual R1-R7 are scoped to existing issue459, not implemented or waived.",
+    "No new complete source build/audit is claimed; accepted unchanged formal baseline is3c064b11."
+  ]
+}
