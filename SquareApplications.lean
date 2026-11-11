@@ -743,6 +743,7 @@ import Examples.UniformConcatenation
 import Examples.TakeWhileExtrema
 import Examples.WholeListTrim
 import Examples.FoldedPrune
+import Examples.PricedPrune
 
 -- Constructed weak groupoid-unit eliminators and strict parameter comparison (#448).
 import Examples.WeakGroupoidUnit
