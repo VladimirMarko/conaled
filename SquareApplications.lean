@@ -745,4 +745,6 @@ import Examples.TakeWhileExtrema
 -- Constructed weak groupoid-unit eliminators and strict parameter comparison (#448).
 import Examples.WeakGroupoidUnit
 
+import Examples.NativeModelCombination
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
