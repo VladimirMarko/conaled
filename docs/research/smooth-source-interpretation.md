@@ -6,9 +6,10 @@ The unchanged first-path transport-composition derivation is interpreted in
 is the entire quotient torsor groupoid and its external fiber is the constructed
 deformation family. The generated context, family, substitution and full-section
 descent obligations are implemented by #445, their selected comparison coherence
-by #446, and original-cover transfer by #447. Final integrated fresh validation
-and independent review remain acceptance gates; focused checks alone do not
-close #433.
+by #446, and original-cover transfer by #447. The bounded integration was
+accepted at `3c064b11a5812e38c317601473e6897f65ce2a32`; see
+[Acceptance and validation](#acceptance-and-validation) below. The scope limits
+in this report remain unchanged.
 
 ## The retained source proof
 
@@ -196,10 +197,26 @@ source term, interpreter, and transport/concatenation evaluations. The original
 Typed first proof, old Contextual proof and existing ordinary clients remain
 unchanged. No #108 preparation or broader modal/properness comparison is included.
 
-Focused development checks and named-root axiom results are recorded in the
-#445/#447 implementation handoffs. The final combined candidate must pass the
-fresh full-library build, exhaustive audit and independent Standards/Spec
-reviews before #433 acceptance. Earlier checkpoint results are not substitutes
-for that receipt.
+## Acceptance and validation
+
+The [#433 acceptance record][acceptance] dated 10 November 2026 reports
+successful fresh validation and independent Standards/Spec review of the exact
+candidate `3c064b11a5812e38c317601473e6897f65ce2a32`. It records:
+
+- `./check.sh --candidate HEAD --fresh --jobs 4`: all 2,729 project modules
+  plus the exhaustive audit passed (2,730 checked modules total).
+- `./check.sh --verify-candidate HEAD`: the exact candidate matched the fresh
+  receipt immediately before acceptance.
+- The transitive axiom union was `propext`, `Classical.choice`, and `Quot.sound`.
+
+These are the validation results for that candidate, not a claim of a new run
+for subsequent documentation changes. The earlier entrypoint failure produced
+no acceptance receipt; the corrected candidate passed a repeated complete fresh
+run. Focused development checks and earlier checkpoint results did not replace
+that gate. The result remains the bounded source interpretation and generated
+descent fragment described above, not a full Myers modal model or a new
+properness comparison.
+
+[acceptance]: https://github.com/VladimirMarko/conaled/issues/433#issuecomment-6781234863
 
 [#433]: https://github.com/VladimirMarko/conaled/issues/433

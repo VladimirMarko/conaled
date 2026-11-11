@@ -1,8 +1,14 @@
 # Descent prerequisites for the smooth source interpretation
 
-This is a partial #433 checkpoint. The reusable comparison model and the
-closure of generated source interpretations remain separate work. These
-lemmas do not establish descent for every family in an ambient groupoid model.
+This document records a partial #433 construction, not the status of the
+completed integration. Its statements about remaining work and outstanding
+validation describe that earlier checkpoint. The current integrated account,
+acceptance record and scope are in
+[smooth-source-interpretation.md](smooth-source-interpretation.md).
+
+The primitive constructions below remain useful prerequisites. They do not,
+by themselves, establish descent for every family in an ambient groupoid model;
+the completed integration covers its explicitly stated generated fragment.
 
 ## Constructed comparisons
 
@@ -268,7 +274,7 @@ to the existing effective family states that premise explicitly. The retained
 fiber is discrete because it is the primitive deformation family; this gives
 no license to replace arbitrary generated family isomorphisms by equality.
 
-## Remaining work
+## Remaining work at this partial checkpoint
 
 The generic extension lemma is not yet instantiated as an equivalence between
 local *generated-context* cocycles and their Grothendieck decomposition. That
@@ -293,7 +299,7 @@ consumer interfaces. Their compatibility with generated descent must be
 proved when that descent is constructed. An objectwise equivalence does not
 supply such compatibility automatically.
 
-## Validation boundary
+## Validation boundary at this partial checkpoint
 
 Development uses focused Lean checks with the pinned environment and unchanged
 trust, heartbeat and toolchain settings. Candidate-wide fresh validation,
