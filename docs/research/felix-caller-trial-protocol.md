@@ -12,7 +12,10 @@ This advances #25's original baseline; conclusions concern this revision.
 Use its `lean-toolchain`, `lake-manifest.json`, `flake.nix` and `flake.lock`.
 Felix: `6f36d28097db7ea5f5df3263db3e8be08f74e490`. Use that checkout's flake
 and lock, Agda library declaration and source. The environment manifest records
-compiler versions and lock hashes before author starts.
+compiler versions and lock hashes before author starts. See
+[environment.json](../../experiments/felix-caller-comparison/environment.json) and
+[launch.json](../../experiments/felix-caller-comparison/launch.json). Both manifests
+and the linked exact prompts must be committed and reviewed before launch.
 
 Assign one fresh-context agent to each route with the same model configuration
 and tool capabilities. Authors receive this complete protocol, the route's
@@ -79,12 +82,21 @@ become baseline capabilities. Do not weaken a contract to obtain a passing file.
 
 ## Budget, stopping and evidence
 
-Each route receives at most 60 compiler-feedback invocations and 180 minutes of
-active author time across all three tasks. An invocation means one command that
-checks trial source; it may check several files. Dependency provisioning and
-coordinator-imposed build-lock waits are recorded separately and excluded from
-active time. Record wall time as well. Read/search commands are unrestricted
-within that time. This is a prospective effort cap, not a quality score.
+Each route receives at most 60 compiler-feedback rounds and 180 minutes of
+active elapsed time across all three tasks. A round is an actual checker
+invocation over a frozen trial-source snapshot. Nested calls in scripts or editor
+tooling count individually; one multi-file build of one unchanged snapshot is one
+round. Record each snapshot hash, command, start/end timestamps and exit status.
+Active elapsed time starts when the author receives the task and is wall time
+minus explicitly logged, non-overlapping dependency-provisioning or coordinator
+build-lock waiting intervals during which the author does no other task work.
+Ordinary reading, thinking, source editing and checker execution count.
+At the first budget boundary freeze source immediately. An already-running check
+may finish and its result is retained, but no further author edits or feedback
+rounds follow. Coordinator reproduction and required audits of that frozen source
+are recorded separately and cannot provide more author repair opportunities.
+Read/search commands are unrestricted within the time cap. This is a prospective
+effort cap, not a quality score.
 
 Proceed in task order, retaining partial attempts. Stop when all contracts check,
 either budget is exhausted, or a concrete unsupported capability prevents further
