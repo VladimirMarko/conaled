@@ -20,6 +20,10 @@ is not merely nested set-pullback coordinates. All general derivations below
 are paper mathematics. No new Lean model, general coherence framework, or
 cubical provider is implemented.
 
+Implementation update: [#448’s formalization](weak-groupoid-unit-formalization.md)
+now proves the bounded direct and parameter constructions in Lean. The report
+below preserves the original paper argument and its original validation record.
+
 ## Model, sources and exact hypotheses
 
 Use classical set mathematics with a Grothendieck universe U, and a larger

@@ -743,3 +743,6 @@ import Examples.UniformConcatenation
 import Examples.TakeWhileExtrema
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
+
+-- Constructed weak groupoid-unit eliminators and strict parameter comparison (#448).
+import Examples.WeakGroupoidUnit
