@@ -204,8 +204,9 @@ the extra reflection certificate under explicit consistency assumptions.
 The diagonal lemma may be a named conditional interface initially, but the
 report must not present that interface as proved arithmetization. Compare
 `TheoryMap.transport` against the native derivation before adding a universal
-syntax. Root orchestration owns publication and deduplication of this proposed
-successor; this report does not assert that a new issue has been created.
+syntax. [#460](https://github.com/VladimirMarko/conaled/issues/460) now owns
+this scoped successor under #290, blocked on acceptance of #444. It is recorded
+for triage and is not part of the current implementation wave.
 
 Defer general categorical Lawvere formalization until a consumer needs it;
 [#109](https://github.com/VladimirMarko/conaled/issues/109) remains the owner
