@@ -10,14 +10,21 @@ unfinished-proposal locators. The [baseline inventory](felix-parity.md) and
 
 ## Current implementation and acceptance status
 
-The current implementation checkpoint is `22900e5499537b627abd38eedb69a7d4ad374683`.
-It contains the accepted #449–#454 integration `230f56f9`, the accepted
-#455+#457 integration `7452a19d`, and the #456 construction implementation.
-The #456 checkpoint passed the full 2,431-module build, exhaustive proof audit
-and exact-candidate verification. Its independent Standards and Spec reviews
-are pending at this reconciliation. This documentation edit has no new formal
-build result. Final combined validation and independent full-#8 review are
-still required; the programme is not declared complete here.
+The full pinned programme was accepted at
+[`a61fb186`](https://github.com/VladimirMarko/conaled/commit/a61fb186cf5c83a6f24fa34a947980215d369de7),
+which is an ancestor of the current `master`. The
+[final #8 acceptance record](https://github.com/VladimirMarko/conaled/issues/8#issuecomment-6769709817)
+records completion of #449–#457 and independent full-programme Standards and
+Spec reviews with no unresolved findings. Issue #8 is closed.
+
+That accepted candidate passed all 2,431 modules, the exhaustive audit using
+only `propext`, `Classical.choice` and `Quot.sound`, and exact-candidate
+verification. Source validation checked module coverage, pinned blob hashes,
+locator bounds and local links. These are the recorded historical acceptance
+results, not a new build performed for this documentation reconciliation.
+The earlier `22900e54`, `230f56f9` and `7452a19d` checkpoints remain part of the
+implementation history; their pending-review status is superseded by the final
+acceptance.
 
 The table and R1–R6 contracts below preserve the original `65e2d67` assessment.
 Their missing/future-work labels describe that baseline, not the current
@@ -46,19 +53,18 @@ why double transposition need not return the original square witness.
 Independent full-programme review at `230f56f9` found two residuals, recorded
 as `8-FULL-STD-1`/`8-FULL-SPEC-1` (generic computational structural and
 construction families) and `8-FULL-STD-2`/`8-FULL-SPEC-2` (general computational
-setoids). #455 and #457 have passed their child and combined reviews; #456 is
-implemented and awaiting its independent reviews. These packages provide the
-resolution evidence, but the original full-programme findings remain pending
-explicit disposition by the independent final reviewers. The bounded #453
-prototype remains accepted under its original contract.
+setoids). The final independent full-programme reviews at `a61fb186`
+explicitly resolved all four findings using #455–#457, reusing unchanged child
+assessments and reviewing the residual implementations and final correspondence.
+The bounded #453 prototype remains accepted under its original contract.
 
-Final acceptance must reconcile every indexed source item with its checked
-counterpart or precise mathematical resolution, validate source locators and
-links, preserve affected exact/relational/dependent application contracts, and
-review the final combined candidate against the original full #8 criteria.
-A child pass or a source locator alone does not establish programme completion.
-#25's comparison and #109's broader recursion work remain separate; the
-completed #266, #302/#307 and #309 contracts are not reopened by this ledger.
+Final acceptance covered the original full #8 criteria, including every
+indexed source item and its checked counterpart or precise mathematical
+resolution, source locators and links, and preserved exact, relational and
+dependent application contracts. The final review, rather than a child pass
+or source locator alone, supplies programme acceptance. #25's comparison and
+#109's broader recursion work have separate scope; this ledger does not reopen
+#25 or the completed #266, #302/#307 and #309 contracts.
 
 ## R1 implementation update
 
@@ -401,7 +407,8 @@ erasure recovers the unchanged semantic APIs. Distinct reflection choices and
 nonidentity comparisons are checked in `Examples/WitnessStructure.lean`.
 This extends #453's category-only prototype. #455 passed independent review
 at `b429abf5` and combined review with #457 at `7452a19d`; the repaired public
-entrypoint is included. Full #8 review also needs the #456 constructions.
+entrypoint is included. The final #8 reviews at `a61fb186` accepted this package
+together with the #456 constructions and resolved the structural-law findings.
 
 ## Computational constructions (#456)
 
@@ -414,8 +421,8 @@ square witnesses remain distinguishable. The checked non-involutive transpose
 example prevents importing proof-irrelevant square equality into this layer.
 The existing selected-feedback constructions are reused with their #451
 congruence boundary. The implementation at `22900e54` passed its full build
-and exhaustive audit; independent #456 review and final full-#8 acceptance
-remain pending.
+and exhaustive audit. The final acceptance at `a61fb186` records the completed
+independent reviews and resolves the full-programme construction findings.
 
 ## Computational relation setoids (#457)
 
@@ -425,5 +432,5 @@ all active raw structures, selected universal-property operations and law
 packages, with explicit erasure comparisons into the existing Prop-valued
 instance. Multiple-witness examples inspect composition, curry and both
 distributions. #457 passed independent review at `9da00495` and combined
-review with #455 at `7452a19d`. This resolves its child validation gate, while
-final full-programme review must still dispose of the original setoid findings.
+review with #455 at `7452a19d`. The final full-programme reviews at `a61fb186`
+also explicitly resolved the original setoid findings.
