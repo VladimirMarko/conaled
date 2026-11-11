@@ -341,9 +341,10 @@ for existence. Mathlib sources were inspected at the repository's pinned
 
 A declaration locator is not a proof of equivalence between implementations.
 The implementation reports above now supply R2's per-equation recovery and
-the computational witness counterparts beyond the bounded R5 prototype. Final
-independent assessment must verify these mappings against every indexed item.
-This reconciliation does not itself certify the programme's completion.
+the computational witness counterparts beyond the bounded R5 prototype. The
+final independent reviews at `a61fb186` accepted these mappings against the
+indexed programme. This documentation reconciliation records that acceptance;
+it supplies no new formal validation or independent certification.
 
 ## R2 implementation addendum (#450)
 
