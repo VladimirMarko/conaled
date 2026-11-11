@@ -89,10 +89,25 @@ example : [(true,false),(false,true)].map (fun p => (p.2,p.1)) ≠
 /-- Resource numbers are reductions of the compiled syntax and boundary schedule. -/
 example : Rich.workBound Rich.code = 18 ∧ Rich.arena Rich.code = 133 := by decide
 
-example (c : Cut) : (admit (.regional c) (.bounded (compile c).storage)).status = .accepted :=
+example (c : Cut) : (assessAdmission (.regional c) (.bounded (compile c).storage)).status = .accepted :=
   (admitted_capacity c _).2 (Nat.le_refl _)
-example (c : Cut) : (admit (.regional c) (.bounded 0)).status = .rejected := by
+example (c : Cut) : (assessAdmission (.regional c) (.bounded 0)).status = .rejected := by
   cases c <;> decide
+
+/-- Resource clients consume an execution derivation, not merely a bound label. -/
+example (c : Cut) (x : Input) (s : (compile c).State) :
+    ∃ trace, Plan.SpaceRuns (compile c) x s ((compile c).machine.step (x,s)) trace ∧
+      ∀ live ∈ trace, (compile c).retained + live ≤ (compile c).storage :=
+  (compile c).sufficient_storage (by cases c <;> rfl) _ (Nat.le_refl _) x s
+
+/-- Actual selected-arm allocations differ, while one static arena bounds both. -/
+example : Rich.allocations Rich.code ((),Sum.inl false) ≠
+    Rich.allocations Rich.code ((),Sum.inr (true,false)) := by decide
+example : 0 < (Rich.allocations Rich.code ((),Sum.inl false)).sum := by decide
+
+/-- The enclosing capacity failure is witnessed by actual live observations. -/
+example : ¬ ∀ live ∈ (Plan.seq .side .bareNegate).liveTrace false (⟨⟩,⟨⟩), live ≤ 3 := by
+  decide
 
 /-- A function-executable growing state has no uniform retained-list bound. -/
 def growing : Initialized Bool Bool (List Bool) :=

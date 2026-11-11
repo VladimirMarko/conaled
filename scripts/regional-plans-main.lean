@@ -41,4 +41,4 @@ def main : IO Unit := do
         | none => "reject"
         | some b => bit b
       IO.println s!"boundary|{bit x}{bit y}|{answer}"
-  IO.println s!"admission|{status (admit .native .semantic).status}|{status (admit .native (.bounded 1000)).status}|{status (admit .circuitOnly .semantic).status}|{status (admit .missingAdapter .semantic).status}"
+  IO.println s!"admission|{status (assessAdmission .native .semantic).status}|{status (assessAdmission .native (.bounded 1000)).status}|{status (assessAdmission .circuitOnly .semantic).status}|{status (assessAdmission .missingAdapter .semantic).status}"

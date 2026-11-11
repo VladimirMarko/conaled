@@ -53,8 +53,8 @@ theorem dispatches_le (c : Code Prim a b) (x : Val Bool a) :
     | inr x => exact Nat.add_le_add_right ((hg x).trans (Nat.le_max_right _ _)) _
   | _ => exact Nat.le_refl _
 
-/-- Each node has a preallocated frame and input/output copies. Reserving both
-case arms bounds the selected arm without allocating during interpretation. -/
+/-- Upper bound when entered frames and input/output copies remain until region
+return. Summing both case arms conservatively bounds either selected arm. -/
 def arena {a b : Ty} (c : Code Prim a b) : Nat :=
   match c with
   | .comp g f | .pair f g | .copair f g =>
@@ -274,22 +274,9 @@ theorem starts_grow (p : Plan A B) (env : Indefinite.Program.Environment) (n : N
   | zero => exact Nat.zero_le _
   | succ n ih => simp only [starts, duration]; omega
 
-/-- A round executes the selected regions and releases the output within the
-reserved work budget. Unused budget may be idle time; it is not measured work. -/
-inductive Round (p : Plan A B) (env : Indefinite.Program.Environment) (n : Nat)
-    (x : A) (s : p.State) : Nat → B × p.State → Nat → Prop where
-  | service (execution : p.Operational x s) (budget : p.stepWork x s ≤ p.work) :
-      Round p env n x s start (p.machine.step (x,s)) (start + p.duration env n)
-
-theorem scheduled (p : Plan A B) (h : p.analyzed = true)
-    (env : Indefinite.Program.Environment) (input : Stream A) (n : Nat) :
-    Round p env n (input n) (state p.machine input n) (p.starts env n)
-      (output p.machine input n,state p.machine input (n+1)) (p.starts env (n+1)) :=
-  .service (p.operates h _ _) (p.stepWork_le _ _)
-
 /-- Uniform for arbitrary prefixes and internal schedule checkpoints. Resource
 admission is a separate premise: semantic function execution supplies no bound. -/
-theorem uniform (p : Plan A B) (_h : p.analyzed = true) (input : Stream A) (n : Nat) :
+theorem static_bounds (p : Plan A B) (_h : p.analyzed = true) (input : Stream A) (n : Nat) :
     p.stepWork (input n) (state p.machine input n) ≤ p.work ∧
     ∀ live ∈ p.checkpoints, p.retained + live ≤ p.storage :=
   ⟨p.stepWork_le _ _,p.checkpoint_bound⟩

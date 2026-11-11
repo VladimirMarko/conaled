@@ -110,8 +110,8 @@ Internal work helpers on unanalyzed leaves are not resource evidence.
 
 [RegionalResources](../../Applications/FRP/RegionalResources.lean) counts raw
 syntax dispatches and reserves frames plus finite input/output copies. The raw
-arena reserves both case arms in advance, while execution dispatches only the
-selected arm. F's derived maximum is 18 dispatches and 133 arena units.
+arena budget includes both case arms conservatively, while actual execution
+allocates and dispatches only the selected arm. F's derived maximum is 18 dispatches and 133 arena units.
 `Rich.Executes` follows the actual compiled code; `regional_execution` connects
 its output to the independent F equation. Circuit leaves reuse existing work,
 arena and execution derivations.
@@ -126,18 +126,34 @@ while the left region executes; it uses a left-first schedule. All delayed state
 Adapters retain no state between ticks. Shared-input duplication charges six
 payload-cell copies; its frame, source and destination cells occupy ten units.
 
-`checkpoint_bound` bounds every declared allocation checkpoint by the maximum
-of that schedule plus all retained states. This is a copied-value arena model,
+[RegionalSpace](../../Applications/FRP/RegionalSpace.lean) connects those budgets
+to execution. `Rich.Allocates` records each entered node's frame and typed
+input/output copies, composes actual intermediate values, and selects the actual
+case arm. `Allocates.result` identifies its output with the raw interpreter;
+`allocations_le` bounds that execution's allocation sum by the static raw arena.
+`occupancies` includes every allocation-prefix total before reclamation.
+
+`Plan.SpaceRuns` composes those raw derivations and the existing circuit
+allocation traces in executor order. Its serial and parallel constructors expose
+buffer reservation, arena release, retained intermediate values and the parallel
+right input. `SpaceRuns.result` identifies the whole transition with the actual
+selected executor. `live_dominated` relates every actual occupancy to a static
+checkpoint, and `live_bound` adds all retained states. `sufficient_storage` thus
+constructs a space execution fitting the admitted capacity, rather than bounding
+an unrelated numerical list. A checked counterexample observes the enclosing
+capacity failure in the actual execution trace. This is a copied-value arena model,
 not a theorem about Lean's host allocator, serialized bytes or elapsed time.
 Code and proof data are fixed configuration. Histories and logical times occur
 only in specifications or the finite test driver, never in executable plan state.
 The runner exposes neither queues nor pending external effects.
 
-`Operational` composes actual leaf derivations in executor order. `scheduled`
-constructs a round from this evidence and the work inequality. The round reserves
+`Operational` composes actual leaf work derivations in executor order. `scheduled`
+constructs a round from this evidence, the work inequality and the corresponding
+`SpaceRuns` derivation. The round reserves
 the maximum work budget, allowing unused budget as idle time. Finite input,
 scheduler and sink waits are explicit environmental premises. `bounded_service`
-combines these rounds with storage admission for arbitrarily long service. It
+combines these rounds with a bound on their actual live traces for arbitrarily
+long service. It
 makes no progress promise when those environmental waits are unbounded.
 `circuit_recovery` invokes the unchanged finite-circuit productive-service theorem.
 

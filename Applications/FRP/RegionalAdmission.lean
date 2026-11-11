@@ -1,4 +1,4 @@
-import Applications.FRP.RegionalResources
+import Applications.FRP.RegionalSpace
 
 /-! Admission for a supplied finite catalog. It does not infer boundedness of
 arbitrary Lean functions, and ranking is deliberately outside this contract. -/
@@ -62,7 +62,7 @@ inductive Admission (g : Guarantee) where
   | rejected (reason : Rejection)
   | unsupportedAnalysis
 
-def admit (route : Route) (g : Guarantee) : Admission g :=
+def assessAdmission (route : Route) (g : Guarantee) : Admission g :=
   match route with
   | .circuitOnly => .rejected .residualSum
   | .missingAdapter => .rejected .incompatiblePort
@@ -87,12 +87,12 @@ def Admission.status : Admission g → Status
 
 /-- Rejecting a bound does not reject the semantic meaning or the function route. -/
 theorem unknown_is_not_impossible (n : Nat) :
-    (admit .native .semantic).status = .accepted ∧
-    (admit .native (.bounded n)).status = .unsupported := ⟨rfl,rfl⟩
+    (assessAdmission .native .semantic).status = .accepted ∧
+    (assessAdmission .native (.bounded n)).status = .unsupported := ⟨rfl,rfl⟩
 
 theorem admitted_capacity (c : Cut) (n : Nat) :
-    (admit (.regional c) (.bounded n)).status = .accepted ↔ (compile c).storage ≤ n := by
-  simp only [admit]
+    (assessAdmission (.regional c) (.bounded n)).status = .accepted ↔ (compile c).storage ≤ n := by
+  simp only [assessAdmission]
   split <;> simp_all [Admission.status]
 
 theorem semantic_preservation (r : Realization) (s : r.plan.State) (xs : List Input) :
@@ -109,6 +109,12 @@ theorem bounded_checkpoint (r : Realization) (h : Bounded r n) (live : Nat)
     (hlive : live ∈ r.plan.checkpoints) : r.plan.retained + live ≤ n :=
   (r.plan.checkpoint_bound live hlive).trans h.fits
 
+theorem bounded_execution (r : Realization) (h : Bounded r capacity)
+    (x : Input) (s : r.plan.State) :
+    ∃ trace, Plan.SpaceRuns r.plan x s (r.plan.machine.step (x,s)) trace ∧
+      ∀ live ∈ trace, r.plan.retained + live ≤ capacity :=
+  r.plan.sufficient_storage h.analyzed capacity h.fits x s
+
 /-- No queue is introduced: each finite input/scheduler/sink wait precedes the
 next accepted tick. This does not assert progress for a blocked environment. -/
 theorem bounded_service (r : Realization) (h : Bounded r n)
@@ -118,10 +124,11 @@ theorem bounded_service (r : Realization) (h : Bounded r n)
         (r.plan.starts env k) (output r.plan.machine input k,state r.plan.machine input (k+1))
         (r.plan.starts env (k+1)) ∧
       r.plan.stepWork (input k) (state r.plan.machine input k) ≤ r.plan.work ∧
-      ∀ live ∈ r.plan.checkpoints, r.plan.retained + live ≤ n := by
+      ∀ live ∈ r.plan.liveTrace (input k) (state r.plan.machine input k),
+        r.plan.retained + live ≤ n := by
   refine ⟨deadline,lt_of_lt_of_le (Nat.lt_succ_self deadline) (r.plan.starts_grow env _),
     r.plan.scheduled h.analyzed env input deadline,r.plan.stepWork_le _ _,?_⟩
-  exact fun live hlive => bounded_checkpoint r h live hlive
+  exact fun live hlive => (r.plan.live_bound _ _ live hlive).trans h.fits
 
 /-- Existing finite-circuit service retains exactly its original assumptions. -/
 theorem circuit_recovery (p : Indefinite.Program a b s)
@@ -134,9 +141,9 @@ theorem circuit_recovery (p : Indefinite.Program a b s)
   p.productive env input deadline
 
 /-- Direct and checked ports can coexist; an omitted conversion is rejected. -/
-example : (admit .missingAdapter .semantic).status = .rejected := rfl
-example : (admit .circuitOnly .semantic).status = .rejected := rfl
-example : (admit (.regional .checked) .semantic).status = .accepted := rfl
+example : (assessAdmission .missingAdapter .semantic).status = .rejected := rfl
+example : (assessAdmission .circuitOnly .semantic).status = .rejected := rfl
+example : (assessAdmission (.regional .checked) .semantic).status = .accepted := rfl
 example : Rich.analyzable Rich.closureCode = false ∧
     Rich.analyzable Rich.loweredCode = true := by decide
 
