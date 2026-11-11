@@ -21,6 +21,7 @@ separate. Empty delivery advances the consumer; absent delivery does not.
 |---|---|
 | [Bounded stdin/stdout driver](frp-driver.md), #233 | Runs the lifecycle and compiled aggregate consumer, bounds input and session size, supports deterministic fresh-process replay, and stops after ambiguous output failure. It retains source history and does not supply crash recovery. |
 | [Finite-circuit service](indefinite-reactive-service.md), #234 | Initialized Boolean circuits with sequential/parallel composition and delayed feedback. The byte-stream runner retains no IDs or history. Uniform space/work and conditional progress are proved for the circuit machine; Lean allocation, reclamation and IO remain trusted. |
+| [Finite sum/case lowering](finite-sum-reactive-lowering.md), #482 | Compiles a finite Boolean sum fragment to fixed-shape circuits, with canonical input/state admission, eager branch costs and initialized preservation. A checked boundary composes with an unchanged first-order region and explicit delay. |
 | [Between-tick backend migration](between-ticks-migration.md), #464 first delivery | Transfers the live delay/complement-pair continuation in both directions after retiring one accepted tick and its local publication. Explicit preparation and ownership commit preserve old authority on refusal/cancellation. Pending-work migration remains open under #480. |
 | [Exclusive-request adapter](exclusive-request-adapter.md), #236 | Serial requests without runtime request identifiers, with a constructed identified-reference comparison and conditional delivery. Its admission/communication contract excludes stale commands; it does not reject arbitrary delayed callbacks. |
 | [Query-retention implementation](frp-query-retention.md), #237 | Reclaims source history under an explicit future-query contract. Its resource guarantees apply to the admitted workload and representation, not to the unrestricted lifecycle. |
@@ -68,6 +69,11 @@ The [finite-circuit service](indefinite-reactive-service.md) also accepts the
 reactive compiler's Boolean circuit target. This is a concrete alternative
 representation with execution and resource analysis, not a native-code emitter
 or a general asynchronous graph compiler.
+
+The [finite-sum lowering](finite-sum-reactive-lowering.md) adds a local typed
+subset embedded in the categorical source. It lowers case to Boolean circuits
+and proves that translation separately; the ordinary first-order target contract
+remains unchanged. Canonical admission and both eager branch costs are explicit.
 
 The completed [preservation experiment](compositional-guarantees-and-boundedness.md),
 [#231](https://github.com/VladimirMarko/conaled/issues/231), exercises compiled

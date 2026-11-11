@@ -1,3 +1,4 @@
+import Examples.FiniteSumReactive
 import Examples.GeneratedBaseMatching
 import Examples.CechMatchingIdentity
 import Examples.GeneratedSelectedComparison
