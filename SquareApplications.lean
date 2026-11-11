@@ -734,5 +734,6 @@ import Examples.DiagonalCoverage
 
 import SquareKit.InterpretationDiagnostics
 import SquareKit.InterpretationAssistance
+import Examples.BehavioralGames
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
