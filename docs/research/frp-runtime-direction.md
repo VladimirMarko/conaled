@@ -9,6 +9,13 @@ issues and the scope owners named below for later decisions and delivery
 records, then check the corresponding source. Issue closure alone does not
 establish that every proposal here was implemented.
 
+**Owner direction recorded 2026-11-11, after the assessment:** the owner accepted
+the compositional hybrid-runtime direction and the proposed starting sequence,
+and explicitly requested live backend migration. [#464](https://github.com/VladimirMarko/conaled/issues/464)
+owns that added capability; section G records its initial staged criteria. This records a scope decision,
+not implementation or completion; the linked scope owners remain the place to
+check subsequent work.
+
 The investigation recommended an executable rational phase fragment with strict
 switching and retained residual state as the next semantic milestone relative
 to the inspected baseline. It also proposed a parallel FRP client reusing #436
@@ -78,7 +85,7 @@ Recheck before creating any child issue.
 |---|---|
 | [`FirstOrderCompiler.Target` and soundness](../../FirstOrder.lean), [`ReactiveCompiler.Compiled`](../../SquareKit/ReactiveCompiler.lean) | Compile initialized first-order seeds/bodies once; `realize_compile` and `run_sound` discharge compiler induction. A backend supplies its operations and primitive laws. Changing state representation additionally requires simulation; the current exact compiler theorem does not construct it. |
 | [`Circuit`](../../Applications/Circuits/Syntax.lean), [`execute_correct` and `Executes`](../../Applications/Circuits/Execution.lean) | Reuse the typed circuit representation and actual evaluator as a second target, including static work/arena analysis. Its Boolean value correctness is distinct from analog stability/timing equivalence in ADR 0008. A physical deadline cannot be inferred from syntax work or modeled depth. |
-| [`Initialized`, `Feedback.transport`](../../Applications/Progress/Feedback.lean), [`Reactive.run_related`](../../Applications/Progress/Reactive.lean) | Relate initialization and each transition, then reuse finite and stream results. Keep output and retained-state relations explicit. Relations alone neither compute a transfer nor prove progress. |
+| [`Initialized`, `Feedback.transport`](../../Applications/Progress/Feedback.lean), [`Progress.Feedback.run_related`](../../Applications/Progress/Reactive.lean) | Relate initialization and each transition, then reuse finite and stream results. Keep output and retained-state relations explicit. Relations alone neither compute a transfer nor prove progress. |
 | [`Program.transport` and `transport_bound`](../../Applications/FRP/Indefinite.lean) | Recover the finite circuit client's observations and retained-state bound for another backend. That backend still owes finite transition work and temporary-space bounds. The existing uniform theorem counts Boolean cells/arena frames, not physical Lean heap bytes. |
 | [`Frontier.State.Completes`, `advance_sound`](../../Applications/FRP/Frontier.lean), [`Pipeline`](../../Applications/FRP/Pipeline.lean) | Preserve complete ordered batches, multiplicity and source honesty assumptions. A frontier is knowledge strictly before its value. Silence is distinct from an emitted empty batch: only actual delivery ticks the consumer. |
 | [`Exclusive`](../../Applications/FRP/Exclusive.lean), [`Retention`](../../Applications/FRP/RetainedLifecycle.lean) | Reuse serialized admission or explicit future-query bounds where their contracts fit. Exclusive operation excludes stale request callbacks by its communication contract; it does not detect them. Retention rejects expired queries rather than answering with an empty batch. Neither provides cancellation or crash recovery. |
@@ -166,11 +173,14 @@ but its acknowledgment was lost, retry can duplicate effects unless the peer
 deduplicates stable identities or an appropriate atomic protocol couples the
 effect and its receipt. An FRP frontier does not settle that ambiguity.
 
-## Proposed implementation specifications for owner decision
+## Implementation proposals and subsequent owner direction
 
 At the assessment date, the preferred first milestone was A. B was proposed to run
 alongside it. C extends the compiler without depending on general scheduling.
 D builds on A's execution contract; E and F are separately selectable consumers.
+The later owner request adds G as required runtime scope. Its first stage can
+reuse B's session machinery and existing targets; it does not require C's new
+artifact emitter. Its second stage needs the chosen queue/publication contract.
 None requires closing #27, #109, #194, #196, #225 or #235.
 
 ### A. Rational phase evaluation and strict switching
@@ -307,14 +317,71 @@ and tests at that boundary. Reuse #251 retention only after its query, ownership
 and identity constraints match; unbounded deduplication history is not bounded
 service merely because consumer state is finite.
 
-Live backend migration is a later follow-up to B/C, not hidden in these six
-scopes. A first migration experiment should use a quiescent boundary with no
-pending input/output, an executable total transfer on reachable source states,
-a constructed target invariant, and a future-output simulation. Charge transfer
-work, dual retained states and failed migration recovery. Later migration with
-pending IO must preserve ownership and publication status as well as machine
-state. Existing transport results supply the proof route once those obligations
-are met; source-level dynamic switching in A does not discharge them.
+### G. Live backend migration within a reactive session
+
+Owner-requested addition, recorded 2026-11-11 and tracked in
+[#464](https://github.com/VladimirMarko/conaled/issues/464). Coordinate #27/#235, reuse #436
+for policy selection, and coordinate #194/#225 when publication or recovery is
+involved. Migration changes the realization of the same source computation
+after it has processed inputs. It must preserve the continuation rather than
+initialize a new session. Source-level switching in A changes the source
+behavior and does not discharge this contract.
+
+**First delivery: migration between ticks.** Use a finite Boolean reactive
+program with delayed state and two executable realizations. Include a pair with
+different state representations, such as a product of delayed Boolean values
+and explicitly reordered registers; selecting the same representation under two
+names is insufficient. Reuse B's session package where available. Compare
+direct state conversion with a shared conversion interface before adding an
+abstraction, and construct the transfer for the selected pair.
+
+A migration request stops new admission at a defined boundary. Complete the
+current tick and retire its output under the chosen sink contract before
+transferring; the initial slice admits no pending input/output at the transfer
+point. Construct a terminating executable transfer for every reachable source
+state admitted by the migration contract, and prove that it establishes the
+target invariant and state relation. Reuse `Progress.Feedback.run_related` from that
+related state, and `Feedback.transport` for the continued stream, rather than
+repeating the generic simulation induction. Prove preservation of the entire
+ordered output continuation and retained state for every admissible input
+suffix, including repeated migrations. A migration must not rerun source
+initialization or replay an already consumed input.
+
+Prepare the target while the old state remains authoritative, then give the
+ownership change one explicit commit transition. A rejected request or failure
+before commit leaves the old session usable; after commit only the target may
+advance. Specify which preparation failures are modeled and how temporary
+storage is released. Crash recovery is an additional contract, not a consequence
+of atomicity in the transition model. Check migration after a nonempty prefix,
+repeated migrations, an unsupported pair, a failed preparation, and a case where
+resetting delayed state preserves the last output but corrupts the next one.
+
+Apply #436 admission to the source/target pair, reachable-state requirements and
+available transfer resources before ranking. Evidence must identify both
+realizations and the migration protocol. Keep explicit migration requests usable
+without a tuner. Charge conversion work, old and new state retained together,
+temporary buffers, observation/selection costs and admission delay. Measure the
+pause and any amortized benefit on bounded sessions; no speedup is required.
+Conditional progress must include completion of the current tick and sink
+retirement. A blocked sink may prevent reaching the transfer point; define
+deferral or cancellation without losing accepted work. A pause bound requires
+bounds on those waits as well as the transfer itself.
+
+**Required successor: migration with pending work.** The first delivery does
+not complete this broader capability. Select a bounded queue and publication
+protocol, then transfer the outstanding requests, ordered input/output buffers,
+frontiers, cancellation ownership, and publication/acknowledgment status with
+the machine state. Define the cut separating work owned by the old and new
+realizations. Prove that accepted work has exactly one owner across the cut,
+that late callbacks cannot advance retired state or a reused request slot,
+and that migration preserves the chosen external observation contract. Test
+pending input, unpublished output, publication with a lost acknowledgment,
+cancellation during transfer, and failed preparation. An already effective
+external output must not be blindly replayed after transfer. Use F's recovery
+contract if crashes during migration are included; otherwise state that boundary
+explicitly. Completion of the first stage must retain a tracked successor for
+these obligations, rather than relabeling migration between ticks as general
+pending-IO migration.
 
 For any selected formal implementation, acceptance includes checked positive
 and separating applications, statement review, the applicable README build and
