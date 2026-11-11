@@ -65,17 +65,17 @@ def Valid (a : Ty) (bits : Bits a) : Prop := encode (observe a bits) = bits
 instance (a : Ty) (bits : Bits a) : Decidable (Valid a bits) :=
   inferInstanceAs (Decidable (encode (observe a bits) = bits))
 
-def admit (a : Ty) (bits : Bits a) : Option (Value a) :=
+def decode (a : Ty) (bits : Bits a) : Option (Value a) :=
   if Valid a bits then some (observe a bits) else none
 
 @[simp] theorem valid_encode (a : Ty) (x : Value a) : Valid a (encode x) := by
   simp [Valid]
-@[simp] theorem admit_encode (a : Ty) (x : Value a) : admit a (encode x) = some x := by
-  simp [admit]
+@[simp] theorem decode_encode (a : Ty) (x : Value a) : decode a (encode x) = some x := by
+  simp [decode]
 
-theorem admit_iff (a : Ty) (bits : Bits a) (x : Value a) :
-    admit a bits = some x ↔ bits = encode x := by
-  unfold admit
+theorem decode_iff (a : Ty) (bits : Bits a) (x : Value a) :
+    decode a bits = some x ↔ bits = encode x := by
+  unfold decode
   split
   next h => simp only [Option.some.injEq]; constructor
             · intro e; rw [← e]; exact h.symm
@@ -83,8 +83,8 @@ theorem admit_iff (a : Ty) (bits : Bits a) (x : Value a) :
   next h => simp only [reduceCtorEq, false_iff]; intro e
             apply h; rw [e]; exact valid_encode a x
 
-theorem reject_iff (a : Ty) (bits : Bits a) : admit a bits = none ↔ ¬ Valid a bits := by
-  simp [admit]
+theorem reject_iff (a : Ty) (bits : Bits a) : decode a bits = none ↔ ¬ Valid a bits := by
+  simp [decode]
 
 /-- Exact retained Boolean storage, including the tag and inactive payload. -/
 @[simp] theorem sum_cells (a b : Ty) :

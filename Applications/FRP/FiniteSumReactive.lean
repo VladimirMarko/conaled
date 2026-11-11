@@ -35,31 +35,31 @@ def program (p : Source a b s) : Indefinite.Program a.storage b.storage s.storag
 /-- The relation covers arbitrary accepted external lists, preserving order and
 final retained state. The source runner never invokes circuit execution. -/
 theorem run_correct (p : Source a b s) (xs : List (Value a)) (raw : List (Bits a))
-    (inputs : List.Forall₂ (fun x bits => admit a bits = some x) xs raw) :
-    List.Forall₂ (fun y bits => admit b bits = some y)
+    (inputs : List.Forall₂ (fun x bits => decode a bits = some x) xs raw) :
+    List.Forall₂ (fun y bits => decode b bits = some y)
       (run p.meaning.mealy p.meaning.initial xs).1
       (run p.program.machine.mealy p.program.initial raw).1 ∧
-    admit s (run p.program.machine.mealy p.program.initial raw).2 =
+    decode s (run p.program.machine.mealy p.program.initial raw).2 =
       some (run p.meaning.mealy p.meaning.initial xs).2 := by
   refine run_related p.meaning.mealy p.program.machine.mealy
-    (fun x bits => admit a bits = some x)
-    (fun st bits => admit s bits = some st)
-    (fun y bits => admit b bits = some y) ?_ inputs ?_
+    (fun x bits => decode a bits = some x)
+    (fun st bits => decode s bits = some st)
+    (fun y bits => decode b bits = some y) ?_ inputs ?_
   · intro x bits st stored hx hs
-    have hx' := (admit_iff a bits x).mp hx
-    have hs' := (admit_iff s stored st).mp hs
+    have hx' := (decode_iff a bits x).mp hx
+    have hs' := (decode_iff s stored st).mp hs
     subst bits; subst stored
-    change admit b (p.program.machine.step (encode x,encode st)).1 = _ ∧
-      admit s (p.program.machine.step (encode x,encode st)).2 = _
+    change decode b (p.program.machine.step (encode x,encode st)).1 = _ ∧
+      decode s (p.program.machine.step (encode x,encode st)).2 = _
     rw [p.step_correct]
-    exact ⟨admit_encode b _,admit_encode s _⟩
-  · rw [p.initial_correct]; exact admit_encode s _
+    exact ⟨decode_encode b _,decode_encode s _⟩
+  · rw [p.initial_correct]; exact decode_encode s _
 
 theorem encoded_inputs (xs : List (Value a)) :
-    List.Forall₂ (fun x bits => admit a bits = some x) xs (xs.map encode) := by
+    List.Forall₂ (fun x bits => decode a bits = some x) xs (xs.map encode) := by
   induction xs with
   | nil => exact .nil
-  | cons x xs ih => exact .cons (admit_encode a x) ih
+  | cons x xs ih => exact .cons (decode_encode a x) ih
 
 /-- One bounded external admission. Failure does not advance or reset state. -/
 def tick (p : Source a b s) (input : Bits a) (state : Bits s) :

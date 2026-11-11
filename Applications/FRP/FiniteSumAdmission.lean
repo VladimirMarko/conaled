@@ -75,11 +75,11 @@ theorem valid_right (a b : Ty) (x : Bits a) (y : Bits b) :
       rw [and_execute, Bool.and_eq_true, zeroTest_correct, hb y, valid_right]
 
 /-- A circuit-backed admission function with exactly the canonical policy. -/
-def checkedAdmit (a : Ty) (x : Bits a) : Option (Value a) :=
+def checkedDecode (a : Ty) (x : Bits a) : Option (Value a) :=
   if (validator a).execute x then some (observe a x) else none
 
-theorem checkedAdmit_eq (a : Ty) (x : Bits a) : checkedAdmit a x = admit a x := by
-  unfold checkedAdmit admit
+theorem checkedDecode_eq (a : Ty) (x : Bits a) : checkedDecode a x = decode a x := by
+  unfold checkedDecode decode
   simp only [validator_correct a x]
 
 /-- Validation does not decode payloads or retain a history. -/

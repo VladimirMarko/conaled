@@ -50,9 +50,9 @@ raw encodings. There is no unused Boolean tag, but there are unused payload
 combinations. Canonicality prevents inactive bits from retaining hidden state.
 
 `observe` is a total internal interpretation, selecting only the active slot.
-It is not the external admission policy. `admit_iff` says successful admission
+It is not the external admission policy. `decode_iff` says successful admission
 of a value is equivalent to exact equality with its encoding. `validator_correct`
-connects an executable circuit to that policy; `checkedAdmit_eq` recovers the
+connects an executable circuit to that policy; `checkedDecode_eq` recovers the
 same decoder contract. Nested malformed active payloads and nonzero inactive
 payloads are rejected.
 
@@ -141,7 +141,7 @@ These finite checks complement the universal proofs; they do not replace them.
 
 For [#481](https://github.com/VladimirMarko/conaled/issues/481) and
 [#485](https://github.com/VladimirMarko/conaled/issues/485), the reusable boundary
-is `Ty.storage`, `encode`/`admit`, `lower_correct`, the priced validator, and the
+is `Ty.storage`, `encode`/`decode`, `lower_correct`, the priced validator, and the
 initialized preservation/service contracts. This fragment requires finite
 Boolean representations, cartesian circuit operations and the named total
 gates. Other regions retain the existing first-order target interface; no shared

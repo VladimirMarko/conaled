@@ -27,7 +27,7 @@ def main : IO Unit := do
           -- This policy is the frozen plain representation oracle.
           let expected := if tag then l == false else (u == false && v == false)
           ensure ((validator S).execute raw == expected) "validator differs from independent policy"
-          ensure ((checkedAdmit S raw).isSome == expected) "decoder accepted malformed bits"
+          ensure ((checkedDecode S raw).isSome == expected) "decoder accepted malformed bits"
           for x in [false,true] do
             ensure ((source.tick x raw).isSome == expected) "checked tick bypassed state admission"
           ensure ((sumInputSource.tick raw ()).isSome == expected) "checked tick bypassed input admission"
@@ -45,7 +45,7 @@ def main : IO Unit := do
     let expected := delayedNot false (run reference.mealy reference.initial xs).1
     ensure (actual.1 == expected) "compiled first-order region/delay changed output order"
   ensure ((source.tick false (true,(true,(true,false)))).isNone) "invalid inactive payload admitted"
-  ensure ((checkedAdmit (.sum S .bool) (false,((false,(true,(true,false))),false))).isNone)
+  ensure ((checkedDecode (.sum S .bool) (false,((false,(true,(true,false))),false))).isNone)
     "malformed nested active payload admitted"
   ensure ((caseCircuit leftArm rightArm).work == 55) "eager branch/mux work changed"
   IO.println s!"PASS: 16 raw encodings; 6 states x {trials.length} traces; {trials.length} downstream traces"

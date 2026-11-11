@@ -47,15 +47,15 @@ example : run reference.mealy reference.initial inputs =
 
 /-- The computed circuit result is connected to the source preservation theorem. -/
 theorem lowered_run (xs : List Bool) :
-    List.Forall₂ (fun y bits => admit .bool bits = some y)
+    List.Forall₂ (fun y bits => decode .bool bits = some y)
       (run reference.mealy reference.initial xs).1
       (run source.program.machine.mealy source.program.initial xs).1 ∧
-    admit S (run source.program.machine.mealy source.program.initial xs).2 =
+    decode S (run source.program.machine.mealy source.program.initial xs).2 =
       some (run reference.mealy reference.initial xs).2 := by
-  have hi : List.Forall₂ (fun x bits => admit .bool bits = some x) xs xs := by
+  have hi : List.Forall₂ (fun x bits => decode .bool bits = some x) xs xs := by
     induction xs with
     | nil => exact .nil
-    | cons x xs ih => exact .cons (admit_encode .bool x) ih
+    | cons x xs ih => exact .cons (decode_encode .bool x) ih
   have h := source.run_correct xs xs hi
   rw [source_reference] at h
   exact h
@@ -67,12 +67,12 @@ example : (inputs.map fun x => (referenceStep x (.inl false)).1) ≠
     (run source.program.machine.mealy source.program.initial inputs).1 := by decide
 example : (!false) ≠ (source.program.body.execute (false,source.program.initial)).1 := by decide
 
-example : admit S (false,(true,(false,false))) = some (.inl true) := by decide
-example : admit S (true,(false,(true,false))) = some (.inr (true,false)) := by decide
-example : admit S (false,(true,(true,false))) = none := by decide
-example : admit S (true,(true,(true,false))) = none := by decide
+example : decode S (false,(true,(false,false))) = some (.inl true) := by decide
+example : decode S (true,(false,(true,false))) = some (.inr (true,false)) := by decide
+example : decode S (false,(true,(true,false))) = none := by decide
+example : decode S (true,(true,(true,false))) = none := by decide
 -- Invalid active nested sum is rejected even when the outer inactive slot is canonical.
-example : admit (.sum S .bool) (false,((false,(true,(true,false))),false)) = none := by decide
+example : decode (.sum S .bool) (false,((false,(true,(true,false))),false)) = none := by decide
 example : source.tick false (true,(true,(true,false))) = none := by decide
 
 /-- Invalid external sum inputs are rejected before a stateless regional body. -/
@@ -127,9 +127,9 @@ theorem region_correct (st : NativeState) : region.execute (encode (a := S) st) 
   rw [lower_correct]
   cases st <;> rfl
 
-theorem regions_admitted (raw : Bits S) (st : NativeState) (h : admit S raw = some st) :
+theorem regions_admitted (raw : Bits S) (st : NativeState) (h : decode S raw = some st) :
     regions.execute raw = !(referenceStep false st).1 := by
-  rw [(admit_iff S raw st).mp h]
+  rw [(decode_iff S raw st).mp h]
   change downstream.execute (region.execute (encode st)) = _
   rw [region_correct, downstream_correct]
 
@@ -155,8 +155,8 @@ theorem pipeline_space (input : Progress.Stream Bool) (n k : Nat) :
 
 /-- Tags are consumed by the sum region. Its Boolean boundary has one cell and
 canonical admission is total; the downstream target needs only cartesian gates. -/
-example : cells Ty.bool.storage = 1 ∧ ∀ b : Bool, admit .bool b = some b :=
-  ⟨rfl,admit_encode .bool⟩
+example : cells Ty.bool.storage = 1 ∧ ∀ b : Bool, decode .bool b = some b :=
+  ⟨rfl,decode_encode .bool⟩
 example : cells S.storage = 4 := rfl
 example : downstream.work = 7 := rfl
 
