@@ -739,4 +739,6 @@ import Examples.BehavioralGames
 
 import Examples.InteractionPrefixes
 
+import Examples.UniformConcatenation
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
