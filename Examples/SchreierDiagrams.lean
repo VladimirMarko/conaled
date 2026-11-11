@@ -18,6 +18,13 @@ theorem cyclic_targets :
     (row cyclicVertices cyclicGenerator 1 0).target = 2 ∧
     (row cyclicVertices cyclicGenerator 2 0).target = 0 := by decide
 
+theorem cyclic_trace :
+    label cyclicGenerator (chronologicalPath cyclicGenerator
+      (⟨Multiplicative.ofAdd 0⟩ : SchreierGraph C3 cyclicGenerator)
+      [(0, true), (0, true)]) = Multiplicative.ofAdd 2 := by
+  rw [label_chronologicalPath]
+  rfl
+
 example (v : Fin 3) :
     (⟨v, (row cyclicVertices cyclicGenerator v 0).target, 0,
       Multiplicative.ofAdd 1⟩ : Row C3 3 1) ∈ rows cyclicVertices cyclicGenerator :=
@@ -89,6 +96,12 @@ theorem natural_target (v s : Fin 3) :
 example : (row (Equiv.refl (Fin 3)) permutations 2 0).target = 2 := by
   rw [natural_target]
   norm_num [permutations, a, Equiv.swap_apply_def]
+
+/-- The exported loop supplies an original Schreier edge with its exact index. -/
+example : ∃ e : @Quiver.Hom (SchreierGraph (Fin 3) permutations) _ ⟨2⟩ ⟨2⟩,
+    e.val = 0 := by
+  apply (edge_iff_row (Equiv.refl (Fin 3)) permutations 2 2 0).mpr
+  exact row_mem (Equiv.refl (Fin 3)) permutations 2 0
 
 /-- The rendered generator family uses the same chronological bridge. -/
 theorem chronological_trace :
