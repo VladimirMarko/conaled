@@ -745,6 +745,7 @@ import Examples.WholeListTrim
 import Examples.FoldedPrune
 import Examples.PricedPrune
 import Examples.DigitSearch
+import Examples.CounterGeometry
 
 -- Constructed weak groupoid-unit eliminators and strict parameter comparison (#448).
 import Examples.WeakGroupoidUnit
