@@ -21,10 +21,10 @@ def Spec (p : List α → Bool) (xs out : List α) : Prop :=
 
 /-- Finite ordinary-list prefix checks suffice to certify an independent answer. -/
 theorem Spec.of_checks (p : List α → Bool) (xs out : List α)
-    (prefix : out <+: xs) (accepted : Accept p out)
+    (hprefix : out <+: xs) (accepted : Accept p out)
     (maximal : ∀ i : Fin (xs.length + 1), Accept p (xs.take i.val) → i.val ≤ out.length) :
     Spec p xs out := by
-  refine ⟨prefix, accepted, ?_⟩
+  refine ⟨hprefix, accepted, ?_⟩
   intro ys hy ha
   have hlen := hy.length_le
   apply maximal ⟨ys.length, by omega⟩
