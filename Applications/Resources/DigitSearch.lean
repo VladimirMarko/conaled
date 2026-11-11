@@ -302,4 +302,3 @@ theorem expected_tendsto : Filter.Tendsto expected Filter.atTop (nhds (2:ℚ)) :
   constructor <;> linarith
 
 end Resources.DigitSearch
-
