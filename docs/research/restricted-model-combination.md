@@ -15,6 +15,10 @@ Primary sources were inspected on 2026-11-09. No performance or author-effort
 measurement, universal synthesizer, implementation commitment, or required
 adapter to the current architecture follows from this report.
 
+Implementation update: [#437’s native construction](native-action-observation-combination.md)
+now checks the bounded action/observation case and two native uses in Lean.
+The original general paper derivation and validation account remain below.
+
 ## Primary-source approaches
 
 **Signature amalgamation.** Schröder, Mossakowski, Tarlecki, Klin and Hoffman,
