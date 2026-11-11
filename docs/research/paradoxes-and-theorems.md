@@ -257,3 +257,12 @@ that the system found it or computed weakest assumptions. The existing
 ledgers and native Lean replay. Any stronger discovery or productivity claim
 needs its own evidence. A different architecture remains eligible if it retains
 the intended construction more faithfully than current transport interfaces.
+
+## Checked diagonal experiment
+
+The [#444 assessment](diagonal-construction-assessment.md) records the bounded
+Lean fixture, selected-code recovery, the rejected uncovered representation
+transfer, the existing compiler comparison, and the paper-level Curry–Löb rule
+comparison. Its [native contract](diagonal-construction-contract.md) separates
+construction, interpretation laws and logical consequences. It does not supply
+a general paradox-to-theorem compiler or arithmetic provability formalization.

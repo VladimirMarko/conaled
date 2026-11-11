@@ -724,4 +724,6 @@ import SquareKit.SmoothQuotientCoverSourceSection
 import Examples.OriginalCoverGeneratedSections
 import SquareKit.SmoothQuotientCoverSectionNaturality
 
+import Examples.DiagonalConstruction
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
