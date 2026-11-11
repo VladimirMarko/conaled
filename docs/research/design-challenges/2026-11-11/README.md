@@ -2,6 +2,11 @@
 
 These investigations assess model combination, local universes, demand and sharing, dynamic arrays, and measured callbacks. They propose bounded comparisons and preservation requirements. They do not adopt an architecture or approve implementation of the proposed experiments.
 
+A separate [FRP runtime challenge](frp-runtime/synthesis.md) assesses hybrid
+execution and live migration at its own pinned revision. Its
+[evidence record](frp-runtime/README.md) preserves the neutral packet, three
+independent reports and subsequent clarifications.
+
 The assessed source is [e80c51d9](https://github.com/VladimirMarko/conaled/tree/e80c51d968925be3809ba3acc3259de7041b504b). The concurrently completed #472 guard-price implementation is outside that assessment. Publication may occur on a later commit without changing the source inspected by the assessors.
 
 | Investigation | Issue | Reconciled assessment |
