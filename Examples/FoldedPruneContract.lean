@@ -12,7 +12,7 @@ theorem stage (p : List Nat → Bool) (xs out : List Nat)
       i.val ≤ out.length) : WholeListTrim.Spec p xs out :=
   WholeListTrim.Spec.of_checks p xs out hp ha hm
 
-example : FoldedPrune.Spec nondecreasing [3,7,8,2,3] [3,7,8] := by
+theorem ordered_spec : FoldedPrune.Spec nondecreasing [3,7,8,2,3] [3,7,8] := by
   apply FoldedPrune.Spec.cons (old := [7,8])
   · apply FoldedPrune.Spec.cons (old := [8])
     · apply FoldedPrune.Spec.cons (old := [2,3])
