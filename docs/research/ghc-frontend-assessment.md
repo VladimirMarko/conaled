@@ -34,13 +34,15 @@ The [GHC plugin API](https://downloads.haskell.org/ghc/9.12.2/docs/users_guide/e
 
 ## Why the semantic model grows
 
+Source evaluation rules constrain observable behaviour, not the backend's evaluation strategy. A target may evaluate eagerly, speculate, eliminate forcing, or use a different state representation when a proof establishes agreement under the chosen observations. We need enough source semantics to justify these changes; we do not need to reproduce GHC's evaluator. Totality is one sufficient admission condition, not a necessary condition for every valid translation. Demand analysis, facts about reachable states, or program-specific proofs could admit additional cases. Whether termination, exceptions, effects, or resource consumption count as observations must be explicit in the contract.
+
 The [GHC 9.12.2 Core definition](https://raw.githubusercontent.com/ghc/ghc/ghc-9.12.2-release/compiler/GHC/Core.hs) has a compact expression datatype, but its fields include GHC types, coercions, variables and metadata. Its comments specify thunk allocation for lets, weak-head evaluation for case, and casts for newtypes and GADTs. An AST traversal is therefore much smaller than a faithful semantic model.
 
 The following are unexecuted discriminating examples and proposed admission tests, derived from the [Haskell Report's expression rules](https://www.haskell.org/onlinereport/haskell2010/haskellch3.html) and [predefined types and `seq`](https://www.haskell.org/onlinereport/haskell2010/haskellch6.html):
 
 - **Bottom and eta.** `seq (undefined :: Int -> Int) 1` fails to produce a value, while `seq (\x -> undefined x) 1` returns `1`. Here bottom abstracts failure or nontermination; an exception-sensitive execution contract would need to distinguish them. Unrestricted function eta is therefore incompatible with this observation. The existing total compiler's extensional function equality needs a restricted connection to Haskell, not silent reuse for arbitrary partial functions.
 - **Lazy pairs.** An undefined pair differs from `(undefined, undefined)` when forced. Reconstructing a pair from its projections can change definedness. A model with only total Lean products loses that distinction.
-- **Case versus let.** Matching `undefined` against a pair constructor diverges even when the branch ignores the fields; a lazy pattern binding can leave the value unforced. Replacing case by projections needs a totality hypothesis or a forcing-aware semantic rule.
+- **Case versus let.** Matching `undefined` against a pair constructor fails even when the branch ignores the fields; a lazy pattern binding can leave the value unforced. Replacing case by projections needs a totality hypothesis or a forcing-aware semantic rule.
 - **Recursion and arguments.** Rejecting syntactic recursive bindings does not establish totality. Imported functions, dictionaries, primitives and higher-order arguments may still diverge. The accepted environment must have a semantic contract; termination on some inputs is insufficient for a universal total-function claim.
 
 Several further decisions are independent of these counterexamples:
