@@ -732,4 +732,7 @@ import Examples.Schreier
 import Examples.ConstructionTransport
 import Examples.DiagonalCoverage
 
+import SquareKit.InterpretationDiagnostics
+import SquareKit.InterpretationAssistance
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

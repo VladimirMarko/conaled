@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "routes": {
+    "extension": {
+      "construction": "selected diagonal",
+      "target": "Bool",
+      "observation": "exact selected code and value",
+      "imports": [
+        "Examples.DiagonalCoverage"
+      ],
+      "schema": "extension",
+      "data": {
+        "selected": "Examples.DiagonalConstruction.sourceSelected",
+        "map": "Examples.DiagonalCoverage.good"
+      },
+      "certificates": {
+        "extension": "Examples.DiagonalCoverage.good_extra"
+      }
+    },
+    "missing": {
+      "construction": "selected diagonal",
+      "target": "Bool",
+      "observation": "exact selected code and value",
+      "imports": [
+        "Examples.DiagonalCoverage"
+      ],
+      "schema": "extension",
+      "data": {
+        "selected": "Examples.DiagonalConstruction.sourceSelected",
+        "map": "Examples.DiagonalCoverage.good"
+      }
+    },
+    "composition": {
+      "construction": "selected diagonal",
+      "target": "Option Bool",
+      "observation": "exact selected code and value",
+      "imports": [
+        "Examples.DiagonalCoverage"
+      ],
+      "schema": "extension",
+      "data": {
+        "selected": "Examples.DiagonalConstruction.sourceSelected",
+        "map": "(Examples.DiagonalCoverage.larger.comp Examples.DiagonalCoverage.good)"
+      },
+      "certificates": {
+        "extension": "SquareKit.DiagonalConstruction.Map.extension_comp Examples.DiagonalCoverage.good Examples.DiagonalCoverage.larger Examples.DiagonalConstruction.sourceSelected Examples.DiagonalCoverage.good_extra Examples.DiagonalCoverage.larger_extra"
+      }
+    },
+    "omitted": {
+      "construction": "selected diagonal",
+      "target": "Bool",
+      "observation": "exact selected code and value",
+      "imports": [
+        "Examples.DiagonalCoverage"
+      ],
+      "schema": "extension",
+      "data": {
+        "selected": "Examples.DiagonalConstruction.sourceSelected",
+        "map": "Examples.DiagonalConstruction.partialPresentation"
+      },
+      "refutations": {
+        "extension": "Examples.DiagonalCoverage.omitted_extension_rejected"
+      }
+    },
+    "image": {
+      "construction": "selected diagonal",
+      "target": "image subtype",
+      "observation": "exact selected code and value",
+      "imports": [
+        "Examples.DiagonalCoverage"
+      ],
+      "schema": "image",
+      "data": {
+        "selected": "Examples.DiagonalConstruction.sourceSelected",
+        "map": "Examples.DiagonalConstruction.partialPresentation"
+      }
+    },
+    "erasure": {
+      "construction": "selected diagonal",
+      "target": "Unit values",
+      "observation": "recover every original selected code",
+      "imports": [
+        "Examples.DiagonalConstruction"
+      ],
+      "schema": "erasure",
+      "data": {},
+      "refutations": {
+        "recover": "Examples.DiagonalConstruction.witness_forgetting_not_injective"
+      }
+    },
+    "resource": {
+      "schema": "resource",
+      "construction": "compiled squares execution",
+      "target": "sixfold additive observation",
+      "observation": "value and mapped modeled cost",
+      "imports": [
+        "Examples.ConstructionTransport",
+        "SquareKit.InterpretationAssistance"
+      ],
+      "data": {
+        "sourceCost": "Nat",
+        "targetCost": "Nat",
+        "state": "Int",
+        "input": "Int",
+        "map": "(Examples.ConstructionTransport.Fold.scale 3).comp (Examples.ConstructionTransport.Fold.scale 2)",
+        "seed": "FirstOrderCompiler.compile Examples.RecursiveCompilation.counted.scalar Examples.RecursiveCompilation.seed ()",
+        "step": "Examples.ConstructionTransport.Fold.transition"
+      },
+      "certificates": {
+        "zero": "by rfl",
+        "add": "by intro a b; change 3*(2*(a+b)) = 3*(2*a)+3*(2*b); omega"
+      }
+    }
+  }
+}
