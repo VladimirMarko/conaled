@@ -1,0 +1,55 @@
+# Demand, forcing and memoized sharing: implementation and use assessment
+
+Recommendation: retain the existing semantic and measured owners, and first compare two small head-of-concatenation runners with explicit request histories. Add a cache transition only at the point where the retained client repeats a request to the same cell. The inspected consumers justify an operational connection between demand and cost. They do not yet justify a general delayed evaluator or replacement of the partial-spine domain.
+
+This is an independent source assessment of e80c51d968925be3809ba3acc3259de7041b504b in the pinned checkout. I had no prior implementation involvement or exposure to the other assessments. The common brief and repository guidance shape this assessment; fresh context supplies no model diversity. I read no other reports. All paths below are relative to that pinned source.
+
+## Existing builders and consumers
+
+`Applications/Resources/CollapseDemand.lean`, declarations `Label`, `lazyLabels`, `cachedAux`, and `Run`, already distinguish a delayed sum from its selection. A label contains a function `Unit → Measured Int Nat`. `cachedAux` tests its accumulated scalar before inspecting the remaining labels, invokes the selected function once, updates the scalar, and recurses on the tail. The caller cannot request an earlier label again through this API. The scalar is reused; there is no cell update that memoizes the label function. This is a correct useful single-pass contract, not a defective implementation of repeated forcing.
+
+The value and prefix obligations are already discharged: `values_equal`, `cached_used_eq_plain`, and `cached_selected` connect measured execution to the independent collapse specification, retaining empty selected blocks. `cached_first_positive` establishes the guard's avoidance of the suffix, while `cached_zeroBlocks_work` gives a family with different sum work from repeated accumulation. These are strong retention evidence: replacing them would create proof and migration work without resolving the new repeated-request question.
+
+`Applications/Resources/CollapseMaterialization.lean` supplies the next piece. `sumMapStep` constructs one delayed sum, `labelStep` accounts for one demanded map/zip step, and `buildAux` stores the selected blocks newest-first while retaining separate producer, selector, test, sum and update counts. `leftMaterialize` and `applyFunction` consume that history completely. `buildAux_apply` and `build_apply_difference` preserve arbitrary appended tails. `applyFunction_work` depends on the complete selected history and is independent of the tail. None of these functions supplies early head consumption of that history.
+
+The concrete downstream client in `Examples/CollapseResources.lean` is `measuredSum`, composed with `differenceSquare` and `leftSquare`. `observed_work` retains the producer's complete bill and adds output-sum work. `no_unconditional_improvement` rejects an unconditional claim that the function representation is cheaper. This client makes a migration constraint concrete: a new demand observer must keep the producer bill and must not silently replace a complete observation with a head-only observation when comparing costs. Repository-wide Lean references to these two Collapse owners were confined to their own modules and this example in my search.
+
+`Applications/Resources/Steepness.lean` has another instructive bounded construction: private `Prepared` stores a total and delayed Boolean observation. `prepare` computes totals and `observeCons` avoids later Boolean work at the first failed comparison. It demonstrates reuse of prepared values but does not expose a repeated-request cache API. It is evidence that useful consumer-specific runners can remain small.
+
+## The partial-domain boundary already matters to clients
+
+`SquareKit/PartialSpine.lean` separates `.bottom`, `.nil`, and `.cons`. The `view` representation retains a completed-end flag. `SquareKit/PartialSpine/Concat.lean` defines semantic `concat` using the existing fold and append owners; `concat_cons` and `concat_infinite_first` work with arbitrary inner ideals and outer continuations. The outer information order fixes the inner labels. A changing cache need not become a changing label in that order: use the ideal as specification and relate operational states to its observations.
+
+`Examples/PartialSpineConcat.lean` consumes these laws with `first_concat`, `first_concat_once`, and `allCuts_once_guarded`/`allCuts_once_paused`. Its actual emit-once outer producer can have an unknown end while its infinite first inner stream remains observable. The first-inner-bottom example prevents fallback to a later nonempty block. A head runner that maps both unknown and empty to `Option.none` would erase this distinction and permit an invalid fallback.
+
+There is a specific interface limitation to address before using Progress as the sole runner boundary. `Progress.Producer` in `Applications/Progress/Streams.lean` permits emission or silent progress, with no completed-end case. `SpineObservations.observations` embeds deliveries through open prefixes, and `ofList_not_mem` explicitly proves that completed finite lists never belong to these producer observations. Builders for a finite terminating inner list therefore need an explicit completion transition or a separate terminating source interface before its exhaustion can justify moving to the next block. Treating silence, bounded failure, or absent delivery as completion is unsound. This is an established limitation of the selected interface, not a defect in its existing stream contracts.
+
+Keep the algorithm distinction in `SquareKit/PartialSpine/DifferenceConcat.lean`: `concatD` is a strict outer left fold followed by application, `concatD_ofList` requires a completed finite outer spine, and `concatD_stream` is bottom. Deferred append-history head consumption must say when that history is available. It cannot claim that the strict outer fold acquires the demand behavior of right-fold concat on an open producer merely because their completed finite values agree.
+
+## Smallest useful operational alternative
+
+Start with a consumer-specific runner for head of a nested source, plus a second observer for an already-built append history. Reuse the existing semantic observations as their independent specifications. Keep the runner's following data explicit:
+
+- Source continuation and append frames needed to resume a demand; whether a source has emitted, completed, or is still unresolved.
+- Stable cell identity where repeated requests can alias. Distinct occurrences with equal values must remain distinguishable from repeated references to one cell.
+- For the memoized variant, unevaluated versus completed cached result, with the continuation needed if forcing itself can make partial progress. A two-state cache suffices only for total atomic callbacks.
+- An ordered request/transition trace and separate charges for outer construction, forcing, cache lookup/update, append traversal and final consumption. The trace may be proof data; charging trace allocation itself is a separate decision.
+
+The builder owns cell allocation, identity and transition invariants. The consumer owns its requested observation and supplies callback behavior/cost where applicable. The cache operation should prove that it preserves values and resumes or reuses the same cell. Callers should then inherit these facts from runner composition, rather than each having to assume that repeated forcing is free. Do not add a generic proof field for a guarantee already derivable from a concrete transition definition. Conversely, equality of returned values cannot derive a cache-hit work equation: the delayed and memoized transitions are different operations.
+
+A small shared state machine becomes worthwhile if both retained runners use the same forcing transition and client proofs otherwise duplicate its invariants. Its first reusable unit could be only cell forcing, leaving outer traversal and append-frame selection local. A broad evaluator would additionally require choices about nested effects, recursion, allocation and cyclic forcing for which the inspected consumers supply no requirements. This is an author-effort risk, not a demonstrated impossibility of such an evaluator.
+
+## Discriminating acceptance cases
+
+Freeze these as expected observations before selecting an abstraction; the cost formulas below are proposed test contracts, not checked new theorems.
+
+1. Construct an outer list of delayed callback payloads, count its outer cells, then force selected payloads. The outer-only observation must have no callback-force events. Complete observation must retain callback and inner traversal charges, including empty payloads.
+2. Request one cell twice. For a total callback charging `c`, the delayed variant pays the callback component twice; the memoized variant pays it once and retains both request events plus the declared lookup/update charges. Request two distinct equal-valued cells as a negative aliasing case. Do not hard-code cache-hit cost to zero.
+3. Compare head consumption on completed blocks `[[], [a,b], [c]]` under right association and a previously constructed left-associated append history. Freeze value `a`, ordered requests and each observer's full bill. The append-history construction bill stays attached even when only its head is observed.
+4. Replace the first known empty block by an unknown inner end followed by `[a]`. No head is justified. Restore known nil and fallback becomes valid. This separates a safe runner from one implementing finite `Option` fallback over partial values.
+5. Feed the existing emit-once outer producer an infinite inner counting stream. Right-fold head consumption must expose its first value without requesting an outer end. Separately test strict function-accumulating concat on an infinite outer stream: it remains bottom under the existing semantics.
+6. Suspend during a first force and resume from the returned state. Compare its concatenated transition history with uninterrupted forcing. This determines whether cached results alone suffice or intermediate forcing state must also be retained.
+
+## Evidence and validation limits
+
+The handoff assigns the remaining demand, delayed-list and concat-head obligations to #459 under #149 (`docs/research/adwh-recovered-handoff.md`, Chapter 2 family table). I used that pinned ownership record, not live issue status. No tracker operation, external technical claim, source modification, build or scratch Lean experiment was performed. I inspected definitions, theorem statements, proofs and actual consumers; all new operational recommendations and test expectations above remain paper-level proposals. Existing source declarations were not recompiled during this assessment. Current documentation explicitly disclaims nested scheduling and runtime cost for the semantic concat examples. The missing operational adequacy/cost bridge is therefore a recorded remaining capability, not evidence that the published semantic results overclaim it.
