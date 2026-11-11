@@ -740,5 +740,6 @@ import Examples.BehavioralGames
 import Examples.InteractionPrefixes
 
 import Examples.UniformConcatenation
+import Examples.TakeWhileExtrema
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
