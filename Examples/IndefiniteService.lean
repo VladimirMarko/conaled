@@ -1,4 +1,5 @@
 import Applications.FRP.IndefiniteIO
+import Applications.FRP.MigrationPair
 
 /-! Checked clients of the finite circuit service criterion. -/
 namespace Examples.IndefiniteService
@@ -69,18 +70,13 @@ example (input : Stream Bool) (deadline : Nat) :
   delay.productive environment input deadline
 
 /-- Another finite representation retains a redundant complement bit. -/
-def redundant : Program .base .base (.prod .base .base) where
-  initial := (false,true)
-  body := .pair (.compose .first .second)
-    (.pair .first (.compose Circuit.not .first))
-
-def related (x : Bool) (y : Bool × Bool) := y = (x,!x)
+abbrev redundant := FRPSpec.MigrationPair.redundant
+abbrev related := FRPSpec.MigrationPair.related
 
 theorem related_step (x u : Bool) (v : Bool × Bool) (h : related u v) :
     (delay.machine.step (x,u)).1 = (redundant.machine.step (x,v)).1 ∧
-      related (delay.machine.step (x,u)).2 (redundant.machine.step (x,v)).2 := by
-  rcases h with rfl
-  exact ⟨rfl,rfl⟩
+      related (delay.machine.step (x,u)).2 (redundant.machine.step (x,v)).2 :=
+  FRPSpec.MigrationPair.related_step x u v h
 
 theorem redundant_output (input : Stream Bool) :
     ∀ n, output delay.machine input n = output redundant.machine input n :=
