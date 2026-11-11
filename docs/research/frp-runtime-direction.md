@@ -1,5 +1,13 @@
 # FRP runtime direction and bounded follow-ups
 
+**Later decision, 2026-11-11: adopt the design challenge's revised direction.**
+The [adopted revision](#adopted-revision-after-the-design-challenge) below
+supersedes the original starting sequence and qualifies proposals A–G.
+For current acceptance criteria and delivery status, consult
+[#27](https://github.com/VladimirMarko/conaled/issues/27) and
+[#464](https://github.com/VladimirMarko/conaled/issues/464).
+Adoption records a direction and bounded experiments, not their completion.
+
 **Assessment date: 2026-11-11. Status: research snapshot with proposals for
 owner selection.** Capability gaps, issue states and priorities below describe
 the evidence at that date; this document is not a maintained execution plan.
@@ -9,7 +17,7 @@ issues and the scope owners named below for later decisions and delivery
 records, then check the corresponding source. Issue closure alone does not
 establish that every proposal here was implemented.
 
-**Owner direction recorded 2026-11-11, after the assessment:** the owner accepted
+**Earlier owner direction recorded 2026-11-11, before the challenge:** the owner accepted
 the compositional hybrid-runtime direction and the proposed starting sequence,
 and explicitly requested live backend migration. [#464](https://github.com/VladimirMarko/conaled/issues/464)
 owns that added capability; section G records its initial staged criteria. This records a scope decision,
@@ -173,7 +181,79 @@ but its acknowledgment was lost, retry can duplicate effects unless the peer
 deduplicates stable identities or an appropriate atomic protocol couples the
 effect and its receipt. An FRP frontier does not settle that ambiguity.
 
-## Implementation proposals and subsequent owner direction
+## Adopted revision after the design challenge
+
+The owner adopted the [independent challenge synthesis](design-challenges/2026-11-11/frp-runtime/synthesis.md)
+after its publication. Preserve the compositional hybrid-runtime ambition and
+existing mathematical contracts. The following changes replace the original
+A-first ordering and the assumption that a general demand graph will be the
+shared foundation. The preserved judge reports and neutral proposal remain
+evidence of what was assessed; they do not describe this later decision.
+
+1. **Define observations before a common runtime API.** For one composed client,
+   distinguish pure phase queries, accepted consumer ticks, numerical trials,
+   committed state changes and output publication. Repeated same-time queries
+   may share a value; separate accepted ticks must still advance the consumer.
+   Include empty delivery versus silence, reversed worker completion and a
+   blocked sink. Specify stateful commit order explicitly.
+2. **Run phase evaluation and explicit migration as early independent trials.**
+   A must select its query/admission and retention invariant. Compare a cursor
+   with pending changes against bounded activation history; monotone queries
+   alone do not remove pending storage. Check unsorted packets, strict switch
+   boundaries, equal-time order and pruning. G starts from the existing
+   delay/redundant Boolean pair in `Examples/IndefiniteService.lean`, transferring
+   a Boolean to its Boolean/complement pair and back on reachable states.
+   Test a nonempty prefix, both directions, repeated transfers and failure
+   before commit. Reuse `Progress.Feedback.run_related` and stream transport.
+   Migration needs neither A's phase grammar, B's startup selection, C's emitter
+   nor a general scheduler. Explicit requests remain usable without a tuner.
+3. **Exercise numerical state before stabilizing the phase interface.** Bring
+   E's numerical client forward: nonzero incoming error, a rejected trial,
+   repeated endpoint reads, a control switch and continued execution. Failed
+   trials and reads must preserve committed packet/time. Compare uninterrupted
+   execution of the identical accepted tick list; different subdivisions owe
+   their own approximation and clock guarantees, not identical numerical states.
+   Restrict queries to supported endpoints or prove the needed interior-query
+   guarantee. The exact affine alternative alone cannot discharge this trial.
+4. **Choose scheduling from a matched client's progress needs.** D's discrete
+   finite scope has no dependency on A. Compare the synchronous logical-transition
+   baseline, direct compositional residual evaluation and a bounded demand graph
+   on shared work, two owners, cancellation, a blocked sink and independent
+   outputs with unequal dependency progress. Preserve the same admitted workload,
+   observations and resource accounting. If independent requests must progress
+   despite unrelated blocked work, run D early. Independent publication needs
+   separate channels or identified responses permitted to overtake; a single
+   admission-ordered stream can force publication to wait. Synchronous reference
+   semantics does not require globally serialized runtime execution.
+5. **Extend effect ownership alongside state conversion.** Model one pending
+   output and explicit sink acceptance to test pause and deferral. The first G
+   transfer still occurs only after pending work retires. Its required successor
+   must select a bounded queue/publication contract and preserve outstanding
+   work, ownership and acknowledgment state across the transfer cut, including
+   lost acknowledgments. A bounded checkpoint needs a sufficiency argument;
+   current machine state or last output alone is not established as sufficient.
+   For adapters permitting late callbacks, prevent slot reuse until retirement
+   or supply another proved exclusion mechanism. Finite generation tokens alone
+   do not suffice with indefinitely delayed callbacks; charge quarantined work
+   and buffers to capacity and state retirement assumptions. Keep crash recovery
+   and external delivery guarantees conditional on the selected storage/peer
+   contract.
+
+B and C remain independent bounded clients. Keep session-wide evidence checking
+off the per-tick path and measure initialization, selection, conversion and
+observation costs against direct execution. No performance win is required.
+These experiments determine shared interfaces; adoption does not establish a
+performance winner or a completed runtime. #27 owns the evolving roadmap and
+#464 owns both stages of migration. Concrete protocol choices remain part of
+their implementation specifications.
+
+## Original implementation proposals and earlier owner direction
+
+The following A–G text preserves the assessment and the pre-challenge migration
+addition. Where ordering or acceptance differs, the adopted revision above takes
+precedence. In particular, A is not a prerequisite for D or G, B is not a
+prerequisite for G, and E's exact affine option does not replace the numerical
+boundary trial.
 
 At the assessment date, the preferred first milestone was A. B was proposed to run
 alongside it. C extends the compiler without depending on general scheduling.
