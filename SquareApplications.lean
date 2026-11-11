@@ -728,6 +728,7 @@ import Examples.OverlappingStrategies
 import Examples.DiagonalConstruction
 import Examples.TaggedSelfReference
 
+import Examples.Schreier
 import Examples.ConstructionTransport
 import Examples.DiagonalCoverage
 

@@ -3,7 +3,9 @@
 Assessment date: 2026-11-11. Positive for a bounded development connecting
 labelled diagrams to existing semantics and checked examples. This does not
 justify porting an algebra textbook or starting a separate algebra hierarchy.
-The proposals below are design inferences, not implemented results.
+The proposals below record the initial assessment. The labelled-path bridge
+now has a [checked implementation and scope record](schreier-interpretation.md);
+the other proposals remain design inferences.
 
 ## What is different
 
@@ -82,8 +84,9 @@ and equivariant functors. Require only action data for evaluation; generation
 is an additional hypothesis for reaching every group arrow. Finite enumerations
 belong to finite export, not the mathematical interface.
 
-The following are intended contracts for future formalization, not checked
-Lean claims in this note:
+The following were the intended contracts. The
+[implementation record](schreier-interpretation.md) identifies checked Lean
+results for items 1–3; item 4 remains a boundary on later coset consumers:
 
 1. For a left action, executing label `g` and then `h` yields label `h * g`.
    Mathlib's `evalWord` multiplies list entries in written order, while its
