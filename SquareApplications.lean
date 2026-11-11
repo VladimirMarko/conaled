@@ -731,4 +731,6 @@ import Examples.TaggedSelfReference
 import Examples.ConstructionTransport
 import Examples.DiagonalCoverage
 
+import Examples.BehavioralGames
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
