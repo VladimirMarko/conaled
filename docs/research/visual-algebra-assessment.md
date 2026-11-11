@@ -5,7 +5,7 @@ labelled diagrams to existing semantics and checked examples. This does not
 justify porting an algebra textbook or starting a separate algebra hierarchy.
 The proposals below record the initial assessment. The labelled-path bridge
 now has a [checked implementation and scope record](schreier-interpretation.md);
-the other proposals remain design inferences.
+the finite-diagram consumer also has a [checked export and generated examples](finite-algebra-diagrams.md). Remaining proposals are design inferences.
 
 ## What is different
 
@@ -116,8 +116,8 @@ new frontend solely for attractive notation.
 Created [#465](https://github.com/VladimirMarko/conaled/issues/465) for the
 labelled-path semantics bridge and
 [#466](https://github.com/VladimirMarko/conaled/issues/466) for finite diagrams
-with checked edge data. The second is blocked by the first, recorded as a native
-GitHub dependency. They should be coordinated with the existing
+with checked edge data. The finite-diagram consumer uses the completed bridge; the original ordering
+was recorded as a native GitHub dependency. They should be coordinated with the existing
 [transport workstream #200](https://github.com/VladimirMarko/conaled/issues/200)
 and use [orbifold work #32](https://github.com/VladimirMarko/conaled/issues/32)
 as a consumer, without adding geometry to the algebraic interface.

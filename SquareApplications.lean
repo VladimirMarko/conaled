@@ -729,6 +729,7 @@ import Examples.DiagonalConstruction
 import Examples.TaggedSelfReference
 
 import Examples.Schreier
+import Examples.SchreierDiagramDriver
 import Examples.ConstructionTransport
 import Examples.DiagonalCoverage
 
