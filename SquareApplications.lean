@@ -1,4 +1,5 @@
 import Examples.RegionalPlans
+import Examples.RegionalSelection
 import Examples.FiniteSumReactive
 import Examples.GeneratedBaseMatching
 import Examples.CechMatchingIdentity

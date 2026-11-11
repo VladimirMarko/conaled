@@ -1,0 +1,155 @@
+{
+  "implementation": "regional-v1",
+  "target": "Lean interpreter; modeled cells separate from timing",
+  "workload": "fixture: three joint ticks, false/false initial state",
+  "requirements": {
+    "capacity": 10000,
+    "protocol": 1,
+    "ordered": true,
+    "finite_waits": true
+  },
+  "policy_epochs": "Synthetic correctness fixtures, not measured training data",
+  "timing": "IO.monoNanosNow nanoseconds; one diagnostic sample per case, no performance inference",
+  "regional_costs": [
+    {
+      "candidate": "fused/fused",
+      "tick_work_bound": 120,
+      "storage_cells": 160
+    },
+    {
+      "candidate": "fused/split",
+      "tick_work_bound": 91,
+      "storage_cells": 160
+    },
+    {
+      "candidate": "fused/checked",
+      "tick_work_bound": 103,
+      "storage_cells": 160
+    },
+    {
+      "candidate": "split/fused",
+      "tick_work_bound": 91,
+      "storage_cells": 157
+    },
+    {
+      "candidate": "split/split",
+      "tick_work_bound": 62,
+      "storage_cells": 142
+    },
+    {
+      "candidate": "split/checked",
+      "tick_work_bound": 74,
+      "storage_cells": 144
+    },
+    {
+      "candidate": "checked/fused",
+      "tick_work_bound": 103,
+      "storage_cells": 157
+    },
+    {
+      "candidate": "checked/split",
+      "tick_work_bound": 74,
+      "storage_cells": 147
+    },
+    {
+      "candidate": "checked/checked",
+      "tick_work_bound": 86,
+      "storage_cells": 147
+    }
+  ],
+  "selected": [
+    {
+      "candidate": "split/split",
+      "installation_bill": 731,
+      "preparation_ns": 607987,
+      "execution_ns": 26772,
+      "outputs": "11,01,10"
+    },
+    {
+      "candidate": "checked/checked",
+      "installation_bill": 12560,
+      "preparation_ns": 806384,
+      "execution_ns": 31252,
+      "outputs": "11,01,10"
+    },
+    {
+      "candidate": "split/split",
+      "installation_bill": 12362,
+      "preparation_ns": 791660,
+      "execution_ns": 19428,
+      "outputs": "11,01,10"
+    }
+  ],
+  "fixed": [
+    {
+      "candidate": "fused/fused",
+      "preparation_ns": 2174,
+      "execution_ns": 24806,
+      "outputs": "11,01,10"
+    }
+  ],
+  "direct": [
+    {
+      "execution_ns": 30840,
+      "outputs": "11,01,10"
+    }
+  ],
+  "execution_bills": [
+    {
+      "candidate": "fused/fused",
+      "three_ticks_and_observation": 326
+    },
+    {
+      "candidate": "fused/split",
+      "three_ticks_and_observation": 239
+    },
+    {
+      "candidate": "fused/checked",
+      "three_ticks_and_observation": 275
+    },
+    {
+      "candidate": "split/fused",
+      "three_ticks_and_observation": 239
+    },
+    {
+      "candidate": "split/split",
+      "three_ticks_and_observation": 152
+    },
+    {
+      "candidate": "split/checked",
+      "three_ticks_and_observation": 188
+    },
+    {
+      "candidate": "checked/fused",
+      "three_ticks_and_observation": 275
+    },
+    {
+      "candidate": "checked/split",
+      "three_ticks_and_observation": 188
+    },
+    {
+      "candidate": "checked/checked",
+      "three_ticks_and_observation": 224
+    }
+  ],
+  "oracle_runs": 1296,
+  "checks": {
+    "epoch-change": "true",
+    "old-session": "true",
+    "stale-protocol": "true",
+    "stale-budget": "true",
+    "stale-catalog": "true",
+    "wrong-implementation": "true",
+    "incomplete": "true",
+    "empty": "true",
+    "valid-fallback": "true",
+    "bad-fallback": "true",
+    "joint-budget": "true",
+    "unsupported": "true",
+    "invalid-port": "true",
+    "validation-path-cost": "true",
+    "fallback-cost": "true",
+    "duplicate-epoch": "true",
+    "mismatched-sample": "true"
+  }
+}
