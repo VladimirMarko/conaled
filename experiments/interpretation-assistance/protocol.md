@@ -53,7 +53,11 @@ history containing excluded artifacts. Relevant public native examples remain
 permitted in both arms; record their adaptation.
 
 Exact route prompts, handoff paths/HEADs, source hashes and allowlist are required
-fields of the final launch manifest. Prompts must state the task, route exposure,
+fields of the final launch manifest. The manifest also fixes each task's complete
+submission filename. Author helpers must be in that checked source or the
+CLI support file included in its snapshot; imports are limited to frozen
+allowlisted modules. Mutable author-module imports are excluded because a
+main-file snapshot alone would not retain their attempted contents. Prompts must state the task, route exposure,
 common budget, checker wrapper, fallback policy, logging and no-coaching rule.
 No delegation, task-specific external assistance, production edits or private
 coordinator hints are allowed. Environment repairs are logged. Mathematical

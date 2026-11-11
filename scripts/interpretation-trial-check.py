@@ -71,7 +71,7 @@ def main():
         attempt.mkdir(exist_ok=False)
         snapshot = attempt / 'source.lean'
         snapshot.write_bytes(args.source.read_bytes())
-        command = ['lake', 'env', 'lean', str(snapshot)]
+        command = ['lake', 'env', 'lean', '--json', str(snapshot)]
         record = {'started': stamp(), 'command': command, 'original_source': str(args.source.resolve()),
                   'source_sha256': hashlib.sha256(snapshot.read_bytes()).hexdigest(), 'round': state['count']}
         try:

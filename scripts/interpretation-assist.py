@@ -14,6 +14,14 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT = ROOT / 'experiments/interpretation-assistance/registry.json'
 
 
+class BudgetExhausted(Exception):
+    pass
+
+
+class CheckerFailure(Exception):
+    pass
+
+
 def digest(data):
     return hashlib.sha256(data).hexdigest()
 
@@ -100,16 +108,31 @@ def main():
         path.write_text(source + '\nend Requested\n')
         command = ([sys.executable, str(ROOT / 'scripts/interpretation-trial-check.py'),
                     '--state', str(args.budget.resolve()), '--source', str(path)]
-                   if args.budget else ['lake', 'env', 'lean', str(path)])
+                   if args.budget else ['lake', 'env', 'lean', '--json', str(path)])
         started = now()
         proc = subprocess.run(command, cwd=ROOT, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         log = args.out / (label + '.log')
         log.write_text(proc.stdout)
         record['checks'].append({'phase': label, 'command': command, 'source_sha256': digest(path.read_bytes()),
-                                 'started': started, 'finished': now(), 'exit': proc.returncode, 'checker_started': proc.returncode != 75, 'log': str(log)})
+                                 'started': started, 'finished': now(), 'exit': proc.returncode, 'checker_started': proc.returncode not in (74, 75), 'log': str(log)})
         if proc.returncode == 75:
-            raise RuntimeError('External trial budget exhausted; no further Lean process started.')
-        return proc.returncode == 0 and 'TRANSPORT_AUDIT_OK' in proc.stdout
+            raise BudgetExhausted('External trial budget exhausted; no further Lean process started.')
+        if proc.returncode not in (0, 1):
+            raise CheckerFailure(f'Checker process failed during {label} with exit {proc.returncode}; no evidence rejection is inferred.')
+        if proc.returncode == 0 and 'TRANSPORT_AUDIT_OK' not in proc.stdout:
+            raise CheckerFailure(f'Checker produced no audit confirmation during {label}.')
+        if proc.returncode == 1:
+            messages = []
+            for line in proc.stdout.splitlines():
+                try:
+                    message = json.loads(line)
+                except ValueError:
+                    continue
+                if isinstance(message, dict):
+                    messages.append(message)
+            if not any(message.get('severity') == 'error' for message in messages):
+                raise CheckerFailure(f'Checker exited 1 without a Lean error diagnostic during {label}.')
+        return proc.returncode == 0
 
     try:
         raw = args.registry.read_bytes()
@@ -172,9 +195,9 @@ def main():
         if not check('result', source):
             return finish('checker failure', 'Checked inputs did not produce an audited result; inspect generated schema application.')
         return finish('checked', 'Generated result and every local logical declaration passed Lean and the axiom audit. See result.lean and result.log.')
-    except RuntimeError as error:
+    except BudgetExhausted as error:
         return finish('budget exhausted', str(error))
-    except (OSError, ValueError, KeyError, subprocess.CalledProcessError) as error:
+    except (CheckerFailure, OSError, ValueError, KeyError, subprocess.CalledProcessError) as error:
         return finish('checker failure', str(error))
 
 

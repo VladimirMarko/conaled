@@ -54,7 +54,10 @@ The omitted-code case rejects full-target extension but the image-only route
 retains a representative on a narrower input domain. The erasure case checks
 failure of injectivity of the witness projection, not impossibility of selecting
 some representative. The resource result observes value and mapped modeled
-charges, not CPU time. Requirement inspection is an actual Lean invocation;
+charges, not CPU time. Lean JSON diagnostics distinguish ordinary certificate errors from abnormal
+process exits or a runner failure without a Lean error. Runner infrastructure
+exit 74, signal termination and missing audit confirmation remain checker
+failures, including during certificate validation. Requirement inspection is an actual Lean invocation;
 each certificate and final application are checked separately.
 
 Run real executable tests with a new output directory:

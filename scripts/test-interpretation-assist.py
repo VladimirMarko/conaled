@@ -95,3 +95,54 @@ support.write_text('theorem supplied : Examples.DiagonalCoverage.good.Extension 
 run('support', 'missing', 'checked', '--support', str(support), '--certificate', 'extension=supplied')
 (a.out / 'summary.json').write_text(json.dumps(results, indent=2)+'\n')
 print('External budgets, cutoff snapshot and author-supplied certificate also passed.')
+
+# Inject real process failures after a successful request check. A PATH launcher
+# forwards to the real Lake/Lean; it never fabricates a successful checker result.
+import os
+import shutil
+lake = shutil.which('lake')
+for mode in ('infrastructure', 'terminated', 'runner'):
+    fault = a.out / ('fault-' + mode)
+    fault.mkdir()
+    launcher = fault / 'lake'
+    launcher.write_text(f'''#!{sys.executable}
+import os, pathlib, signal, subprocess, sys, time
+command = [{lake!r}, *sys.argv[1:]]
+source = pathlib.Path(sys.argv[-1])
+first = source.parent.name == 'round-001'
+if first:
+    proc = subprocess.run(command)
+    if {mode!r} == 'infrastructure':
+        pathlib.Path(__file__).chmod(0)
+    if {mode!r} == 'runner':
+        (source.parent.parent / 'state.json').write_text('invalid state')
+    sys.exit(proc.returncode)
+proc = subprocess.Popen(command, start_new_session=True)
+time.sleep(0.1)
+os.killpg(proc.pid, signal.SIGTERM)
+proc.wait()
+os.kill(os.getpid(), signal.SIGTERM)
+''')
+    launcher.chmod(0o755)
+    state = fault / 'budget/state.json'
+    subprocess.run([sys.executable, str(runner), '--state', str(state), '--initialize'], check=True)
+    out = fault / 'request'
+    for tool in ('lean', 'git', 'dirname'):
+        (fault / tool).symlink_to(shutil.which(tool))
+    env = dict(os.environ, PATH=str(fault.resolve()))
+    proc = subprocess.run([sys.executable, str(ROOT / 'scripts/interpretation-assist.py'), 'extension',
+                           '--out', str(out), '--budget', str(state)], cwd=ROOT, env=env,
+                          capture_output=True, text=True)
+    (fault / 'cli.log').write_text(proc.stdout + proc.stderr)
+    receipt = json.loads((out / 'receipt.json').read_text())
+    assert receipt['checks'][0]['exit'] == 0
+    assert receipt['status'] == 'checker failure', receipt
+    if mode == 'runner':
+        assert receipt['checks'][-1]['exit'] == 1
+    else:
+        assert receipt['checks'][-1]['exit'] not in (0, 1, 75), receipt
+    if mode == 'infrastructure':
+        assert receipt['checks'][-1]['exit'] == 74
+    results.append({'name': mode + '-during-certificate', 'status': receipt['status'], 'checks': len(receipt['checks'])})
+(a.out / 'summary.json').write_text(json.dumps(results, indent=2)+'\n')
+print('Actual infrastructure failure, terminated checker and broken runner remain checker failures.')

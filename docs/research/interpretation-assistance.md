@@ -90,3 +90,11 @@ Retain the finite diagnostic as an experiment pending that comparison.
 #235/#290 own any broader interface adoption, general search or framework
 migration. Those decisions remain deferred while the owner is absent. #109's
 recursion/compiler contracts and the native direct routes remain unchanged.
+
+Independent readiness review found that certificate-phase process failures were
+initially reported as rejected evidence (462-SPEC-1). The corrected runner path
+separates budget refusal, ordinary Lean error diagnostics and infrastructure
+failures. Actual tests first complete request checking, then make the launcher
+unexecutable, terminate the checker, or corrupt the runner state. These remain
+checker failures; ordinary type/audit rejection remains rejected evidence. The
+prototype freeze was renewed after this correction, before any author dispatch.
