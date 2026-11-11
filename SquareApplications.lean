@@ -728,5 +728,7 @@ import Examples.OverlappingStrategies
 import Examples.DiagonalConstruction
 
 import Examples.Schreier
+import Examples.ConstructionTransport
+import Examples.DiagonalCoverage
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
