@@ -1,0 +1,63 @@
+[0mdirenv: loading /tmp/conaled-wave-20261111/462-trial-preparation/replay/direct/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: cache invalidated: profile (/tmp/conaled-wave-20261111/462-trial-preparation/replay/direct/.direnv/flake-profile-a5d5b61aa8a61b7d9d765e1daf971a9a578f1cfa) does not exist
+[0mdirenv: nix-direnv: cache invalidated: profile_rc (/tmp/conaled-wave-20261111/462-trial-preparation/replay/direct/.direnv/flake-profile-a5d5b61aa8a61b7d9d765e1daf971a9a578f1cfa.rc) does not exist
+[0mdirenv: nix-direnv: cache invalidated: files newer than cache:
+nix-direnv: /tmp/conaled-wave-20261111/462-trial-preparation/replay/direct/.envrc
+/tmp/conaled-wave-20261111/462-trial-preparation/replay/direct/lean-toolchain
+/tmp/conaled-wave-20261111/462-trial-preparation/replay/direct/flake.nix
+/tmp/conaled-wave-20261111/462-trial-preparation/replay/direct/flake.lock
+[0mdirenv: nix-direnv: Renewed cache
+⚠ [1222/1251] Built SquareKit.DiagonalConstruction (3.6s)
+warning: SquareKit/DiagonalConstruction.lean: imports `Mathlib.Logic.Function.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SquareKit/DiagonalConstruction.lean: imports `Mathlib.Logic.Equiv.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [1223/1251] Built SquareKit.GuardedStreams (4.5s)
+warning: SquareKit/GuardedStreams.lean: imports `Mathlib.Algebra.Ring.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SquareKit/GuardedStreams.lean: imports `Mathlib.Algebra.Group.Nat.Hom` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SquareKit/GuardedStreams.lean: imports `Mathlib.Data.Nat.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [1224/1251] Built SquareKit.ListFusion (4.9s)
+warning: SquareKit/ListFusion.lean: imports `Mathlib.Data.List.Infix` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [1225/1251] Built Squares (5.4s)
+⚠ [1226/1251] Built Applications.Optimization.Basic (5.5s)
+warning: Applications/Optimization/Basic.lean: imports `Mathlib.Order.Filter.Extr` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Optimization/Basic.lean: imports `Mathlib.Order.Hom.CompleteLattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [1227/1251] Built SquareKit.Category (6.1s)
+warning: SquareKit/Category.lean: imports `Mathlib.CategoryTheory.Quotient` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [1228/1251] Built SquareKit.DiagonalCoverage (3.5s)
+✔ [1229/1251] Built SquareKit.Relations (4.2s)
+⚠ [1230/1251] Built Examples.GuardedStreams (5.3s)
+warning: Examples/GuardedStreams.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [1231/1251] Built Applications.Resources.Measured (5.1s)
+warning: Applications/Resources/Measured.lean: imports `Mathlib.Algebra.Group.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/Measured.lean: imports `Mathlib.Algebra.Order.Monoid.Unbundled.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+ℹ [1232/1251] Built FirstOrder (10s)
+info: FirstOrder.lean:351:0: 'FirstOrderCompiler.compile_sound' depends on axioms: [propext]
+info: FirstOrder.lean:352:0: 'FirstOrderCompiler.everyTerm_additive' depends on axioms: [propext]
+info: FirstOrder.lean:353:0: 'FirstOrderCompiler.letExample_all' depends on axioms: [propext]
+info: FirstOrder.lean:354:0: 'FirstOrderCompiler.no_exponential' depends on axioms: [propext, Quot.sound]
+✔ [1233/1251] Built SquareKit.CategoryMap (4.7s)
+✔ [1234/1251] Built SquareKit.GuardedStreamCompiler (7.4s)
+⚠ [1235/1251] Built SquareKit.Arithmetic (3.8s)
+warning: SquareKit/Arithmetic.lean: imports `Mathlib.Data.Int.Cast.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SquareKit/Arithmetic.lean: imports `Mathlib.Algebra.Ring.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [1236/1251] Built Applications.Optimization.Relations (5.3s)
+⚠ [1237/1251] Built SquareKit.FunctionCategory (3.9s)
+warning: SquareKit/FunctionCategory.lean: imports `Mathlib.CategoryTheory.Types.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [1238/1251] Built Applications.Resources.Workload (5.2s)
+✔ [1239/1251] Built SquareKit.ListFoldCompiler (5.4s)
+✔ [1240/1251] Built SquareKit.SelectedFeedback (3.7s)
+✔ [1241/1251] Built Examples.GuardedStreamCompiler (6.2s)
+✔ [1242/1251] Built Applications.Progress.Evaluation (4.7s)
+✔ [1243/1251] Built SquareKit.InterpretationAssistance (4.0s)
+✔ [1244/1251] Built Applications.Resources.FoldCompiler (4.5s)
+✔ [1245/1251] Built Applications.Progress.Streams (2.2s)
+⚠ [1246/1251] Built Examples.RecursiveCompilation (1.9s)
+warning: Examples/RecursiveCompilation.lean: imports `Mathlib.Algebra.Ring.Int.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+info: Examples/RecursiveCompilation.lean:158:0: (4, 7)
+info: Examples/RecursiveCompilation.lean:159:0: (14, 10)
+✔ [1247/1251] Built Compiler (25s)
+✔ [1248/1251] Built TaskSetup462 (2.2s)
+✔ [1249/1251] Built Examples.DiagonalConstruction (1.2s)
+✔ [1250/1251] Built Examples.ConstructionTransport (3.1s)
+✔ [1251/1251] Built Examples.DiagonalCoverage (609ms)
+Build completed successfully (1251 jobs).

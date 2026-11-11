@@ -1,0 +1,98 @@
+{
+  "route": "H1-full",
+  "started": "2026-11-11T18:20:23.292920+00:00",
+  "checks": [
+    {
+      "phase": "requirements",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "/tmp/conaled-wave-20261111/462-private-reference/applicability/full/requirements.lean"
+      ],
+      "source_sha256": "6cd0a84584ae87285e0ded93f88d58c07d9e90bd13158478fbc669fed7783e29",
+      "started": "2026-11-11T18:20:23.319733+00:00",
+      "finished": "2026-11-11T18:20:24.270196+00:00",
+      "exit": 0,
+      "checker_started": true,
+      "log": "/tmp/conaled-wave-20261111/462-private-reference/applicability/full/requirements.log"
+    },
+    {
+      "phase": "certificate_extension",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "/tmp/conaled-wave-20261111/462-private-reference/applicability/full/certificate_extension.lean"
+      ],
+      "source_sha256": "90713697b237cda3fb0556046e54c0c408609f54c763089936717c01eac25065",
+      "started": "2026-11-11T18:20:24.270264+00:00",
+      "finished": "2026-11-11T18:20:25.184669+00:00",
+      "exit": 0,
+      "checker_started": true,
+      "log": "/tmp/conaled-wave-20261111/462-private-reference/applicability/full/certificate_extension.log"
+    },
+    {
+      "phase": "result",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "/tmp/conaled-wave-20261111/462-private-reference/applicability/full/result.lean"
+      ],
+      "source_sha256": "f30b8584b1bbde1d46ce59f1e5648488a9546dfc78bc613a224474112e3976b1",
+      "started": "2026-11-11T18:20:25.184732+00:00",
+      "finished": "2026-11-11T18:20:26.068285+00:00",
+      "exit": 0,
+      "checker_started": true,
+      "log": "/tmp/conaled-wave-20261111/462-private-reference/applicability/full/result.log"
+    }
+  ],
+  "status": "checked",
+  "registry_sha256": "4429dd02eb452c01cfd4a6023d01b9ad2afe41bf940b06826415f759aab8901a",
+  "implementation_sha256": "4a14d650519e83694fafb02dcedf2bc816f85654a9a9fb74b90c847079f14767",
+  "checker_source_sha256": "fe12aa39071ba4adca312f536919367ae5d6cddd73a34345b6b37689cec18fee",
+  "toolchain": "leanprover/lean4:v4.35.0",
+  "dependency_manifest_sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+  "git_head": "2b3b344b69c4e56324c8de2eb566ee0f8aef129b",
+  "compiler": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "request": {
+    "construction": "H1 selected Bool row",
+    "target": "Option Bool full target",
+    "observation": "selected some false code, false witness, full target representation",
+    "imports": [
+      "TaskSetup462"
+    ],
+    "schema": "extension",
+    "data": {
+      "selected": "Tasks462.H1.source",
+      "map": "Tasks462.H1.changeCodes"
+    }
+  },
+  "available_expressions": [
+    "selectedSource.code",
+    "selectedSource.witness",
+    "route.code selectedSource.code",
+    "route.value selectedSource.witness"
+  ],
+  "support_sha256": "b85e0666ad6d8b29d8578c67bcc55fbd05f8abd67036307d7ab2025b73888025",
+  "obligations": [
+    {
+      "id": "extension",
+      "requested_type": "SquareKit.DiagonalConstruction.Map.Extension route selectedSource",
+      "declaration": "Requested.requirement_0"
+    }
+  ],
+  "supplied_certificates": {
+    "extension": "PrivateApplicability462.extension"
+  },
+  "retained_expressions": [
+    "result.code",
+    "result.witness"
+  ],
+  "detail": "Generated result and every local logical declaration passed Lean and the axiom audit. See result.lean and result.log.",
+  "finished": "2026-11-11T18:20:26.068300+00:00"
+}

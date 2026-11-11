@@ -1,0 +1,11 @@
+[0mdirenv: loading /tmp/conaled-wave-20261111/462-private-reference/checkout/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+⚠ [437/593] Replayed Applications.Resources.Measured
+warning: Applications/Resources/Measured.lean: imports `Mathlib.Algebra.Group.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/Measured.lean: imports `Mathlib.Algebra.Order.Monoid.Unbundled.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [590/593] Replayed SquareKit.ListFusion
+warning: SquareKit/ListFusion.lean: imports `Mathlib.Data.List.Infix` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [592/593] Built SquareKit.InterpretationDiagnostics (981ms)
+✔ [593/593] Built SquareKit.InterpretationAssistance (1.1s)
+Build completed successfully (593 jobs).

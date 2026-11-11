@@ -12,8 +12,8 @@ contains runnable commands and exact status meanings. Its
 constructions, targets, observations and optional certificates. The
 [prospective protocol](../../experiments/interpretation-assistance/protocol.md)
 separates author work from supplied setup, permits native fallback and requires
-an independent readiness gate. No author trial has run, so no author benefit
-or productivity conclusion is available.
+an independent readiness gate. The [frozen trial archive](../../experiments/interpretation-assistance/trial/README.md)
+retains the completed author comparison, preparation, and every attempt.
 
 ## Checked evidence and boundaries
 
@@ -78,18 +78,41 @@ specific work removed. Preparation cost is not author savings. The implementer
 has seen held-out task specifications but not reference solutions or their
 successful transcripts; these are held-out applications, not blind discovery.
 
-Before author dispatch the coordinator must validate private direct/reference
-solutions and unchanged generic schema applicability, then freeze the exact
-prompts, support/task-registry manifest, handoff paths, model metadata, checker
-budget and scoring. The external runner and watchdog enforce the prospective
-cap under the stated cooperative access contract. No unlogged time exclusion
-or post-outcome budget extension is allowed. Final protocol review must confirm
-these gates; this implementation does not itself authorize dispatch.
+## Completed author comparison
 
-Retain the finite diagnostic as an experiment pending that comparison.
-#235/#290 own any broader interface adoption, general search or framework
-migration. Those decisions remain deferred while the owner is absent. #109's
-recursion/compiler contracts and the native direct routes remain unchanged.
+The frozen direct arm made 3 actual Lean invocations. H1 passed on its first
+full submission; H2 needed a second attempt to expose a folded execution before
+rewriting. The assisted arm made 13 invocations: 11 inside three CLI requests,
+plus two successful first full-submission checks. Counting only full submissions
+would hide most assisted checking. Independent statement review finds both
+final task pairs satisfy the frozen obligations. Independent replay reproduced
+all 16 recorded outcomes, including the expected direct failure, and audited
+all 15 passing snapshots. The audits include local/generated declarations and
+allow only `propext`, `Classical.choice` and `Quot.sound`.
+
+The assisted result uses the generated extension package and two generated
+resource transport applications. Both authors manually supplied the substantive
+extension and additive laws. Compiler connections, modeled resource formulas,
+selected-witness properties and negative controls remained author obligations.
+The image route was native. The assisted author had no failed check and made
+no diagnostic-driven repair, so this trial does not demonstrate improved repair
+from diagnostics. Failure handling is established by separate development tests.
+
+Adopt the finite registry and typed diagnostics as a retained experiment with
+actual consumer evidence. Investigate whether exposing exact requirements helps
+on tasks that produce diagnostic repairs. Defer broader interface adoption to
+#235/#290 and new recursion/compiler syntax to #109. Reject a productivity
+ranking from one author per arm on these two tasks. Preparation and reference
+checking are costs of the study, not author savings. Native direct routes remain
+available, and no common recursive abstraction or framework migration follows.
+
+The prospective protocol, source/tool freezes, independent readiness gates,
+private reference attempts and template applicability checks are archived with
+all author sources, outputs and counted receipts. Private preparations were
+released only after completion. The implementer knew task descriptions before
+development; private solutions were withheld. Cooperative isolation and model
+metadata limitations are recorded in the launch manifest. The archive preserves
+historical pending statuses rather than rewriting them as prospective success.
 
 Independent readiness review found that certificate-phase process failures were
 initially reported as rejected evidence (462-SPEC-1). The corrected runner path

@@ -1,0 +1,89 @@
+--- generic-registry.json
++++ task-registry.json
+@@ -110,6 +110,86 @@
+         "zero": "by rfl",
+         "add": "by intro a b; change 3*(2*(a+b)) = 3*(2*a)+3*(2*b); omega"
+       }
++    },
++    "H1-full": {
++      "construction": "H1 selected Bool row",
++      "target": "Option Bool full target",
++      "observation": "selected some false code, false witness, full target representation",
++      "imports": [
++        "TaskSetup462"
++      ],
++      "schema": "extension",
++      "data": {
++        "selected": "Tasks462.H1.source",
++        "map": "Tasks462.H1.changeCodes"
++      }
++    },
++    "H1-image": {
++      "construction": "H1 selected Bool row",
++      "target": "image subtype of some",
++      "observation": "selected code and value on image-only domain",
++      "imports": [
++        "TaskSetup462"
++      ],
++      "schema": "image",
++      "data": {
++        "selected": "Tasks462.H1.source",
++        "map": "Tasks462.H1.changeCodes"
++      }
++    },
++    "H2-product": {
++      "construction": "H2 compiled total seed and transitions",
++      "target": "Nat product observation",
++      "observation": "unchanged value and mapped modeled cost",
++      "imports": [
++        "TaskSetup462"
++      ],
++      "schema": "resource",
++      "data": {
++        "sourceCost": "Nat",
++        "targetCost": "Nat × Nat",
++        "state": "Int",
++        "input": "Int",
++        "map": "Tasks462.H2.productWeight",
++        "seed": "Tasks462.H2.compiledSeed",
++        "step": "Tasks462.H2.transition"
++      }
++    },
++    "H2-final": {
++      "construction": "H2 product-observed total seed and transitions",
++      "target": "Nat final observation",
++      "observation": "unchanged value and mapped modeled cost",
++      "imports": [
++        "TaskSetup462"
++      ],
++      "schema": "resource",
++      "data": {
++        "sourceCost": "Nat × Nat",
++        "targetCost": "Nat",
++        "state": "Int",
++        "input": "Int",
++        "map": "Tasks462.H2.finalWeight",
++        "seed": "Resources.reweight Tasks462.H2.productWeight Tasks462.H2.compiledSeed",
++        "step": "fun x acc => Resources.reweight Tasks462.H2.productWeight (Tasks462.H2.transition x acc)"
++      }
++    },
++    "H2-shifted": {
++      "construction": "H2 shifted candidate resource function",
++      "target": "Nat shifted observation",
++      "observation": "proposed additive transport",
++      "imports": [
++        "TaskSetup462"
++      ],
++      "schema": "resource",
++      "data": {
++        "sourceCost": "Nat",
++        "targetCost": "Nat",
++        "state": "Int",
++        "input": "Int",
++        "map": "Tasks462.H2.shifted",
++        "seed": "Tasks462.H2.compiledSeed",
++        "step": "Tasks462.H2.transition"
++      }
+     }
+   }
+ }

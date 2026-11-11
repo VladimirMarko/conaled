@@ -1,0 +1,19 @@
+You are an independent author in the frozen #462 comparison, arm direct. Work within this assigned experiment; do not start an implementation/review workflow or delegate. The coordinator has already provisioned and reviewed the environment. Read TASKS.md and TaskSetup462.lean in your source root, then complete H1 followed by H2 under unchanged mathematical assumptions.
+
+Read-only source root: /tmp/conaled-wave-20261111/462-trial-preparation/handoffs/direct
+Your only writable artifact/output root: /tmp/conaled-wave-20261111/462-trial-preparation/author-output/direct
+Coordinator budget state, read-only to you: /tmp/conaled-wave-20261111/462-trial-preparation/control/direct/state.json
+
+Use direct native Lean. You do not have the interpretation CLI. Do not inspect CLI code, registry, generated-route transcripts, or assisted artifacts.
+
+Source access is limited to your supplied source root (including its pinned dependency source), your own output, this prompt and your own budget receipts. Do not inspect the original repository, its history, other handoffs/outputs, private references, external sources, or coordinator preparation/review files. Do not modify supplied source, dependencies, registry, runner or state. This is a cooperative experimental restriction, not an OS sandbox. Do not seek mathematical coaching. Report environment failures without attempting an unlogged workaround.
+
+You have 45 elapsed minutes and at most 30 actual Lean feedback invocations across both tasks. The clock starts at dispatch; reading, editing and checking count. Every check, including partial proof experiments, must go through the budget runner. No direct lean/lake build, editor language server, alternate checker or uncounted proof feedback. From your source root, use:
+
+direnv exec . taskset -c 0 python3 scripts/interpretation-trial-check.py --state /tmp/conaled-wave-20261111/462-trial-preparation/control/direct/state.json --source /tmp/conaled-wave-20261111/462-trial-preparation/author-output/direct/SubmissionH1.lean
+
+Use SubmissionH2.lean for H2. Both full submissions must be self-contained apart from supplied pinned imports. Do not import mutable author-created files: paste your helpers into each submission; CLI support is separately snapshotted by the tool. Retain every experiment/support/generated file and failed attempt. The runner retains source snapshots, commands and logs. Use the same CPU0 prefix for assisted CLI calls. There will be one active author and no concurrent project builds. At a cap or coordinator cutoff stop editing/checking immediately; an already-started check may finish. Do not reset or bypass the budget. If logging/runner/watchdog fails, stop and report; do not silently continue.
+
+The mandatory mathematical checklist is in TASKS.md. Alternative valid native proofs are allowed; no weakest law or particular proof spelling is required. No sorry, added axioms, unsafe proof shortcuts or weakened contracts. First-attempt success means the first checked full SubmissionH1/H2 file meets its entire checklist; partial/support/diagnostic rounds still count. A partial checked result is retained honestly. Native fallback may pass mathematics but is not evidence of assistance benefit. Do not turn missing evidence or registry exhaustion into a claim of impossibility.
+
+When finished, stop all compiler processes and write /tmp/conaled-wave-20261111/462-trial-preparation/author-output/direct/AUTHOR_REPORT.md listing final files and declaration-to-checklist mapping, unresolved items, reused public examples, manual obligations, generated applications (if any), diagnostics that helped or failed, and native fallback. Distinguish subjective observations from measured counts. Return a concise status to root; do not continue editing after reporting completion. The coordinator will freeze and independently replay your exact artifacts without feeding repairs back into this attempt.

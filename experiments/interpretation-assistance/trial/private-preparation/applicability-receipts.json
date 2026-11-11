@@ -1,0 +1,147 @@
+[
+  {
+    "name": "full",
+    "command": [
+      "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+      "scripts/interpretation-assist.py",
+      "H1-full",
+      "--registry",
+      "/tmp/conaled-wave-20261111/462-trial-preparation/task-registry.json",
+      "--out",
+      "/tmp/conaled-wave-20261111/462-private-reference/applicability/full",
+      "--support",
+      "/tmp/conaled-wave-20261111/462-private-reference/applicability-support.lean",
+      "--certificate",
+      "extension=PrivateApplicability462.extension"
+    ],
+    "started": "2026-11-11T18:20:23.271923+00:00",
+    "finished": "2026-11-11T18:20:26.078224+00:00",
+    "exit": 0,
+    "expected": "checked",
+    "actual": "checked"
+  },
+  {
+    "name": "image",
+    "command": [
+      "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+      "scripts/interpretation-assist.py",
+      "H1-image",
+      "--registry",
+      "/tmp/conaled-wave-20261111/462-trial-preparation/task-registry.json",
+      "--out",
+      "/tmp/conaled-wave-20261111/462-private-reference/applicability/image",
+      "--support",
+      "/tmp/conaled-wave-20261111/462-private-reference/applicability-support.lean"
+    ],
+    "started": "2026-11-11T18:20:26.078245+00:00",
+    "finished": "2026-11-11T18:20:27.992485+00:00",
+    "exit": 0,
+    "expected": "checked",
+    "actual": "checked"
+  },
+  {
+    "name": "product",
+    "command": [
+      "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+      "scripts/interpretation-assist.py",
+      "H2-product",
+      "--registry",
+      "/tmp/conaled-wave-20261111/462-trial-preparation/task-registry.json",
+      "--out",
+      "/tmp/conaled-wave-20261111/462-private-reference/applicability/product",
+      "--support",
+      "/tmp/conaled-wave-20261111/462-private-reference/applicability-support.lean",
+      "--certificate",
+      "zero=PrivateApplicability462.product_zero",
+      "--certificate",
+      "add=PrivateApplicability462.product_add"
+    ],
+    "started": "2026-11-11T18:20:27.992506+00:00",
+    "finished": "2026-11-11T18:20:31.729778+00:00",
+    "exit": 0,
+    "expected": "checked",
+    "actual": "checked"
+  },
+  {
+    "name": "final",
+    "command": [
+      "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+      "scripts/interpretation-assist.py",
+      "H2-final",
+      "--registry",
+      "/tmp/conaled-wave-20261111/462-trial-preparation/task-registry.json",
+      "--out",
+      "/tmp/conaled-wave-20261111/462-private-reference/applicability/final",
+      "--support",
+      "/tmp/conaled-wave-20261111/462-private-reference/applicability-support.lean",
+      "--certificate",
+      "zero=PrivateApplicability462.final_zero",
+      "--certificate",
+      "add=PrivateApplicability462.final_add"
+    ],
+    "started": "2026-11-11T18:20:31.729798+00:00",
+    "finished": "2026-11-11T18:20:35.509397+00:00",
+    "exit": 0,
+    "expected": "checked",
+    "actual": "checked"
+  },
+  {
+    "name": "missing",
+    "command": [
+      "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+      "scripts/interpretation-assist.py",
+      "H1-full",
+      "--registry",
+      "/tmp/conaled-wave-20261111/462-trial-preparation/task-registry.json",
+      "--out",
+      "/tmp/conaled-wave-20261111/462-private-reference/applicability/missing",
+      "--support",
+      "/tmp/conaled-wave-20261111/462-private-reference/applicability-support.lean"
+    ],
+    "started": "2026-11-11T18:20:35.509417+00:00",
+    "finished": "2026-11-11T18:20:36.495136+00:00",
+    "exit": 2,
+    "expected": "missing evidence",
+    "actual": "missing evidence"
+  },
+  {
+    "name": "wrong-type",
+    "command": [
+      "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+      "scripts/interpretation-assist.py",
+      "H1-full",
+      "--registry",
+      "/tmp/conaled-wave-20261111/462-trial-preparation/task-registry.json",
+      "--out",
+      "/tmp/conaled-wave-20261111/462-private-reference/applicability/wrong-type",
+      "--support",
+      "/tmp/conaled-wave-20261111/462-private-reference/applicability-support.lean",
+      "--certificate",
+      "extension=PrivateApplicability462.product_zero"
+    ],
+    "started": "2026-11-11T18:20:36.495156+00:00",
+    "finished": "2026-11-11T18:20:38.385099+00:00",
+    "exit": 2,
+    "expected": "rejected evidence",
+    "actual": "rejected evidence"
+  },
+  {
+    "name": "unknown",
+    "command": [
+      "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+      "scripts/interpretation-assist.py",
+      "not-a-task-route",
+      "--registry",
+      "/tmp/conaled-wave-20261111/462-trial-preparation/task-registry.json",
+      "--out",
+      "/tmp/conaled-wave-20261111/462-private-reference/applicability/unknown",
+      "--support",
+      "/tmp/conaled-wave-20261111/462-private-reference/applicability-support.lean"
+    ],
+    "started": "2026-11-11T18:20:38.385117+00:00",
+    "finished": "2026-11-11T18:20:38.433947+00:00",
+    "exit": 2,
+    "expected": "registry exhausted",
+    "actual": "registry exhausted"
+  }
+]

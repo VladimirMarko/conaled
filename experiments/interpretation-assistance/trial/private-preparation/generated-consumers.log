@@ -1,0 +1,184 @@
+[0mdirenv: loading /tmp/conaled-wave-20261111/462-private-reference/checkout/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+REQUIREMENT GeneratedFull.requirement_0: route.Extension selectedSource
+selectedSource.code : Bool
+selectedSource.witness : Bool
+route.code selectedSource.code : Option Bool
+route.value selectedSource.witness : Bool
+result.code : Option Bool
+result.witness : Bool
+TRANSPORT_ROOT PrivateApplicability462.product_zero
+TRANSPORT_ROOT PrivateApplicability462.shifted_zero_refuted
+TRANSPORT_ROOT GeneratedFull.selectedSource
+TRANSPORT_ROOT GeneratedFull.requestPresent
+TRANSPORT_ROOT GeneratedFull.route
+TRANSPORT_ROOT GeneratedFull.requirement_0
+TRANSPORT_ROOT PrivateApplicability462.product_add
+TRANSPORT_ROOT PrivateApplicability462.final_add
+TRANSPORT_ROOT GeneratedFull.observation
+TRANSPORT_ROOT PrivateApplicability462.extension
+TRANSPORT_ROOT GeneratedFull.certificate_0
+TRANSPORT_ROOT PrivateApplicability462.final_zero
+TRANSPORT_ROOT GeneratedFull.result
+TRANSPORT_AUDIT_OK GeneratedFull.result; local roots: 13
+selectedSource.code : Bool
+selectedSource.witness : Bool
+route.code selectedSource.code : Option Bool
+route.value selectedSource.witness : Bool
+result.code : { b // ∃ a, route.code a = b }
+result.witness : Bool
+TRANSPORT_ROOT GeneratedImage.selectedSource
+TRANSPORT_ROOT PrivateApplicability462.product_zero
+TRANSPORT_ROOT PrivateApplicability462.shifted_zero_refuted
+TRANSPORT_ROOT GeneratedFull.selectedSource
+TRANSPORT_ROOT GeneratedFull.requestPresent
+TRANSPORT_ROOT GeneratedFull.route
+TRANSPORT_ROOT GeneratedFull.requirement_0
+TRANSPORT_ROOT GeneratedImage.requestPresent
+TRANSPORT_ROOT PrivateApplicability462.product_add
+TRANSPORT_ROOT PrivateApplicability462.final_add
+TRANSPORT_ROOT GeneratedFull.observation
+TRANSPORT_ROOT GeneratedImage.route
+TRANSPORT_ROOT PrivateApplicability462.extension
+TRANSPORT_ROOT GeneratedFull.certificate_0
+TRANSPORT_ROOT GeneratedImage.result
+TRANSPORT_ROOT PrivateApplicability462.final_zero
+TRANSPORT_ROOT GeneratedFull.result
+TRANSPORT_AUDIT_OK GeneratedImage.result; local roots: 17
+REQUIREMENT GeneratedProduct.requirement_0: weight 0 = 0
+REQUIREMENT GeneratedProduct.requirement_1: ∀ (a b : ℕ), weight (a + b) = weight a + weight b
+GeneratedProduct.initial : Resources.Measured ℤ ℕ
+GeneratedProduct.transition : ℤ → ℤ → Resources.Measured ℤ ℕ
+GeneratedProduct.weight : ℕ → ℕ × ℕ
+GeneratedProduct.initial : Resources.Measured ℤ ℕ
+GeneratedProduct.transition : ℤ → ℤ → Resources.Measured ℤ ℕ
+GeneratedProduct.weight : ℕ → ℕ × ℕ
+TRANSPORT_ROOT GeneratedProduct.result
+TRANSPORT_ROOT GeneratedProduct.requirement_1
+TRANSPORT_ROOT GeneratedImage.selectedSource
+TRANSPORT_ROOT PrivateApplicability462.product_zero
+TRANSPORT_ROOT PrivateApplicability462.shifted_zero_refuted
+TRANSPORT_ROOT GeneratedProduct.certificate_0
+TRANSPORT_ROOT GeneratedProduct.requirement_0
+TRANSPORT_ROOT GeneratedFull.selectedSource
+TRANSPORT_ROOT GeneratedFull.requestPresent
+TRANSPORT_ROOT GeneratedProduct.initial
+TRANSPORT_ROOT GeneratedProduct.transition
+TRANSPORT_ROOT GeneratedProduct.requestPresent
+TRANSPORT_ROOT GeneratedProduct.certificate_1
+TRANSPORT_ROOT GeneratedFull.route
+TRANSPORT_ROOT GeneratedFull.requirement_0
+TRANSPORT_ROOT GeneratedImage.requestPresent
+TRANSPORT_ROOT PrivateApplicability462.product_add
+TRANSPORT_ROOT PrivateApplicability462.final_add
+TRANSPORT_ROOT GeneratedFull.observation
+TRANSPORT_ROOT GeneratedImage.route
+TRANSPORT_ROOT GeneratedProduct.weight
+TRANSPORT_ROOT PrivateApplicability462.extension
+TRANSPORT_ROOT GeneratedFull.certificate_0
+TRANSPORT_ROOT GeneratedProduct.hom
+TRANSPORT_ROOT GeneratedImage.result
+TRANSPORT_ROOT PrivateApplicability462.final_zero
+TRANSPORT_ROOT GeneratedFull.result
+TRANSPORT_AUDIT_OK GeneratedProduct.result; local roots: 27
+REQUIREMENT GeneratedFinal.requirement_0: weight 0 = 0
+REQUIREMENT GeneratedFinal.requirement_1: ∀ (a b : ℕ × ℕ), weight (a + b) = weight a + weight b
+GeneratedFinal.initial : Resources.Measured ℤ (ℕ × ℕ)
+GeneratedFinal.transition : ℤ → ℤ → Resources.Measured ℤ (ℕ × ℕ)
+GeneratedFinal.weight : ℕ × ℕ → ℕ
+GeneratedFinal.initial : Resources.Measured ℤ (ℕ × ℕ)
+GeneratedFinal.transition : ℤ → ℤ → Resources.Measured ℤ (ℕ × ℕ)
+GeneratedFinal.weight : ℕ × ℕ → ℕ
+TRANSPORT_ROOT GeneratedProduct.result
+TRANSPORT_ROOT GeneratedFinal.requirement_1
+TRANSPORT_ROOT GeneratedProduct.requirement_1
+TRANSPORT_ROOT GeneratedImage.selectedSource
+TRANSPORT_ROOT PrivateApplicability462.product_zero
+TRANSPORT_ROOT GeneratedFinal.requestPresent
+TRANSPORT_ROOT GeneratedFinal.certificate_1
+TRANSPORT_ROOT PrivateApplicability462.shifted_zero_refuted
+TRANSPORT_ROOT GeneratedProduct.certificate_0
+TRANSPORT_ROOT GeneratedProduct.requirement_0
+TRANSPORT_ROOT GeneratedFull.selectedSource
+TRANSPORT_ROOT GeneratedFinal.requirement_0
+TRANSPORT_ROOT GeneratedFull.requestPresent
+TRANSPORT_ROOT GeneratedProduct.initial
+TRANSPORT_ROOT GeneratedProduct.transition
+TRANSPORT_ROOT GeneratedProduct.requestPresent
+TRANSPORT_ROOT GeneratedProduct.certificate_1
+TRANSPORT_ROOT GeneratedFull.route
+TRANSPORT_ROOT GeneratedFull.requirement_0
+TRANSPORT_ROOT GeneratedFinal.weight
+TRANSPORT_ROOT GeneratedImage.requestPresent
+TRANSPORT_ROOT PrivateApplicability462.product_add
+TRANSPORT_ROOT PrivateApplicability462.final_add
+TRANSPORT_ROOT GeneratedFinal.result
+TRANSPORT_ROOT GeneratedFull.observation
+TRANSPORT_ROOT GeneratedImage.route
+TRANSPORT_ROOT GeneratedProduct.weight
+TRANSPORT_ROOT GeneratedFinal.hom
+TRANSPORT_ROOT PrivateApplicability462.extension
+TRANSPORT_ROOT GeneratedFull.certificate_0
+TRANSPORT_ROOT GeneratedProduct.hom
+TRANSPORT_ROOT GeneratedImage.result
+TRANSPORT_ROOT GeneratedFinal.initial
+TRANSPORT_ROOT GeneratedFinal.transition
+TRANSPORT_ROOT GeneratedFinal.certificate_0
+TRANSPORT_ROOT PrivateApplicability462.final_zero
+TRANSPORT_ROOT GeneratedFull.result
+TRANSPORT_AUDIT_OK GeneratedFinal.result; local roots: 37
+TRANSPORT_ROOT GeneratedProduct.result
+TRANSPORT_ROOT GeneratedFinal.requirement_1
+TRANSPORT_ROOT GeneratedProduct.requirement_1
+TRANSPORT_ROOT GeneratedImage.selectedSource
+TRANSPORT_ROOT PrivateApplicability462.product_zero
+TRANSPORT_ROOT GeneratedFinal.requestPresent
+TRANSPORT_ROOT GeneratedFinal.certificate_1
+TRANSPORT_ROOT PrivateApplicability462.shifted_zero_refuted
+TRANSPORT_ROOT GeneratedProduct.certificate_0
+TRANSPORT_ROOT PrivateGeneratedConsumers462.image_excludes_none
+TRANSPORT_ROOT GeneratedProduct.requirement_0
+TRANSPORT_ROOT PrivateGeneratedConsumers462.image_code
+TRANSPORT_ROOT GeneratedFull.selectedSource
+TRANSPORT_ROOT GeneratedFinal.requirement_0
+TRANSPORT_ROOT PrivateGeneratedConsumers462.empty
+TRANSPORT_ROOT GeneratedFull.requestPresent
+TRANSPORT_ROOT PrivateGeneratedConsumers462.image_value
+TRANSPORT_ROOT GeneratedProduct.initial
+TRANSPORT_ROOT GeneratedProduct.transition
+TRANSPORT_ROOT PrivateGeneratedConsumers462.omitted_input
+TRANSPORT_ROOT GeneratedProduct.requestPresent
+TRANSPORT_ROOT GeneratedProduct.certificate_1
+TRANSPORT_ROOT GeneratedFull.route
+TRANSPORT_ROOT GeneratedFull.requirement_0
+TRANSPORT_ROOT GeneratedFinal.weight
+TRANSPORT_ROOT GeneratedImage.requestPresent
+TRANSPORT_ROOT PrivateApplicability462.product_add
+TRANSPORT_ROOT PrivateGeneratedConsumers462.not_onto
+TRANSPORT_ROOT GeneratedFinal.result
+TRANSPORT_ROOT PrivateGeneratedConsumers462.full_witness
+TRANSPORT_ROOT PrivateApplicability462.final_add
+TRANSPORT_ROOT GeneratedFull.observation
+TRANSPORT_ROOT PrivateGeneratedConsumers462.full_code
+TRANSPORT_ROOT PrivateGeneratedConsumers462.second_execution
+TRANSPORT_ROOT GeneratedImage.route
+TRANSPORT_ROOT PrivateGeneratedConsumers462.wrong_source
+TRANSPORT_ROOT GeneratedProduct.weight
+TRANSPORT_ROOT GeneratedFinal.hom
+TRANSPORT_ROOT PrivateGeneratedConsumers462.image_representation
+TRANSPORT_ROOT GeneratedFull.certificate_0
+TRANSPORT_ROOT PrivateGeneratedConsumers462.two
+TRANSPORT_ROOT GeneratedProduct.hom
+TRANSPORT_ROOT PrivateApplicability462.extension
+TRANSPORT_ROOT PrivateGeneratedConsumers462.full_representation
+TRANSPORT_ROOT PrivateGeneratedConsumers462.product_execution
+TRANSPORT_ROOT PrivateGeneratedConsumers462.composed_execution
+TRANSPORT_ROOT GeneratedFinal.initial
+TRANSPORT_ROOT GeneratedImage.result
+TRANSPORT_ROOT GeneratedFinal.transition
+TRANSPORT_ROOT PrivateGeneratedConsumers462.composed_observation
+TRANSPORT_ROOT GeneratedFinal.certificate_0
+TRANSPORT_ROOT PrivateApplicability462.final_zero
+TRANSPORT_ROOT GeneratedFull.result
+TRANSPORT_AUDIT_OK PrivateGeneratedConsumers462.composed_observation; local roots: 53

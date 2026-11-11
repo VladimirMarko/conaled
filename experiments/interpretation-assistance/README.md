@@ -79,7 +79,9 @@ through the same runner. The coordinator separately runs `--state STATE --watch
 AUTHOR_OUTPUT` to retain a cutoff snapshot. This is cooperative experimental
 access control, not an OS sandbox. Authors may not bypass/reset the runner.
 
-No author trial has run. The [protocol](protocol.md) and its readiness gates
-must be completed and independently reviewed before dispatch. The implementer
-has seen task descriptions, but not private solutions or their transcripts;
-they are held-out proof/application clients, not blind discovery tasks.
+The frozen author trial and its complete evidence are in [trial/](trial/README.md).
+The direct arm used 3 actual Lean invocations and the assisted arm 13, including
+all internal CLI checks. Both final submissions meet the task contracts under
+independent statement review. Actual generated applications were used; this
+small comparison does not establish a productivity advantage. The original
+prospective protocol and source freeze remain archived unchanged.

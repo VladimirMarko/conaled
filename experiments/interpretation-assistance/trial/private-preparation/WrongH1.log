@@ -1,0 +1,7 @@
+/tmp/conaled-wave-20261111/462-private-reference/WrongH1.lean:5:2: error: Tactic `rfl` failed: The left-hand side
+  sourceEval true a
+is not definitionally equal to the right-hand side
+  diagonal sourceEval sourceStep a
+
+a : Bool
+⊢ sourceEval true a = diagonal sourceEval sourceStep a

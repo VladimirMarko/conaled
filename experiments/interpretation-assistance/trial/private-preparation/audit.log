@@ -1,0 +1,26 @@
+[0mdirenv: loading /tmp/conaled-wave-20261111/462-private-reference/checkout/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+PrivateAudit462.lean:154:0: error: Unknown option `trace.ProofAudit.roots`
+Proof audit: 1139 kernel-safe declarations, 519 theorem declarations, 17 project modules.
+  FirstOrder: 370 logical declarations; 147 theorem declarations; 0 unsafe runtime declarations
+  Squares: 95 logical declarations; 40 theorem declarations; 0 unsafe runtime declarations
+  Examples.PrivateReference462: 57 logical declarations; 42 theorem declarations; 0 unsafe runtime declarations
+  Examples.RecursiveCompilation: 38 logical declarations; 22 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Arithmetic: 36 logical declarations; 8 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.DiagonalConstruction: 71 logical declarations; 35 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.DiagonalCoverage: 11 logical declarations; 7 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.ListFoldCompiler: 123 logical declarations; 41 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.ListFusion: 12 logical declarations; 12 theorem declarations; 0 unsafe runtime declarations
+  SquareKit.Relations: 77 logical declarations; 31 theorem declarations; 0 unsafe runtime declarations
+  Applications.Optimization.Basic: 19 logical declarations; 10 theorem declarations; 0 unsafe runtime declarations
+  Applications.Optimization.Relations: 12 logical declarations; 5 theorem declarations; 0 unsafe runtime declarations
+  Applications.Progress.Evaluation: 55 logical declarations; 24 theorem declarations; 0 unsafe runtime declarations
+  Applications.Progress.Streams: 78 logical declarations; 37 theorem declarations; 0 unsafe runtime declarations
+  Applications.Resources.FoldCompiler: 49 logical declarations; 33 theorem declarations; 0 unsafe runtime declarations
+  Applications.Resources.Measured: 17 logical declarations; 12 theorem declarations; 0 unsafe runtime declarations
+  Applications.Resources.Workload: 19 logical declarations; 13 theorem declarations; 0 unsafe runtime declarations
+Excluded from logical roots: 0 kernel-unsafe runtime declarations.
+Transitive axiom union: [propext, Classical.choice, Quot.sound]
+Proof audit PASSED: every kernel-safe project declaration uses only the three permitted foundational axioms.
+PrivateAudit462.lean:154:0: error: linter Mathlib.Linter.HashCommandLinter.hashCommandLinter✝ failed: Unknown option `trace.ProofAudit.roots`

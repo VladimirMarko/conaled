@@ -1,0 +1,206 @@
+diff --git a/docs/research/interpretation-assistance.md b/docs/research/interpretation-assistance.md
+index 2069682c..94ed5720 100644
+--- a/docs/research/interpretation-assistance.md
++++ b/docs/research/interpretation-assistance.md
+@@ -90,3 +90,11 @@ Retain the finite diagnostic as an experiment pending that comparison.
+ #235/#290 own any broader interface adoption, general search or framework
+ migration. Those decisions remain deferred while the owner is absent. #109's
+ recursion/compiler contracts and the native direct routes remain unchanged.
++
++Independent readiness review found that certificate-phase process failures were
++initially reported as rejected evidence (462-SPEC-1). The corrected runner path
++separates budget refusal, ordinary Lean error diagnostics and infrastructure
++failures. Actual tests first complete request checking, then make the launcher
++unexecutable, terminate the checker, or corrupt the runner state. These remain
++checker failures; ordinary type/audit rejection remains rejected evidence. The
++prototype freeze was renewed after this correction, before any author dispatch.
+diff --git a/experiments/interpretation-assistance/README.md b/experiments/interpretation-assistance/README.md
+index 1b881a64..4225de9f 100644
+--- a/experiments/interpretation-assistance/README.md
++++ b/experiments/interpretation-assistance/README.md
+@@ -54,7 +54,10 @@ The omitted-code case rejects full-target extension but the image-only route
+ retains a representative on a narrower input domain. The erasure case checks
+ failure of injectivity of the witness projection, not impossibility of selecting
+ some representative. The resource result observes value and mapped modeled
+-charges, not CPU time. Requirement inspection is an actual Lean invocation;
++charges, not CPU time. Lean JSON diagnostics distinguish ordinary certificate errors from abnormal
++process exits or a runner failure without a Lean error. Runner infrastructure
++exit 74, signal termination and missing audit confirmation remain checker
++failures, including during certificate validation. Requirement inspection is an actual Lean invocation;
+ each certificate and final application are checked separately.
+ 
+ Run real executable tests with a new output directory:
+diff --git a/experiments/interpretation-assistance/prototype-freeze.json b/experiments/interpretation-assistance/prototype-freeze.json
+index a3c6ba89..d0c059f8 100644
+--- a/experiments/interpretation-assistance/prototype-freeze.json
++++ b/experiments/interpretation-assistance/prototype-freeze.json
+@@ -3,15 +3,15 @@
+   "baseline": "2b3b344b69c4e56324c8de2eb566ee0f8aef129b",
+   "toolchain": "leanprover/lean4:v4.35.0",
+   "files": {
+-    "scripts/interpretation-assist.py": "d1eb485fe0cbe19ba8cb9f8dc7eaa03a4a3d5761c08745befd34e7701d292812",
+-    "scripts/interpretation-trial-check.py": "bcb24eb8817c871adab3838484e2935d7badc4d82bcb126486c5db58056909bf",
+-    "scripts/test-interpretation-assist.py": "6d76a1b373eaeeca9bacc5287acb7356bc919ca3af50ef416da23fd7bad65cb6",
++    "scripts/interpretation-assist.py": "4a14d650519e83694fafb02dcedf2bc816f85654a9a9fb74b90c847079f14767",
++    "scripts/interpretation-trial-check.py": "48797481bf6a74e58997ca41f0b702c4e3f694e7206ee87d2cce40e1c235dd9f",
++    "scripts/test-interpretation-assist.py": "ff18a3ba06118a4f99f0250bd03ebe239bfee69e98c1860661e72ac147bea951",
+     "SquareKit/InterpretationAssistance.lean": "c6b26f243f8ff90b8b3075e558c4cd614ffc1f4ada567a4a4cc320eabd27561c",
+     "SquareKit/InterpretationDiagnostics.lean": "fe12aa39071ba4adca312f536919367ae5d6cddd73a34345b6b37689cec18fee",
+     "experiments/interpretation-assistance/registry.json": "3fd5cff4264df1c3d21478e1745c5f7cd399b8d7eee65c1d33bd92d66f33ad2f",
+-    "experiments/interpretation-assistance/README.md": "d551de9e89496f4f440df1e2e0e7823f189d124ecb3e631fb20ecfac8ca1126a",
+-    "experiments/interpretation-assistance/protocol.md": "fe06c072b789e7b4985dd43ecef49a0edfcc9a8b8cece032c68fef3060f36d77",
+-    "docs/research/interpretation-assistance.md": "abbe3c18781e1c826c6bbfc02663bed26e2f4b478f0c1f8122a0c35c8c1a6ece"
++    "experiments/interpretation-assistance/README.md": "4e9825ae8012541da5a3dd6f84269386ba142f7471f2c3e7b11f048d910779c7",
++    "experiments/interpretation-assistance/protocol.md": "80fc707b078b1ade859b287626ce235d9fc908ad3e7abe058211214c8d40ef6c",
++    "docs/research/interpretation-assistance.md": "4345b3d43fa1ffdbf310a565061e7caf25ac37b021669752e9afc51533cbd1ce"
+   },
+   "launch_blockers": [
+     "independent prototype/protocol readiness review",
+@@ -19,5 +19,7 @@
+     "exact task manifest, prompts, allowlists, environment and author paths",
+     "coordinator state/watchdog schedule"
+   ],
+-  "tests": "All real CLI/audit and external budget/support cases passed; external log 462-tests-5.log and receipts 462-preparation/tests-5."
++  "tests": "Real CLI/audit/budget/support and actual infrastructure/termination/runner failure cases passed; 462-tests-9.log and 462-preparation/tests-9.",
++  "supersedes_checkpoint": "e8704a20e97dd01d2e7736df73322cdeec6276e0",
++  "review_fix": "462-SPEC-1: distinguish actual checker/runner failure from evidence rejection"
+ }
+diff --git a/scripts/interpretation-assist.py b/scripts/interpretation-assist.py
+index b3c04e4f..6b430c4a 100644
+--- a/scripts/interpretation-assist.py
++++ b/scripts/interpretation-assist.py
+@@ -14,6 +14,14 @@ ROOT = Path(__file__).resolve().parents[1]
+ DEFAULT = ROOT / 'experiments/interpretation-assistance/registry.json'
+ 
+ 
++class BudgetExhausted(Exception):
++    pass
++
++
++class CheckerFailure(Exception):
++    pass
++
++
+ def digest(data):
+     return hashlib.sha256(data).hexdigest()
+ 
+@@ -100,16 +108,31 @@ def main():
+         path.write_text(source + '\nend Requested\n')
+         command = ([sys.executable, str(ROOT / 'scripts/interpretation-trial-check.py'),
+                     '--state', str(args.budget.resolve()), '--source', str(path)]
+-                   if args.budget else ['lake', 'env', 'lean', str(path)])
++                   if args.budget else ['lake', 'env', 'lean', '--json', str(path)])
+         started = now()
+         proc = subprocess.run(command, cwd=ROOT, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+         log = args.out / (label + '.log')
+         log.write_text(proc.stdout)
+         record['checks'].append({'phase': label, 'command': command, 'source_sha256': digest(path.read_bytes()),
+-                                 'started': started, 'finished': now(), 'exit': proc.returncode, 'checker_started': proc.returncode != 75, 'log': str(log)})
++                                 'started': started, 'finished': now(), 'exit': proc.returncode, 'checker_started': proc.returncode not in (74, 75), 'log': str(log)})
+         if proc.returncode == 75:
+-            raise RuntimeError('External trial budget exhausted; no further Lean process started.')
+-        return proc.returncode == 0 and 'TRANSPORT_AUDIT_OK' in proc.stdout
++            raise BudgetExhausted('External trial budget exhausted; no further Lean process started.')
++        if proc.returncode not in (0, 1):
++            raise CheckerFailure(f'Checker process failed during {label} with exit {proc.returncode}; no evidence rejection is inferred.')
++        if proc.returncode == 0 and 'TRANSPORT_AUDIT_OK' not in proc.stdout:
++            raise CheckerFailure(f'Checker produced no audit confirmation during {label}.')
++        if proc.returncode == 1:
++            messages = []
++            for line in proc.stdout.splitlines():
++                try:
++                    message = json.loads(line)
++                except ValueError:
++                    continue
++                if isinstance(message, dict):
++                    messages.append(message)
++            if not any(message.get('severity') == 'error' for message in messages):
++                raise CheckerFailure(f'Checker exited 1 without a Lean error diagnostic during {label}.')
++        return proc.returncode == 0
+ 
+     try:
+         raw = args.registry.read_bytes()
+@@ -172,9 +195,9 @@ def main():
+         if not check('result', source):
+             return finish('checker failure', 'Checked inputs did not produce an audited result; inspect generated schema application.')
+         return finish('checked', 'Generated result and every local logical declaration passed Lean and the axiom audit. See result.lean and result.log.')
+-    except RuntimeError as error:
++    except BudgetExhausted as error:
+         return finish('budget exhausted', str(error))
+-    except (OSError, ValueError, KeyError, subprocess.CalledProcessError) as error:
++    except (CheckerFailure, OSError, ValueError, KeyError, subprocess.CalledProcessError) as error:
+         return finish('checker failure', str(error))
+ 
+ 
+diff --git a/scripts/interpretation-trial-check.py b/scripts/interpretation-trial-check.py
+index ce5d06b0..3ee1bcb5 100644
+--- a/scripts/interpretation-trial-check.py
++++ b/scripts/interpretation-trial-check.py
+@@ -71,7 +71,7 @@ def main():
+         attempt.mkdir(exist_ok=False)
+         snapshot = attempt / 'source.lean'
+         snapshot.write_bytes(args.source.read_bytes())
+-        command = ['lake', 'env', 'lean', str(snapshot)]
++        command = ['lake', 'env', 'lean', '--json', str(snapshot)]
+         record = {'started': stamp(), 'command': command, 'original_source': str(args.source.resolve()),
+                   'source_sha256': hashlib.sha256(snapshot.read_bytes()).hexdigest(), 'round': state['count']}
+         try:
+diff --git a/scripts/test-interpretation-assist.py b/scripts/test-interpretation-assist.py
+index 41ba5d10..6eaccac1 100644
+--- a/scripts/test-interpretation-assist.py
++++ b/scripts/test-interpretation-assist.py
+@@ -95,3 +95,54 @@ support.write_text('theorem supplied : Examples.DiagonalCoverage.good.Extension
+ run('support', 'missing', 'checked', '--support', str(support), '--certificate', 'extension=supplied')
+ (a.out / 'summary.json').write_text(json.dumps(results, indent=2)+'\n')
+ print('External budgets, cutoff snapshot and author-supplied certificate also passed.')
++
++# Inject real process failures after a successful request check. A PATH launcher
++# forwards to the real Lake/Lean; it never fabricates a successful checker result.
++import os
++import shutil
++lake = shutil.which('lake')
++for mode in ('infrastructure', 'terminated', 'runner'):
++    fault = a.out / ('fault-' + mode)
++    fault.mkdir()
++    launcher = fault / 'lake'
++    launcher.write_text(f'''#!{sys.executable}
++import os, pathlib, signal, subprocess, sys, time
++command = [{lake!r}, *sys.argv[1:]]
++source = pathlib.Path(sys.argv[-1])
++first = source.parent.name == 'round-001'
++if first:
++    proc = subprocess.run(command)
++    if {mode!r} == 'infrastructure':
++        pathlib.Path(__file__).chmod(0)
++    if {mode!r} == 'runner':
++        (source.parent.parent / 'state.json').write_text('invalid state')
++    sys.exit(proc.returncode)
++proc = subprocess.Popen(command, start_new_session=True)
++time.sleep(0.1)
++os.killpg(proc.pid, signal.SIGTERM)
++proc.wait()
++os.kill(os.getpid(), signal.SIGTERM)
++''')
++    launcher.chmod(0o755)
++    state = fault / 'budget/state.json'
++    subprocess.run([sys.executable, str(runner), '--state', str(state), '--initialize'], check=True)
++    out = fault / 'request'
++    for tool in ('lean', 'git', 'dirname'):
++        (fault / tool).symlink_to(shutil.which(tool))
++    env = dict(os.environ, PATH=str(fault.resolve()))
++    proc = subprocess.run([sys.executable, str(ROOT / 'scripts/interpretation-assist.py'), 'extension',
++                           '--out', str(out), '--budget', str(state)], cwd=ROOT, env=env,
++                          capture_output=True, text=True)
++    (fault / 'cli.log').write_text(proc.stdout + proc.stderr)
++    receipt = json.loads((out / 'receipt.json').read_text())
++    assert receipt['checks'][0]['exit'] == 0
++    assert receipt['status'] == 'checker failure', receipt
++    if mode == 'runner':
++        assert receipt['checks'][-1]['exit'] == 1
++    else:
++        assert receipt['checks'][-1]['exit'] not in (0, 1, 75), receipt
++    if mode == 'infrastructure':
++        assert receipt['checks'][-1]['exit'] == 74
++    results.append({'name': mode + '-during-certificate', 'status': receipt['status'], 'checks': len(receipt['checks'])})
++(a.out / 'summary.json').write_text(json.dumps(results, indent=2)+'\n')
++print('Actual infrastructure failure, terminated checker and broken runner remain checker failures.')

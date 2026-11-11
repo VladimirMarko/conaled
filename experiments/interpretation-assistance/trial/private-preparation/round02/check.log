@@ -1,0 +1,28 @@
+[0mdirenv: loading /tmp/conaled-wave-20261111/462-private-reference/checkout/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+⚠ [154/729] Replayed SquareKit.DiagonalConstruction
+warning: SquareKit/DiagonalConstruction.lean: imports `Mathlib.Logic.Function.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SquareKit/DiagonalConstruction.lean: imports `Mathlib.Logic.Equiv.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+ℹ [156/729] Replayed FirstOrder
+info: FirstOrder.lean:351:0: 'FirstOrderCompiler.compile_sound' depends on axioms: [propext]
+info: FirstOrder.lean:352:0: 'FirstOrderCompiler.everyTerm_additive' depends on axioms: [propext]
+info: FirstOrder.lean:353:0: 'FirstOrderCompiler.letExample_all' depends on axioms: [propext]
+info: FirstOrder.lean:354:0: 'FirstOrderCompiler.no_exponential' depends on axioms: [propext, Quot.sound]
+⚠ [531/729] Replayed SquareKit.ListFusion
+warning: SquareKit/ListFusion.lean: imports `Mathlib.Data.List.Infix` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [593/729] Replayed Applications.Resources.Measured
+warning: Applications/Resources/Measured.lean: imports `Mathlib.Algebra.Group.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Resources/Measured.lean: imports `Mathlib.Algebra.Order.Monoid.Unbundled.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [740/757] Replayed Applications.Optimization.Basic
+warning: Applications/Optimization/Basic.lean: imports `Mathlib.Order.Filter.Extr` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Applications/Optimization/Basic.lean: imports `Mathlib.Order.Hom.CompleteLattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [751/757] Replayed SquareKit.Arithmetic
+warning: SquareKit/Arithmetic.lean: imports `Mathlib.Data.Int.Cast.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SquareKit/Arithmetic.lean: imports `Mathlib.Algebra.Ring.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [756/757] Replayed Examples.RecursiveCompilation
+warning: Examples/RecursiveCompilation.lean: imports `Mathlib.Algebra.Ring.Int.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+info: Examples/RecursiveCompilation.lean:158:0: (4, 7)
+info: Examples/RecursiveCompilation.lean:159:0: (14, 10)
+✔ [757/757] Built Examples.PrivateReference462 (846ms)
+Build completed successfully (757 jobs).

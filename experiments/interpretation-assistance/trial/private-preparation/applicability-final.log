@@ -1,0 +1,125 @@
+{
+  "route": "H2-final",
+  "started": "2026-11-11T18:20:31.752493+00:00",
+  "checks": [
+    {
+      "phase": "requirements",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "/tmp/conaled-wave-20261111/462-private-reference/applicability/final/requirements.lean"
+      ],
+      "source_sha256": "7dfa513cacdd345c035e015bd86b4def806d75a4ece2da4fe9bb6a013b3296a0",
+      "started": "2026-11-11T18:20:31.779491+00:00",
+      "finished": "2026-11-11T18:20:32.703629+00:00",
+      "exit": 0,
+      "checker_started": true,
+      "log": "/tmp/conaled-wave-20261111/462-private-reference/applicability/final/requirements.log"
+    },
+    {
+      "phase": "certificate_zero",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "/tmp/conaled-wave-20261111/462-private-reference/applicability/final/certificate_zero.lean"
+      ],
+      "source_sha256": "2396e66bbc70cfab3cac8ad8719810896fdd3ea06bb782f341eb6658dedd9a50",
+      "started": "2026-11-11T18:20:32.703690+00:00",
+      "finished": "2026-11-11T18:20:33.625424+00:00",
+      "exit": 0,
+      "checker_started": true,
+      "log": "/tmp/conaled-wave-20261111/462-private-reference/applicability/final/certificate_zero.log"
+    },
+    {
+      "phase": "certificate_add",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "/tmp/conaled-wave-20261111/462-private-reference/applicability/final/certificate_add.lean"
+      ],
+      "source_sha256": "7bdcdd8dff1491ab3d30d4f5220ca5433df257464e03e43bfe65c32a7be9add5",
+      "started": "2026-11-11T18:20:33.625491+00:00",
+      "finished": "2026-11-11T18:20:34.561393+00:00",
+      "exit": 0,
+      "checker_started": true,
+      "log": "/tmp/conaled-wave-20261111/462-private-reference/applicability/final/certificate_add.log"
+    },
+    {
+      "phase": "result",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "/tmp/conaled-wave-20261111/462-private-reference/applicability/final/result.lean"
+      ],
+      "source_sha256": "afc99ef24a4870e7cbb4beff928a2cef168b37cdcfcdace9068c0cbccba384aa",
+      "started": "2026-11-11T18:20:34.561455+00:00",
+      "finished": "2026-11-11T18:20:35.504776+00:00",
+      "exit": 0,
+      "checker_started": true,
+      "log": "/tmp/conaled-wave-20261111/462-private-reference/applicability/final/result.log"
+    }
+  ],
+  "status": "checked",
+  "registry_sha256": "4429dd02eb452c01cfd4a6023d01b9ad2afe41bf940b06826415f759aab8901a",
+  "implementation_sha256": "4a14d650519e83694fafb02dcedf2bc816f85654a9a9fb74b90c847079f14767",
+  "checker_source_sha256": "fe12aa39071ba4adca312f536919367ae5d6cddd73a34345b6b37689cec18fee",
+  "toolchain": "leanprover/lean4:v4.35.0",
+  "dependency_manifest_sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+  "git_head": "2b3b344b69c4e56324c8de2eb566ee0f8aef129b",
+  "compiler": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "request": {
+    "construction": "H2 product-observed total seed and transitions",
+    "target": "Nat final observation",
+    "observation": "unchanged value and mapped modeled cost",
+    "imports": [
+      "TaskSetup462"
+    ],
+    "schema": "resource",
+    "data": {
+      "sourceCost": "Nat \u00d7 Nat",
+      "targetCost": "Nat",
+      "state": "Int",
+      "input": "Int",
+      "map": "Tasks462.H2.finalWeight",
+      "seed": "Resources.reweight Tasks462.H2.productWeight Tasks462.H2.compiledSeed",
+      "step": "fun x acc => Resources.reweight Tasks462.H2.productWeight (Tasks462.H2.transition x acc)"
+    }
+  },
+  "available_expressions": [
+    "initial",
+    "transition",
+    "weight"
+  ],
+  "support_sha256": "b85e0666ad6d8b29d8578c67bcc55fbd05f8abd67036307d7ab2025b73888025",
+  "obligations": [
+    {
+      "id": "zero",
+      "requested_type": "weight 0 = 0",
+      "declaration": "Requested.requirement_0"
+    },
+    {
+      "id": "add",
+      "requested_type": "\u2200 a b : (Nat \u00d7 Nat), weight (a+b) = weight a + weight b",
+      "declaration": "Requested.requirement_1"
+    }
+  ],
+  "supplied_certificates": {
+    "zero": "PrivateApplicability462.final_zero",
+    "add": "PrivateApplicability462.final_add"
+  },
+  "retained_expressions": [
+    "initial",
+    "transition",
+    "weight"
+  ],
+  "detail": "Generated result and every local logical declaration passed Lean and the axiom audit. See result.lean and result.log.",
+  "finished": "2026-11-11T18:20:35.504789+00:00"
+}

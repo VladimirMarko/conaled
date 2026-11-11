@@ -1,0 +1,22 @@
+--- ProofAudit.lean
++++ TrialAudit.lean
+@@ -1,4 +1,4 @@
+-import SquareApplications
++import Lean
+ import Lean.Util.CollectAxioms
+ import Lean.DeclarationRange
+ 
+@@ -43,7 +43,7 @@
+ initialize registerTraceClass `ProofAudit.roots
+ 
+ private def foundationModules : Array Name :=
+-  #[`Squares, `Compiler, `SquareCompiler, `FirstOrder, `Dependent, `Verification]
++  #[`Squares, `Compiler, `SquareCompiler, `FirstOrder, `Dependent, `Verification, `TaskSetup462]
+ 
+ /-- Filter module origins, never the spelling of declaration names. -/
+ private def isProjectModule (moduleName : Name) : Bool :=
+@@ -151,4 +151,3 @@
+ 
+ end ProofAudit
+ 
+-#audit_project_axioms

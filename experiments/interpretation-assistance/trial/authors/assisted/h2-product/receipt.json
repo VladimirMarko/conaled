@@ -1,0 +1,129 @@
+{
+  "route": "H2-product",
+  "started": "2026-11-11T18:29:46.407768+00:00",
+  "checks": [
+    {
+      "phase": "requirements",
+      "command": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/handoffs/assisted/scripts/interpretation-trial-check.py",
+        "--state",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/control/assisted/state.json",
+        "--source",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/author-output/assisted/h2-product/requirements.lean"
+      ],
+      "source_sha256": "8d6ca34a04d1794c3685b0e40c2d631af4faba304189d3ba13101259af24dd6f",
+      "started": "2026-11-11T18:29:46.433538+00:00",
+      "finished": "2026-11-11T18:29:47.420049+00:00",
+      "exit": 0,
+      "checker_started": true,
+      "log": "/tmp/conaled-wave-20261111/462-trial-preparation/author-output/assisted/h2-product/requirements.log"
+    },
+    {
+      "phase": "certificate_zero",
+      "command": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/handoffs/assisted/scripts/interpretation-trial-check.py",
+        "--state",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/control/assisted/state.json",
+        "--source",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/author-output/assisted/h2-product/certificate_zero.lean"
+      ],
+      "source_sha256": "41f67636778f80c1b4b553d85a633632b841ad80af3303e2be66fe0bcaca2088",
+      "started": "2026-11-11T18:29:47.420140+00:00",
+      "finished": "2026-11-11T18:29:48.379924+00:00",
+      "exit": 0,
+      "checker_started": true,
+      "log": "/tmp/conaled-wave-20261111/462-trial-preparation/author-output/assisted/h2-product/certificate_zero.log"
+    },
+    {
+      "phase": "certificate_add",
+      "command": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/handoffs/assisted/scripts/interpretation-trial-check.py",
+        "--state",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/control/assisted/state.json",
+        "--source",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/author-output/assisted/h2-product/certificate_add.lean"
+      ],
+      "source_sha256": "68981d4427a35a404fab8eeb8442650847d633f57357ee57df0c6378271f6c6f",
+      "started": "2026-11-11T18:29:48.380002+00:00",
+      "finished": "2026-11-11T18:29:49.352150+00:00",
+      "exit": 0,
+      "checker_started": true,
+      "log": "/tmp/conaled-wave-20261111/462-trial-preparation/author-output/assisted/h2-product/certificate_add.log"
+    },
+    {
+      "phase": "result",
+      "command": [
+        "/nix/store/jy00n3jp5xj8s40n1fbldmkcr5n7avxc-python3-3.13.15/bin/python3",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/handoffs/assisted/scripts/interpretation-trial-check.py",
+        "--state",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/control/assisted/state.json",
+        "--source",
+        "/tmp/conaled-wave-20261111/462-trial-preparation/author-output/assisted/h2-product/result.lean"
+      ],
+      "source_sha256": "af08ca19ccd64ce9140c391e597cf5de9107d7753aa80a31f383a9130c33bf17",
+      "started": "2026-11-11T18:29:49.352229+00:00",
+      "finished": "2026-11-11T18:29:50.338438+00:00",
+      "exit": 0,
+      "checker_started": true,
+      "log": "/tmp/conaled-wave-20261111/462-trial-preparation/author-output/assisted/h2-product/result.log"
+    }
+  ],
+  "status": "checked",
+  "registry_sha256": "4429dd02eb452c01cfd4a6023d01b9ad2afe41bf940b06826415f759aab8901a",
+  "implementation_sha256": "4a14d650519e83694fafb02dcedf2bc816f85654a9a9fb74b90c847079f14767",
+  "checker_source_sha256": "fe12aa39071ba4adca312f536919367ae5d6cddd73a34345b6b37689cec18fee",
+  "toolchain": "leanprover/lean4:v4.35.0",
+  "dependency_manifest_sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+  "git_head": "c986ddd3e4713886802b90ebf4d35bf4f5be60e8",
+  "compiler": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "request": {
+    "construction": "H2 compiled total seed and transitions",
+    "target": "Nat product observation",
+    "observation": "unchanged value and mapped modeled cost",
+    "imports": [
+      "TaskSetup462"
+    ],
+    "schema": "resource",
+    "data": {
+      "sourceCost": "Nat",
+      "targetCost": "Nat \u00d7 Nat",
+      "state": "Int",
+      "input": "Int",
+      "map": "Tasks462.H2.productWeight",
+      "seed": "Tasks462.H2.compiledSeed",
+      "step": "Tasks462.H2.transition"
+    }
+  },
+  "available_expressions": [
+    "initial",
+    "transition",
+    "weight"
+  ],
+  "support_sha256": "f58e419a90d7bdec690efdbf47c53d1786997db1d476a597728719713a7d8613",
+  "obligations": [
+    {
+      "id": "zero",
+      "requested_type": "weight 0 = 0",
+      "declaration": "Requested.requirement_0"
+    },
+    {
+      "id": "add",
+      "requested_type": "\u2200 a b : (Nat), weight (a+b) = weight a + weight b",
+      "declaration": "Requested.requirement_1"
+    }
+  ],
+  "supplied_certificates": {
+    "zero": "AssistedH2.product_zero",
+    "add": "AssistedH2.product_add"
+  },
+  "retained_expressions": [
+    "initial",
+    "transition",
+    "weight"
+  ],
+  "detail": "Generated result and every local logical declaration passed Lean and the axiom audit. See result.lean and result.log.",
+  "finished": "2026-11-11T18:29:50.338449+00:00"
+}
