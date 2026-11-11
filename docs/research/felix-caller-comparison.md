@@ -137,9 +137,13 @@ not a claim that these files are imported into the production entrypoint.
 
 [Felix final Task3](../../experiments/felix-caller-comparison/felix/Task3.agda)
 imports Task2, Task1 and Core. All four use `--safe --without-K`. Coordinator
-fresh `--ignore-interfaces` reproduction is recorded separately from the
-interface-reusing author checks. Its final receipt and independent Standards/Spec
-review remain acceptance gates until published with this report.
+fresh `--ignore-interfaces` reproduction passed for the same frozen hashes,
+including rechecking dependencies. The
+[reproduction receipt](../../experiments/felix-caller-comparison/reproduction.json)
+records both exact commands and full-log hashes. Dependency
+`UnsupportedIndexedMatch` warnings remain in the retained log; the safe caller
+modules checked successfully. Independent Standards/Spec acceptance is recorded
+by the enclosing review loop.
 
 To reproduce, use separate worktrees at the pins above and their declared Nix
 shells. Build Lean's `SquareKit.CommaProducts` and `SquareKit.FunctionCategory`
