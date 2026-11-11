@@ -736,4 +736,6 @@ import SquareKit.InterpretationDiagnostics
 import SquareKit.InterpretationAssistance
 import Examples.BehavioralGames
 
+import Examples.InteractionPrefixes
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
