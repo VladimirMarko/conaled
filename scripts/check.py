@@ -15,57 +15,10 @@ import sys
 import tempfile
 import time
 
-from lake_integrity import guard_outputs
+from lake_integrity import guard_outputs, validate_layout
 
 
 ROOT = Path(__file__).resolve().parents[1]
-IMPORT = re.compile(r"^import\s+([^\n]+)", re.MULTILINE)
-FORBIDDEN = re.compile(r"\b(sorry|admit|axiom|unsafe|partial|native_decide)\b|debug\s*\.\s*skipKernelTC")
-
-
-def executable_source(text: str) -> str:
-    """Remove Lean strings and nested comments before the source-level guard."""
-    output: list[str] = []
-    index = 0
-    depth = 0
-    string = False
-    while index < len(text):
-        if depth:
-            if text.startswith("/-", index):
-                depth += 1
-                index += 2
-            elif text.startswith("-/", index):
-                depth -= 1
-                index += 2
-            else:
-                output.append("\n" if text[index] == "\n" else " ")
-                index += 1
-        elif string:
-            if text[index] == "\\":
-                index += 2
-            elif text[index] == '"':
-                string = False
-                output.append(" ")
-                index += 1
-            else:
-                output.append("\n" if text[index] == "\n" else " ")
-                index += 1
-        elif text.startswith("--", index):
-            end = text.find("\n", index)
-            index = len(text) if end < 0 else end
-        elif text.startswith("/-", index):
-            depth = 1
-            output.append(" ")
-            index += 2
-        elif text[index] == '"':
-            string = True
-            output.append(" ")
-            index += 1
-        else:
-            output.append(text[index])
-            index += 1
-    return "".join(output)
-
 
 def compile_modules(modules, dependencies, order, lean, env, output, jobs):
     """Build ready modules with bounded concurrency; never release failed imports."""
@@ -240,17 +193,18 @@ def main() -> int:
         ".".join(path.relative_to(ROOT).with_suffix("").parts): path
         for path in sources
     }
+    # The pinned Lean parser/lexer owns all interpretation of source text.
+    version = compiler_version(args.fresh, env)
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".json") as manifest:
+        json.dump([str(path.relative_to(ROOT)) for path in modules.values()], manifest)
+        manifest.flush()
+        result = subprocess.run([env.get("LEAN", "lean"), "--run", "scripts/lean-source-info.lean", manifest.name],
+                                cwd=ROOT, env=env, capture_output=True, text=True)
+        if result.returncode:
+            raise RuntimeError(result.stdout + result.stderr)
+        imports_by_module = json.loads(result.stdout)
     dependencies: dict[str, list[str]] = {}
-    for name, path in modules.items():
-        source_text = path.read_text(encoding="utf-8")
-        forbidden = FORBIDDEN.search(executable_source(source_text))
-        if forbidden:
-            raise RuntimeError(f"Forbidden source construct in {name}: {forbidden.group(0)}")
-        imports = [
-            item
-            for match in IMPORT.finditer(source_text)
-            for item in match.group(1).split("--", 1)[0].split()
-        ]
+    for name, imports in zip(modules, imports_by_module, strict=True):
         dependencies[name] = [item for item in imports if item in modules]
         for item in imports:
             if item.startswith(("SquareKit.", "Applications.", "Examples.")) and item not in modules:
@@ -278,12 +232,22 @@ def main() -> int:
         raise RuntimeError("Public entrypoint omits source modules: " + ", ".join(sorted(omitted)))
     visit("ProofAudit")
 
-    dependency_paths = sorted((ROOT / ".lake" / "packages").glob("*/.lake/build/lib/lean"))
-    mathlib = ROOT / ".lake/packages/mathlib/.lake/build/lib/lean/Mathlib"
-    if not mathlib.is_dir():
-        raise RuntimeError("Mathlib build cache is missing. Run `lake exe cache get` first.")
+    validate_layout(ROOT)
+    # Lake resolves the configured dependency environment. Fresh mode replaces
+    # only the project's output path, never admitting cached project artifacts.
+    lake_path = subprocess.check_output(["lake", "env", "printenv", "LEAN_PATH"],
+                                        cwd=ROOT, env=env, text=True).strip()
+    project_output = (ROOT / ".lake/build/lib/lean").resolve()
+    dependency_paths = []
+    for entry in lake_path.split(os.pathsep):
+        if not entry:
+            continue
+        path = Path(entry)
+        if not path.is_absolute():
+            path = ROOT / path
+        if path.resolve() != project_output:
+            dependency_paths.append(path)
     lean = env.get("LEAN", "lean")
-    version = compiler_version(args.fresh, env)
     print(version, flush=True)
     if identity is not None:
         identity["compiler"] = version

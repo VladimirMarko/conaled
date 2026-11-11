@@ -161,6 +161,14 @@ The first command obtains the pinned dependencies and their compiled cache.
 public-entrypoint coverage, builds every integrated module with stock Lake's
 incremental dependency tracking, then executes `ProofAudit.lean`. The exhaustive
 audit runs on every invocation, including when compilation is entirely cached.
+Import discovery uses the pinned Lean header parser; the source-policy guard
+uses Lean's lexer, literal and comment parsers. The preflight also rejects
+imports after initial module documentation before compiling project modules.
+Compilation remains the authority for complete syntax, including local syntax
+extensions. Python retains scheduling, coverage graph checks and candidate
+receipts, but does not parse Lean source. See the
+[native-source implementation record](docs/research/native-verification-source.md).
+
 Successful builds remain in Lake's normal output directories for later reuse.
 Lake owns incremental scheduling; this wrapper adds no persistent cache. Before
 and after the incremental build, an output-integrity guard compares project
@@ -216,7 +224,7 @@ or `--fresh --jobs N` to set a memory-appropriate limit (default: up to four).
 
 Both modes discard caller `LEAN_PATH` and verify the compiler version against
 `lean-toolchain`. Incremental mode uses Lake's configured import paths and
-compiler. Fresh mode uses only its new project outputs and dependency caches;
+compiler. Fresh mode uses only its new project outputs and dependency paths resolved by Lake;
 it also supports `LEAN=/absolute/path/to/lean`. `--jobs` and `LEAN` overrides are
 rejected outside fresh mode rather than silently ignored.
 
