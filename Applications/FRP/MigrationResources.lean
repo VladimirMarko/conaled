@@ -98,16 +98,55 @@ theorem command_work_bound (s : Session) (c : Command) : commandWork s c ≤ 10 
     | none => decide
     | some k => cases k <;> decide
 
-/-- Finite waiting assumptions are explicit. There is no deadline without them.
-This bounds the chosen drain/prepare/commit schedule, not an arbitrary scheduler. -/
+/-- Accumulate the declared command costs along the actual changing session.
+This finite analysis is not retained by the production runner. -/
+def scheduleWork : Session → List Command → Nat
+  | _,[] => 0
+  | s,c::cs => commandWork s c + scheduleWork (step s c).session cs
+
+/-- Remaining retirement cost depends on the current phase. Evaluation dispatch
+is charged in addition to the selected Circuit work. -/
+def drainWork (s : Session) : Nat := match s.flight with
+  | .idle => 0
+  | .accepted _ => 1 + tickWork s.active + 2
+  | .pending _ _ => 2
+  | .published _ _ => 1
+
+/-- Exact selected-schedule accounting, starting after request admission.
+Tick commit changes the backend's retained state before preparation is costed. -/
+theorem selected_schedule_work (old : Backend) (flight : Flight old)
+    (last : Option Bool) (target : Kind) :
+    let s : Session := ⟨old,flight,last,some target,none⟩
+    scheduleWork s (drain s ++ [.prepare 128 true true,.ownershipCommit]) =
+      drainWork s + 5 + conversionWork target := by
+  cases flight <;> simp [drain, drainWork, scheduleWork, commandWork, step] <;> omega
+
+theorem drain_work_bound (s : Session) : drainWork s ≤ 12 := by
+  rcases s with ⟨active,flight,last,request,prepared⟩
+  have h := (tick_bounds active).1
+  cases flight <;> simp only [drainWork] <;> omega
+
+/-- Finite waiting assumptions are explicit. The request command is already
+admitted before this interval; its command cost is not charged again. -/
 def pause (admissionWait schedulerWait sinkWait : Nat) (s : Session) (target : Kind) : Nat :=
-  admissionWait + schedulerWait + tickWork s.active + sinkWait + 2 +
-    (4 + conversionWork target) + 1
+  admissionWait + schedulerWait + sinkWait + drainWork s + 5 + conversionWork target
+
+/-- Pause includes precisely the selected phase's remaining operation costs,
+plus the supplied environmental waits, not merely an unrelated numeric cap. -/
+theorem pause_schedule (old : Backend) (flight : Flight old) (last : Option Bool)
+    (target : Kind) (a w sink : Nat) :
+    let s : Session := ⟨old,flight,last,some target,none⟩
+    pause a w sink s target = a + w + sink +
+      scheduleWork s (drain s ++ [.prepare 128 true true,.ownershipCommit]) := by
+  dsimp only
+  rw [selected_schedule_work]
+  simp only [pause]
+  omega
 
 theorem pause_bound (s : Session) (target : Kind) (a w sink A W S : Nat)
     (ha : a ≤ A) (hw : w ≤ W) (hs : sink ≤ S) :
-    pause a w sink s target ≤ A + W + S + 18 := by
-  have := (tick_bounds s.active).1
+    pause a w sink s target ≤ A + W + S + 19 := by
+  have := drain_work_bound s
   cases target <;> simp only [pause, conversionWork] <;> omega
 
 theorem status_frame_bound (s : Status) : ("C:" ++ statusText s ++ "\n").length ≤ 32 := by

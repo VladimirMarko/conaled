@@ -126,9 +126,21 @@ because the caller explicitly selects a target.
 commit. They require those operations, including sink acceptance, to be scheduled.
 `refusal_wait` permits every finite number of sink refusals without changing the
 session. An indefinitely blocked sink has no migration deadline; cancellation
-still preserves accepted work. `pause_bound` includes admission, scheduler and sink
-wait bounds plus the active tick and conversion/control work. It makes no claim
-about an arbitrary unfair scheduler.
+still preserves accepted work.
+
+`scheduleWork` accumulates each `commandWork` along the actual changing session.
+`selected_schedule_work` proves the exact cost of retirement followed by preparation
+and ownership commit. Retirement costs zero when idle, `1 + tickWork + 2` when
+accepted, two when pending, and one when published. The accepted case includes
+evaluation dispatch. Preparation and ownership commit add `5 + conversionWork`.
+`pause_schedule` connects this phase-dependent schedule cost to `pause`, with
+explicit admission, scheduler and sink waits. `pause_bound` gives those wait
+bounds plus at most 19 operation units. A reachable redundant accepted tick
+migrating to delay costs 18 units before waits, not 17. The modeled interval
+starts after the request command is admitted; request handling costs one separate
+command unit. The measured request-to-quiescence interval also includes that
+request's round trip, so it has a different start boundary. No bound is claimed
+for an arbitrary unfair scheduler.
 
 ## Validation boundary
 

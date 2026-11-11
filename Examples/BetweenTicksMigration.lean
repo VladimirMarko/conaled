@@ -73,4 +73,18 @@ example (p : PairState) (input : Progress.Stream Bool) :
   (FRPSpec.MigrationPair.infinite_suffix p.first (p.first,p.second)
     (Prod.ext rfl p.valid) input).2
 
+/-- A reachable redundant accepted tick costs 18 units to retire and migrate
+back: evaluation dispatch must not disappear from the pause accounting. -/
+example :
+    let s := (execute (initial .redundant)
+      (tick true ++ [.accept false,.request .delay])).1
+    scheduleWork s (drain s ++ [.prepare 128 true true,.ownershipCommit]) = 18 ∧
+      pause 0 0 0 s .delay = 18 := by decide
+example (old : Backend) (flight : Flight old) (last : Option Bool)
+    (target : Kind) (a w sink : Nat) :
+    let s : Session := ⟨old,flight,last,some target,none⟩
+    pause a w sink s target = a + w + sink +
+      scheduleWork s (drain s ++ [.prepare 128 true true,.ownershipCommit]) :=
+  pause_schedule old flight last target a w sink
+
 end Examples.BetweenTicksMigration
