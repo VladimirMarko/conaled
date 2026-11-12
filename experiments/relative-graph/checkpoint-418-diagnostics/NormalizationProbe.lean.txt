@@ -1,0 +1,16 @@
+import CachedRejections
+open ConLeche ConLeche.Cached
+set_option maxRecDepth 100000
+set_option maxHeartbeats 1000000
+set_option cbv.maxSteps 2000000
+set_option pp.deepTerms.threshold 4
+
+attribute [local cbv_opaque] mkFEnv
+attribute [local cbv_eval] mkFEnv_find? mkFEnv_env
+
+-- Deliberately expected to fail: actual #417 formatter and emitted body.
+-- This file is not an accepted theorem module; run.py checks the failure.
+example : CachedRejectionsMissing.error =
+    .invalid "unknown constant in value of graph_forward" := by
+  unfold CachedRejectionsMissing.error unresolvedConstsErrorL
+  cbv
