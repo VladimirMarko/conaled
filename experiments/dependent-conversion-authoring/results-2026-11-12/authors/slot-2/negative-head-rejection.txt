@@ -1,0 +1,5 @@
+Outcome: reject the proposed changed-head equality FuncEq newest older.
+
+The released terms are separate free function variables in the same context: newest is Func.var FVar.top, and older is Func.var (FVar.function FVar.top). Their types coincide, but that does not identify the variables. Both are already free-variable heads, with no application/lambda redex to contract. The released beta and eta rules remove application/lambda structure; they do not equate distinct free function parameters. Congruence, equivalence closure, and typed substitution transport existing equations; type equality alone is not a generating equation.
+
+Evidence retained in NegativeProof.lean: checked equality of the two types and checked literal inequality of their syntax. These are supporting observations, not a checked proof of not FuncEq. No formal inequivalence theorem or HeadTask proof is claimed. The rejection is a source-rule judgment, not uncertainty or a failed proof search. No positive derivation was manufactured. The separate IndexTask is proved using unequal computed indices and DepEq.type.

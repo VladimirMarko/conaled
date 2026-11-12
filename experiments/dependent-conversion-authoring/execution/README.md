@@ -6,7 +6,11 @@ execute the trial or claim an authoring advantage. The amended
 [protocol](../../../docs/research/dependent-conversion-authoring-protocol.md)
 remains authoritative. Preparation and final source acceptance must pass before
 exposure; the containing batch was still awaiting its final fresh receipt when
-this package was prepared.
+this package was prepared. Those prerequisites subsequently passed before
+exposure. The [dated trial report](../results-2026-11-12/README.md) now records all
+six submissions, successful focused replays and twelve passing full trial audit
+contexts. Independent report acceptance and publication are recorded at the
+exact revision on #423. The preparation and freeze history below is retained.
 
 The coordinator owns `freeze.json`, `phase-policy.json` and sealed material.
 Authors receive only their public inventory, instructions and their own work.
@@ -189,4 +193,4 @@ native source-policy/import and phase compilation receipts, per-slot warm output
 inventories, non-secret child configuration/exposure records, and coordinator
 release authorization. Record all setup effort and missing active-time data.
 Neither successful synthetic tests nor prepared directories satisfy these gates
-by themselves. No author trial has run.
+by themselves. At package preparation time, no author trial had run.

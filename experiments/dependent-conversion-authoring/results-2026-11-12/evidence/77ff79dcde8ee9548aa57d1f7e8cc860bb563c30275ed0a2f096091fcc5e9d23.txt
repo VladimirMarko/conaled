@@ -1,0 +1,14 @@
+/tmp/conaled-wave-20261111/423-trial-execution/slot-3/work/scale-composition-compile-001/source.lean:13:29: error: Tactic `subst` failed: invalid equality proof, it is not of the form (x = t) or (t = x)
+  r = 8 ∨ r ∈ []
+
+case inr.inr
+r : Nat
+h✝ : r = 8 ∨ r ∈ []
+⊢ DepEq (left 1 r 2) (right 1 2) ∧ (left 1 r 2).type = Initial.index
+/tmp/conaled-wave-20261111/423-trial-execution/slot-3/work/scale-composition-compile-001/source.lean:12:46: error: This simp argument is unused:
+  List.mem_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [compositionSizes, List.mem_cons] at hr
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

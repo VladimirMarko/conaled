@@ -3,9 +3,13 @@
 These are preparation artifacts for the prospective [authoring
 protocol](../../docs/research/dependent-conversion-authoring-protocol.md), under
 [#423](https://github.com/VladimirMarko/conaled/issues/423). They provide checked
-mathematical tasks and private reference solutions. No author trial has run;
-these files do not establish a productivity advantage or close the trial
-obligation. The source baseline is `03cfba5e37d64c33bcec1f8484616d9e31de9397`.
+mathematical tasks and private reference solutions. The original preparation
+baseline was `03cfba5e37d64c33bcec1f8484616d9e31de9397`. The subsequent
+[six-author trial](results-2026-11-12/README.md) completed its author submissions
+and focused replays on 2026-11-12; all twelve full trial audit contexts passed.
+Independent report acceptance and publication are recorded at the exact revision
+on #423. Neither these fixtures nor the bounded cohort establish
+a general productivity advantage.
 
 ## Mathematical tasks
 
@@ -37,8 +41,8 @@ substitution and renaming laws, without importing the converter or the service
 reference. `private/ServiceReference.lean` independently uses the public
 conversion decision/equivalence interface, without importing the direct
 reference. Their shared task data contain no task-specific equality solution.
-The direct route may develop comparable reusable helpers during a future trial;
-these reference helpers are withheld from authors.
+Direct authors may develop reusable helpers; the reference helpers were withheld
+from authors throughout the trial.
 
 `private/SeparatingModel.lean` supplies the fixture-specific finite sheaf
 interpretation for the invalid head equation. It assigns different sections to
@@ -59,8 +63,9 @@ the actual applied chain; repair uses one assignment. Result-index size and
 negation depth are separate observations.
 
 These are generated term measurements, not caller-written proof sizes, active
-work, elapsed author time, or token use. No author artifacts exist to measure.
-The source-node convention must remain fixed across routes in a later trial.
+work, elapsed author time, or token use. Subsequent author artifacts and their
+separate measurements are retained in the [trial report](results-2026-11-12/README.md).
+The generated source-node convention remained fixed across routes.
 
 ## Validation and source boundaries
 
@@ -119,23 +124,25 @@ Earlier metrics-only previews remain development evidence; the final metrics
 were emitted by the fully audited Validate module. Independent Standards and
 Spec acceptance remains required.
 
-## Exposure and remaining execution prerequisites
+## Preparation exposure boundary and subsequent execution
 
 The directory is available to preparers and reviewers only. It is not a released
 author bundle. `private/`, repair, held-out tasks, and negative-control solutions
 must be withheld until their designated protocol phases. Public task filenames
-here describe future release classes; no exposure or sealing is claimed.
+here describe release classes; this fixture directory itself does not implement
+sealing. The separately frozen execution package supplied staged author bundles.
 Preparers and reviewers who have seen solutions cannot be trial authors.
 
-A later step must freeze exact release bundles, a reproducible cache/command
-policy, model configuration, and a matched checkpoint/continuation policy, then
-randomly assign six fresh sessions before exposure. The prescribed three
+The subsequent [execution package](execution/README.md) froze exact release
+bundles, a reproducible cache/command policy, model configuration and matched
+checkpoint/continuation rules, then assigned six fresh sessions before exposure. The prescribed three
 sessions per route remain unchanged. Following the owner's 2026-11-12
 clarification, 75 minutes and 24,000 reported tokens are initial sanity review
 checkpoints, not hard failure ceilings. Missing live token telemetry does not
 itself block execution. Record actual available usage, overshoot and observed
 hibernation, throttling, contention or other interruptions separately; raw laptop
-wall time must not rank the routes. Unknown model/configuration, author
-identities, active preparer time and token telemetry remain unknown. No new
-runner, release parser, author execution, or paid API spending belongs to this
-milestone.
+wall time must not rank the routes. The dated report records actual child configuration, author identities and
+available raw usage. Exact serving revision and active preparer time remain
+unknown. The original fixture preparation milestone did not include author
+execution; the later bounded trial is recorded separately. No paid API purchase
+was authorized.

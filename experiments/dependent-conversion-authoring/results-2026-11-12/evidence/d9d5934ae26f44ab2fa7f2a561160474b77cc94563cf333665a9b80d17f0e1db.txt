@@ -1,0 +1,19 @@
+{
+  "label": "audit-scale-first",
+  "command": [
+    "taskset",
+    "-c",
+    "0",
+    "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+    "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/Audit-scale-first.lean"
+  ],
+  "cwd": "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/sources",
+  "environment": {
+    "LEAN_PATH": "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/modules:/tmp/conaled-wave-20261111/423-trial-stage-round3/modules:/home/vlad/Code/conaled/.lake/packages/Cli/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/batteries/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/Qq/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/aesop/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/plausible/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/tmp/conaled-wave-20261111/worker7/.lake/build/lib/lean:/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean"
+  },
+  "started_at": "2026-11-12T17:55:30.047303+00:00",
+  "completed_at": "2026-11-12T17:56:55.988152+00:00",
+  "exit_code": 0,
+  "log": "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/Audit-scale-first.log",
+  "log_sha256": "a2da55012da874fa76dd7cdd3c18f8a5a9b7a9966f75ebc7f05d8b1729c1d7fd"
+}

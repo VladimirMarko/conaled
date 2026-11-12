@@ -1,0 +1,15 @@
+from pathlib import Path
+import subprocess,json,datetime,hashlib
+p=Path('/tmp/conaled-wave-20261111');a=p/'validation-queue-interruption-01'
+results=[]
+for name in ['run-final-validation-queue.py','queue-slot3-audit.py','queue-slot4-audit.py','queue-slot5-audits.py','queue-slot6-audit.py']:
+ assert (p/name).read_bytes()==(a/name).read_bytes()
+ start=datetime.datetime.now(datetime.timezone.utc).isoformat()
+ print('START',name,start,flush=True)
+ with (a/(name+'.log')).open('xb') as log:
+  r=subprocess.run(['python3',str(p/name)],stdout=log,stderr=subprocess.STDOUT)
+ results.append({'script':name,'started_at':start,'completed_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'exit_code':r.returncode})
+ (a/'restart-results.json').write_text(json.dumps(results,indent=2))
+ print('EXIT',name,r.returncode,flush=True)
+ if r.returncode:raise SystemExit(r.returncode)
+print('ALL COMPLETED',flush=True)

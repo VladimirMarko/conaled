@@ -1,0 +1,11 @@
+import Examples.ConversionTrial.Initial
+set_option autoImplicit false
+set_option warningAsError true
+namespace Examples.ConversionTrial.Initial
+open SquareKit.Internal.DependentFunctions
+
+theorem solution : Task := by
+  refine ⟨?_, rfl, rfl⟩
+  exact DepEq.app (FuncEq.eta (show Func (widen 1) from .var (.base .top))) _
+
+end Examples.ConversionTrial.Initial

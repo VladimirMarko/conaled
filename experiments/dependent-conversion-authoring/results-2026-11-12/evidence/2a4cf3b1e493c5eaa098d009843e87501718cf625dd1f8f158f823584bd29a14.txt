@@ -1,0 +1,12 @@
+import Examples.ConversionTrial.Initial
+
+namespace Examples.ConversionTrial.Initial
+open SquareKit.Internal.DependentFunctions
+
+theorem solved : Task := by
+  refine ⟨?_, rfl, rfl⟩
+  exact DepEq.sub (liftedNegate 1) (liftedNegate_typed 1)
+    (DepEq.sub (liftedNegate 1) (liftedNegate_typed 1)
+      (DepEq.app (FuncEq.eta (.var (.base .top))) (.neg (.var 1))))
+
+end Examples.ConversionTrial.Initial

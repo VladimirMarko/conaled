@@ -1,0 +1,202 @@
+{
+  "status": "prepared-not-exposed",
+  "at": "2026-11-12T13:38:11.748044+00:00",
+  "prepared_sha256": "8dcd3134dcfa2960b0cca2f9e9d06cb753ed8304b566a33698d014703dd1dfd9",
+  "route_inventory_sha256": "20fe8255ec70b10d4c8287e1514bc6811ddbefb7f196fd103103afc0ec777bfc",
+  "source_package_candidate": "31c08c126952242843af1ac74411efb396743a0b",
+  "staged_integration_candidate": "b93ceb10d3f2f9761dfd5529b4f3df5d897c4ee0",
+  "slots": [
+    {
+      "slot": "slot-1",
+      "route": "service",
+      "public": "/tmp/conaled-wave-20261111/423-execution-correction/prepared-final/slots/slot-1/public",
+      "output": "/tmp/conaled-wave-20261111/423-trial-preparation/per-slot-warm/slot-1",
+      "source_files": {
+        "Examples/ConversionTrial/Initial.lean": "b07b00f97a37a069ff460062371f7e7f00c36e4311de1190e4f1f458d6ef1b22",
+        "Examples/ConversionTrial/Terms.lean": "701115acd2f2a930f1a2cc05a42cbff5a4f2d86505deab1046d167016837817e",
+        "SquareKit/Internal/DependentFunctionConversion.lean": "d2b0ea73617d4b11f2a075d7f4df65f4ee9d6a0eb01d45aa1efb2d9eee3a3fcc",
+        "SquareKit/Internal/DependentFunctionEquality.lean": "b0c2d82201b616b0101315b3858662c5cefca898bb5f05a3e217489f3d20f3a6",
+        "SquareKit/Internal/DependentFunctionLaws.lean": "060bdcdc527bb72b8d919a5cb99d7f7c9658e63fce6d5ec02c564b2f667005d2",
+        "SquareKit/Internal/DependentFunctionNormalFormLaws.lean": "027b71cd7d5b8a37cf5d48566c5ef9a8e236482db7beda0cc0858821b9726179",
+        "SquareKit/Internal/DependentFunctionNormalForms.lean": "a2e3814fd780b211efa75c9c8e2ddd18ed856e84fbdc4d0b726e133f54eefae3",
+        "SquareKit/Internal/DependentFunctionNormalization.lean": "c0461d7769dbf1c185681b80fc52430fe17605153d5c82e034e6968e30663135",
+        "SquareKit/Internal/DependentFunctionNormalizationSubstitution.lean": "b7ffd6d060c73ed054b1bd9d73e052d6042f3b4b6c0277717ec1e09312203a66",
+        "SquareKit/Internal/DependentFunctionTyping.lean": "3a212c4d7cd3d30f2a0550dcabd0060cac8544ac9b7483ef4f4b7e5b2aeef0e2",
+        "SquareKit/Internal/DependentFunctions.lean": "7ffe23562af78267177673f6b341d02e8729c1c0ccc4163cece726716255f051",
+        "SquareKit/Internal/DependentStructural.lean": "cb212a1529aee8d52c7460c26edf1e6f0c478dd42a69a9c8075ace8ae2775fa7"
+      },
+      "artifacts": {
+        "SquareKit/Internal/DependentFunctionLaws.olean": "fae984755bf5972acd93c7861001570a41605e25eebae94939f5c9e094a92713",
+        "SquareKit/Internal/DependentFunctionNormalForms.olean": "354503674b69912b7cb3e4afc8b54f2e706251b08fa1794038afc8389084ca51",
+        "SquareKit/Internal/DependentFunctionNormalFormLaws.olean": "8d6c8c064acf22e53e1c728cc14426430226ac58ae44456cae81cea5cdb896f5",
+        "SquareKit/Internal/DependentFunctionTyping.olean": "a526eb1b44fbe34e4d44a878a9226fce2f485652843e0106eca00075b025962e",
+        "SquareKit/Internal/DependentFunctions.olean": "4067151550ae7fa792816cd4da2a0268611ea29410f6720e60ca61674e02b87a",
+        "SquareKit/Internal/DependentStructural.olean": "72dbcc8d3e61f8e72da738a42340412c7ae988f39a2859060cdae4fb7e7c1dab",
+        "SquareKit/Internal/DependentFunctionConversion.olean": "6ad33ccaa7cc51dfc9157e727468e31a1daa55867fc25350a0d68e0e616367c4",
+        "SquareKit/Internal/DependentFunctionEquality.olean": "e95aefa800fa06a2d5f2c07a3a001458647f13cdd0299ae7d6003b66f514bdfe",
+        "SquareKit/Internal/DependentFunctionNormalization.olean": "4c097f5a6db4ba74f1beebbdaf104fafdbd62d44d0ccafcd2fc0abedacae2cff",
+        "SquareKit/Internal/DependentFunctionNormalizationSubstitution.olean": "c4d48982477168c61a59c040bea2441e97ec39f0fb4b57e3ba3115a363d65fa9",
+        "Examples/ConversionTrial/Initial.olean": "1b70d9d85071e984ed4db1821ad56bbc3a6617d7615f603f984c6a5e1e2fcc1d",
+        "Examples/ConversionTrial/Terms.olean": "27649c29c1b70069851f5dc169a3ea9751a881d7dcee9284f301088a953e4bbe"
+      },
+      "exposed": false,
+      "session_id": null
+    },
+    {
+      "slot": "slot-2",
+      "route": "direct",
+      "public": "/tmp/conaled-wave-20261111/423-execution-correction/prepared-final/slots/slot-2/public",
+      "output": "/tmp/conaled-wave-20261111/423-trial-preparation/per-slot-warm/slot-2",
+      "source_files": {
+        "Examples/ConversionTrial/Initial.lean": "b07b00f97a37a069ff460062371f7e7f00c36e4311de1190e4f1f458d6ef1b22",
+        "Examples/ConversionTrial/Terms.lean": "701115acd2f2a930f1a2cc05a42cbff5a4f2d86505deab1046d167016837817e",
+        "SquareKit/Internal/DependentFunctionEquality.lean": "b0c2d82201b616b0101315b3858662c5cefca898bb5f05a3e217489f3d20f3a6",
+        "SquareKit/Internal/DependentFunctionLaws.lean": "060bdcdc527bb72b8d919a5cb99d7f7c9658e63fce6d5ec02c564b2f667005d2",
+        "SquareKit/Internal/DependentFunctionTyping.lean": "3a212c4d7cd3d30f2a0550dcabd0060cac8544ac9b7483ef4f4b7e5b2aeef0e2",
+        "SquareKit/Internal/DependentFunctions.lean": "7ffe23562af78267177673f6b341d02e8729c1c0ccc4163cece726716255f051",
+        "SquareKit/Internal/DependentStructural.lean": "cb212a1529aee8d52c7460c26edf1e6f0c478dd42a69a9c8075ace8ae2775fa7"
+      },
+      "artifacts": {
+        "SquareKit/Internal/DependentFunctionLaws.olean": "fae984755bf5972acd93c7861001570a41605e25eebae94939f5c9e094a92713",
+        "SquareKit/Internal/DependentFunctionTyping.olean": "a526eb1b44fbe34e4d44a878a9226fce2f485652843e0106eca00075b025962e",
+        "SquareKit/Internal/DependentFunctions.olean": "4067151550ae7fa792816cd4da2a0268611ea29410f6720e60ca61674e02b87a",
+        "SquareKit/Internal/DependentStructural.olean": "72dbcc8d3e61f8e72da738a42340412c7ae988f39a2859060cdae4fb7e7c1dab",
+        "SquareKit/Internal/DependentFunctionEquality.olean": "e95aefa800fa06a2d5f2c07a3a001458647f13cdd0299ae7d6003b66f514bdfe",
+        "Examples/ConversionTrial/Initial.olean": "1b70d9d85071e984ed4db1821ad56bbc3a6617d7615f603f984c6a5e1e2fcc1d",
+        "Examples/ConversionTrial/Terms.olean": "27649c29c1b70069851f5dc169a3ea9751a881d7dcee9284f301088a953e4bbe"
+      },
+      "exposed": false,
+      "session_id": null
+    },
+    {
+      "slot": "slot-3",
+      "route": "service",
+      "public": "/tmp/conaled-wave-20261111/423-execution-correction/prepared-final/slots/slot-3/public",
+      "output": "/tmp/conaled-wave-20261111/423-trial-preparation/per-slot-warm/slot-3",
+      "source_files": {
+        "Examples/ConversionTrial/Initial.lean": "b07b00f97a37a069ff460062371f7e7f00c36e4311de1190e4f1f458d6ef1b22",
+        "Examples/ConversionTrial/Terms.lean": "701115acd2f2a930f1a2cc05a42cbff5a4f2d86505deab1046d167016837817e",
+        "SquareKit/Internal/DependentFunctionConversion.lean": "d2b0ea73617d4b11f2a075d7f4df65f4ee9d6a0eb01d45aa1efb2d9eee3a3fcc",
+        "SquareKit/Internal/DependentFunctionEquality.lean": "b0c2d82201b616b0101315b3858662c5cefca898bb5f05a3e217489f3d20f3a6",
+        "SquareKit/Internal/DependentFunctionLaws.lean": "060bdcdc527bb72b8d919a5cb99d7f7c9658e63fce6d5ec02c564b2f667005d2",
+        "SquareKit/Internal/DependentFunctionNormalFormLaws.lean": "027b71cd7d5b8a37cf5d48566c5ef9a8e236482db7beda0cc0858821b9726179",
+        "SquareKit/Internal/DependentFunctionNormalForms.lean": "a2e3814fd780b211efa75c9c8e2ddd18ed856e84fbdc4d0b726e133f54eefae3",
+        "SquareKit/Internal/DependentFunctionNormalization.lean": "c0461d7769dbf1c185681b80fc52430fe17605153d5c82e034e6968e30663135",
+        "SquareKit/Internal/DependentFunctionNormalizationSubstitution.lean": "b7ffd6d060c73ed054b1bd9d73e052d6042f3b4b6c0277717ec1e09312203a66",
+        "SquareKit/Internal/DependentFunctionTyping.lean": "3a212c4d7cd3d30f2a0550dcabd0060cac8544ac9b7483ef4f4b7e5b2aeef0e2",
+        "SquareKit/Internal/DependentFunctions.lean": "7ffe23562af78267177673f6b341d02e8729c1c0ccc4163cece726716255f051",
+        "SquareKit/Internal/DependentStructural.lean": "cb212a1529aee8d52c7460c26edf1e6f0c478dd42a69a9c8075ace8ae2775fa7"
+      },
+      "artifacts": {
+        "SquareKit/Internal/DependentFunctionLaws.olean": "fae984755bf5972acd93c7861001570a41605e25eebae94939f5c9e094a92713",
+        "SquareKit/Internal/DependentFunctionNormalForms.olean": "354503674b69912b7cb3e4afc8b54f2e706251b08fa1794038afc8389084ca51",
+        "SquareKit/Internal/DependentFunctionNormalFormLaws.olean": "8d6c8c064acf22e53e1c728cc14426430226ac58ae44456cae81cea5cdb896f5",
+        "SquareKit/Internal/DependentFunctionTyping.olean": "a526eb1b44fbe34e4d44a878a9226fce2f485652843e0106eca00075b025962e",
+        "SquareKit/Internal/DependentFunctions.olean": "4067151550ae7fa792816cd4da2a0268611ea29410f6720e60ca61674e02b87a",
+        "SquareKit/Internal/DependentStructural.olean": "72dbcc8d3e61f8e72da738a42340412c7ae988f39a2859060cdae4fb7e7c1dab",
+        "SquareKit/Internal/DependentFunctionConversion.olean": "6ad33ccaa7cc51dfc9157e727468e31a1daa55867fc25350a0d68e0e616367c4",
+        "SquareKit/Internal/DependentFunctionEquality.olean": "e95aefa800fa06a2d5f2c07a3a001458647f13cdd0299ae7d6003b66f514bdfe",
+        "SquareKit/Internal/DependentFunctionNormalization.olean": "4c097f5a6db4ba74f1beebbdaf104fafdbd62d44d0ccafcd2fc0abedacae2cff",
+        "SquareKit/Internal/DependentFunctionNormalizationSubstitution.olean": "c4d48982477168c61a59c040bea2441e97ec39f0fb4b57e3ba3115a363d65fa9",
+        "Examples/ConversionTrial/Initial.olean": "1b70d9d85071e984ed4db1821ad56bbc3a6617d7615f603f984c6a5e1e2fcc1d",
+        "Examples/ConversionTrial/Terms.olean": "27649c29c1b70069851f5dc169a3ea9751a881d7dcee9284f301088a953e4bbe"
+      },
+      "exposed": false,
+      "session_id": null
+    },
+    {
+      "slot": "slot-4",
+      "route": "direct",
+      "public": "/tmp/conaled-wave-20261111/423-execution-correction/prepared-final/slots/slot-4/public",
+      "output": "/tmp/conaled-wave-20261111/423-trial-preparation/per-slot-warm/slot-4",
+      "source_files": {
+        "Examples/ConversionTrial/Initial.lean": "b07b00f97a37a069ff460062371f7e7f00c36e4311de1190e4f1f458d6ef1b22",
+        "Examples/ConversionTrial/Terms.lean": "701115acd2f2a930f1a2cc05a42cbff5a4f2d86505deab1046d167016837817e",
+        "SquareKit/Internal/DependentFunctionEquality.lean": "b0c2d82201b616b0101315b3858662c5cefca898bb5f05a3e217489f3d20f3a6",
+        "SquareKit/Internal/DependentFunctionLaws.lean": "060bdcdc527bb72b8d919a5cb99d7f7c9658e63fce6d5ec02c564b2f667005d2",
+        "SquareKit/Internal/DependentFunctionTyping.lean": "3a212c4d7cd3d30f2a0550dcabd0060cac8544ac9b7483ef4f4b7e5b2aeef0e2",
+        "SquareKit/Internal/DependentFunctions.lean": "7ffe23562af78267177673f6b341d02e8729c1c0ccc4163cece726716255f051",
+        "SquareKit/Internal/DependentStructural.lean": "cb212a1529aee8d52c7460c26edf1e6f0c478dd42a69a9c8075ace8ae2775fa7"
+      },
+      "artifacts": {
+        "SquareKit/Internal/DependentFunctionLaws.olean": "fae984755bf5972acd93c7861001570a41605e25eebae94939f5c9e094a92713",
+        "SquareKit/Internal/DependentFunctionTyping.olean": "a526eb1b44fbe34e4d44a878a9226fce2f485652843e0106eca00075b025962e",
+        "SquareKit/Internal/DependentFunctions.olean": "4067151550ae7fa792816cd4da2a0268611ea29410f6720e60ca61674e02b87a",
+        "SquareKit/Internal/DependentStructural.olean": "72dbcc8d3e61f8e72da738a42340412c7ae988f39a2859060cdae4fb7e7c1dab",
+        "SquareKit/Internal/DependentFunctionEquality.olean": "e95aefa800fa06a2d5f2c07a3a001458647f13cdd0299ae7d6003b66f514bdfe",
+        "Examples/ConversionTrial/Initial.olean": "1b70d9d85071e984ed4db1821ad56bbc3a6617d7615f603f984c6a5e1e2fcc1d",
+        "Examples/ConversionTrial/Terms.olean": "27649c29c1b70069851f5dc169a3ea9751a881d7dcee9284f301088a953e4bbe"
+      },
+      "exposed": false,
+      "session_id": null
+    },
+    {
+      "slot": "slot-5",
+      "route": "direct",
+      "public": "/tmp/conaled-wave-20261111/423-execution-correction/prepared-final/slots/slot-5/public",
+      "output": "/tmp/conaled-wave-20261111/423-trial-preparation/per-slot-warm/slot-5",
+      "source_files": {
+        "Examples/ConversionTrial/Initial.lean": "b07b00f97a37a069ff460062371f7e7f00c36e4311de1190e4f1f458d6ef1b22",
+        "Examples/ConversionTrial/Terms.lean": "701115acd2f2a930f1a2cc05a42cbff5a4f2d86505deab1046d167016837817e",
+        "SquareKit/Internal/DependentFunctionEquality.lean": "b0c2d82201b616b0101315b3858662c5cefca898bb5f05a3e217489f3d20f3a6",
+        "SquareKit/Internal/DependentFunctionLaws.lean": "060bdcdc527bb72b8d919a5cb99d7f7c9658e63fce6d5ec02c564b2f667005d2",
+        "SquareKit/Internal/DependentFunctionTyping.lean": "3a212c4d7cd3d30f2a0550dcabd0060cac8544ac9b7483ef4f4b7e5b2aeef0e2",
+        "SquareKit/Internal/DependentFunctions.lean": "7ffe23562af78267177673f6b341d02e8729c1c0ccc4163cece726716255f051",
+        "SquareKit/Internal/DependentStructural.lean": "cb212a1529aee8d52c7460c26edf1e6f0c478dd42a69a9c8075ace8ae2775fa7"
+      },
+      "artifacts": {
+        "SquareKit/Internal/DependentFunctionLaws.olean": "fae984755bf5972acd93c7861001570a41605e25eebae94939f5c9e094a92713",
+        "SquareKit/Internal/DependentFunctionTyping.olean": "a526eb1b44fbe34e4d44a878a9226fce2f485652843e0106eca00075b025962e",
+        "SquareKit/Internal/DependentFunctions.olean": "4067151550ae7fa792816cd4da2a0268611ea29410f6720e60ca61674e02b87a",
+        "SquareKit/Internal/DependentStructural.olean": "72dbcc8d3e61f8e72da738a42340412c7ae988f39a2859060cdae4fb7e7c1dab",
+        "SquareKit/Internal/DependentFunctionEquality.olean": "e95aefa800fa06a2d5f2c07a3a001458647f13cdd0299ae7d6003b66f514bdfe",
+        "Examples/ConversionTrial/Initial.olean": "1b70d9d85071e984ed4db1821ad56bbc3a6617d7615f603f984c6a5e1e2fcc1d",
+        "Examples/ConversionTrial/Terms.olean": "27649c29c1b70069851f5dc169a3ea9751a881d7dcee9284f301088a953e4bbe"
+      },
+      "exposed": false,
+      "session_id": null
+    },
+    {
+      "slot": "slot-6",
+      "route": "service",
+      "public": "/tmp/conaled-wave-20261111/423-execution-correction/prepared-final/slots/slot-6/public",
+      "output": "/tmp/conaled-wave-20261111/423-trial-preparation/per-slot-warm/slot-6",
+      "source_files": {
+        "Examples/ConversionTrial/Initial.lean": "b07b00f97a37a069ff460062371f7e7f00c36e4311de1190e4f1f458d6ef1b22",
+        "Examples/ConversionTrial/Terms.lean": "701115acd2f2a930f1a2cc05a42cbff5a4f2d86505deab1046d167016837817e",
+        "SquareKit/Internal/DependentFunctionConversion.lean": "d2b0ea73617d4b11f2a075d7f4df65f4ee9d6a0eb01d45aa1efb2d9eee3a3fcc",
+        "SquareKit/Internal/DependentFunctionEquality.lean": "b0c2d82201b616b0101315b3858662c5cefca898bb5f05a3e217489f3d20f3a6",
+        "SquareKit/Internal/DependentFunctionLaws.lean": "060bdcdc527bb72b8d919a5cb99d7f7c9658e63fce6d5ec02c564b2f667005d2",
+        "SquareKit/Internal/DependentFunctionNormalFormLaws.lean": "027b71cd7d5b8a37cf5d48566c5ef9a8e236482db7beda0cc0858821b9726179",
+        "SquareKit/Internal/DependentFunctionNormalForms.lean": "a2e3814fd780b211efa75c9c8e2ddd18ed856e84fbdc4d0b726e133f54eefae3",
+        "SquareKit/Internal/DependentFunctionNormalization.lean": "c0461d7769dbf1c185681b80fc52430fe17605153d5c82e034e6968e30663135",
+        "SquareKit/Internal/DependentFunctionNormalizationSubstitution.lean": "b7ffd6d060c73ed054b1bd9d73e052d6042f3b4b6c0277717ec1e09312203a66",
+        "SquareKit/Internal/DependentFunctionTyping.lean": "3a212c4d7cd3d30f2a0550dcabd0060cac8544ac9b7483ef4f4b7e5b2aeef0e2",
+        "SquareKit/Internal/DependentFunctions.lean": "7ffe23562af78267177673f6b341d02e8729c1c0ccc4163cece726716255f051",
+        "SquareKit/Internal/DependentStructural.lean": "cb212a1529aee8d52c7460c26edf1e6f0c478dd42a69a9c8075ace8ae2775fa7"
+      },
+      "artifacts": {
+        "SquareKit/Internal/DependentFunctionLaws.olean": "fae984755bf5972acd93c7861001570a41605e25eebae94939f5c9e094a92713",
+        "SquareKit/Internal/DependentFunctionNormalForms.olean": "354503674b69912b7cb3e4afc8b54f2e706251b08fa1794038afc8389084ca51",
+        "SquareKit/Internal/DependentFunctionNormalFormLaws.olean": "8d6c8c064acf22e53e1c728cc14426430226ac58ae44456cae81cea5cdb896f5",
+        "SquareKit/Internal/DependentFunctionTyping.olean": "a526eb1b44fbe34e4d44a878a9226fce2f485652843e0106eca00075b025962e",
+        "SquareKit/Internal/DependentFunctions.olean": "4067151550ae7fa792816cd4da2a0268611ea29410f6720e60ca61674e02b87a",
+        "SquareKit/Internal/DependentStructural.olean": "72dbcc8d3e61f8e72da738a42340412c7ae988f39a2859060cdae4fb7e7c1dab",
+        "SquareKit/Internal/DependentFunctionConversion.olean": "6ad33ccaa7cc51dfc9157e727468e31a1daa55867fc25350a0d68e0e616367c4",
+        "SquareKit/Internal/DependentFunctionEquality.olean": "e95aefa800fa06a2d5f2c07a3a001458647f13cdd0299ae7d6003b66f514bdfe",
+        "SquareKit/Internal/DependentFunctionNormalization.olean": "4c097f5a6db4ba74f1beebbdaf104fafdbd62d44d0ccafcd2fc0abedacae2cff",
+        "SquareKit/Internal/DependentFunctionNormalizationSubstitution.olean": "c4d48982477168c61a59c040bea2441e97ec39f0fb4b57e3ba3115a363d65fa9",
+        "Examples/ConversionTrial/Initial.olean": "1b70d9d85071e984ed4db1821ad56bbc3a6617d7615f603f984c6a5e1e2fcc1d",
+        "Examples/ConversionTrial/Terms.olean": "27649c29c1b70069851f5dc169a3ea9751a881d7dcee9284f301088a953e4bbe"
+      },
+      "exposed": false,
+      "session_id": null
+    }
+  ],
+  "remaining_gates": [
+    "source batch fresh acceptance",
+    "package and integration acceptance",
+    "actual child configuration and inherited exposure record",
+    "environment and initial release receipts"
+  ]
+}

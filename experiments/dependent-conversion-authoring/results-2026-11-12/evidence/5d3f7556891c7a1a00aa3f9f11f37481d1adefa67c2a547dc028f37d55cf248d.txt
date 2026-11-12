@@ -1,0 +1,98 @@
+[
+  {
+    "first": "Composition",
+    "import_order": [
+      "Composition",
+      "After",
+      "Before",
+      "Context",
+      "Draft",
+      "HeldOutDraft",
+      "NegativeDraft",
+      "Substitution"
+    ],
+    "exit_code": 0,
+    "log_sha256": "508931d1aa9e5bc91b0c2387ef206518af03753672d8ea0697bf98833dc99a08",
+    "required_own_origins_confirmed": true
+  },
+  {
+    "first": "Context",
+    "import_order": [
+      "Context",
+      "After",
+      "Before",
+      "Composition",
+      "Draft",
+      "HeldOutDraft",
+      "NegativeDraft",
+      "Substitution"
+    ],
+    "exit_code": 0,
+    "log_sha256": "205c4e647bd5a1233b1e6e1a47b514511d8d210d6566c3595bbab5dc899396d0",
+    "required_own_origins_confirmed": true
+  },
+  {
+    "first": "Substitution",
+    "import_order": [
+      "Substitution",
+      "After",
+      "Before",
+      "Composition",
+      "Context",
+      "Draft",
+      "HeldOutDraft",
+      "NegativeDraft"
+    ],
+    "exit_code": 0,
+    "log_sha256": "a9e23ed1864b95c8ff333ff1f284e85c613ec14fefe8c0a8aeb3b05b745aaf02",
+    "required_own_origins_confirmed": true
+  },
+  {
+    "first": "HeldOutDraft",
+    "import_order": [
+      "HeldOutDraft",
+      "After",
+      "Before",
+      "Composition",
+      "Context",
+      "Draft",
+      "NegativeDraft",
+      "Substitution"
+    ],
+    "exit_code": 0,
+    "log_sha256": "47c3b99138f8bd174a1a5ea2f3c9179b2da7af58714107e742c6349591ade7b5",
+    "required_own_origins_confirmed": true
+  },
+  {
+    "first": "Before",
+    "import_order": [
+      "Before",
+      "After",
+      "Composition",
+      "Context",
+      "Draft",
+      "HeldOutDraft",
+      "NegativeDraft",
+      "Substitution"
+    ],
+    "exit_code": 0,
+    "log_sha256": "95ddaecf9c51c45fcad1e0e76de867534133e87bdba37e06c4f56e43debb560e",
+    "required_own_origins_confirmed": true
+  },
+  {
+    "first": "After",
+    "import_order": [
+      "After",
+      "Before",
+      "Composition",
+      "Context",
+      "Draft",
+      "HeldOutDraft",
+      "NegativeDraft",
+      "Substitution"
+    ],
+    "exit_code": 0,
+    "log_sha256": "5fa37f98205927c6f538ccd5359791647856dbd8870159035e680210b66031a7",
+    "required_own_origins_confirmed": true
+  }
+]

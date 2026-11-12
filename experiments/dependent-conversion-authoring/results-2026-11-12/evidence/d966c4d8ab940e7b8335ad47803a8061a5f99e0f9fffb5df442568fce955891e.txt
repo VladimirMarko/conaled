@@ -1,0 +1,21 @@
+{
+  "status": "checked-submission",
+  "at": "2026-11-12T15:45:46.840672+00:00",
+  "monotonic_ns": 171636034196071,
+  "obligations": [
+    "Scale.CompositionTask",
+    "Scale.ContextTask",
+    "Scale.SubstitutionTask"
+  ],
+  "checks": [
+    "scale-composition-compile-002",
+    "scale-composition-policy-001",
+    "scale-context-compile-002",
+    "scale-context-policy-001",
+    "scale-substitution-compile-002",
+    "scale-substitution-policy-001"
+  ],
+  "prior_failed_scale_compiles_retained": 3,
+  "final_coordinator_audit": "pending",
+  "coordinator_assistance": "environment/protocol only"
+}
