@@ -1,4 +1,5 @@
 import SquareKit.Internal.Cubical.UniverseComposition
+import SquareKit.Internal.Cubical.DisjointEquivalences
 
 /-! Exact endpoint code lines for the univalence construction. -/
 set_option autoImplicit false
@@ -114,6 +115,65 @@ noncomputable def boundaryPath :
       (SmallUniverse.term a) (SmallUniverse.term b)) :=
   SmallUniverse.pathOfSmallCode a b (boundaryLine a b e E)
     (boundaryLine_zero a b e E) (boundaryLine_one a b e E)
+
+
+/-- The endpoint system uses the given map at zero and identity at one. -/
+def boundaryMap (f : decode a ⟶ decode b) : decode (CodeSystem.boundary a b) ⟶
+    reindex (decode (ambient b)) (restrictInclusion face) :=
+  CodeSystem.Maps.glue (boundaryLeft a b f) (boundaryRight a b)
+    (CodeSystem.Maps.disjointCompatible _ _ intervalFace_disjoint)
+
+private theorem reindex_eqToHom {Ξ Ω : Context.{u}} {A B : Family Ξ}
+    (h : A = B) (σ : Ω ⟶ Ξ) :
+    Functor.whiskerLeft σ.mapElements (eqToHom h) =
+      eqToHom (congrArg (fun X => reindex X σ) h) := by
+  cases h
+  rfl
+
+theorem boundaryMap_zero (f : decode a ⟶ decode b) :
+    Functor.whiskerLeft (CodeSystem.boundaryZero Γ).mapElements (boundaryMap a b f) =
+      eqToHom (congrArg decode (CodeSystem.boundary_zero a b)) ≫ f := by
+  have h := congrArg (Functor.whiskerLeft (CodeSystem.endpointFace Γ false).mapElements)
+    (CodeSystem.Maps.glue_left (boundaryLeft a b f) (boundaryRight a b)
+      (CodeSystem.Maps.disjointCompatible _ _ intervalFace_disjoint))
+  refine h.trans ?_
+  change Functor.whiskerLeft (CodeSystem.endpointFace Γ false).mapElements
+    (eqToHom (boundary_left a b)) ≫ f = _
+  rw [reindex_eqToHom]
+  rfl
+
+theorem boundaryMap_one (f : decode a ⟶ decode b) :
+    Functor.whiskerLeft (CodeSystem.boundaryOne Γ).mapElements (boundaryMap a b f) =
+      eqToHom (congrArg decode (CodeSystem.boundary_one a b)) := by
+  have h := congrArg (Functor.whiskerLeft (CodeSystem.endpointFace Γ true).mapElements)
+    (CodeSystem.Maps.glue_right (boundaryLeft a b f) (boundaryRight a b)
+      (CodeSystem.Maps.disjointCompatible _ _ intervalFace_disjoint))
+  exact h.trans (reindex_eqToHom (boundary_right a b) (CodeSystem.endpointFace Γ true))
+
+noncomputable def boundaryEquivalence (f : decode a ⟶ decode b)
+    (H : HomotopyEquivalence f) : HomotopyEquivalence (boundaryMap a b f) :=
+  CodeSystem.Maps.disjointEquivalence _ _ intervalFace_disjoint
+    (boundaryLeftEquivalence a b f H) (boundaryRightEquivalence a b)
+
+/-- A genuine homotopy equivalence supplies a line with the exact original
+endpoint codes, retaining the selected filling data of each endpoint. -/
+noncomputable def uaCode (f : decode a ⟶ decode b) (H : HomotopyEquivalence f) :
+    raisedContext (total (interval Γ)) ⟶ smallFamilyCodes.{u} :=
+  boundaryLine a b (boundaryMap a b f) (boundaryEquivalence a b f H)
+
+theorem uaCode_zero (f : decode a ⟶ decode b) (H : HomotopyEquivalence f) :
+    raisedSub (endpointSub Γ false) ≫ uaCode a b f H = a :=
+  boundaryLine_zero _ _ _ _
+
+theorem uaCode_one (f : decode a ⟶ decode b) (H : HomotopyEquivalence f) :
+    raisedSub (endpointSub Γ true) ≫ uaCode a b f H = b :=
+  boundaryLine_one _ _ _ _
+
+noncomputable def ua (f : decode a ⟶ decode b) (H : HomotopyEquivalence f) :
+    Term (homogeneousPath (SmallUniverse.family (raisedContext Γ))
+      (SmallUniverse.term a) (SmallUniverse.term b)) :=
+  SmallUniverse.pathOfSmallCode a b (uaCode a b f H)
+    (uaCode_zero a b f H) (uaCode_one a b f H)
 
 end Univalence
 end SquareKit.Cubical.Presheaf

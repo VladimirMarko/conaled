@@ -121,3 +121,20 @@ Targeted axiom inspection found only the repository's ordinary Lean axioms
 
 These are checked intermediate results. They do not yet provide `ua`, its
 transport comparison, full univalence, or final build/audit/review acceptance.
+
+### Exact endpoint `ua`
+
+`DisjointEquivalences.lean` assembles genuine equivalences on a disjoint face
+cover. It retains the supplied branch centers and contractions and proves
+substitution for the underlying contraction assembly. `Univalence.lean` uses
+this construction with the supplied equivalence at zero and identity at one.
+`uaCode_zero` and `uaCode_one` recover the original codes, including their
+selected fillers; `ua` converts the line into a native path in the actual
+universe family over the raised context. These declarations passed a focused
+Lean check.
+
+The transport comparison and full univalence are distinct remaining claims.
+In particular, CCHM's inverse-homotopy construction involves chosen transport
+in a constant family. It cannot be identified literally with the identity
+endpoint used here without a further coherence argument. No regularity axiom
+is added to remove that obligation.
