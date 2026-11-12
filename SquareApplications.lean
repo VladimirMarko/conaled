@@ -1,3 +1,7 @@
+import Examples.IncrementalSearchCosts
+import Examples.IncrementalSearchHeuristics
+import Examples.IncrementalSearchFreshCosts
+import Examples.IncrementalRows
 import Examples.TrackedRecursion
 import Examples.OracleComputation
 import Examples.FFTUnitaryBounds
