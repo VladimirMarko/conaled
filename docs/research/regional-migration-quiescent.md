@@ -2,10 +2,10 @@
 
 This first stage of [#487](https://github.com/VladimirMarko/conaled/issues/487)
 changes actual fused, split and checked regional plans while preserving their
-joint continuation. The mandatory pending-work/shared-dependency stage remains
-unfinished and depends on the accepted #480 implementation. This stage does not
-establish transfer of pending effects, callbacks, acknowledgment uncertainty or
-internal fork/join messages.
+joint continuation. The mandatory pending-work/shared-dependency extension is
+described in [regional-migration-pending.md](regional-migration-pending.md).
+This quiescent client remains a separate richer-input case; its results alone do
+not establish transfer of pending effects or internal fork/join messages.
 
 ## State and ownership
 

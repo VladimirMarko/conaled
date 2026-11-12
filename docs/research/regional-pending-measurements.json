@@ -1,0 +1,2788 @@
+{
+  "clock": "perf_counter_ns",
+  "unit": "ns",
+  "scope": "local pipe round-trip after process startup; not a CPU-work or remote-latency proof",
+  "rows": [
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "1",
+      "elapsed_ns": 128806,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "e",
+      "elapsed_ns": 215843,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "w",
+      "elapsed_ns": 140161,
+      "responses": [
+        "C:completed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "p",
+      "elapsed_ns": 95112,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "x",
+      "elapsed_ns": 43182,
+      "responses": [
+        "B:0",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "1",
+      "elapsed_ns": 15733,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "k",
+      "elapsed_ns": 18311,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "d",
+      "elapsed_ns": 15578,
+      "responses": [
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "d",
+      "elapsed_ns": 19275,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "t",
+      "elapsed_ns": 29723,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "c",
+      "elapsed_ns": 22298,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "l",
+      "elapsed_ns": 27295,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "e",
+      "elapsed_ns": 16229,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "D",
+      "elapsed_ns": 25891,
+      "responses": [
+        "C:delivered-D"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "N",
+      "elapsed_ns": 17126,
+      "responses": [
+        "C:delivered-N"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "j",
+      "elapsed_ns": 24052,
+      "responses": [
+        "C:joined"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "p",
+      "elapsed_ns": 14680,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "d",
+      "elapsed_ns": 19832,
+      "responses": [
+        "B:1",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "d",
+      "elapsed_ns": 14103,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "t",
+      "elapsed_ns": 13978,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "c",
+      "elapsed_ns": 11672,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "l",
+      "elapsed_ns": 13638,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "0",
+      "elapsed_ns": 16455,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "e",
+      "elapsed_ns": 12243,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "w",
+      "elapsed_ns": 15370,
+      "responses": [
+        "C:completed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "p",
+      "elapsed_ns": 12760,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "d",
+      "elapsed_ns": 15317,
+      "responses": [
+        "B:0",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "d",
+      "elapsed_ns": 12636,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "t",
+      "elapsed_ns": 13104,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "c",
+      "elapsed_ns": 10964,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "l",
+      "elapsed_ns": 12758,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "ordinary",
+      "command": "q",
+      "elapsed_ns": 9974,
+      "responses": [
+        "Q:split:d:0:0:0:0:0"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "1",
+      "elapsed_ns": 118960,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "e",
+      "elapsed_ns": 248420,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "w",
+      "elapsed_ns": 190283,
+      "responses": [
+        "C:completed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "p",
+      "elapsed_ns": 84676,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "x",
+      "elapsed_ns": 48729,
+      "responses": [
+        "B:0",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "1",
+      "elapsed_ns": 18035,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "r",
+      "elapsed_ns": 226047,
+      "responses": [
+        "C:prepared"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "o",
+      "elapsed_ns": 19705,
+      "responses": [
+        "C:migrated"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "k",
+      "elapsed_ns": 25664,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "d",
+      "elapsed_ns": 20726,
+      "responses": [
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "d",
+      "elapsed_ns": 23237,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "t",
+      "elapsed_ns": 32463,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "c",
+      "elapsed_ns": 22600,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "l",
+      "elapsed_ns": 29254,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "e",
+      "elapsed_ns": 17528,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "D",
+      "elapsed_ns": 27120,
+      "responses": [
+        "C:delivered-D"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "N",
+      "elapsed_ns": 17918,
+      "responses": [
+        "C:delivered-N"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "j",
+      "elapsed_ns": 24410,
+      "responses": [
+        "C:joined"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "p",
+      "elapsed_ns": 15567,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "d",
+      "elapsed_ns": 22241,
+      "responses": [
+        "B:1",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "d",
+      "elapsed_ns": 15399,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "t",
+      "elapsed_ns": 15736,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "c",
+      "elapsed_ns": 12700,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "l",
+      "elapsed_ns": 15405,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "0",
+      "elapsed_ns": 21479,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "e",
+      "elapsed_ns": 14298,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "w",
+      "elapsed_ns": 17812,
+      "responses": [
+        "C:completed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "p",
+      "elapsed_ns": 14623,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "d",
+      "elapsed_ns": 17387,
+      "responses": [
+        "B:0",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "d",
+      "elapsed_ns": 14559,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "t",
+      "elapsed_ns": 14787,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "c",
+      "elapsed_ns": 12322,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "l",
+      "elapsed_ns": 14855,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "placement",
+      "command": "q",
+      "elapsed_ns": 14518,
+      "responses": [
+        "Q:split:r:0:0:0:0:0"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "1",
+      "elapsed_ns": 151976,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "e",
+      "elapsed_ns": 227657,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "w",
+      "elapsed_ns": 314006,
+      "responses": [
+        "C:completed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "p",
+      "elapsed_ns": 82125,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "x",
+      "elapsed_ns": 45213,
+      "responses": [
+        "B:0",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "1",
+      "elapsed_ns": 16264,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "h",
+      "elapsed_ns": 278766,
+      "responses": [
+        "C:prepared"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "o",
+      "elapsed_ns": 19556,
+      "responses": [
+        "C:migrated"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "k",
+      "elapsed_ns": 24253,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "d",
+      "elapsed_ns": 18560,
+      "responses": [
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "d",
+      "elapsed_ns": 24362,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "t",
+      "elapsed_ns": 30147,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "c",
+      "elapsed_ns": 20926,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "l",
+      "elapsed_ns": 31267,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "e",
+      "elapsed_ns": 20340,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "D",
+      "elapsed_ns": 28392,
+      "responses": [
+        "C:delivered-D"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "g",
+      "elapsed_ns": 185133,
+      "responses": [
+        "C:prepared"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "o",
+      "elapsed_ns": 9656,
+      "responses": [
+        "C:migrated"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "N",
+      "elapsed_ns": 20355,
+      "responses": [
+        "C:delivered-N"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "j",
+      "elapsed_ns": 22488,
+      "responses": [
+        "C:joined"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "p",
+      "elapsed_ns": 15949,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "d",
+      "elapsed_ns": 22956,
+      "responses": [
+        "B:1",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "d",
+      "elapsed_ns": 14595,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "t",
+      "elapsed_ns": 15171,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "c",
+      "elapsed_ns": 12979,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "l",
+      "elapsed_ns": 16707,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "0",
+      "elapsed_ns": 19646,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "e",
+      "elapsed_ns": 16442,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "w",
+      "elapsed_ns": 23493,
+      "responses": [
+        "C:completed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "p",
+      "elapsed_ns": 14069,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "d",
+      "elapsed_ns": 16892,
+      "responses": [
+        "B:0",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "d",
+      "elapsed_ns": 13967,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "t",
+      "elapsed_ns": 14269,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "c",
+      "elapsed_ns": 12681,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "l",
+      "elapsed_ns": 15943,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 0,
+      "schedule": "repartition",
+      "command": "q",
+      "elapsed_ns": 13775,
+      "responses": [
+        "Q:fused:d:0:0:0:0:0"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "1",
+      "elapsed_ns": 114510,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "e",
+      "elapsed_ns": 222668,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "w",
+      "elapsed_ns": 140045,
+      "responses": [
+        "C:completed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "p",
+      "elapsed_ns": 87766,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "x",
+      "elapsed_ns": 43821,
+      "responses": [
+        "B:0",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "1",
+      "elapsed_ns": 15819,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "k",
+      "elapsed_ns": 18034,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "d",
+      "elapsed_ns": 16684,
+      "responses": [
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "d",
+      "elapsed_ns": 19867,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "t",
+      "elapsed_ns": 28904,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "c",
+      "elapsed_ns": 29275,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "l",
+      "elapsed_ns": 28198,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "e",
+      "elapsed_ns": 27105,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "D",
+      "elapsed_ns": 29317,
+      "responses": [
+        "C:delivered-D"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "N",
+      "elapsed_ns": 17987,
+      "responses": [
+        "C:delivered-N"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "j",
+      "elapsed_ns": 21030,
+      "responses": [
+        "C:joined"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "p",
+      "elapsed_ns": 15865,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "d",
+      "elapsed_ns": 32586,
+      "responses": [
+        "B:1",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "d",
+      "elapsed_ns": 23921,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "t",
+      "elapsed_ns": 14871,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "c",
+      "elapsed_ns": 12509,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "l",
+      "elapsed_ns": 14486,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "0",
+      "elapsed_ns": 17587,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "e",
+      "elapsed_ns": 13820,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "w",
+      "elapsed_ns": 16614,
+      "responses": [
+        "C:completed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "p",
+      "elapsed_ns": 13814,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "d",
+      "elapsed_ns": 16664,
+      "responses": [
+        "B:0",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "d",
+      "elapsed_ns": 18878,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "t",
+      "elapsed_ns": 13988,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "c",
+      "elapsed_ns": 11864,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "l",
+      "elapsed_ns": 14258,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "ordinary",
+      "command": "q",
+      "elapsed_ns": 10235,
+      "responses": [
+        "Q:split:d:0:0:0:0:0"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "1",
+      "elapsed_ns": 114362,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "e",
+      "elapsed_ns": 237135,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "w",
+      "elapsed_ns": 153681,
+      "responses": [
+        "C:completed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "p",
+      "elapsed_ns": 75540,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "x",
+      "elapsed_ns": 42413,
+      "responses": [
+        "B:0",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "1",
+      "elapsed_ns": 20904,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "r",
+      "elapsed_ns": 218264,
+      "responses": [
+        "C:prepared"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "o",
+      "elapsed_ns": 17129,
+      "responses": [
+        "C:migrated"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "k",
+      "elapsed_ns": 22296,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "d",
+      "elapsed_ns": 21768,
+      "responses": [
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "d",
+      "elapsed_ns": 19491,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "t",
+      "elapsed_ns": 30412,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "c",
+      "elapsed_ns": 20155,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "l",
+      "elapsed_ns": 25572,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "e",
+      "elapsed_ns": 14779,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "D",
+      "elapsed_ns": 23878,
+      "responses": [
+        "C:delivered-D"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "N",
+      "elapsed_ns": 16113,
+      "responses": [
+        "C:delivered-N"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "j",
+      "elapsed_ns": 20294,
+      "responses": [
+        "C:joined"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "p",
+      "elapsed_ns": 13746,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "d",
+      "elapsed_ns": 19645,
+      "responses": [
+        "B:1",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "d",
+      "elapsed_ns": 13820,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "t",
+      "elapsed_ns": 13962,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "c",
+      "elapsed_ns": 11782,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "l",
+      "elapsed_ns": 13657,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "0",
+      "elapsed_ns": 17195,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "e",
+      "elapsed_ns": 13187,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "w",
+      "elapsed_ns": 24975,
+      "responses": [
+        "C:completed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "p",
+      "elapsed_ns": 14968,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "d",
+      "elapsed_ns": 16696,
+      "responses": [
+        "B:0",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "d",
+      "elapsed_ns": 13567,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "t",
+      "elapsed_ns": 13690,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "c",
+      "elapsed_ns": 11893,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "l",
+      "elapsed_ns": 15632,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "placement",
+      "command": "q",
+      "elapsed_ns": 14209,
+      "responses": [
+        "Q:split:r:0:0:0:0:0"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "1",
+      "elapsed_ns": 110733,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "e",
+      "elapsed_ns": 223715,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "w",
+      "elapsed_ns": 154169,
+      "responses": [
+        "C:completed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "p",
+      "elapsed_ns": 72514,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "x",
+      "elapsed_ns": 42446,
+      "responses": [
+        "B:0",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "1",
+      "elapsed_ns": 16291,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "h",
+      "elapsed_ns": 236891,
+      "responses": [
+        "C:prepared"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "o",
+      "elapsed_ns": 17839,
+      "responses": [
+        "C:migrated"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "k",
+      "elapsed_ns": 22228,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "d",
+      "elapsed_ns": 20955,
+      "responses": [
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "d",
+      "elapsed_ns": 19823,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "t",
+      "elapsed_ns": 28226,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "c",
+      "elapsed_ns": 20879,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "l",
+      "elapsed_ns": 29294,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "e",
+      "elapsed_ns": 18118,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "D",
+      "elapsed_ns": 26519,
+      "responses": [
+        "C:delivered-D"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "g",
+      "elapsed_ns": 172847,
+      "responses": [
+        "C:prepared"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "o",
+      "elapsed_ns": 10044,
+      "responses": [
+        "C:migrated"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "N",
+      "elapsed_ns": 20290,
+      "responses": [
+        "C:delivered-N"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "j",
+      "elapsed_ns": 23093,
+      "responses": [
+        "C:joined"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "p",
+      "elapsed_ns": 16545,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "d",
+      "elapsed_ns": 22896,
+      "responses": [
+        "B:1",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "d",
+      "elapsed_ns": 14838,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "t",
+      "elapsed_ns": 14866,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "c",
+      "elapsed_ns": 11970,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "l",
+      "elapsed_ns": 16231,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "0",
+      "elapsed_ns": 19275,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "e",
+      "elapsed_ns": 27464,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "w",
+      "elapsed_ns": 24559,
+      "responses": [
+        "C:completed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "p",
+      "elapsed_ns": 13569,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "d",
+      "elapsed_ns": 17142,
+      "responses": [
+        "B:0",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "d",
+      "elapsed_ns": 12793,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "t",
+      "elapsed_ns": 13814,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "c",
+      "elapsed_ns": 13511,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "l",
+      "elapsed_ns": 14415,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 1,
+      "schedule": "repartition",
+      "command": "q",
+      "elapsed_ns": 13295,
+      "responses": [
+        "Q:fused:d:0:0:0:0:0"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "1",
+      "elapsed_ns": 113250,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "e",
+      "elapsed_ns": 216648,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "w",
+      "elapsed_ns": 278387,
+      "responses": [
+        "C:completed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "p",
+      "elapsed_ns": 74428,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "x",
+      "elapsed_ns": 44091,
+      "responses": [
+        "B:0",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "1",
+      "elapsed_ns": 15035,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "k",
+      "elapsed_ns": 16226,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "d",
+      "elapsed_ns": 15215,
+      "responses": [
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "d",
+      "elapsed_ns": 18152,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "t",
+      "elapsed_ns": 27994,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "c",
+      "elapsed_ns": 21258,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "l",
+      "elapsed_ns": 25779,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "e",
+      "elapsed_ns": 16959,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "D",
+      "elapsed_ns": 24927,
+      "responses": [
+        "C:delivered-D"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "N",
+      "elapsed_ns": 15607,
+      "responses": [
+        "C:delivered-N"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "j",
+      "elapsed_ns": 25350,
+      "responses": [
+        "C:joined"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "p",
+      "elapsed_ns": 12931,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "d",
+      "elapsed_ns": 21929,
+      "responses": [
+        "B:1",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "d",
+      "elapsed_ns": 12483,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "t",
+      "elapsed_ns": 13646,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "c",
+      "elapsed_ns": 12129,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "l",
+      "elapsed_ns": 12823,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "0",
+      "elapsed_ns": 15513,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "e",
+      "elapsed_ns": 12224,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "w",
+      "elapsed_ns": 14251,
+      "responses": [
+        "C:completed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "p",
+      "elapsed_ns": 19808,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "d",
+      "elapsed_ns": 26365,
+      "responses": [
+        "B:0",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "d",
+      "elapsed_ns": 13411,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "t",
+      "elapsed_ns": 12706,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "c",
+      "elapsed_ns": 10934,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "l",
+      "elapsed_ns": 13050,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "ordinary",
+      "command": "q",
+      "elapsed_ns": 9433,
+      "responses": [
+        "Q:split:d:0:0:0:0:0"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "1",
+      "elapsed_ns": 104631,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "e",
+      "elapsed_ns": 211189,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "w",
+      "elapsed_ns": 149020,
+      "responses": [
+        "C:completed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "p",
+      "elapsed_ns": 77404,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "x",
+      "elapsed_ns": 41365,
+      "responses": [
+        "B:0",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "1",
+      "elapsed_ns": 21738,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "r",
+      "elapsed_ns": 205392,
+      "responses": [
+        "C:prepared"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "o",
+      "elapsed_ns": 15775,
+      "responses": [
+        "C:migrated"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "k",
+      "elapsed_ns": 21195,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "d",
+      "elapsed_ns": 17201,
+      "responses": [
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "d",
+      "elapsed_ns": 19011,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "t",
+      "elapsed_ns": 26717,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "c",
+      "elapsed_ns": 18475,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "l",
+      "elapsed_ns": 24126,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "e",
+      "elapsed_ns": 15354,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "D",
+      "elapsed_ns": 22627,
+      "responses": [
+        "C:delivered-D"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "N",
+      "elapsed_ns": 15046,
+      "responses": [
+        "C:delivered-N"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "j",
+      "elapsed_ns": 19519,
+      "responses": [
+        "C:joined"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "p",
+      "elapsed_ns": 12862,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "d",
+      "elapsed_ns": 31667,
+      "responses": [
+        "B:1",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "d",
+      "elapsed_ns": 12859,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "t",
+      "elapsed_ns": 13052,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "c",
+      "elapsed_ns": 10464,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "l",
+      "elapsed_ns": 12862,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "0",
+      "elapsed_ns": 15738,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "e",
+      "elapsed_ns": 11772,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "w",
+      "elapsed_ns": 15074,
+      "responses": [
+        "C:completed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "p",
+      "elapsed_ns": 15159,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "d",
+      "elapsed_ns": 13606,
+      "responses": [
+        "B:0",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "d",
+      "elapsed_ns": 11839,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "t",
+      "elapsed_ns": 11970,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "c",
+      "elapsed_ns": 10652,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "l",
+      "elapsed_ns": 11615,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "placement",
+      "command": "q",
+      "elapsed_ns": 12291,
+      "responses": [
+        "Q:split:r:0:0:0:0:0"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "1",
+      "elapsed_ns": 108373,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "e",
+      "elapsed_ns": 213213,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "w",
+      "elapsed_ns": 149231,
+      "responses": [
+        "C:completed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "p",
+      "elapsed_ns": 81625,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "x",
+      "elapsed_ns": 41890,
+      "responses": [
+        "B:0",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "1",
+      "elapsed_ns": 15223,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "h",
+      "elapsed_ns": 221973,
+      "responses": [
+        "C:prepared"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "o",
+      "elapsed_ns": 17776,
+      "responses": [
+        "C:migrated"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "k",
+      "elapsed_ns": 21601,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "d",
+      "elapsed_ns": 17360,
+      "responses": [
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "d",
+      "elapsed_ns": 19502,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "t",
+      "elapsed_ns": 27913,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "c",
+      "elapsed_ns": 19202,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "l",
+      "elapsed_ns": 30695,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "e",
+      "elapsed_ns": 17039,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "D",
+      "elapsed_ns": 25622,
+      "responses": [
+        "C:delivered-D"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "g",
+      "elapsed_ns": 182222,
+      "responses": [
+        "C:prepared"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "o",
+      "elapsed_ns": 9460,
+      "responses": [
+        "C:migrated"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "N",
+      "elapsed_ns": 18908,
+      "responses": [
+        "C:delivered-N"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "j",
+      "elapsed_ns": 20441,
+      "responses": [
+        "C:joined"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "p",
+      "elapsed_ns": 14718,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "d",
+      "elapsed_ns": 21758,
+      "responses": [
+        "B:1",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "d",
+      "elapsed_ns": 13891,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "t",
+      "elapsed_ns": 13678,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "c",
+      "elapsed_ns": 11419,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "l",
+      "elapsed_ns": 15205,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "0",
+      "elapsed_ns": 18091,
+      "responses": [
+        "C:accepted"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "e",
+      "elapsed_ns": 15789,
+      "responses": [
+        "C:produced"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "w",
+      "elapsed_ns": 26420,
+      "responses": [
+        "C:completed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "p",
+      "elapsed_ns": 12842,
+      "responses": [
+        "C:enqueued"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "d",
+      "elapsed_ns": 25257,
+      "responses": [
+        "B:0",
+        "C:dispatched"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "d",
+      "elapsed_ns": 16216,
+      "responses": [
+        "C:confirmed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "t",
+      "elapsed_ns": 12809,
+      "responses": [
+        "C:committed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "c",
+      "elapsed_ns": 11256,
+      "responses": [
+        "C:closed"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "l",
+      "elapsed_ns": 16014,
+      "responses": [
+        "C:released"
+      ]
+    },
+    {
+      "repetition": 2,
+      "schedule": "repartition",
+      "command": "q",
+      "elapsed_ns": 13569,
+      "responses": [
+        "Q:fused:d:0:0:0:0:0"
+      ]
+    }
+  ]
+}
