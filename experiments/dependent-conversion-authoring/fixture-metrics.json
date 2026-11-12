@@ -1,0 +1,161 @@
+{
+  "status": "preparation measurements; no author execution",
+  "method": "Lean evaluation of instantiated object syntax; variable occurrence counts one node, scoped-variable paths excluded; actual chain length for substitution count, one assignment for repair",
+  "columns": [
+    "context_base_width",
+    "left_term_constructor_nodes",
+    "right_term_constructor_nodes",
+    "left_beta_redex_nesting",
+    "applied_substitution_count",
+    "left_index_constructor_nodes",
+    "left_index_negation_depth"
+  ],
+  "rows": [
+    {
+      "fixture": "initial",
+      "context_base_width": 2,
+      "left_term_constructor_nodes": 9,
+      "right_term_constructor_nodes": 6,
+      "left_beta_redex_nesting": 1,
+      "applied_substitution_count": 2,
+      "left_index_constructor_nodes": 4,
+      "left_index_negation_depth": 3
+    },
+    {
+      "fixture": "composition-1",
+      "context_base_width": 2,
+      "left_term_constructor_nodes": 9,
+      "right_term_constructor_nodes": 6,
+      "left_beta_redex_nesting": 1,
+      "applied_substitution_count": 2,
+      "left_index_constructor_nodes": 4,
+      "left_index_negation_depth": 3
+    },
+    {
+      "fixture": "composition-4",
+      "context_base_width": 2,
+      "left_term_constructor_nodes": 18,
+      "right_term_constructor_nodes": 6,
+      "left_beta_redex_nesting": 4,
+      "applied_substitution_count": 2,
+      "left_index_constructor_nodes": 4,
+      "left_index_negation_depth": 3
+    },
+    {
+      "fixture": "composition-8",
+      "context_base_width": 2,
+      "left_term_constructor_nodes": 30,
+      "right_term_constructor_nodes": 6,
+      "left_beta_redex_nesting": 8,
+      "applied_substitution_count": 2,
+      "left_index_constructor_nodes": 4,
+      "left_index_negation_depth": 3
+    },
+    {
+      "fixture": "context-2",
+      "context_base_width": 2,
+      "left_term_constructor_nodes": 9,
+      "right_term_constructor_nodes": 6,
+      "left_beta_redex_nesting": 1,
+      "applied_substitution_count": 2,
+      "left_index_constructor_nodes": 4,
+      "left_index_negation_depth": 3
+    },
+    {
+      "fixture": "context-4",
+      "context_base_width": 4,
+      "left_term_constructor_nodes": 9,
+      "right_term_constructor_nodes": 6,
+      "left_beta_redex_nesting": 1,
+      "applied_substitution_count": 2,
+      "left_index_constructor_nodes": 4,
+      "left_index_negation_depth": 3
+    },
+    {
+      "fixture": "context-8",
+      "context_base_width": 8,
+      "left_term_constructor_nodes": 9,
+      "right_term_constructor_nodes": 6,
+      "left_beta_redex_nesting": 1,
+      "applied_substitution_count": 2,
+      "left_index_constructor_nodes": 4,
+      "left_index_negation_depth": 3
+    },
+    {
+      "fixture": "substitution-1",
+      "context_base_width": 2,
+      "left_term_constructor_nodes": 8,
+      "right_term_constructor_nodes": 5,
+      "left_beta_redex_nesting": 1,
+      "applied_substitution_count": 1,
+      "left_index_constructor_nodes": 3,
+      "left_index_negation_depth": 2
+    },
+    {
+      "fixture": "substitution-2",
+      "context_base_width": 2,
+      "left_term_constructor_nodes": 9,
+      "right_term_constructor_nodes": 6,
+      "left_beta_redex_nesting": 1,
+      "applied_substitution_count": 2,
+      "left_index_constructor_nodes": 4,
+      "left_index_negation_depth": 3
+    },
+    {
+      "fixture": "substitution-4",
+      "context_base_width": 2,
+      "left_term_constructor_nodes": 11,
+      "right_term_constructor_nodes": 8,
+      "left_beta_redex_nesting": 1,
+      "applied_substitution_count": 4,
+      "left_index_constructor_nodes": 6,
+      "left_index_negation_depth": 5
+    },
+    {
+      "fixture": "repair-before",
+      "context_base_width": 2,
+      "left_term_constructor_nodes": 10,
+      "right_term_constructor_nodes": 4,
+      "left_beta_redex_nesting": 2,
+      "applied_substitution_count": 1,
+      "left_index_constructor_nodes": 2,
+      "left_index_negation_depth": 1
+    },
+    {
+      "fixture": "repair-after",
+      "context_base_width": 2,
+      "left_term_constructor_nodes": 10,
+      "right_term_constructor_nodes": 4,
+      "left_beta_redex_nesting": 2,
+      "applied_substitution_count": 1,
+      "left_index_constructor_nodes": 2,
+      "left_index_negation_depth": 1
+    },
+    {
+      "fixture": "held-out",
+      "context_base_width": 3,
+      "left_term_constructor_nodes": 13,
+      "right_term_constructor_nodes": 7,
+      "left_beta_redex_nesting": 2,
+      "applied_substitution_count": 3,
+      "left_index_constructor_nodes": 5,
+      "left_index_negation_depth": 4
+    },
+    {
+      "fixture": "negative-index",
+      "context_base_width": 2,
+      "left_term_constructor_nodes": 9,
+      "right_term_constructor_nodes": 4,
+      "left_beta_redex_nesting": 1,
+      "applied_substitution_count": 2,
+      "left_index_constructor_nodes": 4,
+      "left_index_negation_depth": 3
+    }
+  ],
+  "measurement_source_sha256": "439e6340c12e6a52a9162ec458efa8e1f474459c20a344bedeb7d0936004070b",
+  "term_definition_source_sha256": "701115acd2f2a930f1a2cc05a42cbff5a4f2d86505deab1046d167016837817e",
+  "measurement_log_sha256": "f4dddfd6b2cbf77b92fd82c3e7c2caf3074e68316737c0a1a3658de09c5e0527",
+  "preview_transform_sha256": "7d3e782df0d4a81ef9a401bffd2e0ee39929d3997787794403241dd18935d049",
+  "full_audit_status": "pending fresh staging by integration coordinator",
+  "author_effort": null
+}
