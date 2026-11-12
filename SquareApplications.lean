@@ -779,4 +779,6 @@ import Examples.IdealizedTargets
 
 import Examples.OracleModalities
 
+import Examples.DependentFunctionConversionSemantics
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
