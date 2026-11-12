@@ -50,6 +50,9 @@ The inspected optional exact-arithmetic backend also supplies real-point compila
 
 ## Consequences for interpretation contracts
 
+The [programme synthesis](mathematical-target-synthesis.md) compares these
+contracts with quantum judgments, tracked recursion and persistent oracle truth.
+
 These clients require #493's proposed interfaces to keep specific admission and observation obligations visible:
 
 - Mathematical source denotation and symbolic artifact correspondence are justified without demanding an ordinary executor for every primitive.
