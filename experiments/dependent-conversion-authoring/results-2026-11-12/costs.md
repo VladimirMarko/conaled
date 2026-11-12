@@ -106,7 +106,7 @@ All six fresh replay sets and native policy passed. All twelve production audit
 contexts also passed: one each for slots 1, 3, 4 and 6; two for slot 2; six for
 slot 5. Their import-order and helper-origin work is review cost for the same
 submissions, not additional authors or extra trial successes. The completed
-receipts retain audit start and finish observations; they do not measure active
+[receipts](audit-completion.json) retain audit start and finish observations; they do not measure active
 review labor. Interrupted queue records and later execution remain separate;
 missing lock-wait and labor measurements are not zeros. Root serialized these
 checks with other integration work. Author background-load observations do not
