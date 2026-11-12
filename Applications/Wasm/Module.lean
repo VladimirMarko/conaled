@@ -212,7 +212,7 @@ structure Limits where
 obligation. The width-32 selector fits these limits. -/
 def Limits.default : Limits := ⟨1024, 1024, 65536, 1048576⟩
 
-def Module.admit (m : Module) (limits : Limits := .default) : Bool :=
+def Module.withinLimits (m : Module) (limits : Limits := .default) : Bool :=
   m.validate && decide (m.type.params.length ≤ limits.parameters ∧
     m.type.results.length ≤ limits.results ∧
     m.type.params.length + m.locals.length ≤ limits.locals ∧
@@ -220,8 +220,8 @@ def Module.admit (m : Module) (limits : Limits := .default) : Bool :=
     m.type.params.length < 2^32 ∧ m.type.results.length < 2^32 ∧
     m.type.params.length + m.locals.length < 2^32 ∧ m.body.length < 2^32)
 
-theorem Module.admit_valid (m : Module) (limits : Limits) (h : m.admit limits = true) : m.Valid := by
-  simp only [admit, Bool.and_eq_true] at h
+theorem Module.withinLimits_valid (m : Module) (limits : Limits) (h : m.withinLimits limits = true) : m.Valid := by
+  simp only [withinLimits, Bool.and_eq_true] at h
   exact m.validate_sound h.1
 
 end Applications.Wasm

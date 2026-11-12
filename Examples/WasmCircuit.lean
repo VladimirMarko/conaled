@@ -223,13 +223,13 @@ theorem selector32_profile : actualPlan (Words.selector 32) = ⟨3266,866,96⟩ 
   rw [actualPlan_eq]
   decide
 
-example : (assemble (Words.selector 32)).admit = true := by
+example : (assemble (Words.selector 32)).withinLimits = true := by
   have instructions := congrArg Words.Plan.instructions selector32_profile
   have locals := congrArg Words.Plan.locals selector32_profile
   change (assemble (Words.selector 32)).body.length = 3266 at instructions
   change (assemble (Words.selector 32)).type.params.length +
     (assemble (Words.selector 32)).locals.length = 866 at locals
-  simp only [Module.admit, assemble_validate, Bool.true_and, decide_eq_true_eq]
+  simp only [Module.withinLimits, assemble_validate, Bool.true_and, decide_eq_true_eq]
   rw [instructions, locals]
   decide
 
