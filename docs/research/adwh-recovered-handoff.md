@@ -128,9 +128,9 @@ Retaining a rationale does not promote a historical review to current approval.
 
 The table records accounted source families and remaining obligations. Check
 each remaining source contract against current code before implementing, and
-record retained equivalents rather than duplicating them. The list-cost family
-is accounted for on the evidence below; the other Chapter 2 residuals remain
-under #459.
+record retained equivalents rather than duplicating them. Selected R1 list costs,
+R3 prune/trim, R5 digit search and R6 counter geometry/output are accounted for. R2 demand, R4 arrays and the remaining R7
+permutation contracts stay under #459.
 
 These descriptive subjects are used for maintained work. The archive labels
 are the external agent’s private planning identifiers, sometimes prefixed
@@ -139,24 +139,27 @@ They are retained here only to locate historical drafts.
 
 | Subject | Historical planning label | Current reuse and outstanding distinction |
 |---|---|---|
-| List costs and concatenation bounds | `LIST-COST` | Accounted for by #468 uniform concatenation, #469 takeWhile extrema, and stronger existing head/reverse exact contracts. See [R1 disposition](adwh-r1-disposition.md); R2–R7 remain open. |
+| List costs and concatenation bounds | `LIST-COST` | Accounted for by #468 uniform concatenation, #469 takeWhile extrema, and stronger existing head/reverse exact contracts. See [R1 disposition](adwh-r1-disposition.md); R2/R4/R7 remain open. |
 | Composition and demand | `DEMAND` | CollapseDemand, Progress and partial-spine observations exist; preserve actual cache transitions, ordered requests and charged consumption. |
 | Delayed list construction | `CONTEXT-LISTS` | Finite lists, accumulation and permutations exist; reconcile delayed callbacks, outer construction and complete payload observation. |
 | Head of concatenation | `CONCAT-HEAD` | Partial concat and collapse owners exist; connect deferred append histories, early head consumption and finite/partial negative cases. |
-| List-predicate trim and prune | `PRUNE` | SuffixTrim is an element-predicate operation; whole-list predicate trim/prune, closure premises and exact squared-potential costs need separate reconciliation. |
+| List-predicate trim and prune | `PRUNE` | Accounted for by #470 [whole-list trim](whole-list-trim.md), #471 [folded prune](folded-prune.md) and #472 [priced prune](priced-prune.md), including closure premises, native budgets and arbitrary guard prices. SuffixTrim retains its distinct element-predicate contract. |
 | Literal and eager dynamic arrays | `ARRAY / ARRAY-EAGER` | Fixed-capacity buffers and store updates exist; resizing policies, full copy windows, arbitrary trace prices and policy-specific potential laws remain. |
-| Digit search and finite averages | `DIGIT` | Search and finite-sum foundations exist; actual first-hit cost, ordered population and the corrected finite-uniform expectation remain. |
-| Counter geometry and output | `COUNTER` | BinaryCounter already owns value/representation/workload/potential laws; independent geometric derivation, observed-state indexing and token-output costs remain. |
-| Existing execution and counter contracts | `REUSE` | Reconciled by #458: #173 already maps Timing/Amortized to Workload/Potential/BinaryCounter. Do not create another executor, potential or counter theory. Independent geometry/output remains #459. |
-| Selection-based permutation costs | `SELECTION-COST` | Pure occurrences/permutations exist; actual measured removal/selection generation and exact pair correspondence remain. |
-| Insertion-based permutation costs | `INSERTION-COST` | Pure insertion order exists; delayed construction, forcing, outer count and complete observation costs remain. |
-| Permutation growth bounds | `PERMUTATION-GROWTH` | Finite sums/growth exist; derive growth from the actual measured generators and specified observers, retaining finite exact identities. |
+| Digit search and finite averages | `DIGIT` | Accounted for by #478 [digit search](digit-search.md): actual first-hit execution, ordered population and the corrected finite-uniform mean including terminal failures. |
+| Counter geometry and output | `COUNTER` | Selected R6 is accounted for by #479 [counter geometry](counter-geometry.md) and #505 [counter output](counter-output.md), preserving BinaryCounter ownership, seed-inclusive indexing and separate transition/token charges. |
+| Existing execution and counter contracts | `REUSE` | Reconciled by #458: #173 already maps Timing/Amortized to Workload/Potential/BinaryCounter. Do not create another executor, potential or counter theory. Independent geometry/output is now supplied by #479/#505. |
+| Selection-based permutation costs | `SELECTION-COST` | Pure occurrences/permutations are retained. #506 [positional execution](positional-permutation-costs.md) supplies exact construction, complete-pair fuel correspondence and observed growth. #507 [first-equal erasure](erasure-permutation-costs.md) adds actual equality-oracle removal, data-dependent recursive bills, complete-pair fuel correspondence and observed growth. |
+| Insertion-based permutation costs | `INSERTION-COST` | Pure insertion order exists; delayed construction, forcing, outer count and complete observation costs remain. #505 observes existing insertion outputs only; it does not charge their generation. |
+| Permutation growth bounds | `PERMUTATION-GROWTH` | Native growth bridges and #506 positional construction/observation growth are available. #507 supplies execution-linked removal bounds; delayed insertion still requires its own demand and growth contract. |
 
-With the selected list-cost family accounted for, choose bounded demand or array work according to an actual consumer. The shared
-varying-callback mapper needed by selection, insertion and counter output
-should have one owner. This is a dependency recommendation, not the abandoned
-agent's strict chapter-order gate. Guarded build, growth, sums, discrete
-estimates, exact arithmetic and the three recurrence slices are already in the
+Choose bounded remaining demand, array or permutation work according to an actual
+consumer. `StructuredLinear.Costs.traverse` already owns varying callback
+measurement, with no intrinsic structural list tariff. #505 uses a local output
+adapter; #506 proves a full-pair comparison for its local structural tariff.
+Its structured-linear clients are unchanged. Delayed forcing and richer event
+schedules require separate contracts, not a second global traversal owner.
+This is a dependency recommendation, not the abandoned agent's chapter-order
+gate. Guarded build, growth, sums, discrete estimates, exact arithmetic and the three recurrence slices are already in the
 integration; old drafts naming them as future prerequisites are stale.
 
 ## Later-chapter research to retain

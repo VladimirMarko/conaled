@@ -116,6 +116,11 @@ agree with a workload over reversed commands in the entire measured pair.
 That semantic bridge does not charge an actual reversal that the fold never
 executes. Value equality of prune and trim does not imply equal costs.
 
+Current disposition: #470–#472 deliver the selected whole-list trim, folded
+prune and arbitrary guard-price contracts, with native budget/potential reuse.
+See [whole-list trim](whole-list-trim.md), [folded prune](folded-prune.md) and
+[priced prune](priced-prune.md). The research distinctions above remain relevant.
+
 ## Dynamic front arrays: literal and eager resizing
 
 Recovered sources: `DynamicArray`, `DynamicArrayEager`; latest literal/eager array drafts
@@ -191,6 +196,10 @@ zero, and strict finite error bounds. Population construction is not charged
 as part of searching one input. These are finite-uniform claims, not claims for
 an arbitrary input distribution.
 
+Current disposition: #478 delivers the selected first-hit execution, ordered
+population and corrected finite average. See [digit search](digit-search.md).
+Printed-book completeness and licensing remain #149.
+
 ## Counter geometry and output
 
 Recovered sources: `CounterGeometric`, `CounterOutput`; latest counter draft,
@@ -224,11 +233,18 @@ transport in the other direction.
 
 Output research adds a token renderer with decode laws, actual digit mass,
 line structure and varying callback charges. This is not Haskell `Show`, byte
-encoding or wall-clock performance. A measured varying-callback map is a shared
-need with permutation work; no `mapMeasured` or `concatMapMeasured` owner was
-found in the integrated Applications/SquareKit search. Recheck before adding it.
+encoding or wall-clock performance. The earlier name-based search missed the existing
+`StructuredLinear.Costs.traverse`, as #477 subsequently established. It retains
+varying callback values and bills but adds no intrinsic structural list tariff.
+#505 uses this owner through a local output adapter; its structured-linear
+clients remain unchanged.
 The historical `correspondence/timing.json` cited by the counter ledger was
 absent from the supplied source archive. Its old acceptance label is not evidence.
+
+Current disposition: #479 supplies the independent geometry and ordered bills;
+#505 supplies actual prefix execution, token rendering, exact decoding, digit
+mass and separate output charges. See [counter geometry](counter-geometry.md)
+and [counter output](counter-output.md). Together these account for selected R6.
 
 ## Permutation execution, forcing and growth
 
@@ -262,6 +278,16 @@ executor is useful as a specification but does not prove execution agreement.
 Keep nonuniform inner lengths, duplicate values, function-valued labels and
 empty cases. Natural addition permits some charge rearrangements; those proofs
 cannot silently be generalized to noncommutative traces.
+
+Current disposition: #506 [positional permutation execution](positional-permutation-costs.md)
+supplies actual construction, fuel-free execution with complete-pair adequate-fuel
+correspondence, complete inner-spine observation and model-relative growth.
+#507 [first-equal erasure](erasure-permutation-costs.md) supplies measured removal,
+ordered recursive generation, full-pair fuel correspondence and complete-observation
+growth under unit equality-oracle prices. Delayed insertion retains its remaining
+demand and execution obligations.
+#505's small insertion-output observer measures existing outputs only; it does not
+charge recursive generation. R2/R4/R7 and #149 remain open.
 
 ## Already integrated numerical research
 
