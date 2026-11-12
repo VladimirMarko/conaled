@@ -772,4 +772,6 @@ import Examples.RegionalPendingPolicy
 import Examples.QuantumSemantics
 import Examples.IdealizedTargets
 
+import Examples.OracleModalities
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
