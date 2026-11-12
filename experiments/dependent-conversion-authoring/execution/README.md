@@ -145,7 +145,11 @@ phase/event records, retaining raw provider fields and their provenance. Never
 dump credentials or unrestricted configuration/environment contents. The
 recorder's observation defaults are unknown/null, not measurements of zero.
 Its durations do not measure active reasoning. Cached/reasoning token fields
-must not be added again into a provider total that includes them.
+must not be added again into a provider total that includes them. Provider totals
+can include repeated and cached input; they are not author effort. Distinguish
+per-turn from cumulative records and never sum successive cumulative totals.
+Use 24,000 only as a recorded sanity-review trigger where the counter semantics
+are usable, never as performance grading.
 
 Ordinary check failures and command-start failures have final receipts. SIGINT
 and SIGTERM stop the child process group and retain an interrupted receipt and
