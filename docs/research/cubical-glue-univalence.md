@@ -138,3 +138,19 @@ In particular, CCHM's inverse-homotopy construction involves chosen transport
 in a constant family. It cannot be identified literally with the identity
 endpoint used here without a further coherence argument. No regularity axiom
 is added to remove that obligation.
+
+### Transport comparison
+
+`UnivalenceTransport.lean` now proves full-face recovery for elimination from
+the supplied Glue code and constructs `Univalence.comparison`. For every
+section of the decoded source, this is a native target path from the supplied
+map's action to the actual selected transport along `uaCode`. Its construction
+maps the filled line through unglue and uses the exact endpoint equations.
+`mapLineComparisonTo` handles the endpoint casts without replacing selected
+transport by the supplied map. This focused check passed at default limits.
+The result is semantic; it asserts no evaluator behavior or cost bound.
+
+The full native univalence theorem still requires the internal equivalence
+family, its native proposition facts, and the homotopy/retract arguments.
+The planned retract route preserves the chosen `ua` and uses this comparison;
+it does not assume constant-family transport is literally identity.
