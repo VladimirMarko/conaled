@@ -1,0 +1,14 @@
+/tmp/conaled-wave-20261111/423-trial-execution/slot-3/work/scale-context-compile-001/source.lean:13:29: error: Tactic `subst` failed: invalid equality proof, it is not of the form (x = t) or (t = x)
+  k = 7 ∨ k ∈ []
+
+case inr.inr
+k : Nat
+h✝ : k = 7 ∨ k ∈ []
+⊢ DepEq (left k 1 2) (right k 2) ∧ (left k 1 2).type = (right k 2).type
+/tmp/conaled-wave-20261111/423-trial-execution/slot-3/work/scale-context-compile-001/source.lean:12:49: error: This simp argument is unused:
+  List.mem_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [contextExtraBinders, List.mem_cons] at hk
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

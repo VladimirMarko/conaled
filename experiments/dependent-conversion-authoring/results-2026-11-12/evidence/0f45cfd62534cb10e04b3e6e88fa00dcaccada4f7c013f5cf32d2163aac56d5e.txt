@@ -1,0 +1,25 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "0",
+    "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+    "-R",
+    "/tmp/conaled-wave-20261111/423-execution-correction/prepared-final/slots/slot-4/public",
+    "-o",
+    "/tmp/conaled-wave-20261111/423-trial-execution/slot-4/work/repair-change-output/Examples/ConversionTrial/Repair.olean",
+    "/tmp/conaled-wave-20261111/423-execution-correction/prepared-final/slots/slot-4/public/Examples/ConversionTrial/Repair.lean"
+  ],
+  "source_sha256": "5e22c8d4df1d9839d53f547c7aec532df5e209491c8f61e056c4f0afbe1718cc",
+  "start": {
+    "at": "2026-11-12T15:54:42.535065+00:00",
+    "monotonic_ns": 172171728577339
+  },
+  "finish": {
+    "at": "2026-11-12T15:54:42.942794+00:00",
+    "monotonic_ns": 172172136311894
+  },
+  "exit_code": 0,
+  "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "artifact_sha256": "5fe90405f505796b2917fd838ecefbf705f7a9cba20e969695aea7e14bc4922a"
+}

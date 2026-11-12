@@ -1,0 +1,5 @@
+import Examples.ConversionTrial.ServiceReference
+open SquareKit.Internal.DependentFunctions Examples.ConversionTrial
+example : FuncEq Negative.newest Negative.older := by
+  letI := Negative.newest.decideEq Negative.older
+  decide

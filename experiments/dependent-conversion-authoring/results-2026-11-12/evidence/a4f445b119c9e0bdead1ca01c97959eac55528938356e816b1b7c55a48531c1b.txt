@@ -1,0 +1,29 @@
+{
+  "phase": "negative",
+  "status": "complete per released rubric",
+  "head": {
+    "outcome": "rejected",
+    "reason_file": "negative-head-rejection.txt",
+    "checked_evidence": [
+      "head_same_type",
+      "distinct_head_syntax"
+    ],
+    "checked_inequivalence": false,
+    "HeadTask_proof": false
+  },
+  "index": {
+    "outcome": "checked",
+    "theorem": "Examples.ConversionTrial.Negative.index_proof"
+  },
+  "proof": "NegativeProof.lean",
+  "checks": [
+    "negative-compile-001",
+    "negative-policy-001"
+  ],
+  "general_helpers": [],
+  "repairs": [],
+  "assistance": "none",
+  "interruptions": [],
+  "exposures": [],
+  "usage": null
+}

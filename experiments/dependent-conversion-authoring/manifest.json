@@ -1,0 +1,333 @@
+{
+  "schema_version": 1,
+  "status": "checked-fixture-preparation; not an execution freeze or author release",
+  "issue": 423,
+  "engine_source_base": "03cfba5e37d64c33bcec1f8484616d9e31de9397",
+  "protocol": {
+    "path": "docs/research/dependent-conversion-authoring-protocol.md",
+    "sha256": "3c8aa47cb3e03a89137017e94be21edc634389e5ca99a11305eefc9de00281c8"
+  },
+  "toolchain": "leanprover/lean4:v4.35.0",
+  "dependency_manifest_sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
+  "dependencies": [
+    {
+      "url": "https://github.com/leanprover-community/mathlib4.git",
+      "type": "git",
+      "subDir": null,
+      "scope": "",
+      "rev": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+      "name": "mathlib",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "v4.35.0",
+      "inherited": false,
+      "configFile": "lakefile.lean"
+    },
+    {
+      "url": "https://github.com/leanprover-community/plausible",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+      "name": "plausible",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "url": "https://github.com/leanprover-community/LeanSearchClient",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+      "name": "LeanSearchClient",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "url": "https://github.com/leanprover-community/import-graph",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+      "name": "importGraph",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "url": "https://github.com/leanprover-community/ProofWidgets4",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+      "name": "proofwidgets",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.lean"
+    },
+    {
+      "url": "https://github.com/leanprover-community/aesop",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "4a174c490d8707121c4a9290800489f105d85e07",
+      "name": "aesop",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "master",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "url": "https://github.com/leanprover-community/quote4",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+      "name": "Qq",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "master",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "url": "https://github.com/leanprover-community/batteries",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+      "name": "batteries",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "url": "https://github.com/leanprover/lean4-cli",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover",
+      "rev": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+      "name": "Cli",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "v4.35.0",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    }
+  ],
+  "modules_in_compile_order": [
+    {
+      "source": "fixtures/Terms.lean",
+      "module": "Examples.ConversionTrial.Terms",
+      "staged_relative_path": "Examples/ConversionTrial/Terms.lean",
+      "sha256": "701115acd2f2a930f1a2cc05a42cbff5a4f2d86505deab1046d167016837817e",
+      "direct_imports_native_parser": [
+        "Init",
+        "Init",
+        "SquareKit.Internal.DependentFunctionLaws"
+      ]
+    },
+    {
+      "source": "fixtures/Initial.lean",
+      "module": "Examples.ConversionTrial.Initial",
+      "staged_relative_path": "Examples/ConversionTrial/Initial.lean",
+      "sha256": "b07b00f97a37a069ff460062371f7e7f00c36e4311de1190e4f1f458d6ef1b22",
+      "direct_imports_native_parser": [
+        "Init",
+        "Init",
+        "Examples.ConversionTrial.Terms"
+      ]
+    },
+    {
+      "source": "fixtures/Scale.lean",
+      "module": "Examples.ConversionTrial.Scale",
+      "staged_relative_path": "Examples/ConversionTrial/Scale.lean",
+      "sha256": "40627e72efc8556288bc1b9b2c4f61295603965820a5dedc5f6d7de1bebe3834",
+      "direct_imports_native_parser": [
+        "Init",
+        "Init",
+        "Examples.ConversionTrial.Initial"
+      ]
+    },
+    {
+      "source": "fixtures/Repair.lean",
+      "module": "Examples.ConversionTrial.Repair",
+      "staged_relative_path": "Examples/ConversionTrial/Repair.lean",
+      "sha256": "5e22c8d4df1d9839d53f547c7aec532df5e209491c8f61e056c4f0afbe1718cc",
+      "direct_imports_native_parser": [
+        "Init",
+        "Init",
+        "Examples.ConversionTrial.Initial"
+      ]
+    },
+    {
+      "source": "fixtures/Negative.lean",
+      "module": "Examples.ConversionTrial.Negative",
+      "staged_relative_path": "Examples/ConversionTrial/Negative.lean",
+      "sha256": "1826b725b23371ff47ac71896d70f6bf6dc844e4545a5d8214c9d5e79f572462",
+      "direct_imports_native_parser": [
+        "Init",
+        "Init",
+        "Examples.ConversionTrial.Initial"
+      ]
+    },
+    {
+      "source": "fixtures/HeldOut.lean",
+      "module": "Examples.ConversionTrial.HeldOut",
+      "staged_relative_path": "Examples/ConversionTrial/HeldOut.lean",
+      "sha256": "b556c838109e22902e3a12e1a51111d9a9f96fcf356f60f11afbdadc8b29ab86",
+      "direct_imports_native_parser": [
+        "Init",
+        "Init",
+        "Examples.ConversionTrial.Initial"
+      ]
+    },
+    {
+      "source": "private/DirectReference.lean",
+      "module": "Examples.ConversionTrial.DirectReference",
+      "staged_relative_path": "Examples/ConversionTrial/DirectReference.lean",
+      "sha256": "dcb2606d5575fd878404bbf0edd59495f23ea6bf9e2f1562b747a6f538e7c12b",
+      "direct_imports_native_parser": [
+        "Init",
+        "Init",
+        "Examples.ConversionTrial.Scale",
+        "Examples.ConversionTrial.Repair",
+        "Examples.ConversionTrial.HeldOut",
+        "Examples.ConversionTrial.Negative"
+      ]
+    },
+    {
+      "source": "private/ServiceReference.lean",
+      "module": "Examples.ConversionTrial.ServiceReference",
+      "staged_relative_path": "Examples/ConversionTrial/ServiceReference.lean",
+      "sha256": "eb10173ad13b95b467162a7cd86344b4201d1221942076791079fa2892a09a45",
+      "direct_imports_native_parser": [
+        "Init",
+        "Init",
+        "Examples.ConversionTrial.Scale",
+        "Examples.ConversionTrial.Repair",
+        "Examples.ConversionTrial.HeldOut",
+        "Examples.ConversionTrial.Negative",
+        "SquareKit.Internal.DependentFunctionConversion"
+      ]
+    },
+    {
+      "source": "private/SeparatingModel.lean",
+      "module": "Examples.ConversionTrial.SeparatingModel",
+      "staged_relative_path": "Examples/ConversionTrial/SeparatingModel.lean",
+      "sha256": "4b1bbf8cc06df386bb9738b3240b07da0d1e0ec0ae56ca238bc65f0d0830e783",
+      "direct_imports_native_parser": [
+        "Init",
+        "Init",
+        "Examples.ConversionTrial.Negative",
+        "Examples.DependentFunctionSource"
+      ]
+    },
+    {
+      "source": "private/Validate.lean",
+      "module": "Examples.ConversionTrial.Validate",
+      "staged_relative_path": "Examples/ConversionTrial/Validate.lean",
+      "sha256": "439e6340c12e6a52a9162ec458efa8e1f474459c20a344bedeb7d0936004070b",
+      "direct_imports_native_parser": [
+        "Init",
+        "Init",
+        "Lean",
+        "Examples.ConversionTrial.DirectReference",
+        "Examples.ConversionTrial.ServiceReference",
+        "Examples.ConversionTrial.SeparatingModel",
+        "ProofAudit"
+      ]
+    }
+  ],
+  "scope": [
+    "README.md",
+    "manifest.json",
+    "fixture-metrics.json",
+    "fixtures/Terms.lean",
+    "fixtures/Initial.lean",
+    "fixtures/Scale.lean",
+    "fixtures/Repair.lean",
+    "fixtures/Negative.lean",
+    "fixtures/HeldOut.lean",
+    "private/DirectReference.lean",
+    "private/ServiceReference.lean",
+    "private/SeparatingModel.lean",
+    "private/Validate.lean"
+  ],
+  "validation": {
+    "source_policy": "Unchanged scripts/lean-source-info.lean; explicit ten-file manifest; compilation validates complete syntax.",
+    "audit": "Unchanged current ProofAudit #audit_project_axioms from a complete candidate source mirror, with byte-identical fixtures under Examples.ConversionTrial and unchanged scripts/project_sources.py; inventory equals imported mathematical origins plus current Validate, and every inventoried module is reported.",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "source_policy_controls": [
+      "axiom",
+      "admission",
+      "unsafe",
+      "malformed-import"
+    ],
+    "mathematical_controls": [
+      "false free-head equality",
+      "mismatched result index"
+    ],
+    "source_stage_mapping_required": true,
+    "full_import_closure_required": true,
+    "new_runner_or_parser": false,
+    "full_import_closure_sha256": "168840b32c3a2d7a7c919a52b239a06c0d8a1b5c9795ae48a825474d4b393b89",
+    "audit_log_sha256": "f9a040d0edc168fde802e89e9e1007f3253e917b4b477fa9da4518a33fe0c998",
+    "final_audit_status": "Passed: fresh ten-module staging/current auditor, full source-inventory closure audit, four source-policy and two mathematical rejection controls",
+    "fixture_metrics_sha256": "be56310b847d2e20672c258cd13299832f9aaa5d54508f9c448190c8c051aab2",
+    "source_inventory_sha256": "2c1d5f5b79ef3497d1b0ff2b3e71003ecdcb69d71b21fce7e4698658032a1653",
+    "full_coverage_sha256": "af93a6ed7c91a3d51947e40bbc5a5c46764a98860a3c2755f9babaaad44239e8"
+  },
+  "dimensions": {
+    "composition_lengths": [
+      1,
+      4,
+      8
+    ],
+    "context_base_widths": [
+      2,
+      4,
+      8
+    ],
+    "substitution_counts": [
+      1,
+      2,
+      4
+    ]
+  },
+  "exposure": {
+    "assigned_authors": 0,
+    "phase_release_started": false,
+    "sealed": false,
+    "withhold": [
+      "private/",
+      "fixtures/Repair.lean",
+      "fixtures/HeldOut.lean"
+    ],
+    "preparers_and_solution_reviewers_author_eligible": false
+  },
+  "execution_prerequisites": {
+    "reviewed_fixture_acceptance": "pending independent review",
+    "actual_model_identifier": null,
+    "model_configuration": null,
+    "author_session_identifiers": null,
+    "random_assignment": null,
+    "sessions_per_route": 3,
+    "active_preparer_seconds": null,
+    "preparer_model_tokens": null,
+    "unknown_metadata_policy": "Unavailable, not zero; missing live token telemetry alone does not block execution.",
+    "paid_spending_authorized": false,
+    "author_token_review_checkpoint": 24000,
+    "author_minutes_review_checkpoint": 75,
+    "matched_continuation_policy": "must be frozen before exposure",
+    "timing_policy": "Record interruptions separately; raw laptop wall time does not rank routes."
+  }
+}

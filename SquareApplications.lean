@@ -1,3 +1,6 @@
+import Examples.CircuitWords
+import Examples.CapturedAttempt
+import Examples.WasmCircuit
 import Examples.IncrementalSearchCosts
 import Examples.IncrementalSearchHeuristics
 import Examples.IncrementalSearchFreshCosts
@@ -785,5 +788,7 @@ import Examples.DependentFunctionConversionSemantics
 import Examples.ErasurePermutations
 import Examples.CubicalLocalFilling
 import Examples.CubicalSmallFamilies
+
+import Examples.DynamicFrontArrays
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

@@ -53,6 +53,18 @@ incremental adapter and atomic candidate receipts. Porting these already-tested
 external-state operations would add migration work unrelated to removing the
 duplicate Lean grammar. No Python source/comment/import parser remains.
 
+`scripts/project_sources.py` is the shared filesystem inventory for coverage,
+candidate identity and proof-audit ownership. The standalone audit invokes its
+JSON command from the project root and rejects failure to obtain the inventory.
+New root-level modules are included automatically; `ProofAudit` remains excluded
+as infrastructure. The audit still uses Lean module origins to select declarations.
+This removes the previous fixed foundation-name list. Standalone auditing covers
+loaded declarations; the wrapper additionally enforces complete source coverage.
+
+The production driver does not yet use the library's compositional interaction
+semantics. The [architecture and acceptance plan](verification-architecture-plan.md)
+identifies the connected controller, external-state and bootstrap obligations.
+
 ## Regression evidence
 
 The public `scripts/test-check.py` fixtures cover fresh and incremental modes,

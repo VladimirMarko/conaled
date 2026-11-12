@@ -1,0 +1,22 @@
+{
+  "recorded_at": "2026-11-12T16:28:17.732645+00:00",
+  "provenance": "Retrospective extraction from still-waiting process /proc/3299767/cmdline and its unchanged environment.json; original session6954 has not been rerun. This is not a newly recorded launch-time receipt.",
+  "original_session": 6954,
+  "process_id_at_capture": 3299767,
+  "status": "queued, full audit pending",
+  "command": [
+    "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+    "-R",
+    "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources",
+    "-o",
+    "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/modules/Examples/ConversionTrial/Author/Audit.olean",
+    "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources/Examples/ConversionTrial/Author/Audit.lean"
+  ],
+  "cwd": "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources",
+  "environment": {
+    "LEAN_PATH": "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/modules:/home/vlad/Code/conaled/.lake/packages/Cli/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/batteries/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/Qq/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/aesop/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/plausible/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/tmp/conaled-wave-20261111/worker7/.lake/build/lib/lean:/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean"
+  },
+  "audit_driver_sha256": "74097b1f047ad52ecbaaf4c19817cb7ef2d53e7488a91102a20cafafe4cd18b4",
+  "launch_script_sha256": "384df4026199360b3402a7014881720ae563f29bbfdc7ecaa248f750696db4ca",
+  "lock": "/tmp/conaled-wave-20261111/build.lock"
+}

@@ -1,0 +1,1615 @@
+{
+  "captured_at": "2026-11-12T16:14:36.775989+00:00",
+  "source": "1d9d4357f93b91a0f01ddef3103a7e4b72e5dc0e",
+  "execution_package": "31c08c126952242843af1ac74411efb396743a0b",
+  "report_base": "7084050efc13b7b1ce131ea4bf0a23845b777b37",
+  "authors": [
+    {
+      "slot": 1,
+      "route": "service",
+      "session_id": "01a1d04f-cc08-7081-849e-b12ce4f5a98b",
+      "model": "gpt-6-astra",
+      "effort": "medium",
+      "provider": "openai",
+      "cli_version": "0.161.0",
+      "exact_serving_revision": null,
+      "final_sources": {
+        "NegativeProof.lean": {
+          "sha256": "1e11fd3b0aad3e2a39ef7ad42734f14fd3a22e8591f8edcaa00434d8818fce29",
+          "bytes": 741,
+          "lines": 27,
+          "nonblank_lines": 22,
+          "selected": true
+        },
+        "InitialProof.lean": {
+          "sha256": "a0cea8b0a63f3d40d4192be3aad9dad4de91de0381918b3ec0703bf640c339fd",
+          "bytes": 570,
+          "lines": 20,
+          "nonblank_lines": 13,
+          "selected": true
+        },
+        "RepairChangeProof.lean": {
+          "sha256": "039b8d961956cd921e818200103f8bc2fb5274e3095c6906c1c4dc1b66834292",
+          "bytes": 592,
+          "lines": 22,
+          "nonblank_lines": 15,
+          "selected": true
+        },
+        "HeldOutProof.lean": {
+          "sha256": "86a1c14f528931e7e6d2accd61a948f4e3c870c6d0bd7ee63ec17af62001c8d6",
+          "bytes": 570,
+          "lines": 20,
+          "nonblank_lines": 13,
+          "selected": true
+        },
+        "ScaleProof.lean": {
+          "sha256": "8cb49cbfc0fbdf68ad824390d9c6ed3564ecd1cbac2f74d9e2380a9643044fab",
+          "bytes": 852,
+          "lines": 28,
+          "nonblank_lines": 22,
+          "selected": true
+        },
+        "RepairBaselineProof.lean": {
+          "sha256": "51b197da23f8bb903653f6891ff13a0891d5c0206e92f2ca0cc0dab5df932845",
+          "bytes": 364,
+          "lines": 13,
+          "nonblank_lines": 9,
+          "selected": true
+        }
+      },
+      "selected_sources": [
+        "InitialProof.lean",
+        "ScaleProof.lean",
+        "RepairBaselineProof.lean",
+        "RepairChangeProof.lean",
+        "NegativeProof.lean",
+        "HeldOutProof.lean"
+      ],
+      "historical_unselected": [],
+      "general_helpers": [],
+      "head_control": "optional checked HeadTask",
+      "index_control": "checked IndexTask",
+      "attempts": [
+        {
+          "id": "compile-001",
+          "phase": "initial",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "a0cea8b0a63f3d40d4192be3aad9dad4de91de0381918b3ec0703bf640c339fd",
+          "receipt": "423-trial-execution/slot-1/work/compile-001/result.json",
+          "tool_seconds": 0.586895225
+        },
+        {
+          "id": "held-out-compile-001",
+          "phase": "held-out",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "86a1c14f528931e7e6d2accd61a948f4e3c870c6d0bd7ee63ec17af62001c8d6",
+          "receipt": "423-trial-execution/slot-1/work/held-out-compile-001/result.json",
+          "tool_seconds": 0.849920214
+        },
+        {
+          "id": "held-out-policy-001",
+          "phase": "held-out",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "86a1c14f528931e7e6d2accd61a948f4e3c870c6d0bd7ee63ec17af62001c8d6",
+          "receipt": "423-trial-execution/slot-1/work/held-out-policy-001/result.json",
+          "tool_seconds": 1.017526173
+        },
+        {
+          "id": "negative-compile-001",
+          "phase": "negative",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "1e11fd3b0aad3e2a39ef7ad42734f14fd3a22e8591f8edcaa00434d8818fce29",
+          "receipt": "423-trial-execution/slot-1/work/negative-compile-001/result.json",
+          "tool_seconds": 0.487541427
+        },
+        {
+          "id": "negative-policy-001",
+          "phase": "negative",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "1e11fd3b0aad3e2a39ef7ad42734f14fd3a22e8591f8edcaa00434d8818fce29",
+          "receipt": "423-trial-execution/slot-1/work/negative-policy-001/result.json",
+          "tool_seconds": 0.897334713
+        },
+        {
+          "id": "policy-001",
+          "phase": "initial",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "a0cea8b0a63f3d40d4192be3aad9dad4de91de0381918b3ec0703bf640c339fd",
+          "receipt": "423-trial-execution/slot-1/work/policy-001/result.json",
+          "tool_seconds": 0.967984943
+        },
+        {
+          "id": "repair-baseline-compile-001",
+          "phase": "repair-baseline",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "51b197da23f8bb903653f6891ff13a0891d5c0206e92f2ca0cc0dab5df932845",
+          "receipt": "423-trial-execution/slot-1/work/repair-baseline-compile-001/result.json",
+          "tool_seconds": 1.421367871
+        },
+        {
+          "id": "repair-baseline-policy-001",
+          "phase": "repair-baseline",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "51b197da23f8bb903653f6891ff13a0891d5c0206e92f2ca0cc0dab5df932845",
+          "receipt": "423-trial-execution/slot-1/work/repair-baseline-policy-001/result.json",
+          "tool_seconds": 4.345772091
+        },
+        {
+          "id": "repair-change-compile-001",
+          "phase": "repair-change",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "039b8d961956cd921e818200103f8bc2fb5274e3095c6906c1c4dc1b66834292",
+          "receipt": "423-trial-execution/slot-1/work/repair-change-compile-001/result.json",
+          "tool_seconds": 0.42227762
+        },
+        {
+          "id": "repair-change-policy-001",
+          "phase": "repair-change",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "039b8d961956cd921e818200103f8bc2fb5274e3095c6906c1c4dc1b66834292",
+          "receipt": "423-trial-execution/slot-1/work/repair-change-policy-001/result.json",
+          "tool_seconds": 0.922751133
+        },
+        {
+          "id": "scale-compile-001",
+          "phase": "scale",
+          "status": "check-failed",
+          "exit_code": 1,
+          "kind": "compile",
+          "source_sha256": "0be1ea5f1120ab72b77abbaddfd3c943d4d60660df3769f8e1e10d3b304bcf1c",
+          "receipt": "423-trial-execution/slot-1/work/scale-compile-001/result.json",
+          "tool_seconds": 0.731836063
+        },
+        {
+          "id": "scale-compile-002",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "8cb49cbfc0fbdf68ad824390d9c6ed3564ecd1cbac2f74d9e2380a9643044fab",
+          "receipt": "423-trial-execution/slot-1/work/scale-compile-002/result.json",
+          "tool_seconds": 1.956354007
+        },
+        {
+          "id": "scale-policy-001",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "0be1ea5f1120ab72b77abbaddfd3c943d4d60660df3769f8e1e10d3b304bcf1c",
+          "receipt": "423-trial-execution/slot-1/work/scale-policy-001/result.json",
+          "tool_seconds": 3.163516664
+        },
+        {
+          "id": "scale-policy-003",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "8cb49cbfc0fbdf68ad824390d9c6ed3564ecd1cbac2f74d9e2380a9643044fab",
+          "receipt": "423-trial-execution/slot-1/work/scale-policy-003/result.json",
+          "tool_seconds": 1.498485896
+        }
+      ],
+      "failed_recorded_commands": 1,
+      "incomplete_attempts": [],
+      "usage_last_observation": {
+        "timestamp": "2026-11-12T15:21:47.916Z",
+        "info": {
+          "total_token_usage": {
+            "input_tokens": 1207157,
+            "cached_input_tokens": 1139328,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 9505,
+            "reasoning_output_tokens": 336,
+            "total_tokens": 1216662
+          },
+          "last_token_usage": {
+            "input_tokens": 48856,
+            "cached_input_tokens": 48512,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 206,
+            "reasoning_output_tokens": 0,
+            "total_tokens": 49062
+          },
+          "model_context_window": 258400
+        }
+      },
+      "usage_capture": "423-trial-execution/slot-1/raw-usage-events.json",
+      "active_reasoning_seconds": null,
+      "assistance": "No mathematical assistance reported; coordinator supplied environment/protocol clarification only",
+      "interruptions_exposure": "None reported by author; unobserved host suspension/throttling unknown",
+      "audit": "Passed; see audit-completion.json for exact completed contexts and logs",
+      "review": "Independent Standards and Spec acceptance is required before publication and recorded separately for the exact report candidate on issue #423."
+    },
+    {
+      "slot": 2,
+      "route": "direct",
+      "session_id": "01a1d059-e929-7b40-bc13-2a03a73bae98",
+      "model": "gpt-6-astra",
+      "effort": "medium",
+      "provider": "openai",
+      "cli_version": "0.161.0",
+      "exact_serving_revision": null,
+      "final_sources": {
+        "NegativeProof.lean": {
+          "sha256": "8e87cfd93c9354b637be4a49757765502b2e98800fdaed7c6a2957f9fbb75bf6",
+          "bytes": 552,
+          "lines": 21,
+          "nonblank_lines": 17,
+          "selected": true
+        },
+        "Draft.lean": {
+          "sha256": "e21552452836b02310774423e7b396279a54557311d45c829d708cc16ec258c4",
+          "bytes": 728,
+          "lines": 18,
+          "nonblank_lines": 15,
+          "selected": true
+        },
+        "RepairBefore.lean": {
+          "sha256": "ed9df946e49400cd38a9e5d869eda6f304942ec85db37e7835598393464e44b4",
+          "bytes": 546,
+          "lines": 14,
+          "nonblank_lines": 11,
+          "selected": true
+        },
+        "HeldOutProof.lean": {
+          "sha256": "2e269d1d23b3def51b3ff1574da2bf1629f101ab880d9a253a419b25b10a97ad",
+          "bytes": 2392,
+          "lines": 64,
+          "nonblank_lines": 52,
+          "selected": true
+        },
+        "ScaleProof.lean": {
+          "sha256": "e24b0c22ed5234c4cdeff977e8b519b70e188b3d7831212c4e3683250121bbac",
+          "bytes": 2565,
+          "lines": 72,
+          "nonblank_lines": 61,
+          "selected": true
+        },
+        "RepairAfter.lean": {
+          "sha256": "e87a9b710e62c3769913f5761f2ef05e354c19b0e0aba27e18c46f8475307e4e",
+          "bytes": 668,
+          "lines": 19,
+          "nonblank_lines": 15,
+          "selected": true
+        }
+      },
+      "selected_sources": [
+        "Draft.lean",
+        "ScaleProof.lean",
+        "RepairBefore.lean",
+        "RepairAfter.lean",
+        "NegativeProof.lean",
+        "HeldOutProof.lean"
+      ],
+      "historical_unselected": [],
+      "general_helpers": [
+        "ren_id_typed",
+        "ren_comp_typed",
+        "rename_eq",
+        "liftRen_typed",
+        "expand_eq",
+        "chain_eq",
+        "left_eq_right"
+      ],
+      "head_control": "reasoned rejection with diagnostics; no checked FuncEq inequivalence claimed",
+      "index_control": "checked IndexTask",
+      "attempts": [
+        {
+          "id": "compile-001",
+          "phase": "initial",
+          "status": "check-failed",
+          "exit_code": 1,
+          "kind": "compile",
+          "source_sha256": "ce6cce1139faf6eda1d0dab48387ebe5527fb54dbc82c35534165a26d82e79e3",
+          "receipt": "423-trial-execution/slot-2/work/compile-001/result.json",
+          "tool_seconds": 0.424587383
+        },
+        {
+          "id": "compile-002",
+          "phase": "initial",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "e21552452836b02310774423e7b396279a54557311d45c829d708cc16ec258c4",
+          "receipt": "423-trial-execution/slot-2/work/compile-002/result.json",
+          "tool_seconds": 0.41867666
+        },
+        {
+          "id": "held-out-compile-001",
+          "phase": "held-out",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "2e269d1d23b3def51b3ff1574da2bf1629f101ab880d9a253a419b25b10a97ad",
+          "receipt": "423-trial-execution/slot-2/work/held-out-compile-001/result.json",
+          "tool_seconds": 0.408608696
+        },
+        {
+          "id": "held-out-policy-001",
+          "phase": "held-out",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "2e269d1d23b3def51b3ff1574da2bf1629f101ab880d9a253a419b25b10a97ad",
+          "receipt": "423-trial-execution/slot-2/work/held-out-policy-001/result.json",
+          "tool_seconds": 0.997657917
+        },
+        {
+          "id": "negative-compile-001",
+          "phase": "negative",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "8e87cfd93c9354b637be4a49757765502b2e98800fdaed7c6a2957f9fbb75bf6",
+          "receipt": "423-trial-execution/slot-2/work/negative-compile-001/result.json",
+          "tool_seconds": 0.430550933
+        },
+        {
+          "id": "negative-policy-001",
+          "phase": "negative",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "8e87cfd93c9354b637be4a49757765502b2e98800fdaed7c6a2957f9fbb75bf6",
+          "receipt": "423-trial-execution/slot-2/work/negative-policy-001/result.json",
+          "tool_seconds": 1.179381541
+        },
+        {
+          "id": "policy-001",
+          "phase": "initial",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "ce6cce1139faf6eda1d0dab48387ebe5527fb54dbc82c35534165a26d82e79e3",
+          "receipt": "423-trial-execution/slot-2/work/policy-001/result.json",
+          "tool_seconds": 1.733978749
+        },
+        {
+          "id": "policy-002",
+          "phase": "initial",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "e21552452836b02310774423e7b396279a54557311d45c829d708cc16ec258c4",
+          "receipt": "423-trial-execution/slot-2/work/policy-002/result.json",
+          "tool_seconds": 1.117068338
+        },
+        {
+          "id": "repair-after-compile-001",
+          "phase": "repair-change",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "e87a9b710e62c3769913f5761f2ef05e354c19b0e0aba27e18c46f8475307e4e",
+          "receipt": "423-trial-execution/slot-2/work/repair-after-compile-001/result.json",
+          "tool_seconds": 0.605984705
+        },
+        {
+          "id": "repair-after-policy-001",
+          "phase": "repair-change",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "e87a9b710e62c3769913f5761f2ef05e354c19b0e0aba27e18c46f8475307e4e",
+          "receipt": "423-trial-execution/slot-2/work/repair-after-policy-001/result.json",
+          "tool_seconds": 2.023299428
+        },
+        {
+          "id": "repair-before-compile-001",
+          "phase": "repair-baseline",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "ed9df946e49400cd38a9e5d869eda6f304942ec85db37e7835598393464e44b4",
+          "receipt": "423-trial-execution/slot-2/work/repair-before-compile-001/result.json",
+          "tool_seconds": 0.302568902
+        },
+        {
+          "id": "repair-before-policy-001",
+          "phase": "repair-baseline",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "ed9df946e49400cd38a9e5d869eda6f304942ec85db37e7835598393464e44b4",
+          "receipt": "423-trial-execution/slot-2/work/repair-before-policy-001/result.json",
+          "tool_seconds": 1.149005164
+        },
+        {
+          "id": "scale-compile-001",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "e24b0c22ed5234c4cdeff977e8b519b70e188b3d7831212c4e3683250121bbac",
+          "receipt": "423-trial-execution/slot-2/work/scale-compile-001/result.json",
+          "tool_seconds": 1.333909861
+        },
+        {
+          "id": "scale-policy-001",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "e24b0c22ed5234c4cdeff977e8b519b70e188b3d7831212c4e3683250121bbac",
+          "receipt": "423-trial-execution/slot-2/work/scale-policy-001/result.json",
+          "tool_seconds": 3.461305137
+        }
+      ],
+      "failed_recorded_commands": 1,
+      "incomplete_attempts": [],
+      "usage_last_observation": {
+        "timestamp": "2026-11-12T15:35:15.054Z",
+        "info": {
+          "total_token_usage": {
+            "input_tokens": 1431822,
+            "cached_input_tokens": 1392640,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 13225,
+            "reasoning_output_tokens": 1031,
+            "total_tokens": 1445047
+          },
+          "last_token_usage": {
+            "input_tokens": 60104,
+            "cached_input_tokens": 59776,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 201,
+            "reasoning_output_tokens": 0,
+            "total_tokens": 60305
+          },
+          "model_context_window": 258400
+        }
+      },
+      "usage_capture": "423-trial-execution/slot-2/raw-usage-events.json",
+      "active_reasoning_seconds": null,
+      "assistance": "No mathematical assistance reported; coordinator supplied environment/protocol clarification only",
+      "interruptions_exposure": "None reported by author; unobserved host suspension/throttling unknown",
+      "audit": "Passed; see audit-completion.json for exact completed contexts and logs",
+      "review": "Independent Standards and Spec acceptance is required before publication and recorded separately for the exact report candidate on issue #423.",
+      "readable_rejection": {
+        "path": "negative-head-rejection.txt",
+        "original_evidence": "423-trial-execution/slot-2/negative-completion/negative-head-rejection.txt",
+        "sha256": "f5674c55d4d90fce96b6ceeb8d23dab621290295d7979df8fb873c7d2280568f"
+      }
+    },
+    {
+      "slot": 3,
+      "route": "service",
+      "session_id": "01a1d068-7913-7ca1-ae42-ce00384ec7e6",
+      "model": "gpt-6-astra",
+      "effort": "medium",
+      "provider": "openai",
+      "cli_version": "0.161.0",
+      "exact_serving_revision": null,
+      "final_sources": {
+        "Substitution.lean": {
+          "sha256": "f3059325f793fa9b335edc11ce9e39b13c5ce30a09e642d9ee78c1148deaf7d2",
+          "bytes": 470,
+          "lines": 16,
+          "nonblank_lines": 12,
+          "selected": true
+        },
+        "NegativeProof.lean": {
+          "sha256": "673ad15e245dee94b690bd6d7ee1caea02487d878d2e8d30989c3f3370a1883b",
+          "bytes": 656,
+          "lines": 25,
+          "nonblank_lines": 20,
+          "selected": true
+        },
+        "Draft.lean": {
+          "sha256": "deceedb939f7e09729a4df9938340644fa54b61265eda185430192b24b060879",
+          "bytes": 515,
+          "lines": 18,
+          "nonblank_lines": 14,
+          "selected": true
+        },
+        "RepairBefore.lean": {
+          "sha256": "2839dbc3f18c54c58515eb7bc1d7f23863d0e1ed9c6f6a4d3e9588fd8c22559b",
+          "bytes": 372,
+          "lines": 13,
+          "nonblank_lines": 9,
+          "selected": true
+        },
+        "Composition.lean": {
+          "sha256": "9091714492346f019243f389a7b2c3ef4112363438f5e54768166859c807309a",
+          "bytes": 467,
+          "lines": 16,
+          "nonblank_lines": 12,
+          "selected": true
+        },
+        "Context.lean": {
+          "sha256": "4259a1f36ebf79abd99aa44a8072735e6a4220721a941514bb43a5a71b736117",
+          "bytes": 462,
+          "lines": 16,
+          "nonblank_lines": 12,
+          "selected": true
+        },
+        "HeldOutProof.lean": {
+          "sha256": "875cb5f3f7fb81a9c73d50471a5c97220f30d55a900d03937203607587961d23",
+          "bytes": 372,
+          "lines": 13,
+          "nonblank_lines": 9,
+          "selected": true
+        },
+        "RepairAfter.lean": {
+          "sha256": "f75d6d2e00e8ecff5d5b5abb55f888058c7a2d980610d76c130aefdd5cf3a5f6",
+          "bytes": 390,
+          "lines": 15,
+          "nonblank_lines": 11,
+          "selected": true
+        }
+      },
+      "selected_sources": [
+        "Draft.lean",
+        "Composition.lean",
+        "Context.lean",
+        "Substitution.lean",
+        "RepairBefore.lean",
+        "RepairAfter.lean",
+        "NegativeProof.lean",
+        "HeldOutProof.lean"
+      ],
+      "historical_unselected": [],
+      "general_helpers": [],
+      "head_control": "optional checked HeadTask",
+      "index_control": "checked IndexTask",
+      "attempts": [
+        {
+          "id": "compile-001",
+          "phase": "initial",
+          "status": "check-failed",
+          "exit_code": 1,
+          "kind": "compile",
+          "source_sha256": "c8ce0d37ce8cd230ca5e6b647dc3b12c3cf2bd11a278cf3bd37fc484b6cb117a",
+          "receipt": "423-trial-execution/slot-3/work/compile-001/result.json",
+          "tool_seconds": 0.657337786
+        },
+        {
+          "id": "compile-002",
+          "phase": "initial",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "deceedb939f7e09729a4df9938340644fa54b61265eda185430192b24b060879",
+          "receipt": "423-trial-execution/slot-3/work/compile-002/result.json",
+          "tool_seconds": 0.35712693
+        },
+        {
+          "id": "held-out-compile-001",
+          "phase": "held-out",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "875cb5f3f7fb81a9c73d50471a5c97220f30d55a900d03937203607587961d23",
+          "receipt": "423-trial-execution/slot-3/work/held-out-compile-001/result.json",
+          "tool_seconds": 0.670543473
+        },
+        {
+          "id": "held-out-policy-001",
+          "phase": "held-out",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "875cb5f3f7fb81a9c73d50471a5c97220f30d55a900d03937203607587961d23",
+          "receipt": "423-trial-execution/slot-3/work/held-out-policy-001/result.json",
+          "tool_seconds": 1.298837558
+        },
+        {
+          "id": "negative-compile-001",
+          "phase": "negative",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "673ad15e245dee94b690bd6d7ee1caea02487d878d2e8d30989c3f3370a1883b",
+          "receipt": "423-trial-execution/slot-3/work/negative-compile-001/result.json",
+          "tool_seconds": 0.70896023
+        },
+        {
+          "id": "negative-policy-001",
+          "phase": "negative",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "673ad15e245dee94b690bd6d7ee1caea02487d878d2e8d30989c3f3370a1883b",
+          "receipt": "423-trial-execution/slot-3/work/negative-policy-001/result.json",
+          "tool_seconds": 1.405905157
+        },
+        {
+          "id": "policy-001",
+          "phase": "initial",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "c8ce0d37ce8cd230ca5e6b647dc3b12c3cf2bd11a278cf3bd37fc484b6cb117a",
+          "receipt": "423-trial-execution/slot-3/work/policy-001/result.json",
+          "tool_seconds": 1.035133515
+        },
+        {
+          "id": "policy-002",
+          "phase": "initial",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "deceedb939f7e09729a4df9938340644fa54b61265eda185430192b24b060879",
+          "receipt": "423-trial-execution/slot-3/work/policy-002/result.json",
+          "tool_seconds": 1.041594197
+        },
+        {
+          "id": "repair-after-compile-001",
+          "phase": "repair-change",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "f75d6d2e00e8ecff5d5b5abb55f888058c7a2d980610d76c130aefdd5cf3a5f6",
+          "receipt": "423-trial-execution/slot-3/work/repair-after-compile-001/result.json",
+          "tool_seconds": 0.32070484
+        },
+        {
+          "id": "repair-after-policy-001",
+          "phase": "repair-change",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "f75d6d2e00e8ecff5d5b5abb55f888058c7a2d980610d76c130aefdd5cf3a5f6",
+          "receipt": "423-trial-execution/slot-3/work/repair-after-policy-001/result.json",
+          "tool_seconds": 1.151509372
+        },
+        {
+          "id": "repair-before-compile-001",
+          "phase": "repair-baseline",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "2839dbc3f18c54c58515eb7bc1d7f23863d0e1ed9c6f6a4d3e9588fd8c22559b",
+          "receipt": "423-trial-execution/slot-3/work/repair-before-compile-001/result.json",
+          "tool_seconds": 0.364849086
+        },
+        {
+          "id": "repair-before-policy-001",
+          "phase": "repair-baseline",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "2839dbc3f18c54c58515eb7bc1d7f23863d0e1ed9c6f6a4d3e9588fd8c22559b",
+          "receipt": "423-trial-execution/slot-3/work/repair-before-policy-001/result.json",
+          "tool_seconds": 1.136453947
+        },
+        {
+          "id": "scale-composition-compile-001",
+          "phase": "scale",
+          "status": "check-failed",
+          "exit_code": 1,
+          "kind": "compile",
+          "source_sha256": "61f782a649efc307cad5983b4ca94bf184e46e871cae383d22e8df952da31f26",
+          "receipt": "423-trial-execution/slot-3/work/scale-composition-compile-001/result.json",
+          "tool_seconds": 0.238382821
+        },
+        {
+          "id": "scale-composition-compile-002",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "9091714492346f019243f389a7b2c3ef4112363438f5e54768166859c807309a",
+          "receipt": "423-trial-execution/slot-3/work/scale-composition-compile-002/result.json",
+          "tool_seconds": 1.648523369
+        },
+        {
+          "id": "scale-composition-policy-001",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "9091714492346f019243f389a7b2c3ef4112363438f5e54768166859c807309a",
+          "receipt": "423-trial-execution/slot-3/work/scale-composition-policy-001/result.json",
+          "tool_seconds": 1.210046108
+        },
+        {
+          "id": "scale-context-compile-001",
+          "phase": "scale",
+          "status": "check-failed",
+          "exit_code": 1,
+          "kind": "compile",
+          "source_sha256": "6a7853db7bb57248f8f42dd8ad1aeb217a0de1ceaf78f3b456142c39a8fff32e",
+          "receipt": "423-trial-execution/slot-3/work/scale-context-compile-001/result.json",
+          "tool_seconds": 0.222046896
+        },
+        {
+          "id": "scale-context-compile-002",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "4259a1f36ebf79abd99aa44a8072735e6a4220721a941514bb43a5a71b736117",
+          "receipt": "423-trial-execution/slot-3/work/scale-context-compile-002/result.json",
+          "tool_seconds": 1.138768687
+        },
+        {
+          "id": "scale-context-policy-001",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "4259a1f36ebf79abd99aa44a8072735e6a4220721a941514bb43a5a71b736117",
+          "receipt": "423-trial-execution/slot-3/work/scale-context-policy-001/result.json",
+          "tool_seconds": 1.069267551
+        },
+        {
+          "id": "scale-substitution-compile-001",
+          "phase": "scale",
+          "status": "check-failed",
+          "exit_code": 1,
+          "kind": "compile",
+          "source_sha256": "f0aea070f1a04bfbc2464bad790a57de3685cc7b394ba7ed3fde57127f08388e",
+          "receipt": "423-trial-execution/slot-3/work/scale-substitution-compile-001/result.json",
+          "tool_seconds": 0.213480519
+        },
+        {
+          "id": "scale-substitution-compile-002",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "f3059325f793fa9b335edc11ce9e39b13c5ce30a09e642d9ee78c1148deaf7d2",
+          "receipt": "423-trial-execution/slot-3/work/scale-substitution-compile-002/result.json",
+          "tool_seconds": 0.803322076
+        },
+        {
+          "id": "scale-substitution-policy-001",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "f3059325f793fa9b335edc11ce9e39b13c5ce30a09e642d9ee78c1148deaf7d2",
+          "receipt": "423-trial-execution/slot-3/work/scale-substitution-policy-001/result.json",
+          "tool_seconds": 1.127891677
+        }
+      ],
+      "failed_recorded_commands": 4,
+      "incomplete_attempts": [],
+      "usage_last_observation": {
+        "timestamp": "2026-11-12T15:50:11.523Z",
+        "type": "token_count",
+        "info": {
+          "total_token_usage": {
+            "input_tokens": 1270529,
+            "cached_input_tokens": 1211264,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8227,
+            "reasoning_output_tokens": 370,
+            "total_tokens": 1278756
+          },
+          "last_token_usage": {
+            "input_tokens": 46720,
+            "cached_input_tokens": 46592,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 85,
+            "reasoning_output_tokens": 0,
+            "total_tokens": 46805
+          },
+          "model_context_window": 258400
+        }
+      },
+      "usage_capture": "423-trial-execution/slot-3/raw-usage-events.json",
+      "active_reasoning_seconds": null,
+      "assistance": "No mathematical assistance reported; coordinator supplied environment/protocol clarification only",
+      "interruptions_exposure": "None reported by author; unobserved host suspension/throttling unknown",
+      "audit": "Passed; see audit-completion.json for exact completed contexts and logs",
+      "review": "Independent Standards and Spec acceptance is required before publication and recorded separately for the exact report candidate on issue #423."
+    },
+    {
+      "slot": 4,
+      "route": "direct",
+      "session_id": "01a1d073-e844-7d92-80d5-20c487497b85",
+      "model": "gpt-6-astra",
+      "effort": "medium",
+      "provider": "openai",
+      "cli_version": "0.161.0",
+      "exact_serving_revision": null,
+      "final_sources": {
+        "NegativeProof.lean": {
+          "sha256": "61ae63474edad0f853e88bc5ca04e9c076f53a22bb05b3a5668eb215c6727841",
+          "bytes": 457,
+          "lines": 16,
+          "nonblank_lines": 13,
+          "selected": true
+        },
+        "Draft.lean": {
+          "sha256": "994ca861079f59b9a3c41225cfa71df76604f11ddb077447e14b940b43a4cac2",
+          "bytes": 428,
+          "lines": 12,
+          "nonblank_lines": 9,
+          "selected": true
+        },
+        "RepairBefore.lean": {
+          "sha256": "0cebf583c305fed88d66951d75202eb72d8bd09f1a2cc7f6c6d223ebe63ea8c8",
+          "bytes": 400,
+          "lines": 11,
+          "nonblank_lines": 10,
+          "selected": true
+        },
+        "HeldOutProof.lean": {
+          "sha256": "2c75f10c5b75349baa739f5ba8ddabf57b07120855f54bbf8c55c0450b4b2234",
+          "bytes": 547,
+          "lines": 14,
+          "nonblank_lines": 13,
+          "selected": true
+        },
+        "ScaleProof.lean": {
+          "sha256": "ac990aeedd4c48d266bdb7359c63d153a8ae619cfb4fbb55190aaecc0d000bed",
+          "bytes": 2239,
+          "lines": 64,
+          "nonblank_lines": 53,
+          "selected": true
+        },
+        "negative-rejection.txt": {
+          "sha256": "0f14e84f50944c0796ec5805afc23eae41c2db37592a3c8a43b82ddcd3ee2d92",
+          "bytes": 1141,
+          "lines": 7,
+          "nonblank_lines": 4,
+          "selected": false
+        },
+        "RepairAfter.lean": {
+          "sha256": "ef48303bd02cfdaf32f71603d8fd82e58c6b0a6166abd39a3e984779c048075f",
+          "bytes": 437,
+          "lines": 13,
+          "nonblank_lines": 12,
+          "selected": true
+        }
+      },
+      "selected_sources": [
+        "Draft.lean",
+        "ScaleProof.lean",
+        "RepairBefore.lean",
+        "RepairAfter.lean",
+        "NegativeProof.lean",
+        "HeldOutProof.lean"
+      ],
+      "historical_unselected": [],
+      "general_helpers": [
+        "renTypedComp",
+        "liftRenTyped",
+        "expandEq",
+        "sourceEq",
+        "renamedEq",
+        "chainEq",
+        "leftRightEq"
+      ],
+      "head_control": "reasoned rejection with diagnostics; no checked FuncEq inequivalence claimed",
+      "index_control": "checked IndexTask",
+      "attempts": [
+        {
+          "id": "after-compile-001",
+          "phase": "repair-change",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "ef48303bd02cfdaf32f71603d8fd82e58c6b0a6166abd39a3e984779c048075f",
+          "receipt": "423-trial-execution/slot-4/work/after-compile-001/result.json",
+          "tool_seconds": 0.277131566
+        },
+        {
+          "id": "after-policy-001",
+          "phase": "repair-change",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "ef48303bd02cfdaf32f71603d8fd82e58c6b0a6166abd39a3e984779c048075f",
+          "receipt": "423-trial-execution/slot-4/work/after-policy-001/result.json",
+          "tool_seconds": 1.074350756
+        },
+        {
+          "id": "before-compile-001",
+          "phase": "repair-baseline",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "0cebf583c305fed88d66951d75202eb72d8bd09f1a2cc7f6c6d223ebe63ea8c8",
+          "receipt": "423-trial-execution/slot-4/work/before-compile-001/result.json",
+          "tool_seconds": 0.546510028
+        },
+        {
+          "id": "before-policy-001",
+          "phase": "repair-baseline",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "0cebf583c305fed88d66951d75202eb72d8bd09f1a2cc7f6c6d223ebe63ea8c8",
+          "receipt": "423-trial-execution/slot-4/work/before-policy-001/result.json",
+          "tool_seconds": 2.064905869
+        },
+        {
+          "id": "compile-001",
+          "phase": "initial",
+          "status": "check-failed",
+          "exit_code": 1,
+          "kind": "compile",
+          "source_sha256": "2a4cf3b1e493c5eaa098d009843e87501718cf625dd1f8f158f823584bd29a14",
+          "receipt": "423-trial-execution/slot-4/work/compile-001/result.json",
+          "tool_seconds": 0.333187822
+        },
+        {
+          "id": "compile-002",
+          "phase": "initial",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "994ca861079f59b9a3c41225cfa71df76604f11ddb077447e14b940b43a4cac2",
+          "receipt": "423-trial-execution/slot-4/work/compile-002/result.json",
+          "tool_seconds": 0.538516862
+        },
+        {
+          "id": "heldout-compile-001",
+          "phase": "held-out",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "2c75f10c5b75349baa739f5ba8ddabf57b07120855f54bbf8c55c0450b4b2234",
+          "receipt": "423-trial-execution/slot-4/work/heldout-compile-001/result.json",
+          "tool_seconds": 0.866730621
+        },
+        {
+          "id": "heldout-policy-001",
+          "phase": "held-out",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "2c75f10c5b75349baa739f5ba8ddabf57b07120855f54bbf8c55c0450b4b2234",
+          "receipt": "423-trial-execution/slot-4/work/heldout-policy-001/result.json",
+          "tool_seconds": 1.674303689
+        },
+        {
+          "id": "negative-compile-001",
+          "phase": "negative",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "61ae63474edad0f853e88bc5ca04e9c076f53a22bb05b3a5668eb215c6727841",
+          "receipt": "423-trial-execution/slot-4/work/negative-compile-001/result.json",
+          "tool_seconds": 0.302774052
+        },
+        {
+          "id": "negative-policy-001",
+          "phase": "negative",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "61ae63474edad0f853e88bc5ca04e9c076f53a22bb05b3a5668eb215c6727841",
+          "receipt": "423-trial-execution/slot-4/work/negative-policy-001/result.json",
+          "tool_seconds": 1.025126817
+        },
+        {
+          "id": "policy-001",
+          "phase": "initial",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "994ca861079f59b9a3c41225cfa71df76604f11ddb077447e14b940b43a4cac2",
+          "receipt": "423-trial-execution/slot-4/work/policy-001/result.json",
+          "tool_seconds": 1.001441722
+        },
+        {
+          "id": "scale-compile-001",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "ac990aeedd4c48d266bdb7359c63d153a8ae619cfb4fbb55190aaecc0d000bed",
+          "receipt": "423-trial-execution/slot-4/work/scale-compile-001/result.json",
+          "tool_seconds": 0.290646435
+        },
+        {
+          "id": "scale-policy-001",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "ac990aeedd4c48d266bdb7359c63d153a8ae619cfb4fbb55190aaecc0d000bed",
+          "receipt": "423-trial-execution/slot-4/work/scale-policy-001/result.json",
+          "tool_seconds": 1.466959097
+        }
+      ],
+      "failed_recorded_commands": 1,
+      "incomplete_attempts": [],
+      "usage_last_observation": {
+        "timestamp": "2026-11-12T15:57:36.137Z",
+        "type": "token_count",
+        "info": {
+          "total_token_usage": {
+            "input_tokens": 1238396,
+            "cached_input_tokens": 1207424,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 9437,
+            "reasoning_output_tokens": 528,
+            "total_tokens": 1247833
+          },
+          "last_token_usage": {
+            "input_tokens": 50100,
+            "cached_input_tokens": 49920,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 56,
+            "reasoning_output_tokens": 0,
+            "total_tokens": 50156
+          },
+          "model_context_window": 258400
+        }
+      },
+      "usage_capture": "423-trial-execution/slot-4/raw-usage-events.json",
+      "active_reasoning_seconds": null,
+      "assistance": "No mathematical assistance reported; coordinator supplied environment/protocol clarification only",
+      "interruptions_exposure": "None reported by author; unobserved host suspension/throttling unknown",
+      "audit": "Passed; see audit-completion.json for exact completed contexts and logs",
+      "review": "Independent Standards and Spec acceptance is required before publication and recorded separately for the exact report candidate on issue #423."
+    },
+    {
+      "slot": 5,
+      "route": "direct",
+      "session_id": "01a1d07a-ac43-75b1-b714-e149e335e082",
+      "model": "gpt-6-astra",
+      "effort": "medium",
+      "provider": "openai",
+      "cli_version": "0.161.0",
+      "exact_serving_revision": null,
+      "final_sources": {
+        "Substitution.lean": {
+          "sha256": "f8e79ba330cb522edd688e312cda76e8a9162b71281908d828ae8d14d4c3115a",
+          "bytes": 2329,
+          "lines": 64,
+          "nonblank_lines": 57,
+          "selected": true
+        },
+        "Before.lean": {
+          "sha256": "7f3b22b223cef1614cadaa5a393508b71dff82a6aabcbb95295ddc63fd9fdf79",
+          "bytes": 625,
+          "lines": 19,
+          "nonblank_lines": 17,
+          "selected": true
+        },
+        "Draft.lean": {
+          "sha256": "c7958946bb67db3d8863e9ae554cb9ecf90ac9de02af3701b16cc611db64184b",
+          "bytes": 362,
+          "lines": 11,
+          "nonblank_lines": 9,
+          "selected": true
+        },
+        "HeldOutDraft.lean": {
+          "sha256": "42d38879b2476d325f5aac1f0fe64db879d9b2c717a54af080cb12336e7f0e75",
+          "bytes": 2294,
+          "lines": 62,
+          "nonblank_lines": 55,
+          "selected": true
+        },
+        "ScaleDraft.lean": {
+          "sha256": "ea7a8a6479410756c100a5a99b7d1a18153c2f0f223681404a806cfe27365633",
+          "bytes": 2583,
+          "lines": 72,
+          "nonblank_lines": 65,
+          "selected": false
+        },
+        "Composition.lean": {
+          "sha256": "ec43207039932b760313e1017be7dcfe2569f11d2d072f0f36416503c8fc1c9e",
+          "bytes": 2337,
+          "lines": 64,
+          "nonblank_lines": 57,
+          "selected": true
+        },
+        "After.lean": {
+          "sha256": "6de2eb67c8c865cedc48d2ba76f77005dbc058ca7f654d7e78a69e7a826994cb",
+          "bytes": 658,
+          "lines": 21,
+          "nonblank_lines": 19,
+          "selected": true
+        },
+        "Context.lean": {
+          "sha256": "bfffba70b63617b0800fca48c2a951202d7d30bd8dfbaf7b7539bc86a00e9144",
+          "bytes": 2319,
+          "lines": 64,
+          "nonblank_lines": 57,
+          "selected": true
+        },
+        "NegativeDraft.lean": {
+          "sha256": "deb8752a1fa55803e3a4f31012d710bb3b73d1d2c7a7d81dd8d05d02fc0030fc",
+          "bytes": 521,
+          "lines": 19,
+          "nonblank_lines": 15,
+          "selected": true
+        },
+        "negative-rejection.txt": {
+          "sha256": "cfb35e040dad6bfe950a2012ab244004c4ca51695701a94355aac9a9e2c0a4df",
+          "bytes": 1145,
+          "lines": 19,
+          "nonblank_lines": 16,
+          "selected": false
+        }
+      },
+      "selected_sources": [
+        "Draft.lean",
+        "Composition.lean",
+        "Context.lean",
+        "Substitution.lean",
+        "Before.lean",
+        "After.lean",
+        "NegativeDraft.lean",
+        "HeldOutDraft.lean"
+      ],
+      "historical_unselected": [
+        "ScaleDraft.lean"
+      ],
+      "general_helpers": [
+        "expand_equal",
+        "rename_typed_comp",
+        "liftRen_typed",
+        "renamed_equal",
+        "chain_equal",
+        "left_right_equal"
+      ],
+      "head_control": "reasoned rejection with diagnostics; no checked FuncEq inequivalence claimed",
+      "index_control": "checked IndexTask",
+      "attempts": [
+        {
+          "id": "after-compile-001",
+          "phase": "repair-change",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "6de2eb67c8c865cedc48d2ba76f77005dbc058ca7f654d7e78a69e7a826994cb",
+          "receipt": "423-trial-execution/slot-5/work/after-compile-001/result.json",
+          "tool_seconds": 0.248416095
+        },
+        {
+          "id": "after-policy-001",
+          "phase": "repair-change",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "6de2eb67c8c865cedc48d2ba76f77005dbc058ca7f654d7e78a69e7a826994cb",
+          "receipt": "423-trial-execution/slot-5/work/after-policy-001/result.json",
+          "tool_seconds": 1.134293299
+        },
+        {
+          "id": "before-compile-001",
+          "phase": "repair-baseline",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "7f3b22b223cef1614cadaa5a393508b71dff82a6aabcbb95295ddc63fd9fdf79",
+          "receipt": "423-trial-execution/slot-5/work/before-compile-001/result.json",
+          "tool_seconds": 0.374328455
+        },
+        {
+          "id": "before-policy-001",
+          "phase": "repair-baseline",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "7f3b22b223cef1614cadaa5a393508b71dff82a6aabcbb95295ddc63fd9fdf79",
+          "receipt": "423-trial-execution/slot-5/work/before-policy-001/result.json",
+          "tool_seconds": 0.911580752
+        },
+        {
+          "id": "compile-001",
+          "phase": "initial",
+          "status": "check-failed",
+          "exit_code": 1,
+          "kind": "compile",
+          "source_sha256": "b290076292aefb09d061664da72cf354be7968ab882f34f9204d9d15423ba62f",
+          "receipt": "423-trial-execution/slot-5/work/compile-001/result.json",
+          "tool_seconds": 1.151197435
+        },
+        {
+          "id": "compile-002",
+          "phase": "initial",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "c7958946bb67db3d8863e9ae554cb9ecf90ac9de02af3701b16cc611db64184b",
+          "receipt": "423-trial-execution/slot-5/work/compile-002/result.json",
+          "tool_seconds": 0.306669227
+        },
+        {
+          "id": "composition-compile-001",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "ec43207039932b760313e1017be7dcfe2569f11d2d072f0f36416503c8fc1c9e",
+          "receipt": "423-trial-execution/slot-5/work/composition-compile-001/result.json",
+          "tool_seconds": 0.270997233
+        },
+        {
+          "id": "composition-policy-001",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "ec43207039932b760313e1017be7dcfe2569f11d2d072f0f36416503c8fc1c9e",
+          "receipt": "423-trial-execution/slot-5/work/composition-policy-001/result.json",
+          "tool_seconds": 1.319672899
+        },
+        {
+          "id": "context-compile-001",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "bfffba70b63617b0800fca48c2a951202d7d30bd8dfbaf7b7539bc86a00e9144",
+          "receipt": "423-trial-execution/slot-5/work/context-compile-001/result.json",
+          "tool_seconds": 0.246033379
+        },
+        {
+          "id": "context-policy-001",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "bfffba70b63617b0800fca48c2a951202d7d30bd8dfbaf7b7539bc86a00e9144",
+          "receipt": "423-trial-execution/slot-5/work/context-policy-001/result.json",
+          "tool_seconds": 1.027176349
+        },
+        {
+          "id": "held-out-compile-001",
+          "phase": "held-out",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "42d38879b2476d325f5aac1f0fe64db879d9b2c717a54af080cb12336e7f0e75",
+          "receipt": "423-trial-execution/slot-5/work/held-out-compile-001/result.json",
+          "tool_seconds": 0.343091235
+        },
+        {
+          "id": "held-out-policy-001",
+          "phase": "held-out",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "42d38879b2476d325f5aac1f0fe64db879d9b2c717a54af080cb12336e7f0e75",
+          "receipt": "423-trial-execution/slot-5/work/held-out-policy-001/result.json",
+          "tool_seconds": 0.914308146
+        },
+        {
+          "id": "negative-compile-001",
+          "phase": "negative",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "deb8752a1fa55803e3a4f31012d710bb3b73d1d2c7a7d81dd8d05d02fc0030fc",
+          "receipt": "423-trial-execution/slot-5/work/negative-compile-001/result.json",
+          "tool_seconds": 0.949161315
+        },
+        {
+          "id": "negative-policy-001",
+          "phase": "negative",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "deb8752a1fa55803e3a4f31012d710bb3b73d1d2c7a7d81dd8d05d02fc0030fc",
+          "receipt": "423-trial-execution/slot-5/work/negative-policy-001/result.json",
+          "tool_seconds": 3.168508025
+        },
+        {
+          "id": "policy-001",
+          "phase": "initial",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "c7958946bb67db3d8863e9ae554cb9ecf90ac9de02af3701b16cc611db64184b",
+          "receipt": "423-trial-execution/slot-5/work/policy-001/result.json",
+          "tool_seconds": 1.603303402
+        },
+        {
+          "id": "scale-compile-001",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "ea7a8a6479410756c100a5a99b7d1a18153c2f0f223681404a806cfe27365633",
+          "receipt": "423-trial-execution/slot-5/work/scale-compile-001/result.json",
+          "tool_seconds": 0.288345588
+        },
+        {
+          "id": "substitution-compile-001",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "f8e79ba330cb522edd688e312cda76e8a9162b71281908d828ae8d14d4c3115a",
+          "receipt": "423-trial-execution/slot-5/work/substitution-compile-001/result.json",
+          "tool_seconds": 0.242264605
+        },
+        {
+          "id": "substitution-policy-001",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "f8e79ba330cb522edd688e312cda76e8a9162b71281908d828ae8d14d4c3115a",
+          "receipt": "423-trial-execution/slot-5/work/substitution-policy-001/result.json",
+          "tool_seconds": 1.148579544
+        }
+      ],
+      "failed_recorded_commands": 1,
+      "incomplete_attempts": [],
+      "usage_last_observation": {
+        "timestamp": "2026-11-12T16:04:36.652Z",
+        "type": "token_count",
+        "info": {
+          "total_token_usage": {
+            "input_tokens": 1267523,
+            "cached_input_tokens": 1235456,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8404,
+            "reasoning_output_tokens": 450,
+            "total_tokens": 1275927
+          },
+          "last_token_usage": {
+            "input_tokens": 49473,
+            "cached_input_tokens": 49280,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 63,
+            "reasoning_output_tokens": 0,
+            "total_tokens": 49536
+          },
+          "model_context_window": 258400
+        }
+      },
+      "usage_capture": "423-trial-execution/slot-5/raw-usage-events.json",
+      "active_reasoning_seconds": null,
+      "assistance": "No mathematical assistance reported; coordinator supplied environment/protocol clarification only",
+      "interruptions_exposure": "None reported by author; unobserved host suspension/throttling unknown",
+      "audit": "Passed; see audit-completion.json for exact completed contexts and logs",
+      "review": "Independent Standards and Spec acceptance is required before publication and recorded separately for the exact report candidate on issue #423."
+    },
+    {
+      "slot": 6,
+      "route": "service",
+      "session_id": "01a1d081-11ff-7e60-9006-1174662054a2",
+      "model": "gpt-6-astra",
+      "effort": "medium",
+      "provider": "openai",
+      "cli_version": "0.161.0",
+      "exact_serving_revision": null,
+      "final_sources": {
+        "Draft.lean": {
+          "sha256": "305fa3598bd7ee8586661c700ed34b80eaa04eb1487e8620c58301f2e2aee11a",
+          "bytes": 397,
+          "lines": 16,
+          "nonblank_lines": 12,
+          "selected": true
+        },
+        "RepairBefore.lean": {
+          "sha256": "b7248f54ee770279b2a67ecc155bb7031e67ed5642fdfac8544589ba2ce0dfad",
+          "bytes": 380,
+          "lines": 13,
+          "nonblank_lines": 9,
+          "selected": true
+        },
+        "HeldOut.lean": {
+          "sha256": "fae68e401e681b0544f84768db9583d739317f65c32a3df624a71f10456ac32f",
+          "bytes": 397,
+          "lines": 16,
+          "nonblank_lines": 12,
+          "selected": true
+        },
+        "Negative.lean": {
+          "sha256": "33d40e1d5e4112fdea72a91d36d90f014ee71e28b64717a5ab81cf63fdfe99cd",
+          "bytes": 766,
+          "lines": 27,
+          "nonblank_lines": 22,
+          "selected": true
+        },
+        "Scale.lean": {
+          "sha256": "b34ccce7c4e88c7c46211ac62ee1fc9580ef7975dd08ae27f0cac2d130411f82",
+          "bytes": 1020,
+          "lines": 31,
+          "nonblank_lines": 25,
+          "selected": true
+        },
+        "RepairAfter.lean": {
+          "sha256": "d2a6b1611265cccaddac5fa6e239d31cd7329b06fa477576d8dd18ae60df9db3",
+          "bytes": 412,
+          "lines": 17,
+          "nonblank_lines": 13,
+          "selected": true
+        }
+      },
+      "selected_sources": [
+        "Draft.lean",
+        "Scale.lean",
+        "RepairBefore.lean",
+        "RepairAfter.lean",
+        "Negative.lean",
+        "HeldOut.lean"
+      ],
+      "historical_unselected": [],
+      "general_helpers": [],
+      "head_control": "optional checked HeadTask",
+      "index_control": "checked IndexTask",
+      "attempts": [
+        {
+          "id": "compile-001",
+          "phase": "initial",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "305fa3598bd7ee8586661c700ed34b80eaa04eb1487e8620c58301f2e2aee11a",
+          "receipt": "423-trial-execution/slot-6/work/compile-001/result.json",
+          "tool_seconds": 0.380080306
+        },
+        {
+          "id": "heldout-compile-001",
+          "phase": "held-out",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "fae68e401e681b0544f84768db9583d739317f65c32a3df624a71f10456ac32f",
+          "receipt": "423-trial-execution/slot-6/work/heldout-compile-001/result.json",
+          "tool_seconds": 0.578782148
+        },
+        {
+          "id": "heldout-policy-001",
+          "phase": "held-out",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "fae68e401e681b0544f84768db9583d739317f65c32a3df624a71f10456ac32f",
+          "receipt": "423-trial-execution/slot-6/work/heldout-policy-001/result.json",
+          "tool_seconds": 1.237362681
+        },
+        {
+          "id": "negative-compile-001",
+          "phase": "negative",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "33d40e1d5e4112fdea72a91d36d90f014ee71e28b64717a5ab81cf63fdfe99cd",
+          "receipt": "423-trial-execution/slot-6/work/negative-compile-001/result.json",
+          "tool_seconds": 0.405269323
+        },
+        {
+          "id": "negative-policy-001",
+          "phase": "negative",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "33d40e1d5e4112fdea72a91d36d90f014ee71e28b64717a5ab81cf63fdfe99cd",
+          "receipt": "423-trial-execution/slot-6/work/negative-policy-001/result.json",
+          "tool_seconds": 1.121906629
+        },
+        {
+          "id": "policy-001",
+          "phase": "initial",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "305fa3598bd7ee8586661c700ed34b80eaa04eb1487e8620c58301f2e2aee11a",
+          "receipt": "423-trial-execution/slot-6/work/policy-001/result.json",
+          "tool_seconds": 1.066482521
+        },
+        {
+          "id": "repair-after-compile-001",
+          "phase": "repair-change",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "d2a6b1611265cccaddac5fa6e239d31cd7329b06fa477576d8dd18ae60df9db3",
+          "receipt": "423-trial-execution/slot-6/work/repair-after-compile-001/result.json",
+          "tool_seconds": 0.378476525
+        },
+        {
+          "id": "repair-after-policy-001",
+          "phase": "repair-change",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "d2a6b1611265cccaddac5fa6e239d31cd7329b06fa477576d8dd18ae60df9db3",
+          "receipt": "423-trial-execution/slot-6/work/repair-after-policy-001/result.json",
+          "tool_seconds": 1.014852583
+        },
+        {
+          "id": "repair-before-compile-001",
+          "phase": "repair-baseline",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "b7248f54ee770279b2a67ecc155bb7031e67ed5642fdfac8544589ba2ce0dfad",
+          "receipt": "423-trial-execution/slot-6/work/repair-before-compile-001/result.json",
+          "tool_seconds": 0.436585892
+        },
+        {
+          "id": "repair-before-policy-001",
+          "phase": "repair-baseline",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "b7248f54ee770279b2a67ecc155bb7031e67ed5642fdfac8544589ba2ce0dfad",
+          "receipt": "423-trial-execution/slot-6/work/repair-before-policy-001/result.json",
+          "tool_seconds": 1.02381018
+        },
+        {
+          "id": "scale-compile-001",
+          "phase": "scale",
+          "status": "check-failed",
+          "exit_code": 1,
+          "kind": "compile",
+          "source_sha256": "8a018b973c0e1faf49b69c5a85228845b19fc397f72d3b5461ccbb40ade16291",
+          "receipt": "423-trial-execution/slot-6/work/scale-compile-001/result.json",
+          "tool_seconds": 0.246051587
+        },
+        {
+          "id": "scale-compile-002",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "compile",
+          "source_sha256": "b34ccce7c4e88c7c46211ac62ee1fc9580ef7975dd08ae27f0cac2d130411f82",
+          "receipt": "423-trial-execution/slot-6/work/scale-compile-002/result.json",
+          "tool_seconds": 3.147431249
+        },
+        {
+          "id": "scale-policy-001",
+          "phase": "scale",
+          "status": "check-passed",
+          "exit_code": 0,
+          "kind": "native-policy",
+          "source_sha256": "b34ccce7c4e88c7c46211ac62ee1fc9580ef7975dd08ae27f0cac2d130411f82",
+          "receipt": "423-trial-execution/slot-6/work/scale-policy-001/result.json",
+          "tool_seconds": 1.01058343
+        }
+      ],
+      "failed_recorded_commands": 1,
+      "incomplete_attempts": [],
+      "usage_last_observation": {
+        "timestamp": "2026-11-12T16:13:03.650Z",
+        "type": "token_count",
+        "info": {
+          "total_token_usage": {
+            "input_tokens": 1071358,
+            "cached_input_tokens": 1019648,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8788,
+            "reasoning_output_tokens": 196,
+            "total_tokens": 1080146
+          },
+          "last_token_usage": {
+            "input_tokens": 46578,
+            "cached_input_tokens": 46336,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 152,
+            "reasoning_output_tokens": 0,
+            "total_tokens": 46730
+          },
+          "model_context_window": 258400
+        }
+      },
+      "usage_capture": "423-trial-execution/slot-6/raw-usage-events.json",
+      "active_reasoning_seconds": null,
+      "assistance": "No mathematical assistance reported; coordinator supplied environment/protocol clarification only",
+      "interruptions_exposure": "None reported by author; unobserved host suspension/throttling unknown",
+      "audit": "Passed; see audit-completion.json for exact completed contexts and logs",
+      "review": "Independent Standards and Spec acceptance is required before publication and recorded separately for the exact report candidate on issue #423."
+    }
+  ],
+  "interpretation": "Descriptive bounded cohort; fresh exposure sessions, one model configuration, not independent model populations. No timing ranking or general productivity advantage.",
+  "original_report_base": "59be9f3c25421ddbe07cca0cb933904a3fd10881"
+}

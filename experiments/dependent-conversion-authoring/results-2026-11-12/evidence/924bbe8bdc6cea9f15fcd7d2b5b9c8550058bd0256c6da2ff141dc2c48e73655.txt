@@ -1,0 +1,132 @@
+[
+  {
+    "name": "source-policy",
+    "command": [
+      "taskset",
+      "-c",
+      "0",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "--run",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/sources/scripts/lean-source-info.lean",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/policy-input.json"
+    ],
+    "exit_code": 0,
+    "elapsed": 1.397334098815918,
+    "log_sha256": "a6210444477f518d2fd8d2493b920c780c983dabd977bd3f962c00f3abe9ef99"
+  },
+  {
+    "name": "Draft",
+    "command": [
+      "taskset",
+      "-c",
+      "0",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "-R",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/sources",
+      "-o",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/modules/Examples/ConversionTrial/Author/Draft.olean",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/sources/Examples/ConversionTrial/Author/Draft.lean"
+    ],
+    "exit_code": 0,
+    "elapsed": 0.4043116569519043,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "HeldOutProof",
+    "command": [
+      "taskset",
+      "-c",
+      "0",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "-R",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/sources",
+      "-o",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/modules/Examples/ConversionTrial/Author/HeldOutProof.olean",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/sources/Examples/ConversionTrial/Author/HeldOutProof.lean"
+    ],
+    "exit_code": 0,
+    "elapsed": 0.5837085247039795,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "NegativeProof",
+    "command": [
+      "taskset",
+      "-c",
+      "0",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "-R",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/sources",
+      "-o",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/modules/Examples/ConversionTrial/Author/NegativeProof.olean",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/sources/Examples/ConversionTrial/Author/NegativeProof.lean"
+    ],
+    "exit_code": 0,
+    "elapsed": 0.37494492530822754,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "RepairAfter",
+    "command": [
+      "taskset",
+      "-c",
+      "0",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "-R",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/sources",
+      "-o",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/modules/Examples/ConversionTrial/Author/RepairAfter.olean",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/sources/Examples/ConversionTrial/Author/RepairAfter.lean"
+    ],
+    "exit_code": 0,
+    "elapsed": 0.36768198013305664,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "RepairBefore",
+    "command": [
+      "taskset",
+      "-c",
+      "0",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "-R",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/sources",
+      "-o",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/modules/Examples/ConversionTrial/Author/RepairBefore.olean",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/sources/Examples/ConversionTrial/Author/RepairBefore.lean"
+    ],
+    "exit_code": 0,
+    "elapsed": 0.33014392852783203,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "ScaleProof",
+    "command": [
+      "taskset",
+      "-c",
+      "0",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "-R",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/sources",
+      "-o",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/modules/Examples/ConversionTrial/Author/ScaleProof.olean",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/sources/Examples/ConversionTrial/Author/ScaleProof.lean"
+    ],
+    "exit_code": 0,
+    "elapsed": 0.4386930465698242,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "CombinedImports",
+    "command": [
+      "taskset",
+      "-c",
+      "0",
+      "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+      "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/replay-02/CombinedImports.lean"
+    ],
+    "exit_code": 0,
+    "elapsed": 0.32352685928344727,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

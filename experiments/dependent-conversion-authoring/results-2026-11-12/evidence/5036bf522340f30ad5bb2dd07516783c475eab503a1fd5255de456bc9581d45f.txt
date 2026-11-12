@@ -1,0 +1,77 @@
+{
+  "commands": [
+    {
+      "owner": "Composition",
+      "command": [
+        "taskset",
+        "-c",
+        "0",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "/tmp/conaled-wave-20261111/423-trial-execution/slot-5/replay-01/Audit-Composition.lean"
+      ],
+      "driver_sha256": "24e2b76b8bfbad3b310a7e1d63b491e5bff686f1b94fcdc71c5950aaf4201acc"
+    },
+    {
+      "owner": "Context",
+      "command": [
+        "taskset",
+        "-c",
+        "0",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "/tmp/conaled-wave-20261111/423-trial-execution/slot-5/replay-01/Audit-Context.lean"
+      ],
+      "driver_sha256": "a1cbc1c4815cfa317665203e6232b0abd11413f94057858ad416c569105b0155"
+    },
+    {
+      "owner": "Substitution",
+      "command": [
+        "taskset",
+        "-c",
+        "0",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "/tmp/conaled-wave-20261111/423-trial-execution/slot-5/replay-01/Audit-Substitution.lean"
+      ],
+      "driver_sha256": "5ced35af8eff6630dc508ad3162326b57975e5ff0b81db285da568f55c4fd430"
+    },
+    {
+      "owner": "HeldOutDraft",
+      "command": [
+        "taskset",
+        "-c",
+        "0",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "/tmp/conaled-wave-20261111/423-trial-execution/slot-5/replay-01/Audit-HeldOutDraft.lean"
+      ],
+      "driver_sha256": "9d0641988713e3c1edc95cd5c0c8cb3e71cd66ca2f751d0de2b4f749c611fc48"
+    },
+    {
+      "owner": "Before",
+      "command": [
+        "taskset",
+        "-c",
+        "0",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "/tmp/conaled-wave-20261111/423-trial-execution/slot-5/replay-01/Audit-Before.lean"
+      ],
+      "driver_sha256": "dd3520a21daebf2ecf178c633188e12e7024ed8f59c6d3aca9e8e15c89ded898"
+    },
+    {
+      "owner": "After",
+      "command": [
+        "taskset",
+        "-c",
+        "0",
+        "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "/tmp/conaled-wave-20261111/423-trial-execution/slot-5/replay-01/Audit-After.lean"
+      ],
+      "driver_sha256": "627210198acd3ff5b712c89318503de52f00fc6e69da3c162f61705b8b0c1f03"
+    }
+  ],
+  "cwd": "/tmp/conaled-wave-20261111/423-trial-execution/slot-5/replay-01/sources",
+  "environment": {
+    "LEAN_PATH": "/tmp/conaled-wave-20261111/423-trial-execution/slot-5/replay-01/modules:/tmp/conaled-wave-20261111/423-trial-stage-round3/modules:/home/vlad/Code/conaled/.lake/packages/Cli/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/batteries/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/Qq/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/aesop/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/importGraph/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/plausible/.lake/build/lib/lean:/home/vlad/Code/conaled/.lake/packages/mathlib/.lake/build/lib/lean:/tmp/conaled-wave-20261111/worker7/.lake/build/lib/lean:/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/lib/lean"
+  },
+  "inventory_modules": 2951,
+  "status": "prepared; audits pending",
+  "lock": "/tmp/conaled-wave-20261111/build.lock"
+}

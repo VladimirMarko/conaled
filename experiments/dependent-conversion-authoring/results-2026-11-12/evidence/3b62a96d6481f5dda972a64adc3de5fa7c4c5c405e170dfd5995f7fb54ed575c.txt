@@ -1,0 +1,26 @@
+{
+  "raw_usage": {
+    "timestamp": "2026-11-12T15:17:01.263Z",
+    "info": {
+      "total_token_usage": {
+        "input_tokens": 524294,
+        "cached_input_tokens": 485760,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4789,
+        "reasoning_output_tokens": 191,
+        "total_tokens": 529083
+      },
+      "last_token_usage": {
+        "input_tokens": 35232,
+        "cached_input_tokens": 34304,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 287,
+        "reasoning_output_tokens": 0,
+        "total_tokens": 35519
+      },
+      "model_context_window": 258400
+    }
+  },
+  "provenance": "/home/vlad/.codex/sessions/2026/11/12/rollout-2026-11-12T16-10-52-01a1d04f-cc08-7081-849e-b12ce4f5a98b.jsonl",
+  "decision": "Completedscalechecked; proceedrepairbaseline. Reportedprovider totalincludesrepeatedcachedinput/bootstrap; do notsumcumulativevaluesorgradeeffort. No livehardceilingclaim."
+}
