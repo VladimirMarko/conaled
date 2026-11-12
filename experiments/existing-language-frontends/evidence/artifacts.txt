@@ -1,0 +1,603 @@
+#491 diagnostic artifacts, final probe-3. Excerpts are verbatim line selections unless explicitly marked as a structured projection. Line ranges refer to full files produced by inspect.py; hashes identify those full files. Compiler outputs contain host paths and generated names, so byte-for-byte reproduction across directories is not claimed. These are inspection evidence, not a source-correspondence certificate.
+
+=== agda-check.log:38-46; full SHA256 4466ce7e00d39661ba282d7f3cfd0c5299b2c7277be992f7e529c00ce29c8011 ===
+/tmp/conaled-wave-20261111/491-handoff/probe-3/stdlib/src/Data/Nat/Base.agda:72.1-22: warning: -W[no]UnsupportedIndexedMatch
+This clause uses pattern-matching features that are not yet
+supported by Cubical Agda, the function to which it belongs will
+not compute when applied to transports.
+
+Reason: It relies on injectivity of the data constructor suc, which
+        is not yet supported
+
+when checking the definition of s≤s⁻¹
+
+=== either-interface.log:1091-1104; full SHA256 ecbbdebd91e78453623889cec451d155e43df0d955d544e9d0925a37a89289d9 ===
+  type Either :: * -> * -> *
+  data Either a b = Left a | Right b
+3eb28462bd3c8613fe66eb5dd052ec01
+  either :: (a -> c) -> (b -> c) -> Either a b -> c
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <MC(1,L)><MC(1,L)><1L>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                @c
+                @b
+                (f['GHC.Types.Many] :: a -> c)
+                (ds['GHC.Types.Many] :: b -> c)
+                (ds1['GHC.Types.Many] :: Either a b) ->
+              case ds1 of wild { Left x -> f x Right y -> ds y }]
+
+=== core-O0.log:46-68; full SHA256 c01d299f9c08bfc69c27a41386638d96c1589e519a9051cedcd302775f246bfe ===
+choose :: Bool -> Either Bool Bool -> Bool
+[LclIdX,
+ Unf=Unf{Src=<vanilla>, TopLvl=True,
+         Value=True, ConLike=True, WorkFree=True, Expandable=True,
+         Guidance=IF_ARGS [0] 80 0}]
+choose
+  = \ (mask :: Bool) ->
+      either
+        @Bool
+        @Bool
+        @Bool
+        (\ (x :: Bool) -> /= @Bool GHC.Classes.$fEqBool x mask)
+        not
+
+-- RHS size: {terms: 7, types: 6, coercions: 0, joins: 0/0}
+step :: Bool -> Either Bool Bool -> (Bool, Bool)
+[LclIdX,
+ Unf=Unf{Src=<vanilla>, TopLvl=True,
+         Value=True, ConLike=True, WorkFree=True, Expandable=True,
+         Guidance=IF_ARGS [0 0] 40 10}]
+step
+  = \ (state :: Bool) (input :: Either Bool Bool) ->
+      (state, choose state input)
+
+=== core-O0.log:290-315; full SHA256 c01d299f9c08bfc69c27a41386638d96c1589e519a9051cedcd302775f246bfe ===
+-- RHS size: {terms: 8, types: 6, coercions: 0, joins: 0/0}
+choose :: Bool -> Either Bool Bool -> Bool
+[GblId, Arity=1, Unf=OtherCon []]
+choose
+  = \ (mask :: Bool) ->
+      either
+        @Bool
+        @Bool
+        @Bool
+        (\ (x :: Bool) -> /= @Bool GHC.Classes.$fEqBool x mask)
+        not
+
+-- RHS size: {terms: 12, types: 11, coercions: 0, joins: 0/0}
+step :: Bool -> Either Bool Bool -> (Bool, Bool)
+[GblId, Arity=2, Unf=OtherCon []]
+step
+  = \ (state :: Bool) (input :: Either Bool Bool) ->
+      (state,
+       either
+         @Bool
+         @Bool
+         @Bool
+         (\ (x :: Bool) -> /= @Bool GHC.Classes.$fEqBool x state)
+         not
+         input)
+
+
+=== core-O1.log:334-366; full SHA256 08fe9956d4484674529fd54bfa694bd7d73eb20926e03bd38b99dca267071e54 ===
+-- RHS size: {terms: 15, types: 10, coercions: 0, joins: 0/0}
+choose :: Bool -> Either Bool Bool -> Bool
+[GblId,
+ Arity=2,
+ Str=<L><1L>,
+ Unf=Unf{Src=<vanilla>, TopLvl=True,
+         Value=True, ConLike=True, WorkFree=True, Expandable=True,
+         Guidance=IF_ARGS [0 50] 70 20}]
+choose
+  = \ (mask :: Bool) (ds1 :: Either Bool Bool) ->
+      case ds1 of {
+        Left x -> GHC.Classes.$fEqBool_$c/= x mask;
+        Right y ->
+          case y of {
+            False -> GHC.Types.True;
+            True -> GHC.Types.False
+          }
+      }
+
+-- RHS size: {terms: 7, types: 6, coercions: 0, joins: 0/0}
+step :: Bool -> Either Bool Bool -> (Bool, Bool)
+[GblId,
+ Arity=2,
+ Str=<L><ML>,
+ Cpr=1,
+ Unf=Unf{Src=StableSystem, TopLvl=True,
+         Value=True, ConLike=True, WorkFree=True, Expandable=True,
+         Guidance=ALWAYS_IF(arity=2,unsat_ok=True,boring_ok=False)
+         Tmpl= \ (state :: Bool) (input [Occ=Once1] :: Either Bool Bool) ->
+                 (state, choose state input)}]
+step
+  = \ (state :: Bool) (input :: Either Bool Bool) ->
+      (state, choose state input)
+
+=== agda-internal-client.log: structured projection (names, types, clause bodies); full SHA256 34b2b40246fe63a5d184ad99e397d2e2251243cdaab329ec643ac6c24e538884 ===
+{
+  "interface_sha256": "404560d8f46e4ffbb459e3ab32d39518c60bcba2cb4e97f9c45cb4777d3869d1",
+  "source_sha256": "be2b89b93bfa5ea5b867aa1c93abe77a01711777192dd481e721ac99b7834e41",
+  "declarations": [
+    {
+      "name": "AgdaClient.step",
+      "type": {
+        "root": {
+          "node": 4195,
+          "words": [
+            5,
+            3738,
+            4194
+          ]
+        },
+        "termTags": {
+          "Pi": 2,
+          "Def": 3,
+          "Level": 1
+        },
+        "references": [
+          "Agda.Builtin.Bool.Bool",
+          "Data.Product.Base._×_",
+          "Data.Sum.Base._⊎_"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "bodies": [
+        {
+          "root": {
+            "node": 4235,
+            "words": [
+              4,
+              4229,
+              1,
+              4234
+            ]
+          },
+          "termTags": {
+            "Con": 1,
+            "Var": 2,
+            "Def": 1
+          },
+          "references": [
+            "Agda.Builtin.Sigma._,_",
+            "AgdaClient.choose"
+          ],
+          "unresolvedTermPositions": [],
+          "notTraversed": [
+            "sorts",
+            "levels",
+            "literals",
+            "binder metadata"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AgdaClient.observations-correct",
+      "type": {
+        "root": {
+          "node": 4092,
+          "words": [
+            3,
+            389,
+            4091
+          ]
+        },
+        "termTags": {
+          "Def": 5,
+          "Level": 1
+        },
+        "references": [
+          "Agda.Builtin.Bool.Bool",
+          "Agda.Builtin.Equality._≡_",
+          "Agda.Builtin.List.List",
+          "AgdaClient.expected",
+          "AgdaClient.observations"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "bodies": [
+        {
+          "root": {
+            "node": 4095,
+            "words": [
+              4,
+              4094,
+              1,
+              1
+            ]
+          },
+          "termTags": {
+            "Con": 1
+          },
+          "references": [
+            "Agda.Builtin.Equality._≡_.refl"
+          ],
+          "unresolvedTermPositions": [],
+          "notTraversed": [
+            "sorts",
+            "levels",
+            "literals",
+            "binder metadata"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AgdaClient.choose",
+      "type": {
+        "root": {
+          "node": 4024,
+          "words": [
+            5,
+            3738,
+            4023
+          ]
+        },
+        "termTags": {
+          "Pi": 2,
+          "Def": 2,
+          "Level": 1
+        },
+        "references": [
+          "Agda.Builtin.Bool.Bool",
+          "Data.Sum.Base._⊎_"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "bodies": [
+        {
+          "root": {
+            "node": 4056,
+            "words": [
+              3,
+              548,
+              4055
+            ]
+          },
+          "termTags": {
+            "Def": 4,
+            "Level": 1,
+            "Lam": 1,
+            "Var": 2
+          },
+          "references": [
+            "Agda.Builtin.Bool.Bool",
+            "Data.Bool.Base._xor_",
+            "Data.Bool.Base.not",
+            "Data.Sum.Base.[_,_]′"
+          ],
+          "unresolvedTermPositions": [],
+          "notTraversed": [
+            "sorts",
+            "levels",
+            "literals",
+            "binder metadata"
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+=== agda-internal-sum.log: structured projection (names, types, clause bodies); full SHA256 3ab1ed59af8fc32cc37cff04ccf9af66408dfc0b5072df226d0251021e37f77c ===
+{
+  "interface_sha256": "6f0670efaee935bfbf8df76b1e6c4ee635069eff89ea5871d2f97dd9e4f05413",
+  "source_sha256": "2733ba66eaed94cc0f0b21f2a9ed0533f8a31b5bd487e40384632f1d6204fcfd",
+  "declarations": [
+    {
+      "name": "Data.Sum.Base.[_,_]′",
+      "type": {
+        "root": {
+          "node": 2857,
+          "words": [
+            5,
+            2156,
+            2856
+          ]
+        },
+        "termTags": {
+          "Pi": 11,
+          "Def": 2,
+          "Sort": 1,
+          "Var": 5
+        },
+        "references": [
+          "Agda.Primitive.Level",
+          "Data.Sum.Base._⊎_"
+        ],
+        "unresolvedTermPositions": [],
+        "notTraversed": [
+          "sorts",
+          "levels",
+          "literals",
+          "binder metadata"
+        ]
+      },
+      "bodies": [
+        {
+          "root": {
+            "node": 2880,
+            "words": [
+              3,
+              409,
+              2879
+            ]
+          },
+          "termTags": {
+            "Def": 1,
+            "Var": 5,
+            "Lam": 1
+          },
+          "references": [
+            "Data.Sum.Base.[_,_]"
+          ],
+          "unresolvedTermPositions": [],
+          "notTraversed": [
+            "sorts",
+            "levels",
+            "literals",
+            "binder metadata"
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+=== generated/MAlonzo/Code/AgdaClient.hs:28-44; full SHA256 b7f3293d25e3e245b078a5a916ff5d9b7b2d986d69e1bbf07df594480231df05 ===
+-- AgdaClient.choose
+d_choose_2 ::
+  Bool -> MAlonzo.Code.Data.Sum.Base.T__'8846'__30 -> Bool
+d_choose_2 v0
+  = coe
+      MAlonzo.Code.Data.Sum.Base.du_'91'_'44'_'93''8242'_66
+      (\ v1 -> MAlonzo.Code.Data.Bool.Base.d__xor__36 (coe v1) (coe v0))
+      MAlonzo.Code.Data.Bool.Base.d_not_22
+-- AgdaClient.step
+d_step_8 ::
+  Bool ->
+  MAlonzo.Code.Data.Sum.Base.T__'8846'__30 ->
+  MAlonzo.Code.Agda.Builtin.Sigma.T_Σ_14
+d_step_8 v0 v1
+  = coe
+      MAlonzo.Code.Agda.Builtin.Sigma.C__'44'__32 (coe v0)
+      (coe d_choose_2 v0 v1)
+
+=== generated/MAlonzo/Code/AgdaClient.hs:173-176; full SHA256 b7f3293d25e3e245b078a5a916ff5d9b7b2d986d69e1bbf07df594480231df05 ===
+-- AgdaClient.observations-correct
+d_observations'45'correct_30 ::
+  MAlonzo.Code.Agda.Builtin.Equality.T__'8801'__12
+d_observations'45'correct_30 = erased
+
+=== generated/MAlonzo/Code/Data/Sum/Base.hs:23-63; full SHA256 cfeb0f569da7f6cd5df023bb06e0c128762f9fb0a4a452024e9b057c00bece7b ===
+-- Data.Sum.Base._⊎_
+d__'8846'__30 a0 a1 a2 a3 = ()
+data T__'8846'__30
+  = C_inj'8321'_38 AgdaAny | C_inj'8322'_42 AgdaAny
+-- Data.Sum.Base.[_,_]
+d_'91'_'44'_'93'_52 ::
+  MAlonzo.Code.Agda.Primitive.T_Level_18 ->
+  () ->
+  MAlonzo.Code.Agda.Primitive.T_Level_18 ->
+  () ->
+  MAlonzo.Code.Agda.Primitive.T_Level_18 ->
+  (T__'8846'__30 -> ()) ->
+  (AgdaAny -> AgdaAny) ->
+  (AgdaAny -> AgdaAny) -> T__'8846'__30 -> AgdaAny
+d_'91'_'44'_'93'_52 ~v0 ~v1 ~v2 ~v3 ~v4 ~v5 v6 v7 v8
+  = du_'91'_'44'_'93'_52 v6 v7 v8
+du_'91'_'44'_'93'_52 ::
+  (AgdaAny -> AgdaAny) ->
+  (AgdaAny -> AgdaAny) -> T__'8846'__30 -> AgdaAny
+du_'91'_'44'_'93'_52 v0 v1 v2
+  = case coe v2 of
+      C_inj'8321'_38 v3 -> coe v0 v3
+      C_inj'8322'_42 v3 -> coe v1 v3
+      _ -> MAlonzo.RTE.mazUnreachableError
+-- Data.Sum.Base.[_,_]′
+d_'91'_'44'_'93''8242'_66 ::
+  MAlonzo.Code.Agda.Primitive.T_Level_18 ->
+  () ->
+  MAlonzo.Code.Agda.Primitive.T_Level_18 ->
+  () ->
+  MAlonzo.Code.Agda.Primitive.T_Level_18 ->
+  () ->
+  (AgdaAny -> AgdaAny) ->
+  (AgdaAny -> AgdaAny) -> T__'8846'__30 -> AgdaAny
+d_'91'_'44'_'93''8242'_66 ~v0 ~v1 ~v2 ~v3 ~v4 ~v5
+  = du_'91'_'44'_'93''8242'_66
+du_'91'_'44'_'93''8242'_66 ::
+  (AgdaAny -> AgdaAny) ->
+  (AgdaAny -> AgdaAny) -> T__'8846'__30 -> AgdaAny
+du_'91'_'44'_'93''8242'_66 = coe du_'91'_'44'_'93'_52
+-- Data.Sum.Base.fromInj₁
+
+=== ghc-version.log:1-1; full SHA256 9eb530c7120599fed886a06f8ba0958266eb4c950a9f7a67daf9e960558722f3 ===
+9.10.3
+
+=== agda-version.log:1-4; full SHA256 cdacaad58752136a6d2deaaa5eeec0edc0c92287a038f8803d3c27e4233e1079 ===
+Agda version 2.8.0.2
+Built with flags (cabal -f)
+ - optimise-heavily: extra optimisations
+ - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal
+
+=== haskell-observations.log:1-1; full SHA256 8d444bf2d2742db5bbe4af9fbc534b77228673466b9e654567467b6e04163807 ===
+[False,True,True,False,True,False,True,False,False,False,True,True,False,True,True,False,True,False]
+
+=== agda-observations.log:1-1; full SHA256 8d444bf2d2742db5bbe4af9fbc534b77228673466b9e654567467b6e04163807 ===
+[False,True,True,False,True,False,True,False,False,False,True,True,False,True,True,False,True,False]
+
+=== haskell-unused-bottom.log:1-1; full SHA256 a9ac0c3ac83c40e1b4c3416066d63d324ee9f8c144641dfeed72d140b6557245 ===
+True
+
+=== haskell-forced-bottom.log:1-23; full SHA256 d5ad02580631a16b7cc961d77fbe59c80b6e064ab1eeecbb3da1a2c0251fd715 ===
+<interactive>: Prelude.undefined
+CallStack (from HasCallStack):
+  undefined, called at /tmp/conaled-wave-20261111/491-handoff/probe-3/clients/HaskellClient.hs:29:31 in main:HaskellClient
+HasCallStack backtrace:
+  collectBacktraces, called at libraries/ghc-internal/src/GHC/Internal/Exception.hs:169:13 in ghc-internal:GHC.Internal.Exception
+  toExceptionWithBacktrace, called at libraries/ghc-internal/src/GHC/Internal/IO.hs:260:11 in ghc-internal:GHC.Internal.IO
+  throwIO, called at libraries/exceptions/src/Control/Monad/Catch.hs:308:12 in exceptions-0.10.9-14da:Control.Monad.Catch
+  throwM, called at libraries/exceptions/src/Control/Monad/Catch.hs:427:21 in exceptions-0.10.9-14da:Control.Monad.Catch
+  throwM, called at compiler/GHC/Driver/Monad.hs:167:54 in ghc-9.10.3-394c:GHC.Driver.Monad
+  a type signature in an instance, called at compiler/GHC/Driver/Monad.hs:167:54 in ghc-9.10.3-394c:GHC.Driver.Monad
+  throwM, called at libraries/exceptions/src/Control/Monad/Catch.hs:427:21 in exceptions-0.10.9-14da:Control.Monad.Catch
+  throwM, called at ghc/GHCi/UI/Monad.hs:288:15 in ghc-bin-9.10.3-7632:GHCi.UI.Monad
+  a type signature in an instance, called at ghc/GHCi/UI/Monad.hs:288:15 in ghc-bin-9.10.3-7632:GHCi.UI.Monad
+  throwM, called at libraries/exceptions/src/Control/Monad/Catch.hs:427:21 in exceptions-0.10.9-14da:Control.Monad.Catch
+  throwM, called at libraries/exceptions/src/Control/Monad/Catch.hs:427:21 in exceptions-0.10.9-14da:Control.Monad.Catch
+  throwM, called at libraries/exceptions/src/Control/Monad/Catch.hs:427:21 in exceptions-0.10.9-14da:Control.Monad.Catch
+  throwM, called at libraries/exceptions/src/Control/Monad/Catch.hs:427:21 in exceptions-0.10.9-14da:Control.Monad.Catch
+  throwM, called at libraries/exceptions/src/Control/Monad/Catch.hs:427:21 in exceptions-0.10.9-14da:Control.Monad.Catch
+  throwM, called at libraries/haskeline/System/Console/Haskeline/InputT.hs:53:39 in haskeline-0.8.2.1-4248:System.Console.Haskeline.InputT
+  a type signature in an instance, called at libraries/haskeline/System/Console/Haskeline/InputT.hs:53:39 in haskeline-0.8.2.1-4248:System.Console.Haskeline.InputT
+  throwM, called at ghc/GHCi/UI/Monad.hs:215:52 in ghc-bin-9.10.3-7632:GHCi.UI.Monad
+
+
+
+=== agda-safe-postulate.log:1-5; full SHA256 170268948215555e741d2088a08af35a90548574f6f8df8acb7832e13a04b231 ===
+Checking Unsafe (/tmp/conaled-wave-20261111/491-handoff/probe-3/clients/Unsafe.agda).
+/tmp/conaled-wave-20261111/491-handoff/probe-3/clients/Unsafe.agda:4.11-28: error: [SafeFlagPostulate]
+Cannot postulate fabricated with safe flag
+when scope checking the declaration
+  fabricated : Bool
+
+=== Attribution: generated GHC/base Either excerpt ===
+Copyright (c) The University of Glasgow 2001
+https://raw.githubusercontent.com/ghc/ghc/ghc-9.10.3-release/libraries/base/LICENSE
+This library (libraries/base) is derived from code from several
+sources:
+
+  * Code from the GHC project which is largely (c) The University of
+    Glasgow, and distributable under a BSD-style license (see below),
+
+  * Code from the Haskell 98 Report which is (c) Simon Peyton Jones
+    and freely redistributable (but see the full license for
+    restrictions).
+
+  * Code from the Haskell Foreign Function Interface specification,
+    which is (c) Manuel M. T. Chakravarty and freely redistributable
+    (but see the full license for restrictions).
+
+The full text of these licenses is reproduced below.  All of the
+licenses are BSD-style or compatible.
+
+-----------------------------------------------------------------------------
+
+The Glasgow Haskell Compiler License
+
+Copyright 2004, The University Court of the University of Glasgow.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+- Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.
+
+- Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.
+
+- Neither name of the University nor the names of its contributors may be
+used to endorse or promote products derived from this software without
+specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE UNIVERSITY COURT OF THE UNIVERSITY OF
+GLASGOW AND THE CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+UNIVERSITY COURT OF THE UNIVERSITY OF GLASGOW OR THE CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGE.
+
+-----------------------------------------------------------------------------
+
+Code derived from the document "Report on the Programming Language
+Haskell 98", is distributed under the following license:
+
+  Copyright (c) 2002 Simon Peyton Jones
+
+  The authors intend this Report to belong to the entire Haskell
+  community, and so we grant permission to copy and distribute it for
+  any purpose, provided that it is reproduced in its entirety,
+  including this Notice.  Modified versions of this Report may also be
+  copied and distributed for any purpose, provided that the modified
+  version is clearly presented as such, and that it does not claim to
+  be a definition of the Haskell 98 Language.
+
+-----------------------------------------------------------------------------
+
+Code derived from the document "The Haskell 98 Foreign Function
+Interface, An Addendum to the Haskell 98 Report" is distributed under
+the following license:
+
+  Copyright (c) 2002 Manuel M. T. Chakravarty
+
+  The authors intend this Report to belong to the entire Haskell
+  community, and so we grant permission to copy and distribute it for
+  any purpose, provided that it is reproduced in its entirety,
+  including this Notice.  Modified versions of this Report may also be
+  copied and distributed for any purpose, provided that the modified
+  version is clearly presented as such, and that it does not claim to
+  be a definition of the Haskell 98 Foreign Function Interface.
+
+-----------------------------------------------------------------------------
+
+=== Attribution: Agda standard-library generated sum excerpt ===
+https://raw.githubusercontent.com/agda/agda-stdlib/v2.3/LICENCE
+Copyright (c) 2007-2025 Nils Anders Danielsson, Ulf Norell, Shin-Cheng
+Mu, Bradley Hardy, Samuel Bronson, Dan Doel, Patrik Jansson,
+Liang-Ting Chen, Jean-Philippe Bernardy, Andrés Sicard-Ramírez,
+Nicolas Pouillard, Darin Morrison, Peter Berry, Daniel Brown,
+Simon Foster, Dominique Devriese, Andreas Abel, Alcatel-Lucent,
+Eric Mertens, Joachim Breitner, Liyang Hu, Noam Zeilberger, Érdi Gergő,
+Stevan Andjelkovic, Helmut Grohne, Guilhem Moulin, Noriyuki Ohkawa,
+Evgeny Kotelnikov, James Chapman, Wen Kokke, Matthew Daggitt, Jason Hu,
+Sandro Stucki, Milo Turner, Zack Grannan, Lex van der Stoep,
+Jacques Carette, James McKinna, Guillaume Allais
+and some anonymous contributors.
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
