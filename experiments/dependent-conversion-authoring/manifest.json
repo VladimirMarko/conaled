@@ -5,7 +5,7 @@
   "engine_source_base": "03cfba5e37d64c33bcec1f8484616d9e31de9397",
   "protocol": {
     "path": "docs/research/dependent-conversion-authoring-protocol.md",
-    "sha256": "fb3cf4a523c210d2b9eb264000aa1845d1323639d379aabf3cb3e793c15dc1ef"
+    "sha256": "3c8aa47cb3e03a89137017e94be21edc634389e5ca99a11305eefc9de00281c8"
   },
   "toolchain": "leanprover/lean4:v4.35.0",
   "dependency_manifest_sha256": "dff886ff5836eedead6c53293f8cb6de0653ed9f1e2d63d9bfeb6ed983e8ca4b",
@@ -279,9 +279,9 @@
     "source_stage_mapping_required": true,
     "full_import_closure_required": true,
     "new_runner_or_parser": false,
-    "full_import_closure_sha256": null,
-    "audit_log_sha256": null,
-    "final_audit_status": "pending fresh staging against exact accepted integration closure",
+    "full_import_closure_sha256": "dac19bff93b70f1dbe8c5f919c11343f7502ff4725ec578dfd4e32f8cc40df43",
+    "audit_log_sha256": "c1cebfcdd26b289b3ed369bc40ea6873b4358cd59e9c81e194ba1602b92637d9",
+    "final_audit_status": "Passed: fresh ten-module staging, full closure audit, four source-policy and two mathematical rejection controls",
     "fixture_metrics_sha256": "2d99cf60e74f243b810381866fc8fcca6a3c1c52755396bfb03aeebc922364e7"
   },
   "dimensions": {
@@ -314,17 +314,18 @@
   },
   "execution_prerequisites": {
     "reviewed_fixture_acceptance": "pending independent review",
-    "runner_token_ceiling_enforcement": "unresolved",
     "actual_model_identifier": null,
     "model_configuration": null,
     "author_session_identifiers": null,
     "random_assignment": null,
-    "author_budget_tokens": 24000,
-    "author_budget_minutes": 75,
     "sessions_per_route": 3,
     "active_preparer_seconds": null,
     "preparer_model_tokens": null,
-    "unknown_metadata_policy": "Unavailable, not zero; no nominal wall limit substitutes for token enforcement.",
-    "paid_spending_authorized": false
+    "unknown_metadata_policy": "Unavailable, not zero; missing live token telemetry alone does not block execution.",
+    "paid_spending_authorized": false,
+    "author_token_review_checkpoint": 24000,
+    "author_minutes_review_checkpoint": 75,
+    "matched_continuation_policy": "must be frozen before exposure",
+    "timing_policy": "Record interruptions separately; raw laptop wall time does not rank routes."
   }
 }

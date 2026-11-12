@@ -105,34 +105,64 @@ Do not replace its failed attempts with the successful rerun. Uniformly answer
 only environment/protocol questions during execution; mathematical assistance
 ends unassisted status and must be logged and assessed separately.
 
-## Prospective budget and stopping rules
+## Prospective budgets, interruptions and stopping rules
 
-These are proposed pilot ceilings, not measured estimates or authorization for
-external spending. Reserve up to six author sessions, each with 75 minutes of
-wall time and 24,000 model tokens: 15 minutes for discovery/setup/admission,
-20 for initial proof, 20 for scale cases, 10 for repair and 10 for maintenance
-and rejection. Release a phase early if its previous tasks finish; keep the
-whole-session ceiling. Record phase overruns rather than silently borrowing
-unlimited time. Six ceilings total 7.5 author-hours and 144,000 model tokens;
-parallel execution does not reduce the aggregate allowance.
+The original proposal used 75 minutes and 24,000 model tokens per author as
+pilot ceilings, not measured requirements. Before author exposure, the owner
+clarified on 2026-11-12 that these limits may change and that laptop hibernation,
+thermal throttling and unrelated workloads make raw timing unsuitable as a
+comparative performance measure. This amendment replaces strict time/token
+cutoffs with recorded sanity checkpoints. It does not change the matched tasks,
+three fresh authors per route, exposure controls or correctness requirements.
 
-Allow up to four active preparer-hours to create/check fixtures and the frozen
-bundle, and four reviewer-hours for statement review, outcomes and synthesis.
-These exclude #423's already incurred implementation effort, which must still
-be inventoried separately. If preparation exceeds its ceiling, publish the
-missing prerequisite and revised estimate before scheduling authors. Do not
-spend the author budget on implementing a frontend or repairing the converter.
-Stop at the first of time/token limit, completed phases, environment failure,
-or correctness failure. Retain partial proofs and classify them explicitly.
-Tool checks are observed costs, not artificially capped privileges for one
-route. Apply equal environment limits to both groups.
+Use 75 minutes of observed session duration and, where reported, 24,000 model
+tokens as initial review checkpoints. They are planning values, not thresholds
+for mathematical failure or a productivity ranking. A scheduler goal budget may
+help trigger a checkpoint, but its counting and stopping behavior must be stated;
+record actual usage and any overshoot. Missing live token telemetry does not
+block execution once the recorded cohort configuration and other prerequisites
+are ready. Preserve raw input, cached-input, output and reasoning usage fields
+where available; explain the selected aggregate without double counting.
 
-The scheduler must fill the exact model/configuration and confirm available
-session resources before executing this plan. No paid API purchase is authorized.
-If execution needs such spending, or a different resource allocation requires
-the owner, record that decision as blocked until answered. Missing construction
-prerequisites are technical blockers. #429 does not require a preference about
-NbE versus structural normalization; #423 decides from its proved contract.
+The earlier phase allocations of 15/20/20/10/10 minutes remain rough planning
+checkpoints. Release the next phase when its conditions are met. At a checkpoint,
+record completed tasks, remaining work, observed interruptions and whether to
+continue, pause or stop. Freeze the same continuation policy for both routes
+before exposure; do not tune it after observing which route is ahead. An
+extension preserves the frozen tasks and assistance policy, records its reason,
+and retains the earlier partial attempt. Sanity controls prevent unattended
+runs from continuing without review; they do not silently convert infrastructure
+delay into a failed proof attempt.
+
+Record hibernation/resume, throttling, shared build-lock waits, unrelated load,
+network failures and lost sessions when observable. Keep unavailable telemetry
+explicitly unknown. Pause or reschedule affected work when needed, preserving
+session identity and phase exposure; a replacement session starts a separately
+labeled attempt rather than erasing the interruption. Retain wall and monotonic
+clock records and their limitations. Do not estimate active reasoning time by
+subtracting compiler time or assuming an unobserved suspension lasted zero.
+
+Stop for completed phases, a correctness failure, an unusable environment, or a
+recorded sanity review decision. Retain partial proofs and distinguish unresolved
+mathematical work from an infrastructure-interrupted observation. A correctness
+defect still stops the affected cohort under the freeze rules above. Report
+completion and interruption counts separately; an interruption alone is not
+evidence that one route is harder. Check commands remain equally available to
+both groups, and their actual calls and diagnostics are recorded.
+
+The original four preparer-hours and four reviewer-hours are also planning
+checkpoints. Record available effort evidence and missing active-time telemetry;
+publish remaining prerequisites and revised expectations if work exceeds those
+plans. Keep #423's engine implementation and review costs separate. Author work
+must not absorb frontend development or converter repair.
+
+Before execution, freeze actual model/configuration, resource availability,
+checkpoint/continuation policy and measurement conventions. Record unavailable
+serving-version metadata honestly. No paid API purchase is authorized. A new
+external resource purchase or material scope change still needs owner approval;
+the approved sanity-check amendment does not waive technical prerequisites.
+#429 does not require a preference about NbE versus structural normalization;
+#423 decides from its proved contract.
 
 ## Cost ledger and interpretation
 
@@ -145,15 +175,19 @@ hidden or charged again to every small instance.
 
 | Quantity | Recording and limitation |
 |---|---|
-| Elapsed time | Monotonic phase start/end and tool durations; report waits and infrastructure failures separately. Shared hardware contention makes cross-author timing noisy. |
+| Elapsed time | Record wall/monotonic phase times and tool durations with observed hibernation, throttling, contention and failures. Raw elapsed time is context, not the primary performance assessment; do not rank routes from these laptop timings. |
 | Active work | Human logged work intervals where available; for agents report tool/model intervals and tokens separately. Wall time minus tool time is not a reliable measure of reasoning effort. Missing active-time telemetry stays missing. |
 | Checks and repairs | Compile/audit invocations, diagnostics, changed submissions, first and eventual checked completion, assistance, semantic versus syntax errors. Cached checks remain invocations; record cache policy. |
 | Artifact size | Caller lines and syntax nodes, helper/library additions, generated terms and receipts separately. Minified spelling or moved helper code is not a productivity result. |
 | Review and maintenance | Reviewer time, findings, fixes, held-out repair burden and touched dependencies. Longer-term maintenance remains unmeasured by this pilot. |
 | Upfront cost | #423 implementation/review records if available; trial setup and model admission costs. Unavailable historical labor cannot be reconstructed from commit timestamps. |
 
-Report each author and each scale dimension, including timeouts and failures.
-Summarize completion rates and distributions descriptively; six sessions do not
+Report each author and each scale dimension, including sanity stops, interruptions
+and failures. Emphasize checked completion, proof repairs, helper development,
+review burden and available usage data. Separate infrastructure-interrupted
+attempts from mathematical noncompletion; do not discard either. Any timing
+comparison needs separately justified comparable conditions. Summarize completion
+rates and distributions descriptively; six sessions do not
 establish a general advantage or causal scaling law. Show incremental work
 alongside total work. For a hypothetical reuse count N, an amortization scenario
 may display `setup + N × observed incremental cost` with its assumptions; do

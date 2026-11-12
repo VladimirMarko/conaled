@@ -97,13 +97,15 @@ exactly the repository's `propext`, `Classical.choice`, and `Quot.sound`.
 Preparation also checks that the native source policy rejects an axiom,
 admission, source `unsafe`, and malformed late import. Separate attempted
 proofs of the invalid head equation and wrong index must fail compilation.
-Development logs, source/stage hashes, and policy controls accompany the
-implementation handoff. The final full import closure and ten-module audit
-receipt remain pending fresh staging by the integration coordinator. Metrics
-were evaluated from a recorded temporary copy of Validate omitting the audit
-and separating-model import; the separator had already compiled independently.
-No temporary preview is an audit receipt or an author runner. Independent
-Standards and Spec acceptance remains required.
+Fresh integration staging compiled all ten modules and ran the full import-closure
+and axiom audit, with all ten staged modules present among the audit roots.
+All four source-policy rejection controls and both mathematical rejection
+controls passed. The manifest records the audit and import-closure hashes.
+These checks used fresh fixture outputs against the accepted integration
+closure, without reusing outputs from the interrupted private-cache rebuild.
+Earlier metrics-only previews remain development evidence; the final metrics
+were emitted by the fully audited Validate module. Independent Standards and
+Spec acceptance remains required.
 
 ## Exposure and remaining execution prerequisites
 
@@ -114,10 +116,14 @@ here describe future release classes; no exposure or sealing is claimed.
 Preparers and reviewers who have seen solutions cannot be trial authors.
 
 A later step must freeze exact release bundles, a reproducible cache/command
-policy, model configuration and enforceable budget limits, then randomly assign
-six fresh sessions before exposure. The prescribed three sessions per route,
-75-minute and 24,000-token ceilings remain unchanged. Available tools have not
-yet established enforceable token-ceiling control. Unknown model/configuration,
-author identities, active preparer time, and token telemetry remain unknown.
-No wall-time estimate substitutes for those missing measurements. No new runner,
-release parser, author execution, or paid API spending belongs to this milestone.
+policy, model configuration, and a matched checkpoint/continuation policy, then
+randomly assign six fresh sessions before exposure. The prescribed three
+sessions per route remain unchanged. Following the owner's 2026-11-12
+clarification, 75 minutes and 24,000 reported tokens are initial sanity review
+checkpoints, not hard failure ceilings. Missing live token telemetry does not
+itself block execution. Record actual available usage, overshoot and observed
+hibernation, throttling, contention or other interruptions separately; raw laptop
+wall time must not rank the routes. Unknown model/configuration, author
+identities, active preparer time and token telemetry remain unknown. No new
+runner, release parser, author execution, or paid API spending belongs to this
+milestone.
