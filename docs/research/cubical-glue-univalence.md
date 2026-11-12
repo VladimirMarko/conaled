@@ -154,3 +154,11 @@ The full native univalence theorem still requires the internal equivalence
 family, its native proposition facts, and the homotopy/retract arguments.
 The planned retract route preserves the chosen `ua` and uses this comparison;
 it does not assume constant-family transport is literally identity.
+
+`Examples/CubicalUnivalenceTransport.lean` checks the requested discrete
+observations of that actual transport: Boolean transposition sends true to
+false and false to true; integer successor sends 3 to 4; its inverse sends
+3 to 2. The proof maps the comparison path into the constant target family
+and applies native discrete-path rigidity. This is a checked semantic
+observation, not execution of the noncomputable construction. The dependent
+whole-state-package comparison remains outstanding.
