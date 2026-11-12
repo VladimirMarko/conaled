@@ -1,4 +1,4 @@
-import SquareKit.Internal.Cubical.SmallFamilyGlue
+import SquareKit.Internal.Cubical.UniverseCodePaths
 import SquareKit.Internal.Cubical.BackwardFilling
 
 /-! Small decoding on represented charts in the larger universe context.
@@ -9,6 +9,7 @@ set_option warningAsError true
 namespace SquareKit.Cubical.Presheaf.SmallUniverse
 open CategoryTheory
 universe u
+
 
 /-- The larger base does not raise the decoded fibers. -/
 def decode {Γ : Context.{u+1}} (a : Γ ⟶ smallFamilyCodes.{u}) : Γ.Elements ⥤ Type u :=
@@ -861,5 +862,19 @@ noncomputable def equivalence (F : Filling A) (hF : F.Lawful) : HomotopyEquivale
   fibers := HomotopyContractible.ofExtensions
     (fun ρ _ z => FiberExtension.extend F hF (map F) rfl ρ z)
     (fun ρ _ z x hx => FiberExtension.extend_boundary F hF (map F) rfl ρ z x hx)
+
+/-- Changing the presentation of the map does not replace the chosen fiber contraction. -/
+theorem equivalenceOf_heq (F : Filling A) (hF : F.Lawful)
+    (f : reindex A (endpointSub Γ false) ⟶ reindex A (endpointSub Γ true)) (hf : f = map F) :
+    HEq (equivalenceOf F hF f hf) (equivalence F hF) := by
+  subst f
+  rfl
+
+theorem equivalence_reindex {Ξ : Context.{u}} (F : Filling A) (hF : F.Lawful)
+    (σ : Ξ ⟶ Γ) :
+    HEq ((equivalence F hF).reindex σ)
+      (equivalence (F.reindex (liftSub (interval Γ) σ)) (hF.reindex _)) :=
+  (heq_of_eq (equivalenceOf_reindex F hF (map F) rfl σ)).trans
+    (equivalenceOf_heq _ _ _ _)
 
 end SquareKit.Cubical.Presheaf.IntervalTransport

@@ -1,6 +1,6 @@
 # Cubical Glue and univalence construction
 
-This is an incomplete, unaccepted checkpoint for #420, based on the checked small-family classifier from #419. A lawful whole Glue filler is constructed, with cap, tube and arbitrary-substitution uniformity laws. Its restriction recovers the entire supplied face filling operation. Normalized local-family codes have strict substitution and full-face equations; `Glue.code_full` recovers the original supplied partial code. Universe filling, `ua`, full univalence and their transport consumers remain unfinished. This checkpoint does not close the issue or constitute independent acceptance.
+This is an incomplete, unaccepted checkpoint for #420, based on the checked small-family classifier from #419. A lawful whole Glue filler is constructed, with cap, tube and arbitrary-substitution uniformity laws. Its restriction recovers the entire supplied face filling operation. Normalized local-family codes have strict substitution and full-face equations; `Glue.code_full` recovers the original supplied partial code, and `Glue.code_substitution` preserves supplied codes and their selected fillers under substitution. Universe filling, `ua`, full univalence and their transport consumers remain unfinished. This checkpoint does not close the issue or constitute independent acceptance.
 
 ## Native equivalence and extension
 
@@ -41,7 +41,7 @@ The builtin Equiv source uses contractible homotopy fibers. Its `equivProof` add
 | Pinned source obligation | Current native evidence | Remaining boundary |
 |---|---|---|
 | `isEquiv.equiv-proof` uses contractible fibers | `HomotopyEquivalence.fibers`, native Sigma/Path fiber, discrete rejection and Unit-identity positive control | General native-isomorphism adapter, Boolean and successor/inverse equivalence witnesses are checked. The univalence consumer remains unfinished. |
-| `primGlue`, `prim^glue`, `prim^unglue` | Actual face/ambient carrier, compatible introduction, unglue-introduction equation, compatible-presentation eta, full-face family equality | Complete compatible-data substitution isomorphism and preliminary lawful filling are checked. Selected lawful Glue filling and exact full-face recovery are checked. Normalized local-family code substitution and exact full-face recovery are checked; the universe filling and complete supplied-code operation interface remain unfinished. Builtin declarations alone do not establish their source reduction rules. |
+| `primGlue`, `prim^glue`, `prim^unglue` | Actual face/ambient carrier, compatible introduction, unglue-introduction equation, compatible-presentation eta, full-face family equality | Complete compatible-data substitution isomorphism and preliminary lawful filling are checked. Selected lawful Glue filling and exact full-face recovery are checked. Normalized local-family code substitution and exact full-face recovery are checked; supplied-code substitution is checked; universe filling remains unfinished. Builtin declarations alone do not establish their source reduction rules. |
 | `equivProof` extends partial fiber data | Constructed fiber filling and generic-target extension boundary theorem | The pinned Agda zero-face optimization is an additional source conversion obligation. |
 | `primTransp` and `primHComp` | Existing restricted transport and native homogeneous filling providers remain the owners | Their connection to the new Glue/universe construction remains unfinished. Each claimed source use must discharge the actual constancy or boundary premises. |
 | `ua`, `uaβ`, universe filling and univalence | Frozen Boolean, successor/predecessor and whole-package expectations; direct native conjugation checks | Universe-path construction, full equivalence and dependent transport comparison remain unfinished. |
@@ -54,9 +54,48 @@ This local checkpoint stops after Glue/code operations and the substitution-cohe
 
 Four substantial components remain:
 
-1. Assemble compatible partial code, family and equivalence data, and construct lawful universe filling across the larger-context charts. Complete the supplied-code operation interface and prove its boundary and substitution equations.
+1. Assemble compatible partial code, family and equivalence data, and construct lawful universe filling across the larger-context charts. The supplied-code operation and cap/tube code-system boundary and substitution equations are checked; assembly of the maps and complete chosen equivalence data remains.
 2. Construct `ua` with exact endpoint codes and prove its transport comparison. An endpoint isomorphism alone does not establish code equality.
 3. Prove full univalence, including its required homotopies. The constructed transport equivalence alone does not prove this.
 4. Check the Boolean transposition, successor/inverse orientation and complete state-package universe-transport consumers, then finish the pinned source-rule ledger and integrated independent acceptance.
 
 No impossibility result or architectural replacement is claimed. The preserved handoff distinguishes completed checked statements, planning notes and failed proof attempts.
+
+
+## Resumed construction
+
+`CodeSystem.glue` assembles compatible partial universe codes on a union of
+faces. Its restriction equations recover the original codes, including the
+selected local filling operations. `CodeSystem.Maps.glue` separately assembles
+compatible family maps and recovers both inputs. Code compatibility alone does
+not assert map or equivalence compatibility.
+
+`CodeSystem.Box.partialCode` constructs the cap/tube code system from an actual
+open code box. Its overlap follows from the box boundary equation. Exact cap,
+tube and substitution equations are proved. The constant Boolean box exercises
+a nonempty overlap; a Unit tube over a Boolean cap is rejected. A Boolean/Unit
+two-endpoint boundary is also constructed. That partial boundary is not a path
+between the two codes.
+
+`UniverseCodePaths.lean` defines the dimension-dependent universe family and
+proves the correspondence between code-valued interval lines with exact
+endpoints and native universe paths. Both round trips preserve the line. The
+adapter requires the line as input; it neither constructs `ua` from an
+equivalence nor supplies universe filling or univalence.
+
+`UniverseComposition.lean` constructs a small-context code filler. The complete
+cap/tube face `(i = 0) ∨ φ` is closed under the connection `i ∧ j`. Contracting
+that whole face produces one backward code line from the supplied partial code
+to the cap pullback. Its actual decoded filling supplies the homotopy
+equivalence used by Glue. This avoids separately choosing cap and tube
+equivalences and then imposing their overlap agreement.
+
+The resulting `Box.fillCode` recovers the original cap and tube codes exactly.
+No premise identifies transport along an arbitrary constant line with identity.
+The completed small-context filler commutes with base substitution, retaining
+the chosen map and fiber contraction. `UniverseKan.lean` supplies the small
+chart adapters for a large-context universe open box and proves compatibility
+under chart restriction. Larger-context section assembly and its filling laws,
+`ua`, full univalence and the required transport consumers remain within #420.
+These small-context results do not yet constitute the lawful filling of the
+universe family.

@@ -504,6 +504,341 @@ theorem code_full {Γ : Context.{u}} (φ : Cofibration Γ)
     raisedSub (restrictInclusion φ) ≫ code φ a t e E = t :=
   (localCode_full φ (decodedLocalFamily a) (decodedLocalFamily t) e E).trans (LocalFamily.code_decoded t)
 
+/-- Substitution acts on the supplied codes and retains their selected fillers. -/
+theorem code_substitution {Γ Δ : Context.{u}} (φ : Cofibration Γ)
+    (a : raisedContext Γ ⟶ smallFamilyCodes.{u})
+    (t : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
+    (e : decode t ⟶ reindex (decode a) (restrictInclusion φ)) (E : HomotopyEquivalence e)
+    (σ : Δ ⟶ Γ) :
+    raisedSub σ ≫ code φ a t e E =
+      code (φ.reindex σ) (raisedSub σ ≫ a) (raisedSub (restrictSubstitution φ σ) ≫ t)
+        (Functor.whiskerLeft (restrictSubstitution φ σ).mapElements e)
+        (E.reindex (restrictSubstitution φ σ)) := by
+  refine (localCode_substitution φ (decodedLocalFamily a) (decodedLocalFamily t) e E σ).trans ?_
+  unfold code localCode LocalFamily.normalizedGlue
+  apply congrArg LocalFamily.code
+  congr 2
+  · exact congrArg LocalFamily.toNative (decodedLocalFamily_reindex t (restrictSubstitution φ σ)).symm
+  · exact congrArg LocalFamily.toNative (decodedLocalFamily_reindex a σ).symm
+
 end Glue
+
+namespace CodeSystem
+
+/-- Compatibility compares entire codes, including the chosen filling operation. -/
+def Compatible {Γ : Context.{u}} {φ ψ : Cofibration Γ}
+    (a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
+    (b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u}) : Prop :=
+  ∀ (x : Γ.Elements) (h : φ.full x) (k : ψ.full x),
+    a.app x.obj ⟨⟨x.val,h⟩⟩ = b.app x.obj ⟨⟨x.val,k⟩⟩
+
+def value {Γ : Context.{u}} {φ ψ : Cofibration Γ}
+    (a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
+    (b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u})
+    (x : Γ.Elements) (p : (φ.join ψ).full x) : SmallFamilyCode.{u} x.obj.unop :=
+  if h : φ.full x then a.app x.obj ⟨⟨x.val,h⟩⟩
+  else b.app x.obj ⟨⟨x.val,((Cofibration.full_join φ ψ x).mp p).resolve_left h⟩⟩
+
+theorem value_left {Γ : Context.{u}} {φ ψ : Cofibration Γ}
+    (a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
+    (b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u})
+    (x : Γ.Elements) (p : (φ.join ψ).full x) (h : φ.full x) :
+    value a b x p = a.app x.obj ⟨⟨x.val,h⟩⟩ := by
+  exact dite_eq_left h
+
+theorem value_right {Γ : Context.{u}} {φ ψ : Cofibration Γ}
+    (a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
+    (b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u}) (c : Compatible a b)
+    (x : Γ.Elements) (p : (φ.join ψ).full x) (h : ψ.full x) :
+    value a b x p = b.app x.obj ⟨⟨x.val,h⟩⟩ := by
+  by_cases k : φ.full x
+  · exact (value_left a b x p k).trans (c x k h)
+  · exact dite_eq_right k
+
+/-- Compatible partial codes assemble on a union of faces. No family or filling
+is supplied for the union: both are retained in these actual universe codes. -/
+def glue {Γ : Context.{u}} {φ ψ : Cofibration Γ}
+    (a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
+    (b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u}) (c : Compatible a b) :
+    raisedContext (restrictContext (φ.join ψ)) ⟶ smallFamilyCodes.{u} where
+  app I := TypeCat.ofHom (fun x => value a b (Γ.elementsMk I x.down.val) x.down.property)
+  naturality I J f := by
+    apply ConcreteCategory.hom_ext
+    intro x
+    let z := Γ.elementsMk I x.down.val
+    let w := Γ.elementsMk J (Γ.map f x.down.val)
+    let g : z ⟶ w := Functor.Elements.homMk f rfl
+    change value a b w ((φ.join ψ).full_natural g x.down.property) =
+      smallFamilyCodes.map f (value a b z x.down.property)
+    rcases (Cofibration.full_join φ ψ z).mp x.down.property with h | h
+    · rw [value_left a b z _ h, value_left a b w _ (φ.full_natural g h)]
+      exact a.naturality_apply f ⟨⟨x.down.val,h⟩⟩
+    · rw [value_right a b c z _ h, value_right a b c w _ (ψ.full_natural g h)]
+      exact b.naturality_apply f ⟨⟨x.down.val,h⟩⟩
+
+/-- The left face includes into its union without changing cube coordinates. -/
+def includeLeft {Γ : Context.{u}} (φ ψ : Cofibration Γ) :
+    restrictContext φ ⟶ restrictContext (φ.join ψ) where
+  app _ := TypeCat.ofHom (fun x => ⟨x.val,(Cofibration.full_join φ ψ _).mpr (Or.inl x.property)⟩)
+  naturality _ _ _ := rfl
+
+def includeRight {Γ : Context.{u}} (φ ψ : Cofibration Γ) :
+    restrictContext ψ ⟶ restrictContext (φ.join ψ) where
+  app _ := TypeCat.ofHom (fun x => ⟨x.val,(Cofibration.full_join φ ψ _).mpr (Or.inr x.property)⟩)
+  naturality _ _ _ := rfl
+
+theorem glue_left {Γ : Context.{u}} {φ ψ : Cofibration Γ}
+    (a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
+    (b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u}) (c : Compatible a b) :
+    raisedSub (includeLeft φ ψ) ≫ glue a b c = a := by
+  ext I x
+  exact value_left a b (Γ.elementsMk I x.down.val)
+    ((Cofibration.full_join φ ψ _).mpr (Or.inl x.down.property)) x.down.property
+
+theorem glue_right {Γ : Context.{u}} {φ ψ : Cofibration Γ}
+    (a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
+    (b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u}) (c : Compatible a b) :
+    raisedSub (includeRight φ ψ) ≫ glue a b c = b := by
+  ext I x
+  exact value_right a b c (Γ.elementsMk I x.down.val)
+    ((Cofibration.full_join φ ψ _).mpr (Or.inr x.down.property)) x.down.property
+
+theorem Compatible.reindex {Γ Δ : Context.{u}} {φ ψ : Cofibration Γ}
+    {a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u}}
+    {b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u}}
+    (c : Compatible a b) (σ : Δ ⟶ Γ) :
+    Compatible (raisedSub (restrictSubstitution φ σ) ≫ a)
+      (raisedSub (restrictSubstitution ψ σ) ≫ b) :=
+  fun x h k => c (σ.mapElements.obj x) h k
+
+/-- Substitution preserves the assembled codes, including their selected data. -/
+theorem glue_reindex {Γ Δ : Context.{u}} {φ ψ : Cofibration Γ}
+    (a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
+    (b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u})
+    (c : Compatible a b) (σ : Δ ⟶ Γ) :
+    raisedSub (restrictSubstitution (φ.join ψ) σ) ≫ glue a b c =
+      glue (raisedSub (restrictSubstitution φ σ) ≫ a)
+        (raisedSub (restrictSubstitution ψ σ) ≫ b) (c.reindex σ) := by
+  ext I x
+  rfl
+
+/-- A code at an endpoint is restricted along the projection of its face. -/
+def endpointCode {Γ : Context.{u}}
+    (a : raisedContext Γ ⟶ smallFamilyCodes.{u}) (b : Bool) :
+    raisedContext (restrictContext (intervalFace Γ b)) ⟶ smallFamilyCodes.{u} :=
+  raisedSub (restrictInclusion (intervalFace Γ b) ≫ projection (interval Γ)) ≫ a
+
+theorem endpoints_compatible {Γ : Context.{u}}
+    (a b : raisedContext Γ ⟶ smallFamilyCodes.{u}) :
+    Compatible (endpointCode a false) (endpointCode b true) :=
+  fun x h k => (intervalFace_disjoint x h k).elim
+
+/-- This is only a boundary system. It does not supply a path between arbitrary
+codes: extension to the whole interval needs the equivalence construction. -/
+def boundary {Γ : Context.{u}} (a b : raisedContext Γ ⟶ smallFamilyCodes.{u}) :
+    raisedContext (restrictContext ((intervalFace Γ false).join (intervalFace Γ true))) ⟶
+      smallFamilyCodes.{u} :=
+  glue (endpointCode a false) (endpointCode b true) (endpoints_compatible a b)
+
+def endpointFace (Γ : Context.{u}) (b : Bool) : Γ ⟶ restrictContext (intervalFace Γ b) where
+  app I := TypeCat.ofHom (fun x => ⟨(endpointSub Γ b).app I x,
+    (Cofibration.full_endpoint (generic (interval Γ)) b _).mpr rfl⟩)
+  naturality I J f := by
+    apply ConcreteCategory.hom_ext
+    intro x
+    apply Subtype.ext
+    exact (endpointSub Γ b).naturality_apply f x
+
+def boundaryZero (Γ : Context.{u}) :
+    Γ ⟶ restrictContext ((intervalFace Γ false).join (intervalFace Γ true)) :=
+  endpointFace Γ false ≫ includeLeft _ _
+
+def boundaryOne (Γ : Context.{u}) :
+    Γ ⟶ restrictContext ((intervalFace Γ false).join (intervalFace Γ true)) :=
+  endpointFace Γ true ≫ includeRight _ _
+
+theorem boundary_zero {Γ : Context.{u}} (a b : raisedContext Γ ⟶ smallFamilyCodes.{u}) :
+    raisedSub (boundaryZero Γ) ≫ boundary a b = a := by
+  ext I x
+  exact value_left (endpointCode a false) (endpointCode b true)
+    ((total (interval Γ)).elementsMk I ((endpointSub Γ false).app I x.down))
+    ((Cofibration.full_join _ _ _).mpr (Or.inl
+      ((Cofibration.full_endpoint (generic (interval Γ)) false _).mpr rfl)))
+    ((Cofibration.full_endpoint (generic (interval Γ)) false _).mpr rfl)
+
+theorem boundary_one {Γ : Context.{u}} (a b : raisedContext Γ ⟶ smallFamilyCodes.{u}) :
+    raisedSub (boundaryOne Γ) ≫ boundary a b = b := by
+  ext I x
+  exact value_right (endpointCode a false) (endpointCode b true) (endpoints_compatible a b)
+    ((total (interval Γ)).elementsMk I ((endpointSub Γ true).app I x.down))
+    ((Cofibration.full_join _ _ _).mpr (Or.inr
+      ((Cofibration.full_endpoint (generic (interval Γ)) true _).mpr rfl)))
+    ((Cofibration.full_endpoint (generic (interval Γ)) true _).mpr rfl)
+
+/-- Decoding the union recovers the full chosen local family on the left. -/
+theorem decoded_glue_left {Γ : Context.{u}} {φ ψ : Cofibration Γ}
+    (a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
+    (b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u}) (c : Compatible a b) :
+    (decodedLocalFamily (glue a b c)).reindex (includeLeft φ ψ) = decodedLocalFamily a :=
+  (decodedLocalFamily_reindex _ _).symm.trans (congrArg decodedLocalFamily (glue_left a b c))
+
+theorem decoded_glue_right {Γ : Context.{u}} {φ ψ : Cofibration Γ}
+    (a : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u})
+    (b : raisedContext (restrictContext ψ) ⟶ smallFamilyCodes.{u}) (c : Compatible a b) :
+    (decodedLocalFamily (glue a b c)).reindex (includeRight φ ψ) = decodedLocalFamily b :=
+  (decodedLocalFamily_reindex _ _).symm.trans (congrArg decodedLocalFamily (glue_right a b c))
+
+namespace Maps
+variable {Γ : Context.{u}} {φ ψ : Cofibration Γ}
+  {A B : Family (restrictContext (φ.join ψ))}
+
+abbrev original (x : (restrictContext (φ.join ψ)).Elements) : Γ.Elements :=
+  (restrictInclusion (φ.join ψ)).mapElements.obj x
+
+def left (x : (restrictContext (φ.join ψ)).Elements) (h : φ.full (original x)) :
+    (restrictContext φ).Elements :=
+  (restrictContext φ).elementsMk x.obj ⟨x.val.val,h⟩
+
+def right (x : (restrictContext (φ.join ψ)).Elements) (h : ψ.full (original x)) :
+    (restrictContext ψ).Elements :=
+  (restrictContext ψ).elementsMk x.obj ⟨x.val.val,h⟩
+
+variable (a : reindex A (includeLeft φ ψ) ⟶ reindex B (includeLeft φ ψ))
+  (b : reindex A (includeRight φ ψ) ⟶ reindex B (includeRight φ ψ))
+
+/-- Equality on the overlap is required for maps, independently of code compatibility. -/
+def Compatible : Prop :=
+  ∀ (x : (restrictContext (φ.join ψ)).Elements)
+    (h : φ.full (original x)) (k : ψ.full (original x)) (z : A.obj x),
+    a.app (left x h) z = b.app (right x k) z
+
+def value (x : (restrictContext (φ.join ψ)).Elements) (z : A.obj x) : B.obj x :=
+  if h : φ.full (original x) then a.app (left x h) z
+  else b.app (right x (((Cofibration.full_join φ ψ _).mp x.val.property).resolve_left h)) z
+
+theorem value_left (x : (restrictContext (φ.join ψ)).Elements)
+    (h : φ.full (original x)) (z : A.obj x) : value a b x z = a.app (left x h) z := by
+  exact dite_eq_left h
+
+theorem value_right (c : Compatible a b) (x : (restrictContext (φ.join ψ)).Elements)
+    (h : ψ.full (original x)) (z : A.obj x) : value a b x z = b.app (right x h) z := by
+  by_cases k : φ.full (original x)
+  · exact (value_left a b x k z).trans (c x k h z)
+  · exact dite_eq_right k
+
+/-- Compatible family maps assemble over the actual union context. -/
+def glue (c : Compatible a b) : A ⟶ B where
+  app x := TypeCat.ofHom (value a b x)
+  naturality x y f := by
+    apply ConcreteCategory.hom_ext
+    intro z
+    change value a b y (A.map f z) = B.map f (value a b x z)
+    let g := (restrictInclusion (φ.join ψ)).mapElements.map f
+    rcases (Cofibration.full_join φ ψ (original x)).mp x.val.property with h | h
+    · rw [value_left a b x h z, value_left a b y (φ.full_natural g h) (A.map f z)]
+      let q : left x h ⟶ left y (φ.full_natural g h) :=
+        Functor.Elements.homMk f.hom (Subtype.ext (congrArg (fun z : (restrictContext (φ.join ψ)).obj y.obj => z.val) f.map_val))
+      exact ConcreteCategory.congr_hom (a.naturality q) z
+    · rw [value_right a b c x h z, value_right a b c y (ψ.full_natural g h) (A.map f z)]
+      let q : right x h ⟶ right y (ψ.full_natural g h) :=
+        Functor.Elements.homMk f.hom (Subtype.ext (congrArg (fun z : (restrictContext (φ.join ψ)).obj y.obj => z.val) f.map_val))
+      exact ConcreteCategory.congr_hom (b.naturality q) z
+
+theorem glue_left (c : Compatible a b) :
+    Functor.whiskerLeft (includeLeft φ ψ).mapElements (glue a b c) = a := by
+  ext x z
+  exact value_left a b ((includeLeft φ ψ).mapElements.obj x) x.val.property z
+
+theorem glue_right (c : Compatible a b) :
+    Functor.whiskerLeft (includeRight φ ψ).mapElements (glue a b c) = b := by
+  ext x z
+  exact value_right a b c ((includeRight φ ψ).mapElements.obj x) x.val.property z
+
+end Maps
+
+/-- The zero endpoint of the tube context. -/
+def tubeCap {Γ : Context.{u}} (φ : Cofibration Γ) :
+    restrictContext φ ⟶ restrictContext (φ.reindex (projection (interval Γ))) where
+  app I := TypeCat.ofHom (fun x => ⟨(endpointSub Γ false).app I x.val,x.property⟩)
+  naturality I J f := by
+    apply ConcreteCategory.hom_ext
+    intro x
+    apply Subtype.ext
+    exact (endpointSub Γ false).naturality_apply f x.val
+
+/-- An open box of codes uses an actual tube and its exact cap equation. -/
+structure Box (Γ : Context.{u}) (φ : Cofibration Γ) where
+  base : raisedContext Γ ⟶ smallFamilyCodes.{u}
+  tube : raisedContext (restrictContext (φ.reindex (projection (interval Γ)))) ⟶ smallFamilyCodes.{u}
+  boundary : raisedSub (tubeCap φ) ≫ tube = raisedSub (restrictInclusion φ) ≫ base
+
+namespace Box
+variable {Γ : Context.{u}} {φ : Cofibration Γ} (b : Box Γ φ)
+
+/-- At the cap/tube intersection the complete supplied codes coincide. -/
+theorem compatible : Compatible (endpointCode b.base false) b.tube := by
+  intro x h k
+  rcases x with @⟨I,⟨γ,r⟩⟩
+  have hr : r = (endpoint Γ false).val (Γ.elementsMk I γ) :=
+    (Cofibration.full_endpoint (generic (interval Γ)) false _).mp h
+  subst r
+  exact (congrArg (fun a => a.app I (ULift.up (⟨γ,k⟩ : (restrictContext φ).obj I))) b.boundary).symm
+
+def face : Cofibration (total (interval Γ)) :=
+  (intervalFace Γ false).join (φ.reindex (projection (interval Γ)))
+
+/-- The partial family needed by universe filling is constructed from the cap
+and tube. Its overlap is discharged by the open-box boundary equation. -/
+def partialCode : raisedContext (restrictContext (face (φ := φ))) ⟶ smallFamilyCodes.{u} :=
+  glue (endpointCode b.base false) b.tube b.compatible
+
+def cap : Γ ⟶ restrictContext (face (φ := φ)) :=
+  endpointFace Γ false ≫ includeLeft _ _
+
+theorem partial_cap : raisedSub (cap (φ := φ)) ≫ b.partialCode = b.base := by
+  ext I x
+  exact value_left (endpointCode b.base false) b.tube
+    ((total (interval Γ)).elementsMk I ((endpointSub Γ false).app I x.down))
+    ((Cofibration.full_join _ _ _).mpr (Or.inl
+      ((Cofibration.full_endpoint (generic (interval Γ)) false _).mpr rfl)))
+    ((Cofibration.full_endpoint (generic (interval Γ)) false _).mpr rfl)
+
+theorem partial_tube :
+    raisedSub (includeRight (intervalFace Γ false) (φ.reindex (projection (interval Γ)))) ≫
+      b.partialCode = b.tube :=
+  glue_right (endpointCode b.base false) b.tube b.compatible
+
+/-- A constant code line is a concrete box with a nonempty cap/tube overlap. -/
+def constant (φ : Cofibration Γ) (a : raisedContext Γ ⟶ smallFamilyCodes.{u}) : Box Γ φ where
+  base := a
+  tube := raisedSub (restrictInclusion (φ.reindex (projection (interval Γ))) ≫
+    projection (interval Γ)) ≫ a
+  boundary := rfl
+
+theorem constant_partial (a : raisedContext Γ ⟶ smallFamilyCodes.{u}) :
+    (constant φ a).partialCode =
+      raisedSub (restrictInclusion (face (φ := φ)) ≫ projection (interval Γ)) ≫ a := by
+  ext I x
+  let y := (total (interval Γ)).elementsMk I x.down.val
+  by_cases h : (intervalFace Γ false).full y
+  · exact value_left (endpointCode a false) (constant φ a).tube y x.down.property h
+  · exact value_right (endpointCode a false) (constant φ a).tube (constant φ a).compatible
+      y x.down.property (((Cofibration.full_join _ _ y).mp x.down.property).resolve_left h)
+
+/-- Substituting an open code box retains its actual cap equation. -/
+def reindex {Δ : Context.{u}} (σ : Δ ⟶ Γ) : Box Δ (φ.reindex σ) where
+  base := raisedSub σ ≫ b.base
+  tube := raisedSub (restrictSubstitution (φ.reindex (projection (interval Γ)))
+    (liftSub (interval Γ) σ)) ≫ b.tube
+  boundary := congrArg (fun a => raisedSub (restrictSubstitution φ σ) ≫ a) b.boundary
+
+theorem partial_reindex {Δ : Context.{u}} (σ : Δ ⟶ Γ) :
+    raisedSub (restrictSubstitution (face (φ := φ)) (liftSub (interval Γ) σ)) ≫
+      b.partialCode = (b.reindex σ).partialCode :=
+  CodeSystem.glue_reindex (endpointCode b.base false) b.tube b.compatible (liftSub (interval Γ) σ)
+
+end Box
+
+end CodeSystem
 
 end SquareKit.Cubical.Presheaf

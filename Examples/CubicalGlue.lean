@@ -1,4 +1,4 @@
-import SquareKit.Internal.Cubical.UniverseFilling
+import SquareKit.Internal.Cubical.UniverseComposition
 import Examples.CubicalStateTransport
 
 /-! Rejection uses native homotopy-fiber contraction and discrete path rigidity. -/
@@ -130,5 +130,65 @@ noncomputable def booleanTransportEquivalence : HomotopyEquivalence (IntervalTra
   IntervalTransport.equivalence booleanIntervalFilling booleanIntervalFilling_lawful
 
 theorem boolean_transport_identity : IntervalTransport.map booleanIntervalFilling = 𝟙 boolFamily := rfl
+
+def constantIndex (Γ : Context.{0}) : Term (constantFamily Γ Unit) where
+  val _ := ()
+  property _ := rfl
+
+def constantLocal (Γ : Context.{0}) (S : Type) : LocalFamily Γ :=
+  LocalFamily.ofNative ⟨⟨constantFamily Γ S, discreteFilling (constantIndex Γ) (fun _ => S)⟩,
+    discreteFilling_lawful (constantIndex Γ) (fun _ => S)⟩
+
+/-- Different endpoint codes form a boundary system even without an equivalence.
+This is deliberately not a path or a claim that every boundary extends. -/
+def booleanUnitBoundary := CodeSystem.boundary
+  (constantLocal terminal Bool).code (constantLocal terminal Unit).code
+
+theorem boolean_boundary_zero :
+    raisedSub (CodeSystem.boundaryZero terminal) ≫ booleanUnitBoundary =
+      (constantLocal terminal Bool).code :=
+  CodeSystem.boundary_zero _ _
+
+theorem unit_boundary_one :
+    raisedSub (CodeSystem.boundaryOne terminal) ≫ booleanUnitBoundary =
+      (constantLocal terminal Unit).code :=
+  CodeSystem.boundary_one _ _
+
+/-- The constant Boolean box exercises a nonempty cap/tube intersection and
+recovers the entire selected code on the assembled partial family. -/
+theorem boolean_box_partial :
+    (CodeSystem.Box.constant (Cofibration.top terminal.{0}) (constantLocal terminal Bool).code).partialCode =
+      raisedSub (restrictInclusion (CodeSystem.Box.face (φ := Cofibration.top terminal.{0})) ≫
+        projection (interval terminal)) ≫ (constantLocal terminal Bool).code :=
+  CodeSystem.Box.constant_partial _
+
+theorem incompatible_boolean_unit_cap :
+    raisedSub (CodeSystem.tubeCap (Cofibration.top terminal.{0})) ≫
+      (CodeSystem.Box.constant (Cofibration.top terminal.{0}) (constantLocal terminal Unit).code).tube ≠
+    raisedSub (restrictInclusion (Cofibration.top terminal.{0})) ≫ (constantLocal terminal Bool).code := by
+  intro h
+  let I : Cubeᵒᵖ := Opposite.op ⟨0⟩
+  let x : (raisedContext (restrictContext (Cofibration.top terminal.{0}))).obj I :=
+    ⟨⟨PUnit.unit,rfl⟩⟩
+  have hc := congrArg (fun a => (a.app I x).family.obj (representableGeneric I.unop)) h
+  change Unit = Bool at hc
+  have impossible : false = true := (Equiv.cast hc.symm).injective (Subsingleton.elim _ _)
+  exact Bool.noConfusion impossible
+
+/-- The constructed small-context filler recovers the supplied Boolean cap,
+including its chosen filling structure encoded in the code. -/
+theorem boolean_filled_cap :
+    raisedSub (endpointSub terminal false) ≫
+      (CodeSystem.Box.constant (Cofibration.top terminal.{0}) (constantLocal terminal Bool).code).fillCode =
+      (constantLocal terminal Bool).code :=
+  CodeSystem.Box.fillCode_cap _
+
+/-- With the entire base face present, the constructed filler recovers the
+whole supplied tube, not only the underlying Boolean carrier. -/
+theorem boolean_filled_tube :
+    raisedSub (restrictInclusion ((Cofibration.top terminal.{0}).reindex (projection (interval terminal)))) ≫
+      (CodeSystem.Box.constant (Cofibration.top terminal.{0}) (constantLocal terminal Bool).code).fillCode =
+    (CodeSystem.Box.constant (Cofibration.top terminal.{0}) (constantLocal terminal Bool).code).tube :=
+  CodeSystem.Box.fillCode_tube _
 
 end Examples.CubicalGlue
