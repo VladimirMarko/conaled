@@ -39,6 +39,10 @@ worktrees, merger agent, or separate final review.
    If task changes already exist, construct the base snapshot with those task
    changes removed only in the temporary snapshot, so review includes them.
    Record inclusions and exclusions; ask when ownership cannot be established.
+   Use the shared procedure's `review_snapshot.py baseline` (or committed
+   `validate`) before editing, then `candidate`/`validate` before each review
+   and `compare` before acceptance. Save each helper receipt with the review
+   record; the shared procedure owns manifests and command details.
    A supplied earlier baseline must likewise cover all task changes while
    excluding unrelated edits. Keep this base fixed through corrections.
 
