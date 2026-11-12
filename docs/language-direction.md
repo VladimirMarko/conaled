@@ -72,6 +72,62 @@ be abstracted, how their requirements compose, and which interpretations
 preserve them. Shared implementation should follow demonstrated commonality;
 the two workstreams need not be forced into identical fragments.
 
+## Mathematical targets and external foundations
+
+Clarified with the project owner on 2026-11-12. A compilation target may be a
+mathematical setting without an effective executor or physical realization.
+Separate the following capabilities and prove the connections actually claimed:
+
+| Capability | Required connection |
+| --- | --- |
+| Mathematical interpretation | The target validates the used constructions, judgments and selected observations. |
+| Artifact generation | A generated description denotes the intended target object or operation. |
+| Effective execution | A specified computational mechanism implements the artifact, including its required primitives and witnesses. |
+| Physical realization | A device implements that mechanism under explicit physical, error and environment assumptions. |
+
+A finite artifact can name an oracle operation without implementing it.
+Noncomputability under a stated computation model can preclude an effective
+executor while leaving a mathematical interpretation valid. Conversely,
+mathematical existence alone does not supply executable code or a physical
+implementation. Keep these distinctions visible in admission and diagnostics.
+Target execution may use a different evaluation strategy when the selected
+observations are preserved.
+
+Explore unusual settings as mathematics and as tests of the compiler's
+abstractions. Their value need not depend on a runnable product. Oracle-relative
+computation, synthetic computability, quantum semantics and idealized
+noncomputable operations provide candidate examples and counterexamples.
+Quantum computation is not presumed to be hypercomputation. A change in
+computational capability does not automatically validate a new rule of deduction,
+and a physical backend does not uniquely determine a mathematical foundation.
+
+The compiler's current implementation and verification use Lean. This does not
+select native Lean judgments as the mandatory external evidence interface.
+The choice of external foundations remains open. Compare interfaces that retain
+source judgments, required principles and witnesses through several justified
+interpretations, including non-identity changes of setting. A direct Lean route
+is a specialization only where the judgments and meanings align. Merely wrapping
+all foreign obligations in native Lean propositions does not establish that the
+interface preserves the desired source capabilities.
+
+Keep compiler implementation language, verification metatheory, source logic,
+target semantics and physical-realization assumptions distinguishable. Checking
+an interpretation in Lean establishes the stated result relative to its audited
+dependencies; it does not supply unrestricted mutual interpretation of Lean and
+Agda, reflection from one model, or a foundation-free checker for every logic.
+Do not solve portability by silently narrowing all sources to a fixed common
+logic. State missing interpretations and capabilities, retain usable direct
+clients, and compare alternatives before selecting a general interface.
+
+[#493](https://github.com/VladimirMarko/conaled/issues/493) owns the comparative
+programme and bounded formalization studies linked in the
+[research agenda](research/language-research-agenda.md#mathematical-targets-and-foundation-relative-interfaces).
+The completed [MMT study](research/mmt-compiler-evidence.md) and
+[evidence-interface comparison](research/compiler-evidence-comparison.md) are
+inputs, not architecture adoption. #489's production bridge still requires the
+owner's selected evidence contract and source fragment. The tracker owns current
+readiness and completion status.
+
 ## What remains open, and what guides the design
 
 Lean can remain the host and trusted checker. Explicit syntax and derivations

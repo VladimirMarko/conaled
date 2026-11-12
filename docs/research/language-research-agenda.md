@@ -241,3 +241,39 @@ than a required architecture. #444 owns acceptance criteria and follow-ups.
 #109's recursion/compiler work and #443's size obligations provide related
 contexts, not scheduling prerequisites. No automatic theorem discovery or
 universal paradox interpretation is claimed.
+
+## Mathematical targets and foundation-relative interfaces
+
+The owner approved this programme on 2026-11-12 under
+[#493](https://github.com/VladimirMarko/conaled/issues/493), coordinated with
+#235/#36/#200/#290. It tests the
+[mathematical-target and external-foundation direction](../language-direction.md#mathematical-targets-and-external-foundations)
+through unusual settings, explicit interpretations and checked counterexamples.
+Mathematical interest is an accepted motivation; physical execution is not a
+prerequisite for a semantic target.
+
+| Issue | Bounded formalization and comparison |
+| --- | --- |
+| [#498: Turing oracle computation](https://github.com/VladimirMarko/conaled/issues/498) | Oracle-relative semantics and compilation, with ordinary-computability and relative-diagonal separators. |
+| [#499: CoqQ-derived quantum semantics](https://github.com/VladimirMarko/conaled/issues/499) | A finite-dimensional denotational/program-logic slice, measurement and a separating observation or structural law. |
+| [#500: Bauer synthetic computability](https://github.com/VladimirMarko/conaled/issues/500) | A substantive fixed-point/recursion slice with nontrivial internal or tracked interpretation and explicit logical assumptions. |
+| [#501: Ahman–Bauer oracle modalities](https://github.com/VladimirMarko/conaled/issues/501) | A named oracle-modality/sheaf construction with composition or witness limits and a nontrivial client. |
+| [#502: idealized noncomputable targets](https://github.com/VladimirMarko/conaled/issues/502) | Mathematical and symbolic target examples distinguished from effective realization, with explicit representations and executable restricted comparisons. |
+
+Each issue requires an actual checked formalization slice, source provenance and
+positive/separating clients. These are planned deliverables, not implemented
+results or commitments to port entire papers. Reuse existing diagonal,
+assembly/partial-map, modal/sheaf, clean-ancilla and compiler work before adding
+new abstractions. A finite toy cannot establish uncomputability, and an
+uninhabited assumption package does not establish a nontrivial synthetic model.
+
+#493 synthesizes what the examples require of external interfaces without
+selecting one foundation or a universal intermediate language. Retain selected
+witnesses, source assumptions and observation contracts across multiple
+interpretations. Distinguish the host, verification metatheory and object logic;
+state where a checked interpretation is conditional or unavailable. The
+[MMT report](mmt-compiler-evidence.md) and
+[evidence comparison](compiler-evidence-comparison.md) remain completed research
+inputs. This programme does not adopt their candidate architecture or unblock
+#489's production implementation. Issue bodies own current status, precise
+acceptance criteria and any mathematical dependencies between the studies.
