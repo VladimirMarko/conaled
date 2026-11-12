@@ -75,23 +75,39 @@ the two workstreams need not be forced into identical fragments.
 ## Mathematical targets and external foundations
 
 Clarified with the project owner on 2026-11-12. A compilation target may be a
-mathematical setting without an effective executor or physical realization.
-Separate the following capabilities and prove the connections actually claimed:
+mathematical setting without a runnable implementation. A realization connects
+two specified settings under an explicit preservation contract. Realizations
+may compose when their interfaces, observations and assumptions align. There
+is no mandatory hierarchy ending in an inherently physical or final backend.
 
-| Capability | Required connection |
-| --- | --- |
-| Mathematical interpretation | The target validates the used constructions, judgments and selected observations. |
-| Artifact generation | A generated description denotes the intended target object or operation. |
-| Effective execution | A specified computational mechanism implements the artifact, including its required primitives and witnesses. |
-| Physical realization | A device implements that mechanism under explicit physical, error and environment assumptions. |
+Mathematical interpretation, artifact generation, abstract-machine execution
+and hardware implementation are examples of settings and connections to study,
+not four fundamental levels or a universal ordering of stronger capabilities.
+An abstract machine may be realized by a hardware model, which may itself be
+related to another implementation model. Further layers are permitted without
+changing the general problem of establishing the relevant semantic connection.
 
-A finite artifact can name an oracle operation without implementing it.
-Noncomputability under a stated computation model can preclude an effective
-executor while leaving a mathematical interpretation valid. Conversely,
-mathematical existence alone does not supply executable code or a physical
-implementation. Keep these distinctions visible in admission and diagnostics.
+The connections need not all be code translations or functions. State/trace
+simulations, approximation bounds and witness-preserving interpretations have
+different contracts. Prove their applicable composition laws; a shared notion
+of realization does not make their observations or guarantees interchangeable.
+Do not impose one maximal record or a fixed pipeline on ordinary clients.
+
+Describe computable realization relative to a named computational model.
+Distinguish an existence theorem from supplied executable code, termination or
+progress, and resource guarantees. A finite artifact can name an oracle without
+implementing it. Noncomputability under one model can rule out a realization
+into that model while leaving other mathematical interpretations valid. These
+are obligations on particular connections, not a separate kind of realization.
 Target execution may use a different evaluation strategy when the selected
 observations are preserved.
+
+A formal relation between a device model and an abstract machine does not by
+itself establish that an actual device satisfies that model. State empirical
+and environmental assumptions when applying the theorem. Another implementation
+or simulation layer may refine those assumptions, but does not automatically
+discharge them. This distinction concerns evidence for the premises, not a
+privileged class of physical arrows or a claim about the nature of our universe.
 
 Explore unusual settings as mathematics and as tests of the compiler's
 abstractions. Their value need not depend on a runnable product. Oracle-relative
