@@ -757,4 +757,6 @@ import Examples.WeakGroupoidUnit
 
 import Examples.NativeModelCombination
 
+import Examples.StaticFunctionReactive
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
