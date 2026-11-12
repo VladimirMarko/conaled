@@ -129,7 +129,7 @@ Retaining a rationale does not promote a historical review to current approval.
 The table records accounted source families and remaining obligations. Check
 each remaining source contract against current code before implementing, and
 record retained equivalents rather than duplicating them. Selected R1 list costs,
-R3 prune/trim, R5 digit search and R6 counter geometry/output are accounted for. R2 demand, R4 arrays and the remaining R7
+R3 prune/trim, R4 arrays, R5 digit search and R6 counter geometry/output are accounted for. R2 demand and the remaining R7
 permutation contracts stay under #459.
 
 These descriptive subjects are used for maintained work. The archive labels
@@ -139,12 +139,12 @@ They are retained here only to locate historical drafts.
 
 | Subject | Historical planning label | Current reuse and outstanding distinction |
 |---|---|---|
-| List costs and concatenation bounds | `LIST-COST` | Accounted for by #468 uniform concatenation, #469 takeWhile extrema, and stronger existing head/reverse exact contracts. See [R1 disposition](adwh-r1-disposition.md); R2/R4/R7 remain open. |
+| List costs and concatenation bounds | `LIST-COST` | Accounted for by #468 uniform concatenation, #469 takeWhile extrema, and stronger existing head/reverse exact contracts. See [R1 disposition](adwh-r1-disposition.md); R2/R7 remain open. |
 | Composition and demand | `DEMAND` | CollapseDemand, Progress and partial-spine observations exist; preserve actual cache transitions, ordered requests and charged consumption. |
 | Delayed list construction | `CONTEXT-LISTS` | Finite lists, accumulation and permutations exist; reconcile delayed callbacks, outer construction and complete payload observation. |
 | Head of concatenation | `CONCAT-HEAD` | Partial concat and collapse owners exist; connect deferred append histories, early head consumption and finite/partial negative cases. |
 | List-predicate trim and prune | `PRUNE` | Accounted for by #470 [whole-list trim](whole-list-trim.md), #471 [folded prune](folded-prune.md) and #472 [priced prune](priced-prune.md), including closure premises, native budgets and arbitrary guard prices. SuffixTrim retains its distinct element-predicate contract. |
-| Literal and eager dynamic arrays | `ARRAY / ARRAY-EAGER` | Fixed-capacity buffers and store updates exist; resizing policies, full copy windows, arbitrary trace prices and policy-specific potential laws remain. |
+| Literal and eager dynamic arrays | `ARRAY / ARRAY-EAGER` | #508 [dynamic front-array execution](dynamic-front-array-costs.md) supplies both resize policies, arbitrary copy windows, ordered/grouped observations, all additive prices, raw-state potentials and eager geometric accounting. Fixed-capacity owners remain unchanged. |
 | Digit search and finite averages | `DIGIT` | Accounted for by #478 [digit search](digit-search.md): actual first-hit execution, ordered population and the corrected finite-uniform mean including terminal failures. |
 | Counter geometry and output | `COUNTER` | Selected R6 is accounted for by #479 [counter geometry](counter-geometry.md) and #505 [counter output](counter-output.md), preserving BinaryCounter ownership, seed-inclusive indexing and separate transition/token charges. |
 | Existing execution and counter contracts | `REUSE` | Reconciled by #458: #173 already maps Timing/Amortized to Workload/Potential/BinaryCounter. Do not create another executor, potential or counter theory. Independent geometry/output is now supplied by #479/#505. |

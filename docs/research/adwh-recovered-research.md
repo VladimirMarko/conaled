@@ -151,7 +151,7 @@ slots still records one growth event. Keep arbitrary initial states and both
 boundary potentials in amortized statements.
 
 The external source-only review unfolded these discriminating cases from an
-empty array. They are future Lean fixtures, not newly checked results:
+empty array. They were future Lean fixtures at that source review; #508 now checks the listed totals against actual native execution:
 
 | Insertions | Policy | Work | Allocated slots | Growths | Capacity | Free |
 |---|---|---:|---:|---:|---:|---:|
@@ -164,6 +164,14 @@ Neither policy is uniformly cheaper. A valid full singleton with zero free
 space also distinguishes layout preservation from a positive-spare guarantee.
 Keep zero-capacity, malformed raw cursor, non-power capacity, empty command
 sequence and arbitrary price cases.
+
+Current disposition: #508 [dynamic front-array execution](dynamic-front-array-costs.md)
+supplies both actual policies, snapshot copy with arbitrary surrounding and
+overwritten windows, ordered/grouped observations, arbitrary additive repricing,
+all-raw-state potential bounds and execution-derived eager geometric accounting.
+It preserves positive-spare hypotheses and the zero-capacity distinction. This
+accounts for selected R4; physical allocation and printed-book completeness
+remain outside that delivery.
 
 ## Digit search and the finite average correction
 
@@ -287,7 +295,7 @@ ordered recursive generation, full-pair fuel correspondence and complete-observa
 growth under unit equality-oracle prices. Delayed insertion retains its remaining
 demand and execution obligations.
 #505's small insertion-output observer measures existing outputs only; it does not
-charge recursive generation. R2/R4/R7 and #149 remain open.
+charge recursive generation. R2/R7 and #149 remain open.
 
 ## Already integrated numerical research
 
