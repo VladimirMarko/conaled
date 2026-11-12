@@ -282,7 +282,10 @@ cannot silently be generalized to noncommutative traces.
 Current disposition: #506 [positional permutation execution](positional-permutation-costs.md)
 supplies actual construction, fuel-free execution with complete-pair adequate-fuel
 correspondence, complete inner-spine observation and model-relative growth.
-First-equal removal and delayed insertion retain their own remaining obligations.
+#507 [first-equal erasure](erasure-permutation-costs.md) supplies measured removal,
+ordered recursive generation, full-pair fuel correspondence and complete-observation
+growth under unit equality-oracle prices. Delayed insertion retains its remaining
+demand and execution obligations.
 #505's small insertion-output observer measures existing outputs only; it does not
 charge recursive generation. R2/R4/R7 and #149 remain open.
 

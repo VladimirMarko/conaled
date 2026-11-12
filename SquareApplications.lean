@@ -782,5 +782,8 @@ import Examples.OracleModalities
 import Examples.CounterOutput
 import Examples.PositionalPermutations
 import Examples.DependentFunctionConversionSemantics
+import Examples.ErasurePermutations
+import Examples.CubicalLocalFilling
+import Examples.CubicalSmallFamilies
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
