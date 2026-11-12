@@ -1,4 +1,5 @@
 import Examples.CircuitWords
+import Examples.CapturedAttempt
 import Examples.IncrementalSearchCosts
 import Examples.IncrementalSearchHeuristics
 import Examples.IncrementalSearchFreshCosts
