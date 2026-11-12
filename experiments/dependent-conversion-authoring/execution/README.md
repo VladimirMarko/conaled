@@ -152,8 +152,22 @@ Use 24,000 only as a recorded sanity-review trigger where the counter semantics
 are usable, never as performance grading.
 
 Ordinary check failures and command-start failures have final receipts. SIGINT
-and SIGTERM stop the child process group and retain an interrupted receipt and
-partial output. SIGKILL, host loss or an interrupted write may leave only a
+and SIGTERM request process-group cleanup and retain an interrupted receipt and
+partial output. Cleanup sends SIGTERM, observes group existence for up to two
+seconds, then sends SIGKILL to any remaining group even if its leader exited,
+and observes for up to two more seconds. The cleanup observation records the
+process-group ID, signals sent, errors and outcome. `confirmed-absent` means an
+OS lookup reported no such group. `cleanup-unconfirmed` means the group still
+existed at the deadline (possibly only unreaped zombies); `cleanup-failed`
+records an OS error without confirmed absence. `no-child-handle` means no
+process handle was available to clean up. These outcomes all retain status
+`interrupted` and exit 130; only confirmed absence supports rescheduling without
+further cleanup investigation. Unconfirmed/failed cleanup requires coordinator
+intervention before continuing, and its output hash is only an observation at
+receipt time because surviving work might still write. The recorder reaps only
+its immediate child and cannot stop descendants that escape the group. These
+are bounded OS observations, not a containment guarantee.
+SIGKILL, host loss or an interrupted write may leave only a
 started receipt: preserve it as incomplete, never infer success or zero usage.
 Read-only snapshots and exclusive directory creation prevent accidental
 replacement through this tool; they are not tamper-proof storage against an

@@ -85,15 +85,39 @@ def main():
         signal.signal(signal.SIGTERM, signal.SIG_IGN)
         signal.signal(signal.SIGINT, signal.SIG_IGN)
         if child is not None:
-            try:
-                os.killpg(child.pid, signal.SIGTERM)
-            except ProcessLookupError:
-                pass
-            try:
-                exit_code = child.wait(timeout=2)
-            except subprocess.TimeoutExpired:
-                os.killpg(child.pid, signal.SIGKILL)
-                exit_code = child.wait()
+            # Leader exit does not imply that its process group is gone.
+            cleanup = {'process_group': child.pid, 'status': 'cleanup-unconfirmed',
+                       'grace_seconds': 2, 'kill_wait_seconds': 2,
+                       'signals_sent': [], 'errors': []}
+            for sig in (signal.SIGTERM, signal.SIGKILL):
+                try:
+                    os.killpg(child.pid, sig)
+                    cleanup['signals_sent'].append(sig)
+                except ProcessLookupError:
+                    cleanup['status'] = 'confirmed-absent'
+                    break
+                except OSError as error:
+                    cleanup['errors'].append(f'signal {sig}: {error}')
+                deadline = time.monotonic() + 2
+                while time.monotonic() < deadline:
+                    child.poll()  # Reap only our immediate child, if it exited.
+                    try:
+                        os.killpg(child.pid, 0)
+                    except ProcessLookupError:
+                        cleanup['status'] = 'confirmed-absent'
+                        break
+                    except OSError as error:
+                        cleanup['errors'].append(f'observe group: {error}')
+                        break
+                    time.sleep(0.02)
+                if cleanup['status'] == 'confirmed-absent':
+                    break
+            if cleanup['errors'] and cleanup['status'] != 'confirmed-absent':
+                cleanup['status'] = 'cleanup-failed'
+            exit_code = child.poll()
+            record['observations']['cleanup'] = cleanup
+        else:
+            record['observations']['cleanup'] = {'status': 'no-child-handle'}
         record['status'] = 'interrupted'
         record['observations']['interruptions'].append(
             {'signal': interrupted_signal, 'observed_utc': utc(), 'duration_seconds': None})

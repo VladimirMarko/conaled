@@ -94,6 +94,125 @@ class RecorderTests(unittest.TestCase):
                     proc.communicate()
 
 
+    def test_interruption_stops_descendant_after_leader_exits(self):
+        import os
+        import signal
+        import time
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'draft.lean').write_text('synthetic')
+            (root / 'context.json').write_text(json.dumps({'slot': 'slot-1',
+                'session': 'synthetic', 'route': 'direct', 'phase': 'initial',
+                'release_sha256': 'a' * 64, 'environment_sha256': 'b' * 64}))
+            # A real same-group descendant keeps writing and ignores SIGTERM.
+            (root / 'child.py').write_text(
+                'import os, pathlib, signal, time\n'
+                'signal.signal(signal.SIGTERM, signal.SIG_IGN)\n'
+                'pathlib.Path("descendant.pid").write_text(str(os.getpid()))\n'
+                'while True:\n'
+                ' print("heartbeat", flush=True)\n'
+                ' time.sleep(0.02)\n')
+            leader = ('import os,pathlib,subprocess,sys,time; '
+                      'pathlib.Path("group.pid").write_text(str(os.getpid())); '
+                      'subprocess.Popen([sys.executable,"child.py"]); time.sleep(30)')
+            proc = subprocess.Popen([sys.executable, str(HERE / 'record_attempt.py'),
+                '--source', str(root / 'draft.lean'), '--attempt', str(root / 'Attempt01'),
+                '--cwd', tmp, '--context', str(root / 'context.json'), '--',
+                sys.executable, '-c', leader, '{source}'],
+                stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            try:
+                log = root / 'Attempt01/output.log'
+                deadline = time.monotonic() + 5
+                while not (log.exists() and 'heartbeat' in log.read_text()):
+                    if time.monotonic() > deadline:
+                        self.fail('descendant did not start')
+                    time.sleep(0.01)
+                proc.send_signal(signal.SIGTERM)
+                proc.communicate(timeout=7)
+                receipt = json.loads((root / 'Attempt01/result.json').read_text())
+                self.assertEqual(proc.returncode, 130)
+                self.assertEqual(receipt['status'], 'interrupted')
+                self.assertEqual(receipt['exit_code'], -signal.SIGTERM)
+                final_output = log.read_bytes()
+                self.assertIn(b'heartbeat', final_output)
+                time.sleep(0.15)
+                self.assertEqual(log.read_bytes(), final_output,
+                                 'descendant wrote after the final receipt')
+                pid = int((root / 'descendant.pid').read_text())
+                stat = Path(f'/proc/{pid}/stat')
+                if stat.exists():
+                    self.assertEqual(stat.read_text().rsplit(')', 1)[1].split()[0], 'Z')
+                self.assertEqual(receipt['output_sha256'],
+                                 hashlib.sha256(final_output).hexdigest())
+            finally:
+                if (root / 'group.pid').exists():
+                    try:
+                        os.killpg(int((root / 'group.pid').read_text()), signal.SIGKILL)
+                    except ProcessLookupError:
+                        pass
+                if proc.poll() is None:
+                    proc.kill()
+                proc.communicate(timeout=5)
+
+
+    def test_cleanup_os_error_retains_unconfirmed_final_observation(self):
+        import os
+        import signal
+        import time
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'draft.lean').write_text('synthetic')
+            (root / 'context.json').write_text(json.dumps({'slot': 'slot-1',
+                'session': 'synthetic', 'route': 'direct', 'phase': 'initial',
+                'release_sha256': 'a' * 64, 'environment_sha256': 'b' * 64}))
+            # Inject a failure at the external OS boundary in a fresh CLI process.
+            # The test process retains the real killpg for unconditional cleanup.
+            (root / 'sitecustomize.py').write_text(
+                'import os\n'
+                'def denied(group, sig):\n'
+                ' raise PermissionError("synthetic OS killpg denial")\n'
+                'os.killpg = denied\n')
+            env = os.environ.copy()
+            env['PYTHONPATH'] = tmp
+            leader = ('import os,pathlib,time; '
+                      'pathlib.Path("group.pid").write_text(str(os.getpid())); '
+                      'print("ready",flush=True); time.sleep(30)')
+            proc = subprocess.Popen([sys.executable, str(HERE / 'record_attempt.py'),
+                '--source', str(root / 'draft.lean'), '--attempt', str(root / 'Attempt01'),
+                '--cwd', tmp, '--context', str(root / 'context.json'), '--',
+                sys.executable, '-c', leader, '{source}'], env=env,
+                stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            try:
+                log = root / 'Attempt01/output.log'
+                deadline = time.monotonic() + 5
+                while not (log.exists() and 'ready' in log.read_text()):
+                    if time.monotonic() > deadline:
+                        self.fail('synthetic check did not start')
+                    time.sleep(0.01)
+                proc.send_signal(signal.SIGTERM)
+                proc.communicate(timeout=7)
+                receipt = json.loads((root / 'Attempt01/result.json').read_text())
+                self.assertEqual(proc.returncode, 130)
+                self.assertEqual(receipt['status'], 'interrupted')
+                cleanup = receipt['observations']['cleanup']
+                self.assertEqual(cleanup['status'], 'cleanup-failed')
+                self.assertTrue(any('synthetic OS killpg denial' in error
+                                    for error in cleanup['errors']))
+                self.assertIsNone(receipt['exit_code'])
+                self.assertIn('ready', log.read_text())
+                self.assertTrue((root / 'Attempt01/started.json').exists())
+                self.assertEqual((root / 'Attempt01/source.lean').read_text(), 'synthetic')
+            finally:
+                if (root / 'group.pid').exists():
+                    try:
+                        os.killpg(int((root / 'group.pid').read_text()), signal.SIGKILL)
+                    except ProcessLookupError:
+                        pass
+                if proc.poll() is None:
+                    proc.kill()
+                proc.communicate(timeout=5)
+
+
     def test_native_policy_receives_snapshot_manifest(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

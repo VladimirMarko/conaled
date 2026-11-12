@@ -148,7 +148,7 @@
     "SquareKit/Internal/DependentStructural.lean": "cb212a1529aee8d52c7460c26edf1e6f0c478dd42a69a9c8075ace8ae2775fa7",
     "experiments/dependent-conversion-authoring/execution/instructions-direct.md": "22dd3515e0c78754f08d8f634734c3924642b8cb6ca8a964dc42ae75f202b23d",
     "experiments/dependent-conversion-authoring/execution/instructions-service.md": "9e3a242aa5e0c42f06c70ee81d638f38d624f1eb704c3d270af10c966dc0304d",
-    "experiments/dependent-conversion-authoring/execution/record_attempt.py": "107e65b01581673ec7b50d749f2a403879b11a46b5b09dd6c9324ac3aa2f10ee",
+    "experiments/dependent-conversion-authoring/execution/record_attempt.py": "51075fbba0a4e931937a47bd0812cc77e71054cff4643400c7fde28f11de51cd",
     "experiments/dependent-conversion-authoring/fixtures/HeldOut.lean": "b556c838109e22902e3a12e1a51111d9a9f96fcf356f60f11afbdadc8b29ab86",
     "experiments/dependent-conversion-authoring/fixtures/Initial.lean": "b07b00f97a37a069ff460062371f7e7f00c36e4311de1190e4f1f458d6ef1b22",
     "experiments/dependent-conversion-authoring/fixtures/Negative.lean": "1826b725b23371ff47ac71896d70f6bf6dc844e4545a5d8214c9d5e79f572462",
@@ -169,19 +169,20 @@
   "authors_started": false,
   "paid_api_authorized": false,
   "preparation_tool_sha256": "e38a4dc2c4424bd56ad6e518c9058ca03d5cdf24c5e50e9a01887f3a42958c60",
-  "administrative_test_sha256": "02f132c92976e129bc916de9ca206b3716f4eaac37089dc07b20881abfd0269d",
+  "administrative_test_sha256": "4a738dec607ddc57329f35908ed79991229b069e4a6cccb982aa6645104557e6",
   "focused_validation": {
     "status": "Passed",
-    "synthetic_tests": 7,
+    "synthetic_tests": 9,
     "routes": 2,
     "phase_states_per_route": 6,
     "native_commands": 150,
     "affinity": "CPU0 sequential",
     "private_outputs_only": true,
     "authors_launched": false,
-    "retained_record": "423-execution-handoff/smoke-round2/result.json and commands.json; administrative-tests-final.log",
+    "retained_record": "Historical phase validation: 423-execution-handoff/smoke-round2/result.json and commands.json. Corrected recorder validation: 423-execution-correction/green-all.log, candidate-tests.log and native-smoke/result.json.",
     "result_sha256": "d81c134c10d2c5eeeaeb832e605b6fd12c9ec5c2f08e97cb22239d629a9fd53c",
     "commands_sha256": "a835365da99266cf215a40d68cd1da814753edbeaa9aae35b3d826afc3d4b339",
-    "failure_retention": "first smoke harness omitted implicit Init from its import allowlist; stopped before compilation; corrected explicit Init handling in round2; original logs retained"
+    "failure_retention": "first smoke harness omitted implicit Init from its import allowlist; stopped before compilation; corrected explicit Init handling in round2; original logs retained",
+    "recorder_correction": "ST423E-01: historical 150 commands used the prior recorder; Lean, release and native policy inputs are unchanged. Fresh corrected-recorder policy/compile smoke and isolated exact-candidate administrative tests are retained separately."
   }
 }
