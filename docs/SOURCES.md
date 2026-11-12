@@ -21,8 +21,11 @@ one application, not an assumption imposed by this project's square kernel.
 * [Complete literate manuscript at reviewed revision](https://github.com/conal/generic-parallel-functional/blob/9a94c8343ede7f96b3b05a47d0e839bd585333eb/generic-parallel-functional.lhs).
 * Source revision: `9a94c8343ede7f96b3b05a47d0e839bd585333eb`.
 
-The reconstruction proves the structural scan and FFT semantics; paper-level
-work/depth and optimized circuit-count analyses are not claimed.
+The original reconstruction proves structural scan and FFT semantics. The later
+[exact FFT circuit development](research/fft-structural-costs.md) adds structural
+counts and declared scalar work/depth models, including the size16 local-rewrite
+comparison. Its exact constants and sharing policy are separate from the
+manuscript's floating-point generated circuits.
 
 ## S3. Automatic differentiation
 

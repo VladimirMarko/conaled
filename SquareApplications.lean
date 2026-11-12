@@ -1,3 +1,4 @@
+import Examples.MeasuredFFT
 import Examples.BoundedFoldReactive
 import Examples.RegionalPlans
 import Examples.RegionalSelection
