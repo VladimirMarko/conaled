@@ -99,3 +99,25 @@ under chart restriction. Larger-context section assembly and its filling laws,
 `ua`, full univalence and the required transport consumers remain within #420.
 These small-context results do not yet constitute the lawful filling of the
 universe family.
+
+### Constructed universe filling and unglue equivalence
+
+`UniverseKan.lean` now constructs `SmallUniverse.filling` for the actual
+`SmallUniverse.family` over a context at universe level `u+1`, whose fibers
+are small-family codes at level `u`. It reads each open box on represented
+small charts, applies the checked code filler, and evaluates at the generic
+point. The chart substitution law supplies section naturality and uniformity.
+`fillTerm_cap` and `fillTerm_tube` recover the original supplied codes;
+`filling_lawful` proves both boundary recovery and substitution. No universe
+filling field is assumed. The focused check passed at default heartbeats.
+
+`GlueEquivalence.lean` constructs `Glue.unglueEquivalence`: the actual
+elimination map has contractible native homotopy fibers. Its proof extends
+partial fibers using the supplied face equivalence and the lawful face and
+ambient fillers, then derives the center and contraction. The Boolean-flip
+client checks the constructed fiber center and its path to the target.
+Targeted axiom inspection found only the repository's ordinary Lean axioms
+(`propext`, `Classical.choice`, and `Quot.sound`).
+
+These are checked intermediate results. They do not yet provide `ua`, its
+transport comparison, full univalence, or final build/audit/review acceptance.
