@@ -1,4 +1,7 @@
 import Examples.OracleComputation
+import Examples.FFTUnitaryBounds
+import Examples.FFTUnitaryOptimality
+import Examples.FFTNetwork
 import Examples.MeasuredFFT
 import Examples.BoundedFoldReactive
 import Examples.RegionalPlans
