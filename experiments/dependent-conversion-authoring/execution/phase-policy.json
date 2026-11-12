@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "prospective policy; no authors exposed",
+  "phase_order": ["initial", "scale", "repair-baseline", "repair-change", "negative", "held-out"],
+  "phase_minutes": {"initial": 15, "scale": 20, "repair": 20, "negative": 10, "held-out": 10},
+  "repair_budget": "baseline and change share one repair interval; baseline checkpoint precedes change release",
+  "session_review_minutes": 75,
+  "reported_token_review_checkpoint": 24000,
+  "token_metric": "provider-reported cumulative total where semantics are available; preserve all raw fields and gaps; do not add subset counters again",
+  "completion": "archive checked submission then release next phase; record each scale dimension separately",
+  "continuation": "At a checkpoint archive partial work and observations. In a usable environment grant one additional phase-sized interval for unresolved mathematical work, then record unresolved obligations and move on. Apply the same rule without route-relative decisions. Repair baseline and change share one extension.",
+  "session_checkpoint": "At 75 observed minutes or 24000 reported tokens, pause for a recorded sanity review; resume only under the same phase rule. These are not hard failure ceilings. Subsequent phase boundaries and extension endpoints require review; no unattended continuation.",
+  "infrastructure": "Pause or reschedule the same session/exposure, preserving unused planned interval where observable. Do not infer an unobserved suspension duration. Repeated unusable-environment interruption triggers a scheduling review for remaining slots. Replacement is a separately labeled attempt, never an erased observation.",
+  "clock_policy": "retain UTC, monotonic and tool intervals with limitations; record hibernation/resume, throttling, lock waits, unrelated load and failures when observed; unknown remains unknown; no wall-minus-tool estimate or raw laptop timing ranking",
+  "correctness_defect": "stop affected cohort, retain evidence, repair through normal review and start a newly frozen cohort",
+  "author_failure": "a failed proof is an outcome, not automatically a service defect",
+  "negative_rubric": {
+    "head": "Reject the changed-free-head equality with recorded reason/evidence. Distinguish rejection, uncertainty and checked inequivalence. Unknown is not a proof. No positive derivation or admission. Coordinator uses the sealed accepted HeadTask model to certify nonderivability before execution. An optional author inequivalence proof is recorded separately and is not required by either route.",
+    "index": "Supply a checked proof of the unchanged Negative.IndexTask.",
+    "oracle": "HeadTask remains unchanged; private SeparatingModel is never author material. Coordinator clarification recorded 2026-11-12."
+  },
+  "assistance": "Only environment/protocol clarification preserves unassisted status; distribute clarification uniformly and retain it. Mathematical help ends unassisted status and is recorded separately.",
+  "stops": ["all phases complete", "reviewed continuation exhausted", "unusable environment", "correctness defect", "documented sanity review decision"],
+  "replacement_policy": "preserve original session and phase exposure records; any replacement or changed effective model/configuration belongs to a separately labeled attempt/cohort"
+}

@@ -1,0 +1,19 @@
+# Author instructions
+
+Work only in this slot's public tree and assigned output directory. This is a fresh-context author trial. Do not read the repository checkout, its Git history, private/sealed material, other slots, or earlier sessions. Do not use subagents, external models/APIs, network searches or additional libraries. These are policy controls on an unrestricted host, not a filesystem sandbox. Report any accidental exposure immediately. Read only files in release.json and your own earlier work. The coordinator records automatically inherited instructions separately.
+
+Prove the released source obligations without weakening their context, indices or assumptions. Preserve every attempted source and diagnostic, including setup failures. No admissions, axioms, unsafe or native-evaluation shortcuts. Do not change supplied library/task sources. You may write and retain general helper lemmas; their discovery and repair count as author effort. No full umbrella imports or ProofAudit in this tree: final coordinator audit uses the full accepted inventory separately.
+
+Every Lean command goes through record_attempt.py with a new attempt directory. Its command must contain the separate {source} placeholder (or {sources} for the native policy JSON manifest); the recorder substitutes the retained snapshot. The coordinator supplies the pinned Lean executable, cwd, LEAN_PATH, per-slot outputs and context.json identifying slot/session/phase, release and environment hashes. It supplies the unchanged native source-policy command template as well. Record both policy and compilation invocations. Never set LEAN_PATH to the full repository artifact root. Never overwrite a recorded source, log or receipt. A started.json without result.json is an interrupted/incomplete observation, not a successful check.
+
+At completion or a checkpoint, report completed obligations, remaining work, helper changes, checks/repairs, assistance and interruptions. Preserve raw usage fields when available; unknown is not zero. The initial 75-minute and 24000-reported-token values trigger a review, not proof failure. Each phase has one equal-sized continuation interval in a usable environment; the coordinator records its decision. Infrastructure interruptions pause/reschedule work and remain visible. Raw laptop time is not a route ranking. Do not continue unattended past a checkpoint.
+
+Later phase releases arrive from the coordinator. Preserve your previous phase sources and helpers. On a repair release, recompile changed inputs and affected helpers into the new private phase output root; old cached artifacts must not mask the changed source.
+
+For the invalid-control phase, reject the changed-head equality with a recorded reason/evidence. Distinguish rejection from uncertainty and from a checked inequivalence proof; unknown is not proof. Do not manufacture a positive derivation or admission. The coordinator has independently checked nonderivability with a sealed model; reconstructing that model is not required. Optional inequivalence proofs are recorded separately. Supply a checked proof of the released IndexTask. These criteria are the same for both routes.
+
+Only environment/protocol clarification is allowed while retaining unassisted status. Mathematical assistance must be disclosed and changes that status. Report incomplete phases honestly. Do not revise the task for a successful check.
+
+## Direct route
+
+Use the existing DepEq/FuncEq interface in SquareKit/Internal/DependentFunctionEquality.lean and the generic laws in DependentFunctionLaws.lean. Available constructors include beta, eta, congruence, reflexivity, symmetry, transitivity and typed substitution; generic renaming/substitution laws are common to both routes. The full permitted source inventory is in release.json. No converter, normal-form library or service-specific helper is available on this route. General helpers you develop yourself are permitted and charged.
