@@ -23,7 +23,7 @@ class FreshVerification(unittest.TestCase):
         (self.root / ".lake").mkdir()
         (self.root / ".lake/packages").symlink_to(ROOT / ".lake/packages")
         (self.root / "lakefile.toml").write_text('name = "fixture"\n[[lean_lib]]\nname = "SquareApplications"\nglobs = ["SquareApplications", "Applications.+", "ProofAudit"]\n')
-        for name in ("check.sh", "lean-toolchain", "scripts/check.py", "scripts/lake_integrity.py", "scripts/lake-output-hashes.lean", "scripts/lean-source-info.lean"):
+        for name in ("check.sh", "lean-toolchain", "scripts/check.py", "scripts/project_sources.py", "scripts/lake_integrity.py", "scripts/lake-output-hashes.lean", "scripts/lean-source-info.lean"):
             shutil.copy2(ROOT / name, self.root / name)
         self.write("SquareApplications", "import Applications.A\nimport Applications.B\n")
         self.write("Applications.A", "def a : Nat := 1\n")
@@ -59,6 +59,21 @@ class FreshVerification(unittest.TestCase):
         self.assertIn("import", result.stdout + result.stderr)
         self.assertIn("SquareApplications", result.stdout + result.stderr)
         self.assertFalse((self.root / "compiled-too-early").exists(), result.stdout + result.stderr)
+
+    def test_new_root_module_is_included_by_the_real_audit(self):
+        self.write("NewRoot", "private theorem rootPrivate : True := True.intro\ndef rootValue : Nat := 7\n")
+        self.write("SquareApplications", "import NewRoot\nimport Applications.A\nimport Applications.B\n")
+        audit = (ROOT / "ProofAudit.lean").read_text()
+        self.write("ProofAudit", audit)
+        # Lake requires new root modules to be registered in the library too.
+        config = self.root / "lakefile.toml"
+        config.write_text(config.read_text().replace('"ProofAudit"]', '"ProofAudit", "NewRoot"]'))
+        for fresh in (True, False):
+            with self.subTest(fresh=fresh):
+                result = self.check(fresh=fresh)
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                self.assertIn("NewRoot: 2 logical declarations", result.stdout)
+                self.assertIn("Proof audit PASSED", result.stdout)
 
     def test_native_header_and_literal_syntax(self):
         self.write("SquareApplications", "module\npublic import\n  Applications.A\nmeta import Applications.B\n")

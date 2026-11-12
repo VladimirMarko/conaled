@@ -16,6 +16,7 @@ import tempfile
 import time
 
 from lake_integrity import guard_outputs, validate_layout
+from project_sources import INFRASTRUCTURE, SOURCE_TREES, inventory
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -91,9 +92,7 @@ def candidate_identity(revision):
         raise RuntimeError("Candidate must be the checked-out HEAD commit")
     # An ignored Lean file could otherwise enter the public inventory while
     # remaining absent from the commit named by the record.
-    sources = list(ROOT.glob("*.lean"))
-    for directory in ("SquareKit", "Applications", "Examples"):
-        sources.extend((ROOT / directory).rglob("*.lean"))
+    sources = inventory(ROOT).values()
     tracked = set(subprocess.check_output(
         ["git", "ls-files", "-z"], cwd=ROOT).decode().rstrip("\0").split("\0"))
     if any(str(p.relative_to(ROOT)) not in tracked for p in sources):
@@ -186,13 +185,7 @@ def main() -> int:
     # A failed new attempt must not leave an older success looking current.
     record_path.unlink(missing_ok=True)
     identity = candidate_identity(args.candidate) if args.candidate else None
-    sources = list(ROOT.glob("*.lean"))
-    for directory in ("SquareKit", "Applications", "Examples"):
-        sources.extend((ROOT / directory).rglob("*.lean"))
-    modules = {
-        ".".join(path.relative_to(ROOT).with_suffix("").parts): path
-        for path in sources
-    }
+    modules = inventory(ROOT)
     # The pinned Lean parser/lexer owns all interpretation of source text.
     version = compiler_version(args.fresh, env)
     with tempfile.NamedTemporaryFile(mode="w", suffix=".json") as manifest:
@@ -207,7 +200,7 @@ def main() -> int:
     for name, imports in zip(modules, imports_by_module, strict=True):
         dependencies[name] = [item for item in imports if item in modules]
         for item in imports:
-            if item.startswith(("SquareKit.", "Applications.", "Examples.")) and item not in modules:
+            if item.startswith(tuple(tree + "." for tree in SOURCE_TREES)) and item not in modules:
                 raise RuntimeError(f"Missing local source imported by {name}: {item}")
 
     order: list[str] = []
@@ -227,7 +220,7 @@ def main() -> int:
         order.append(name)
 
     visit("SquareApplications")
-    omitted = set(modules) - finished - {"ProofAudit"}
+    omitted = set(modules) - finished - INFRASTRUCTURE
     if omitted:
         raise RuntimeError("Public entrypoint omits source modules: " + ", ".join(sorted(omitted)))
     visit("ProofAudit")
