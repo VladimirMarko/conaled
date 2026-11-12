@@ -4,6 +4,7 @@ import errno
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -355,6 +356,76 @@ class Snapshots(unittest.TestCase):
         invalid.write_text('[]')
         message = self.call('release', ok=False, record=invalid)
         self.assertNotIn('Traceback', message)
+
+    def test_symbolic_retention_ref_is_rejected_without_deleting_its_target(self):
+        manifest = {'scope': ['task'], 'entries': {}, 'exclude': []}
+        receipt = self.call('baseline', manifest)
+        other = self.call('baseline', manifest)
+        record = self.record('symbolic', receipt)
+        metadata = Path(receipt['repository']) / 'conaled-review-snapshots' / (receipt['token'] + '.json')
+        original_metadata = metadata.read_bytes()
+        branch = self.git('symbolic-ref', 'HEAD').strip()
+        ref = next(r for r in receipt['retention'] if r.endswith('/candidate'))
+        self.git('symbolic-ref', ref, branch)
+        before = self.unchanged_state()
+        refs = self.git('for-each-ref', '--format=%(refname) %(objectname) %(symref)')
+        self.assertEqual(self.git('rev-parse', ref).strip(), receipt['retention'][ref])
+        self.assertIn('symbolic', self.call('release', ok=False, record=record))
+        self.assertEqual(self.unchanged_state(), before)
+        self.assertEqual(self.git('for-each-ref', '--format=%(refname) %(objectname) %(symref)'), refs)
+        for name, oid in other['retention'].items():
+            self.assertEqual(self.git('rev-parse', name).strip(), oid)
+        self.assertEqual(json.loads(record.read_text()), receipt)
+        self.assertEqual(metadata.read_bytes(), original_metadata)
+
+    def test_symbolic_substitution_at_git_mutation_boundary_preserves_user_refs(self):
+        manifest = {'scope': ['task'], 'entries': {}, 'exclude': []}
+        receipt = self.call('baseline', manifest)
+        other = self.call('baseline', manifest)
+        record = self.record('race-release', receipt)
+        branch = self.git('symbolic-ref', 'HEAD').strip()
+        ref = next(r for r in receipt['retention'] if r.endswith('/candidate'))
+        before = self.unchanged_state()
+        real_git = shutil.which('git')
+        ready, proceed = self.home / 'ready', self.home / 'proceed'
+        shim_dir = self.home / 'git-boundary'
+        shim_dir.mkdir()
+        # Pause only at the external mutation boundary, then run the real Git
+        # unchanged. No fake ref responses or private helper hooks are used.
+        shim = shim_dir / 'git'
+        shim.write_text(f"""#!{sys.executable}
+import os, sys, time
+from pathlib import Path
+if 'update-ref' in sys.argv[1:]:
+    Path({str(ready)!r}).touch()
+    deadline = time.monotonic() + 10
+    while not Path({str(proceed)!r}).exists():
+        if time.monotonic() > deadline:
+            sys.exit(99)
+        time.sleep(0.01)
+os.execv({real_git!r}, [{real_git!r}] + sys.argv[1:])
+""")
+        shim.chmod(0o755)
+        env = os.environ.copy()
+        env['PATH'] = str(shim_dir) + os.pathsep + env['PATH']
+        process = subprocess.Popen([sys.executable, str(CLI), 'release', '--repo', str(self.repo),
+                                    '--record', str(record)], env=env, text=True,
+                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        self.addCleanup(lambda: process.poll() is None and process.kill())
+        deadline = time.monotonic() + 10
+        while not ready.exists():
+            self.assertIsNone(process.poll(), 'release exited before boundary')
+            if time.monotonic() > deadline:
+                self.fail('release did not reach Git mutation boundary')
+            time.sleep(0.01)
+        self.git('symbolic-ref', ref, branch)
+        proceed.touch()
+        stdout, stderr = process.communicate(timeout=10)
+        self.assertIn(process.returncode, (0, 1), stdout + stderr)
+        self.assertEqual(self.git('rev-parse', '--verify', branch).strip(), self.initial)
+        self.assertEqual(self.unchanged_state(), before)
+        for name, oid in other['retention'].items():
+            self.assertEqual(self.git('rev-parse', name).strip(), oid)
 
 
 if __name__ == '__main__':

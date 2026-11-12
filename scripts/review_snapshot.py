@@ -191,10 +191,26 @@ def retain(repo, result):
     os.replace(temporary, metadata)
     transaction = 'start\n' + ''.join(f'create {r} {v}\n' for r, v in refs.items()) + 'prepare\ncommit\n'
     try:
-        repo.git('update-ref', '--stdin', data=transaction.encode())
+        repo.git('update-ref', '--no-deref', '--stdin', data=transaction.encode())
     except ValueError as error:
         raise ValueError(f'{error}; ownership metadata retained at {metadata}') from error
     return result
+
+
+def check_retention(repo, record):
+    # OID equality alone does not establish ownership: a symbolic ref can resolve
+    # to the same commit through a user branch. Inspect both kind and value.
+    observed = {}
+    for line in repo.git('for-each-ref', '--format=%(refname) %(objectname) %(symref)',
+                         *record['retention']).decode().splitlines():
+        name, oid, target = line.split(' ', 2)
+        observed[name] = (oid, target)
+    for ref, oid in record['retention'].items():
+        actual = observed.get(ref)
+        if actual is not None and actual[1]:
+            raise ValueError('symbolic retention reference: ' + ref)
+        if actual != (oid, ''):
+            raise ValueError('retention reference changed: ' + ref)
 
 
 def read_record(repo, path):
@@ -209,18 +225,17 @@ def read_record(repo, path):
         raise ValueError('record repository or format mismatch')
     if not metadata.exists() or json.loads(metadata.read_text()) != record:
         raise ValueError('retention record is absent, released or modified')
-    for ref, oid in record['retention'].items():
-        if repo.git('rev-parse', '--verify', ref).decode().strip() != oid:
-            raise ValueError('retention reference changed: ' + ref)
+    check_retention(repo, record)
     return record
 
 
 def release(repo, record):
-    for ref, oid in record['retention'].items():
-        if repo.git('rev-parse', '--verify', ref).decode().strip() != oid:
-            raise ValueError('retention reference changed: ' + ref)
+    check_retention(repo, record)
+    # The pre-check diagnoses symbolic refs already present. --no-deref is also
+    # required in the transaction: a later substitution must never redirect a
+    # deletion into its target. Expected OIDs and one transaction remain intact.
     transaction = 'start\n' + ''.join(f'delete {r} {v}\n' for r, v in record['retention'].items()) + 'prepare\ncommit\n'
-    repo.git('update-ref', '--stdin', data=transaction.encode())
+    repo.git('update-ref', '--no-deref', '--stdin', data=transaction.encode())
     (repo.owned / (record['token'] + '.json')).unlink()
     return {'status': 'ok', 'released': record['token']}
 

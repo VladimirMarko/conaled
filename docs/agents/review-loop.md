@@ -222,9 +222,13 @@ proved library refinement. The helper's source identity covers the observed
 inventory, not undeclared ignored files or external dependencies.
 
 Retention uses random refs under `refs/conaled/review-snapshots/` and matching
-ownership metadata in Git's common directory. Release verifies the record and
-uses an atomic compare-and-swap ref transaction; foreign or changed targets
-fail. It never runs GC or removes user work. Interrupted attempts may leave
+ownership metadata in Git's common directory. Release verifies the record and rejects symbolic retention refs, even if
+their resolved OIDs match. Creation and deletion use non-dereferencing Git
+transactions with expected-value checks. If a ref becomes symbolic after the
+pre-check, deletion can affect only the named helper ref, never its target.
+Git checks the queued updates together; concurrent readers can still observe
+a subset of the individual updates. See [git-update-ref](https://git-scm.com/docs/git-update-ref)
+for these transaction semantics. Mismatched expected OIDs fail. It never runs GC or removes user work. Interrupted attempts may leave
 objects or ownership metadata; inspect the recorded metadata and refs before
 recovery, and retain uncertainty about interrupted publication. A complete
 metadata JSON object can recover a lost stdout receipt when its refs exist.
