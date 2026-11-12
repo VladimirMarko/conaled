@@ -301,6 +301,40 @@ decreasing_by
     have h := List.length_erase_add_one hmem
     omega
 
+/-- Each occurrence contributes a factorial-sized block, including equal choices. -/
+theorem byErasure_length (xs : List α) :
+    (byErasure xs).length = Nat.factorial xs.length := by
+  rw [byErasure_eqn]
+  cases xs with
+  | nil => rfl
+  | cons x xs =>
+    simp only [List.cons_ne_nil, ↓reduceIte]
+    have hblock : ∀ y ∈ x :: xs,
+        ((byErasure ((x :: xs).erase y)).map (y :: ·)).length = Nat.factorial xs.length := by
+      intro y hy
+      have he := List.length_erase_add_one hy
+      rw [List.length_map, byErasure_length]
+      congr 1
+      simp only [List.length_cons] at he
+      omega
+    have hlen : ∀ (ys : List α), (∀ y ∈ ys, y ∈ x :: xs) →
+        (ys.flatMap (fun y => (byErasure ((x :: xs).erase y)).map (y :: ·))).length =
+          ys.length * Nat.factorial xs.length := by
+      intro ys
+      induction ys with
+      | nil => simp
+      | cons y ys ih =>
+        intro h
+        simp only [List.flatMap_cons, List.length_append, List.length_cons,
+          hblock y (h y List.mem_cons_self),
+          ih (fun z hz => h z (List.mem_cons_of_mem y hz))]
+        simp [Nat.add_mul, Nat.add_comm]
+    simpa only [List.length_cons, Nat.factorial_succ] using hlen (x :: xs) (fun _ h => h)
+termination_by xs.length
+decreasing_by
+  have _h := List.length_erase_add_one hy
+  omega
+
 theorem byErasure_head (xs : List α) : (byErasure xs).head? = some xs := by
   induction xs with
   | nil => rw [byErasure_eqn]; rfl
