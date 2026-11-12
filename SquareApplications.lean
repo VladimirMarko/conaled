@@ -96,6 +96,7 @@ import Examples.ConstructionObservationAuthorA
 import Examples.ConstructionObservationAuthorB
 import Examples.IndefiniteService
 import Examples.BetweenTicksMigration
+import Examples.PendingMigration
 import Examples.InitializedFeedback
 import Examples.PreservationBounds
 import Examples.FIFOContracts

@@ -7,7 +7,8 @@ session or replay inputs. Explicit requests select the target; no tuner, native
 emitter or shared migration interface is required.
 
 The required [pending-work successor #480](https://github.com/VladimirMarko/conaled/issues/480)
-remains open. This delivery drains accepted work before transfer; it does not
+is implemented in the [bounded peer experiment](pending-peer-migration.md).
+This quiescent delivery drains accepted work before transfer; it does not
 establish migration of queues, acknowledgment state, asynchronous callbacks or
 crash recovery. #464 remains the staged capability owner.
 
