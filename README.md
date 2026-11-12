@@ -263,10 +263,11 @@ Both modes cover root Lean modules and `SquareKit/`, `Applications/`, and
 validation. Generated `.olean`, `.ilean`, `.lake`, and cache files are not source
 artifacts. The command reports build, audit, and total elapsed times.
 
-After `lake build`, run `lake env python3 scripts/test-proof-audit.py` to check
+Run `python3 scripts/test-proof-audit.py` in the development shell to check
 that the audit rejects private forbidden dependencies, admissions, and unsafe
 source declarations. Its temporary fixtures also check that an unused external
-axiom does not cause a false rejection. Two additional suites need only the
+axiom does not cause a false rejection. It compiles the real audit against a
+small fixture entrypoint without using project build artifacts. Two additional suites need only the
 development shell and cached dependencies:
 
 ```sh
@@ -298,6 +299,10 @@ does not validate the rest of the monorepo.
 
 The full check ends with a transitive axiom audit of integrated local kernel
 declarations, including private definitions and generated proof auxiliaries.
+Coverage, candidate checks and audit ownership share the filesystem inventory in
+`scripts/project_sources.py`, including newly added root modules. Standalone audit
+commands run from the project root and require Python to obtain that inventory;
+an inventory failure stops the audit. `ProofAudit` itself is infrastructure.
 The permitted axioms are `propext`, `Classical.choice`, and `Quot.sound`.
 Admissions, application-specific axioms, and native-evaluation axiom shortcuts
 are rejected. See [ProofAudit.lean](ProofAudit.lean) for the precise treatment
@@ -315,6 +320,11 @@ The FRP protocols do not constitute a complete scheduler or runtime, and the
 geometric developments do not establish delivery of a complete simulator.
 Consult the linked examples, research records, and scope-owning issues for
 what each development supplies and what remains open.
+
+The verification driver itself has no connected formal interaction semantics yet.
+The [verification architecture plan](docs/research/verification-architecture-plan.md)
+describes the proposed use of library contracts, fallible external observations,
+and an explicit bootstrap path.
 
 ## Parallel and experimental developments
 
