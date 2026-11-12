@@ -14,7 +14,7 @@ active-time ceilings; missing effort is unknown, not zero.
 | #423 converter implementation and admission | Accepted source 1d9d4357; soundness/completeness of conversion, normal forms and typed substitution/renaming are supplied library obligations. Source acceptance receipts are retained. Historical implementation/review effort unknown. |
 | Fixture and negative-oracle admission | Ten staged modules including direct/service references, separating model and Validate; full fixture audit and six negative controls. This work is shared upfront cost, not author work. The retained stage's older candidate label is reconciled by exact source correspondence before acceptance; it is not relabeled as a fresh check. |
 | Execution package and preparation | Freeze, route assignment, recorder, twelve route/phase native smoke states, six private warm caches, bootstrap verification and release setup. Actual metadata and input hashes retained. Prior preparation ledger records its own wall interval and explicitly unknown active time/tokens. Later setup is additional, not covered by that partial ledger. |
-| Shared review | Existing source/package reviews and later trial/report reviews are distinct from author work. Active reviewer time and total historical effort unavailable. Report review pending. |
+| Shared review | Existing source/package reviews and later trial/report reviews are distinct from author work. Active reviewer time and total historical effort unavailable. Exact-candidate report acceptance is recorded separately on #423. |
 
 The supplied model is admitted once into the comparison: authors receive scoped
 Lean syntax and equality laws, with conversion available only to the service
@@ -102,13 +102,15 @@ coordinator's own commands and scripts are retained where recorded; unrecorded
 active time remains unknown. Slot 1's supplied-definition root mismatch and
 slot 2's first replay search-path failure are coordinator setup costs.
 
-All six fresh replay sets and native policy passed. Production auditing is still
-pending: one full context each for slots 1, 3, 4 and 6; two for slot 2; six for
+All six fresh replay sets and native policy passed. All twelve production audit
+contexts also passed: one each for slots 1, 3, 4 and 6; two for slot 2; six for
 slot 5. Their import-order and helper-origin work is review cost for the same
-submissions, not additional authors or extra trial successes. Audit durations,
-lock waits, full results and final review costs cannot be reported as zero while
-pending. Root serializes these checks with other integration work; author
-background-load observations do not establish comparable benchmark conditions.
+submissions, not additional authors or extra trial successes. The completed
+receipts retain audit start and finish observations; they do not measure active
+review labor. Interrupted queue records and later execution remain separate;
+missing lock-wait and labor measurements are not zeros. Root serialized these
+checks with other integration work. Author background-load observations do not
+establish comparable benchmark conditions.
 
 No total-cost number or amortization break-even can be justified while historical
 labor and active-time observations are unavailable. The ledger nevertheless
