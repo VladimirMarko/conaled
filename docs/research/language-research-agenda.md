@@ -252,6 +252,15 @@ through unusual settings, explicit interpretations and checked counterexamples.
 Mathematical interest is an accepted motivation; physical execution is not a
 prerequisite for a semantic target.
 
+Interpretations and implementations form a network of realization relations,
+not a fixed ladder of mathematical, artifact, algorithmic and physical levels.
+Each connection names its preservation contract and assumptions; composition
+requires the corresponding compatibility laws. Different simulation,
+approximation and witness contracts remain distinct. Further implementation
+layers are permitted, while applying a model to an actual system retains its
+empirical assumptions. Computability is relative to a specified model; code
+availability, progress and resource guarantees require their own evidence.
+
 | Issue | Bounded formalization and comparison |
 | --- | --- |
 | [#498: Turing oracle computation](https://github.com/VladimirMarko/conaled/issues/498) | Oracle-relative semantics and compilation, with ordinary-computability and relative-diagonal separators. |

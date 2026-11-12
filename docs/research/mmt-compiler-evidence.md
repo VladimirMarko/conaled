@@ -1,5 +1,12 @@
 # MMT for compiler evidence across interpretations
 
+Current-direction clarification (2026-11-12): the capability/stage distinctions
+in this study describe particular obligations, not a fundamental hierarchy.
+The [current language direction](../language-direction.md#mathematical-targets-and-external-foundations)
+treats interpretations and implementations as composable realization relations,
+with explicit observations and assumptions. The study's results and checking
+limits remain unchanged; no candidate architecture is thereby adopted.
+
 Investigate a bounded MMT publication and checking experiment; defer framework
 adoption and a production importer. MMT supplies named theories, dependencies
 and composable interpretations, but the inspected implementation does not

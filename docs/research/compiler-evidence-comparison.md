@@ -1,5 +1,12 @@
 # Evidence routes for backend admission
 
+Current-direction clarification (2026-11-12): the capability/stage distinctions
+in this study describe particular obligations, not a fundamental hierarchy.
+The [current language direction](../language-direction.md#mathematical-targets-and-external-foundations)
+treats interpretations and implementations as composable realization relations,
+with explicit observations and assumptions. The study's results and checking
+limits remain unchanged; no candidate architecture is thereby adopted.
+
 Recommend a bounded implementation comparison with a semantic contract shared
 by a native proof adapter and a separately proved finite-certificate checker.
 Keep their author interfaces distinct. The backend should consume their
