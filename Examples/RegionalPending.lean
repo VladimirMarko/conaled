@@ -2,10 +2,11 @@ import Applications.FRP.RegionalPendingIO
 import Applications.FRP.RegionalPendingRefinement
 import Applications.FRP.RegionalPendingProgress
 import Applications.FRP.RegionalPendingResources
+import Applications.FRP.RegionalPendingService
 
 /-! Independent source fixtures for a shared dependency and pending cut changes. -/
 namespace Examples.RegionalPending
-open FRPSpec.Regional FRPSpec.Regional.Pending
+open FRPSpec FRPSpec.Regional FRPSpec.Regional.Pending
 
 /-- First effect is visible but its confirmation is lost; second input is owned. -/
 def lostPrefix : List Command :=
@@ -84,5 +85,36 @@ example (s : Session) (hs : Invariant s.active) (ready : Ready s) (slot : Bool) 
     final.active.deliveries.references slot = false ∧
       final.active.protocol.queue.references slot = false :=
   ten_opportunities_retire_references s hs ready slot
+
+/-- Every reachable command has an execution-linked complete service bound. -/
+example (cs : List Command) (c : Command) (hc : Business c) :
+    let s := (execute (initial .split .delay) cs).1
+    ∃ trace, ServiceExecution s c (step s c) trace ∧
+      ∀ live ∈ trace, live ≤ serviceCapacity s.active.cut :=
+  reachable_service_bound .split .delay cs c hc
+
+example : serviceCapacity .split = 441 ∧ serviceCapacity .checked = 445 := by decide
+
+/-- A paused prepared target remains live even when business work is refused. -/
+example : wrapperRetained (prepare partialD .split .fused .delay {}).session >
+    wrapperRetained partialD := by decide
+
+/-- Whole split execution retains all three native consumer arenas. -/
+example : (serviceAllocations partialD.active (.whole true false)).sum >
+    max Indefinite.delay.body.arena (max Applications.Circuits.Circuit.not.arena
+      Applications.Circuits.Circuit.xor.arena) := by decide
+
+/-- Old/new encoded stores coexist with both decoded store generations. -/
+example : (serviceTrace partialD.active []).getLast? = some
+    (PendingMigration.stateSlots partialD.active.protocol + 16 + 4 +
+      2 * retainedCells partialD.active.cut + 44 + 8) := by decide
+
+/-- The inherited command accounts for the actual queued payloads, even when
+confirmation is lost; an empty queue has a strictly smaller dispatch scratch. -/
+example : (serviceAllocations (execute (initial .split)
+      [.accept true,.producer,.whole,.external .publish,.external .queryPeer,
+        .external .queryPeer,.external .queryPeer]).1.active
+      (.protocol (.dispatch true))).sum >
+    (serviceAllocations (initial .split).active (.protocol (.dispatch true))).sum := by decide
 
 end Examples.RegionalPending

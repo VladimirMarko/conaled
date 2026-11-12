@@ -1,4 +1,4 @@
-import Applications.FRP.RegionalPendingPlan
+import Applications.FRP.RegionalPendingStorage
 
 /-! Executable changed-cut migration with a stable publication peer and owned
 internal deliveries. No user command inserts a raw callback or raw slot token. -/
@@ -22,19 +22,6 @@ def wire (s : Active) : Wire :=
 @[simp] theorem convert_wire (s : Active) (cut : Cut) (kind : Migration.Kind) :
     wire (convert s cut kind) = wire s := by
   simp [wire,convert,Active.residuals,PendingMigration.transfer]
-
-/-- Fixed tagged residual stores occupy 22 cells; checked caches add two bits. -/
-def retainedCells : Cut → Nat | .checked => 24 | _ => 22
-
-def internalArena : Cut → Nat
-  | .fused => jointBody.arena
-  | .split => max Indefinite.delay.body.arena (max Circuit.not.arena Circuit.xor.arena)
-  | .checked => max Indefinite.delay.body.arena (max Circuit.not.arena Circuit.xor.arena) + 4
-
-/-- Protocol's 192-cell theorem covers its external transitions. Sixteen wrapper
-controls, four delivery cells, old/new residual-store overlap, producer/consumer
-arenas and eight result/adapter cells are added. -/
-def serviceCapacity (cut : Cut) : Nat := 192 + 16 + 4 + 2 * retainedCells cut + max (Rich.arena Rich.code) (internalArena cut) + 8
 
 def transferBase (s : Active) : Nat := PendingMigration.stateSlots s.protocol + 16 + 4 + retainedCells s.cut
 /-- Copy the decoded residual store and logical state into a 23-cell scratch. -/
@@ -60,7 +47,7 @@ instance (r : Requirements) : Decidable (supported r) := inferInstanceAs (Decida
 /-- Evidence is indexed by the actual target code, representation and premises. -/
 structure Certificate (r : Requirements) (cut : Cut) (kind : Migration.Kind) : Prop where
   assumptions : supported r
-  service : serviceCapacity cut ≤ r.capacity
+  service : ServiceCertified cut r.capacity
   semantics : ∀ input state, wholeResult cut input state = oracle input state
   representation : ∀ state, (Migration.realize kind state).logical = state
 
@@ -228,7 +215,7 @@ def prepare (s : Session) (expected target : Cut) (kind : Migration.Kind) (r : R
       else if related : wire candidate = wire s.active then
         let targetBound : serviceCapacity target ≤ r.capacity :=
           (Nat.le_max_left _ _ |>.trans (Nat.le_max_right _ _)).trans capacity
-        let cert : Certificate r target kind := ⟨assumptions,targetBound,whole_correct target,Migration.realize_logical kind⟩
+        let cert : Certificate r target kind := ⟨assumptions,service_certified target r.capacity targetBound,whole_correct target,Migration.realize_logical kind⟩
         let p : Prepared s.active := ⟨candidate,related,by
           refine ⟨r,?_,?_⟩
           · cases swapped <;> cases kind <;>

@@ -79,8 +79,8 @@ The bounded policy reuses #486's charged candidate inspection, context and epoch
 validation. It ranks complete pending plans from a six-entry cut/backend catalog,
 including modeled protocol, copy, consumer and adapter costs. Ranking only
 proposes a target. Actual preparation checks migration capacity and continuation
-separately. The service-capacity fixture has a target eligible at 397 cells but
-rejects migration from the checked source requiring 401. The quiescent fixture
+separately. The service-capacity fixture has a target eligible at 441 cells but
+rejects migration from the checked source requiring 445. The quiescent fixture
 separately distinguishes old/new overlap from target steady space.
 
 Every permitted preparation attempt consumes one permission, including failure.
@@ -112,8 +112,24 @@ old representation, while cancellation releases the prepared representation.
 The producer has an actual `Rich.Executes` and `Rich.Allocates` witness. Consumer
 bills use the selected circuit work; protocol bills reuse #480 command work.
 Every wrapper command includes a response/dispatch unit, and copy events are
-charged. The service bound includes both retained-store generations and the
-maximum producer or consumer arena. These are logical copied-value resources,
+charged. `NativeServiceRuns` relates each selected native call to its actual
+code, arguments, result and allocation derivation. `ServiceExecution` connects
+that call to the public wrapper branch and its stored result. Its trace retains
+the old encoded store, a 22-cell decoded store, a 22-cell updated store and the
+new encoded store, along with every evaluator allocation prefix. Split whole
+execution retains all three consumer arenas until return. Protocol calls include
+the inherited queue-copy peak; wrapper checkpoints also include any paused
+prepared target and the final state.
+
+`service_execution_bound` bounds this complete trace under the reachable
+invariant and readiness conditions. `Certificate.service` now contains the
+operational service evidence used by `prepare`; `committed_service_execution`
+instantiates that evidence on the actual committed replacement and its next
+command. `reachable_service_bound` covers every reachable business command,
+including frozen and refused branches. The conservative capacities are 441 cells
+for fused/split and 445 for checked. This repairs review findings 487-STD-001
+and 487-SPEC-1; no prior concrete overrun was alleged. These are logical
+copied-value resources,
 not Lean heap bytes, CPU instructions or a verified host allocator.
 
 The byte adapter holds one authoritative in-process session and stable peer. It
@@ -151,4 +167,17 @@ cross-platform performance benefit. Raw observations are in
   inputs. It does not promise unconditional completion under an unfair scheduler.
 - Resource certificates belong to the new actual target and required transition
   capacity. Semantic equivalence does not transfer a stale resource certificate.
+- Service storage must cover the actual wrapper execution, not only a proposed
+  arithmetic budget. `Realizes` identifies arguments and stored results;
+  `NativeServiceRuns` supplies native code execution and allocation evidence.
+  `ServiceExecution` also retains prepared-target and final-state checkpoints.
+- `ServiceCertified` quantifies over bounded protocol states and every native
+  call at the selected cut. Reachable invariants provide that premise; the
+  post-commit theorem consumes the replacement's stored certificate. A naked
+  capacity inequality would not establish the public execution bound.
+- The lifetime model deliberately retains all temporary consumer arenas until
+  return and all four residual-store generations together. It is conservative,
+  not an assertion that Lean's garbage collector uses that schedule. Examples
+  separate this accounting from a maximum single arena, an empty protocol
+  queue, and omitted paused-target storage.
 - Logical allocation/lifetime evidence and host timing are separate claims.
