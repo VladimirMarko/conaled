@@ -766,4 +766,6 @@ import Examples.RegionalMigration
 import Examples.RegionalPending
 import Examples.RegionalPendingPolicy
 
+import Examples.QuantumSemantics
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
