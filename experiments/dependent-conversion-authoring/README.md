@@ -65,32 +65,44 @@ The source-node convention must remain fixed across routes in a later trial.
 ## Validation and source boundaries
 
 The ten Lean files are intentionally outside the public library entrypoint.
-Their imports use `Examples.ConversionTrial.*`. For checking, copy each file
-byte-for-byte to `Examples/ConversionTrial/<basename>.lean` in a private Lean
-module root; [manifest.json](manifest.json) records the mapping and source
-hashes. Compile in the manifest order with the pinned environment:
+Their imports use `Examples.ConversionTrial.*`. Copy each fixture byte-for-byte
+to `Examples/ConversionTrial/<basename>.lean` in an external source mirror;
+[manifest.json](manifest.json) records the mapping and source hashes. The mirror
+must also contain every integrated root, SquareKit, Applications and Examples
+source from the candidate, unchanged `ProofAudit.lean`, and unchanged
+`scripts/project_sources.py`. Run audit-bearing commands with that mirror as
+the current directory. Merely placing Examples-named artifacts on LEAN_PATH
+outside the inventoried source tree does not establish audit ownership.
+
+Select the pinned repository development shell, put a separate private output
+root first on LEAN_PATH, and retain the exact candidate dependency paths. Compile
+the current production ProofAudit into that output root, then compile fixtures
+in manifest order. With cwd set to SOURCE_ROOT, the fixture command is:
 
 ```text
-direnv exec . lake env lean -R PRIVATE_ROOT -o PRIVATE_ROOT/Examples/ConversionTrial/NAME.olean PRIVATE_ROOT/Examples/ConversionTrial/NAME.lean
+lean -R SOURCE_ROOT -o OUTPUT_ROOT/Examples/ConversionTrial/NAME.olean SOURCE_ROOT/Examples/ConversionTrial/NAME.lean
 ```
 
-The private root must be in the Lean search path and must contain the
-source-correct accepted project dependency closure. This preparation used the
-checkout's private `.lake/build/lib/lean` root. It preserved package caches and
-made private copies of borrowed project artifacts before checking. An initial
-borrowed umbrella referenced a missing newer module; that failed attempt and
-artifact identities were retained. A private closure rebuild was interrupted
-because final acceptance will restage the fixtures against the accepted
-integration closure. No recovery or acceptance is claimed for that private
-cache, and no shared artifacts were repaired or deleted.
+Record the actual command, cwd, paths and copied-source hashes. Require the
+inventory to equal the complete candidate mathematical module set plus the ten
+fixtures, excluding only ProofAudit infrastructure. Compare it with actual
+imported origins plus the current Validate module, and require every inventoried
+module to appear in the audit report. Use fresh fixture and auditor outputs;
+project dependency reuse needs source/configuration/toolchain identity evidence.
+
+An early preparation attempt privately borrowed an umbrella that referenced a
+missing newer module. That failure and artifact identities were retained; its
+private recovery build was deliberately interrupted. No recovery or acceptance
+is claimed for that private cache, and no outputs from it are used for final
+validation. No shared artifacts were repaired or deleted.
 
 Run the existing native `scripts/lean-source-info.lean` over an explicit JSON
 array of all ten source paths to enforce the accepted source policy and obtain
 imports. Compilation checks complete syntax. Compile `Validate` last: it imports
 both references and the separating model, emits actual metrics/import closure,
-and invokes the unchanged `#audit_project_axioms` from `ProofAudit`. The staged
-module origins fall under `Examples`, so all ten modules, including private
-proofs and generated declarations, are audit roots. Staging is a file mapping,
+and invokes the unchanged `#audit_project_axioms` from `ProofAudit`. All ten staged
+module origins occur in the source inventory, so their private proofs and
+generated declarations are included among the audit roots. Staging is a file mapping,
 not a new source parser or an audit exemption. The expected axiom allowance is
 exactly the repository's `propext`, `Classical.choice`, and `Quot.sound`.
 

@@ -260,7 +260,7 @@
   ],
   "validation": {
     "source_policy": "Unchanged scripts/lean-source-info.lean; explicit ten-file manifest; compilation validates complete syntax.",
-    "audit": "Unchanged ProofAudit #audit_project_axioms with byte-identical staging under Examples.ConversionTrial; all ten modules must appear in project audit roots.",
+    "audit": "Unchanged current ProofAudit #audit_project_axioms from a complete candidate source mirror, with byte-identical fixtures under Examples.ConversionTrial and unchanged scripts/project_sources.py; inventory equals imported mathematical origins plus current Validate, and every inventoried module is reported.",
     "permitted_axioms": [
       "propext",
       "Classical.choice",
@@ -279,10 +279,12 @@
     "source_stage_mapping_required": true,
     "full_import_closure_required": true,
     "new_runner_or_parser": false,
-    "full_import_closure_sha256": "dac19bff93b70f1dbe8c5f919c11343f7502ff4725ec578dfd4e32f8cc40df43",
-    "audit_log_sha256": "c1cebfcdd26b289b3ed369bc40ea6873b4358cd59e9c81e194ba1602b92637d9",
-    "final_audit_status": "Passed: fresh ten-module staging, full closure audit, four source-policy and two mathematical rejection controls",
-    "fixture_metrics_sha256": "48d5b68e25225d05c874c00ab91185ad154e1d9cf12a1e328ad6b4d425068caf"
+    "full_import_closure_sha256": "168840b32c3a2d7a7c919a52b239a06c0d8a1b5c9795ae48a825474d4b393b89",
+    "audit_log_sha256": "f9a040d0edc168fde802e89e9e1007f3253e917b4b477fa9da4518a33fe0c998",
+    "final_audit_status": "Passed: fresh ten-module staging/current auditor, full source-inventory closure audit, four source-policy and two mathematical rejection controls",
+    "fixture_metrics_sha256": "be56310b847d2e20672c258cd13299832f9aaa5d54508f9c448190c8c051aab2",
+    "source_inventory_sha256": "2c1d5f5b79ef3497d1b0ff2b3e71003ecdcb69d71b21fce7e4698658032a1653",
+    "full_coverage_sha256": "af93a6ed7c91a3d51947e40bbc5a5c46764a98860a3c2755f9babaaad44239e8"
   },
   "dimensions": {
     "composition_lengths": [
