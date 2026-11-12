@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "context": {
+    "slot": "slot-2",
+    "session": "01a1d059-e929-7b40-bc13-2a03a73bae98",
+    "route": "direct",
+    "phase": "repair-baseline",
+    "release_sha256": "84b5dd1d73db24180cf2dadf7467f93b975f3c0065606be4adc6542dfda5b73e",
+    "environment_sha256": "b5321d1e6d692f7eba6bf5c4ed9e02997af07b600b6459cebd3defb607fed3db"
+  },
+  "context_sha256": "34dd086d3ff631ef7cbdf63837474f7f5fb49fe3b5f258e9b108ca0bda11a751",
+  "source_sha256": "ed9df946e49400cd38a9e5d869eda6f304942ec85db37e7835598393464e44b4",
+  "source_original": "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/work/RepairBefore.lean",
+  "command": [
+    "taskset",
+    "-c",
+    "0",
+    "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+    "--run",
+    "/tmp/conaled-wave-20261111/423-execution-correction/prepared-final/slots/slot-2/public/tools/lean-source-info.lean",
+    "/tmp/conaled-wave-20261111/423-trial-execution/slot-2/work/repair-before-policy-001/sources.json"
+  ],
+  "cwd": "/tmp/conaled-wave-20261111/423-execution-correction/prepared-final/slots/slot-2/public",
+  "start_utc": "2026-11-12T15:29:49.300357+00:00",
+  "start_monotonic_ns": 170678493875593,
+  "observations": {
+    "usage": null,
+    "active_reasoning_seconds": null,
+    "hibernation": "unknown",
+    "throttling": "unknown",
+    "unrelated_load": "unknown",
+    "build_lock_wait_seconds": null,
+    "network_failure": "unknown",
+    "assistance": "unknown",
+    "interruptions": []
+  },
+  "status": "check-passed",
+  "exit_code": 0,
+  "finish_utc": "2026-11-12T15:29:50.449357+00:00",
+  "finish_monotonic_ns": 170679642880757,
+  "output_sha256": "c6165a2cf68c5545cf7153fffa3b1535033495bad4256cffc490d281a0695337"
+}

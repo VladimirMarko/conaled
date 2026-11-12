@@ -1,0 +1,11 @@
+import json,pathlib,subprocess,os,hashlib
+out=pathlib.Path('/tmp/conaled-wave-20261111/423-trial-execution/slot-4/replay-01');e=json.loads((out/'environment.json').read_text());env=os.environ.copy();env['LEAN_PATH']=e['LEAN_PATH']
+for label,names in [('ScaleThenHeld',['ScaleProof','HeldOutProof','NegativeProof','Draft','RepairBefore','RepairAfter']),('HeldThenScale',['HeldOutProof','NegativeProof','Draft','RepairBefore','RepairAfter','ScaleProof'])]:
+ f=out/(label+'.lean');f.write_text('import Lean\n'+''.join('import Examples.ConversionTrial.Author.'+n+'\n' for n in names)+'''run_cmd do
+  let env ← Lean.getEnv
+  for name in [`Examples.ConversionTrial.renTypedComp, `Examples.ConversionTrial.liftRenTyped, `Examples.ConversionTrial.expandEq, `Examples.ConversionTrial.sourceEq, `Examples.ConversionTrial.renamedEq, `Examples.ConversionTrial.chainEq, `Examples.ConversionTrial.leftRightEq, `Examples.ConversionTrial.Negative.headsSameType, `Examples.ConversionTrial.Negative.headsDistinctSyntax] do
+    let origin := match env.getModuleIdxFor? name with
+      | some i => toString env.header.moduleNames[i.toNat]!
+      | none => "current/absent"
+    Lean.logInfo m!"{name}: {origin}"
+''');r=subprocess.run(['taskset','-c','0',e['lean'],str(f)],cwd=e['cwd'],env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT);(out/(label+'.log')).write_bytes(r.stdout);print(label,r.returncode,r.stdout.decode())

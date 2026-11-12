@@ -1,0 +1,85 @@
+# #423 matched-author trial preparation plan
+
+Status: read-only proposal after engine acceptance at `03cfba5e37d64c33bcec1f8484616d9e31de9397`. No fixture source was edited, no author was spawned, no route assigned and no task exposed. The existing prospective protocol remains authoritative. This plan does not change its sample size, dimensions, budgets or stopping rules. #423 remains open.
+
+## Next bounded implementation step
+
+Capture a baseline for the literal paths in `proposed-scope.json`, then materialize the experiment fixtures, independent reference checks and release/check harness under `experiments/dependent-conversion-authoring/`. Do not modify the engine or public language interfaces. Use a dedicated checkout at a pinned accepted master containing the reviewed engine, preserving unrelated verification-tooling work. The initial deliverable is a checked and independently reviewed preparation bundle, not author execution. All sizes remain composition1/4/8, contexts2/4/8, substitutions1/2/4; there is currently no concrete reason to reduce them.
+
+Suggested staged work within the existing four-active-preparer-hour ceiling:
+
+1. Materialize common open terms, typed substitutions, task statements and metadata; prove direct oracle derivations and the independent finite semantic negative.
+2. Materialize route release bundles and a source/check/audit harness; smoke-test positive, deliberate false and source-policy controls without any author sessions.
+3. Independently review mathematical statements, isolation manifests, command equivalence, release policy, telemetry and stopping enforcement. Record remaining infrastructure gaps before attempting an author cohort.
+
+The prior engine implementation/reviews are separate setup costs. This planning work and subsequent materialization count as preparation. Do not report unknown active time as zero or reconstruct it from commit timestamps.
+
+## Fixture definitions and independent dimensions
+
+`fixtures/Terms.lean` imports only the existing grammar/equality/typing/laws, not the converter or engine development examples. Define a base-context builder, an open family variable and an open function whose result-family index is the bound base variable. Define repeated eta expansion and beta wrappers within that grammar, source size/redex-depth measurements and typed nonidentity substitutions. There is no higher-order function domain or new source operation.
+
+`fixtures/Initial.lean` exposes one explicit shared-index dependent equality after eta expansion, beta application, two nonidentity typed substitutions and weakening, plus the required type/index obligations. Freeze a genuinely varying index, not a constant family. Reuse the engine's generic public rules, but do not release its task-specific development solution as the answer.
+
+`fixtures/Scale.lean` contains three explicitly separated families:
+
+| Axis | Required values | Held constant |
+| --- | --- | --- |
+| Composition | eta/beta recipe lengths1,4,8 | final base width2, substitution depth2 |
+| Context | final base widths2,4,8 | recipe length1, substitution depth2 |
+| Substitution | depths1,2,4 | final base width2, recipe length1 |
+
+A feasible context construction starts from one base variable plus selected family/function variables, then repeatedly adds base binders. The surviving free variable/function paths shift through these weakenings. This exercises identity rather than merely widening an unused environment. Each function still has a base domain and a primitive-family result. Use the selected family variable at constant zero and the function variable at the bound-base index. Negating every free base assignment can then retain both variable assignments: zero stays zero and the bound function index stays bound. Prove the constructed substitutions' Typed properties. The generated application still has a genuinely varying result index through its open argument; the auxiliary zero-family variable does not replace that consumer.
+
+Keep labels such as "recipe length" distinct from measured AST node count. `fixture-metrics.json` must report actual generated term nodes, redex nesting, context widths, substitution count and target indices per task. A parameter to a generator is not evidence of the final tree size. Do not combine all three large values into one scaling comparison.
+
+`fixtures/Repair.lean` supplies a later revision of an initially constant typed substitution to one depending on another free base variable. A valid output must revise index/formation evidence and preserve the source equality. The old constant annotation must fail. This phase must be sealed before the first author starts, not improvised from their mistakes.
+
+`fixtures/Negative.lean` states same-index changed-free-function and mismatched surviving-index tasks. Private references prove the former through the existing actual finite sheaf model with differing Boolean function observations and the latter through existing equality typing. A converter returning notConvertible is not the independent negative oracle.
+
+`fixtures/HeldOut.lean` supplies a separately prepared additional-binder and nonidentity-substitution variant of the frozen supported rules. It is prepared and checked before authors begin, withheld until maintenance, and is not #108's protected theorem. Its task-specific helpers/solutions are never in the earlier public bundle.
+
+## Independent oracle checks
+
+`private/DirectReference.lean` proves every positive target with unchanged native beta/eta/congruence/typed-substitution laws, including all scale instances and repair/maintenance. It must not import or call the converter. `private/ServiceReference.lean` constructs the same target derivations using the optional service. It does not define the expected theorem statements.
+
+`private/SeparatingModel.lean` proves the fixture-specific same-index negative through interpretation soundness and two unequal finite observations, independent of normal-form comparison. It may reuse generic existing finite sheaf machinery; do not copy the engine's already solved task as a supposedly fresh author task.
+
+`private/Validate.lean` checks all expected declaration types, inferred-index obligations, positives and negative controls and executes the applicable exhaustive axiom audit. The harness rejects admissions, unsafe source, malformed import placement and omitted declaration coverage using the repository's accepted verification approach. Any non-integrated experiment adapter must preserve those checks and receive its own smoke tests. Do not invent an alternative Python Lean parser or treat a successful Lean invocation alone as an exhaustive audit.
+
+Independent Standards and Spec review must check the actual instantiated tasks and solutions, not only the generator definitions. It also checks that direct authors retain all baseline generic helpers, that service authors receive no unrelated client-specific shortcut, and that the false controls fail for the intended reason. All preparers/reviewers exposed to these solutions are ineligible as authors.
+
+## Release bundles
+
+Use immutable content manifests and copy-only public handoffs, without repository Git history or links back into private proof trees.
+
+- Common initial release: public generic grammar/typing/equality/renaming/substitution interfaces and their documented import closure, frozen development instructions, Initial statements, task-neutral Terms definitions, check wrapper and allowed tools. No oracle solutions, future fixtures or engine development examples.
+- Route D additionally receives a short direct-helper index, with the generic rules already allowed to both groups. Route S additionally receives the reviewed converter library and public-service contract documentation. Both may use all common generic laws. S may fall back to direct helpers, but must log every fallback. D may discover/prove general helpers and retain them through later phases.
+- Scale release: the identical nine factorwise cases for each author, after initial completion or the frozen phase transition. No expected proof scripts are released.
+- Repair release: only the frozen repair statement and changed assumptions, at its phase.
+- Maintenance/rejection release: HeldOut and Negative statements at the final phase, with no separating-model solution. Earlier author helpers remain available.
+
+Do not use imports that accidentally expose private references, the held-out fixture, the other route or existing task-specific conversion examples. Check transitive Lean imports, source inventories, documentation links and precompiled outputs. Hiding a source file while supplying its `.olean` does not withhold its declarations.
+
+## Isolation and randomization
+
+Create six fresh session slots, randomly assign exactly three to each route before task exposure and freeze the seed, algorithm, permutation and session-slot map. A reproducible procedure is to sort slot IDs by SHA256(seed || slotID), assign the first three D and the remainder S, and publish the seed/assignment before dispatch. Generate the seed before inspecting prospective author outcomes. Assign fresh actual session identifiers to the already randomized slots without rerandomizing for availability.
+
+No history fork, prior solution context, subagents, other-author communication or task-source searches outside the public handoff. Preparers, this reviewer, the engine author and any solution-exposed reviewer are ineligible. Fresh sessions provide independent exposure, not independent model populations. Existing development work and #108 eligibility must remain separate.
+
+Use six independently copied public trees and private writable output directories, with no shared writable Lake/project artifacts. No original `.git` or private task symlinks. Read-only toolchain/dependency resources may be shared only if their frozen inventory has no trial solutions. Route-specific generic library artifacts may be precompiled, but no task solution artifacts may be included. The source and artifact inventories must match their route manifests.
+
+The current host has unrestricted tool filesystem access. A disjoint directory and an instruction restriction are not operating-system isolation. Prior local trials explicitly used instruction/inventory controls; that is a possible disclosed policy, but it must be frozen honestly and monitored by command logs. `bwrap` was not found in PATH during this preparation; `unshare` exists but no namespace capability test was performed. If stronger isolation is selected, first prove that the runner actually prevents reading host/private/other-author paths without breaking the identical environment. Do not claim that a writable-workspace sandbox prevents all external reads.
+
+## Cache, commands and timing
+
+Use a uniform warm-baseline policy: prepare each public generic dependency closure before author time; remove task outputs and give each author private compilation outputs. Charge and report converter build/admission separately from direct baseline preparation. Authors may reuse their own earlier phase artifacts and helpers. Record all checks even when Lake reports cached work. Do not let another author's outputs warm a task-specific cache.
+
+All author Lean operations, including #check and exploratory compilation, go through one frozen `check_attempt.py` with immutable AttemptNN source snapshots, UTC timestamps, monotonic elapsed duration, actual command, stdout/stderr, exit status and source/environment hashes. It calls the declared `direnv exec .`/Nix shell tools, on CPU0 under the shared build lock, with proof checks applied identically to both routes. Final coordinator audit/replay is a separately logged post-author action, not unrecorded author assistance.
+
+The protocol retains 75 minutes and 24,000 model tokens per author; phase ceilings are15/20/20/10/10 minutes. Release early upon completion while preserving the whole-session cap. Retain partial work at the first budget, completed-task, environment-failure or correctness-failure stop. Record phase overruns, contention and interruptions explicitly. Because this host serializes CPU checks, launching six simultaneous timed authors would induce avoidable route-confounded waiting; schedule sequentially in the randomized slot order, or freeze balanced scheduling and disclose waits. Do not quietly pause clocks or borrow unlimited phase time. Do not cap one route's number of checks artificially.
+
+A correctness defect stops the affected cohort. Retain the failure; repair under the normal workflow and begin a newly frozen cohort. Environment/protocol answers may be shared uniformly and logged; proof help changes unassisted status. None of these rules allows rewriting the frozen task after seeing results.
+
+## Ready-to-dispatch gates
+
+Fixture materialization can start once root captures the proposed scope/baseline. Author execution cannot start until actual checked fixtures/oracles, independent preparation review, public release inventories, sealed phases, exact configuration/resources and a usable token/wall stopping mechanism exist. The current missing runner metadata/budget enforcement is detailed in `runner-evidence.md`; it does not block proving and reviewing the fixtures. No paid API purchase or authentication change is authorized here.

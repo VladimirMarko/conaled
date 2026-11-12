@@ -1,0 +1,177 @@
+{
+  "captured_at": "2026-11-12T18:12:52.779683+00:00",
+  "status": "Passed",
+  "contexts": [
+    {
+      "slot": 1,
+      "context": "all",
+      "result": "completion/423-trial-execution/slot-1/replay-01/audit-result.json",
+      "log": "completion/423-trial-execution/slot-1/replay-01/Audit.log",
+      "inventory_modules": 2950,
+      "missing_modules": [],
+      "exit_code": 0,
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "slot": 2,
+      "context": "scale-first",
+      "result": "completion/final-integration-validation/audit-scale-first.json",
+      "log": "completion/423-trial-execution/slot-2/replay-02/Audit-scale-first.log",
+      "inventory_modules": 2949,
+      "missing_modules": [],
+      "exit_code": 0,
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "slot": 2,
+      "context": "held-first",
+      "result": "completion/final-integration-validation/audit-held-first.json",
+      "log": "completion/423-trial-execution/slot-2/replay-02/Audit-held-first.log",
+      "inventory_modules": 2949,
+      "missing_modules": [],
+      "exit_code": 0,
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "slot": 3,
+      "context": "all",
+      "result": "completion/423-trial-execution/slot-3/replay-01/audit-result.json",
+      "log": "completion/423-trial-execution/slot-3/replay-01/Audit.log",
+      "inventory_modules": 2951,
+      "missing_modules": [],
+      "exit_code": 0,
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "slot": 4,
+      "context": "all",
+      "result": "completion/423-trial-execution/slot-4/replay-01/audit-result.json",
+      "log": "completion/423-trial-execution/slot-4/replay-01/Audit.log",
+      "inventory_modules": 2949,
+      "missing_modules": [],
+      "exit_code": 0,
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "slot": 5,
+      "context": "Composition",
+      "result": "completion/423-trial-execution/slot-5/replay-01/audit-result-Composition.json",
+      "log": "completion/423-trial-execution/slot-5/replay-01/Audit-Composition.log",
+      "inventory_modules": 2951,
+      "missing_modules": [],
+      "exit_code": 0,
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "slot": 5,
+      "context": "Context",
+      "result": "completion/423-trial-execution/slot-5/replay-01/audit-result-Context.json",
+      "log": "completion/423-trial-execution/slot-5/replay-01/Audit-Context.log",
+      "inventory_modules": 2951,
+      "missing_modules": [],
+      "exit_code": 0,
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "slot": 5,
+      "context": "Substitution",
+      "result": "completion/423-trial-execution/slot-5/replay-01/audit-result-Substitution.json",
+      "log": "completion/423-trial-execution/slot-5/replay-01/Audit-Substitution.log",
+      "inventory_modules": 2951,
+      "missing_modules": [],
+      "exit_code": 0,
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "slot": 5,
+      "context": "HeldOutDraft",
+      "result": "completion/423-trial-execution/slot-5/replay-01/audit-result-HeldOutDraft.json",
+      "log": "completion/423-trial-execution/slot-5/replay-01/Audit-HeldOutDraft.log",
+      "inventory_modules": 2951,
+      "missing_modules": [],
+      "exit_code": 0,
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "slot": 5,
+      "context": "Before",
+      "result": "completion/423-trial-execution/slot-5/replay-01/audit-result-Before.json",
+      "log": "completion/423-trial-execution/slot-5/replay-01/Audit-Before.log",
+      "inventory_modules": 2951,
+      "missing_modules": [],
+      "exit_code": 0,
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "slot": 5,
+      "context": "After",
+      "result": "completion/423-trial-execution/slot-5/replay-01/audit-result-After.json",
+      "log": "completion/423-trial-execution/slot-5/replay-01/Audit-After.log",
+      "inventory_modules": 2951,
+      "missing_modules": [],
+      "exit_code": 0,
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "slot": 6,
+      "context": "all",
+      "result": "completion/423-trial-execution/slot-6/replay-01/audit-result.json",
+      "log": "completion/423-trial-execution/slot-6/replay-01/Audit.log",
+      "inventory_modules": 2949,
+      "missing_modules": [],
+      "exit_code": 0,
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "interpretation": "Twelve audit contexts cover six exact submissions and every required original helper owner. Inventories overlap and are not additive.",
+  "queue_interruption": "Original queued jobs had no live processes or completion evidence; cause unknown. Their pre-restart records and unchanged scripts were archived. Root resumed unexecuted jobs. Slot1 was already complete and was not repeated.",
+  "controller_exit": "The first controller returned nonzero because an unrelated Wasm source-policy check rejected a function named admit. Both slot2 audits passed; remaining author audits used a separate controller. No author proof bytes changed."
+}

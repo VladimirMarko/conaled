@@ -1,0 +1,19 @@
+{
+  "status": "Passed",
+  "command": [
+    "/home/vlad/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+    "-R",
+    "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources",
+    "-o",
+    "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/modules/Examples/ConversionTrial/Author/Audit.olean",
+    "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources/Examples/ConversionTrial/Author/Audit.lean"
+  ],
+  "cwd": "/tmp/conaled-wave-20261111/423-trial-execution/slot-1/replay-01/sources",
+  "exit_code": 0,
+  "start": "2026-11-12T17:49:36.158548+00:00",
+  "completed": "2026-11-12T17:51:03.404311+00:00",
+  "inventory_count": 2950,
+  "missing_reported_modules": [],
+  "log_sha256": "c2c6f62e7d2f2943411720a5ad513aeca9cb542dd6282e22949d2f5477fe70a3",
+  "scope": "Unchangedproductionauditor andcompletecandidatefilesystemsourceinventory plus exactsixauthorsourcefiles; oldprivatecacheexcluded."
+}

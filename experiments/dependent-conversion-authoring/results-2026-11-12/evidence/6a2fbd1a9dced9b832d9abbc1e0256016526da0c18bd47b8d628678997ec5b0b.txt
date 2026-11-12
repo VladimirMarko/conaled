@@ -1,0 +1,16 @@
+import Lean
+import Examples.ConversionTrial.Author.Substitution
+import Examples.ConversionTrial.Author.After
+import Examples.ConversionTrial.Author.Before
+import Examples.ConversionTrial.Author.Composition
+import Examples.ConversionTrial.Author.Context
+import Examples.ConversionTrial.Author.Draft
+import Examples.ConversionTrial.Author.HeldOutDraft
+import Examples.ConversionTrial.Author.NegativeDraft
+run_cmd do
+  let env ← Lean.getEnv
+  for name in [`Examples.ConversionTrial.expand_equal, `Examples.ConversionTrial.rename_typed_comp, `Examples.ConversionTrial.liftRen_typed, `Examples.ConversionTrial.renamed_equal, `Examples.ConversionTrial.chain_equal, `Examples.ConversionTrial.left_right_equal] do
+    let origin := match env.getModuleIdxFor? name with
+      | some i => toString env.header.moduleNames[i.toNat]!
+      | none => "current/absent"
+    Lean.logInfo m!"{name}: {origin}"

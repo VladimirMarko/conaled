@@ -1,0 +1,7 @@
+# Available trial configuration metadata
+
+Read-only inspection found current parent thread stored metadata reporting model `gpt-6-astra`, effort `medium`, provider `openai`, and CLI0.161.0. The current indexed rollout context is dated2026-11-12, distinct from a stale initial rollout dated2026-11-10. Retain `parent-current-selected-metadata.json`; the earlier `parent-selected-metadata.json` is historical and must not be used as current evidence.
+
+The current rollout also supplies cumulative and last usage fields plus context-window metadata. This is evidence that non-secret usage records are locally available for this thread, not a guarantee that each future child exposes the same fields. Freeze the inherited requested configuration, then record each fresh child's reported metadata before task exposure. Retain provider totals and subset fields separately; do not sum cached input or reasoning output into totals again. These local values are not an exact serving revision or a proof of scheduler enforcement.
+
+Official interface context: [Codex app-server documentation](https://learn.chatgpt.com/docs/app-server), opened2026-11-12. The existing collaboration interface remains the planned execution route; no app-server, paid API invocation or model change was started by inspection. No credentials or unrestricted configuration contents were read.

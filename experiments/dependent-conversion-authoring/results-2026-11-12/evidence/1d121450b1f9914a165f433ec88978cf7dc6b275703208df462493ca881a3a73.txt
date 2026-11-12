@@ -1,0 +1,51 @@
+{
+  "session": {
+    "id": "01a1d04f-cc08-7081-849e-b12ce4f5a98b",
+    "timestamp": "2026-11-12T15:10:52.940Z",
+    "cwd": "/home/vlad/Code/conaled",
+    "cli_version": "0.161.0",
+    "model_provider": "openai",
+    "source": {
+      "subagent": {
+        "thread_spawn": {
+          "parent_thread_id": "01a1c462-e659-7b30-8dd3-dcfcf8a9bb5b",
+          "depth": 1,
+          "agent_path": "/root/trial423_author1",
+          "agent_nickname": "Socrates",
+          "agent_role": null
+        }
+      }
+    }
+  },
+  "context": {
+    "timestamp": "2026-11-12T15:10:54.764Z",
+    "model": "gpt-6-astra",
+    "effort": "medium",
+    "cwd": "/home/vlad/Code/conaled",
+    "approval_policy": "never"
+  },
+  "usage": {
+    "timestamp": "2026-11-12T15:11:04.867Z",
+    "info": {
+      "total_token_usage": {
+        "input_tokens": 34484,
+        "cached_input_tokens": 28928,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 232,
+        "reasoning_output_tokens": 0,
+        "total_tokens": 34716
+      },
+      "last_token_usage": {
+        "input_tokens": 17306,
+        "cached_input_tokens": 17024,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 185,
+        "reasoning_output_tokens": 0,
+        "total_tokens": 17491
+      },
+      "model_context_window": 258400
+    }
+  },
+  "provenance": "/home/vlad/.codex/sessions/2026/11/12/rollout-2026-11-12T16-10-52-01a1d04f-cc08-7081-849e-b12ce4f5a98b.jsonl",
+  "exact_serving_revision": null
+}

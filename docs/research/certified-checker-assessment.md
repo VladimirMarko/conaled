@@ -152,6 +152,14 @@ imports, elaboration, kernel checking and exhaustive audit. They are **not** an
 isolated measurement of kernel CPU time. An import-only baseline is reported
 separately, without subtracting it to claim a pure checking time.
 
+The current launcher uses [shared measurement support](measurement-support.md).
+It obtains imports and source-policy results from the pinned Lean parser, retains
+the inventory helper required by the private audit, and records bounded output,
+failed/incomplete attempts and publication outcomes. Each child also has an 8 MiB
+regular-file cap, including generated outputs. Records retain generated input
+hashes and separate outer process intervals from parsed inner runtime samples.
+The historical run below predates this refactor and is not its acceptance record.
+
 ### Observed run
 
 The final local run on 2026-10-25 used Lean 4.35.0, commit

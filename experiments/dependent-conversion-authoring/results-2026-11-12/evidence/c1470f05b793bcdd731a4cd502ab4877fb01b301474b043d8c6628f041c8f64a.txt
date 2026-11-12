@@ -1,0 +1,64 @@
+{
+  "at": "2026-11-12T15:58:06.669520+00:00",
+  "slots": [
+    {
+      "slot": 3,
+      "route": "service",
+      "session": "01a1d068-7913-7ca1-ae42-ce00384ec7e6",
+      "configs": [
+        [
+          "gpt-6-astra",
+          "medium"
+        ]
+      ],
+      "authored_files": [
+        "Substitution.lean",
+        "NegativeProof.lean",
+        "Draft.lean",
+        "RepairBefore.lean",
+        "Composition.lean",
+        "Context.lean",
+        "HeldOutProof.lean",
+        "RepairAfter.lean"
+      ],
+      "failed_attempts": [
+        "scale-composition-compile-001",
+        "compile-001",
+        "scale-context-compile-001",
+        "scale-substitution-compile-001"
+      ],
+      "incomplete_attempts": [],
+      "archive": "/tmp/conaled-wave-20261111/423-trial-execution/slot-3/final-submission",
+      "audit": "pending root",
+      "extensions_used": 0
+    },
+    {
+      "slot": 4,
+      "route": "direct",
+      "session": "01a1d073-e844-7d92-80d5-20c487497b85",
+      "configs": [
+        [
+          "gpt-6-astra",
+          "medium"
+        ]
+      ],
+      "authored_files": [
+        "NegativeProof.lean",
+        "Draft.lean",
+        "RepairBefore.lean",
+        "HeldOutProof.lean",
+        "ScaleProof.lean",
+        "RepairAfter.lean"
+      ],
+      "failed_attempts": [
+        "compile-001"
+      ],
+      "incomplete_attempts": [],
+      "archive": "/tmp/conaled-wave-20261111/423-trial-execution/slot-4/final-submission",
+      "audit": "pending root",
+      "extensions_used": 0
+    }
+  ],
+  "coordinator": "/root/execution423_spec; ineligible author/final reviewer of own coordination",
+  "cost_boundary": "Author recorder checks and helper work remain separate from copied generic warm caches, source/package acceptance, coordinator phase-definition compiles, metadata/hash checks, archival, replay/audit and review. Active reasoning and unavailable historical setup effort unknown. UTC/monotonic records do not rank routes."
+}

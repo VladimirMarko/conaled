@@ -1,0 +1,69 @@
+"""Local coordinator evidence operations; not part of the frozen author package."""
+from pathlib import Path
+import json,hashlib,shutil,datetime,time,subprocess,os,sys
+R=Path('/tmp/conaled-wave-20261111');P=R/'423-execution-correction/prepared-final';T=R/'423-trial-execution'
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def read(p):return json.loads(p.read_text())
+def write(p,x):
+ assert not p.exists(),p
+ p.write_text(json.dumps(x,indent=2)+'\n')
+def now():return {'at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'monotonic_ns':time.monotonic_ns()}
+def usage(slot,dest):
+ meta=read(slot/'bootstrap-metadata.json');p=Path(meta['provenance']);events=[]
+ for line in p.read_text().splitlines():
+  try:x=json.loads(line)
+  except json.JSONDecodeError:continue
+  v=x.get('payload',{});typ=x.get('type');fields={'session_meta':['id','timestamp','cwd','cli_version','model_provider','source'],'turn_context':['model','effort','cwd','approval_policy']}
+  if typ in fields:events.append({'timestamp':x.get('timestamp'),'type':typ,'payload':{k:v.get(k) for k in fields[typ]}})
+  elif typ=='event_msg' and v.get('type')=='token_count':events.append({'timestamp':x.get('timestamp'),'type':'token_count','info':v.get('info')})
+ write(dest,{'provenance':str(p),**now(),'events':events,'interpretation':'Raw cumulative and per-turn counters separate; cached/reasoning subsets not added; not author effort or performance ranking.'})
+ return [x for x in events if x['type']=='token_count'][-1:]
+def archive(n,phase,pairs,notes):
+ slot=T/f'slot-{n}';work=slot/'work';pub=P/f'slots/slot-{n}/public';ctx=read(work/'context.json');rel=read(pub/'release.json');assert ctx['phase']==phase;assert sha(pub/'release.json')==ctx['release_sha256'];assert sha(work/'environment.json')==ctx['environment_sha256']
+ for f in rel['files']:assert sha(pub/f['path'])==f['sha256'],f
+ dest=slot/(phase+'-completion');dest.mkdir();checks=[]
+ allowed={'Init'}|{f['path'][:-5].replace('/','.') for f in rel['files'] if f['path'].endswith('.lean')}
+ for source,compile_attempt,policy_attempt in pairs:
+  for a in [compile_attempt,policy_attempt]:
+   q=work/a;x=read(q/'result.json');assert x['exit_code']==0 and x['status']=='check-passed',a;assert x['source_sha256']==sha(work/source)==sha(q/'source.lean'),a;assert x['output_sha256']==sha(q/'output.log'),a;assert x['context']==ctx,a
+   if a==policy_attempt:
+    imports=json.loads((q/'output.log').read_text())[0]
+    # Author helper imports require manual explicit review before supplying this utility.
+    assert set(imports)<=allowed,(a,imports)
+   checks.append(a)
+  shutil.copy2(work/source,dest/source)
+ for f in ['context.json','environment.json']:shutil.copy2(work/f,dest/f)
+ shutil.copy2(pub/'release.json',dest/'release.json')
+ write(dest/'all-work-hashes.json',{str(f.relative_to(work)):sha(f) for f in work.rglob('*') if f.is_file()})
+ write(dest/'outcome.json',{'status':'checked-submission',**now(),'checks':checks,'assessment':notes,'final_coordinator_audit':'pending','assistance':'No mathematical assistance from coordinator'})
+ latest=usage(slot,dest/'raw-usage-events.json')
+ write(dest/'sanity-review.json',{**now(),'latest_usage_event':latest,'decision':'Completed phase in usable environment; next frozen phase may proceed. No extension used. Provider totals reviewed as repeated/cached input observations, not hard failures.','active_reasoning_time':'unknown','unobserved_suspension':'unknown'})
+def release(n,phase):
+ slot=T/f'slot-{n}';work=slot/'work';pub=P/f'slots/slot-{n}/public';ctx=read(work/'context.json');rel=read(pub/'release.json');env=read(work/'environment.json');assert (slot/(ctx['phase']+'-completion')).exists();assert sha(pub/'release.json')==ctx['release_sha256']
+ for f in rel['files']:assert sha(pub/f['path'])==f['sha256']
+ rows=[f for f in read(P/'prepared.json')['files'] if f['path'].startswith('sealed/'+phase+'/')];assert rows
+ if phase=='repair-change':
+  old=Path(env['output']);out=work/'repair-change-output';out.mkdir()
+  # Only original warm modules and released definition artifacts, never helpers/old Repair.
+  allowed={f['path'][:-5]+'.olean' for f in rel['files'] if f['path'].endswith('.lean') and not f['path'].endswith('/Repair.lean')}
+  copied={}
+  for name in sorted(allowed):
+   src=old/name
+   if src.is_file():
+    target=out/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(src,target);copied[name]=sha(target)
+  shutil.copy2(pub/'Examples/ConversionTrial/Repair.lean',slot/'repair-baseline-completion/supplied-Repair.lean')
+  write(slot/'repair-output-switch.json',{**now(),'old_output':str(old),'new_output':str(out),'copied_artifacts':copied,'excluded':'Old Repair and all author/helper artifacts; no fallback LEAN_PATH to old root'})
+  env['output']=env['LEAN_PATH']=str(out);(work/'environment.json').write_text(json.dumps(env,indent=2)+'\n')
+ for f in rows:
+  src=P/f['path'];assert sha(src)==f['sha256'];name=f['path'].split('sealed/'+phase+'/')[1];dest=pub/name
+  if dest.exists():assert phase=='repair-change'
+  dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(src,dest)
+  rel['files']=[x for x in rel['files'] if x['path']!=name]+[{'path':name,'sha256':sha(dest)}]
+  out=Path(env['output'])/(name[:-5]+'.olean');out.parent.mkdir(parents=True,exist_ok=True);cmd=['taskset','-c','0',env['lean'],'-R',str(pub),'-o',str(out),str(dest)];start=now();run=subprocess.run(cmd,cwd=pub,env={**os.environ,'LEAN_PATH':env['LEAN_PATH']},stdout=subprocess.PIPE,stderr=subprocess.STDOUT);log=slot/('coordinator-'+phase+'.log');assert not log.exists();log.write_bytes(run.stdout);write(slot/('coordinator-'+phase+'.json'),{'command':cmd,'source_sha256':sha(dest),'start':start,'finish':now(),'exit_code':run.returncode,'output_sha256':sha(log),'artifact_sha256':sha(out) if run.returncode==0 else None});assert run.returncode==0
+ rel['phase']=phase;(pub/'release.json').write_text(json.dumps(rel,indent=2)+'\n');ctx.update(phase=phase,release_sha256=sha(pub/'release.json'),environment_sha256=sha(work/'environment.json'));(work/'context.json').write_text(json.dumps(ctx,indent=2)+'\n')
+ write(slot/(phase+'-release.json'),{**now(),'context':ctx,'decision':'Prior submission archived/checked; release only next frozen phase; supplied definition compilation passed','checkpoint_minutes':{'scale':20,'repair-baseline':20,'repair-change':20,'negative':10,'held-out':10}[phase],'repair_interval':'Shared baseline/change interval starts at repair-baseline-release.json; no reset at change','output':env['output'],'sealed_files':rows})
+if __name__=='__main__':
+ op,n,*args=sys.argv[1:];n=int(n)
+ if op=='release':release(n,args[0])
+ elif op=='archive':archive(n,args[0],json.loads(args[1]),args[2])
+ print(op,'completed',n,args[0])

@@ -1,0 +1,12 @@
+/tmp/conaled-wave-20261111/423-trial-execution/slot-2/work/compile-001/source.lean:10:4: error: Type mismatch
+  DepEq.app (FuncEq.eta (Func.var FVar.top.base)) (SquareKit.Internal.DependentStructural.Base.var 1).neg
+has type
+  @DepEq (?m.30 + 1) (Ctx.function ?m.31 ?m.32).base
+    (Dep.app
+      (Func.lam
+        (Dep.app ((Ren.weaken (Ctx.function ?m.31 ?m.32).base).funcMap (Func.var FVar.top.base))
+          (SquareKit.Internal.DependentStructural.Base.var 0)))
+      (SquareKit.Internal.DependentStructural.Base.var 1).neg)
+    (Dep.app (Func.var FVar.top.base) (SquareKit.Internal.DependentStructural.Base.var 1).neg)
+but is expected to have type
+  @DepEq (1 + 1) (widen 1) ((liftRen 1).depMap (source 1)) ((liftRen 1).depMap target)

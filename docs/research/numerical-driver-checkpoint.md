@@ -89,3 +89,11 @@ direnv exec . python3 scripts/probes/run-disk-feasibility.py ./probe-output reru
 ```
 
 When other agents are building, serialize this invocation using the orchestrator's shared build lock. The portable launcher uses `lake env` from the current checkout instead of a saved host-specific `LEAN_PATH`. Measurements may vary with the environment; neither agreement nor faster timing changes the proof boundary.
+
+The current portable launcher uses [shared measurement support](measurement-support.md).
+It preserves the positional command and `.stdout`, `.stderr`, `.meta.json` files,
+adds a reserved `.setup/` directory and rejects reused evidence names. Current
+receipts include source/toolchain/environment identity, explicit process and
+publication outcomes, and a separately validated `numerical.outcome`. A zero CLI
+exit retains its process-based meaning; inspect the numerical outcome for missed
+tolerance or checked rejection. The retained historical logs above are unchanged.

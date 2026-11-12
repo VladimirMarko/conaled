@@ -1,0 +1,27 @@
+{
+  "raw_usage": {
+    "timestamp": "2026-11-12T15:13:08.178Z",
+    "info": {
+      "total_token_usage": {
+        "input_tokens": 200663,
+        "cached_input_tokens": 170112,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1707,
+        "reasoning_output_tokens": 35,
+        "total_tokens": 202370
+      },
+      "last_token_usage": {
+        "input_tokens": 28015,
+        "cached_input_tokens": 25728,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 220,
+        "reasoning_output_tokens": 0,
+        "total_tokens": 28235
+      },
+      "model_context_window": 258400
+    }
+  },
+  "provenance": "/home/vlad/.codex/sessions/2026/11/12/rollout-2026-11-12T16-10-52-01a1d04f-cc08-7081-849e-b12ce4f5a98b.jsonl",
+  "review": "Initial completed obligations checked and nextphaseauthorized; reported cumulative total includes bootstrap and repeated/cachedinput, not author effort. Retain checkpoint as sanityreview, no hardfailure or timingranking. Nextscalephase retains20minutecheckpoint and ordinaryphasecontinuationrule.",
+  "missing_live_sampling": "Boundary capture only; no claim of live threshold enforcement."
+}
