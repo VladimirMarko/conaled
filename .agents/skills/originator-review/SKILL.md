@@ -25,7 +25,10 @@ can be reviewed together.
    If discussion or the agreed version is unavailable, state the limitation and
    assess the available requirements without claiming recovered intent. Manual
    invocation works without discovering or contacting another session.
-2. Pin the candidate commit and inspect its files with `git show` or an isolated
+2. Reuse the enclosing loop's `review_snapshot.py` receipt, or use `validate`
+   under the shared procedure when establishing committed inputs independently.
+   The accepting coordinator runs `compare` before acceptance; this adds no
+   extra review axis. Pin the candidate commit and inspect its files with `git show` or an isolated
    checkout, including relevant unchanged definitions; do not substitute live
    checkout contents. Inspect ordinary Standards and Spec outcomes and their
    validation evidence for that same candidate and acceptance scope. Missing,
