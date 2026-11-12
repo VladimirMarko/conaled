@@ -208,11 +208,15 @@ A digest match is an identity check; the checker still verifies correspondence
 against those actual objects. Rebinding a bad artifact to a new digest does
 not make its equations pass.
 
+`source_realization` independently checks the source semantics, initialization,
+input/observation contract and exact temporary bounds before `select` can choose
+any executable route, including the baseline. An unsupported source refuses
+execution even with no optimization certificate or an empty input list.
 `admit` checks identity, supported semantics, realization bounds and the selected
 evidence route. `select` admits the compressed candidate only with that semantic
 acceptance and an independently checked claim in `declared-state-bits-v1`.
-Without extra evidence, it retains the source interpreter with two four-bit
-registers. Without resource evidence, semantic admission succeeds but the
+For a supported source, missing or rejected optimization evidence retains the
+source interpreter with two four-bit registers. Without resource evidence, semantic admission succeeds but the
 state-saving selection falls back. `execute_selected` executes the chosen
 machine and checks every input before its transition. The diagnostic is retained
 when selection falls back, rather than being hidden by the successful baseline.
@@ -281,7 +285,7 @@ engineering evidence when judging setup cost. [Rabe and Kohlhase, definitions
 |---|---|
 | Source coefficient changes from 3 to 2 | Both routes reject old bindings, and also reject freshly bound old relation evidence. First input 1 independently separates outputs 2 and 3 |
 | Initialization changes to `(0,1)` | Both reject the old binding and then the initialization correspondence after rebinding |
-| Modulus changes to 8 or primitive meaning to saturation | Old binding fails; rebinding reaches unsupported contract diagnostics. This is absent route support, not mathematical impossibility |
+| Modulus changes to 8 or primitive meaning to saturation | Old binding fails; rebinding reaches unsupported contract diagnostics. The source-only gate refuses execution with either fresh evidence or no evidence, including an empty trace. This is absent route support, not mathematical impossibility |
 | Artifact output becomes `2*q` | Old binding fails; fresh binding fails output correspondence in both routes |
 | Input 16 arrives | Executable input check rejects before a transition. The theorem only covers 0 through 3; a larger domain needs fresh arithmetic and admission evidence |
 | Four-bit exact temporaries or three-bit state layout | Bound/layout checks reject both routes; state values such as 15 and temporary value 45 explain the failures |
@@ -382,7 +386,7 @@ The executed author inputs are small but not a controlled author trial:
 Route A supplies a multiplier and decoder; Route B supplies sixteen relation
 triples and that decoder. Both include exact association. The one-time work
 includes semantics, polynomial normalization or relation checking, bounds,
-binding and diagnostics. No independent authors, repair-time measurements or
+binding, independent baseline admission and diagnostics. No independent authors, repair-time measurements or
 resource benchmarks were collected. The five-expression composition check and
 mutation suite measure diagnostic behavior, not author productivity. A larger
 state space increases finite-certificate work; symbolic reuse can avoid that
@@ -424,6 +428,8 @@ direnv exec . python3 experiments/compiler-evidence/probe.py
 
 The recorded run uses the pinned development shell, serialized CPU 0 execution,
 and checks both positive routes, all stated mutations, no-proof/resource fallback,
+source-gate rejection with fresh or absent evidence, valid-source fallback after
+rejected optimization evidence,
 341 traces per route of lengths zero through four, and the 1,280 composed/direct
 interpretation comparisons. The trace count is `1+4+16+64+256`; arbitrary-length
 preservation relies on the stated induction argument, not this bounded replay.

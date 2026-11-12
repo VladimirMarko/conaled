@@ -94,25 +94,30 @@ def binding(source, artifact, decoder):
             "decoder": digest(decoder), "interpretation": "congruence-ring-bits-v1"}
 
 
-def common(source, artifact, decoder):
+def source_realization(source):
+    """Admission for the baseline, independent of optimization evidence."""
     need(source["schema"] == "pair-residue-v1", "unsupported-source")
-    need(artifact["schema"] == "one-register-v1", "unsupported-artifact")
-    need(source["primitive"] == artifact["primitive"] == "exact-nonnegative-int-v1",
-         "unsupported-primitive-meaning")
+    need(source["primitive"] == "exact-nonnegative-int-v1", "unsupported-primitive-meaning")
     need(source["observe"] == "next-y", "unsupported-observation")
-    m = source["modulus"]
-    need(m == artifact["modulus"] == 16, "unsupported-modulus")
+    need(source["modulus"] == 16, "unsupported-modulus")
     need(source["inputs"] == [0, 1, 2, 3], "unsupported-input-contract")
-    need(artifact["state_bits"] == 4, "invalid-representation")
     need(len(source["next"]) == 2 and len(source["initial"]) == 2,
          "invalid-source-shape")
-    need(all(type(x) is int and 0 <= x < m for x in source["initial"]),
+    need(all(type(x) is int and 0 <= x < 16 for x in source["initial"]),
          "invalid-source-initial")
-    need(type(artifact["initial"]) is int and 0 <= artifact["initial"] < m,
-         "invalid-artifact-initial")
-    need(decoder is not None and len(decoder) == 2, "missing-selected-witness")
     for e in source["next"]:
         upper(e, {"x": 15, "y": 15, "d": 3}, 2 ** source["temporary_bits"])
+
+
+def common(source, artifact, decoder):
+    source_realization(source)
+    need(artifact["schema"] == "one-register-v1", "unsupported-artifact")
+    need(artifact["primitive"] == "exact-nonnegative-int-v1", "unsupported-primitive-meaning")
+    need(artifact["modulus"] == 16, "unsupported-modulus")
+    need(artifact["state_bits"] == 4, "invalid-representation")
+    need(type(artifact["initial"]) is int and 0 <= artifact["initial"] < 16,
+         "invalid-artifact-initial")
+    need(decoder is not None and len(decoder) == 2, "missing-selected-witness")
     upper(artifact["next"], {"q": 15, "d": 3}, 2 ** artifact["temporary_bits"])
     upper(artifact["output"], {"q": 15}, 2 ** artifact["temporary_bits"])
     for e in decoder:
@@ -212,6 +217,8 @@ def admit(source, artifact, decoder, certificate, require_resource=False, resour
 
 
 def select(source, artifact, decoder, certificate, resource):
+    # Missing optimization evidence cannot authorize unsupported source execution.
+    source_realization(source)
     result = admit(source, artifact, decoder, certificate, True, resource)
     # Baseline is the exact source interpreter with two declared four-bit
     # registers. Its ordinary structural path needs no extra user proof.
@@ -321,6 +328,38 @@ def self_test():
             raise AssertionError("input check did not reject")
         except Failure as ex:
             assert str(ex) == "unmet-input-premise"
+    # Baseline source admission applies even without a certificate or any ticks.
+    source_failures = [
+        ("primitive", "saturating-v1", "unsupported-primitive-meaning"),
+        ("schema", "other-source", "unsupported-source"),
+        ("observe", "old-y", "unsupported-observation"),
+        ("modulus", 8, "unsupported-modulus"),
+        ("inputs", [0, 1, 2, 3, 16], "unsupported-input-contract"),
+        ("initial", [0, 16], "invalid-source-initial"),
+        ("temporary_bits", 4, "temporary-overflow"),
+    ]
+    for field, value, reason in source_failures:
+        unsupported = deepcopy(SOURCE)
+        unsupported[field] = value
+        for route in (None, "algebra", "finite"):
+            cert = None if route is None else evidence(unsupported, ARTIFACT, DECODER, route)
+            for trace in ([], [3] * 6):
+                try:
+                    execute_selected(unsupported, ARTIFACT, DECODER, cert, trace, resource)
+                    raise AssertionError("unsupported source executed")
+                except Failure as ex:
+                    assert str(ex) == reason, (field, route, str(ex))
+            results[f"source-gate:{field}:{route}"] = reason
+    # Rejected optimization evidence still permits a supported baseline.
+    bad_artifact = deepcopy(ARTIFACT)
+    bad_artifact["output"] = mul(2, "q")
+    for route in ("algebra", "finite"):
+        cert = evidence(SOURCE, bad_artifact, DECODER, route)
+        selected, outputs, diagnostic = execute_selected(
+            SOURCE, bad_artifact, DECODER, cert, [3] * 6, resource)
+        assert selected == "baseline" and outputs == [9, 2, 11, 4, 13, 6]
+        assert diagnostic["status"] == "rejected-evidence"
+        results[f"valid-source:rejected-{route}-fallback"] = "baseline"
     broken = evidence(SOURCE, ARTIFACT, DECODER, "finite")
     broken["relation"].pop()
     assert admit(SOURCE, ARTIFACT, DECODER, broken)["status"] == "rejected-evidence"
