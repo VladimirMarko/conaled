@@ -9,7 +9,8 @@ productivity advantage.
 
 The source was `1d9d4357f93b91a0f01ddef3103a7e4b72e5dc0e`; the accepted execution
 package was `31c08c126952242843af1ac74411efb396743a0b`. This report starts from
-integration `59be9f3c25421ddbe07cca0cb933904a3fd10881`. The
+integration `59be9f3c25421ddbe07cca0cb933904a3fd10881` and incorporates the
+separately reviewed Wasm naming correction at `7084050efc13b7b1ce131ea4bf0a23845b777b37`. The
 [protocol](../../../docs/research/dependent-conversion-authoring-protocol.md),
 [freeze](../execution/freeze.json), [phase rules](../execution/phase-policy.json)
 and author instructions are unchanged. Historical preparation receipts retain
