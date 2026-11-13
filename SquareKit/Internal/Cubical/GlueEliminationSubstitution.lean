@@ -74,4 +74,32 @@ theorem codeUnglue_substitution {Γ Δ : Context.{u}} (φ : Cofibration Γ)
     (D.smallFamily_substitution σ)
     (congrArg decode (code_substitution φ a t e E σ)) h₁ (D.reindex σ).smallUnglue
 
+/-- Equality of supplied boundary data retains the entire chosen code. -/
+theorem code_congr {Γ : Context.{u}} (φ : Cofibration Γ)
+    (a : raisedContext Γ ⟶ smallFamilyCodes.{u})
+    (t t' : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u}) (ht : t = t')
+    (e : decode t ⟶ reindex (decode a) (restrictInclusion φ))
+    (e' : decode t' ⟶ reindex (decode a) (restrictInclusion φ)) (he : HEq e e')
+    (E : HomotopyEquivalence e) (E' : HomotopyEquivalence e') (hE : HEq E E') :
+    code φ a t e E = code φ a t' e' E' := by
+  cases ht
+  cases he
+  cases hE
+  rfl
+
+/-- The supplied eliminator respects the same complete-data equality. -/
+theorem codeUnglue_congr {Γ : Context.{u}} (φ : Cofibration Γ)
+    (a : raisedContext Γ ⟶ smallFamilyCodes.{u})
+    (t t' : raisedContext (restrictContext φ) ⟶ smallFamilyCodes.{u}) (ht : t = t')
+    (e : decode t ⟶ reindex (decode a) (restrictInclusion φ))
+    (e' : decode t' ⟶ reindex (decode a) (restrictInclusion φ)) (he : HEq e e')
+    (E : HomotopyEquivalence e) (E' : HomotopyEquivalence e') (hE : HEq E E') :
+    codeUnglue φ a t e E =
+      eqToHom (congrArg decode (code_congr φ a t t' ht e e' he E E' hE)) ≫
+        codeUnglue φ a t' e' E' := by
+  cases ht
+  cases he
+  cases hE
+  rfl
+
 end SquareKit.Cubical.Presheaf.Glue
