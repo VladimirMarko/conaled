@@ -1,5 +1,6 @@
 import SquareKit.Internal.Cubical.NativePathSingleton
 import SquareKit.Internal.Cubical.HomotopyRetracts
+import SquareKit.Internal.Cubical.HomotopyEquivalenceSubstitution
 import Examples.CubicalEquivalenceFamilies
 
 /-! Native contractions apply to based path families and chosen equivalence witnesses. -/
@@ -32,5 +33,11 @@ noncomputable def witnessRoundtrip
     (isEquivFilling boolIso.hom boolFilling boolFilling_lawful boolFilling boolFilling_lawful)
     (isEquivFilling_lawful boolIso.hom boolFilling boolFilling_lawful boolFilling boolFilling_lawful)
     (flipWitnessPath e d) (flipWitnessPath d e)
+
+/-- Repeated context substitution retains the supplied Boolean fiber contractions. -/
+theorem flip_substitution_comp {Δ Θ : Context.{0}} (σ : Δ ⟶ Γ) (τ : Θ ⟶ Δ)
+    (e : HomotopyEquivalence (boolIso (Γ := Γ)).hom) :
+    (e.reindex σ).reindex τ = e.reindex (τ ≫ σ) :=
+  e.reindex_comp σ τ
 
 end Examples.CubicalNativeContractions
