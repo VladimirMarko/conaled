@@ -45,11 +45,9 @@ can be reviewed together.
    retained discussion as such, separately from written-spec findings. Record
    their status across subsequent reviews.
 4. Route required changes to an implementer and an ordinary reviewer using
-   [the shared review procedure](../../../docs/agents/review-loop.md). For
-   `implement-spec`, the implementer handles corrections and the ticket and
-   integration reviewers rerun the applicable loops. For a whole-task workflow,
-   reuse the implementer and reviewer coordinating its single
-   implementation-and-review loop. When invoked independently, recover the
+   [the shared review procedure](../../../docs/agents/review-loop.md). Reuse
+   the implementer and reviewers responsible for the affected acceptance scope
+   and rerun its review loop after corrections. When invoked independently, recover the
    existing record and outcomes first; establish missing
    assignments only when corrections or missing ordinary review require them;
    no originating-session discovery is
