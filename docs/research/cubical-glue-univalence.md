@@ -162,3 +162,20 @@ false and false to true; integer successor sends 3 to 4; its inverse sends
 and applies native discrete-path rigidity. This is a checked semantic
 observation, not execution of the noncomputable construction. The dependent
 whole-state-package comparison remains outstanding.
+### Native universal decoding
+
+`UniverseDecode.lean` constructs the universal decoding family in the larger
+context universe. Its fibers are raised by `ULift`; small represented charts
+supply their original chosen fillings. `NativeDecode.filling_lawful` proves
+cap and tube recovery and uniform substitution. `filling_reindex` retains the
+selected filling exactly, rather than merely asserting that another filling
+exists. No resizing or universe-decoding filling is postulated.
+
+`UniversePathEquivalence.lean` uses that filling for arbitrary native universe
+paths over a context in the larger universe. `pathToMap` is the actual chosen
+interval transport, and `pathToEquivalence` constructs its native contractible
+homotopy fibers. These modules passed focused checks at default Lean limits.
+This supplies the forward operation needed for full univalence; it does not
+yet prove that the operation from paths to equivalences is itself an
+equivalence. The reverse operation, its coherence, and the final acceptance
+checks remain necessary.
