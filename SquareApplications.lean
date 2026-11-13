@@ -791,4 +791,6 @@ import Examples.CubicalSmallFamilies
 
 import Examples.DynamicFrontArrays
 
+import Examples.DelayedInsertion
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
