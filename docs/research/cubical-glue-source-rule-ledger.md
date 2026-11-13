@@ -1,17 +1,21 @@
 # Cubical Glue: source-rule ledger
 
-Checkpoint ledger for #420, inspected 2026-11-13 in worker420 at committed checkpoint
-`b6efed37aba9d92e9c408c3e4c6d6dfaa3e7d94b`, with active uncommitted work excluded from completed claims.
-This records semantic construction evidence and the remaining source-admission
-boundary. It does not certify full univalence, the unchanged Agda cover, or final
-integrated acceptance. The subsequent checked checkpoint `aed42e45` completes exact small-code
-substitution, generic native `ua`, its reverse map `equivToPath`, and exact
-unglue substitution. Full univalence remains incomplete.
+This #420 ledger records semantic construction evidence and the remaining
+source-admission boundary. Glue, universe filling, universal decoding, generic
+`ua`, its actual universal-El comparison, and the full chosen-equivalence
+comparison have checked implementations. Full section substitution and the
+native equivalence-family reindex isomorphism are also checked. The final
+`NativeUnivalenceInverse.lean` and `NativeUnivalence.lean` assembly passes
+focused checks, including genuine native univalence and both inverse
+homotopies. Final integrated acceptance remains pending.
 
-The later checkpoint `30b68d9c` also constructs a native path from explicitly
-supplied coherent chart data. Checkpoint `aed42e45` discharges that coherence premise for the actual `ua`
-construction. Merge `007c7450` incorporates the validated #510
-base `65123a90` without changing these mathematical claims.
+The [construction report](cubical-glue-univalence.md) describes the current
+components and the final theorem contracts. Earlier inspection at
+`b6efed37aba9d92e9c408c3e4c6d6dfaa3e7d94b`, generic `ua` checkpoint
+`aed42e45`, and the subsequent construction checkpoints are preserved in
+[the #420 history](https://github.com/VladimirMarko/conaled/issues/420).
+The #510 merge at `007c7450` incorporated its validated base `65123a90`
+without changing the source-admission boundary below.
 
 ## Sources and meaning of evidence
 
@@ -53,13 +57,13 @@ construction checkpoints, not the final #420 build/review outcome.
 | Unglue of introduction | `Glue.unglue_intro` is a semantic term equality. | Attach the equation to the source eliminator rule and its interpreted premises; it is not an importer on its own. |
 | Glue eta | `Glue.compatible_eta`, together with `familyIso`, recovers the complete compatible presentation. | The source eta judgment needs the explicit presentation comparison in its interpretation, not an unspecified homotopy. |
 | Full-face type, introduction and elimination | `family_full`, `fiberEquiv_full`, `fiberEquiv_symm_full`; `UnivalenceTransport.lean`: `unglue_full`, `codeUnglue_full`; `SmallFamilyGlue.lean`: `code_full`. | Family/code equalities and typed maps are available. The full-face source introduction computation must be stated through these exact casts if a source-facing judgment theorem is claimed. |
-| Substitution | `GlueSubstitution.reindexIso`, `compatibleReindex_intro`; `SmallFamilyGlue.code_substitution`; committed `GlueEliminationSubstitution.codeUnglue_substitution`. | Distinguish the compatible-carrier isomorphism from strict normalized code equality. `Univalence.uaCode_reindex` now identifies the complete chosen code, and `Univalence.unglueLine_reindex` preserves the actual eliminator. The code and eliminator congruence lemmas were checked and committed subsequently in `30b68d9c`; final acceptance remains pending. |
+| Substitution | `GlueSubstitution.reindexIso`, `compatibleReindex_intro`; `SmallFamilyGlue.code_substitution`; committed `GlueEliminationSubstitution.codeUnglue_substitution`. | Distinguish the compatible-carrier isomorphism from strict normalized code equality. `Univalence.uaCode_reindex` identifies the complete chosen code, and `Univalence.unglueLine_reindex` preserves the actual eliminator. The native equivalence-family section laws and `equivReindexIso` also retain full selected equivalence data. These semantic equations still require the stated source-rule interpretation. |
 | Derived lawful Glue filling | `GlueFillingSubstitution.filling_lawful`, `filling_full`, `filling_input_reindex`: actual construction, whole selected full-face filler recovery, source-input substitution. `GlueEquivalence.unglueEquivalence` constructs native fiber contractions. | This supplies semantic Kan data. It does not assert algorithmic equality with every Agda Glue `transp`/`hcomp` reduction branch. |
 | Generalized transport | `RestrictedTransport.lean`: `RestrictedConstancy`, `Filling.transp_on_face`, `transp_computation`, `transp_reindex`; `Judgments/TransportRules.lean` and `TransportSubstitutionRule.lean` validate provider-annotated rules. | Map the source face-constancy condition to the supplied semantic witness and selected provider. Arbitrary lawful filling alone is not a proof of every source constant-transport conversion. |
 | Homogeneous composition | `Filling.hcomp`, `hcomp_boundary`, `hcomp_reindex`; `OpenBox` retains the cap/tube compatibility premise. | These are boundary and substitution laws, not a rule-by-rule simulation of the source type-directed reductions. |
 | Universe filling and decoding | `UniverseKan.filling`, `filling_lawful`; `UniverseDecode.liftedDecode` and `NativeDecode.filling_lawful`, `filling_reindex`. Codes retain selected lawful small fillers; the large-context decoder lifts their fibers explicitly. | Declare `smallFamilyCodes.{u}` at level `u+1`, small decoded fibers at level `u`, and lifted native fibers over large contexts. No resizing or all-level source universe interpretation follows. |
-| `ua` and its action | `Univalence.uaCode`, `uaCode_zero/one`, `ua`; `UnivalenceTransport.transport`, `comparison`, `unglueLine_zero/one`. | The comparison is a native path from the supplied-map output to the transported input (reverse it for the usual uaβ orientation). It does not assert generic definitional equality of transport with that map. |
-| Full univalence | `NativeUnivalenceMap.pathToEquiv` is a native map into internal equivalences. `EquivalencePaths.ofHomotopy`, `NativePathSingleton.contractible`, `HomotopyContractible.retract`, and `HomotopyEquivalence.ofContractibleTotals` supply checked prerequisites. | **Incomplete:** `NativeUnivalenceUa.equivToPath` is checked, but its existence is not a theorem that `pathToEquiv` has contractible fibers. Finish the actual generic universal-El comparison and retract/fiber argument. |
+| `ua` and its action | `Univalence.uaCode`, `uaCode_zero/one`, `ua`; `UnivalenceTransport.transport`, `comparison`, `unglueLine_zero/one`; generic `ua` and `equivToPath` in `NativeUnivalenceUa.lean`; `uaComparison` in `NativeUnivalenceElimination.lean` and `uaEquivalenceComparison` in `NativeUnivalenceComparison.lean`. | The comparison is a native path from the supplied-map output to the transported input (reverse it for the usual uaβ orientation). It does not assert generic definitional equality of transport with that map. |
+| Full univalence | Checked native `pathToEquiv` and `equivToPath`, actual generic universal-El comparison, full equivalence-family comparison, native based-path singleton/retract/contractible-total constructions, exact selected-data reindex isomorphism. The final assembly names are `rightInverseAt`, `rightInverseHomotopy`, `equivalenceTotal`, `movingUnivalence`, `univalence`, and `leftInverseHomotopy`. | **Final native assembly checked.** `univalence : HomotopyEquivalence (pathToEquiv a b)` has no remaining assumed inverse homotopy, map comparison, or fiber contraction. Both inverse homotopies use the same constructed `ua` map. This semantic theorem does not itself admit every source judgment; integrated acceptance remains pending. |
 
 The full-face and eta source equations, transport constancy and homogeneous box
 premises are specified in the pinned
@@ -107,9 +111,15 @@ host conjugation alone. The derived filler is in `CubicalStatePackageFamily`.
 non-equivalence rejection. Direct native equivalence clients remain usable.
 These are semantic clients. They do not interpret `Monodromy.agda` unchanged,
 and integer observations alone cannot certify preservation of its derivation.
-Targeted package/equivalence-path/contractible-total axiom logs show only
-`propext`, `Classical.choice`, and `Quot.sound`; this ledger ran no new builds
-and does not replace final exhaustive #420 validation.
+`Examples/CubicalEquivalenceFamilySubstitution.lean` checks full chosen-data
+composition for actual Boolean universal transport with two interval parameters.
+`Examples/CubicalEquivalenceFamilyReindex.lean` recovers the exact map and chosen
+witness after the native reindex isomorphism. These are checked uses of the full
+section laws, not just equalities of observed Boolean functions.
+
+Targeted package/equivalence-path/contractible-total and equivalence-family
+axiom logs show only `propext`, `Classical.choice`, and `Quot.sound`. This
+ledger does not replace final exhaustive #420 validation.
 
 ## Existing ownership and acceptance still required
 
@@ -132,15 +142,17 @@ No new issue is required for the source-admission work:
    the interpreted derivation, with term/dimension substitution and the promised
    conversion judgment. Keep the direct native and Cartesian comparisons named
    as comparisons. Circle construction remains #421's prerequisite.
-4. In #420, finish the actual generic universal-El transport comparison, its full
-   equivalence-family comparison, and actual contractible fibers of
-   `pathToEquiv`. The accepted model must retain selected filling/equivalence
-   data. This ledger cannot discharge that mathematical gap.
-5. Before #420 acceptance, integrate the final code, update chronological
-   checkpoint documentation, connect each claimed source rule to the exact
-   theorem or explicit #422 residual, and complete guarded build/audit plus
-   independent Standards/Spec review. Do not promote a drafted declaration or
-   a conditional chart assembly to completed full univalence.
+4. Preserve the checked #420 inverse and total/fiber assembly: `univalence`
+   proves contractibility of the actual `pathToEquiv` fibers, using the generic
+   universal-El and full equivalence-family comparisons. There is no
+   undischarged right-inverse or fixed-target map-comparison premise. Retain
+   selected filling/equivalence data throughout.
+5. Before #420 acceptance, integrate the final code and entrypoints, connect
+   each claimed source rule to its exact theorem or explicit #422 residual,
+   and complete the guarded build, exhaustive audit, and independent
+   Standards/Spec review. Update the final-assembly status only from those
+   results; a drafted declaration or conditional total construction alone
+   does not establish completed full univalence.
 
 No evaluator simulation, canonicity, runtime backend or cost result is claimed.
 
