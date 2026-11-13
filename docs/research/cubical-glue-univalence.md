@@ -179,3 +179,24 @@ This supplies the forward operation needed for full univalence; it does not
 yet prove that the operation from paths to equivalences is itself an
 equivalence. The reverse operation, its coherence, and the final acceptance
 checks remain necessary.
+
+### Internal equivalences and universe-level adapters
+
+`EquivalenceFamilies.lean` constructs native `Contr`, `IsEquiv`, and `Equiv`
+families. Its section equivalences preserve the selected map, fiber centers,
+and contractions in both roundtrips. Substitution retains those choices.
+The native proposition argument extends partial contractibility witnesses;
+it does not use host proof irrelevance to identify contraction data. The
+required fillers are derived from the existing sum, product, and path
+fillers. The core and its Boolean/varying-family client passed at default
+Lean limits, and targeted axiom inspection found only the ordinary three
+Lean axioms listed above.
+
+`UniverseRaising.lean` constructs explicit raising/lowering adapters for
+native families, terms, paths, dependent sums, and homotopy fibers.
+`lowerChartEquivalence` lowers a genuine equivalence of lifted decoding
+families to a genuine equivalence on each small chart. The core passed at
+default limits. Exact substitution of the entire lowered equivalence is a
+separate, unfinished proof; it is required before these chartwise results
+can assemble the generic reverse map. Neither the internal equivalence
+family nor these adapters alone establishes full univalence.
