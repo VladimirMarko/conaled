@@ -1,5 +1,5 @@
 import Examples.CubicalUnivalenceTransport
-import SquareKit.Internal.Cubical.NativeUnivalenceElimination
+import SquareKit.Internal.Cubical.NativeUnivalenceComparison
 
 set_option autoImplicit false
 set_option warningAsError true
@@ -30,5 +30,13 @@ theorem boolean_true_to_false : observedNative booleanTransposition true = const
 theorem successor_three_to_four :
     observedNative CubicalStateTransport.successor 3 = constantSection 4 :=
   observedNative_eq CubicalStateTransport.successor 3
+
+/-- The comparison also identifies full chosen native equivalences, not only their observed Boolean action. -/
+noncomputable def fullChosenComparison :=
+  uaEquivalenceComparison (constantLocal terminal S).code (constantLocal terminal T).code
+    (Raising.map (codeIso e).hom) (HomotopyEquivalence.ofIso (Raising.iso (codeIso e)))
+
+noncomputable def booleanFullChosenComparison := fullChosenComparison booleanTransposition
+
 
 end Examples.CubicalNativeUnivalenceTransport
