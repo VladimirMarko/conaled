@@ -150,9 +150,9 @@ maps the filled line through unglue and uses the exact endpoint equations.
 transport by the supplied map. This focused check passed at default limits.
 The result is semantic; it asserts no evaluator behavior or cost bound.
 
-The full native univalence theorem still requires the internal equivalence
-family, its native proposition facts, and the homotopy/retract arguments.
-The planned retract route preserves the chosen `ua` and uses this comparison;
+The full native univalence theorem still requires the generic reverse map,
+its comparison in the internal equivalence family, and the final total-space
+and fiber arguments. The retract route preserves the chosen `ua` and uses this comparison;
 it does not assume constant-family transport is literally identity.
 
 `Examples/CubicalUnivalenceTransport.lean` checks the requested discrete
@@ -161,7 +161,7 @@ false and false to true; integer successor sends 3 to 4; its inverse sends
 3 to 2. The proof maps the comparison path into the constant target family
 and applies native discrete-path rigidity. This is a checked semantic
 observation, not execution of the noncomputable construction. The dependent
-whole-state-package comparison remains outstanding.
+whole-state-package comparison is now checked as described below.
 ### Native universal decoding
 
 `UniverseDecode.lean` constructs the universal decoding family in the larger
@@ -196,7 +196,49 @@ Lean axioms listed above.
 native families, terms, paths, dependent sums, and homotopy fibers.
 `lowerChartEquivalence` lowers a genuine equivalence of lifted decoding
 families to a genuine equivalence on each small chart. The core passed at
-default limits. Exact substitution of the entire lowered equivalence is a
-separate, unfinished proof; it is required before these chartwise results
-can assemble the generic reverse map. Neither the internal equivalence
-family nor these adapters alone establishes full univalence.
+default limits. `UniverseRaisingNaturality.lean` proves exact substitution
+of the entire lowered equivalence. It compares forward fiber isomorphisms
+and derives the inverse comparison by cancellation, preserving the selected
+centers and contractions without evaluating the chosen inverse of product
+substitution. Neither the internal equivalence family nor these adapters
+alone establishes full univalence.
+
+### Whole state-package transport
+
+`Examples/CubicalStatePackageFamily.lean` constructs the dependent package
+family using native sums and products. Preservation of the invariant is an
+internal dependent product; it is not replaced by a host predicate over one
+fiber. The family has a derived lawful filler and an observation into the
+complete host `StatePackage`, including its proof fields.
+
+`Examples/CubicalStatePackageUa.lean` applies that filler along the actual
+integer-successor `ua` carrier line. Its initial restriction is the complete
+even-state package; its final package equals the explicit conjugate odd-state
+package. The resulting initial state is 1, the step adds 2, and the invariant
+is odd parity. The proof observes the whole chosen package filler through
+the actual carrier-line isomorphism and uses native interval rigidity. It
+does not replace package filling with an independently supplied equivalence
+between host package types. Both modules and their endpoint equations passed
+focused checks; targeted axiom inspection found only the ordinary three
+Lean axioms. This remains a semantic result, not an execution claim.
+
+### Native univalence prerequisites
+
+`NativeUnivalenceMap.lean` constructs an actual native map from universe paths
+to the internal equivalence family. The Boolean universe loop supplies a
+checked specialization. The theorem that this map is itself an equivalence
+remains outstanding.
+
+`NativePathSingleton.lean` constructs the native based-path singleton
+contraction from the identity-map fiber, with path reversal. `HomotopyRetracts.lean`
+constructs native path concatenation using filling and derives contraction
+of a native homotopy retract. `Examples/CubicalNativeContractions.lean` checks
+the Boolean based-path family and concatenation of comparisons between
+chosen equivalence witnesses.
+
+`HomotopyEquivalenceSubstitution.lean` proves that iterated substitution
+preserves the entire selected equivalence, using contraction transport and
+fiber-isomorphism composition. These results passed focused checks at the
+default Lean limits. The generic reverse map, its internal-equivalence
+homotopies, the complete univalence proof, source-rule reconciliation, and
+final build/audit/review acceptance remain open.
