@@ -4,12 +4,13 @@ Checkpoint ledger for #420, inspected 2026-11-13 in worker420 at committed check
 `b6efed37aba9d92e9c408c3e4c6d6dfaa3e7d94b`, with active uncommitted work excluded from completed claims.
 This records semantic construction evidence and the remaining source-admission
 boundary. It does not certify full univalence, the unchanged Agda cover, or final
-integrated acceptance. The generic native `ua` still depends on the unfinished
-small-code substitution proof at this inspection.
+integrated acceptance. The subsequent checked checkpoint `aed42e45` completes exact small-code
+substitution, generic native `ua`, its reverse map `equivToPath`, and exact
+unglue substitution. Full univalence remains incomplete.
 
 The later checkpoint `30b68d9c` also constructs a native path from explicitly
-supplied coherent chart data. It does not discharge that coherence premise for
-the actual `ua` construction. Merge `007c7450` incorporates the validated #510
+supplied coherent chart data. Checkpoint `aed42e45` discharges that coherence premise for the actual `ua`
+construction. Merge `007c7450` incorporates the validated #510
 base `65123a90` without changing these mathematical claims.
 
 ## Sources and meaning of evidence
@@ -52,13 +53,13 @@ construction checkpoints, not the final #420 build/review outcome.
 | Unglue of introduction | `Glue.unglue_intro` is a semantic term equality. | Attach the equation to the source eliminator rule and its interpreted premises; it is not an importer on its own. |
 | Glue eta | `Glue.compatible_eta`, together with `familyIso`, recovers the complete compatible presentation. | The source eta judgment needs the explicit presentation comparison in its interpretation, not an unspecified homotopy. |
 | Full-face type, introduction and elimination | `family_full`, `fiberEquiv_full`, `fiberEquiv_symm_full`; `UnivalenceTransport.lean`: `unglue_full`, `codeUnglue_full`; `SmallFamilyGlue.lean`: `code_full`. | Family/code equalities and typed maps are available. The full-face source introduction computation must be stated through these exact casts if a source-facing judgment theorem is claimed. |
-| Substitution | `GlueSubstitution.reindexIso`, `compatibleReindex_intro`; `SmallFamilyGlue.code_substitution`; committed `GlueEliminationSubstitution.codeUnglue_substitution`. | Distinguish the compatible-carrier isomorphism from strict normalized code equality. Neither settles the still-active `Univalence.uaCode_reindex` construction. The code and eliminator congruence lemmas were checked and committed subsequently in `30b68d9c`; final acceptance remains pending. |
+| Substitution | `GlueSubstitution.reindexIso`, `compatibleReindex_intro`; `SmallFamilyGlue.code_substitution`; committed `GlueEliminationSubstitution.codeUnglue_substitution`. | Distinguish the compatible-carrier isomorphism from strict normalized code equality. `Univalence.uaCode_reindex` now identifies the complete chosen code, and `Univalence.unglueLine_reindex` preserves the actual eliminator. The code and eliminator congruence lemmas were checked and committed subsequently in `30b68d9c`; final acceptance remains pending. |
 | Derived lawful Glue filling | `GlueFillingSubstitution.filling_lawful`, `filling_full`, `filling_input_reindex`: actual construction, whole selected full-face filler recovery, source-input substitution. `GlueEquivalence.unglueEquivalence` constructs native fiber contractions. | This supplies semantic Kan data. It does not assert algorithmic equality with every Agda Glue `transp`/`hcomp` reduction branch. |
 | Generalized transport | `RestrictedTransport.lean`: `RestrictedConstancy`, `Filling.transp_on_face`, `transp_computation`, `transp_reindex`; `Judgments/TransportRules.lean` and `TransportSubstitutionRule.lean` validate provider-annotated rules. | Map the source face-constancy condition to the supplied semantic witness and selected provider. Arbitrary lawful filling alone is not a proof of every source constant-transport conversion. |
 | Homogeneous composition | `Filling.hcomp`, `hcomp_boundary`, `hcomp_reindex`; `OpenBox` retains the cap/tube compatibility premise. | These are boundary and substitution laws, not a rule-by-rule simulation of the source type-directed reductions. |
 | Universe filling and decoding | `UniverseKan.filling`, `filling_lawful`; `UniverseDecode.liftedDecode` and `NativeDecode.filling_lawful`, `filling_reindex`. Codes retain selected lawful small fillers; the large-context decoder lifts their fibers explicitly. | Declare `smallFamilyCodes.{u}` at level `u+1`, small decoded fibers at level `u`, and lifted native fibers over large contexts. No resizing or all-level source universe interpretation follows. |
 | `ua` and its action | `Univalence.uaCode`, `uaCode_zero/one`, `ua`; `UnivalenceTransport.transport`, `comparison`, `unglueLine_zero/one`. | The comparison is a native path from the supplied-map output to the transported input (reverse it for the usual uaβ orientation). It does not assert generic definitional equality of transport with that map. |
-| Full univalence | `NativeUnivalenceMap.pathToEquiv` is a native map into internal equivalences. `EquivalencePaths.ofHomotopy`, `NativePathSingleton.contractible`, `HomotopyContractible.retract`, and `HomotopyEquivalence.ofContractibleTotals` supply checked prerequisites. | **Incomplete:** generic reverse map still requires small-code substitution. Its drafted presence in `NativeUnivalenceUa.lean` is not a checked theorem that `pathToEquiv` has contractible fibers. Finish the generic comparison and retract/fiber argument. |
+| Full univalence | `NativeUnivalenceMap.pathToEquiv` is a native map into internal equivalences. `EquivalencePaths.ofHomotopy`, `NativePathSingleton.contractible`, `HomotopyContractible.retract`, and `HomotopyEquivalence.ofContractibleTotals` supply checked prerequisites. | **Incomplete:** `NativeUnivalenceUa.equivToPath` is checked, but its existence is not a theorem that `pathToEquiv` has contractible fibers. Finish the actual generic universal-El comparison and retract/fiber argument. |
 
 The full-face and eta source equations, transport constancy and homogeneous box
 premises are specified in the pinned
@@ -131,7 +132,7 @@ No new issue is required for the source-admission work:
    the interpreted derivation, with term/dimension substitution and the promised
    conversion judgment. Keep the direct native and Cartesian comparisons named
    as comparisons. Circle construction remains #421's prerequisite.
-4. In #420, finish generic small-code substitution, generic `ua`, its full
+4. In #420, finish the actual generic universal-El transport comparison, its full
    equivalence-family comparison, and actual contractible fibers of
    `pathToEquiv`. The accepted model must retain selected filling/equivalence
    data. This ledger cannot discharge that mathematical gap.
@@ -142,3 +143,9 @@ No new issue is required for the source-admission work:
    a conditional chart assembly to completed full univalence.
 
 No evaluator simulation, canonicity, runtime backend or cost result is claimed.
+
+The checked substitution implementation uses `maxHeartbeats 400000` locally on
+the two private inverse-hom coherence lemmas. Default-200000 failures and the
+unsuccessful scheduling-only trial are preserved in the task evidence. This
+bounded checking-resource choice changes no assumptions or theorem statements;
+independent Standards review and final integrated validation remain required.
