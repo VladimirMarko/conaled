@@ -114,6 +114,55 @@ no unconditional productivity guarantee: on a singleton space it never emits,
 although the original producer is almost surely productive. Accepted-only
 filtering is a separate observation policy requiring its own progress premise.
 
+## Measured finite workloads
+
+[SamplerWorkload.lean](../Applications/Probability/SamplerWorkload.lean) runs
+cached sampler states through the existing `Resources.run` executor. A bit step
+retains the current prepared row, semantic state, cursor, partial accumulator,
+and reverse output list. Appending commands resumes that state and adds the
+actual charges; additive reweighting commutes with this execution. Erasure
+preserves the producer's full path and returned cursor, including dependent
+successive rows. A pause halfway through a subsequently rejected block does
+not restart the block or repeat preparation.
+
+The declared tariffs separate bit access, arithmetic, row preparation, stored
+row lookup, selection, emitted-output handling, and final list materialization.
+The producer eagerly loads and initializes the next row after every emission.
+An n-output prefix therefore loads n+1 rows, including its initial row. An
+empty observation still pays initialization; an empty command list after
+initialization costs zero. The finite-chain adapter adds an administrative
+return fee and preserves `RowChain.Trace` with its one extra logical transition.
+This adapter retains the producer's prefetched row: its preparation charges
+are not attributed to the raw `RowChain` implementation.
+
+`compileLoader` materializes an array of the same rows as `Table.compile` and
+charges preparation plus storage at setup, then lookup on each load. The
+amortization theorem compares setup plus n+1 lookups with n+1 preparations.
+With the checked asymmetric MH table and unit tariffs, observing one transition
+costs 80 with preparation on each load and 84 including compiled setup; two
+transitions cost 117 and 100 respectively. Equal output laws thus coexist with
+different execution costs. These prices are abstract operation tariffs,
+including a declared price for table-entry evaluation and inverse-enumeration
+lookup. They do not establish operand bit complexity or wall-clock bounds.
+
+[SamplerExpectedWork.lean](../Applications/Probability/SamplerExpectedWork.lean)
+derives finite-prefix deadline and expectation bounds using actual stopped
+suffix freshness. If W is one plus the largest prepared-row block width, the
+probability that n outputs require more than n*W*r bits is at most n*2⁻ʳ.
+Summing deadline probabilities gives expected inspected bits at most 2*n²*W.
+This deliberately coarse bound needs no independence of successive row costs.
+Finite maxima of the implemented per-bit and loader charges give an explicit
+affine bound for total charged work, including setup and output handling.
+
+Both observations use nonnegative extended integration. On a completed prefix,
+bit work is the actual delivery count and charged work is setup plus the actual
+stopped resource execution. On non-delivery they are infinite, even if every
+tariff is zero. Measurability and unconditional finite expectations are proved
+for the finite-table sampler; almost-sure productivity alone is insufficient.
+Finite-budget runs may emit only a shorter prefix, so their partial observations
+are not the eventual full-prefix distribution conditioned on success. Checked
+cases are in [SamplerWorkload.lean](../Examples/SamplerWorkload.lean).
+
 ## Checked cases and remaining scope
 
 The asymmetric two-state example has target `(1/4,3/4)`, proposal rows `(0,1)`

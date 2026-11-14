@@ -151,6 +151,29 @@ do not reveal acceptance flags: a self-transition can also be an accepted
 self-proposal. Suppressing unchanged states is a distinct filter, proved
 unproductive on a singleton semantic space.
 
+Finite rational workloads now have quantitative resource bounds in
+[SamplerExpectedWork.lean](../Applications/Probability/SamplerExpectedWork.lean).
+The deadline event is failure to deliver the requested full prefix by a bit
+budget. Its indicator sum equals the actual finite delivery count, or infinity
+on non-delivery. The measured charged-work observation likewise equals setup
+plus the actual stopped `Resources.run` cost, and assigns infinity to
+non-delivery even under zero tariffs. Thus a zero price cannot turn a missing
+output into a completed deadline observation.
+
+The exact row rejection law and actual returned-cursor suffix independence give
+a finite-prefix tail; summing it proves finite unconditional expected bits and
+charged work for each selected finite table. This is additional quantitative
+evidence beyond almost-sure productivity. The heavy-tail counterexample above
+remains unchanged. No bound is claimed for the cost of producing infinitely
+many outputs or for every individual tape.
+
+The resource executor caches a row and partial block across pauses. Its append
+law accounts for continued execution without charging previously inspected
+bits again. Initial loading, per-emission next-row loading, final output
+handling, and the finite-chain administrative return have explicit prices.
+The [probability overview](probability.md#measured-finite-workloads) records the
+eager preparation convention and the checked setup-amortization comparison.
+
 Resource counts become random observations once a common execution law is
 specified. Nonnegative extended integrals express expectation, including
 infinity; probabilities of exceeding a threshold express tails. The ordinary
