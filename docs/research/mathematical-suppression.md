@@ -16,6 +16,50 @@ simplification without treating every common simplified shape as a theorem.
 A syntax-only restriction would exclude useful existing mathematics, while an
 unrestricted semantic abstraction would permit vacuous connections.
 
+## Intended use: transformations for search and discovery
+
+The owner's clarification makes derived views of existing code the objective.
+An agent should be able to transform a construction into one or more suppressed
+forms to search for related constructions, discover possible next steps, or
+present its structure. The programme does not ask authors to maintain the Lean
+codebase in suppressed form. The owner currently doubts that authoring choice,
+but leaves its merits open to evidence. Ordinary Lean notation and implicit
+arguments are useful comparison mechanisms, not the intended end product.
+
+Keep the source and its mathematical contract available. A derived view should
+identify its source, transformation, context and retained observations so that
+a discovered connection can be checked against the original constructions.
+General transformations and their laws should support multiple useful forms,
+with concrete specializations that expose the assumptions of each route.
+Recoverability is one possible contract; lossy views remain eligible when
+their retained structure and interpretation obligations are explicit.
+
+Composition belongs to the investigation. Different suppression operations
+may compose when their domains, contexts and preservation contracts fit.
+Establish identity and composition laws at the supported scope, and explain
+what information and guarantees a composite retains. Mathematical composability
+does not establish search utility: a valid composite may erase all useful
+distinctions or generate redundant candidates. Discovery needs explicit
+candidate equivalence, provenance, revisit handling and stopping conditions.
+Any completeness claim must state the search space and its assumptions.
+
+Two further choices remain independent. Whether to precompute and persist
+suppression-based indexes for the whole library or a selected subset needs
+its own cost, retrieval and invalidation assessment. Whether the future
+language should support these transformations natively is also open. Its
+modular, setting-dependent architecture might already expose the relevant
+structure and make some additional suppression unnecessary. Neither a stored
+index nor a language feature is a prerequisite for these experiments.
+
+The categorical compiler is a candidate route for deriving these forms. A
+target can expose a construction for further reasoning rather than serve as
+machine code. Investigate suppression as compilation into such a target, or
+as a structure-preserving interpretation of an existing compiled form. This
+connects the experiment to the library's compositional architecture without
+requiring a separate suppression subsystem. The target's operations, equality
+and preservation obligations still need to express the intended view; calling
+it compilation does not supply those guarantees or establish search utility.
+
 ## Benefits and dangers for reasoning
 
 An expression can spend most of its visible space specifying carriers,
@@ -142,8 +186,9 @@ A candidate experiment should therefore fix:
 
 1. The telescope and environment in which selection occurs, including
    universes and dependent substitution.
-2. Whether the transformation changes a declaration, builds a wrapper, or
-   changes only a displayed call. These have different caller consequences.
+2. How a view is derived from a retained application and how omitted arguments
+   remain associated with it. Changing declaration visibility or building a
+   wrapper are comparison techniques, not a migration of library source.
 3. Which inference mechanism supplies each omitted argument and what happens
    on failure or ambiguity.
 4. A comparison with the original elaborated application, including its
@@ -315,6 +360,8 @@ universal suppression interface:
 
 | Existing component inspected | Possible reuse and boundary |
 | --- | --- |
+| [Categorical compiler](../../Compiler.lean) | `Target` supplies operations; `compile` is target-parametric; `Sound` and `compile_sound` give exact Set-valued denotation preservation under supplied local laws. `Code` is raw categorical syntax, with laws under semantic equivalence rather than syntactic equality. This supports a reasoning-target experiment in its typed fragment, not automatic compilation of arbitrary Lean declarations. |
+| [First-order compiler](../../FirstOrder.lean) and [relational target](../../SquareKit/FirstOrder.lean) | The unchanged first-order frontend can target relational squares. `FirstOrderRelations.compile_preserves` lifts local primitive certificates to source terms and related environments. This is a candidate for lossy views with a suitable relation; it does not infer that relation or prove every proposed abstraction admissible. |
 | [CoreSyntax](../../SquareKit/Internal/CoreSyntax.lean) | Binding-aware syntax, renaming/substitution laws, and a partial Lean decoder. It preserves universe data and accepts only `.default` binders. It is not an implicit-argument elaborator. |
 | [DependentTheoryMaps](../../SquareKit/DependentTheoryMaps.lean) | Operation maps natural in substitution and local certificates for derivation transport. The `SyntaxMap` interface fixes variables and commutes with substitution. Constant erasure cannot fix distinct variables; hole insertion or context projection needs its own contract, not weakened map laws. |
 | [Institution capabilities](../../SquareKit/Institutions/Capabilities.lean) | Forward evidence connections, separately requested reflection, proof maps, and exact or relational realizations. These express different preservation claims without asserting automatic recovery. |
@@ -331,6 +378,18 @@ evaluation on translated inputs does not alone establish representation at
 new target inputs. Surjectivity is one sufficient condition;
 `DiagonalCoverage.Extension` states a weaker selected-row obligation.
 [Checked assessment](diagonal-construction-assessment.md).
+
+That assessment already includes a compiler route retaining the duplicated
+variable and reusing `CategoricalCompiler.compile_sound`. It specializes the
+two-carrier diagonal construction to the compiler's single base sort; compiling
+the construction does not supply representation evidence or transport its
+proof automatically. A new reasoning target should be compared with that
+existing compiled form and the native construction, preserving these limits.
+For a lossy target, examine an observation or relational contract explicitly;
+do not weaken the existing exact `Sound` contract to make it fit. Any mismatch
+belongs in the architectural assessment, with a justified adapter or extension
+where needed. Composing compilation and subsequent views requires compatible
+contracts just as composing two views does.
 
 Suppression could help discover this shared construction, display it, or
 express a certified interpretation. These are separate applications. Erasing
@@ -364,6 +423,13 @@ failure and total cost. Human perceptual results cannot decide this comparison.
 Machine-readable source identities, selected instances, dependency maps, and
 on-demand expansion may matter more than visual brevity.
 
+The primary tasks are finding related constructions, proposing a justified
+next step, and explaining retained structure from transformed views of the
+same source. Checked proof completion can validate a proposed path forward;
+the experiment does not require writing or maintaining proofs in suppressed
+syntax. Include existing modular or setting-dependent interfaces as a baseline
+where they already expose the structure the transformation aims to reveal.
+
 A bounded experiment should compare these independently:
 
 | Experiment | Positive case | Required negative case |
@@ -375,17 +441,26 @@ A bounded experiment should compare these independently:
 | Paradox construction view | Retain duplicated input, selected witness, and local laws | Omitted target inputs invalidate unqualified representation transport |
 
 For each route, retain the full source, policy, environment, reconstruction
-result, and failed obligations. Test identity and composition of the proposed
-operations at their actual scope, including renaming and capture avoidance
-where binding is involved. Review statements before accepting proofs. These
-are proposed future checks; this note has added no Lean definitions or tests.
+result where applicable, and failed obligations. Test identity and composition
+at the actual scope, including a compatible composition of different policies
+and a rejected incompatible composition or a demonstrated loss of a required
+observation. Include renaming and capture avoidance where binding is involved.
+Preserve the route's provenance when reporting a composite result. Review
+statements before accepting proofs. These are proposed future checks; this
+note has added no Lean definitions or tests.
 
 For agent trials, freeze tasks, model/version, toolchain, documentation,
 assistance, and resource budget. Compare full expressions, ordinary Lean
-notation, and the proposed view using independent authors and held-out tasks.
-Measure accepted intended proofs, false proposed connections, unresolved
+notation and existing structural interfaces, and derived views of the same
+sources using independent agents and held-out tasks. Compare single-policy
+views with a supported composite without presuming that composition helps.
+Measure useful retrieved connections and justified next steps, accepted
+intended proofs, false proposed connections, redundant revisits, unresolved
 inference, expansion requests, total tokens including retained context,
-wall-clock cost, and reused proofs. Record preparation cost separately.
+wall-clock cost, and reused proofs. Freeze candidate equivalence and stopping
+rules, and account for transformation and validation costs. On-demand views
+are sufficient; any persisted-index comparison needs a separately specified
+scope and maintenance costs. Record preparation cost separately.
 This follows the repository's [author-trial criteria](../language-direction.md#elegance-author-capability-and-language-constraints).
 
 A useful first deliverable would be a small set of checked examples and
