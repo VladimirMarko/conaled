@@ -1,4 +1,4 @@
-import SquareKit.Internal.Cubical.CompositionalUnivalence
+import SquareKit.Internal.Cubical.NaturalUnivalenceLaws
 import Examples.CubicalSmallFamilies
 import Examples.CubicalNativeUnivalenceTransport
 import Examples.CubicalPathConversion
@@ -126,7 +126,7 @@ theorem triple_successor_three :
       CubicalStateTransport.successor 3 = constantSection 6 :=
   ⟨observedLeftTriple_eq _ _ _ _, observedRightTriple_eq _ _ _ _⟩
 
-/-- A nontrivial universe loop cannot be identified with the reflexive path. -/
+/-- The Boolean loop and reflexive path are unequal as host path terms. -/
 theorem booleanLoop_ne_reflexive : equivalencePath booleanTransposition ≠ homogeneousRefl (term (code Bool)) := by
   intro h
   have ht := observe_path (uaComparison (code Bool) (code Bool) (nativeMap booleanTransposition)
@@ -160,11 +160,31 @@ theorem finiteFiber_not_equivalent :
       (Presheaf.decode CubicalSmallFamilies.dependentCode).obj (CubicalSmallFamilies.atArgument 1)) :=
   CubicalSmallFamilies.nonconstant_decoded_fibers
 
+abbrev finiteParameterContext := raisedContext (total (Presheaf.decode CubicalSmallFamilies.natCode))
+noncomputable def finiteIdentityEquivalence :
+    HomotopyEquivalence (𝟙 (liftedDecode CubicalSmallFamilies.dependentCode)) :=
+  HomotopyEquivalence.ofIso (Iso.refl _)
+
 /-- Composition applies over the whole varying family, before selecting a fiber. -/
 noncomputable def finiteFamilyComposition :=
-  uaComposition CubicalSmallFamilies.dependentCode CubicalSmallFamilies.dependentCode
-    CubicalSmallFamilies.dependentCode
-    (𝟙 _) (HomotopyEquivalence.ofIso (Iso.refl _))
-    (𝟙 _) (HomotopyEquivalence.ofIso (Iso.refl _))
+  NaturalUnivalenceLaws.composition CubicalSmallFamilies.dependentCode
+    CubicalSmallFamilies.dependentCode CubicalSmallFamilies.dependentCode
+    (𝟙 (liftedDecode CubicalSmallFamilies.dependentCode)) finiteIdentityEquivalence (𝟙 (liftedDecode CubicalSmallFamilies.dependentCode)) finiteIdentityEquivalence
+
+noncomputable def finiteFamilyCompositionAt {Δ : Context.{1}} (σ : Δ ⟶ finiteParameterContext) :=
+  NaturalUnivalenceLaws.composition (σ ≫ CubicalSmallFamilies.dependentCode)
+    (σ ≫ CubicalSmallFamilies.dependentCode) (σ ≫ CubicalSmallFamilies.dependentCode)
+    (Functor.whiskerLeft σ.mapElements (𝟙 (liftedDecode CubicalSmallFamilies.dependentCode))) (finiteIdentityEquivalence.reindex σ)
+    (Functor.whiskerLeft σ.mapElements (𝟙 (liftedDecode CubicalSmallFamilies.dependentCode))) (finiteIdentityEquivalence.reindex σ)
+
+/-- Recomputing after substitution retains the actual chosen native square. -/
+theorem finiteFamilyComposition_reindex {Δ : Context.{1}} (σ : Δ ⟶ finiteParameterContext) :
+    comparisonSquare (finiteFamilyCompositionAt σ) =
+      (comparisonSquare finiteFamilyComposition).reindex
+        (liftSub (interval (total (interval finiteParameterContext)))
+          (liftSub (interval finiteParameterContext) σ)) :=
+  NaturalUnivalenceLaws.composition_body_reindex CubicalSmallFamilies.dependentCode
+    CubicalSmallFamilies.dependentCode CubicalSmallFamilies.dependentCode
+    (𝟙 (liftedDecode CubicalSmallFamilies.dependentCode)) finiteIdentityEquivalence (𝟙 (liftedDecode CubicalSmallFamilies.dependentCode)) finiteIdentityEquivalence σ
 
 end Examples.CompositionalUnivalence
