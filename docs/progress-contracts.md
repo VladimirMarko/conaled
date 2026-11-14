@@ -62,6 +62,27 @@ certificates. Filtering constant zero for positive values cannot produce one
 output, while mapping those same values to `Option.none` emits an observation
 at every step. No uniform filter productivity claim is made.
 
+## Rational Markov producers
+
+[TableProducer.lean](../Applications/Probability/TableProducer.lean) is an
+executable consumer of `Producer` and `Delivers`. It runs prepared rational
+transition rows on one fair tape, retaining semantic state, cursor and partial
+rejection block across silent steps. Every completed transition emits, including
+self-transitions. The next-output bridge applies to arbitrary partial row
+states; initialization and the finite-chain bridge justify the probabilistic
+claims for reachable executions.
+
+Finite delivery preserves the ordered path, final semantic state, actual cursor
+and inspected-bit count. The finite-chain `RowChain` machine adds one final
+administrative transition; the indefinite producer does not. Almost-sure
+productivity yields one conull set of coherent finite prefixes through the
+existing probability API. A checked all-true tape still diverges. These are
+fair-tape mathematical guarantees, with no scheduler or physical entropy claim.
+See [probabilistic progress](probabilistic-progress.md#realized-rational-kernel-producers)
+for the law and stationarity connections. Filtering state changes can destroy
+productivity; it also differs from observing an MH acceptance flag, which this
+endpoint sampler does not expose.
+
 ## Demand and composition
 
 `Processor` holds operations: finite input demand, machine state, initialization,

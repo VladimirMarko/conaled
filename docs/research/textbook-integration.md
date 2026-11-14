@@ -15,19 +15,26 @@ validation ledger or the books' source-coverage records.
 ## Source provenance and merge decisions
 
 The original full-spec review base is
-`9175737c2b14ef738cfb6c2cdc68d885c0805ddd`. On 14 November 2026, the user
-authorized updating the upstream pin to
-`983d0b6b602b71541f182737011621a8805be27b`; merge
-`6a4fb245642e31dea42e3bc56c413000caa3ce45` incorporates its two new commits
-without resetting that review base. The three incoming textbook candidates
-share the older source base `7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd`.
+`9175737c2b14ef738cfb6c2cdc68d885c0805ddd`. On 14 November 2026, merge
+`6a4fb245642e31dea42e3bc56c413000caa3ce45` received the user-authorized pin
+`983d0b6b602b71541f182737011621a8805be27b`. The subsequent pinned master is
+`04514fc144dcebdd2b6d4aea5faf2f9cbf229362`, three commits later. Its receipt
+retains the original review base, incoming ancestry and all public imports.
+The three incoming textbook candidates share the older source base
+`7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd`.
 
-The upstream update adds operational bounded sampling, rational finite kernels,
-sequential execution and explicit work accounting. These are potential shared
-owners for later probabilistic textbook work; their receipt alone establishes
-no source correspondence or textbook obligation. Its probability `TableSampler`
-models a different concern from the partial maps below. The update changes no
-agent instruction, validation policy, toolchain or dependency pin. The checkpoint
+The upstream updates add operational bounded sampling, rational finite kernels,
+sequential execution and explicit work accounting, then a persistent rational
+table producer with coherent same-tape prefixes and joint finite-block
+stationarity. Existing finite row and stopped-suffix laws are prospective owners
+for relating FDSA's occurrence-index random selection and quicksort PMF runs to
+actual tape sampling. That future correspondence must retain duplicate/rank
+behavior, returned-cursor freshness and joint cost observations; sampling work
+is a separate obligation. These terminating algorithms do not require a
+stationary infinite stream. Receiving the probability developments establishes
+no additional textbook obligation by itself. Their `TableSampler` models a
+different concern from the partial maps below. The updates change no agent
+instruction, validation policy, toolchain or dependency pin. The checkpoint
 owns the exact comparison and the subsequent build evidence.
 
 | Source | Received candidate | Integration merge |
@@ -214,7 +221,13 @@ the candidate does not accept its unfinished textbook coverage.
 Shared implementation work is tracked by **INT-010–013**. Final acceptance is
 owned by **INT-090** and **INT-091**: the full applicable build, exhaustive
 three-axiom audit and independent Standards/Spec reviews must describe the same
-candidate and retain the original integration base through fixes. Historical
-approvals and focused elaboration establish only their recorded scopes. The
-checkpoint stores current outcomes, unresolved findings and durable recovery
-instructions, so this correspondence need not become another status ledger.
+candidate and retain the original integration base through fixes. The user has
+assigned the final full build and audit to the receiving integrator's normal
+development environment. Focused mathematical development and reviewed source
+handoffs can proceed while that gate remains explicitly deferred; final merge
+acceptance still requires its successful exact-candidate evidence, immediate
+verification and snapshot comparison. Historical approvals and focused
+elaboration establish only their recorded scopes. The checkpoint's
+`books/common/VALIDATION-HANDOFF.md` owns this execution assignment and the
+current requirements, outcomes and durable recovery instructions remain there,
+so this correspondence need not become another status ledger.

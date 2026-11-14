@@ -2,9 +2,10 @@
 
 The library represents ideal stochastic computations with Mathlib's
 `ProbabilityTheory.Kernel` and `Stoch`. Exact finite rational tables provide a
-computational representation of those laws. There is no random-bit sampler in
-this implementation. Evaluating a table entry computes a probability, not a
-random outcome.
+computational representation of those laws. `Table.prepare` and `Table.compile`
+realize explicitly enumerated finite tables with exact fair-bit rejection
+sampling. Evaluating a table entry computes a probability; the separate row
+machine consumes bits and returns an outcome with its advanced cursor.
 
 ## Random functions
 
@@ -70,6 +71,49 @@ arrows cannot be interpreted by the existing cartesian compiler frontends:
 `ProductLaws.pair_eta` would identify distinct joints with the same marginals.
 Copying one sampled bit retains perfect correlation; two fresh bits do not.
 
+## Exact rows and resumable chains
+
+`RationalRow` requires a nonnegative rational row summing to one and an executable
+enumeration `Fin m ≃ α`. Preparation stores a common denominator and integer
+weights. `TableSampler` draws a uniform code by binary-block rejection and
+selects its cumulative weight interval. Zero weights occupy no interval;
+non-dyadic rows are exact. Positive-width blocks mean even a deterministic
+output can require retries. Its operational output-event law equals
+`Table.kernel`; termination is almost sure under the independent fair-tape law.
+Finite fuel retains its subprobability law and can expire without proving
+divergence. `SamplerWork` separately declares arithmetic and storage tariffs;
+those charges do not assert bit complexity or host runtime.
+
+[TableProducer.lean](../Applications/Probability/TableProducer.lean) connects
+these rows to `Progress.Producer`. One state retains the current semantic state,
+coin cursor and partial rejection block. A completed transition emits its new
+state and starts the next row at the returned cursor. Self-transitions emit too.
+Finite deliveries recover `RowChain`'s full ordered path law and endpoint kernel.
+The producer's count is exactly the number of inspected bits; `RowChain` has
+one additional terminal administrative step, including for an empty path.
+
+Random-cursor suffix independence from the row sampler justifies the chain
+laws. Every finite output length is delivered almost surely by this same
+producer. The existing productivity API supplies one conull set on which all
+these finite prefixes coexist and agree. The all-true tape for a deterministic
+one-state row is a checked exceptional divergent execution.
+
+[TableProducerStationarity.lean](../Applications/Probability/TableProducerStationarity.lean)
+proves that target-initialized MH has the same joint law for an ordered finite
+block after any finite number of earlier emissions. The initialization is an
+independent target mixture of the displayed tape probabilities. This preserves
+correlations within each block; it does not assert independent successive
+states, mixing, or empirical accuracy. Checked asymmetric-MH cases include
+self-transitions, a resumed partial block, a retry, and the stationary pair
+`(false,true)` with probability `1/4` at every observation shift.
+
+The producer samples the completed MH transition table, whose self-loop mass
+combines accepted self-proposals and rejected moves. It does not expose an
+accept/reject flag. `TableProducer.changes` suppresses unchanged states and has
+no unconditional productivity guarantee: on a singleton space it never emits,
+although the original producer is almost surely productive. Accepted-only
+filtering is a separate observation policy requiring its own progress premise.
+
 ## Checked cases and remaining scope
 
 The asymmetric two-state example has target `(1/4,3/4)`, proposal rows `(0,1)`
@@ -83,8 +127,10 @@ stationarity from convergence.
 Stationarity alone supplies no convergence, mixing rate, estimator confidence,
 termination or elapsed-time guarantee. The bounded [probabilistic progress
 contracts](probabilistic-progress.md) supply separate execution and deadline
-semantics for #198; fault and environmental contracts remain with #196. Random-bit realization,
-floating-point error and general-state ergodicity require additional contracts.
+semantics; the finite rational realization above discharges their delivery
+obligations for the fair tape. Fault and environmental contracts remain with
+#196. Physical entropy adapters, floating-point error and general-state
+ergodicity require additional contracts.
 Higher-order and internal probability models remain optional follow-up work
 identified in the [model comparison](research/probability-model-comparison.md).
 The [initial investigation](research/probability-and-monte-carlo.md) records the

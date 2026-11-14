@@ -987,5 +987,6 @@ import Examples.SuspensionPureBodyCounts
 import Examples.SuspensionBodyRealization
 
 import Examples.TableSampler
+import Examples.TableProducer
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
