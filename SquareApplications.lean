@@ -825,4 +825,6 @@ import Examples.CubicalNativeUnivalence
 import Examples.CubicalEquivalenceFamilyReindex
 import Examples.CubicalNativeUnivalenceMapNaturality
 
+import Examples.TableSampler
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
