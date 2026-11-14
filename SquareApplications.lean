@@ -828,7 +828,6 @@ import Examples.CubicalNativeUnivalenceMapNaturality
 import Examples.TableSampler
 import Examples.TableProducer
 import Examples.SamplerWorkload
+import Examples.CompositionalUnivalence
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
-
-import Examples.CompositionalUnivalence
