@@ -137,7 +137,7 @@ inputs; no network read of a manuscript is needed to check the Lean project.
 | `generic-parallel-functional.lhs` | `e24b7507af6baa9aed24bc8b94a1e1cc2c81d89241c05430d64e7b057f43addb` |
 | `convolution.lhs` | `a212ea819ca2e975f33bf1d07aa677186c4ff4d08d7692f6dd71e50051d94c7d` |
 
-## S9. Verified Functional Algorithms
+## S10. Verified Functional Algorithms
 
 * Andrew W. Appel, editor Benjamin C. Pierce, *Verified Functional Algorithms*,
   Software Foundations volume 3, version 2.1 (2026-08-24 10:11).
@@ -151,7 +151,7 @@ coverage map have implementations. Local recovery checkpoints retain tickets,
 source inventories and acceptance evidence; downloaded book copies and build
 caches are excluded from those deliverables.
 
-## S10. Functional Data Structures and Algorithms
+## S11. Functional Data Structures and Algorithms
 
 The local FDSA reconstruction pins the author-maintained **July 27, 2026**
 edition of *Functional Data Structures and Algorithms: A Proof Assistant

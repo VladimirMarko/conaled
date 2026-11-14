@@ -87,4 +87,3 @@ theorem Laws.member_from_empty {ops : Ops α S} {observe : S → α → Prop}
     laws.member_insertMany xs laws.empty_valid x
 
 end Search.AbstractSet
-
