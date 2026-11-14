@@ -144,6 +144,7 @@ import Examples.MappedPotentialAccounting
 import Examples.OrderedSearch
 import Examples.OrderedTree
 import Examples.OrderedMap
+import Examples.TextbookMaps
 import Examples.SymmetricLists
 import Examples.SharedList
 import Examples.SharedListIntegers

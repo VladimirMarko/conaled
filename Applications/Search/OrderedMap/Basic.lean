@@ -1,4 +1,4 @@
-import Applications.Search.OrderedMap.Interface
+import Applications.Search.OrderedMap.Invariant
 import Applications.Search.OrderedTree.Basic
 
 /-!
@@ -173,17 +173,24 @@ theorem lookup_finite_domain (t : BinaryTree (κ × ν)) :
 abbrev Tree (κ ν : Type u) [LinearOrder κ] :=
   {t : BinaryTree (κ × ν) // OrderedBy Prod.fst t}
 
-def trees (κ ν : Type u) [LinearOrder κ] : Ops κ ν (Tree κ ν) where
-  empty := ⟨.nil, trivial⟩
-  bind key value t := ⟨bind key value t.1, ordered_bind t.2 key value⟩
-  lookup key t := lookup key t.1
+/-- Raw operations do not claim that directed lookup agrees with the
+independent whole-tree observation on malformed trees. -/
+def rawTrees (κ ν : Type u) [LinearOrder κ] : Ops κ ν (BinaryTree (κ × ν)) where
+  empty := .nil
+  bind := bind
+  lookup := lookup
+
+def trees (κ ν : Type u) [LinearOrder κ] : Ops κ ν (Tree κ ν) :=
+  (rawTrees κ ν).restrict (OrderedBy Prod.fst) trivial
+    (fun key value _ ordered => ordered_bind ordered key value)
 
 def decode (t : Tree κ ν) : Meaning κ ν := observe t.1
 
-theorem trees_laws : Laws (trees κ ν) decode where
-  empty := rfl
-  bind key value t := observe_bind t.2 key value
-  lookup key t := lookup_correct t.2 key
+theorem trees_laws : Laws (trees κ ν) decode :=
+  Laws.ofValid (ops := rawTrees κ ν) (Valid := OrderedBy Prod.fst) (observe := observe)
+    trivial (fun key value _ ordered => ordered_bind ordered key value)
+    rfl (fun key value _ ordered => observe_bind ordered key value)
+    (fun key _ ordered => lookup_correct ordered key)
 
 theorem trees_finite_domain (t : Tree κ ν) :
     ∃ keys : List κ, ∀ query value,
