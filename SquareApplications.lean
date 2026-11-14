@@ -165,6 +165,7 @@ import Examples.RunCompression
 import Examples.Connectivity
 import Examples.RationalSearch
 import Examples.StableSorting
+import Examples.ComparisonPermutations
 import Examples.Resources
 import Examples.HeuristicSearch
 import Examples.Huffman
