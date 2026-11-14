@@ -139,6 +139,7 @@ import Examples.PotentialAccounting
 import Examples.AffineRecurrence
 import Examples.SignedPotential
 import Examples.PotentialTransport
+import Examples.MappedPotentialAccounting
 import Examples.OrderedSearch
 import Examples.OrderedTree
 import Examples.OrderedMap
@@ -851,6 +852,7 @@ import Examples.ListCalls
 import Examples.FunctionalNotation
 import Examples.MergeCosts
 import Examples.DifferenceListCosts
+import Examples.TextbookSequences
 import Examples.ThreeWayPartition
 
 import Examples.InsertionObservations
@@ -869,6 +871,7 @@ import Examples.ListBuildCosts
 import Examples.ThreeWayQuickSort
 import Examples.RandomQuickSort
 import Examples.SortUniqueness
+import Examples.TextbookSorting
 import Examples.NaturalRunOperations
 import Examples.QuickSortTransport
 import Examples.RandomQuickSortMean

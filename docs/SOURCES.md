@@ -151,7 +151,7 @@ coverage map have implementations. Local recovery checkpoints retain tickets,
 source inventories and acceptance evidence; downloaded book copies and build
 caches are excluded from those deliverables.
 
-## Proof dependencies
+## S10. Functional Data Structures and Algorithms
 
 The local FDSA reconstruction pins the author-maintained **July 27, 2026**
 edition of *Functional Data Structures and Algorithms: A Proof Assistant
@@ -160,6 +160,13 @@ and checked declarations are recorded in the
 [FDSA reconstruction map](research/fdsa-reconstruction-map.md). This adds a
 separate owner-requested whole-book scope; it does not imply that every chapter
 has been formalized or accepted.
+
+The [potential accounting integration](research/fdsa-potential-accounting.md)
+records the retained FDSA donor and its reconciliation with PFDS accounting.
+The [combined integration record](research/textbook-integration.md) identifies
+the shared owners, source candidates and preserved unfinished work.
+
+## Proof dependencies
 
 * Lean: `leanprover/lean4:v4.35.0`, recorded in `lean-toolchain`.
 * Mathlib: [v4.35.0](https://github.com/leanprover-community/mathlib4/tree/56a005855ea17e0b0958f73ec801ae140b0a1679), exact revision `56a005855ea17e0b0958f73ec801ae140b0a1679`.
