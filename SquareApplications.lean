@@ -122,6 +122,7 @@ import Examples.CurryHoward
 import Examples.ProbabilisticProgress
 import Examples.MetropolisHastings
 import Examples.ProbabilityCorrelation
+import Examples.BoundedUniform
 import Examples.UniformThree
 import Examples.PermutationMinimum
 import Examples.PermutationOrder
@@ -983,5 +984,7 @@ import Examples.SuspensionEventCounts
 import Examples.SuspensionPendingRetention
 import Examples.SuspensionPureBodyCounts
 import Examples.SuspensionBodyRealization
+
+import Examples.TableSampler
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
