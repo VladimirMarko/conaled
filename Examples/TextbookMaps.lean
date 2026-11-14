@@ -165,6 +165,10 @@ seen by the independent whole-tree observation on an invalid raw tree. -/
 theorem invalid_tree_boundary :
     lookup 1 malformed = none ∧ observe malformed 1 = some "hidden" ∧
       ¬ Search.OrderedTree.OrderedBy Prod.fst malformed := by
-  decide
+  refine ⟨rfl, rfl, ?_⟩
+  intro ordered
+  have impossible := lookup_correct ordered (1 : Nat)
+  change (none : Option String) = some "hidden" at impossible
+  cases impossible
 
 end Examples.TextbookMaps
