@@ -1,4 +1,5 @@
 import SquareKit.Internal.Cubical.NativeUnivalence
+import SquareKit.Internal.Cubical.NativeUniverseSquares
 import SquareKit.Internal.Cubical.HomotopyEquivalenceComposition
 import SquareKit.Internal.Cubical.NativePathComposition
 import SquareKit.Internal.Cubical.DependentTransportComposition
@@ -379,6 +380,32 @@ noncomputable def tripleComparison : Term (homogeneousPath (paths a d)
   homogeneousConcat (pathsFilling a d) (pathsFilling_lawful a d)
     (homogeneousReverse (tripleLeftComparison a b c d f E g D h K))
     (tripleRightComparison a b c d f E g D h K)
+
+/-- The actual code-valued square of the triple two-path. -/
+noncomputable def tripleSquare : Term (family (total (interval (total (interval Γ))))) :=
+  comparisonSquare (tripleComparison a b c d f E g D h K)
+
+theorem tripleSquare_left :
+    (tripleSquare a b c d f E g D h K).reindex (endpointSub (total (interval Γ)) false) =
+      term (projection (interval Γ) ≫ a) :=
+  comparisonSquare_left (tripleComparison a b c d f E g D h K)
+
+theorem tripleSquare_right :
+    (tripleSquare a b c d f E g D h K).reindex (endpointSub (total (interval Γ)) true) =
+      term (projection (interval Γ) ≫ d) :=
+  comparisonSquare_right (tripleComparison a b c d f E g D h K)
+
+theorem tripleSquare_bottom :
+    (tripleSquare a b c d f E g D h K).reindex
+      (liftSub (interval (total (interval Γ))) (endpointSub Γ false)) =
+      pathApp (leftTriplePath a b c d f E g D h K) :=
+  comparisonSquare_zero (tripleComparison a b c d f E g D h K)
+
+theorem tripleSquare_top :
+    (tripleSquare a b c d f E g D h K).reindex
+      (liftSub (interval (total (interval Γ))) (endpointSub Γ true)) =
+      pathApp (rightTriplePath a b c d f E g D h K) :=
+  comparisonSquare_one (tripleComparison a b c d f E g D h K)
 
 end ThreeChanges
 
