@@ -133,8 +133,12 @@ def Laws.defaultBindAllSquare [DecidableEq κ] {ops : Ops κ ν M}
     (default : ν) (bindings : List (κ × ν)) :
     Squares.Square ((representation observe).after (withDefault default))
       ((representation observe).after (withDefault default)) :=
-  Squares.vertical (withDefault default) (withDefault default)
-    (h.bindAllSquare bindings) (defaultWriteSquare default bindings) (fun _ => rfl)
+  Squares.vertical (A := representation observe) (B := representation observe)
+    (AS := κ → ν) (BS := κ → ν)
+    (withDefault default : Meaning κ ν → κ → ν)
+    (withDefault default : Meaning κ ν → κ → ν)
+    (h.bindAllSquare bindings)
+    (defaultWriteSquare (κ := κ) (ν := ν) default bindings) (fun _ => rfl)
 
 end Squares
 end Search.OrderedMap

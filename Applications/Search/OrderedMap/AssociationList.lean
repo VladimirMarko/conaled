@@ -125,9 +125,9 @@ theorem alists_laws [DecidableEq κ] : Laws (alists κ ν) alistObserve where
       if query = key then some value else AList.lookup query m
     by_cases h : query = key
     · subst query
-      rw [if_pos rfl]
+      rw [ite_eq_left rfl]
       exact AList.lookup_insert m
-    · rw [if_neg h]
+    · rw [ite_eq_right h]
       exact AList.lookup_insert_ne h
   lookup _ _ := rfl
 
