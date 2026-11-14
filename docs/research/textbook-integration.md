@@ -14,9 +14,21 @@ validation ledger or the books' source-coverage records.
 
 ## Source provenance and merge decisions
 
-The integration starts from pinned master
-`9175737c2b14ef738cfb6c2cdc68d885c0805ddd`. The three incoming candidates share
-the older source base `7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd`.
+The original full-spec review base is
+`9175737c2b14ef738cfb6c2cdc68d885c0805ddd`. On 14 November 2026, the user
+authorized updating the upstream pin to
+`983d0b6b602b71541f182737011621a8805be27b`; merge
+`6a4fb245642e31dea42e3bc56c413000caa3ce45` incorporates its two new commits
+without resetting that review base. The three incoming textbook candidates
+share the older source base `7c1b4a3fd55f9aeeab3fe7850e2d20000836bfcd`.
+
+The upstream update adds operational bounded sampling, rational finite kernels,
+sequential execution and explicit work accounting. These are potential shared
+owners for later probabilistic textbook work; their receipt alone establishes
+no source correspondence or textbook obligation. Its probability `TableSampler`
+models a different concern from the partial maps below. The update changes no
+agent instruction, validation policy, toolchain or dependency pin. The checkpoint
+owns the exact comparison and the subsequent build evidence.
 
 | Source | Received candidate | Integration merge |
 | --- | --- | --- |
@@ -104,6 +116,62 @@ summary, successful empty input over the uninhabited `Empty` payload, and
 insufficient fuel. In the last case the stack computation returns `none`
 although the total materializer still returns its list and observation. Thus
 failure, successful empty output and ordinary successful output remain distinct.
+
+### Maps: shared partial meaning, valid states and weaker observations
+
+The existing [OrderedMap.Interface](../../Applications/Search/OrderedMap/Interface.lean)
+owns operations, independent partial meaning and their laws. Its ordinary
+algebra now allows independent universes for keys, values and representations.
+`Laws.bindAll_observation_agrees` proves agreement after every chronological
+binding list from arbitrary initial states with equal meanings. Repeated keys
+are allowed. The Square specializations retain the existing common-universe
+requirement of that framework.
+
+[OrderedMap.Invariant](../../Applications/Search/OrderedMap/Invariant.lean)
+recovers the valid-state portion of FDSA-XA01 donor
+`20a5b5537a704be016d09e4eb31db0dad8a12d61`. `Laws.restrict_iff` relates raw laws
+on valid states to the existing unconditional laws on the valid subtype.
+Empty-state validity and preservation by binding are explicit. The existing
+ordered-tree implementation uses this adapter with its actual operations,
+whole-tree observation and proved invariant. It gains no equation about an
+invalid raw tree.
+
+[OrderedMap.AssociationList](../../Applications/Search/OrderedMap/AssociationList.lean)
+connects FDSA-XA01's actual Mathlib `AList` insertion and VFA's shadowing list
+to this same contract. A third realization uses partial functions. An `AList`
+insertion erases an earlier binding, whereas the raw list retains shadowed
+entries; agreement concerns observations rather than equality of stored states.
+`bindAll_lists` and `listObserve_reverse_append` establish the reversal needed
+between chronological last-write bindings and raw first-match list entries,
+including an arbitrary initial suffix. The adapted source notice is retained.
+The function model has no finite-support or enumeration requirement.
+
+[OrderedMap.Observations](../../Applications/Search/OrderedMap/Observations.lean)
+recovers the partial-map observations of the VFA table draft, identified by
+SHA-256 `0233781d210056e9a61ae9a355120429e55007e72713434d25a5338aa6489b57`.
+`meaning_eq_iff` proves that presence and default-valued lookup jointly determine
+partial meaning; `forget_default_not_injective` shows why default lookup alone
+does not. The underlying map interface requires no default or payload equality.
+`Laws.defaultBindAllSquare` uses existing vertical pasting to transport a full
+binding-list client to default-valued function updates.
+
+[TextbookMaps](../../Examples/TextbookMaps.lean) consumes these public laws.
+It proves AList/list and AList/function agreement from corresponding arbitrary
+starting states. `jointWrites` uses existing synchronization to relate raw
+lists and ordered trees, and `alist_tree_from_empty` connects all three concrete
+representations through that relationship. Its checked cases distinguish
+absence from a stored optional `none`, expose repeated-key precedence and
+shadowed entries, instantiate an empty payload type and type-valued payloads,
+and exhibit the lookup/observation disagreement of a malformed raw tree.
+The default-valued client uses the vertically pasted square itself.
+
+This recovery preserves the weaker generic total-table contract as distinct
+pending work: an arbitrary total table need not supply a partial observation.
+FDSA-XA01 deletion, modification round trips, set deletion and generic valid-graph
+composition also remain owned by the preservation ledger. This binding-only
+contract does not replace those capabilities or accept an entire chapter.
+Lookup agreement grants no cost, allocation, physical-sharing, callback-count
+or concrete-state equivalence.
 
 ### Potential accounting: one executor and a shared telescoping core
 
