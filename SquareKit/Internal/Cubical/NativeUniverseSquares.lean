@@ -24,10 +24,20 @@ theorem reindexComparison_comp (H : Term (homogeneousPath (paths a b) p q))
     (σ : Δ ⟶ Γ) (τ : Θ ⟶ Δ) :
     reindexComparison (reindexComparison H σ) τ = reindexComparison H (τ ≫ σ) := rfl
 
+/-- Change endpoint presentations while retaining the actual comparison body. -/
+def relabelComparison {p' q' : Term (paths a b)}
+    (H : Term (homogeneousPath (paths a b) p q)) (hp : p = p') (hq : q = q') :
+    Term (homogeneousPath (paths a b) p' q') :=
+  pathLam (pathApp H) ((pathApp_zero H).trans hp) ((pathApp_one H).trans hq)
+
 /-- The square retains both interval coordinates and the actual code values. -/
 def comparisonSquare (H : Term (homogeneousPath (paths a b) p q)) :
     Term (family (total (interval (total (interval Γ))))) :=
   pathApp (Term.map (nativePathReindex a b (projection (interval Γ))) (pathApp H))
+
+theorem comparisonSquare_relabel {p' q' : Term (paths a b)}
+    (H : Term (homogeneousPath (paths a b) p q)) (hp : p = p') (hq : q = q') :
+    comparisonSquare (relabelComparison H hp hq) = comparisonSquare H := rfl
 
 /-- Evaluating both interval coordinates loses no native two-path data. -/
 theorem comparisonSquare_injective :
