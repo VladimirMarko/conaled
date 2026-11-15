@@ -1009,4 +1009,6 @@ import Examples.BoundedMotion
 import Examples.ExecutableUnivalence
 import Examples.CubicalSelectedInverse
 
+import Examples.KineticAD
+
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
