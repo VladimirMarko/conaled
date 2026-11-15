@@ -312,4 +312,19 @@ theorem almostComplete_node_of_numLeaves (a : α) (l r : BinaryTree α)
   simp only [AlmostComplete, BinaryTree.height, minHeight_node] at hl hr ⊢
   omega
 
+/-- Exact constructor characterization: when child heights differ by one,
+the shorter child must be complete. Equal-height children need only be almost
+complete. The right side uses no minimum height or new tree construction. -/
+theorem almostComplete_node_iff (a : α) (l r : BinaryTree α) :
+    AlmostComplete (.node a l r) ↔
+      AlmostComplete l ∧ AlmostComplete r ∧
+        (l.height = r.height ∨
+          (l.height = r.height + 1 ∧ Complete r) ∨
+          (r.height = l.height + 1 ∧ Complete l)) := by
+  have hl := minHeight_le_height l
+  have hr := minHeight_le_height r
+  simp only [AlmostComplete, BinaryTree.height, minHeight_node,
+    complete_iff_minHeight_eq_height]
+  omega
+
 end Trees

@@ -944,6 +944,8 @@ import Examples.TreeBalanceCost
 import Examples.TreeBalanceShape
 import Examples.TreeBalanceSearch
 import Examples.TreeBalancePipeline
+import Examples.TreeCompleteness
+import Examples.TreeMaximalCompleteSubtree
 import Examples.TreeShape
 import Applications.Suspensions.Correspondence
 import Examples.SuspensionMachine

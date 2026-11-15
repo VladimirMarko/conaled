@@ -51,7 +51,7 @@ Chapter organization is a coverage index; modules follow reusable domain concept
 | 1 | Basics | Accepted at `07e480f`; detailed witnesses below |
 | 2 | Sorting | [112-obligation source correspondence](fdsa-sorting.md), including the selected stable Exercise 2.7; validation and acceptance tracked separately |
 | 3 | Selection | Formalization in progress; see the [chapter correspondence](fdsa-selection.md) for coverage and remaining obligations |
-| 4 | Binary Trees | Queued |
+| 4 | Binary Trees | In progress; shared tree units below, with final row qualification and chapter acceptance pending |
 | 5 | Binary Search Trees | Queued |
 | 6 | Abstract Data Types | Queued |
 | 7 | 2–3 Trees | Queued |
@@ -932,3 +932,27 @@ constructor law and the maximum-cache exercise remain separately assigned.
 The chapter tracker owns current row qualification. Exact focused evidence,
 source reviews and final comparison are checkpoint records; receiving
 whole-library checks and final acceptance remain distinct pending gates.
+
+## Completeness, maximal complete subtrees and the constructor law (CTB-76)
+
+The [completeness unit](fdsa-tree-completeness.md) uses one Boolean/height
+summary for the executable checker, the existing generic cache specialization
+and the maximal-complete-subtree fold. Correctness connects the computed flag
+to the independent structural `Complete` predicate and the computed height to
+the existing tree height. The cache invariant covers every node; its constructor
+and reader laws specialize the generic `Trees.Cached` results.
+
+Maximal-subtree selection uses child summaries in one fold, without tree or
+label equality, a whole-tree checker call or subtree enumeration. Its selected
+result is a complete structural descendant with greatest height, with left
+ties. The exact almost-complete node characterization includes completeness
+of the shorter child when the heights differ; checked uses retain the existing
+counterexample to the weaker condition.
+
+This supplies the checker portion of C04-031, Exercise 4.7/C04-038–041,
+Exercise 4.8/C04-059–060 and Exercise 4.10/C04-074. The linked note owns the
+statements, algorithm boundaries and cases. Earlier unit sections describe
+their scope at that development stage; the local CTB tracker owns current row
+qualification. Maximum caches and final Chapter 4 qualification remain separate.
+Exact focused checks, independent source reviews and final comparison are
+checkpoint evidence; receiving whole-library acceptance remains pending.

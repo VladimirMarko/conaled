@@ -114,6 +114,18 @@ theorem Subtree.trans {s t u : BinaryTree α}
   | left a _ ih => exact Subtree.left a ih
   | right a _ ih => exact Subtree.right a ih
 
+/-- A whole rooted descendant cannot have greater height than its ancestor. -/
+theorem Subtree.height_le {s t : BinaryTree α} (hst : Subtree s t) :
+    s.height ≤ t.height := by
+  induction hst with
+  | refl => exact Nat.le_refl _
+  | left a _ ih =>
+      simp only [BinaryTree.height]
+      omega
+  | right a _ ih =>
+      simp only [BinaryTree.height]
+      omega
+
 /-- All whole rooted descendant subtrees, including the tree itself. -/
 def subtrees (t : BinaryTree α) : Set (BinaryTree α) := {s | Subtree s t}
 
