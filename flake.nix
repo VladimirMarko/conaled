@@ -17,6 +17,7 @@
             packages = with pkgs; [
               elan
               python3
+              nodejs_24
               git
               curl
               direnv
