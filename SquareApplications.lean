@@ -1004,6 +1004,7 @@ import Examples.CubicalInterpretationObservations
 
 import Examples.BoundedArithmetic
 import Examples.BoundedMotionArithmetic
+import Examples.BoundedMotion
 
 import Examples.ExecutableUnivalence
 import Examples.CubicalSelectedInverse
