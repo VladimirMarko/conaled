@@ -117,7 +117,83 @@ def gaugeComparison
       (p.interpreted smoothAction) :=
   (interpretedHomEquiv smoothAction _ _ (p.gaugeHom n a)).inverse
 
+theorem gauge_of_hom {q : Datum (d := d) (G := G) (M := M) A} (h : Hom p q) :
+    p.gauge q.localMap h.labels = q := by
+  refine Datum.ext _ _ ?_ ?_
+  · rfl
+  apply heq_of_eq
+  funext i j
+  apply Subtype.ext
+  apply LocallyConstant.ext
+  intro x
+  change (h.labels j).val ((show EuclideanOpen.Map _ _ from A.right i j) x) *
+    (p.transition i j).val x * ((h.labels i).val ((show EuclideanOpen.Map _ _ from A.left i j) x))⁻¹ = _
+  rw [← h.commutes, mul_inv_cancel_right]
+
+def composeGauge (m : ∀ i, External.SmoothMap (A.domain i) d M)
+    (b : ∀ i, External.Labels (G := G) (A.domain i) (n i) (m i)) :
+    ∀ i, External.Labels (G := G) (A.domain i) (p.localMap i) (m i) :=
+  fun i => ⟨(b i).val * (a i).val, fun x => by
+    change ((b i).val x * (a i).val x) • _ = _
+    rw [mul_smul, (a i).property, (b i).property]⟩
+
+theorem gauge_twice (m : ∀ i, External.SmoothMap (A.domain i) d M)
+    (b : ∀ i, External.Labels (G := G) (A.domain i) (n i) (m i)) :
+    (p.gauge n a).gauge m b = p.gauge m (p.composeGauge n a m b) := by
+  refine Datum.ext _ _ ?_ ?_
+  · rfl
+  apply heq_of_eq
+  funext i j
+  apply Subtype.ext
+  apply LocallyConstant.ext
+  intro x
+  change (b j).val _ * ((a j).val _ * (p.transition i j).val x * ((a i).val _)⁻¹) * ((b i).val _)⁻¹ =
+    ((b j).val _ * (a j).val _) * (p.transition i j).val x * ((b i).val _ * (a i).val _)⁻¹
+  simp only [mul_inv_rev, mul_assoc]
+
+theorem gauge_identity : p.gauge p.localMap (Hom.ident p).labels = p := p.gauge_of_hom (Hom.ident p)
+
 end Datum
+
+namespace TrivializedOn
+variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+variable {P : SheafActionQuotient.Object (representation smoothAction).action X}
+variable (t u : TrivializedOn A smoothAction P)
+
+/-- Re-express the same original object through two supplied local trivializations. -/
+def changeOfTrivialization : Hom t.extractedDatum u.extractedDatum :=
+  t.extractArrow u (SheafActionQuotient.Arrow.ident P)
+
+theorem changed_datum :
+    t.extractedDatum.gauge u.extractedDatum.localMap (t.changeOfTrivialization smoothAction u).labels =
+      u.extractedDatum := t.extractedDatum.gauge_of_hom (t.changeOfTrivialization smoothAction u)
+
+theorem change_recovery :
+    (interpretedHomEquiv smoothAction _ _ (t.changeOfTrivialization smoothAction u)).comp
+      u.extractedRecovery = t.extractedRecovery := by
+  have h := t.recovery_naturality u (SheafActionQuotient.Arrow.ident P)
+  have hi : t.extractedRecovery.comp (SheafActionQuotient.Arrow.ident P) = t.extractedRecovery := by
+    apply SheafActionQuotient.Arrow.ext
+    apply SheafTorsor.Arrow.ext
+    exact Category.comp_id _
+  exact h.trans hi
+
+theorem change_identity : t.changeOfTrivialization smoothAction t = Hom.ident t.extractedDatum :=
+  t.extractArrow_ident
+
+theorem change_composite (v : TrivializedOn A smoothAction P) :
+    (t.changeOfTrivialization smoothAction u).comp (u.changeOfTrivialization smoothAction v) =
+      t.changeOfTrivialization smoothAction v := by
+  have h := t.extractArrow_comp u v (SheafActionQuotient.Arrow.ident P) (SheafActionQuotient.Arrow.ident P)
+  have hi : (SheafActionQuotient.Arrow.ident P).comp (SheafActionQuotient.Arrow.ident P) =
+      SheafActionQuotient.Arrow.ident P := by
+    apply SheafActionQuotient.Arrow.ext
+    apply SheafTorsor.Arrow.ext
+    exact Category.id_comp _
+  rw [hi] at h
+  exact h.symm
+
+end TrivializedOn
 
 namespace Hom
 variable {p q : Datum (d := d) (G := G) (M := M) A}

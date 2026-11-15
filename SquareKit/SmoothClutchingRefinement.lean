@@ -247,4 +247,79 @@ theorem common_projection_two (i : Bool × (Bool × Bool)) :
     commonToTwo.chart i ≫ (refinement (punctures 2) (punctures_cover 2 (by norm_num))).chart (commonToTwo.index i) =
       (refinement commonFunctions common_cover).chart i := OpenFunctions.Map.ext (fun _ => rfl)
 
+def scaledFunction (r : ℝ) (f : Free 1) : Free 1 :=
+  ⟨fun x => f.val (fun i => r * x i), (show ContDiff ℝ ∞ f.val from f.property).comp
+    (contDiff_pi.mpr (fun i => contDiff_const.mul (contDiff_apply ℝ (fun _ : Fin 1 => ℝ) i)))⟩
+
+def principalScalingIso (r : ℝ) (hr : r ≠ 0) (f : Free 1) :
+    principal (scaledFunction r f) ≅ principal f where
+  hom := {
+    toFun x := ⟨fun i => r * x.val i, x.property⟩
+    smooth i := (OpenFunctions.representative_iff _ (fun x => r * x i) (fun _ => rfl)).mpr
+      (contDiff_const.mul (contDiff_apply ℝ (fun _ : Fin 1 => ℝ) i)).contDiffOn }
+  inv := {
+    toFun x := ⟨fun i => r⁻¹ * x.val i, by
+      change f.val (fun i => r * (r⁻¹ * x.val i)) ≠ 0
+      have hx : f.val x.val ≠ 0 := x.property
+      simpa only [← mul_assoc, mul_inv_cancel₀ hr, one_mul] using hx⟩
+    smooth i := (OpenFunctions.representative_iff _ (fun x => r⁻¹ * x i) (fun _ => rfl)).mpr
+      (contDiff_const.mul (contDiff_apply ℝ (fun _ : Fin 1 => ℝ) i)).contDiffOn }
+  hom_inv_id := by
+    apply OpenFunctions.Map.ext
+    intro x
+    apply Subtype.ext
+    funext i
+    change r⁻¹ * (r * x.val i) = x.val i
+    rw [← mul_assoc, inv_mul_cancel₀ hr, one_mul]
+  inv_hom_id := by
+    apply OpenFunctions.Map.ext
+    intro x
+    apply Subtype.ext
+    funext i
+    change r * (r⁻¹ * x.val i) = x.val i
+    rw [← mul_assoc, mul_inv_cancel₀ hr, one_mul]
+
+theorem scaling_inclusion (r : ℝ) (hr : r ≠ 0) (f : Free 1) :
+    (principalScalingIso r hr f).hom ≫ toLine f = toLine (scaledFunction r f) ≫ lineScale r :=
+  OpenFunctions.Map.ext (fun _ => rfl)
+
+theorem scaling_pullback (r : ℝ) (hr : r ≠ 0) (f : Free 1) :
+    IsPullback (embedding.map (principalScalingIso r hr f).hom)
+      (embedding.map (toLine (scaledFunction r f)))
+      (embedding.map (toLine f)) (embedding.map (lineScale r)) := by
+  letI : IsIso (embedding.map (lineScale r)) :=
+    (embedding.mapIso (lineScalingIso r hr)).isIso_hom
+  apply IsPullback.of_horiz_isIso
+  exact ⟨by rw [← Functor.map_comp, ← Functor.map_comp, scaling_inclusion]⟩
+
+theorem scaled_cover {K : Type} (f : K → Free 1) (hf : Covers line f) (r : ℝ) :
+    Covers line (fun k => scaledFunction r (f k)) := by
+  intro x
+  exact hf ((show EuclideanOpen.Map _ _ from lineScale r) x)
+
+def scaledAtlasMap {K : Type} (f : K → Free 1) (hf : Covers line f)
+    (r : ℝ) (hr : r ≠ 0) :
+    SmoothRepresentedCover.AtlasMap (atlas f hf)
+      (atlas (fun k => scaledFunction r (f k)) (scaled_cover f hf r)) (baseScale r hr) where
+  index := id
+  chart i := (principalScalingIso r hr (f i.2)).hom
+  commutes i := by
+    dsimp only [atlas, refinedChart, id_eq]
+    rw [← Category.assoc, ← Functor.map_comp, scaling_inclusion, Functor.map_comp,
+      Category.assoc, Category.assoc]
+    congr 1
+    cases i.1
+    · exact (left_baseScale r hr).symm
+    · exact (right_baseScale r hr).symm
+
+theorem scaled_chart_pullback {K : Type} (f : K → Free 1) (hf : Covers line f)
+    (r : ℝ) (hr : r ≠ 0) (i : Bool × K) :
+    IsPullback (embedding.map ((scaledAtlasMap f hf r hr).chart i))
+      ((atlas (fun k => scaledFunction r (f k)) (scaled_cover f hf r)).chart i)
+      ((atlas f hf).chart i) (baseScale r hr) := by
+  letI : IsIso (baseScale r hr) := (baseScalingIso r hr).isIso_hom
+  letI : IsIso (embedding.map ((scaledAtlasMap f hf r hr).chart i)) :=
+    (embedding.mapIso (principalScalingIso r hr (f i.2))).isIso_hom
+  exact IsPullback.of_horiz_isIso ⟨(scaledAtlasMap f hf r hr).commutes i⟩
+
 end SquareKit.SmoothClutching.Refined

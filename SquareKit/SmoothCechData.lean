@@ -25,6 +25,15 @@ structure Datum where
         (transition i j).val ((show EuclideanOpen.Map _ _ from A.firstSecond i j k) x)
 
 variable {A}
+
+@[ext] theorem Datum.ext (p q : Datum (d := d) (G := G) (M := M) A)
+    (hm : p.localMap = q.localMap) (ht : HEq p.transition q.transition) : p = q := by
+  cases p
+  cases q
+  cases hm
+  cases ht
+  rfl
+
 structure Hom (p q : Datum (d := d) (G := G) (M := M) A) where
   labels : ∀ i, External.Labels (G := G) (A.domain i) (p.localMap i) (q.localMap i)
   commutes : ∀ i j (x : Points (A.pair i j)),
