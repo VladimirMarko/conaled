@@ -40,6 +40,13 @@ def messageBits : Message → Nat
   | .request identity command => 1 + nameBits identity + commandBits command
   | .reply receipt => 1 + receiptBits receipt
 
+/-- The retained originating command can itself contain a lifetime-keyed
+receipt; a fixed-size control allowance cannot cover that growing identity. -/
+def frameCommandBits : FrameCommand → Nat
+  | .admit _ | .migrate _ => 4
+  | .receive receipt => 3 + receiptBits receipt
+  | .evaluate | .tickCommit | .close | .release => 3
+
 def peerEntryBits (entry : Nat × PendingMigration.Ledger) : Nat :=
   nameBits entry.1 + match entry.2 with
   | .reserved _ | .cancelled _ => 3
@@ -92,6 +99,7 @@ def storageSize (s : System) : StorageSize :=
    externalMessages := (s.outbound.map (fun p => nameBits p.1 + commandBits p.2)).sum +
      (s.inbound.map receiptBits).sum,
    controls := 16 + nameBits j.nextAddress +
+     (s.adapter.pendingCause.map frameCommandBits).getD 0 +
      (j.machine.root.tail.map nameBits).getD 0 + (j.machine.root.checkpoint.map nameBits).getD 0 +
      (j.machine.active.map recordBits).getD 0 + (s.adapter.reconcileOrder.map nameBits).sum}
 
@@ -157,5 +165,10 @@ peak. This is the event model, not a claim about a physical allocator. -/
 example : ([Work.allocate 3, .release 3].foldl allocationStep ⟨2,2⟩) = ⟨2,5⟩ := by decide
 
 example : nameBits 0 = 1 ∧ nameBits 255 = 8 ∧ nameBits 256 = 9 := by decide
+
+/-- A retained receipt's name keeps its actual binary width while the append
+awaits acknowledgment. -/
+example : (storageSize {adapter := {pendingCause := some (.receive ⟨256,.absent⟩)}}).controls >
+    (storageSize {adapter := {pendingCause := some (.receive ⟨0,.absent⟩)}}).controls := by decide
 
 end FRPSpec.PendingCrash

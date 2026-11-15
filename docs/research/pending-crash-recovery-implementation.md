@@ -115,14 +115,19 @@ limit is introduced.
 `Costs` keeps source-event work and flattened storage separate. Work reports
 actual emitted table/cell probes, record checks, writes, persists, root cuts,
 frame validations, message checks, reconstruction, conversion, attempted work,
-allocation, copying and release. Its allocation-event occupancy records a peak
+allocation, copying and release. Preparation records conversion alongside the
+native candidate copy even when validation then fails; allocation failure
+precedes that conversion. Callback retirement counts only the messages visited
+until its first match. Tick publication records replacement allocation before
+old-owner release. Its allocation-event occupancy records a peak
 before subsequent releases. These are modeled source operations and cells,
 not elapsed time or physical allocator measurements.
 
 Storage reports the journal, durable peer table, cached history, pending before
 and after copies, buffered cell, reconstruction accumulator, current frame,
 active/target/former backends, local messages, external messages and controls.
-Natural-number names have growing binary widths. The flattened encoding charges
+Natural-number names have growing binary widths, including the receipt retained
+in a pending originating command. The flattened encoding charges
 shared payloads again; it does not assert physical pointer sharing or a durable
 byte format. Retained bits and allocation-event cells are distinct units.
 

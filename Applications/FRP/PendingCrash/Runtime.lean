@@ -160,7 +160,8 @@ def applyJournal (s : System) (attempt : JournalAttempt s.adapter.journal) : Obs
         match s.adapter.active, s.adapter.current.bind Frame.head with
         | some active, some (_, request) =>
           {default with system := {s with adapter := {updated with
-            active := some (Migration.evaluate active request.input).candidate}}, work := result.work ++ [.copy active.cells]}
+            active := some (Migration.evaluate active request.input).candidate}}, work := result.work ++ [.allocate (Migration.evaluate active request.input).candidate.cells,
+              .copy active.cells, .release active.cells]}
         | _, _ => {default with system := {s with adapter := {updated with stopped := true}}, status := .stopped}
       | some (.admit input) =>
         {default with system := {s with adapter := updated}, accepted := some (frame.nextIdentity - 1,input)}
@@ -207,6 +208,23 @@ def crash (s : System) : Observation s.adapter.journal.machine s.peer :=
     (s.adapter.retired.map Migration.Backend.cells).sum + s.adapter.queue.messages.length
   {system := {s with adapter := {s.adapter with journal := result.journal, current := none, active := none, prepared := none, retired := [], queue := {}, pendingCause := none, reconcileOrder := [], stopped := false}}, status := .crashed, journalEvent := some .crash, work := result.work ++ [.release cells], native := result.native}
 
+/-- Callback retirement scans exactly until the first matching lifetime name,
+retaining the work of an unsuccessful full scan as well. -/
+def checkMessageIdentity (identity : Nat) : List Message → Bool × List Work
+  | [] => (false, [])
+  | message :: rest =>
+    if message.identity == identity then (true, [.messageCheck])
+    else let checked := checkMessageIdentity identity rest
+         (checked.1, .messageCheck :: checked.2)
+
+theorem checkMessageIdentity_eq (identity : Nat) (messages : List Message) :
+    (checkMessageIdentity identity messages).1 = messages.any (fun m => m.identity == identity) := by
+  induction messages with
+  | nil => rfl
+  | cons message rest ih =>
+    simp only [checkMessageIdentity,List.any_cons]
+    split <;> simp_all
+
 /-- A physical slot can be reused only after its owned callback queue is empty
 of that lifetime identity. External late messages remain identity-keyed. -/
 def localCommand (s : System) (command : FrameCommand) : Observation s.adapter.journal.machine s.peer :=
@@ -216,8 +234,9 @@ def localCommand (s : System) (command : FrameCommand) : Observation s.adapter.j
   | .release => match s.adapter.current.bind Frame.head with
     | none => reject s
     | some (_, request) =>
-      if s.adapter.queue.messages.any (fun m => m.identity == request.identity) then reject s .busy
-      else beginChange s command
+      let checked := checkMessageIdentity request.identity s.adapter.queue.messages
+      if checked.1 then reject s .busy (checked.2 ++ [.attempt 0])
+      else { (beginChange s command) with work := checked.2 ++ (beginChange s command).work }
   | _ => beginChange s command
 
 inductive Send where
@@ -386,7 +405,9 @@ def prepareMigration (s : System) (kind : Migration.Kind) (budget : Nat)
       | .validationFailure => .validationFailure
       | .resourceFailure => .resourceFailure
       | _ => .refused
-    {system := {s with adapter := {s.adapter with prepared := result.session.prepared.map (fun p => p.target)}}, status := status, work := result.transfer.map transferWork}
+    {system := {s with adapter := {s.adapter with prepared := result.session.prepared.map (fun p => p.target)}}, status := status, work := result.transfer.flatMap (fun event => match event with
+        | .copy cells => [.copy cells, .convert cells]
+        | event => [transferWork event])}
 
 def commitMigration (s : System) : Observation s.adapter.journal.machine s.peer :=
   match s.adapter.prepared with

@@ -208,4 +208,30 @@ example (kind : Migration.Kind) (continuation : List Command) :
     ∃ final, DelayRun {} (execute (initialSystem kind) (reusedWithStale ++ continuation)).observations final :=
   execute_source_refinement kind _
 
+/-- Candidate construction is still charged when native validation fails. -/
+example : (execute (initialSystem .delay)
+    (computed true ++ [.prepareMigration .redundant 512 true false])).cost.converted > 0 := by decide +kernel
+
+/-- Allocation failure precedes candidate materialization. -/
+example : (execute (initialSystem .delay)
+    (computed true ++ [.prepareMigration .redundant 512 false true])).cost.converted = 0 := by decide +kernel
+
+/-- Persistence without the required buffered write records a failed attempt. -/
+example : (execute (initialSystem .delay)
+    [.local (.admit true), .storage .prepare, .storage .persist]).cost.attempted > 2 := by decide
+
+example : checkMessageIdentity 3 [.request 3 .query, .request 7 .query] =
+    (true,[.messageCheck]) := by decide
+
+example : checkMessageIdentity 5 [.request 3 .query, .request 7 .query] =
+    (false,[.messageCheck,.messageCheck]) := by decide
+
+/-- Tick publication materializes the selected replacement before releasing
+its previous native owner. Journal history release remains a separate event. -/
+example :
+    let staged := execute (initialSystem .delay) (confirmed true ++ [.local .tickCommit] ++ flush.take 3)
+    let work := (step staged.system (.storage .publish)).work
+    Work.allocate 1 ∈ work ∧ Work.release 1 ∈ work := by decide +kernel
+
+
 end FRPSpec.PendingCrash.Examples

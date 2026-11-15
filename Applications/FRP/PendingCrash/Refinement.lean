@@ -392,6 +392,8 @@ theorem FrameConsistent.localCommand {s : System} (consistent : FrameConsistent 
     (command : FrameCommand) : FrameConsistent (localCommand s command).system := by
   unfold FRPSpec.PendingCrash.localCommand
   repeat' first | exact consistent | exact consistent.beginChange _ | split
+  all_goals dsimp only
+  all_goals repeat' first | exact consistent | exact consistent.beginChange _ | split
 
 
 theorem FrameConsistent.handle {s : System} (consistent : FrameConsistent s) :
@@ -2268,6 +2270,8 @@ theorem localCommand_traffic (s : System) (frame : Frame) (command : FrameComman
     (safe : TrafficSafe frame s) : TrafficSafe frame (localCommand s command).system := by
   unfold localCommand
   repeat' first | exact safe | exact beginChange_traffic s frame _ safe | split
+  all_goals dsimp only
+  all_goals repeat' first | exact safe | exact beginChange_traffic s frame _ safe | split
 
 theorem step_traffic (s : System) (frame : Frame) (command : Command)
     (safe : TrafficSafe frame s)
@@ -2506,6 +2510,8 @@ theorem step_initialKind (s : System) (command : Command) :
       drain,network,duplicateInbound,duplicateOutbound,prepareMigration,
       commitMigration,cancelMigration,cleanupMigration,beginChange,applyJournal,pushLocal,pushCancellation]
   all_goals repeat' first | rfl | split
+  all_goals dsimp only
+  all_goals repeat' first | rfl | split
 
 theorem step_peer (s : System) (command : Command) :
     (step s command).system.peer = match command with
@@ -2515,6 +2521,8 @@ theorem step_peer (s : System) (command : Command) :
     simp only [step,localCommand,sendFor,storage,crash,reconcile,submit,receiveNetwork,
       drain,duplicateInbound,duplicateOutbound,prepareMigration,
       commitMigration,cancelMigration,cleanupMigration,beginChange,applyJournal,pushLocal,pushCancellation]
+  all_goals repeat' first | rfl | split
+  all_goals dsimp only
   all_goals repeat' first | rfl | split
 
 
@@ -2691,6 +2699,11 @@ theorem step_silent (s : System) (command : Command)
     simp only [step]
     unfold localCommand
     repeat' first
+      | exact reject_silent _ _ _
+      | exact beginChange_silent _ _
+      | split
+    all_goals dsimp only
+    all_goals repeat' first
       | exact reject_silent _ _ _
       | exact beginChange_silent _ _
       | split
