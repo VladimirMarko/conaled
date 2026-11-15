@@ -1010,5 +1010,6 @@ import Examples.ExecutableUnivalence
 import Examples.CubicalSelectedInverse
 
 import Examples.KineticAD
+import Examples.CubicalAuthorTransportCalibration
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
