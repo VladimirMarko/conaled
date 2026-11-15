@@ -1006,5 +1006,6 @@ import Examples.BoundedArithmetic
 import Examples.BoundedMotionArithmetic
 
 import Examples.ExecutableUnivalence
+import Examples.CubicalSelectedInverse
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
