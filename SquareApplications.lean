@@ -929,6 +929,7 @@ import Examples.SelectionGenericEnvelope
 import Examples.SelectionMedians
 import Examples.SelectionRecurrence
 import Examples.TreeCache
+import Examples.TreeFoldObservations
 import Examples.TreeShape
 import Applications.Suspensions.Correspondence
 import Examples.SuspensionMachine
