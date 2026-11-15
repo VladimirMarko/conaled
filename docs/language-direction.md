@@ -457,6 +457,23 @@ documentation, language expressiveness, elaboration behavior and author
 capability. A failed attempt alone establishes neither a language limitation
 nor the impossibility of a practical encoding.
 
+Apply this separation to planning and adoption decisions too. Immediate syntax
+or author-effort savings are one benefit alongside reuse across consumers and
+compilation targets, stronger guarantees, fewer repeated proof obligations, and
+foundations for the future language. Assess these benefits against implementation,
+migration and maintenance costs. Distinguish demonstrated reuse from a proposed
+future consumer; changing agent capabilities or a future frontend can change
+encoding costs without changing the mathematical value. Neither current author
+difficulty nor speculative future reuse settles the priority by itself.
+
+Report a trial's concrete result and adoption decision separately from unanswered
+research questions. State what to adopt, retain, refine or defer, for which tasks,
+and what work remains with callers. A demonstrated reduction in repeated caller
+work can justify bounded reuse without establishing a universal productivity
+advantage. Account for library preparation and maintenance costs; require broader
+evidence before recommending a broad migration. Do not summarize a useful scoped
+result as merely inconclusive because a general comparison remains unresolved.
+
 Research and bounded author trials can proceed alongside each other. Freeze
 the interface, mathematical contract and permitted assistance for each trial;
 retain the attempts as a baseline when the interface later changes. Use failures

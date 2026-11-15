@@ -2,9 +2,10 @@
 
 Issue #423 adds an optional decision procedure for the existing generated
 `DepEq` and `FuncEq` relations. It does not change their rules or the source
-grammar. Engine correctness and an author productivity result are different
-obligations: the independent author trial remains unstarted and mandatory for
-completion of the full issue.
+grammar. The service and independent six-author trial are complete. The trial supports
+retaining the service for this grammar: it removed the need for authors to
+supply general conversion helpers in the tested tasks. It does not establish
+a universal productivity advantage.
 
 ## Contract and algorithm choice
 
@@ -108,29 +109,28 @@ not used as trusted proof certificates.
 
 ## Acceptance and author trial
 
-Focused compilation of all seven new library/example modules has passed,
-including the interpretation and separating-model fixtures. The runtime driver
-passed all twelve public-service fixtures. Detailed commands and retained
-attempts are in the coordinator handoff.
-The finite separating model uses a local 800,000-heartbeat allowance for one
-observation lemma; the retained successful development check took 105 seconds
-for that module. This is engine/control setup cost, not author-trial timing.
-Exact candidate build/audit and independent review remain coordinator gates.
-The retained development logs include unsuccessful elaboration attempts; those
-failures establish neither mathematical impossibility nor performance limits.
+The engine's build, proof audit, runtime fixtures and independent reviews passed.
+The [completion decision](https://github.com/VladimirMarko/conaled/issues/423#issuecomment-6832115388)
+records acceptance of the service and the completed six-author comparison.
+The [trial report](../../experiments/dependent-conversion-authoring/results-2026-11-12/README.md)
+contains the frozen tasks, attempts, exact-source replays and audit evidence.
 
-The research assumptions remain those distinguished in the
-[open-term assessment](open-term-normalization.md) and
-[typed authoring assessment](typed-nbe-and-authoring.md). No cubical normalization
-theorem is imported as a proof of this implementation. The existing
-[reviewed prospective protocol](dependent-conversion-authoring-protocol.md)
-continues to govern the later comparison.
+All six authors completed the initial, scale, repair and held-out tasks. All
+three service authors used the supplied converter without authoring general
+helpers; the three direct authors wrote six or seven general helpers each,
+with some copied into later task sources. This is evidence that the service
+moved recurring caller work into the library. Both routes met the task contracts.
 
-The later trial requires frozen tasks, a held-out binder/repair task, the same
-model/configuration and explicit resource budgets, independent fresh authors
-for direct-helper and service routes, assistance/repair/check logs and a
-comparable cost ledger. No authors have been exposed to these tasks, and this
-implementation author cannot count as an independent trial author. The protocol
-and tasks must be reviewed and frozen before execution. Engine correctness alone
-supports no productivity claim. Issues #401, #260, #214, #107 and #108 retain
-their existing scope; this work does not activate or replace them.
+Retain the optional service and reuse it for consumers whose conversion problems
+fit its proved grammar. Native derivations remain available when callers need
+them. Such reuse does not require another general productivity comparison.
+The service's implementation, proof and maintenance costs still count; this
+small cohort does not establish total-effort superiority, a causal scaling law
+or an amortization break-even. The [cost ledger](../../experiments/dependent-conversion-authoring/results-2026-11-12/costs.md)
+separates available measurements from unknown labor.
+
+The [open-term assessment](open-term-normalization.md) and
+[typed authoring assessment](typed-nbe-and-authoring.md) describe the mathematical
+scope. The result does not extend conversion to arbitrary Pi types, cubical
+syntax, univalence or equality reflection. Wider grammar changes require their
+own correctness arguments and consumers.

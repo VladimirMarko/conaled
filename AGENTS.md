@@ -20,6 +20,8 @@ redundant caveats, and process records that merely accumulate clutter.
 
 Before designing or reviewing library abstractions, read
 `docs/agents/architectural-quality.md`.
+Before prioritizing architectural work or making trial/adoption decisions, read
+[the planning and adoption guidance](docs/language-direction.md#elegance-author-capability-and-language-constraints).
 
 ## Development environment
 
