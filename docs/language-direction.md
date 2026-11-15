@@ -66,6 +66,23 @@ transport along one map of models but not another. The language should make
 the reusable argument and the missing obligation visible without requiring
 authors to reconstruct the semantics at each use.
 
+Clarified with the project owner on 2026-11-15: support both interpreting a
+shared argument in multiple settings and transporting constructions and proofs
+between settings whenever their mathematical requirements hold. Separate
+interpretations establish validity in their respective models; transport also
+needs a connection preserving the structures, judgments and witnesses used by
+the argument. Neither achievement alone establishes the other. Research should
+develop both routes, identify their hypotheses and composition laws, and retain
+explicit ownership of missing capabilities or mathematical obstructions.
+
+Existing constructions are starting points for expansion into wider and more
+powerful frameworks. Assess those frameworks by the additional mathematics and
+reusable arguments they support, while recovering existing clients under their
+original contracts. Reuse does not require retaining the current interfaces
+unchanged, and a bounded comparison does not set the language's expressive limit.
+The [six-functor investigation](research/six-functor-language.md) tests these
+goals on coherently varying settings and their realizations.
+
 This goes beyond sharing a parser or concrete notation between workstreams.
 The common design problem is which constructions and reasoning principles can
 be abstracted, how their requirements compose, and which interpretations
