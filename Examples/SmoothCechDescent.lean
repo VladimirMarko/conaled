@@ -133,6 +133,43 @@ theorem native_family_agreement (n : External.SmoothMap U d M)
   exact congrArg (External.labelsEquiv m n)
     ((External.chartLabelsEquiv smoothAction m n).apply_symm_apply (f.labels ()))
 
+
+/-- The canonical descent comparison built from actual regularization recovers
+an original chart arrow, with the selected #566 recovery. -/
+theorem canonical_arrow_agreement (n : External.SmoothMap U d M)
+    (f : External.ChartArrow smoothAction m n) :
+    SheafActionQuotient.Descent.canonicalArrowEquiv
+      (SplitSheaf.ofDisplay (identityAtlas U).cover) _ _
+      ((admitted U m smoothAction).canonicalArrowMap (admitted U n smoothAction)
+        ((admitted U m smoothAction).extractArrow (admitted U n smoothAction) f)) = f := by
+  rw [TrivializedOn.canonicalArrowMap_agreement, TrivializedOn.arrow_roundtrip]
+
+/-- Agreement retains the entire native smooth family, not only its point labels. -/
+theorem canonical_family_agreement (n : External.SmoothMap U d M)
+    (f : External.ChartArrow smoothAction m n) :
+    External.smoothChartEquiv smoothAction m n
+      (SheafActionQuotient.Descent.canonicalArrowEquiv
+        (SplitSheaf.ofDisplay (identityAtlas U).cover) _ _
+        ((admitted U m smoothAction).canonicalArrowMap (admitted U n smoothAction)
+          ((admitted U m smoothAction).extractArrow (admitted U n smoothAction) f))) =
+      External.smoothChartEquiv smoothAction m n f := by
+  rw [canonical_arrow_agreement]
+
+/-- Changing the canonical descent cover preserves that same complete family. -/
+theorem canonical_family_cover_comparison (n : External.SmoothMap U d M)
+    (B : SplitSheaf.Ty (embedding.obj U))
+    [Presheaf.IsLocallySurjective topology (SplitSheaf.p B).hom]
+    (f : External.ChartArrow smoothAction m n) :
+    External.smoothChartEquiv smoothAction m n
+      (SheafActionQuotient.Descent.canonicalArrowEquiv B _ _
+        (SheafActionQuotient.Descent.recoveryArrowComparison
+          (SplitSheaf.ofDisplay (identityAtlas U).cover) B _ _
+          ((admitted U m smoothAction).canonicalArrowMap (admitted U n smoothAction)
+            ((admitted U m smoothAction).extractArrow (admitted U n smoothAction) f)))) =
+      External.smoothChartEquiv smoothAction m n f := by
+  rw [SheafActionQuotient.Descent.recoveryArrowComparison_commutes,
+    canonical_arrow_agreement]
+
 end OneChart
 
 namespace Clutching
