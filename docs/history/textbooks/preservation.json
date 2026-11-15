@@ -1,11 +1,24 @@
 {
   "archive_sha256": "fe7c78aebe6da96cd4a84cb1ef8dcde194cfe7647102dceb99293794945c1b04",
-  "preserved_payload_files": 9919,
+  "preserved_payload_files": 9131,
+  "retained_manifest_entries": 9130,
   "omitted": [
     "source/repository.bundle (restored Git history)",
     "support/ (historical native setup kit; receiving repository uses Nix)",
-    "reference/conaled/ (historical repository guidance; recoverable from recorded Git history)"
+    "reference/conaled/ (historical repository guidance; recoverable from recorded Git history)",
+    "books/**/*.log (historical compiler and environment transcripts; see log-curation.md)"
   ],
+  "log_curation": {
+    "record": "log-curation.md",
+    "manifest": "checkpoint-012/MANIFEST.json",
+    "selection": "Every original manifest path beginning books/ and ending .log",
+    "omitted_files": 788,
+    "omitted_bytes": 27776779,
+    "ordered_paths_sha256": "7e506f4faf2b97e750c70f9c216f2d358ea5a960ce3a9d2d36d3b414c316af7f",
+    "path_digest_encoding": "UTF-8, lexicographically sorted paths, each followed by LF",
+    "policy": "Retain useful mathematics and necessary context in source or concise notes; omit redundant execution transcripts.",
+    "historical_references": "Original receipts and reviews can refer to deliberately omitted logs. Those references describe historical evidence and do not establish current validation."
+  },
   "renamed": {
     "AGENTS.md": "AGENTS.historical.md"
   }
