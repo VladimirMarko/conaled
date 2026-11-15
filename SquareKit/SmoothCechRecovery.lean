@@ -212,5 +212,34 @@ theorem recovery_naturality (u : TrivializedOn A smoothAction Q)
   rw [Iso.hom_inv_id_assoc] at hh
   exact hh
 
+theorem arrowEquiv_ident : t.arrowEquiv t (Hom.ident t.extractedDatum) =
+    SheafActionQuotient.Arrow.ident P := by
+  have hi : CategoryTheory.Iso.homCongr t.extractedRecovery.toIso
+      t.extractedRecovery.toIso (𝟙 _) = 𝟙 P := by simp
+  exact (congrArg (CategoryTheory.Iso.homCongr t.extractedRecovery.toIso
+    t.extractedRecovery.toIso) ((interpretation smoothAction).map_id t.extractedDatum)).trans hi
+
+theorem arrowEquiv_comp {R : Object (representation smoothAction).action X}
+    (u : TrivializedOn A smoothAction Q) (v : TrivializedOn A smoothAction R)
+    (f : Hom t.extractedDatum u.extractedDatum) (g : Hom u.extractedDatum v.extractedDatum) :
+    t.arrowEquiv v (f.comp g) = (t.arrowEquiv u f).comp (u.arrowEquiv v g) := by
+  exact (congrArg (CategoryTheory.Iso.homCongr t.extractedRecovery.toIso
+    v.extractedRecovery.toIso) ((interpretation smoothAction).map_comp f g)).trans
+      (CategoryTheory.Iso.homCongr_comp t.extractedRecovery.toIso u.extractedRecovery.toIso
+        v.extractedRecovery.toIso ((interpretation smoothAction).map f)
+        ((interpretation smoothAction).map g))
+
+theorem extractArrow_ident : t.extractArrow t (SheafActionQuotient.Arrow.ident P) =
+    Hom.ident t.extractedDatum := by
+  apply (t.arrowEquiv t).injective
+  rw [t.arrow_roundtrip, t.arrowEquiv_ident]
+
+theorem extractArrow_comp {R : Object (representation smoothAction).action X}
+    (u : TrivializedOn A smoothAction Q) (v : TrivializedOn A smoothAction R)
+    (f : SheafActionQuotient.Arrow P Q) (g : SheafActionQuotient.Arrow Q R) :
+    t.extractArrow v (f.comp g) = (t.extractArrow u f).comp (u.extractArrow v g) := by
+  apply (t.arrowEquiv v).injective
+  rw [t.arrow_roundtrip, t.arrowEquiv_comp, t.arrow_roundtrip, u.arrow_roundtrip]
+
 end TrivializedOn
 end SquareKit.SmoothCech
