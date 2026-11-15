@@ -222,7 +222,6 @@ def commonToOne : SmoothRepresentedCover.AtlasMap atlasOne commonAtlas (𝟙 bas
   chart i := intersectionLeft (punctures 1 i.2.1) (punctures 2 i.2.2)
   commutes i := by
     dsimp only [atlasOne, atlasTwo, commonAtlas, atlas, refinedChart, commonFunctions]
-    change embedding.map _ ≫ (embedding.map _ ≫ _) = _ ≫ 𝟙 _
     rw [Category.comp_id, ← Category.assoc, ← Functor.map_comp]
     congr 1
 
@@ -231,7 +230,6 @@ def commonToTwo : SmoothRepresentedCover.AtlasMap atlasTwo commonAtlas (𝟙 bas
   chart i := intersectionRight (punctures 1 i.2.1) (punctures 2 i.2.2)
   commutes i := by
     dsimp only [atlasOne, atlasTwo, commonAtlas, atlas, refinedChart, commonFunctions]
-    change embedding.map _ ≫ (embedding.map _ ≫ _) = _ ≫ 𝟙 _
     rw [Category.comp_id, ← Category.assoc, ← Functor.map_comp]
     congr 1
 
@@ -301,7 +299,7 @@ theorem scaling_pullback (r : ℝ) (hr : r ≠ 0) (f : Free 1) :
     IsPullback (embedding.map (principalScalingIso r hr f).hom)
       (embedding.map (toLine (scaledFunction r f)))
       (embedding.map (toLine f)) (embedding.map (lineScale r)) := by
-  letI : IsIso (embedding.map (lineScale r)) :=
+  let : IsIso (embedding.map (lineScale r)) :=
     (embedding.mapIso (lineScalingIso r hr)).isIso_hom
   apply IsPullback.of_horiz_isIso
   exact ⟨by rw [← Functor.map_comp, ← Functor.map_comp, scaling_inclusion]⟩
@@ -331,8 +329,8 @@ theorem scaled_chart_pullback {K : Type} (f : K → Free 1) (hf : Covers line f)
     IsPullback (embedding.map ((scaledAtlasMap f hf r hr).chart i))
       ((atlas (fun k => scaledFunction r (f k)) (scaled_cover f hf r)).chart i)
       ((atlas f hf).chart i) (baseScale r hr) := by
-  letI : IsIso (baseScale r hr) := (baseScalingIso r hr).isIso_hom
-  letI : IsIso (embedding.map ((scaledAtlasMap f hf r hr).chart i)) :=
+  let : IsIso (baseScale r hr) := (baseScalingIso r hr).isIso_hom
+  let : IsIso (embedding.map ((scaledAtlasMap f hf r hr).chart i)) :=
     (embedding.mapIso (principalScalingIso r hr (f i.2))).isIso_hom
   exact IsPullback.of_horiz_isIso ⟨(scaledAtlasMap f hf r hr).commutes i⟩
 

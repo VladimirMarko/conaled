@@ -528,6 +528,76 @@ theorem pullback_two_excludes_half :
   change ¬ (2 : ℝ) * (1/2) - 1 ≠ 0
   norm_num
 
+
+/-- The genuine principal refinement retains the nontrivial torsor through
+its selected interpretation comparison. -/
+theorem onOne_no_section :
+    ¬ Nonempty (SplitSheaf.Tm (onOne.interpreted (smooth C4)).torsor.family) := by
+  rintro ⟨s⟩
+  apply quarterTurn_no_section
+  exact ⟨SheafTorsor.sectionOfArrow ((SheafTorsor.ofSection _ s).comp
+    (quarterTurnDatum.restrictComparison
+      (refinement (punctures 1) (punctures_cover 1 (by norm_num))) (smooth C4)).inverse.torsorArrow)⟩
+
+theorem onTwo_no_section :
+    ¬ Nonempty (SplitSheaf.Tm (onTwo.interpreted (smooth C4)).torsor.family) := by
+  rintro ⟨s⟩
+  apply quarterTurn_no_section
+  exact ⟨SheafTorsor.sectionOfArrow ((SheafTorsor.ofSection _ s).comp
+    (quarterTurnDatum.restrictComparison
+      (refinement (punctures 2) (punctures_cover 2 (by norm_num))) (smooth C4)).inverse.torsorArrow)⟩
+
+theorem onCommon_no_section :
+    ¬ Nonempty (SplitSheaf.Tm (onCommon.interpreted (smooth C4)).torsor.family) := by
+  rintro ⟨s⟩
+  apply quarterTurn_no_section
+  exact ⟨SheafTorsor.sectionOfArrow ((SheafTorsor.ofSection _ s).comp
+    (quarterTurnDatum.restrictComparison
+      (refinement commonFunctions common_cover) (smooth C4)).inverse.torsorArrow)⟩
+
+def scaleTwoMap := scaledAtlasMap (punctures 1) (punctures_cover 1 (by norm_num)) 2 (by norm_num)
+def scaleThreeAfterTwoMap := scaledAtlasMap
+  (fun k => scaledFunction 2 (punctures 1 k))
+  (scaled_cover (punctures 1) (punctures_cover 1 (by norm_num)) 2) 3 (by norm_num)
+def scaledTwo := onOne.restrict scaleTwoMap
+def scaledThreeAfterTwo := scaledTwo.restrict scaleThreeAfterTwoMap
+
+theorem scaling_complete_datum : scaledThreeAfterTwo =
+    onOne.restrict (scaleTwoMap.comp scaleThreeAfterTwoMap) :=
+  onOne.restrict_comp scaleTwoMap scaleThreeAfterTwoMap
+
+theorem scaling_domain_six (k : Bool) :
+    principal (scaledFunction 3 (scaledFunction 2 (punctures 1 k))) =
+      principal (scaledFunction 6 (punctures 1 k)) := by
+  rw [scaledFunction_comp]
+  norm_num
+
+def scalingTwoComparison : SheafActionQuotient.Arrow
+    (SheafActionQuotient.reindex (onOne.interpreted (smooth C4)) (baseScale 2 (by norm_num)))
+    (scaledTwo.interpreted (smooth C4)) :=
+  onOne.restrictComparison scaleTwoMap (smooth C4)
+
+def scalingThreeAfterTwoComparison : SheafActionQuotient.Arrow
+    (SheafActionQuotient.reindex (scaledTwo.interpreted (smooth C4)) (baseScale 3 (by norm_num)))
+    (scaledThreeAfterTwo.interpreted (smooth C4)) :=
+  scaledTwo.restrictComparison scaleThreeAfterTwoMap (smooth C4)
+
+def commonViaOne :=
+  (refinement (punctures 1) (punctures_cover 1 (by norm_num))).comp commonToOne
+def commonViaTwo :=
+  (refinement (punctures 2) (punctures_cover 2 (by norm_num))).comp commonToTwo
+
+def commonRouteComparison := quarterTurnDatum.commonComparison commonViaOne commonViaTwo (smooth C4)
+
+theorem common_route_coherence :
+    (quarterTurnDatum.commonComparison commonViaOne commonViaTwo (smooth C4)).comp
+      (quarterTurnDatum.commonComparison commonViaTwo
+        (refinement commonFunctions common_cover) (smooth C4)) =
+    quarterTurnDatum.commonComparison commonViaOne
+      (refinement commonFunctions common_cover) (smooth C4) :=
+  quarterTurnDatum.commonComparison_comp commonViaOne commonViaTwo
+    (refinement commonFunctions common_cover) (smooth C4)
+
 end Refinements
 end Clutching
 end Examples.SmoothCechDescent
