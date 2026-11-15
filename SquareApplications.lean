@@ -825,6 +825,9 @@ import Examples.CubicalUniverseFilling
 import Examples.CubicalEquivalenceFamilies
 import Examples.CubicalStatePackageFamily
 import Examples.CubicalStatePackageUa
+import Examples.CubicalStructuredState
+import Examples.CubicalFiniteStateIdentity
+import Examples.CubicalConstructorState
 import Examples.CubicalUniversalDecode
 import Examples.CubicalUniverseRaising
 import Examples.CubicalContractibleTotals

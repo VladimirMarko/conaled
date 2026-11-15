@@ -1,4 +1,6 @@
 import SquareKit.Internal.Cubical.HomotopyEquivalences
+import SquareKit.Internal.Cubical.ChosenInverseHomotopies
+import SquareKit.Internal.Cubical.EquivalenceFamilies
 
 /-! Native fiber contractions induce actual bijections on sections of constant
 families. The conclusion uses derived discrete-path rigidity. -/
@@ -73,3 +75,83 @@ theorem closedEquiv_app
   congrArg (fun t => t.val x) (closedSection_eq (Term.map f (constant s)))
 
 end SquareKit.Cubical.Presheaf.DiscreteEquivalences
+
+namespace SquareKit.Cubical.Presheaf
+open CategoryTheory
+universe u
+
+/-- Discreteness is stable under every substitution, including generic points. -/
+def PathDiscrete {Γ : Context.{u}} (A : Family Γ) : Prop :=
+  ∀ {Δ : Context.{u}} (σ : Δ ⟶ Γ) {a b : Term (reindex A σ)},
+    Term (homogeneousPath (reindex A σ) a b) → a = b
+
+theorem constant_pathDiscrete {Γ : Context.{u}} (S : Type u) :
+    PathDiscrete (constantFamily Γ S) := fun _ _ => discretePath_endpoints
+
+theorem PathDiscrete.ofIso {Γ : Context.{u}} {A B : Family Γ}
+    (h : PathDiscrete B) (e : A ≅ B) : PathDiscrete A := by
+  intro Δ σ a b p
+  apply Term.map_injective_of_iso (Functor.isoWhiskerLeft σ.mapElements e)
+  exact h σ (homogeneousPathMap (Functor.whiskerLeft σ.mapElements e.hom) p)
+
+/-- Native contraction of an inhabited proof family is explicitly constructed
+from its pointwise singleton fibers. -/
+def subsingletonContractible {Γ : Context.{u}} {A : Family Γ}
+    (h : ∀ x, Subsingleton (A.obj x)) (a : Term A) : HomotopyContractible A where
+  center := a
+  contraction := by
+    have he : a.reindex (projection A) = generic A := by
+      apply Term.ext
+      intro x
+      exact (h ((projection A).mapElements.obj x)).elim _ _
+    exact pathLam ((a.reindex (projection A)).reindex (projection (interval (total A)))) rfl he
+
+namespace HomotopyEquivalence
+variable {Γ : Context.{u}} {A B : Family Γ} {f : A ⟶ B}
+  (E : HomotopyEquivalence f)
+
+/-- The inverse is extracted from the supplied generic fiber center. -/
+def discreteInverse : B ⟶ A :=
+  EquivalenceFamilies.decodeMap (lam (genericFiberFst f (𝟙 (total B)) E.fibers.center))
+
+/-- On constant families this is the section inverse already used by the
+finite-universe classification. Both select the original fiber center. -/
+theorem discreteInverse_constant {S T : Type u}
+    (g : constantFamily Γ S ⟶ constantFamily Γ T) (H : HomotopyEquivalence g)
+    (t : Term (constantFamily Γ T)) :
+    Term.map H.discreteInverse t = DiscreteEquivalences.inverseSection g H t := rfl
+
+theorem discrete_right (hB : PathDiscrete B) : E.discreteInverse ≫ f = 𝟙 B := by
+  have h := hB (projection B) (genericFiberPath f (𝟙 (total B)) E.fibers.center)
+  ext x b
+  exact congrArg (fun t => t.val (extendObj B x b)) h
+
+theorem discrete_left (hA : PathDiscrete A) (F : Filling A) (hF : F.Lawful)
+    (hB : PathDiscrete B) : f ≫ E.discreteInverse = 𝟙 A := by
+  have hr := E.discrete_right hB
+  have h : Term (homogeneousPath (Presheaf.reindex B (projection B))
+      (Term.map (Functor.whiskerLeft (projection B).mapElements f)
+        (Term.map (Functor.whiskerLeft (projection B).mapElements E.discreteInverse) (generic B)))
+      (generic B)) := by
+    have he : Term.map (Functor.whiskerLeft (projection B).mapElements f)
+        (Term.map (Functor.whiskerLeft (projection B).mapElements E.discreteInverse) (generic B)) =
+        generic B := by
+      apply Term.ext
+      intro x
+      exact congrArg (fun k => k.app ((projection B).mapElements.obj x) x.val.2) hr
+    exact pathLam ((generic B).reindex (projection (interval (total B)))) he.symm rfl
+  have hl := hA (projection A) (E.chosenLeftInverse F hF E.discreteInverse h)
+  ext x a
+  exact congrArg (fun t => t.val (extendObj A x a)) hl
+
+/-- No strict inverse is assumed. Discreteness converts the native inverse
+homotopies into the two isomorphism laws. -/
+noncomputable def discreteIso (hA : PathDiscrete A) (F : Filling A) (hF : F.Lawful)
+    (hB : PathDiscrete B) : A ≅ B where
+  hom := f
+  inv := E.discreteInverse
+  hom_inv_id := E.discrete_left hA F hF hB
+  inv_hom_id := E.discrete_right hB
+
+end HomotopyEquivalence
+end SquareKit.Cubical.Presheaf
