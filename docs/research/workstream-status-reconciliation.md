@@ -51,8 +51,10 @@ led to closed [#416](https://github.com/VladimirMarko/conaled/issues/416).
 The [implementation report](approximate-wiring-experiment.md) records actual
 feedback wiring, component-derived gains, finite-horizon state/output error and
 restart composition, with unstable-feedback and hidden-behavior controls.
-It adds no FRP, numerical-motion or probability adapter. Roundoff, continuous
-solution comparison, physical devices and infinite-horizon stability remain
-separate contracts. [#235](https://github.com/VladimirMarko/conaled/issues/235) coordinates further interconnection work with [#27](https://github.com/VladimirMarko/conaled/issues/27)/#34
+The later completed [#430](https://github.com/VladimirMarko/conaled/issues/430)
+adds the [numerical-motion adapter](numerical-motion-wiring.md): the bound applies
+to actual returned states, and both executions retain their separate continuous
+endpoint guarantees. FRP and probability adapters, rounded execution, physical
+devices and infinite-horizon stability remain separate contracts. [#235](https://github.com/VladimirMarko/conaled/issues/235) coordinates further interconnection work with [#27](https://github.com/VladimirMarko/conaled/issues/27)/#34
 or another named consumer; the completed experiment must not be described as
 an absent composition capability.

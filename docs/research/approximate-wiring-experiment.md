@@ -170,8 +170,11 @@ checks these separate boundaries:
   the wiring does not discard or copy it. This concrete behavior-class
   obstruction is not a claim to have implemented Myers's probe functor.
 
-The work adds no FRP, numerical-motion or probability adapter. Their fairness,
-`Approx`, failure/domain, full-law and witness contracts remain unchanged.
+This experiment itself adds no consumer adapter. The later completed
+[#430 numerical-motion connection](numerical-motion-wiring.md) applies the
+recurrence to actual returned states while preserving the consumer’s separate
+continuous `Approx`, failure/domain and selected-witness contracts. FRP fairness
+and probability full-law adapters remain separate work.
 [#235](https://github.com/VladimirMarko/conaled/issues/235) owns reassessment
 if another client needs quantitative interconnection. The current evidence
 supports retaining a small optional recurrence and domain-specific gains;

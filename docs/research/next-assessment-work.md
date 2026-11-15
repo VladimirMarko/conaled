@@ -12,7 +12,7 @@ criteria and status; this map records why they were selected.
 | Test where local universes help | [#427](https://github.com/VladimirMarko/conaled/issues/427): establish hypotheses for a genuinely weakly stable model and compare with direct stable choices |
 | Connect a substantial source argument | [#428](https://github.com/VladimirMarko/conaled/issues/428): audit the entire retained monodromy path and prioritize existing #419–#422 constructions |
 | Measure recurring author work | [#429](https://github.com/VladimirMarko/conaled/issues/429): prepare a total-effort protocol around #423's conversion fragment, coordinating #115–#117 and #25 |
-| Adapt categorical systems results | [#430](https://github.com/VladimirMarko/conaled/issues/430): connect #392/#416's approximate wiring to an actual numerical motion contract under #34 |
+| Adapt categorical systems results | Completed [#430](https://github.com/VladimirMarko/conaled/issues/430): [numerical motion wiring](numerical-motion-wiring.md) connects #392/#416 to actual returned states, preserving the separate continuous-error contract. Further consumers remain under #34. |
 | Construct models compositionally where possible | [#431](https://github.com/VladimirMarko/conaled/issues/431): compare restricted amalgamation/gluing approaches under #288/#290, including computational content and failed compatibility |
 | Check older statement intent | [#432](https://github.com/VladimirMarko/conaled/issues/432): risk-stratified audit of scope, uniformity, intermediate cases and hidden assumptions; assess useful lint heuristics |
 
@@ -52,13 +52,14 @@ transport remains useful without univalence. The latter becomes an obligation
 when the retained source reasons through an equivalence as a path between types.
 Listing such requirements does not construct their model.
 
-#430 is a bounded adaptation of the systems work, not a whole-book port.
-[The existing feedback experiment](approximate-wiring-experiment.md) already
-supplies a finite-horizon comparison. The new question is whether an actual
-numerical consumer can reuse it while retaining its admission, failure and
-observation contracts. Input admission, semantic approximation and resource cost
-need separate evidence. FRP progress and stochastic full-law comparison remain
-with their existing owners; this adapter does not establish them.
+#430 completed the bounded adaptation of the systems work. Its
+[numerical motion example](numerical-motion-wiring.md) reuses the finite-horizon
+comparison on actual returned states while retaining admission, failure,
+symmetry, selected-label and continuous-endpoint error contracts. New numerical
+work should start there. Longer admitted horizons and state-dependent controls
+need separately scoped contracts under #34; rounded execution and resource cost
+are not established by the discrete refinement bound. FRP progress and
+stochastic full-law comparison remain with their existing owners.
 
 #431 keeps an independent exploration open even without an incumbent client.
 It asks for an actual restricted construction, its compatibility hypotheses and
