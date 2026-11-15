@@ -10,9 +10,16 @@ function slots(shape) {
   throw new Error('Invalid ABI shape');
 }
 
+function rawWords(values) {
+  if (!Array.isArray(values)) return false;
+  for (const value of values) {
+    if (!Number.isInteger(value) || value < 0 || value > 0xffffffff) return false;
+  }
+  return true;
+}
+
 function admitted(shape, values) {
-  if (!Array.isArray(values) || values.length !== slots(shape) ||
-      values.some(x => !Number.isInteger(x) || x < 0 || x > 0xffffffff)) return false;
+  if (!rawWords(values) || values.length !== slots(shape)) return false;
   if (shape === 'unit' || shape === 'i32') return true;
   if (shape === 'bit') return values[0] <= 1;
   if (shape.product) {
@@ -121,7 +128,7 @@ function engine(bytes, values, action, { timeoutMs = 10000, signal } = {}) {
 
 /** Diagnostic bare-engine execution. This bypasses selected syntax/source admission. */
 export async function probeEngine(bytes, values, options) {
-  if (!Array.isArray(values) || values.some(x => !Number.isInteger(x) || x < 0 || x > 0xffffffff)) {
+  if (!rawWords(values)) {
     return { kind: 'abi_refused' };
   }
   return engine(Uint8Array.from(bytes), [...values], 'run', options);

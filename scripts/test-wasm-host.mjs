@@ -144,3 +144,31 @@ test('noncanonical returned output refuses the whole transition without committi
   assert.equal((await session.step([1])).kind, 'abi_refused');
   assert.deepEqual(session.snapshot(), [0, 0]);
 });
+
+
+test('raw invocation and engine probes refuse missing i32 slots', async () => {
+  const { artifact } = await loadArtifact(identity, rawIdentity);
+  assert.equal((await artifact.invoke(Array(1))).kind, 'abi_refused');
+  assert.equal((await probeEngine(identity, Array(1))).kind, 'abi_refused');
+});
+
+
+test('missing nested payload and retained-state slots are refused', async () => {
+  const { artifact } = await loadArtifact(identity5,
+    { sha256: sha256(identity5), input: nested, output: nested });
+  for (const value of nestedValues) {
+    for (let i = 0; i < value.length; i++) {
+      const sparse = [...value]; delete sparse[i];
+      assert.equal((await artifact.invoke(sparse)).kind, 'abi_refused');
+    }
+  }
+  const rawDelay = { ...delayDescriptor, input: 'i32', output: 'i32',
+    state: { product: ['i32', 'i32'] } };
+  for (const initial of [Array(2), [0, ,], [, 0]]) {
+    assert.equal((await createStateful(twoDelay, { ...rawDelay, initial })).kind, 'abi_refused');
+  }
+  const { session } = await createStateful(twoDelay, { ...rawDelay, initial: [7, 9] });
+  assert.equal((await session.step(Array(1))).kind, 'abi_refused');
+  assert.deepEqual(session.snapshot(), [7, 9]);
+  assert.deepEqual(await session.step([5]), { kind: 'result', values: [9], state: [5, 7] });
+});
