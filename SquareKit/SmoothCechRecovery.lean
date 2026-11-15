@@ -243,3 +243,268 @@ theorem extractArrow_comp {R : Object (representation smoothAction).action X}
 
 end TrivializedOn
 end SquareKit.SmoothCech
+
+open scoped Manifold ContDiff
+namespace SquareKit.SmoothCech
+open CategoryTheory EuclideanOpen SmoothOpenSite SmoothManifoldAction SheafActionQuotient ManifoldRealization
+variable {X : Sheaf topology Type} {d : ℕ} {G M : Type} [Group G] [MulAction G M]
+  [TopologicalSpace G] [DiscreteTopology G]
+  [TopologicalSpace M] [ChartedSpace (Space d) M] [IsManifold (Model d) ∞ M]
+variable (smoothAction : ∀ g : G, ContMDiff (Model d) (Model d) ∞ (fun x : M => g • x))
+
+/-- Restricting the chosen global recovery gives precisely the local isomorphism
+following the effective-descent comparison. -/
+theorem descentOfLocalIsoRecovery_reindex {B : SplitSheaf.Ty X}
+    [Presheaf.IsLocallySurjective topology (SplitSheaf.p B).hom]
+    (P : Object (representation smoothAction).action X)
+    (Q : Object (representation smoothAction).action (SplitSheaf.Ext B))
+    (e : Arrow Q (reindex P (SplitSheaf.p B))) :
+    (descentOfLocalIsoRecovery smoothAction P Q e).reindex (SplitSheaf.p B) =
+      (descentOfLocalIso smoothAction P Q e).comparison.comp e := by
+  have hc : (Descent.canonicalRecovery B P).reindex (SplitSheaf.p B) =
+      (Descent.canonicalDatum B P).comparison := by
+    apply SheafActionQuotient.Arrow.ext
+    apply SheafTorsor.Arrow.ext
+    have h := congrArg (fun k => k.iso.hom)
+      (SheafTorsor.Descent.canonicalEmbedding_evaluation B P.torsor)
+    have hh := congrArg (fun k =>
+      ((SheafTorsor.Descent.canonicalEmbedding B P.torsor).toArrow.reindex (SplitSheaf.p B)).iso.inv ≫ k) h
+    dsimp only [SheafTorsor.Arrow.comp, SheafTorsor.Arrow.ident, Iso.trans_hom, Iso.refl_hom] at hh
+    rw [Iso.inv_hom_id_assoc, Category.comp_id] at hh
+    exact hh.symm
+  have hn := Descent.Map.comparison_naturality (representation smoothAction).action B
+    (descentOfLocalIsoMap smoothAction P Q e)
+  change ((descentOfLocalIsoMap smoothAction P Q e).arrow.reindex (SplitSheaf.p B)).comp
+    ((Descent.canonicalRecovery B P).reindex (SplitSheaf.p B)) = _
+  rw [hc]
+  have he : (descentOfLocalIsoMap smoothAction P Q e).localArrow = e := by
+    apply SheafActionQuotient.Arrow.ext
+    apply SheafTorsor.Arrow.ext
+    rfl
+  exact hn.trans (congrArg ((descentOfLocalIso smoothAction P Q e).comparison.comp) he)
+namespace TrivializedOn
+variable {I : Type} {A : SmoothRepresentedCover.Atlas X I}
+variable {smoothAction} {P : Object (representation smoothAction).action X}
+variable (t : TrivializedOn A smoothAction P)
+
+/-- The extracted descent comparison recovers the chosen local regularization,
+including the value map. The equality arrow records the checked extraction
+round trip. -/
+theorem extractedRecovery_reindex :
+    t.extractedRecovery.reindex (SplitSheaf.p (SplitSheaf.ofDisplay A.cover)) =
+      (t.extractedDatum.cech smoothAction).toDescent.comparison.comp
+        ((eqToHom (congrArg (fun z : Descent.Datum (a := (representation smoothAction).action) (SplitSheaf.ofDisplay A.cover) => z.localObject) t.extractedDatum_descent)).comp
+          t.splitRegularization) := by
+  have ht {c e : Descent.Datum (a := (representation smoothAction).action)
+      (SplitSheaf.ofDisplay A.cover)} (h : c = e) :
+      ((eqToHom (congrArg (fun z : Descent.Datum (a := (representation smoothAction).action) (SplitSheaf.ofDisplay A.cover) => z.object) h)).reindex
+        (SplitSheaf.p (SplitSheaf.ofDisplay A.cover))).comp e.comparison =
+      c.comparison.comp (eqToHom (congrArg (fun z : Descent.Datum (a := (representation smoothAction).action) (SplitSheaf.ofDisplay A.cover) => z.localObject) h)) := by
+    cases h
+    apply SheafActionQuotient.Arrow.ext
+    apply SheafTorsor.Arrow.ext
+    rfl
+  change ((eqToHom (congrArg (fun z : Descent.Datum (a := (representation smoothAction).action) (SplitSheaf.ofDisplay A.cover) => z.object) t.extractedDatum_descent)).reindex
+    (SplitSheaf.p (SplitSheaf.ofDisplay A.cover))).comp
+      (t.recovery.reindex (SplitSheaf.p (SplitSheaf.ofDisplay A.cover))) = _
+  rw [show t.recovery.reindex (SplitSheaf.p (SplitSheaf.ofDisplay A.cover)) =
+      t.regularDescent.comparison.comp t.splitRegularization from
+    descentOfLocalIsoRecovery_reindex smoothAction P _ t.splitRegularization]
+  have hh := congrArg (fun z => z.comp t.splitRegularization) (ht t.extractedDatum_descent)
+  exact hh
+/-- Extraction preserves the actual conjugated overlap arrow; value-map
+reconstruction introduces no new transition choices. -/
+theorem extractedDatum_overlapLabel :
+    t.extractedDatum.overlapLabel smoothAction =
+      (SheafCoverCech.splitDoubleIso A.cover).inv ≫
+        arrowLabel (a := (representation smoothAction).action)
+          (m := SplitSheaf.Cech.first _ ≫ ((SplitSheaf.displayIso A.cover).hom ≫ (reindex P A.cover).sectionMap t.localSection))
+          (n := SplitSheaf.Cech.second _ ≫ ((SplitSheaf.displayIso A.cover).hom ≫ (reindex P A.cover).sectionMap t.localSection))
+          (Cech.ofDescent t.regularDescent).overlap.hom := by
+  have aux (v : SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover) ⟶
+      ManifoldRealization.object d M)
+      (e : Arrow (chart (representation smoothAction).action v)
+        (reindex P (SplitSheaf.p (SplitSheaf.ofDisplay A.cover))))
+      (h : v = (SplitSheaf.displayIso A.cover).hom ≫ assembledMap t.localMap) :
+      (RegularLabels.fromCech smoothAction
+        (Cech.ofDescent (descentOfLocalIso smoothAction P _ e))
+        (congrArg (chart (representation smoothAction).action) h)).label =
+      (SheafCoverCech.splitDoubleIso A.cover).inv ≫
+        arrowLabel (a := (representation smoothAction).action)
+          (m := SplitSheaf.Cech.first _ ≫ v) (n := SplitSheaf.Cech.second _ ≫ v)
+          (Cech.ofDescent (descentOfLocalIso smoothAction P _ e)).overlap.hom := by
+    cases h
+    rfl
+  rw [extractedDatum, RegularLabels.datum_label]
+  exact aux _ t.splitRegularization (congrArg
+    (fun v => (SplitSheaf.displayIso A.cover).hom ≫ v) t.localValue_assembled.symm)
+
+/-- A forward ordinary transition is the inverse of the actual regular-torsor
+transport label. -/
+theorem extractedDatum_transition_apply (i j : I) (x : Points (A.pair i j)) :
+    (t.extractedDatum.transition i j).val x =
+      (ordinaryHomLabelEquiv G (A.pair i j)
+        (A.pairMap i j ≫ ((SheafCoverCech.splitDoubleIso A.cover).inv ≫
+          arrowLabel (a := (representation smoothAction).action)
+            (m := SplitSheaf.Cech.first _ ≫ ((SplitSheaf.displayIso A.cover).hom ≫
+              (reindex P A.cover).sectionMap t.localSection))
+            (n := SplitSheaf.Cech.second _ ≫ ((SplitSheaf.displayIso A.cover).hom ≫
+              (reindex P A.cover).sectionMap t.localSection))
+            (Cech.ofDescent t.regularDescent).overlap.hom)) x)⁻¹ := by
+  let k := RegularLabels.fromCech smoothAction (Cech.ofDescent t.regularDescent)
+    t.regularDescent_localObject
+  change (k.transition smoothAction i j).val x = _
+  rw [RegularLabels.transition_apply]
+  have h := (k.datum_label smoothAction).symm.trans t.extractedDatum_overlapLabel
+  rw [h]
+
+/-- The selected section restricts to the section of the supplied chart
+trivialization, as an equality in the actual total sheaf. -/
+theorem localSection_chart (i : I) :
+    A.inclusion i ≫ SplitSheaf.pair P.torsor.family A.cover t.localSection =
+      SplitSheaf.pair P.torsor.family (A.chart i)
+        (SheafTorsor.sectionOfArrow (t.trivialization i)) := by
+  rw [localSection, SplitSheaf.pair_read, sectionMap, SheafCoproductLocal.inclusion_desc]
+
+/-- The regularization on every chart is the supplied trivialization at every
+group element, expressed in the total sheaf to retain the actual base point. -/
+theorem regularization_chart_apply (i : I) (U : SmoothPresentationSite.Siteᵒᵖ)
+    (x : (embedding.obj (A.domain i)).obj.obj U)
+    (g : (locallyConstantGroup G).obj.obj U) :
+    (⟨A.cover.hom.app U ((A.inclusion i).hom.app U x),
+      t.regularization.torsorArrow.iso.hom.app
+        (A.total.obj.elementsMk U ((A.inclusion i).hom.app U x)) g⟩ :
+      (SplitSheaf.Ext P.torsor.family).obj.obj U) =
+    ⟨(A.chart i).hom.app U x,
+      (t.trivialization i).iso.hom.app ((embedding.obj (A.domain i)).obj.elementsMk U x) g⟩ := by
+  have h := congrArg (fun k => k.hom.app U x) (t.localSection_chart i)
+  have hh := congrArg (fun z : (SplitSheaf.Ext P.torsor.family).obj.obj U =>
+    (⟨z.1, P.torsor.act (X.obj.elementsMk U z.1) g z.2⟩ :
+      (SplitSheaf.Ext P.torsor.family).obj.obj U)) h
+  change (⟨_, _⟩ : (SplitSheaf.Ext P.torsor.family).obj.obj U) =
+    ⟨_, P.torsor.act _ g ((t.trivialization i).iso.hom.app ((embedding.obj (A.domain i)).obj.elementsMk U x) (1 : (locallyConstantGroup G).obj.obj U))⟩ at hh
+  have he := (t.trivialization i).equivariant
+    ((embedding.obj (A.domain i)).obj.elementsMk U x) g (1 : (locallyConstantGroup G).obj.obj U)
+  change (t.trivialization i).iso.hom.app ((embedding.obj (A.domain i)).obj.elementsMk U x) (g * (1 : (locallyConstantGroup G).obj.obj U)) = _ at he
+  rw [mul_one] at he
+  exact hh.trans (congrArg (fun z =>
+    (⟨(A.chart i).hom.app U x, z⟩ : (SplitSheaf.Ext P.torsor.family).obj.obj U)) he.symm)
+
+/-- Passing from the coproduct cover to its split display changes only its
+presentation; the selected regularization has the same actual total value. -/
+theorem splitRegularization_apply (U : SmoothPresentationSite.Siteᵒᵖ)
+    (z : (SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.obj U)
+    (g : (locallyConstantGroup G).obj.obj U) :
+    (⟨(SplitSheaf.p (SplitSheaf.ofDisplay A.cover)).hom.app U z,
+      t.splitRegularization.torsorArrow.iso.hom.app
+        ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U z) g⟩ :
+      (SplitSheaf.Ext P.torsor.family).obj.obj U) =
+    ⟨A.cover.hom.app U ((SplitSheaf.displayIso A.cover).hom.hom.app U z),
+      t.regularization.torsorArrow.iso.hom.app
+        (A.total.obj.elementsMk U ((SplitSheaf.displayIso A.cover).hom.hom.app U z)) g⟩ := by
+  have aux {Y : Sheaf topology Type} (f k : Y ⟶ X) (h : f = k)
+      (z : Y.obj.obj U)
+      (q : (reindex P f).torsor.family.family.obj (Y.obj.elementsMk U z)) :
+      (⟨k.hom.app U z,
+        (eqToHom (congrArg (reindex P) h)).torsorArrow.iso.hom.app
+          (Y.obj.elementsMk U z) q⟩ : (SplitSheaf.Ext P.torsor.family).obj.obj U) =
+        ⟨f.hom.app U z, q⟩ := by
+    cases h
+    rfl
+  exact aux _ _ (SplitSheaf.displayIso_projection A.cover) z
+    (t.regularization.torsorArrow.iso.hom.app
+      (A.total.obj.elementsMk U ((SplitSheaf.displayIso A.cover).hom.hom.app U z)) g)
+
+/-- The extraction round-trip equality has no effect on regular-torsor
+coordinates. -/
+theorem extractedLocalRegularization_apply (U : SmoothPresentationSite.Siteᵒᵖ)
+    (z : (SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.obj U)
+    (g : (locallyConstantGroup G).obj.obj U) :
+    ((eqToHom (congrArg
+      (fun c : Descent.Datum (a := (representation smoothAction).action)
+        (SplitSheaf.ofDisplay A.cover) => c.localObject)
+      t.extractedDatum_descent)).comp t.splitRegularization).torsorArrow.iso.hom.app
+        ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U z) g =
+      t.splitRegularization.torsorArrow.iso.hom.app
+        ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U z) g := by
+  have aux (v w : SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover) ⟶
+      ManifoldRealization.object d M) (h : v = w)
+      (e : Arrow (chart (representation smoothAction).action w)
+        (reindex P (SplitSheaf.p (SplitSheaf.ofDisplay A.cover)))) :
+      ((eqToHom (congrArg (chart (representation smoothAction).action) h)).comp e).torsorArrow.iso.hom.app
+        ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U z) g =
+      e.torsorArrow.iso.hom.app
+        ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U z) g := by
+    cases h
+    rfl
+  exact aux _ _ (congrArg (fun v => (SplitSheaf.displayIso A.cover).hom ≫ v)
+    t.localValue_assembled) t.splitRegularization
+
+/-- Recovering an extracted object after the inverse local descent comparison
+returns exactly the chosen split-cover trivialization. -/
+theorem extractedRecovery_comparison_apply (U : SmoothPresentationSite.Siteᵒᵖ)
+    (z : (SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.obj U)
+    (g : (locallyConstantGroup G).obj.obj U) :
+    t.extractedRecovery.torsorArrow.iso.hom.app
+      (X.obj.elementsMk U ((SplitSheaf.p (SplitSheaf.ofDisplay A.cover)).hom.app U z))
+      ((t.extractedDatum.cech smoothAction).toDescent.comparison.torsorArrow.iso.inv.app
+        ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U z) g) =
+      t.splitRegularization.torsorArrow.iso.hom.app
+        ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U z) g := by
+  let c := (t.extractedDatum.cech smoothAction).toDescent.comparison
+  let y := (SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U z
+  have h := congrArg (fun e => e.torsorArrow.iso.hom.app y (c.torsorArrow.iso.inv.app y g))
+    t.extractedRecovery_reindex
+  have hc := congrArg (fun k => k.app y g) c.torsorArrow.iso.inv_hom_id
+  change c.torsorArrow.iso.hom.app y (c.torsorArrow.iso.inv.app y g) = g at hc
+  change _ = ((eqToHom (congrArg
+      (fun q : Descent.Datum (a := (representation smoothAction).action)
+        (SplitSheaf.ofDisplay A.cover) => q.localObject)
+      t.extractedDatum_descent)).comp t.splitRegularization).torsorArrow.iso.hom.app y
+      (c.torsorArrow.iso.hom.app y (c.torsorArrow.iso.inv.app y g)) at h
+  rw [hc] at h
+  exact h.trans (t.extractedLocalRegularization_apply U z g)
+
+/-- On each represented chart, descent followed by the selected recovery is
+exactly the supplied trivialization, at every stage and every group element. -/
+theorem extractedRecovery_chart_apply (i : I) (U : SmoothPresentationSite.Siteᵒᵖ)
+    (x : (embedding.obj (A.domain i)).obj.obj U)
+    (g : (locallyConstantGroup G).obj.obj U) :
+    let z := (SplitSheaf.displayIso A.cover).inv.hom.app U ((A.inclusion i).hom.app U x)
+    (⟨(SplitSheaf.p (SplitSheaf.ofDisplay A.cover)).hom.app U z,
+      t.extractedRecovery.torsorArrow.iso.hom.app
+        (X.obj.elementsMk U ((SplitSheaf.p (SplitSheaf.ofDisplay A.cover)).hom.app U z))
+        ((t.extractedDatum.cech smoothAction).toDescent.comparison.torsorArrow.iso.inv.app
+          ((SplitSheaf.Ext (SplitSheaf.ofDisplay A.cover)).obj.elementsMk U z) g)⟩ :
+      (SplitSheaf.Ext P.torsor.family).obj.obj U) =
+    ⟨(A.chart i).hom.app U x,
+      (t.trivialization i).iso.hom.app ((embedding.obj (A.domain i)).obj.elementsMk U x) g⟩ := by
+  dsimp only
+  let z := (SplitSheaf.displayIso A.cover).inv.hom.app U ((A.inclusion i).hom.app U x)
+  have hr := congrArg (fun q =>
+    (⟨(SplitSheaf.p (SplitSheaf.ofDisplay A.cover)).hom.app U z, q⟩ :
+      (SplitSheaf.Ext P.torsor.family).obj.obj U)) (t.extractedRecovery_comparison_apply U z g)
+  have hs := t.splitRegularization_apply U z g
+  have hi := congrArg (fun k => k.hom.app U ((A.inclusion i).hom.app U x))
+    (SplitSheaf.displayIso A.cover).inv_hom_id
+  change (SplitSheaf.displayIso A.cover).hom.hom.app U z = (A.inclusion i).hom.app U x at hi
+  rw [hi] at hs
+  exact hr.trans (hs.trans (t.regularization_chart_apply i U x g))
+
+/-- Extraction preserves the selected inverse arrow as a complete family. -/
+theorem extractArrow_inverse {Q : Object (representation smoothAction).action X}
+    (u : TrivializedOn A smoothAction Q) (f : SheafActionQuotient.Arrow P Q) :
+    u.extractArrow t f.inverse = (t.extractArrow u f).inverse := by
+  have h : f.comp f.inverse = SheafActionQuotient.Arrow.ident P := by
+    apply SheafActionQuotient.Arrow.ext
+    apply SheafTorsor.Arrow.ext
+    exact f.torsorArrow.iso.hom_inv_id
+  have he : (t.extractArrow u f).comp (u.extractArrow t f.inverse) =
+      Hom.ident t.extractedDatum := by
+    rw [← t.extractArrow_comp u t, h, t.extractArrow_ident]
+  have hh := congrArg (fun z => (t.extractArrow u f).inverse.comp z) he
+  rw [← Hom.comp_assoc, Hom.inverse_comp, Hom.ident_comp, Hom.comp_ident] at hh
+  exact hh
+
+end TrivializedOn
+end SquareKit.SmoothCech
