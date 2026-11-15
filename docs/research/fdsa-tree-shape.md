@@ -5,6 +5,18 @@ the [preserved FDSA records](../history/textbooks/checkpoint-012/books/fdsa/READ
 Current coverage and follow-up belong to [#558](https://github.com/VladimirMarko/conaled/issues/558);
 old process and tracking instructions describe the producing session.
 
+## Structural-descendant continuation — CTB-72
+
+Against pinned master `c214fb0720ffc998951255a7e4b5f2e80a299186`,
+[CTB-72](fdsa-tree-structural-weighted.md) supplies the shared structural
+`Subtree` relation and the general `complete_of_subtree` and
+`almostComplete_of_subtree` theorems in the existing Shape owner. Nested and
+empty-descendant examples consume those laws. The old immediate-child-only gap
+below is resolved by this bounded connection; the executable checker and other
+chapter obligations remain open. Current focused checks and exact source
+review/acceptance evidence belong to the local CTB checkpoint. The following
+receiving and drafting sections retain their historical attribution and status.
+
 ## Receiving continuation — 5 November 2026
 
 This unit is received against accepted Chapters 1–3 and XT01 at
@@ -74,8 +86,9 @@ one of the later leaf-count theorems.
 equivalence to the source's natural-subtraction expression. It permits one or
 two adjacent external-leaf levels. It imposes no left-to-right filling rule.
 Completeness implies almost completeness, and the latter passes to each
-immediate child. The arbitrary-subtree relation and executable source checker
-are still separate Chapter 4 work.
+immediate child. CTB-72 adds arbitrary structural-descendant inheritance of
+both predicates through `Subtree`; the executable source checker remains
+separate Chapter 4 work.
 
 Payload types are arbitrary. Map preservation works across independent
 universes and needs no injectivity, order, equality decision or default label.
@@ -144,13 +157,13 @@ empty tree, without a floating-point approximation or a replacement logarithm.
 | C04-033–036 | Complete equalities, both strict incomplete bounds, and both equality characterizations. |
 | C04-037 and the supporting real strict/sandwich results | `height_eq_logb_numLeaves`, `minHeight_le_logb_numLeaves`, `logb_numLeaves_le_height` and strict variants. |
 | C04-042–045 | `AlmostComplete`, `almostComplete_iff_sub`, `height_optimal`, exact natural log/clog and real floor/ceiling formulas. |
-| Immediate-child portion of C04-046 | `complete_almostComplete`, `almostComplete_children`; the general subtree result remains open. |
+| C04-046 | The original `complete_almostComplete` and `almostComplete_children` are joined in CTB-72 by general `almostComplete_of_subtree`; `complete_of_subtree` supplies the corresponding completeness connection. |
 | Common mathematics later used by C11-014–018 | Almost-complete shape/logarithm/optimum results. The constructor arithmetic, Braun/weight-balance invariant bridges and array operations remain separate. |
 | Common shape bound used by C15-006 | Universal minimum-height power/log bounds. Existing leftist `rank_paths`, `rank_size` and `rank_log` remain intact; cache/representation and actual merge-cost bridges remain separate. |
 
-This table describes intended source connections in an uncompiled shared
-draft. It does not mark any inventory row accepted or replace a whole chapter's
-coverage review.
+The original rows describe the shared drafting stage; the general descendant
+connection is the later CTB-72 addition described above. This table does not
+mark inventory rows accepted or replace a whole chapter's coverage review.
 
 ## Connected uses and independent expectations
 
@@ -196,6 +209,7 @@ candidate verification remain required. No informal note is a proof dependency.
 The public root imports `Examples.TreeShape`, which imports both new domain
 modules. The core adds no resource executor, generic tree class or alternate
 carrier. It claims no lookup/merge runtime, physical sharing or storage bound.
-Boolean checking, arbitrary subtrees, complete/almost-complete constructor
+CTB-72 resolves the general structural-subtree relation and inheritance gap.
+Boolean checking, maximal complete subtrees, complete/almost-complete constructor
 exercises, weight balance, Braun operations and leftist representation/cost
 bridges remain mandatory later book obligations.

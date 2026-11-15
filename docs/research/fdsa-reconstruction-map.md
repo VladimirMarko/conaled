@@ -759,8 +759,8 @@ connected uses and statement assessment are in
 | Connected uses and boundaries | Empty labels, right-heavy almost-complete trees, noninjective maps, actual cached annotations, malformed caches, a minimum-height reader, a genuine optimal-height nonconverse and recursive local-height-balance counterexample. |
 
 The recursive mathematical predicate does not by itself complete the source's
-executable checker obligation. Immediate-child closure does not claim the
-general subtree theorem. Braun/weight-balance bridges, constructor exercises,
+executable checker obligation. CTB-72 below extends immediate-child closure to
+the general structural-subtree theorem. Braun/weight-balance bridges, constructor exercises,
 array algorithms and the existing leftist representation and merge-cost bridges
 remain with their chapter tickets. The existing leftist rank proofs are
 unchanged. Current unit validation and acceptance status is recorded in the
@@ -829,7 +829,31 @@ and the complete construction-inclusive suffix-program comparison.
 The combined CTB-70/71 source contracts address C04-017/018. Exact focused
 validation, independent source reviews and final source comparison belong to
 their checkpoint evidence. The whole chapter and receiving acceptance remain
-open. Structural/subtree and weighted-path observations, enumeration, levels,
-reconstruction, balancing with its height/cost contracts, and the remaining
-augmentation exercises keep their existing chapter obligations. In particular,
+open. CTB-72 below recovers structural/subtree and weighted-path observations;
+enumeration, levels, reconstruction, balancing with its height/cost contracts,
+and remaining augmentation exercises keep their chapter obligations. In particular,
 a linear balancer core does not make a wrapper using direct inorder linear.
+
+## Recovered structural observations and weighted paths (CTB-72)
+
+The [structural/weighted unit](fdsa-tree-structural-weighted.md) receives all
+four useful modules at `af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1`, retaining
+the earlier basic-observation pair as well as the weighted-path addition.
+Matching set, preorder, weight and depth summaries use the current `Trees.fold`;
+the independent source meanings and all original mathematical contracts remain.
+
+| Source obligation or connection | Current declaration and boundary |
+| --- | --- |
+| C04-002, C04-005 | Independent `Trees.setTree` and ordered `Trees.preorder` on the existing `BinaryTree`, with displayed recurrence laws and arbitrary label types. |
+| C04-015 membership/preorder portions | Both membership bridges connect traversals to the independent label set; `preorder_length` and `preorder_map` retain size, ordered occurrences and noninjective maps. |
+| C04-014 | `Trees.Subtree` is whole rooted structural containment, including self and nil; transitivity and the `subtrees` set recurrences agree. Equal label sets or traversals do not imply containment. |
+| General-subtree portion of C04-046 | The current Shape owner derives `complete_of_subtree` and `almostComplete_of_subtree`; nested cases include an almost-complete parent proved not complete. |
+| Exercise 4.3, C04-021–022 | The independent depth and subtree-sum weighted paths satisfy `wpld d t = d*sumTree t + wpl t` for every incoming depth; `wpl0_eq_wpl` specializes it to zero. Node depth-plus-one remains distinct from Huffman's leaf-depth convention. |
+| Connected weighted cases | Equal total weight 15 yields path values 27 and 34 on different shapes, and 57/64 at incoming depth two. The arbitrary singleton, zero-weight root and nil cases retain the root charge and domain boundaries. |
+
+These source contracts do not close the full chapter. Enumeration, levels,
+reconstruction, rose mirroring, maximal complete subtrees, Boolean checking,
+almost-complete constructor characterization, balancing and its height/cost
+contracts, and remaining augmentation exercises stay with their chapter owners.
+Exact focused checks, independent source reviews and final comparison belong to
+the CTB checkpoint evidence; receiving whole-library acceptance remains pending.

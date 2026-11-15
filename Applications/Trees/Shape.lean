@@ -1,4 +1,4 @@
-import Applications.Trees.Observations
+import Applications.Trees.BasicObservations
 import Mathlib.Data.Nat.Log
 
 /-! Minimum external-leaf height, completeness and sharp shape bounds on the
@@ -59,6 +59,18 @@ theorem complete_map (label : α → β) (t : BinaryTree α) :
     Complete (t.map label) ↔ Complete t := by
   simp only [complete_iff_minHeight_eq_height, minHeight_map, height_map]
 
+/-- Every whole rooted descendant of a complete tree is complete. -/
+theorem complete_of_subtree {s t : BinaryTree α} (hst : Subtree s t) :
+    Complete t → Complete s := by
+  induction hst with
+  | refl => exact id
+  | left a _ ih =>
+      intro ht
+      exact ih ((complete_node a _ _).mp ht).2.1
+  | right a _ ih =>
+      intro ht
+      exact ih ((complete_node a _ _).mp ht).2.2
+
 /-- External leaves occupy at most two adjacent depths. No left packing is
 required; the additive form avoids truncated subtraction in later proofs. -/
 def AlmostComplete (t : BinaryTree α) : Prop := t.height ≤ minHeight t + 1
@@ -81,6 +93,19 @@ theorem almostComplete_children (a : α) (l r : BinaryTree α)
     (ht : AlmostComplete (.node a l r)) : AlmostComplete l ∧ AlmostComplete r := by
   simp only [AlmostComplete, BinaryTree.height, minHeight_node] at ht ⊢
   omega
+
+/-- Almost completeness passes to every structural descendant, including
+the empty tree and the original tree itself. -/
+theorem almostComplete_of_subtree {s t : BinaryTree α} (hst : Subtree s t) :
+    AlmostComplete t → AlmostComplete s := by
+  induction hst with
+  | refl => exact id
+  | left a _ ih =>
+      intro ht
+      exact ih (almostComplete_children a _ _ ht).1
+  | right a _ ih =>
+      intro ht
+      exact ih (almostComplete_children a _ _ ht).2
 
 theorem almostComplete_map (label : α → β) (t : BinaryTree α) :
     AlmostComplete (t.map label) ↔ AlmostComplete t := by
