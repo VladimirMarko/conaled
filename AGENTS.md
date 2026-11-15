@@ -1,6 +1,20 @@
 # Repository direction
 
-This is a planned Lean monorepo extending Conal Elliott's work.
+This Lean monorepo extends Conal Elliott's work. Its purpose is to build the
+best possible library: sound mathematics, useful capabilities, clear interfaces,
+and maintainable code.
+
+Use development history when it helps recover useful work, explain constraints,
+avoid repeated mistakes, or distinguish a deliberate interface choice from code
+that has simply not migrated yet. Assess older interfaces against current needs;
+neither their age nor the existence of a newer interface settles that choice.
+Keep historical detail only where it serves library development or use.
+
+Keep documentation and review proportional to their practical value. Before
+requesting more records or blocking progress over a historical distinction,
+identify its consequence for correctness, usability, maintenance, or recovery.
+Preserve useful mathematics and necessary validation; prune incidental history,
+redundant caveats, and process records that merely accumulate clutter.
 
 ## Architectural quality
 
