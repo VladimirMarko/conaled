@@ -1042,5 +1042,6 @@ import Examples.StateChangeSampler
 import Examples.StateChangeWork
 
 import Examples.TextbookTreeTariffs
+import Examples.PersistentFIFOClient
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/
