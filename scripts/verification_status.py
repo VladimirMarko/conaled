@@ -57,6 +57,13 @@ def phase(name):
         print(f"Status observation unavailable: {error}", file=sys.stderr)
 
 
+def finite_nonnegative(value):
+    try:
+        return type(value) in (int, float) and value >= 0 and math.isfinite(value)
+    except OverflowError:
+        return False
+
+
 def observe(state):
     """Read under the workspace lock when idle; report conservative live observations."""
     result = {"format": 1, "candidate": None, "phase": None, "elapsed_seconds": None,
@@ -82,8 +89,8 @@ def observe(state):
                  and isinstance(record.get("run_id"), str)
                  and isinstance(record.get("phase"), str) and record["phase"] in PHASES
                  and isinstance(record.get("outcome"), str) and record["outcome"] in OUTCOMES
-                 and all(isinstance(record.get(k), (int, float)) and math.isfinite(record[k])
-                         and record[k] >= 0 for k in ("elapsed_seconds", "started_monotonic")))
+                 and all(finite_nonnegative(record.get(k))
+                         for k in ("elapsed_seconds", "started_monotonic")))
         if busy:
             result["outcome"] = "running"
             if marker:

@@ -109,6 +109,10 @@ run_cmd do
             with self.subTest(malformed=field):
                 (state / "acceptance-status.json").write_text(json.dumps({**saved, field: []}))
                 self.assertEqual(self.status()["outcome"], "unknown")
+        for value in (10**400, -1, float("nan"), True):
+            with self.subTest(malformed_elapsed=str(value)):
+                (state / "acceptance-status.json").write_text(json.dumps({**saved, "elapsed_seconds": value}))
+                self.assertEqual(self.status()["outcome"], "unknown")
         (state / "acceptance-status.json").write_text("{")
         self.assertEqual(self.status()["outcome"], "unknown")
 
@@ -266,7 +270,8 @@ time.sleep(120)
                                            stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
                 try:
                     deadline = time.monotonic() + 15
-                    while not (self.workspace / ".counts/child-ready").exists():
+                    while not all((self.workspace / ".counts" / name).exists()
+                                  for name in ("child-ready", "processes")):
                         self.assertIsNone(process.poll(), "wrapper exited before fixture readiness")
                         self.assertLess(time.monotonic(), deadline, "fixture did not become ready")
                         time.sleep(.02)
@@ -286,8 +291,11 @@ time.sleep(120)
                     self.assertNotEqual(process.returncode, 0, stdout + stderr)
                     for pid in pids:
                         stat = Path(f"/proc/{pid}/stat")
-                        self.assertTrue(not stat.exists() or stat.read_text().rsplit(")", 1)[1].split()[0] == "Z",
-                                        f"process {pid} still executing after cleanup")
+                        deadline = time.monotonic() + 2
+                        while stat.exists() and stat.read_text().rsplit(")", 1)[1].split()[0] != "Z":
+                            self.assertLess(time.monotonic(), deadline,
+                                            f"process {pid} still executing after cleanup")
+                            time.sleep(.01)
                     self.assertFalse((self.workspace / ".lake/verification.json").exists())
                     self.assertEqual(self.status()["outcome"],
                                      "unknown" if sig == signal.SIGKILL else "interrupted")
