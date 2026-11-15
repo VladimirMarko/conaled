@@ -220,8 +220,8 @@ second active library. Its coverage matrix, paper mathematics, source
 obligations and forward cost contracts still constrain **INT-1**; importing
 the candidate does not accept its unfinished textbook coverage.
 
-Historical implementation work is recorded by INT-10–013 and receiving gates
-by INT-90/091 and INT-SP-001 in the
+Historical implementation work is recorded by INT-10 through INT-13 and receiving gates
+by INT-90 / INT-91 and INT-SP-001 in the
 [preserved review record](../history/textbooks/checkpoint-012/books/common/REVIEW.json).
 The full applicable build, exhaustive three-axiom audit and independent
 Standards/Spec reviews must describe the same receiving candidate and retain
