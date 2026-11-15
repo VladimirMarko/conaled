@@ -1018,6 +1018,7 @@ import Examples.CubicalSelectedInverse
 
 import Examples.KineticAD
 import Examples.CubicalAuthorTransportCalibration
+import Examples.CubicalAuthorTransportNative
 
 import Examples.StateChangeSampler
 import Examples.StateChangeWork

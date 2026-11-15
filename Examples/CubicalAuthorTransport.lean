@@ -64,6 +64,42 @@ theorem path_recovery (c : Change S T) {p : StatePackage S} {q : StatePackage T}
     (r : PackagePath c p q) : path c (packageIdentity c p q r) = r :=
   (packageIdentity c p q).symm_apply_apply r
 
+private noncomputable def toNativePath
+    (f : decode (constantLocal terminal S).code ⟶ decode (constantLocal terminal T).code)
+    (E : HomotopyEquivalence f) {p : StatePackage S} {q : StatePackage T}
+    (r : (Change.mk f E).PackagePath p q) :
+    StructuredPath (admittedLine f E) (admittedPresentation f E) (admittedCarrier f E) p q := by
+  simpa only [PackagePath, line, carrier] using r
+
+/-- Construct a facade path with a native-typed result. Supplying the native map
+and its original witness here avoids normalizing bundled projections inside
+concrete cubical path families. The construction still uses `Change.path`. -/
+noncomputable def nativePath
+    (f : decode (constantLocal terminal S).code ⟶ decode (constantLocal terminal T).code)
+    (E : HomotopyEquivalence f) {p : StatePackage S} {q : StatePackage T}
+    (h : Preserves (admittedCarrier f E) p q) :
+    StructuredPath (admittedLine f E) (admittedPresentation f E) (admittedCarrier f E) p q :=
+  toNativePath f E ((Change.mk f E).path h)
+
+/-- The bridge retains the exact native constructor, not merely its decoded
+observations or an independently chosen equivalence witness. -/
+theorem nativePath_eq
+    (f : decode (constantLocal terminal S).code ⟶ decode (constantLocal terminal T).code)
+    (E : HomotopyEquivalence f) {p : StatePackage S} {q : StatePackage T}
+    (h : Preserves (admittedCarrier f E) p q) :
+    nativePath f E h = (uaStructureIdentity f E p q).symm h := by
+  rfl
+
+/-- Recovery at the native-typed boundary. This is the same fixed-equivalence
+inverse law used by `path_recovery`, with no conversion of a concrete family. -/
+theorem native_path_recovery
+    (f : decode (constantLocal terminal S).code ⟶ decode (constantLocal terminal T).code)
+    (E : HomotopyEquivalence f) {p : StatePackage S} {q : StatePackage T}
+    (r : StructuredPath (admittedLine f E) (admittedPresentation f E)
+      (admittedCarrier f E) p q) :
+    (uaStructureIdentity f E p q).symm ((uaStructureIdentity f E p q) r) = r :=
+  (uaStructureIdentity f E p q).symm_apply_apply r
+
 theorem carrier_ofEquiv (e : S ≃ T) : (ofEquiv e).carrier = e :=
   CubicalFiniteStateIdentity.admittedCarrier_of_iso e
 
