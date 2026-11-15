@@ -43,9 +43,14 @@ def Tree.size : Tree → Nat
 private theorem hidden : True := True.intro
 end AuditFixture
 ''')
+        scaled = [f"Applications.Scale{i}" for i in range(16)]
+        for i, module in enumerate(scaled):
+            (root / (module.replace(".", "/") + ".lean")).write_text(
+                f"namespace Scale{i}\n" + "".join(
+                    f"def value{j} : Nat := {j}\n" for j in range(64)) + f"end Scale{i}\n")
         (root / "ProofAudit.lean").write_text(
             (ROOT / "ProofAudit.lean").read_text().replace(
-                "import SquareApplications", "import Applications.AuditProbe\nimport NewRoot", 1))
+                "import SquareApplications", "import Applications.AuditProbe\nimport NewRoot\n" + "\n".join(f"import {m}" for m in scaled), 1))
         (root / "Applications/LocalAudit.lean").write_text('''import ProofAudit
 private theorem localTrue : True := True.intro
 def localValue : Nat := 42
@@ -58,13 +63,15 @@ run_cmd do
     let origin := match env.getModuleIdxFor? name with
       | some i => env.header.moduleNames[i.toNat]!
       | none => env.mainModule
-    if (origin == `Applications.AuditProbe || origin == `Applications.LocalAudit || origin == `NewRoot) && !info.isUnsafe then
-      IO.println s!"REFERENCE {name}"
+    if origin == `Applications.AuditProbe || origin == `Applications.LocalAudit || origin == `NewRoot || origin.toString.startsWith "Applications.Scale" then
+      IO.println s!"COUNTER {origin} {info.isTheorem} {info.isUnsafe}"
+      if !info.isUnsafe then IO.println s!"REFERENCE {name}"
 ''')
         env = os.environ.copy()
         env["LEAN_PATH"] = os.pathsep.join([str(root), str(root / "external")])
         lean = env.get("LEAN", "lean")
-        for name in ("external/Foreign", "NewRoot", "Applications/AuditProbe", "ProofAudit", "Applications/LocalAudit"):
+        for name in ("external/Foreign", "NewRoot", "Applications/AuditProbe",
+                     *(m.replace(".", "/") for m in scaled), "ProofAudit", "Applications/LocalAudit"):
             source_root = root / "external" if name == "external/Foreign" else root
             result = subprocess.run(
                 [lean, "-R", str(source_root), "-o", str(root / (name + ".olean")),
@@ -73,6 +80,12 @@ run_cmd do
             if result.returncode:
                 raise RuntimeError(f"{name}: {result.stdout}{result.stderr}")
         output = result.stdout + result.stderr
+        timing = re.findall(r"Proof audit timings \(ms\): (.*)", output)
+        assert timing, "missing audit phase timings: " + output
+        phases = dict((key, int(value)) for key, value in
+                      re.findall(r"(\w+)=(\d+)", timing[-1]))
+        assert set(phases) == {"inventory", "roots", "counting", "axioms", "reporting", "total"}, phases
+        assert phases["total"] >= sum(value for key, value in phases.items() if key != "total"), phases
         actual = re.findall(r"\[ProofAudit.roots\] (\S+)", output)
         expected = set(re.findall(r"^REFERENCE (\S+)$", output, re.MULTILINE))
         assert actual, output
@@ -86,6 +99,20 @@ run_cmd do
         assert any("_private" in n and "hidden" in n for n in expected)
         assert any("_private" in n and "localTrue" in n for n in expected)
         assert "unusedForeign" not in expected
+        expected_counts = {}
+        for module, theorem, unsafe in re.findall(r"^COUNTER (\S+) (true|false) (true|false)$", output, re.MULTILINE):
+            count = expected_counts.setdefault(module, [0, 0, 0])
+            count[2 if unsafe == "true" else 0] += 1
+            if unsafe == "false" and theorem == "true":
+                count[1] += 1
+        actual_counts = {module: list(map(int, (logical, theorem, unsafe)))
+                         for module, logical, theorem, unsafe in re.findall(
+                             r"  (\S+): (\d+) logical declarations; (\d+) theorem declarations; (\d+) unsafe runtime declarations", output)}
+        assert actual_counts == expected_counts, (actual_counts, expected_counts)
+        assert len(actual_counts) == 19, actual_counts
+        for i in range(16):
+            assert f"Scale{i}.value63" in expected
+        print("PASS: exact per-module counts across 19 modules and 1024 scaled definitions")
         print(f"PASS: exact root equality ({len(expected)} roots; private, generated, and local declarations)")
         (root / "scripts/project_sources.py").unlink()
         failed = subprocess.run(

@@ -203,6 +203,47 @@ unrelated dependency declarations, and Lean's cached transitive axiom summaries.
 Formal refinement proofs for these checks are tracked separately in
 [#43](https://github.com/VladimirMarko/conaled/issues/43).
 
+### Audit performance
+
+The audit reports milliseconds spent on inventory acquisition, root enumeration
+and ownership, declaration sorting/counting, axiom collection, and summary
+construction. `total` covers those phases. It excludes import/startup time,
+elaboration of the audit implementation, delivery of queued diagnostic messages,
+and any subsequent forbidden-axiom attribution on failure. The outer
+`Proof audit: ...s` measurement covers the whole Lean subprocess.
+
+Module membership uses a name set and per-module counters use an index, so
+ownership and bookkeeping do not scan the module array for every declaration.
+The audit still submits every logical root to Lean's public axiom collector.
+The root regression suite compares both exact roots and per-module counts with
+an independent exhaustive environment scan, including a scaled fixture.
+
+Compare two audit implementations against the same existing project artifacts:
+
+```sh
+git show BASE_COMMIT:ProofAudit.lean > /tmp/ProofAudit-baseline.lean
+python3 scripts/benchmark-proof-audit.py \
+  --baseline /tmp/ProofAudit-baseline.lean \
+  --repetitions 3 --output /tmp/audit-comparison.json
+```
+
+Run in the development shell after building the project. Keep the checkout and
+dependency caches stable and serialize this benchmark with other heavy work.
+The command compiles neither project imports nor a new artifact cache. It copies
+both audit sources into temporary directories, alternates their execution order,
+retains raw logs, compares complete semantic reports, and checks project artifact,
+inventory and configuration fingerprints before and after. Each repetition also
+measures an import-only process for the audit's current four imports. That probe
+is a separate workload, not an exact subtraction of import cost from another run.
+Phase timings are retained when the supplied implementation reports them.
+
+These measurements do not establish artifact provenance or candidate acceptance.
+Dependency-cache stability and absence of transient edits remain assumptions.
+Use the normal acceptance checks for the candidate being delivered. Compositional
+reuse of audit evidence is part of the
+[verification plan](research/verification-architecture-plan.md#compositional-audit-evidence)
+and [#591](https://github.com/VladimirMarko/conaled/issues/591).
+
 The original dependency-free foundation remains available:
 
 ```sh

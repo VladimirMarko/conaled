@@ -74,14 +74,20 @@ private structure ModuleCount where
 
 /-- An executable verification command; it adds no mathematical assumptions. -/
 def auditProject : CommandElabM Unit := do
+  let started ← IO.monoMsNow
   let env ← getEnv
   let modules ← projectModules
-  let isProjectModule := modules.contains
+  let inventoried ← IO.monoMsNow
+  let moduleSet := NameSet.ofArray modules
+  let isProjectModule := moduleSet.contains
   let mut owned : Array (Name × ConstantInfo × Name) := #[]
   let mut counts := (env.header.moduleNames.filter isProjectModule).map
     (fun n => { moduleName := n : ModuleCount })
   if isProjectModule env.mainModule then
     counts := counts.push { moduleName := env.mainModule }
+  let mut countIndices : NameMap Nat := {}
+  for (count, i) in counts.zipIdx do
+    countIndices := countIndices.insert count.moduleName i
   let mut runtimeCount : Nat := 0
   let mut unsafeSource : Array Name := #[]
   -- Restrict candidates by defining module before examining declarations.
@@ -109,25 +115,28 @@ def auditProject : CommandElabM Unit := do
         runtimeCount := runtimeCount + 1
         if (declRangeExt.find? env declName).isSome then
           unsafeSource := unsafeSource.push declName
-        if let some i := counts.findIdx? (fun c => c.moduleName == moduleName) then
+        if let some i := countIndices.find? moduleName then
           counts := counts.modify i (fun c => { c with
             runtimeDeclarations := c.runtimeDeclarations + 1 })
       else
         owned := owned.push (declName, info, moduleName)
   if owned.isEmpty then
     throwError "Proof audit found no project declarations; check the public entrypoint imports."
+  let enumerated ← IO.monoMsNow
   owned := owned.qsort (fun a b => Name.lt a.1 b.1)
   let mut theoremCount : Nat := 0
   for (declName, info, moduleName) in owned do
     trace[ProofAudit.roots] "{declName}"
     if info.isTheorem then theoremCount := theoremCount + 1
-    match counts.findIdx? (fun c => c.moduleName == moduleName) with
+    match countIndices.find? moduleName with
     | some i =>
       counts := counts.modify i (fun c => { c with
         declarations := c.declarations + 1
         theorems := c.theorems + if info.isTheorem then 1 else 0 })
     | none =>
+      countIndices := countIndices.insert moduleName counts.size
       counts := counts.push ⟨moduleName, 1, if info.isTheorem then 1 else 0, 0⟩
+  let counted ← IO.monoMsNow
   -- Use Lean's public API and its checked module summaries, without relying
   -- on the collector's private implementation. Every declaration is a root.
   let mut axiomSet : NameSet := {}
@@ -136,12 +145,15 @@ def auditProject : CommandElabM Unit := do
       axiomSet := axiomSet.insert axiomName
   let allAxioms := axiomSet.toArray.qsort Name.lt
   let forbiddenUnion := allAxioms.filter (fun a => !permittedAxiom a)
+  let collected ← IO.monoMsNow
   counts := counts.qsort (fun a b => Name.lt a.moduleName b.moduleName)
   logInfo m!"Proof audit: {owned.size} kernel-safe declarations, {theoremCount} theorem declarations, {counts.size} project modules."
   for c in counts do
     logInfo m!"  {c.moduleName}: {c.declarations} logical declarations; {c.theorems} theorem declarations; {c.runtimeDeclarations} unsafe runtime declarations"
   logInfo m!"Excluded from logical roots: {runtimeCount} kernel-unsafe runtime declarations."
   logInfo m!"Transitive axiom union: {allAxioms.toList}"
+  let reported ← IO.monoMsNow
+  logInfo m!"Proof audit timings (ms): inventory={inventoried - started} roots={enumerated - inventoried} counting={counted - enumerated} axioms={collected - counted} reporting={reported - collected} total={reported - started}"
   if !unsafeSource.isEmpty then
     throwError "Proof audit FAILED: unsafe declarations with source ranges: {(unsafeSource.qsort Name.lt).toList}"
   if !forbiddenUnion.isEmpty then

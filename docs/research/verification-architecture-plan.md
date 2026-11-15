@@ -126,6 +126,42 @@ nor make a universal game framework a prerequisite. If existing strategy
 interfaces cannot express the required client, record the precise missing
 contract and a scoped extension rather than claim adoption by analogy.
 
+## Compositional audit evidence
+
+The maintainer selected compositional per-artifact audit evidence as a tooling
+goal on 2026-11-15. [#591](https://github.com/VladimirMarko/conaled/issues/591)
+tracks delivery; #43 owns the audit meaning and composition, and #222 owns the
+artifact provenance and consumption connection. This section specifies remaining
+work, not a guarantee of the current auditor.
+
+State whole-candidate acceptance independently: every owned kernel-safe root in
+the selected environment has only permitted transitive axioms, and the audited
+roots cover the complete owned inventory. A per-artifact result must identify its
+artifact, defining-module ownership, root coverage, axiom evidence, dependencies,
+and audit policy. A successful status without those connections is insufficient.
+
+Prove that combining complete component evidence establishes that whole-candidate
+property. Include exact coverage and union laws, duplicate handling, and rejection
+when a component or dependency is missing, mismatched or unknown. Recover the
+current exhaustive audit as a checked specialization, retaining private,
+generated and current-module declarations and unsafe-source rejection. Reuse
+existing finite-summary and refinement constructions where their laws fit this
+contract; the union of axiom names alone does not establish ownership coverage.
+
+The production adapter must execute the proved combination and reuse decisions.
+Connect each component to the bytes actually produced and later imported through
+#222's captured-input, publication and consumption contracts. Changes to artifact,
+imports, toolchain, policy or relevant ownership information must invalidate or
+re-establish the affected evidence. Keep external correspondence assumptions
+explicit and retain the exhaustive reference path as an independent cross-check.
+
+Deliver a bounded module-and-dependency client before broadening reuse. Its checked
+cases and real adapter tests must distinguish unchanged reuse, changed dependency,
+private forbidden axiom, omitted root, replaced artifact, and interrupted evidence
+publication. Measure evidence production, validation and composition as well as
+saved audit work. The current indexing and phase-timing improvements preserve the
+full audit on every acceptance and do not introduce this evidence cache.
+
 ## Bootstrap without self-certification
 
 Using the library to construct the verifier does not establish the truth of
