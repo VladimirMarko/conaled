@@ -5,6 +5,9 @@ mathematics, and executable systems.
 
 ## Development efforts and standards
 
+**CTB (conaled textbooks)**:
+The combined textbook checkpoint programme and its historical ticket namespace.
+
 **Workstream**:
 A sustained development effort with related research questions and deliverables,
 such as FRP, orbifold simulation, or hardware architecture derivation. A

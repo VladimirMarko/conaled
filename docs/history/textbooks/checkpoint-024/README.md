@@ -65,6 +65,9 @@ their mathematical requirements, dependencies and historical statuses. Those
 statuses describe the producing session, not current GitHub acceptance.
 Operational-only tickets retain their identity and omission disposition.
 
+CTB means **conaled textbooks**, as defined in the
+[namespace registry](../issue-lineages.md).
+
 The twelve original commit subjects already used `CTB-` IDs. Received subjects
 retain them and add the real receiving issue `#582`. Existing VFA, FDSA, PFDS
 and INT identities keep their meanings. Actual GitHub references, including
