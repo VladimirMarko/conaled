@@ -1,5 +1,10 @@
 # Comparing the Chapter 1 call models
 
+Historical checkpoint and local-ticket references in this account resolve through
+the [preserved FDSA records](../history/textbooks/checkpoint-012/books/fdsa/README.md).
+Current coverage and follow-up belong to [#558](https://github.com/VladimirMarko/conaled/issues/558);
+old process and tracking instructions describe the producing session.
+
 The FDSA source on printed pages 7–9 asserts three mathematical comparisons
 in addition to its concrete recurrences: refining the local tariff preserves
 asymptotic counts, a positive body cost absorbs an omitted nonrecursive entry,

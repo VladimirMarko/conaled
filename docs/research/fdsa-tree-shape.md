@@ -1,5 +1,10 @@
 # Shared binary-tree shape bounds
 
+Historical checkpoint and local-ticket references in this account resolve through
+the [preserved FDSA records](../history/textbooks/checkpoint-012/books/fdsa/README.md).
+Current coverage and follow-up belong to [#558](https://github.com/VladimirMarko/conaled/issues/558);
+old process and tracking instructions describe the producing session.
+
 ## Receiving continuation — 5 November 2026
 
 This unit is received against accepted Chapters 1–3 and XT01 at

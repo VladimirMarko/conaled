@@ -1,5 +1,10 @@
 # Affine upper bounds for contracting recurrences
 
+Historical checkpoint and local-ticket references in this account resolve through
+the [preserved FDSA records](../history/textbooks/checkpoint-012/books/fdsa/README.md).
+Current coverage and follow-up belong to [#558](https://github.com/VladimirMarko/conaled/issues/558);
+old process and tracking instructions describe the producing session.
+
 This is a shared arithmetic unit for the whole-book FDSA reconstruction.
 At the 4 November 2026 receiving-preparation snapshot, both independent source
 assessments of the original draft were complete with no new XR source findings;
@@ -228,7 +233,7 @@ their direct chapter-specific induction arguments.
 ## Validation boundary
 
 The frozen shared-unit requirements and source preflight are preserved in the
-external `fdsa-control` checkpoint directory. No compiler was run during the
+preserved FDSA records directory. No compiler was run during the
 original draft while the earlier Chapter 1 full gate remained active. Static
 source and API inspection is not Lean elaboration, an axiom audit or independent
 approval. The coordinated workflow requires focused compilation, public-root

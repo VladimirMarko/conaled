@@ -1,9 +1,11 @@
 # FDSA reconstruction and coverage
 
-This local workstream reconstructs *Functional Data Structures and Algorithms:
+This workstream reconstructs *Functional Data Structures and Algorithms:
 A Proof Assistant Approach* in Lean while retaining conaled's architectural and
 proof standards. The owner requested whole-book coverage on 2026-11-02, with
-local tickets and recovery checkpoints instead of GitHub writes. This extends
+local tickets and recovery checkpoints in the producing session. Current
+tracking belongs to [#558](https://github.com/VladimirMarko/conaled/issues/558).
+The mathematical scope extends
 the earlier source-selection scope of issue #174; it does not replace that
 issue's requirements on reusable constructions, observations and resource models.
 
@@ -22,11 +24,11 @@ issue's requirements on reusable constructions, observations and resource models
   in Chapter 2. Later AFP sources require their own version and license records.
 
 Manuscript downloads and extracted book text are research inputs, excluded from
-the source deliverable. The checkpoint's companion `fdsa-control` directory
-contains the complete user request, source-link inventory, local chapter
-tickets, independent review records and candidate validation evidence. That
-tracker is the authority for acceptance; the presence of a source mapping below
-does not by itself mean that its chapter has passed all gates.
+the source deliverable. The [preserved FDSA records](../history/textbooks/checkpoint-012/books/fdsa/README.md)
+contain the original user request, source-link inventory, chapter tickets,
+independent reviews and candidate validation evidence. Those records describe
+historical acceptance. Current GitHub owners and the receiving review loop
+govern subsequent acceptance; a source mapping alone does not establish it.
 
 **Accepted-base snapshot — 4 November 2026.** Chapter 1 was accepted at
 `07e480f6ec9958d4975bb90151005b84f2907614`. The shared foundation was accepted at

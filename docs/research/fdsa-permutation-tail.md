@@ -1,5 +1,10 @@
 # Conditional laws of an observed remaining order
 
+Historical checkpoint and local-ticket references in this account resolve through
+the [preserved FDSA records](../history/textbooks/checkpoint-012/books/fdsa/README.md).
+Current coverage and follow-up belong to [#558](https://github.com/VladimirMarko/conaled/issues/558);
+old process and tracking instructions describe the producing session.
+
 This bounded shared unit
 continues the [whole-order draft](fdsa-permutation-order.md). Its frozen
 requirements, preflights, exact finite expectations, candidate identity and

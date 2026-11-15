@@ -1,5 +1,10 @@
 # PFDS suspension semantics and observations
 
+Historical checkpoint and local-ticket references in this account resolve through
+the [preserved PFDS records](../history/textbooks/checkpoint-012/books/pfds/README.md).
+Current coverage and follow-up belong to [#558](https://github.com/VladimirMarko/conaled/issues/558);
+old process and tracking instructions describe the producing session.
+
 This is the implementation record for local ticket10014, a cross-cutting
 prerequisite of the book/thesis reconstruction. Its source scope is the
 suspension mechanism in the supplied book's Chapter4, the thesis's Chapter2,

@@ -1,5 +1,10 @@
 # Difference-list closure observations
 
+Historical checkpoint and local-ticket references in this account resolve through
+the [preserved FDSA records](../history/textbooks/checkpoint-012/books/fdsa/README.md).
+Current coverage and follow-up belong to [#558](https://github.com/VladimirMarko/conaled/issues/558);
+old process and tracking instructions describe the producing session.
+
 This shared unit gives an explicit closure model for the constant composition
 and deferred application claims used by FDSA's natural mergesort discussion.
 It does not activate or accept
@@ -30,7 +35,7 @@ inspected `Sorting.thy` is pinned to Isabelle revision
 the AFP theory. The dated archive postdates the book edition, so this is
 provenance for the compared source, not a claim of identical July source.
 The exact unit requirements, bounded design preflight and its provenance
-correction are preserved in the external `fdsa-control` checkpoint directory.
+correction are preserved in the preserved FDSA records directory.
 
 The value representation is existing `Batteries.DList`, at pinned revision
 `66e469188fe07963e5cf666c7d4433f45b8131c5`. Its `apply` function and invariant

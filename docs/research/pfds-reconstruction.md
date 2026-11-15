@@ -8,11 +8,13 @@ The broader [toolkit objective](https://github.com/VladimirMarko/conaled/issues/
 continues to govern architectural fit; its original exclusion of whole-book
 coverage is not this task's acceptance scope.
 
-Local tickets, immutable review candidates, validation records and recovery
-instructions accompany the numbered `conaled-pfds-checkpoint` archives. They
-replace GitHub tracking for this task. A checkpoint preserves work in progress;
-it does not establish that a chapter is accepted. Source inspection,
-implementation, kernel validation and independent review are separate gates.
+The [preserved PFDS records](../history/textbooks/checkpoint-012/books/pfds/README.md)
+retain original local tickets, review candidates and validation evidence.
+[Issue #558](https://github.com/VladimirMarko/conaled/issues/558) owns current
+coverage, and [#564](https://github.com/VladimirMarko/conaled/issues/564) owns
+persistence interfaces. Preservation does not establish chapter acceptance.
+Source inspection, implementation, kernel validation and independent review
+remain separate gates.
 
 ## Source identity and coverage
 

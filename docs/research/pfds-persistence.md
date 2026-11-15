@@ -1,5 +1,10 @@
 # PFDS Chapter 2: immutable versions and shared representations
 
+Historical checkpoint and local-ticket references in this account resolve through
+the [preserved PFDS records](../history/textbooks/checkpoint-012/books/pfds/README.md).
+Current coverage and follow-up belong to [#558](https://github.com/VladimirMarko/conaled/issues/558);
+old process and tracking instructions describe the producing session.
+
 This implementation record covers the published book's complete persistence
 chapter, printed pages 7–16, including Exercises 2.1–2.6. Source identities and
 the wider request are recorded in [the reconstruction scope](pfds-reconstruction.md)

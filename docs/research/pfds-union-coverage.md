@@ -1,5 +1,10 @@
 # Book and thesis union: coverage obligations
 
+Historical checkpoint and local-ticket references in this account resolve through
+the [preserved PFDS records](../history/textbooks/checkpoint-012/books/pfds/README.md).
+Current coverage and follow-up belong to [#558](https://github.com/VladimirMarko/conaled/issues/558);
+old process and tracking instructions describe the producing session.
+
 This ledger belongs to the requested union of Chris Okasaki's Cambridge book
 and 1996 dissertation. It records source obligations, not proof acceptance.
 Source identities are in [S9](../SOURCES.md#s9-purely-functional-data-structures).

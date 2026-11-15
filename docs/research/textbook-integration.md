@@ -48,8 +48,8 @@ owns the exact comparison and the subsequent build evidence.
 These merges preserve the incoming ancestry. Subsequent shared clients and
 potential reconciliation extend this union. FDSA's mapped-potential work also
 uses retained donor `12cb14fc98b8617b3b625620da8e60936daba340`, which was absent
-from the FDSA candidate. The checkpoint's `source/refs.json` owns all original
-reference identities; the three candidate heads are not its entire mathematical
+from the FDSA candidate. The [preserved ref catalog](../history/textbooks/checkpoint-012/source/refs.json)
+owns all original reference identities; the three candidate heads are not its entire mathematical
 inventory.
 
 The FDSA merge combines both theorem families in
@@ -220,16 +220,18 @@ second active library. Its coverage matrix, paper mathematics, source
 obligations and forward cost contracts still constrain **INT-001**; importing
 the candidate does not accept its unfinished textbook coverage.
 
-Shared implementation work is tracked by **INT-010–013**. Final acceptance is
-owned by **INT-090** and **INT-091**: the full applicable build, exhaustive
-three-axiom audit and independent Standards/Spec reviews must describe the same
-candidate and retain the original integration base through fixes. The user has
-assigned the final full build and audit to the receiving integrator's normal
-development environment. Focused mathematical development and reviewed source
-handoffs can proceed while that gate remains explicitly deferred; final merge
-acceptance still requires its successful exact-candidate evidence, immediate
-verification and snapshot comparison. Historical approvals and focused
-elaboration establish only their recorded scopes. The checkpoint's
-`books/common/VALIDATION-HANDOFF.md` owns this execution assignment and the
-current requirements, outcomes and durable recovery instructions remain there,
-so this correspondence need not become another status ledger.
+Historical implementation work is recorded by INT-010–013 and receiving gates
+by INT-090/091 and INT-SP-001 in the
+[preserved review record](../history/textbooks/checkpoint-012/books/common/REVIEW.json).
+The full applicable build, exhaustive three-axiom audit and independent
+Standards/Spec reviews must describe the same receiving candidate and retain
+the original integration base through fixes. Immediate verification and
+snapshot comparison remain required. Historical approvals and focused checks
+establish only their recorded scopes.
+
+Current follow-up is owned by [#558](https://github.com/VladimirMarko/conaled/issues/558):
+maps #559, sorting #560, deferred FDSA trees/resources #561, tape sampling #562,
+remaining VFA drafts #563 and PFDS persistence #564. The
+[repository preservation record](../history/textbooks/README.md) links the full
+mathematics and book ledgers. These bounded tasks retain the outstanding wider
+book scope without treating it as a prerequisite for the current public contracts.

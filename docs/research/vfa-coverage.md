@@ -7,12 +7,14 @@ and advanced mathematical exercises. This is additional scope alongside the
 method-oriented toolkit objective of upstream issue #174; it does not close
 that broader workstream or select one canonical data structure.
 
-Tickets, candidate acceptance, independent review findings, and recovery state
-are tracked locally in the downloadable checkpoints, not on GitHub. Numeric
-commit references from #1000 upward in this branch refer to that local tracker.
-The map below describes mathematical coverage; an implementation is not an
-accepted chapter until its recorded candidate build, proof audit, both review
-axes, and final candidate verification have passed.
+The [preserved VFA records](../history/textbooks/checkpoint-012/books/vfa/README.md)
+retain the original local tickets, review findings and validation evidence.
+Historical commit references from #1000 upward refer to that local tracker.
+Current coverage and follow-up are owned by
+[issue #558](https://github.com/VladimirMarko/conaled/issues/558).
+The map below describes mathematical coverage; source implementation alone is
+not accepted chapter coverage. Acceptance requires the recorded candidate's
+build, proof audit, both review axes and final verification.
 
 ## Source identity and scope
 

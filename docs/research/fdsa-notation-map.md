@@ -1,5 +1,10 @@
 # FDSA Appendix C — notation correspondence
 
+Historical checkpoint and local-ticket references in this account resolve through
+the [preserved FDSA records](../history/textbooks/checkpoint-012/books/fdsa/README.md).
+Current coverage and follow-up belong to [#558](https://github.com/VladimirMarko/conaled/issues/558);
+old process and tracking instructions describe the producing session.
+
 This map covers all 90 symbol-table entries, formatting conventions and
 syntactic-sugar rows on printed pp.355–359 of the pinned edition.
 `Examples.FunctionalNotation`, `Examples.FunctionalBasics` and

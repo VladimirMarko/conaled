@@ -1,5 +1,10 @@
 # Mapped, signed and invariant-aware potential accounting
 
+Historical checkpoint and local-ticket references in this account resolve through
+the [preserved FDSA records](../history/textbooks/checkpoint-012/books/fdsa/README.md).
+Current coverage and follow-up belong to [#558](https://github.com/VladimirMarko/conaled/issues/558);
+old process and tracking instructions describe the producing session.
+
 This shared accounting development originated as FDSA-XP01 under issue #174,
 at retained donor commit `12cb14fc98b8617b3b625620da8e60936daba340`. The textbook
 integration reconciles it with PFDS's generic, state-preserving and signed
@@ -193,7 +198,7 @@ states. A binary merge must account for both input potentials and their
 occurrences in an operation history. Neither fact follows from unary `run`.
 
 The original exact requirements, preflight and source reviews are preserved
-under the checkpoint's `books/fdsa/records/`, outside the implementation diff.
+under `docs/history/textbooks/checkpoint-012/books/fdsa/records/`.
 The current integration requirements and evidence are recorded by its local
 tracker. Acceptance requires a committed
 immutable candidate, applicable focused builds, the full guarded check and

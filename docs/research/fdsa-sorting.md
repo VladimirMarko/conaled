@@ -1,5 +1,10 @@
 # FDSA Chapter 2: sorting correspondence and resource models
 
+Historical checkpoint and local-ticket references in this account resolve through
+the [preserved FDSA records](../history/textbooks/checkpoint-012/books/fdsa/README.md).
+Current coverage and follow-up belong to [#558](https://github.com/VladimirMarko/conaled/issues/558);
+old process and tracking instructions describe the producing session.
+
 This note maps every section, displayed definition and supporting claim, named
 result and exercise in Chapter 2 of *Functional Data Structures and Algorithms:
 A Proof Assistant Approach* to conaled source. The complete inventory contains
