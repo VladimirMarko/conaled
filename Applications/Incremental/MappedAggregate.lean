@@ -152,6 +152,21 @@ theorem patch_value (g : Scalar G) (s : State G n) (p : Patch G n) :
     (repair g s p).1 = (realization g.eval n).repair s p := by
   simp [repair, Resources.bind, sub, Resources.pure, patch_value]
 
+/-- Observe the repaired aggregate from any retained state related to the
+current raw input. Continued repairs need no reinitialization. -/
+theorem repair_output (g : Scalar G) (v : Values G n) (s : State G n)
+    (p : Patch G n) (hs : Valid g.eval v s) :
+    (repair g s p).1.1.sum = specification g.eval (applyPatch v p) := by
+  rw [repair_value]
+  exact (realization_laws g.eval).observe _ _ ((realization_laws g.eval).repair v s p hs)
+
+/-- A caller starting from the measured initializer supplies no invariant proof. -/
+theorem repair_after_init_output (g : Scalar G) (v : Values G n) (p : Patch G n) :
+    (repair g (init g v).1 p).1.1.sum = specification g.eval (applyPatch v p) := by
+  apply repair_output
+  rw [init_value]
+  exact (realization_laws g.eval).init v
+
 @[simp] theorem repair_cost (g : Scalar G) (s : State G n) (p : Patch G n) :
     (repair g s p).2 = p.length * (g.cost + 5) + 1 := by
   simp [repair, Resources.bind, sub, Resources.pure,

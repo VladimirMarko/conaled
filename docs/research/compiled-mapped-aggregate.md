@@ -6,6 +6,35 @@ implementation is [MappedAggregate.lean](../../Applications/Incremental/MappedAg
 [the checked clients](../../Examples/MappedAggregate.lean) use integer square
 sums and sums of `x*x+x`, followed by the separately compiled `y*y+1`.
 
+## Practical entry points
+
+Import `Applications.Incremental.MappedAggregate` for the generic API; import
+`SquareKit.Arithmetic` explicitly when using its scalar vocabulary. The
+[checked clients](../../Examples/MappedAggregate.lean) define independent
+polynomial specifications alongside source syntax. `Cost.repair_after_init_output`
+connects a measured initialization followed by one patch to the mapped sum,
+without a caller invariant proof. For continued repairs, `Cost.repair_output`
+accepts the existing `Valid` relation for the current raw input and retained
+state. `Cost.workload_output` supplies the composed downstream result for any
+finite patch workload; `workload_cost`, `recompute_cost` and
+`repair_le_recompute_iff` supply its complete cost comparison.
+
+A measured result is a value/cost pair. Aggregate initialization returns
+`VectorSum.State`; aggregate repair returns that state and its output delta.
+The composed workload returns the aggregate state and the downstream
+input/output pair, so `.1.2.2` is its final output and `.2` its bill.
+The new observation theorems avoid unfolding that state relation in client
+proofs. They preserve the underlying operations and validity laws.
+
+The shifted-square client uses `(x+2)*(x+2)` and the same downstream body as
+the original clients. Ordered writes of index 1 to 5 and then -1 on `[1,2,3]`
+yield mapped sum 35 and downstream output 1226. Its source contains two copies
+of a named shift term: two literal executions, two additions and one
+multiplication cost five. `shiftedSquare_exec_cost` connects this calculation
+to actual compiled scalar execution. Naming a Lean term does not introduce
+source-level sharing; the existing source `.letE` must be written explicitly
+when that binding is intended. This adaptation adds no sharing mechanism.
+
 ## Author interface and retained state
 
 Supply a `Scalar`: primitive vocabulary, primitive meaning, fixed primitive

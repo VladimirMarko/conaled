@@ -1,6 +1,7 @@
 import Applications.Incremental.MappedAggregate
+import SquareKit.Arithmetic
 
-/-! Two ordinary polynomial specifications use the same compiled repair path.
+/-! Ordinary polynomial specifications use the same compiled repair path.
 The tariff counts every scalar primitive once, including literals. -/
 namespace Examples.MappedAggregate
 open FirstOrderCompiler Incremental Incremental.MappedAggregate
@@ -48,16 +49,12 @@ theorem quadratics_workload (v : Values Int n) (ps : List (Patch Int n)) :
   Cost.workload_output quadratic downstream v ps
 
 theorem squares_after_patch (v : Values Int n) (p : Patch Int n) :
-    (Cost.repair square (Cost.init square v).1 p).1.1.sum = squares (applyPatch v p) := by
-  rw [Cost.init_value, Cost.repair_value]
-  exact (realization_laws square.eval).observe _ _
-    ((realization_laws square.eval).repair _ _ _ ((realization_laws square.eval).init v))
+    (Cost.repair square (Cost.init square v).1 p).1.1.sum = squares (applyPatch v p) :=
+  Cost.repair_after_init_output square v p
 
 theorem quadratics_after_patch (v : Values Int n) (p : Patch Int n) :
-    (Cost.repair quadratic (Cost.init quadratic v).1 p).1.1.sum = quadratics (applyPatch v p) := by
-  rw [Cost.init_value, Cost.repair_value]
-  exact (realization_laws quadratic.eval).observe _ _
-    ((realization_laws quadratic.eval).repair _ _ _ ((realization_laws quadratic.eval).init v))
+    (Cost.repair quadratic (Cost.init quadratic v).1 p).1.1.sum = quadratics (applyPatch v p) :=
+  Cost.repair_after_init_output quadratic v p
 
 def initial : Values Int 3 := ![1, 2, 3]
 def repeated : Patch Int 3 := [(1, 5), (1, -1)]
@@ -147,5 +144,44 @@ theorem zero_empty_patch_bill (v : Values Int 0) :
     (Cost.recompute square downstream v [[]]).2 = 12 := by
   rw [Cost.workload_cost, Cost.recompute_cost]
   decide
+
+/-- Naming this term does not insert a source-level let binding. -/
+private def shifted : Term Arithmetic.Prim [.base] .base :=
+  .prim .add (.pair input (.prim (.literal 2) .unit))
+
+def shiftedSquare : Scalar Int where
+  Prim := Arithmetic.Prim
+  meaning := Arithmetic.meaning
+  charge _ := 1
+  body := .prim .mul (.pair shifted shifted)
+
+def shiftedSquares (v : Values Int n) : Int := ∑ i, (v i + 2) * (v i + 2)
+
+@[simp] theorem shiftedSquare_eval (x : Int) : shiftedSquare.eval x = (x + 2) * (x + 2) := rfl
+
+@[simp] theorem shiftedSquare_spec (v : Values Int n) :
+    specification shiftedSquare.eval v = shiftedSquares v := rfl
+
+theorem shiftedSquares_after_patch (v : Values Int n) (p : Patch Int n) :
+    (Cost.repair shiftedSquare (Cost.init shiftedSquare v).1 p).1.1.sum =
+      shiftedSquares (applyPatch v p) :=
+  Cost.repair_after_init_output shiftedSquare v p
+
+theorem shiftedSquares_workload (v : Values Int n) (ps : List (Patch Int n)) :
+    (Cost.workload shiftedSquare downstream v ps).1.2.2 =
+      report (shiftedSquares (ps.foldl applyPatch v)) :=
+  Cost.workload_output shiftedSquare downstream v ps
+
+theorem shifted_repeated_outputs :
+    (Cost.repair shiftedSquare (Cost.init shiftedSquare initial).1 repeated).1.1.sum = 35 ∧
+    (Cost.workload shiftedSquare downstream initial [repeated]).1.2.2 = 1226 := by
+  rw [shiftedSquares_after_patch, shiftedSquares_workload]
+  decide
+
+/-- Two literals and two additions execute before the multiplication. Reusing
+`shifted` as a Lean name does not memoize its execution. -/
+theorem shiftedSquare_exec_cost (x : Int) : (shiftedSquare.exec x).2 = 5 := by
+  rw [Scalar.exec_cost]
+  rfl
 
 end Examples.MappedAggregate

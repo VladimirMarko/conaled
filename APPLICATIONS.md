@@ -231,6 +231,18 @@ model. A materialized-prefix lower bound shows why observation choice matters.
 These resource theorems do not assert Lean runtime costs or restrict future
 compilation targets to Lean.
 
+[Compiled mapped aggregates](Applications/Incremental/MappedAggregate.lean)
+reuse that retained sum for source-derived scalar computations. The
+[public clients](Examples/MappedAggregate.lean) specialize it to square,
+quadratic and shifted-square sums, with ordered assignments and a separately
+compiled downstream scalar. Use `Cost.repair_after_init_output` for one patch,
+`Cost.repair_output` for a continued repair with a valid retained state, and
+`Cost.workload_output` for a complete workload. The
+[implementation report](docs/research/compiled-mapped-aggregate.md) describes
+entry points, complete workload costs and the owned indexed-store model.
+These bills do not establish physical array or Lean runtime performance;
+the modeled output emission does not supply an external stream driver.
+
 ## 6. Convolution and languages preserve the chosen information
 
 Word convolution sums over the finitely many prefix/suffix splits of a word.
