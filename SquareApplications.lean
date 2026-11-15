@@ -55,6 +55,7 @@ import Examples.WeakMachine
 import Examples.WeakCanonicity
 import Examples.Memoization
 import Examples.SamplerSubstitution
+import Examples.OperationalSamplerSubstitution
 import Examples.ClassicalControl
 import Examples.VaryingPartialCertificates
 import Examples.OwnedHandle
