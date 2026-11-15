@@ -53,8 +53,9 @@ theorem rightTwo_incomplete : ¬ Trees.Complete rightTwo := by
   decide
 
 theorem rightTwo_almostComplete : Trees.AlmostComplete rightTwo := by
-  change 2 ≤ 1 + 1
-  decide
+  exact (Trees.almostComplete_node_iff () .nil single).2
+    ⟨Trees.almostComplete_nil, single_almostComplete,
+      Or.inr (Or.inr ⟨rfl, Trees.complete_nil⟩)⟩
 
 theorem rightTwo_strict_capacity :
     2 ^ Trees.minHeight rightTwo < rightTwo.numLeaves ∧
@@ -291,6 +292,45 @@ theorem localBalanceCounter_not_almostComplete :
     ¬ Trees.AlmostComplete localBalanceCounter := by
   change ¬ 4 ≤ 2 + 1
   decide
+
+/-- The taller child in the existing counterexample is itself almost complete.
+The exact constructor law uses completeness of its shorter singleton child. -/
+theorem almostFour_almostComplete : Trees.AlmostComplete almostFour :=
+  (Trees.almostComplete_node_iff () rightTwo single).2
+    ⟨rightTwo_almostComplete, single_almostComplete,
+      Or.inr (Or.inl ⟨rfl, single_complete⟩)⟩
+
+/-- Equal-height children need not be complete for their parent to be almost
+complete. This exercises the equal branch with two genuinely incomplete trees. -/
+theorem equal_incomplete_children_almostComplete :
+    Trees.AlmostComplete (.node () rightTwo rightTwo) ∧
+      ¬ Trees.Complete rightTwo :=
+  ⟨(Trees.almostComplete_node_iff () rightTwo rightTwo).2
+      ⟨rightTwo_almostComplete, rightTwo_almostComplete, Or.inl rfl⟩,
+    rightTwo_incomplete⟩
+
+/-- Both-empty and each one-empty boundary use the same constructor law. -/
+theorem constructor_empty_boundaries :
+    Trees.AlmostComplete (.node () .nil .nil) ∧
+      Trees.AlmostComplete (.node () single .nil) ∧
+      Trees.AlmostComplete (.node () .nil single) :=
+  ⟨(Trees.almostComplete_node_iff () .nil .nil).2
+      ⟨Trees.almostComplete_nil, Trees.almostComplete_nil, Or.inl rfl⟩,
+    (Trees.almostComplete_node_iff () single .nil).2
+      ⟨single_almostComplete, Trees.almostComplete_nil,
+        Or.inr (Or.inl ⟨rfl, Trees.complete_nil⟩)⟩,
+    rightTwo_almostComplete⟩
+
+/-- Child almost-completeness and adjacent heights alone are insufficient.
+The existing seven-node witness has an incomplete shorter child. -/
+theorem weaker_constructor_counterexample :
+    Trees.AlmostComplete almostFour ∧ Trees.AlmostComplete rightTwo ∧
+      almostFour.height ≤ rightTwo.height + 1 ∧
+      rightTwo.height ≤ almostFour.height + 1 ∧
+      ¬ Trees.Complete rightTwo ∧
+      ¬ Trees.AlmostComplete localBalanceCounter :=
+  ⟨almostFour_almostComplete, rightTwo_almostComplete, by decide, by decide,
+    rightTwo_incomplete, localBalanceCounter_not_almostComplete⟩
 
 theorem chain_rounded_bounds (n : Nat) :
     Trees.minHeight (TreeCacheExamples.chain n) ≤

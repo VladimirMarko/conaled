@@ -51,7 +51,7 @@ Chapter organization is a coverage index; modules follow reusable domain concept
 | 1 | Basics | Accepted at `07e480f`; detailed witnesses below |
 | 2 | Sorting | [112-obligation source correspondence](fdsa-sorting.md), including the selected stable Exercise 2.7; validation and acceptance tracked separately |
 | 3 | Selection | Formalization in progress; see the [chapter correspondence](fdsa-selection.md) for coverage and remaining obligations |
-| 4 | Binary Trees | Queued |
+| 4 | Binary Trees | In progress; shared tree units below, with final row qualification and chapter acceptance pending |
 | 5 | Binary Search Trees | Queued |
 | 6 | Abstract Data Types | Queued |
 | 7 | 2–3 Trees | Queued |
@@ -736,9 +736,11 @@ maximum representation issues and the existing-leftist adapter remain in
 their chapter inventories. The original XT01 source now has complete independent
 Standards and Spec source assessments with zero findings, both overall Blocked
 pending actual receiving-candidate compilation, types, full check/audit and final
-review. The current receiving base is accepted Chapter 3 commit
-`298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2`; all unit and chapter acceptance
-gates remain. This shared entry does not close the Chapter 4 coverage ledger.
+review. That historical XT01 record used accepted Chapter 3 commit
+`298fb23eeaa22d0ca8fe2f1a5320da40a2eab3b2` as its receiving base. The current
+CTB phase uses the pin and exact candidate in its durability checkpoint, rather
+than that earlier base or acceptance record. This shared entry does not close
+the Chapter 4 coverage ledger.
 
 ## Shared binary-tree shape bounds (FDSA-46)
 
@@ -757,9 +759,235 @@ connected uses and statement assessment are in
 | Connected uses and boundaries | Empty labels, right-heavy almost-complete trees, noninjective maps, actual cached annotations, malformed caches, a minimum-height reader, a genuine optimal-height nonconverse and recursive local-height-balance counterexample. |
 
 The recursive mathematical predicate does not by itself complete the source's
-executable checker obligation. Immediate-child closure does not claim the
-general subtree theorem. Braun/weight-balance bridges, constructor exercises,
+executable checker obligation. CTB-72 below extends immediate-child closure to
+the general structural-subtree theorem. Braun/weight-balance bridges, constructor exercises,
 array algorithms and the existing leftist representation and merge-cost bridges
 remain with their chapter tickets. The existing leftist rank proofs are
 unchanged. Current unit validation and acceptance status is recorded in the
 local control records; the complete chapter obligations remain separate.
+
+## Recovered measured whole-tree folds (CTB-2, formerly XT03)
+
+The [measured-fold unit](fdsa-tree-fold-resource.md) now connects the existing
+`Trees.fold` and `Resources.Measured` owners to actual callback executions.
+`Resources.TreeFold.run` retains raw `Add` assumptions and observation grouping;
+its value, label and additive-hom transport laws support independent clients.
+Natural structural charges and reached-callback bounds remain distinct from
+global callback laws. Actual append and annotation examples retain equal
+values with unequal work, product observations, ordered words and the
+reachable-summary counterexample.
+
+This source unit is recovered against pinned master
+`c214fb0720ffc998951255a7e4b5f2e80a299186`. Its focused checks and independent
+source reviews are recorded in the CTB-2 checkpoint evidence. Its source
+completion does not close Chapter 4 or substitute for the receiving
+whole-library acceptance gate.
+
+## Recovered tree suffix invocation and construction (CTB-70, formerly XT04)
+
+The [suffix-invocation unit](fdsa-tree-accumulator-invocation.md) supplies an
+actual cons-only suffix invocation and separate construction/application
+compositions through those existing owners. All three new modules pass focused
+compilation and the declaration audit. Exact candidate and review outcomes are
+owned by the local CTB checkpoint records, not the earlier FDSA draft statuses.
+
+| Source obligation or connection | Current declaration and mathematical boundary |
+| --- | --- |
+| Exercise 4.1, C04-017 | `Resources.TreeAccumulator.nodeRun` and `Resources.TreeAccumulator.invoke` use one ordinary fold of measured functions, with actual right-result dependency and arbitrary-suffix `invoke_value`. |
+| Accumulator part of C04-018 | `Resources.TreeAccumulator.invoke_exact` gives suffix-independent `e*(2*n+1)` work; its proportional linear bound preserves the positive-size premise and nil exception. |
+| Observation transport | `Resources.TreeAccumulator.reweight_invoke` uses existing additive homs and fold fusion; `TreeAccumulatorObservationExamples.invoke_pair` observes two tariffs on one invocation. |
+| Construction and actual applications | `TreeAccumulatorExamples.build` returns the measured invocation function; `buildOnce` and `buildTwice` bind that result to one or two calls with separate phase tariffs. |
+| Boundary and comparison cases | Empty/repeated labels and child occurrences, actual materialize-plus-append work 20 versus invocation work 9, and empty-suffix agreement without uniform work. |
+| Ordered invocation | `TreeAccumulatorObservationExamples.trace_sample_word` proves the right-first word `[2,3,0,1]` and compares it with the measured fold's left-first word, retaining each execution's own value law. |
+
+The retained companion theory has no generated `T_inorder2`; the resource
+formula is derived for the declared measured recurrence. CTB-71 below supplies
+the direct-inorder quadratic shape-family portion of C04-018. CTB-70 alone and
+CTB-2 do not close Exercise 4.1; the combined source contracts and their exact
+acceptance evidence remain distinct from the 76-row Chapter 4 ledger.
+No compiler/runtime, constant-stack, allocation or physical-sharing result is
+claimed. Whole-library guarded validation, exhaustive audit and final receiving
+verification remain explicitly pending under the current workflow decision.
+
+## Recovered shape-sensitive traversal work (CTB-71, formerly XT05)
+
+The [traversal-work unit](fdsa-tree-traversal-work.md) connects one pure shape
+observation to the existing measured fold and its actual append/cache clients.
+It preserves all useful donor claims, including standard asymptotic statements
+and the complete construction-inclusive suffix-program comparison.
+
+| Source obligation or connection | Current declaration and mathematical boundary |
+| --- | --- |
+| Direct-inorder part of C04-018 | `TreeTraversalWorkExamples.source_upper` gives the nonempty all-tree quadratic upper bound; `source_witness` supplies a size-indexed left-chain lower bound. The literal source callback retains both right-associated appends. |
+| Shape and occurrence observation | `Trees.leftSizeSum` is one ordinary fold observation linked to canonical size. Its sharp triangular bound, map invariance and repeated-child law retain every node occurrence. |
+| Actual callback work | `Resources.TreeFold.run_cost_leftSizeSum` derives `e*(2*n+1)+d*A+c*n` from one fixed affine law on actual reached child summaries. It adds no second executor or cost-only pass. |
+| Four current clients | `single_cost`, `right_cost`, `left_cost` and `cache_cost` retain the terminal append call and all three local cache helper charges. The cache's actual reader/erasure laws remain separate from list value. |
+| Qualified growth | `right_leftChain_theta` and `right_rightChain_theta` use the current growth bridge and Mathlib asymptotics for actual runs. The same execution is quadratic on left chains and linear on right chains. Nil, zero coefficients and Empty labels retain their boundaries. |
+| Concrete observation separation | `same_observations_different_work` preserves equal size, height and full inorder while work differs, 19 versus 16. Equal values alone do not imply equal resource observations. |
+| Complete program comparison | `materialize_buildOnce_cost` gives exact excess `A`, including construction in `buildOnce`. Values agree for every suffix; `rightChain_programs` proves full measured-result equality on right chains and `leftChain_program_excess` retains excess `n.choose 2`. |
+
+The combined CTB-70/71 source contracts address C04-017/018. Exact focused
+validation, independent source reviews and final source comparison belong to
+their checkpoint evidence. The whole chapter and receiving acceptance remain
+open. CTB-72 below recovers structural/subtree and weighted-path observations;
+enumeration, levels, reconstruction, balancing with its height/cost contracts,
+and remaining augmentation exercises keep their chapter obligations. In particular,
+a linear balancer core does not make a wrapper using direct inorder linear.
+
+## Recovered structural observations and weighted paths (CTB-72)
+
+The [structural/weighted unit](fdsa-tree-structural-weighted.md) receives all
+four useful modules at `af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1`, retaining
+the earlier basic-observation pair as well as the weighted-path addition.
+Matching set, preorder, weight and depth summaries use the current `Trees.fold`;
+the independent source meanings and all original mathematical contracts remain.
+
+| Source obligation or connection | Current declaration and boundary |
+| --- | --- |
+| C04-002, C04-005 | Independent `Trees.setTree` and ordered `Trees.preorder` on the existing `BinaryTree`, with displayed recurrence laws and arbitrary label types. |
+| C04-015 membership/preorder portions | Both membership bridges connect traversals to the independent label set; `preorder_length` and `preorder_map` retain size, ordered occurrences and noninjective maps. |
+| C04-014 | `Trees.Subtree` is whole rooted structural containment, including self and nil; transitivity and the `subtrees` set recurrences agree. Equal label sets or traversals do not imply containment. |
+| General-subtree portion of C04-046 | The current Shape owner derives `complete_of_subtree` and `almostComplete_of_subtree`; nested cases include an almost-complete parent proved not complete. |
+| Exercise 4.3, C04-021–022 | The independent depth and subtree-sum weighted paths satisfy `wpld d t = d*sumTree t + wpl t` for every incoming depth; `wpl0_eq_wpl` specializes it to zero. Node depth-plus-one remains distinct from Huffman's leaf-depth convention. |
+| Connected weighted cases | Equal total weight 15 yields path values 27 and 34 on different shapes, and 57/64 at incoming depth two. The arbitrary singleton, zero-weight root and nil cases retain the root charge and domain boundaries. |
+
+These source contracts do not close the full chapter. Enumeration, levels,
+reconstruction, rose mirroring, maximal complete subtrees, Boolean checking,
+almost-complete constructor characterization, balancing and its height/cost
+contracts, and remaining augmentation exercises stay with their chapter owners.
+Exact focused checks, independent source reviews and final comparison belong to
+the CTB checkpoint evidence; receiving whole-library acceptance remains pending.
+
+## Canonical tree observations and ordered-set contracts (CTB-73)
+
+The [ordered-observation unit](fdsa-tree-search-observations.md) connects the
+existing Search and Trees owners. `Search.OrderedTree.entries` now uses the
+canonical inorder implementation, preserving its public equations and clients.
+Raw Contains and All correspond to the independent `Trees.setTree` on every
+tree. The structural Ordered predicate is equivalent to pairwise strict inorder
+under Preorder; its converse needs only LT. Keyed payloads need no order or key
+injectivity. The existing Contents results are safely generalized to Preorder.
+
+`AbstractSet.Laws.congr_observe` changes an observer only on valid states.
+Both existing tree implementations inherit the FDSA set observation through
+this theorem. A mixed baseline/candidate insertion client consumes the existing
+insertion squares and relational composition, retaining validity and exact set
+updates. Repeated insertion words use the existing fold/member laws. Connected
+cases retain unordered observations, bad descendants, duplicate-key rejection,
+unordered payloads, a nontransitive-relation boundary and unequal actual search
+comparison counts. A lawful singleton-set case has observers that agree on
+valid states and provably differ on an invalid state.
+
+This is the ordered-input prerequisite for C04-058 and a connection for later
+search/map chapters. It does not supply balancing, its worked figure or its
+height/cost contracts, and does not close the source row, Chapter 4 or a book.
+Exact focused checks and independent review remain in the CTB checkpoint
+evidence; receiving whole-library acceptance is still pending.
+
+## Recovered traversal exercises (CTB-74)
+
+The [enumeration/levels/reconstruction/rose unit](fdsa-tree-traversal-exercises.md)
+receives all eight useful modules in the full donor tree at
+`d02419738a9e16963727b25acf2e18f374dd16de`, retaining 97 original public named
+declarations and every original example. It reuses the canonical BinaryTree,
+inorder, preorder, membership and fold owners; the shared BasicObservations
+pair is not copied again.
+
+| Source obligation | Current declaration and boundary |
+| --- | --- |
+| Exercise 4.2, C04-019–020 | `enumTree` is a deterministic executable list with exact prescribed-inorder soundness/completeness and set correspondence. The left-spine insertion/deletion argument proves Nodup even with repeated labels; exact small output orders remain checked. |
+| Exercise 4.4, C04-023–026 | Independent `level` agrees at every default-empty index with the one-fold `levels` collector; bounded optional lookup and exact height/length agree. `mergeLevels` retains both unmatched tails; no linear total list-work claim is inferred. |
+| Exercise 4.5, C04-027–028 | Total Option reconstruction and the explicit empty-tree-fallback wrapper retain round trips under Nodup preorder, malformed-input failures, same-multiset nonexistence and the actual repeated-label parser choice. |
+| Exercise 4.6, C04-029–030 | The labelled ordered-child Rose carrier has recursive mirror and universal nested involution. Asymmetric and repeated-child applications retain order and occurrences. |
+| Enumeration/reconstruction composition | `reconstruct?_of_mem_enumTree` consumes the two headline laws under the exact common domain. Positive enumeration membership and repeated-label failure cases exercise its premise. |
+
+The earlier enumeration/levels/reconstruction/rose recovery gaps in this map
+are addressed by these source contracts. Other Chapter 4 rows, maximal complete
+subtrees, Boolean checking, almost-complete constructor characterization,
+balancing and its height/cost contracts, and remaining cache-client obligations
+stay open. Exact focused checks, independent reviews and final comparison are
+bound in the local CTB checkpoint; receiving whole-library acceptance remains
+pending. Neither Chapter 4 nor a book is declared complete.
+
+## Consuming balance and its coherent applications (CTB-75)
+
+The [balancing unit](fdsa-tree-balancing.md) receives all 66 named source
+contracts from the four balancing modules at
+`a8f57dbf153c19e3bad2c8136a90b566eeb35374`. The actual sequential Option
+consumer retains its exact prefix, size, suffix and failure behavior. Shared
+Shape/ShapeLog laws supply almost completeness and both exact heights at
+`n+1`, with correct domains for all four source wrappers. The full ten-node
+figure and zero/power-boundary cases consume those public results.
+
+The ordered interpretation uses CTB-73's canonical inorder bridge, including
+keyed payloads and the duplicate/failure boundaries. A validity-preserving
+rebalancing square composes with existing set insertion and membership.
+Actual measured literal, direct-suffix and construction-inclusive pipelines
+retain their distinct costs and exact returned suffixes. C04-047–058 and
+Exercise 4.9/C04-061 are this unit's source obligations; the detailed
+statements, source tariff and cases have one owner in the linked note.
+
+Executable completeness, maximal complete subtrees, the exact Exercise 4.8
+constructor law and the maximum-cache exercise remain separately assigned.
+The chapter tracker owns current row qualification. Exact focused evidence,
+source reviews and final comparison are checkpoint records; receiving
+whole-library checks and final acceptance remain distinct pending gates.
+
+## Completeness, maximal complete subtrees and the constructor law (CTB-76)
+
+The [completeness unit](fdsa-tree-completeness.md) uses one Boolean/height
+summary for the executable checker, the existing generic cache specialization
+and the maximal-complete-subtree fold. Correctness connects the computed flag
+to the independent structural `Complete` predicate and the computed height to
+the existing tree height. The cache invariant covers every node; its constructor
+and reader laws specialize the generic `Trees.Cached` results.
+
+Maximal-subtree selection uses child summaries in one fold, without tree or
+label equality, a whole-tree checker call or subtree enumeration. Its selected
+result is a complete structural descendant with greatest height, with left
+ties. The exact almost-complete node characterization includes completeness
+of the shorter child when the heights differ; checked uses retain the existing
+counterexample to the weaker condition.
+
+This supplies the checker portion of C04-031, Exercise 4.7/C04-038–041,
+Exercise 4.8/C04-059–060 and Exercise 4.10/C04-074. The linked note owns the
+statements, algorithm boundaries and cases. Earlier unit sections describe
+their scope at that development stage; the local CTB tracker owns current row
+qualification. Maximum caches and final Chapter 4 qualification remain separate.
+Exact focused checks, independent source reviews and final comparison are
+checkpoint evidence; receiving whole-library acceptance remains pending.
+
+## Raw maximum cache and optional-summary correspondence (CTB-77)
+
+The [maximum-cache unit](fdsa-tree-maximum-cache.md) retains raw source
+annotations and direct local reads and smart nodes. Explicit lift/project
+adapters connect the representation to the existing `Trees.Cached` optional
+summary. Constructor validity and reader correctness consume the generic laws;
+the standard optional maximum of canonical inorder supplies independent
+greatest-element meaning, including attainment.
+
+This supplies Exercise 4.11/C04-075–076 and C04-063's key-set image observation.
+The general map-image law belongs to `Applications.Trees.BasicObservations`; existing
+occurrence-preserving inorder and shape erasure laws remain shared owners.
+The linked note records exact assumptions, reverse-adapter validity boundaries,
+negative-key and forged-cache cases, and the separate full annotation pass.
+All eleven named exercises now have implementations, while the local CTB-23
+tracker still requires final qualification of all 76 chapter rows. Exact source
+reviews and checks do not replace receiving whole-library acceptance.
+
+## Chapter 4 source qualification (CTB-23)
+
+The [current Chapter 4 witness map](fdsa-chapter04-coverage.md) brings together
+all 76 recorded obligations, eleven exercises and twelve named structural
+results. It qualifies the existing carrier/shape/logarithm/cache mathematics
+alongside the later bounded tree units, with exact source domains, generic
+instantiations, cost tariffs, corrections and algorithm restrictions.
+
+The map is based on the preserved July 27, 2026 source analysis and actual Lean
+definitions and proofs. It makes no claim of a fresh primary-PDF read. Historical
+unit sections above describe their development stage; the current mathematical
+correspondence belongs to this chapter map, and workflow status belongs to the
+local CTB tracker. The exact chapter build, all-owner/witness audit, complete
+statement assessment, independent source reviews and final comparison are
+checkpoint evidence. Programme primary-source closure and receiving whole-library
+acceptance remain distinct pending gates.

@@ -929,6 +929,24 @@ import Examples.SelectionGenericEnvelope
 import Examples.SelectionMedians
 import Examples.SelectionRecurrence
 import Examples.TreeCache
+import Examples.TreeFoldObservations
+import Examples.TreeAccumulatorObservations
+import Examples.TreeTraversalWork
+import Examples.TreeBasicObservations
+import Examples.TreeWeightedPaths
+import Examples.TreeSearchObservations
+import Examples.TreeEnumeration
+import Examples.TreeLevels
+import Examples.TreeReconstruction
+import Examples.TreeRose
+import Examples.TreeBalance
+import Examples.TreeBalanceCost
+import Examples.TreeBalanceShape
+import Examples.TreeBalanceSearch
+import Examples.TreeBalancePipeline
+import Examples.TreeCompleteness
+import Examples.TreeMaximalCompleteSubtree
+import Examples.TreeMaximumCache
 import Examples.TreeShape
 import Applications.Suspensions.Correspondence
 import Examples.SuspensionMachine
@@ -1022,5 +1040,7 @@ import Examples.CubicalAuthorTransportNative
 
 import Examples.StateChangeSampler
 import Examples.StateChangeWork
+
+import Examples.TextbookTreeTariffs
 
 /-! Complete public entrypoint. The separate ProofAudit module checks every local proof root. -/

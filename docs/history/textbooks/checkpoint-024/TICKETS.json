@@ -1,0 +1,3910 @@
+{
+  "schema": 1,
+  "prefix": "CTB",
+  "receiving_owner": "https://github.com/VladimirMarko/conaled/issues/582",
+  "status_semantics": "All CTB statuses are historical donor statuses. Live work and receiving acceptance belong to GitHub Issues.",
+  "source": {
+    "path": "work/TICKETS.json",
+    "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0"
+  },
+  "tickets": [
+    {
+      "id": "CTB-1",
+      "kind": "programme",
+      "title": "Pin master and establish the complete chapter programme",
+      "historical_status": "completed",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-1"
+      },
+      "mathematical_acceptance": [
+        "All three complete source scopes mapped to local chapter tickets with explicit criteria."
+      ]
+    },
+    {
+      "id": "CTB-2",
+      "kind": "implementation",
+      "title": "Recover measured whole-tree folds through existing owners",
+      "book": "FDSA",
+      "chapter": 4,
+      "parent": "CTB-23",
+      "historical_status": "source_complete",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-2"
+      },
+      "mathematical_specification": {
+        "title": "Recover measured whole-tree folds through existing owners",
+        "chapter": 4,
+        "donor": "b0fce71fa00b2ff6250b09002176bdc75baf1f46",
+        "later_identical_files_at": "317aae79",
+        "formal_paths": [
+          "Applications/Resources/TreeFold.lean",
+          "Examples/TreeFold.lean",
+          "Examples/TreeFoldCache.lean",
+          "Examples/TreeFoldObservations.lean"
+        ],
+        "claims": [
+          "run_value/run_value_of connect measured execution to independent Trees.fold algebra under Add.",
+          "reweight_run transports the same execution via additive homomorphisms without commutativity.",
+          "run_cost_entry separates actual callback work from e*(2*numNodes+1) structural entry costs.",
+          "run_cost_const/run_cost_le use a fixed charge/bound on reached summaries, uniform across trees."
+        ],
+        "cases": [
+          "Empty and single-node charges e and 3e+k.",
+          "Noncommutative ordered trace and additive transport.",
+          "Independent node/height/cache clients using public theorems.",
+          "Nonzero callback work not hidden by structural counting."
+        ],
+        "boundary": "Shared Chapter 4 prerequisite; no claim to close all 76 rows or C04-018 accumulator cost."
+      },
+      "mathematical_acceptance": [
+        "All four retained XT03 Lean modules coherently reuse current shared owners."
+      ],
+      "historical_mathematical_result": {
+        "scope": "Bounded source unit only",
+        "candidate": "086b3bf1c21f6dc73419b784a2d94ac4e29bcacd"
+      }
+    },
+    {
+      "id": "CTB-3",
+      "kind": "chapter",
+      "title": "Preface",
+      "book": "VFA",
+      "chapter": "Preface",
+      "prerequisite_chapters": [],
+      "historical_status": "source_complete",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-3"
+      },
+      "mathematical_scope": {
+        "chapter": "Preface",
+        "order": 0,
+        "source_sha256": "b6a910ecf69bef7682ec6a3d1a3be1d5146ffd046789b254397f0d92db93c1fd",
+        "source_records": 0,
+        "exercise_markers": 0,
+        "exercise_names": [],
+        "progress": "Complete exact primary-source qualification at the shared CTB-4 candidate. The current mathematical map is docs/research/vfa-coverage.md; all original source identities and obligations remain recorded.",
+        "existing_owners": [
+          "docs/research/vfa-coverage.md",
+          "docs/history/textbooks/checkpoint-012/books/vfa/records/research/source/SOURCE-COVERAGE.md"
+        ],
+        "next_steps": [
+          "Preserve qualified source correspondence and actual mathematical contracts."
+        ],
+        "acceptance_criteria": [
+          "Every nonmathematical source item has a documented adaptation.",
+          "All optional/advanced exercises stay in whole-book scope."
+        ],
+        "boundaries": [
+          "No machine-checked-whole-book claim follows from the source introduction."
+        ],
+        "cross_book_reuse": [],
+        "predecessor": null,
+        "current_owners": [
+          "docs/research/vfa-coverage.md (one current VFA correspondence map)"
+        ]
+      },
+      "historical_mathematical_result": {
+        "scope": "Complete primary Preface prose",
+        "candidate": "68affd0a049a9a537ec583c225e0fccd574f2fcc"
+      }
+    },
+    {
+      "id": "CTB-4",
+      "kind": "chapter",
+      "title": "Perm",
+      "book": "VFA",
+      "chapter": "Perm",
+      "prerequisite_chapters": [
+        "CTB-3"
+      ],
+      "historical_status": "source_complete",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-4"
+      },
+      "mathematical_scope": {
+        "chapter": "Perm",
+        "order": 1,
+        "source_sha256": "0d3ad2421a6bee80b987423b702e8688e59fe802cafa1efa9b98df71d619fd9f",
+        "source_records": 30,
+        "exercise_markers": 4,
+        "exercise_names": [
+          "Permutation_properties",
+          "permut_example",
+          "not_a_permutation",
+          "Forall_perm"
+        ],
+        "progress": "Complete exact primary-source qualification at the shared CTB-4 candidate. The current mathematical map is docs/research/vfa-coverage.md; all original source identities and obligations remain recorded.",
+        "existing_owners": [
+          "Applications/Sorting/FirstPair.lean",
+          "Examples/ComparisonPermutations.lean",
+          "docs/research/vfa-coverage.md"
+        ],
+        "next_steps": [
+          "Preserve qualified source correspondence and actual mathematical contracts."
+        ],
+        "acceptance_criteria": [
+          "30 records and four exercise markers explicitly dispositioned, including repeated/aborted proofs and proof-assistant mechanics."
+        ],
+        "boundaries": [
+          "Only the first pair is ordered; the suffix is preserved and need not be sorted.",
+          "Permutation is occurrence-sensitive; reflection includes both branches; no native-comparison cost inferred."
+        ],
+        "cross_book_reuse": [
+          "Its comparator-independent permutation is already consumed by Examples/TextbookSorting.lean."
+        ],
+        "predecessor": "Preface",
+        "current_owners": [
+          "docs/research/vfa-coverage.md (one current VFA correspondence map)"
+        ]
+      },
+      "historical_mathematical_result": {
+        "scope": "Complete primary Perm:30 lexical records,4 exercises,all prose,aborts/tactics/grading and source admissions",
+        "candidate": "68affd0a049a9a537ec583c225e0fccd574f2fcc"
+      }
+    },
+    {
+      "id": "CTB-5",
+      "kind": "chapter",
+      "title": "Sort",
+      "book": "VFA",
+      "chapter": "Sort",
+      "prerequisite_chapters": [
+        "CTB-4"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-5"
+      },
+      "mathematical_scope": {
+        "chapter": "Sort",
+        "order": 2,
+        "source_sha256": "aeaf646d3b7e4dd88cb5d6dba9d35ae5714e5451c154d90de499bb09a32a7d33",
+        "source_records": 17,
+        "exercise_markers": 8,
+        "exercise_names": [
+          "insert_sorted",
+          "sort_sorted",
+          "insert_perm",
+          "sort_perm",
+          "insertion_sort_correct",
+          "sorted_sorted'",
+          "sorted'_sorted",
+          "insert_sorted'"
+        ],
+        "progress": "Shared stable insertion/merge correctness exists; the FDSA measured insertion implementation already has the source tail-first recurrence, erasure, triangular call bound and extremal families. The checked sorting-specification draft remains staged.",
+        "existing_owners": [
+          "Applications/Sorting/Sort.lean",
+          "Applications/Sorting/InsertionObservations.lean",
+          "Applications/Resources/InsertionSort.lean",
+          "docs/history/textbooks/checkpoint-012/books/vfa/records/math/drafts/sorting-specs/SortingSpecifications.lean"
+        ],
+        "next_steps": [
+          "Expose faithful source insert/sort equations through existing standard operations or a minimal proved adapter; keep left insertion on ties.",
+          "Integrate only the required Indexed/BoundedIndexed/IsChain/Pairwise bridges into the shared sorting owner, with source Nat specialization.",
+          "Supply source-oriented correctness and all eight exercises, including the independent indexed insertion proof route and old-index witness.",
+          "Reuse existing measured erasure/call bounds; add actual comparison counts and constructor/sharing observations only where the source prose requires a distinct model.",
+          "Connect exact source calculations, duplicate records and standard stable merge-sort agreement to public theorems."
+        ],
+        "acceptance_criteria": [
+          "17 records and all eight exercises mapped; optional method restriction respected.",
+          "Source recurrence bridge holds for all inputs, with order laws confined to correctness.",
+          "Bounded lookup default irrelevance and a missing-index-bound counterexample are checked.",
+          "Costs instrument actual execution, with primitive tariffs and worst-case family explicit."
+        ],
+        "boundaries": [
+          "IsChain implies all-pairs ordering only with transitivity.",
+          "Value equality is not equal cost/allocation; source heap reuse differs from literal constructor counts."
+        ],
+        "cross_book_reuse": [
+          "FDSA Chapter 2 owns Resources.InsertionSort; reuse and prove correspondence instead of duplicating it."
+        ],
+        "predecessor": "Perm"
+      }
+    },
+    {
+      "id": "CTB-6",
+      "kind": "chapter",
+      "title": "Multiset",
+      "book": "VFA",
+      "chapter": "Multiset",
+      "prerequisite_chapters": [
+        "CTB-5"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-6"
+      },
+      "mathematical_scope": {
+        "chapter": "Multiset",
+        "order": 3,
+        "source_sha256": "ecdc47863b68bbef0d0579f75f4b5537cfb9f99c00f9b2fcc154eadcfdc9ef95",
+        "source_records": 22,
+        "exercise_markers": 14,
+        "exercise_names": [
+          "union_assoc",
+          "union_comm",
+          "union_swap",
+          "insert_contents",
+          "sort_contents",
+          "insertion_sort_correct",
+          "permutations_vs_multiset",
+          "perm_contents",
+          "contents_nil_inv",
+          "contents_cons_inv",
+          "contents_insert_other",
+          "contents_perm",
+          "same_contents_iff_perm",
+          "sort_specifications_equivalent"
+        ],
+        "progress": "Historically checked staged count/function/permutation and contract equivalences; no full chapter correspondence.",
+        "existing_owners": [
+          "Applications/Sorting/Sort.lean",
+          "docs/history/textbooks/checkpoint-012/books/vfa/records/math/drafts/sorting-specs/SortingSpecifications.lean"
+        ],
+        "next_steps": [
+          "Integrate the shared multiplicity observation after Sort.",
+          "Retain unrestricted Nat→Nat multisets, pointwise empty/singleton/union and arbitrary-function union laws.",
+          "Bridge recursive source contents to lawful List.count and discharge contents/permutation in both directions.",
+          "Prove zero-content inversion, occurrence decomposition with exact residual count and other-count preservation; transport actual source insertion correctness."
+        ],
+        "acceptance_criteria": [
+          "22 records and all 14 exercises mapped, including advanced inverse statements and the proof-route discussion.",
+          "Arbitrary sorter contracts are equivalent under identical order observation, with both directions proved.",
+          "An infinite-support function is explicitly outside finite-list contents."
+        ],
+        "boundaries": [
+          "Unrestricted function multisets cannot be replaced by finite Multiset/Finsupp.",
+          "Equality of sets is insufficient for equality of occurrence counts."
+        ],
+        "cross_book_reuse": [
+          "One shared count theorem layer can serve FDSA sorting and occurrence-preserving PFDS heap observations."
+        ],
+        "predecessor": "Sort"
+      }
+    },
+    {
+      "id": "CTB-7",
+      "kind": "chapter",
+      "title": "BagPerm",
+      "book": "VFA",
+      "chapter": "BagPerm",
+      "prerequisite_chapters": [
+        "CTB-6"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-7"
+      },
+      "mathematical_scope": {
+        "chapter": "BagPerm",
+        "order": 4,
+        "source_sha256": "a11149100fcdf0a2c366267288dfbe6538ad0bbc5ba65e53e2c026e1ec8899a7",
+        "source_records": 19,
+        "exercise_markers": 9,
+        "exercise_names": [
+          "bag_eqv_properties",
+          "insert_bag",
+          "sort_bag",
+          "permutations_vs_multiset",
+          "perm_bag",
+          "bag_nil_inv",
+          "bag_cons_inv",
+          "count_insert_other",
+          "bag_perm"
+        ],
+        "progress": "Same preserved count/permutation layer can discharge much shared mathematics; source bag representation remains lists.",
+        "existing_owners": [
+          "Applications/Sorting/Sort.lean",
+          "docs/history/textbooks/checkpoint-012/books/vfa/records/math/drafts/sorting-specs/SortingSpecifications.lean"
+        ],
+        "next_steps": [
+          "Bridge the source recursive count with its stored-value/query orientation to common List.count.",
+          "Derive bag equivalence laws, nil/cons inversion and insertion-other laws from the shared layer.",
+          "Transport source sorting correctness and converse bag-equivalence-to-permutation.",
+          "Document the source proof-preference comparison without creating an artificial grading theorem."
+        ],
+        "acceptance_criteria": [
+          "19 records and nine exercise markers, including grouped subparts, mapped.",
+          "Raw lists can differ while bag observations agree; source algorithm still supplied by Sort."
+        ],
+        "boundaries": [
+          "Observational equivalence of list bags is not raw list equality.",
+          "Lawful equality requirements remain explicit."
+        ],
+        "cross_book_reuse": [
+          "Share multiplicity proofs with Multiset and existing heap permutation contracts."
+        ],
+        "predecessor": "Multiset"
+      }
+    },
+    {
+      "id": "CTB-8",
+      "kind": "chapter",
+      "title": "Selection",
+      "book": "VFA",
+      "chapter": "Selection",
+      "prerequisite_chapters": [
+        "CTB-7"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-8"
+      },
+      "mathematical_scope": {
+        "chapter": "Selection",
+        "order": 5,
+        "source_sha256": "ff343099ae0fd551648a8fa2bf0adfe32bf5fb158389cee211ff8d1b32c28e11",
+        "source_records": 33,
+        "exercise_markers": 20,
+        "exercise_names": [
+          "select_perm",
+          "select_rest_length",
+          "selsort_perm",
+          "selection_sort_perm",
+          "select_fst_leq",
+          "le_all__le_one",
+          "select_smallest",
+          "select_in",
+          "cons_of_small_maintains_sort",
+          "selsort_sorted",
+          "selection_sort_sorted",
+          "selection_sort_is_correct",
+          "selsort'_perm",
+          "cons_of_small_maintains_sort'",
+          "selsort'_sorted",
+          "selsort'_is_correct",
+          "select_contents",
+          "selection_sort_contents",
+          "sorted_iff_sorted",
+          "selection_sort_correct'"
+        ],
+        "progress": "Source obligation/reuse and negative stability analysis are recorded; no completed VFA source algorithm correspondence.",
+        "existing_owners": [
+          "Applications/Sorting/Sort.lean",
+          "Applications/Sorting/Uniqueness.lean",
+          "docs/history/textbooks/checkpoint-012/books/vfa/records/research/specifications/1006-Selection.md"
+        ],
+        "next_steps": [
+          "Implement the exact select recurrence and minimum/permutation/length/membership laws.",
+          "Give both fuel-indexed selection sort and well-founded form, sufficient-fuel correctness and a relationship between the two definitions.",
+          "Discharge optional contents and alternative sortedness contracts via the shared layers.",
+          "Instrument actual minimum selection and sorting; prove the quadratic comparison count/bound with the actual source cost convention."
+        ],
+        "acceptance_criteria": [
+          "33 records and all 20 exercises mapped.",
+          "Insufficient fuel is treated explicitly, never conflated with a correct sort.",
+          "Tagged equal-key counterexample checked; Nat output agreement obtained through ordinary sorting uniqueness."
+        ],
+        "boundaries": [
+          "Source selection sort is not stable on tagged equal-key records.",
+          "Do not substitute insertion sort merely because Nat outputs agree."
+        ],
+        "cross_book_reuse": [
+          "Reuse common sorting specifications and List.Perm; FDSA order-statistic selection is a different algorithm."
+        ],
+        "predecessor": "BagPerm"
+      }
+    },
+    {
+      "id": "CTB-9",
+      "kind": "chapter",
+      "title": "Merge",
+      "book": "VFA",
+      "chapter": "Merge",
+      "prerequisite_chapters": [
+        "CTB-8"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-9"
+      },
+      "mathematical_scope": {
+        "chapter": "Merge",
+        "order": 6,
+        "source_sha256": "090c5afc3a95750336b8b57ed2169b8d77c790266f231bf096be55761c20378b",
+        "source_records": 17,
+        "exercise_markers": 6,
+        "exercise_names": [
+          "split_perm",
+          "sorted_merge1",
+          "sorted_merge",
+          "mergesort_sorts",
+          "merge_perm",
+          "mergesort_perm"
+        ],
+        "progress": "Generic merge, source nested-merge bridge, stable contiguous sort and FDSA reversed-pile alternate sort exist; VFA whole-sort recurrence remains open.",
+        "existing_owners": [
+          "Applications/Sorting/SourceMerge.lean",
+          "Applications/Sorting/Merge.lean",
+          "Applications/Sorting/Sort.lean",
+          "Applications/Sorting/Alternating.lean"
+        ],
+        "next_steps": [
+          "Define/bridge the source order-preserving alternating split with length decrease and permutation.",
+          "Use two-step induction for split laws and bridge the nested merge to the existing merge owner.",
+          "Implement the exact well-founded VFA recurrence; prove ordinary sortedness/permutation and Nat output agreement.",
+          "Account for splitter work and actual merge comparisons; qualify space and stability prose."
+        ],
+        "acceptance_criteria": [
+          "17 records and all six exercises mapped; aborted first split proof is correctly dispositioned.",
+          "Tagged [A,B,C] all-equal case and its two-cycle demonstrate non-stability/non-idempotence for the source generalization.",
+          "No accidental substitution of FDSA reversed accumulator piles or contiguous splitting."
+        ],
+        "boundaries": [
+          "Alternating split concatenation is not the original input order.",
+          "Array auxiliary-space claims do not automatically apply to list realizations."
+        ],
+        "cross_book_reuse": [
+          "Share merge correctness; keep the VFA split distinct from FDSA Exercise 2.5 halve."
+        ],
+        "predecessor": "Selection"
+      }
+    },
+    {
+      "id": "CTB-10",
+      "kind": "chapter",
+      "title": "Maps",
+      "book": "VFA",
+      "chapter": "Maps",
+      "prerequisite_chapters": [
+        "CTB-9"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-10"
+      },
+      "mathematical_scope": {
+        "chapter": "Maps",
+        "order": 7,
+        "source_sha256": "19e79f4b7ac5bce3ffc246e19dd926b14fa5720b47d9618d2607d809d0504aea",
+        "source_records": 23,
+        "exercise_markers": 6,
+        "exercise_names": [
+          "t_apply_empty",
+          "t_update_eq",
+          "t_update_neq",
+          "t_update_shadow",
+          "t_update_same",
+          "t_update_permute"
+        ],
+        "progress": "The receiving integration has shared partial-map operations/laws, valid-state adaptation, association-list/function realizations and partial/default/presence observations. Arbitrary total-table scope remains separate.",
+        "existing_owners": [
+          "Applications/Search/OrderedMap/Interface.lean",
+          "Applications/Search/OrderedMap/Observations.lean",
+          "Applications/Search/OrderedMap/AssociationList.lean",
+          "docs/history/textbooks/checkpoint-012/books/vfa/records/math/drafts/table-specs/TableObservations.lean"
+        ],
+        "next_steps": [
+          "Provide source total-map and optional-map update algebra and faithful decision branches.",
+          "Recover the weaker total/default-table contract from the staged draft without requiring every realization to supply a partial observation.",
+          "Prove update same/shadow/commutation, keeping arbitrary starting functions.",
+          "If closure-chain costs are claimed, model explicit history and prove its decoder; distinguish building a closure from querying the chain."
+        ],
+        "acceptance_criteria": [
+          "23 records and all six exercises mapped.",
+          "Total-table laws do not assume finite support or enumerable keys.",
+          "Default lookup does not identify absence; full partial meaning requires the presence observation too."
+        ],
+        "boundaries": [
+          "A total function map is not necessarily a finite partial map.",
+          "Constant update construction does not imply constant chained lookup."
+        ],
+        "cross_book_reuse": [
+          "Current FDSA/VFA/PFDS map clients can share the same operations and law transport; total-only observations are a weaker interface."
+        ],
+        "predecessor": "Merge"
+      }
+    },
+    {
+      "id": "CTB-11",
+      "kind": "chapter",
+      "title": "SearchTree",
+      "book": "VFA",
+      "chapter": "SearchTree",
+      "prerequisite_chapters": [
+        "CTB-10"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-11"
+      },
+      "mathematical_scope": {
+        "chapter": "SearchTree",
+        "order": 8,
+        "source_sha256": "44b9464a10e8c9e3222530f6f26be45bd44d1c0568deb1710417618706fae61d",
+        "source_records": 90,
+        "exercise_markers": 35,
+        "exercise_names": [
+          "empty_tree_BST",
+          "insert_BST",
+          "bound_correct",
+          "bound_default",
+          "lookup_insert_shadow",
+          "lookup_insert_same",
+          "lookup_insert_permute",
+          "direct_equalities_break",
+          "elements_complete",
+          "elements_preserves_forall",
+          "elements_preserves_relation",
+          "elements_correct",
+          "elements_complete_inverse",
+          "elements_correct_inverse",
+          "sorted_app",
+          "sorted_elements",
+          "NoDup_append",
+          "elements_nodup_keys",
+          "fast_elements_eq_elements",
+          "kvs_insert_split",
+          "kvs_insert_elements",
+          "in_fst",
+          "in_map_of_list",
+          "not_in_map_of_list",
+          "bound_relate",
+          "lookup_relate",
+          "insert_relate",
+          "union_collapse",
+          "union_update",
+          "map_of_tree_prop",
+          "bound_relate'",
+          "lookup_relate'",
+          "insert_relate'",
+          "map_of_list_app",
+          "elements_relate'"
+        ],
+        "progress": "Shared ordered-tree invariants and map observations exist; the complete VFA concrete algorithms, enumeration and abstraction maps remain open.",
+        "existing_owners": [
+          "Applications/Search/OrderedTree/Basic.lean",
+          "Applications/Search/OrderedTree/Contents.lean",
+          "Applications/Search/OrderedTree/Interface.lean",
+          "Applications/Search/OrderedMap/Basic.lean",
+          "Applications/Search/OrderedMap/Invariant.lean"
+        ],
+        "next_steps": [
+          "Bridge VFA tree representation, lookup/bound/insert and BST invariant to existing owners where exact recurrences agree.",
+          "Complete enumeration soundness/completeness, sorted keys/no duplicates, insertion laws and efficient accumulator equation.",
+          "Prove both model-based abstraction relations and their connection.",
+          "Measure actual traversal/lookup/insert visits and enumeration append/accumulator costs."
+        ],
+        "acceptance_criteria": [
+          "90 records and 35 exercises mapped.",
+          "Broken default-lookup completeness gets a counterexample and repaired presence-aware statement.",
+          "Malformed-tree counterexample remains outside invariant-restricted laws.",
+          "Balanced/worst-case enumeration families and comparator cost assumptions explicit."
+        ],
+        "boundaries": [
+          "Lookup returns a default even without a binding; default observations are not enumeration witnesses.",
+          "Not every skew tree attains quadratic enumeration work; nested recursion is not constant stack."
+        ],
+        "cross_book_reuse": [
+          "Reuse PFDS Chapter 2 ordered tree/map and FDSA tree donors only after recurrence/observation bridges."
+        ],
+        "predecessor": "Maps"
+      }
+    },
+    {
+      "id": "CTB-12",
+      "kind": "chapter",
+      "title": "ADT",
+      "book": "VFA",
+      "chapter": "ADT",
+      "prerequisite_chapters": [
+        "CTB-11"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-12"
+      },
+      "mathematical_scope": {
+        "chapter": "ADT",
+        "order": 9,
+        "source_sha256": "87d7ca279b38d22f31ff56bf9f2b11103b382c325969a269bc542de27e4a8fe2",
+        "source_records": 254,
+        "exercise_markers": 12,
+        "exercise_names": [
+          "NatFunTableExamples",
+          "lists_table",
+          "elements_spec",
+          "list_etable_abs",
+          "TreeTableModel",
+          "TreeTableModel'",
+          "list_queue",
+          "two_list_queue",
+          "a_vector",
+          "vector_cons_correct",
+          "vector_app_correct",
+          "ListsETable"
+        ],
+        "progress": "Table observation draft partly incorporated; reachable repeated-peek counterexample and corrected observation boundaries are staged. Full source ADT realizations remain open.",
+        "existing_owners": [
+          "Applications/Search/OrderedMap/Interface.lean",
+          "Applications/Sequences/AbstractFIFO.lean",
+          "Applications/Resources/FIFOContracts.lean",
+          "docs/history/textbooks/checkpoint-012/books/vfa/records/math/drafts/queue-costs/QueuePeekCost.lean",
+          "docs/history/textbooks/checkpoint-012/books/vfa/records/math/drafts/table-specs/TableObservations.lean"
+        ],
+        "next_steps": [
+          "Instantiate function/list/tree total tables and corrected enumeration interfaces, with explicit validity and encapsulation.",
+          "Implement/bridge both source FIFO realizations and their operation laws; distinguish enqueue/dequeue workloads from value-only peek.",
+          "Discharge even-number subsets, vectors and subset-packaged BST realizations and all open-ended interface exercises.",
+          "Integrate repeated-peek counterexample; prove qualified sequential enqueue/dequeue amortization or separately name a normalized/caching realization."
+        ],
+        "acceptance_criteria": [
+          "254 lexical records and all 12 exercise markers mapped, including signature law fields and unnamed open tasks.",
+          "Every implementation discharges explicit laws; no source Module Type axioms become trusted axioms.",
+          "Repeated peeks are charged consistently; initial credit and persistent branching boundaries retained."
+        ],
+        "boundaries": [
+          "Module type sharing is not physical heap sharing.",
+          "Source peek reverses without installing normalized state, defeating the broad constant-amortized claim."
+        ],
+        "cross_book_reuse": [
+          "Share FIFO contracts and potential core with FDSA/PFDS, keeping the actual algorithm/workload model explicit."
+        ],
+        "predecessor": "SearchTree"
+      }
+    },
+    {
+      "id": "CTB-13",
+      "kind": "chapter",
+      "title": "Extract",
+      "book": "VFA",
+      "chapter": "Extract",
+      "prerequisite_chapters": [
+        "CTB-12"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-13"
+      },
+      "mathematical_scope": {
+        "chapter": "Extract",
+        "order": 10,
+        "source_sha256": "c132273a13fafe176573469e664b9cbe8dd3366ec00e2f9a3ab8ab1d42a2e15d",
+        "source_records": 34,
+        "exercise_markers": 4,
+        "exercise_names": [
+          "sort_int_correct",
+          "lookup_insert_eq",
+          "lookup_insert_neq",
+          "int_elements"
+        ],
+        "progress": "Unary-cost counterexample/model preserved; representation and measurement defects require explicit mathematical execution boundaries. Full execution adaptation remains open.",
+        "existing_owners": [
+          "Applications/Resources/Measured.lean",
+          "docs/history/textbooks/checkpoint-012/books/vfa/records/math/drafts/unary-costs/UnaryComparisonCosts.lean",
+          "docs/history/textbooks/checkpoint-012/books/vfa/records/research/source/RESOURCE-AND-EXECUTION-OBLIGATIONS.md"
+        ],
+        "next_steps": [
+          "Supply explicit order/representation interfaces for source extraction parameters and proved Nat/Int/fixed-width realizations.",
+          "Connect sortZ, integer sorting, tree lookup/insertion and int_elements to source algorithms.",
+          "Integrate exact unary comparison model and no-difference-only-bound counterexample.",
+          "Provide executable Lean counterparts with the source workload and actual phases distinguished; numerical measurements do not replace the declared cost model."
+        ],
+        "acceptance_criteria": [
+          "34 records and all four exercises plus unnumbered sortZ justification mapped.",
+          "Finite-word range conditions or modular contracts proven; overflow counterexample checked.",
+          "Benchmark construction/query phases accurately labeled and returned answers checked."
+        ],
+        "boundaries": [
+          "Lean execution does not prove compiler/runtime correctness.",
+          "Unary modeled comparison is min(n,m)+1, not operand difference and not native Nat timing."
+        ],
+        "cross_book_reuse": [
+          "Reuse generic Measured erasure and resource composition; no duplicate cost framework."
+        ],
+        "predecessor": "ADT"
+      }
+    },
+    {
+      "id": "CTB-14",
+      "kind": "chapter",
+      "title": "Redblack",
+      "book": "VFA",
+      "chapter": "Redblack",
+      "prerequisite_chapters": [
+        "CTB-13"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-14"
+      },
+      "mathematical_scope": {
+        "chapter": "Redblack",
+        "order": 11,
+        "source_sha256": "f44255ba3d0235f6efa401b72f2fcf9a9551a7ebc065912202d6f33494891ce2",
+        "source_records": 45,
+        "exercise_markers": 13,
+        "exercise_names": [
+          "balanceP",
+          "insP",
+          "ins_BST",
+          "insert_BST",
+          "balance_lookup",
+          "lookup_ins_eq",
+          "lookup_ins_neq",
+          "lookup_insert",
+          "RB_blacken_parent",
+          "ins_RB",
+          "RB_blacken_root",
+          "insert_RB",
+          "redblack_bound"
+        ],
+        "progress": "Reuse/source boundaries and detailed inventory exist; no source-specific complete red-black implementation or height proof.",
+        "existing_owners": [
+          "Applications/Search/OrderedTree/Interface.lean",
+          "Applications/Search/OrderedMap/Interface.lean",
+          "docs/history/textbooks/checkpoint-012/books/vfa/records/research/specifications/1012-Redblack.md"
+        ],
+        "next_steps": [
+          "Implement exact Okasaki balance/ins/blacken source, with ordered-tree and red-black invariants.",
+          "Prove lookup/update contract and valid-state observation adapter.",
+          "Prove height/minimum-depth and node-count/black-height connections, retaining possible red root.",
+          "Give structural work bounds with balance/comparator charges and faithful executable comparisons."
+        ],
+        "acceptance_criteria": [
+          "45 records and all 13 exercises mapped, including advanced redblack_bound.",
+          "Aborted proof attempts mapped to final theorems and Lean case-analysis explanation.",
+          "Small-size bounds valid at zero/one; no unsupported literal log N claim."
+        ],
+        "boundaries": [
+          "A generic TreeMap theorem does not establish this source algorithm.",
+          "Empirical speed observations do not establish a universal algorithmic performance theorem."
+        ],
+        "cross_book_reuse": [
+          "Strong reuse opportunity with PFDS Chapter 3 red-black trees through common operations, invariants and interpretation laws."
+        ],
+        "predecessor": "Extract"
+      }
+    },
+    {
+      "id": "CTB-15",
+      "kind": "chapter",
+      "title": "Trie",
+      "book": "VFA",
+      "chapter": "Trie",
+      "prerequisite_chapters": [
+        "CTB-14"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-15"
+      },
+      "mathematical_scope": {
+        "chapter": "Trie",
+        "order": 12,
+        "source_sha256": "a5af2b4db4c2cb639a8deb063e57909e11eb44ee763782ad0af9afbf45a78f3e",
+        "source_records": 55,
+        "exercise_markers": 12,
+        "exercise_names": [
+          "succ_correct",
+          "addc_correct",
+          "compare_correct",
+          "successor_of_Z_constant_time",
+          "look_leaf",
+          "look_ins_same",
+          "look_ins_other",
+          "pos2nat_bijective",
+          "is_trie",
+          "empty_relate",
+          "lookup_relate",
+          "insert_relate"
+        ],
+        "progress": "PosNum/Nat/PNat encoding/comparison adapters historically checked and staged; source arithmetic/trie algorithms and costs remain open.",
+        "existing_owners": [
+          "Applications/Resources/BinaryCounter.lean",
+          "docs/history/textbooks/checkpoint-012/books/vfa/records/math/drafts/positive-keys/VFAStaging/PositiveKeys.lean",
+          "docs/history/textbooks/checkpoint-012/books/vfa/records/research/specifications/1013-Trie.md"
+        ],
+        "next_steps": [
+          "Integrate useful existing PosNum adapters and prove source successor/add-with-carry/comparison recurrences.",
+          "Implement the actual trie lookup/insert and Table realization under source bit ordering.",
+          "Bridge positive successor to a canonical bit-write model; complete amortized or finite-distribution constant-average successor exercise with initial credit.",
+          "Formalize collision-program semantics and qualified count bounds with separate sequence length, key bit length and distinct-binding count."
+        ],
+        "acceptance_criteria": [
+          "55 records and all 12 exercises mapped, including open-ended successor cost task.",
+          "Shifted Nat bijection and zero/one collision of unshifted conversion distinguished.",
+          "Bit-length and cost models include nested succ work; source key-order-dependent clients remain faithful."
+        ],
+        "boundaries": [
+          "Tree size alone cannot bound trie lookup when keys have arbitrarily many bits.",
+          "Native Nat representation does not establish unary/binary source costs."
+        ],
+        "cross_book_reuse": [
+          "Use Resources.BinaryCounter via a proved representation/cost bridge; later Color can reuse explicit key-order correspondence."
+        ],
+        "predecessor": "Redblack"
+      }
+    },
+    {
+      "id": "CTB-16",
+      "kind": "chapter",
+      "title": "Priqueue",
+      "book": "VFA",
+      "chapter": "Priqueue",
+      "prerequisite_chapters": [
+        "CTB-15"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-16"
+      },
+      "mathematical_scope": {
+        "chapter": "Priqueue",
+        "order": 13,
+        "source_sha256": "e4dc740bf2c3f338dedae3e6544a8d94d58fd80f810472610122b9ccc4866b9d",
+        "source_records": 43,
+        "exercise_markers": 2,
+        "exercise_names": [
+          "select_perm_and_friends",
+          "simple_priq_proofs"
+        ],
+        "progress": "Source inventory and occurrence-preserving maximum-queue reuse analysis exist; no complete source list realization correspondence.",
+        "existing_owners": [
+          "Applications/Search/LeftistQueue.lean",
+          "Applications/Search/PriorityInterface.lean",
+          "docs/history/textbooks/checkpoint-012/books/vfa/records/research/specifications/1014-Priqueue.md"
+        ],
+        "next_steps": [
+          "Preserve the maximum-priority interface with occurrence multiplicities.",
+          "Bridge source select/delete-max, list insertion and merge to exact abstraction laws.",
+          "Instrument actual list recursion and comparison costs; bound append merge by left length/total size.",
+          "Provide explicit order-dual adapter to a suitable minimum-queue realization for interchangeable clients."
+        ],
+        "acceptance_criteria": [
+          "43 records and both grouped exercise markers fully mapped.",
+          "Empty/nonempty delete and maximum/minimum orientation handled explicitly.",
+          "Duplicate priorities/identical values retained; no hidden key deduplication."
+        ],
+        "boundaries": [
+          "PrioritySearchQueue deduplicates keys and is not a drop-in occurrence queue.",
+          "N log N repeated insertion merge is not a lower bound on every heap merge."
+        ],
+        "cross_book_reuse": [
+          "Reuse PFDS heaps and FDSA priority observations through order duality and permutation laws."
+        ],
+        "predecessor": "Trie"
+      }
+    },
+    {
+      "id": "CTB-17",
+      "kind": "chapter",
+      "title": "Binom",
+      "book": "VFA",
+      "chapter": "Binom",
+      "prerequisite_chapters": [
+        "CTB-16"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-17"
+      },
+      "mathematical_scope": {
+        "chapter": "Binom",
+        "order": 14,
+        "source_sha256": "f73f18cac4c3a6a38a0e83d4194429eb7ab684ee68068a88025610a13d5c31ed",
+        "source_records": 44,
+        "exercise_markers": 21,
+        "exercise_names": [
+          "empty_priq",
+          "smash_valid",
+          "carry_valid",
+          "insert_valid",
+          "join_valid",
+          "delete_max_Some_priq",
+          "priqueue_elems",
+          "tree_elems_ext",
+          "tree_perm",
+          "priqueue_elems_ext",
+          "abs_perm",
+          "can_relate",
+          "empty_relate",
+          "smash_elems",
+          "carry_elems",
+          "insert_elems",
+          "join_elems",
+          "merge_relate",
+          "delete_max_None_relate",
+          "delete_max_Some_relate",
+          "binom_measurement"
+        ],
+        "progress": "Concrete source forest invariants, deletion obligations and padding-cost defect are inventoried; implementation remains open.",
+        "existing_owners": [
+          "Applications/Search/LeftistQueue.lean",
+          "docs/history/textbooks/checkpoint-012/books/vfa/records/research/specifications/1015-Binom.md"
+        ],
+        "next_steps": [
+          "Implement actual rank-slotted carry/smash/join/insert/merge/delete-max forest.",
+          "Prove pow2heap and forest invariants, representation totality and occurrence/permutation laws.",
+          "Finish both None and Some delete-max abstraction proofs, including five-star exercises.",
+          "Instrument forest scans/carry/join/delete; prove padded-empty-forest counterexample and qualified size/rank bounds.",
+          "Run reproducible list-versus-binom workload comparisons under identical bounded-key representation."
+        ],
+        "acceptance_criteria": [
+          "44 records and all 21 exercise markers mapped.",
+          "Padded all-Leaf forests show why log current-size alone is invalid; any normalization variant separately named and related.",
+          "Executable measurement task has actual results and semantic checks, not theorem-only substitution."
+        ],
+        "boundaries": [
+          "Reachability does not by itself imply trimmed trailing empty slots.",
+          "Do not silently replace source forest with a different heap."
+        ],
+        "cross_book_reuse": [
+          "Coordinate with PFDS Chapter 3 binomial heaps; prove orientation/representation correspondence where recurrences differ."
+        ],
+        "predecessor": "Priqueue"
+      }
+    },
+    {
+      "id": "CTB-18",
+      "kind": "chapter",
+      "title": "Decide",
+      "book": "VFA",
+      "chapter": "Decide",
+      "prerequisite_chapters": [
+        "CTB-17"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-18"
+      },
+      "mathematical_scope": {
+        "chapter": "Decide",
+        "order": 15,
+        "source_sha256": "f929d55e2b7b39f2ba0bb72f2e70285dc8e10e64cf18322060bdbfc0552a4b26",
+        "source_records": 32,
+        "exercise_markers": 2,
+        "exercise_names": [
+          "insert_sorted_le_dec",
+          "list_nat_in"
+        ],
+        "progress": "Generic reflection and constructive decisions already support Perm; source chapter correspondence remains open.",
+        "existing_owners": [
+          "Examples/ComparisonPermutations.lean",
+          "docs/history/textbooks/checkpoint-012/books/vfa/records/research/specifications/1016-Decide.md"
+        ],
+        "next_steps": [
+          "Map Boolean reflection, data-valued Decidable decisions and proposition-level excluded middle precisely.",
+          "Prove source decision-based insertion and executable list membership/equality.",
+          "Demonstrate relevant Lean transparency/proof-erasure reduction behavior with real examples."
+        ],
+        "acceptance_criteria": [
+          "32 records and both exercise markers mapped.",
+          "Global illustrative source decision axioms become parameters or proved realizations, never new trusted facts.",
+          "Opaque/aborted teaching attempt has accurate mathematical and computational disposition."
+        ],
+        "boundaries": [
+          "Prop disjunction remains inductive; its elimination/computation boundary is the relevant distinction.",
+          "No universal speed claim follows from an interface choice."
+        ],
+        "cross_book_reuse": [],
+        "predecessor": "Binom"
+      }
+    },
+    {
+      "id": "CTB-19",
+      "kind": "chapter",
+      "title": "Color",
+      "book": "VFA",
+      "chapter": "Color",
+      "prerequisite_chapters": [
+        "CTB-18"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-19"
+      },
+      "mathematical_scope": {
+        "chapter": "Color",
+        "order": 16,
+        "source_sha256": "67b3410af5fece56c69f4e8301fd6505e89371cfa1279d069ca945b9b2b33370",
+        "source_records": 53,
+        "exercise_markers": 14,
+        "exercise_names": [
+          "Sremove_elements",
+          "InA_map_fst_key",
+          "Sorted_lt_key",
+          "cardinal_map",
+          "Sremove_cardinal_less",
+          "Mremove_elements",
+          "Mremove_cardinal_less",
+          "two_little_lemmas",
+          "Sin_domain",
+          "subset_nodes_sub",
+          "select_terminates",
+          "adj_ext",
+          "in_colors_of_1",
+          "color_correct"
+        ],
+        "progress": "Finite map/set and positive-key reuse analysis exists; exact partial coloring algorithm remains open.",
+        "existing_owners": [
+          "Applications/Search/OrderedMap/Interface.lean",
+          "docs/history/textbooks/checkpoint-012/books/vfa/records/research/specifications/1017-Color.md",
+          "docs/history/textbooks/checkpoint-012/books/vfa/records/research/source/COLOR-PALETTE-LEMMA-LEADS.md"
+        ],
+        "next_steps": [
+          "Supply source finite-map/set operations, cardinality/enumeration laws and deterministic key-choice correspondence.",
+          "Prove node-selection termination using cardinality decrease.",
+          "Implement actual Kempe–Chaitin partial coloring and prove palette/adjacency correctness under undirected/no-self-loop hypotheses.",
+          "Separate the source edge-guarded palette statement from stronger produced-color membership and discharge both appropriate claims.",
+          "Retain the concrete graph computation and connect it to general correctness; measure full operations if efficiency is claimed."
+        ],
+        "acceptance_criteria": [
+          "53 records and all 14 exercise markers mapped.",
+          "Exact source output uses the documented source key order; abstract partial-coloring correctness is separately proved.",
+          "No claim of total coloring, chromatic optimality or minimal spilling."
+        ],
+        "boundaries": [
+          "NP-completeness is not an unconditional proof that no polynomial algorithm exists.",
+          "The source arbitrary-coloring palette predicate does not constrain isolated vertices."
+        ],
+        "cross_book_reuse": [
+          "Shared finite collections may be prerequisites; not every partial-map interface has enumeration/cardinality."
+        ],
+        "predecessor": "Decide"
+      }
+    },
+    {
+      "id": "CTB-20",
+      "kind": "chapter",
+      "title": "Basics",
+      "book": "FDSA",
+      "chapter": 1,
+      "prerequisite_chapters": [],
+      "historical_status": "reconciliation",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-20"
+      },
+      "mathematical_scope": {
+        "chapter": 1,
+        "title": "Basics",
+        "start_page": 1,
+        "numbered_obligations": null,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter01-obligations.md",
+        "inventory_sha256": "bff50cca69043edf08e8941745b70af62296f0e492d735c006f959010950671e",
+        "completion_work": "Reconcile the complete unnumbered scope and cost-model addendum with later acceptance. Retain types/list/Euclid/reversal witnesses, exact calls, refined-cost and lazy-sharing conditions.",
+        "current_owners": [
+          "Applications/Arithmetic/EuclidInduction.lean",
+          "Applications/Resources/CallComparison.lean",
+          "Applications/Resources/ListReversal.lean",
+          "Applications/Resources/SharedDemand.lean"
+        ],
+        "dependencies": [],
+        "preserved_drafts": [],
+        "critical_boundary": "Unit-cost arithmetic, positive-cost and lazy-sharing simulation premises stay explicit."
+      }
+    },
+    {
+      "id": "CTB-21",
+      "kind": "chapter",
+      "title": "Sorting",
+      "book": "FDSA",
+      "chapter": 2,
+      "prerequisite_chapters": [
+        "CTB-20"
+      ],
+      "historical_status": "reconciliation",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-21"
+      },
+      "mathematical_scope": {
+        "chapter": 2,
+        "title": "Sorting",
+        "start_page": 13,
+        "numbered_obligations": 112,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter02-obligations.md",
+        "inventory_sha256": "a689f01dbf1ed93b20962276735cfc5fe7701dfb7a93232cbe26e7e4c70095b2",
+        "completion_work": "Qualify all 112 obligations and seven exercises. Retain insertion, quicksort and three mergesort algorithms, stability and actual costs. Bridge VFA sorting and executable sampling as separate integration enhancements.",
+        "current_owners": [
+          "Applications/Sorting",
+          "Applications/Resources/RandomQuickSort.lean",
+          "Applications/Probability/PermutationTail.lean"
+        ],
+        "dependencies": [
+          1
+        ],
+        "preserved_drafts": [],
+        "critical_boundary": "Stability preserves equal-key occurrences. Value equality does not imply equal work or probability laws."
+      }
+    },
+    {
+      "id": "CTB-22",
+      "kind": "chapter",
+      "title": "Selection",
+      "book": "FDSA",
+      "chapter": 3,
+      "prerequisite_chapters": [
+        "CTB-20",
+        "CTB-21"
+      ],
+      "historical_status": "reconciliation",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-22"
+      },
+      "mathematical_scope": {
+        "chapter": 3,
+        "title": "Selection",
+        "start_page": 31,
+        "numbered_obligations": 83,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter03-obligations.md",
+        "inventory_sha256": "eda51a6cd8bac41df1f97ab03386b003e1cae5ed0db5320414265027074360ed",
+        "completion_work": "Qualify all 83 obligations and eight exercises, corrected count-rank/median claims, nested selection, rounded bounds, random occurrence execution and query optimality. Connect tape sampling with law, cursor and cost proofs.",
+        "current_owners": [
+          "Applications/Selection",
+          "Applications/Resources/RandomSelectionRun.lean",
+          "Applications/Selection/CoordinateSelection.lean"
+        ],
+        "dependencies": [
+          1,
+          2
+        ],
+        "preserved_drafts": [],
+        "critical_boundary": "Keep rank conventions, duplicates, invalid inputs and all-equal runs. Lower bounds are in the stated deterministic adaptive query model."
+      }
+    },
+    {
+      "id": "CTB-23",
+      "kind": "chapter",
+      "title": "Binary Trees",
+      "book": "FDSA",
+      "chapter": 4,
+      "prerequisite_chapters": [
+        "CTB-20",
+        "CTB-21",
+        "CTB-22"
+      ],
+      "historical_status": "source_complete",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-23"
+      },
+      "mathematical_scope": {
+        "chapter": 4,
+        "title": "Binary Trees",
+        "start_page": 47,
+        "numbered_obligations": 76,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter04-obligations.md",
+        "inventory_sha256": "e7e282df7f553cbe8a960d1e20818e09a04f63c2cf47a069284223ee3a8595e4",
+        "completion_work": "The historical source map reports no substantive gap among the 76 rows. Preserve all assumptions and corrections; this assessment used the preserved ledger rather than a fresh primary-manuscript reading.",
+        "current_owners": [
+          "docs/research/fdsa-chapter04-coverage.md (complete current witness/owner map)"
+        ],
+        "dependencies": [
+          1,
+          2,
+          3
+        ],
+        "preserved_drafts": [
+          "XT03 b0fce71f; XT04 b035f115; XT05 317aae79",
+          "Structural/weighted af03b76c; balancing a8f57dbf; exercises d0241973"
+        ],
+        "critical_boundary": "One BinaryTree carrier; full order/multiplicity; reconstruction distinctness; actual callback work and suffix consumption. One traversal can still perform superlinear append work."
+      },
+      "row_unit_correspondence": {
+        "CTB-72": [
+          "C04-002",
+          "C04-005",
+          "C04-014",
+          "C04-015",
+          "C04-021",
+          "C04-022",
+          "C04-046"
+        ],
+        "CTB-70": [
+          "C04-017"
+        ],
+        "CTB-70 + CTB-71": [
+          "C04-018"
+        ],
+        "CTB-74": [
+          "C04-019",
+          "C04-020",
+          "C04-023",
+          "C04-024",
+          "C04-025",
+          "C04-026",
+          "C04-027",
+          "C04-028",
+          "C04-029",
+          "C04-030"
+        ],
+        "CTB-76": [
+          "C04-031",
+          "C04-038",
+          "C04-039",
+          "C04-040",
+          "C04-041",
+          "C04-059",
+          "C04-060",
+          "C04-074"
+        ],
+        "CTB-75": [
+          "C04-047",
+          "C04-048",
+          "C04-049",
+          "C04-050",
+          "C04-051",
+          "C04-052",
+          "C04-053",
+          "C04-054",
+          "C04-055",
+          "C04-056",
+          "C04-057",
+          "C04-058",
+          "C04-061"
+        ],
+        "CTB-77": [
+          "C04-063",
+          "C04-075",
+          "C04-076"
+        ]
+      },
+      "previously_present_rows": [
+        "C04-001",
+        "C04-003",
+        "C04-004",
+        "C04-006",
+        "C04-007",
+        "C04-008",
+        "C04-009",
+        "C04-010",
+        "C04-011",
+        "C04-012",
+        "C04-013",
+        "C04-016",
+        "C04-032",
+        "C04-033",
+        "C04-034",
+        "C04-035",
+        "C04-036",
+        "C04-037",
+        "C04-042",
+        "C04-043",
+        "C04-044",
+        "C04-045",
+        "C04-062",
+        "C04-064",
+        "C04-065",
+        "C04-066",
+        "C04-067",
+        "C04-068",
+        "C04-069",
+        "C04-070",
+        "C04-071",
+        "C04-072",
+        "C04-073"
+      ],
+      "exercise_correspondence": {
+        "4.1": {
+          "rows": [
+            "C04-017",
+            "C04-018"
+          ],
+          "owners": [
+            "CTB-70",
+            "CTB-71"
+          ]
+        },
+        "4.3": {
+          "rows": [
+            "C04-021",
+            "C04-022"
+          ],
+          "owners": [
+            "CTB-72"
+          ]
+        },
+        "4.2": {
+          "rows": [
+            "C04-019",
+            "C04-020"
+          ],
+          "owners": [
+            "CTB-74"
+          ]
+        },
+        "4.4": {
+          "rows": [
+            "C04-023",
+            "C04-024",
+            "C04-025",
+            "C04-026"
+          ],
+          "owners": [
+            "CTB-74"
+          ]
+        },
+        "4.5": {
+          "rows": [
+            "C04-027",
+            "C04-028"
+          ],
+          "owners": [
+            "CTB-74"
+          ]
+        },
+        "4.6": {
+          "rows": [
+            "C04-029",
+            "C04-030"
+          ],
+          "owners": [
+            "CTB-74"
+          ]
+        },
+        "4.9": {
+          "rows": [
+            "C04-061"
+          ],
+          "owners": [
+            "CTB-75"
+          ]
+        },
+        "4.7": {
+          "rows": [
+            "C04-038",
+            "C04-039",
+            "C04-040",
+            "C04-041"
+          ],
+          "owners": [
+            "CTB-76"
+          ]
+        },
+        "4.8": {
+          "rows": [
+            "C04-059",
+            "C04-060"
+          ],
+          "owners": [
+            "CTB-76"
+          ]
+        },
+        "4.10": {
+          "rows": [
+            "C04-074"
+          ],
+          "owners": [
+            "CTB-76"
+          ]
+        },
+        "4.11": {
+          "rows": [
+            "C04-075",
+            "C04-076"
+          ],
+          "owners": [
+            "CTB-77"
+          ]
+        }
+      },
+      "historical_mathematical_result": {
+        "scope": "Complete preserved FDSA Chapter 4 source analysis:76 rows, 11 exercises including bonuses, 12 named results and 7 correction/restriction dispositions.",
+        "candidate": "412e450cc7902296d5ed054a81fb5422237e114f",
+        "primary_source_boundary": "No fresh primary-PDF reading; separate programme primary-source closure remains pending."
+      }
+    },
+    {
+      "id": "CTB-24",
+      "kind": "chapter",
+      "title": "Binary Search Trees",
+      "book": "FDSA",
+      "chapter": 5,
+      "prerequisite_chapters": [
+        "CTB-23"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-24"
+      },
+      "mathematical_scope": {
+        "chapter": 5,
+        "title": "Binary Search Trees",
+        "start_page": 59,
+        "numbered_obligations": 94,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter05-obligations.md",
+        "inventory_sha256": "f512f6b3723e8e036e9292aab985e93d15b2bf49b1c2c6dff79b3e6911ffcaad",
+        "completion_work": "Recover rotations, ordered search and leftmost extraction. Prove both BST deletion variants through shared set/map contracts. Implement interval augmentation, overlap lookup and rectangle sweep. Prove finite expected-search 5/3 versus 2 and actual costs.",
+        "current_owners": [
+          "Applications/Trees",
+          "Applications/Search/OrderedMap",
+          "Applications/Search/AbstractSet.lean"
+        ],
+        "dependencies": [
+          4
+        ],
+        "preserved_drafts": [
+          "Rotations/ordered search 28ba79d8/66eae348/863aedb9; leftmost 7b8ab2be"
+        ],
+        "critical_boundary": "Correct deletion needs uniqueness; overlap search needs attained cache maxima; expected search fixes the key law and tariff."
+      }
+    },
+    {
+      "id": "CTB-25",
+      "kind": "chapter",
+      "title": "Abstract Data Types",
+      "book": "FDSA",
+      "chapter": 6,
+      "prerequisite_chapters": [
+        "CTB-23",
+        "CTB-24"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-25"
+      },
+      "mathematical_scope": {
+        "chapter": 6,
+        "title": "Abstract Data Types",
+        "start_page": 77,
+        "numbered_obligations": 74,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter06-obligations.md",
+        "inventory_sha256": "078bb9759e7bfd9245cfff69443f7722ae4b49295da61f311689da874bb20146",
+        "completion_work": "Complete deletion/modify contracts through existing map/set owners; prove both specification translations and observational round trips. Compose valid tree/list/model refinements. Implement interval-list endpoint operations with early exit and linear two-stream work.",
+        "current_owners": [
+          "Applications/Search/OrderedMap",
+          "Applications/Search/AbstractSet.lean",
+          "SquareKit/Relations.lean",
+          "Squares.lean"
+        ],
+        "dependencies": [
+          4,
+          5
+        ],
+        "preserved_drafts": [
+          "XA01 20a5b553; selected map capability recovered"
+        ],
+        "critical_boundary": "No parallel Collections framework solely for donor filenames. Lookup equality is not state equality; partial and default-total maps differ."
+      }
+    },
+    {
+      "id": "CTB-26",
+      "kind": "chapter",
+      "title": "2-3 Trees",
+      "book": "FDSA",
+      "chapter": 7,
+      "prerequisite_chapters": [
+        "CTB-23",
+        "CTB-24",
+        "CTB-25"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-26"
+      },
+      "mathematical_scope": {
+        "chapter": 7,
+        "title": "2-3 Trees",
+        "start_page": 85,
+        "numbered_obligations": 90,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter07-obligations.md",
+        "inventory_sha256": "8e9aa9dda75c04a4c6a09a40feead8a2ff8d7ebc64c7dd47c0344921a6f41bde",
+        "completion_work": "Implement 2–3 carrier, inorder/key count and completeness, insertion overflow and every deletion underflow branch. Prove set laws, bottom-up list conversion, exact recurrence and all-length linear work; close the size correction.",
+        "current_owners": [
+          "Applications/Trees",
+          "Applications/Search/AbstractSet.lean",
+          "Applications/Resources"
+        ],
+        "dependencies": [
+          4,
+          5,
+          6
+        ],
+        "preserved_drafts": [],
+        "critical_boundary": "Internal nodes differ from stored keys; no complete 2–3 tree has exactly two internal nodes."
+      }
+    },
+    {
+      "id": "CTB-27",
+      "kind": "chapter",
+      "title": "Red-Black Trees",
+      "book": "FDSA",
+      "chapter": 8,
+      "prerequisite_chapters": [
+        "CTB-23",
+        "CTB-24",
+        "CTB-25"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-27"
+      },
+      "mathematical_scope": {
+        "chapter": 8,
+        "title": "Red-Black Trees",
+        "start_page": 95,
+        "numbered_obligations": 98,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter08-obligations.md",
+        "inventory_sha256": "16e26a46452d06401e1f50317fb8d7e3ad4a341a2070870b07c7014f1b2e07e1",
+        "completion_work": "Separate color/black-height/red-child invariants. Implement or bridge insertion, both deletion algorithms and maps. Prove logarithmic height, actual operation costs, exercises and corrected source cases.",
+        "current_owners": [
+          "Applications/Trees",
+          "Applications/Search/OrderedMap",
+          "Applications/Search/AbstractSet.lean",
+          "Applications/Resources"
+        ],
+        "dependencies": [
+          4,
+          5,
+          6
+        ],
+        "preserved_drafts": [],
+        "critical_boundary": "Similar red-black implementations need recurrence bridges. Root-black validity is not child-closed; the explanatory equality with 2 log2 leaves is false."
+      }
+    },
+    {
+      "id": "CTB-28",
+      "kind": "chapter",
+      "title": "AVL Trees",
+      "book": "FDSA",
+      "chapter": 9,
+      "prerequisite_chapters": [
+        "CTB-23",
+        "CTB-24",
+        "CTB-25"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-28"
+      },
+      "mathematical_scope": {
+        "chapter": 9,
+        "title": "AVL Trees",
+        "start_page": 105,
+        "numbered_obligations": 110,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter09-obligations.md",
+        "inventory_sha256": "6ade1fd1a470c64d613212098e311d2e0189f62bd82045dbb2f8f4387f426285",
+        "completion_work": "Implement height-cached AVL and balance-factor variants, with order/cache/balance laws and shared meaning. Prove Fibonacci/log bounds and certified coefficient rounding. Close all seven exercises and measured costs.",
+        "current_owners": [
+          "Applications/Trees/Cached.lean",
+          "Applications/Resources/TreeCache.lean",
+          "Applications/Search/AbstractSet.lean",
+          "Applications/Resources/Growth.lean"
+        ],
+        "dependencies": [
+          4,
+          5,
+          6
+        ],
+        "preserved_drafts": [],
+        "critical_boundary": "The floor estimate alone does not prove the log claim; 1.44 is not an exact coefficient or justified upper bound."
+      }
+    },
+    {
+      "id": "CTB-29",
+      "kind": "chapter",
+      "title": "Beyond Insert and Delete: Union, Intersection and Difference",
+      "book": "FDSA",
+      "chapter": 10,
+      "prerequisite_chapters": [
+        "CTB-25",
+        "CTB-26",
+        "CTB-27",
+        "CTB-28"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-29"
+      },
+      "mathematical_scope": {
+        "chapter": 10,
+        "title": "Beyond Insert and Delete: Union, Intersection and Difference",
+        "start_page": 117,
+        "numbered_obligations": 118,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter10-obligations.md",
+        "inventory_sha256": "f3703190c2c5591a8b8685e88205652ca412e90fedb3b467ceb5d4bfd55eac0b",
+        "completion_work": "Prove generic join/split/set algebra and exercises; supply required red-black/AVL/weight-balanced/2–3/treap realizations. Separate semantics from stronger rank/work assumptions. Prove cached versus uncached costs and shared-priority expected work.",
+        "current_owners": [
+          "Applications/Search/AbstractSet.lean",
+          "Applications/Trees",
+          "Applications/Probability",
+          "Applications/Resources"
+        ],
+        "dependencies": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "preserved_drafts": [],
+        "critical_boundary": "Semantic join laws alone give no optimal work. Keep book cached-join cost gap explicit; treaps use one shared priority experiment with fixed inputs."
+      }
+    },
+    {
+      "id": "CTB-30",
+      "kind": "chapter",
+      "title": "Arrays via Braun Trees",
+      "book": "FDSA",
+      "chapter": 11,
+      "prerequisite_chapters": [
+        "CTB-23",
+        "CTB-25"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-30"
+      },
+      "mathematical_scope": {
+        "chapter": 11,
+        "title": "Arrays via Braun Trees",
+        "start_page": 127,
+        "numbered_obligations": 135,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter11-obligations.md",
+        "inventory_sha256": "ec4a0763833c45d4ff3cd0a06b90cb3fd270a245b61bab2c52608066554213fc",
+        "completion_work": "Recover Braun shape and array/index specifications. Implement fixed/flexible arrays, fast size, shared initialization, linear list/tree conversions and exercises, including positive-key/bit-path bridges. Prove actual costs.",
+        "current_owners": [
+          "Applications/Trees",
+          "Applications/Resources"
+        ],
+        "dependencies": [
+          4,
+          6
+        ],
+        "preserved_drafts": [
+          "Braun 156ba817"
+        ],
+        "critical_boundary": "Fast conversion needs Braun validity; shared construction requires a sharing-cost observation."
+      }
+    },
+    {
+      "id": "CTB-31",
+      "kind": "chapter",
+      "title": "Tries",
+      "book": "FDSA",
+      "chapter": 12,
+      "prerequisite_chapters": [
+        "CTB-23",
+        "CTB-25",
+        "CTB-30"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-31"
+      },
+      "mathematical_scope": {
+        "chapter": 12,
+        "title": "Tries",
+        "start_page": 149,
+        "numbered_obligations": 110,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter12-obligations.md",
+        "inventory_sha256": "246779209f9f855837a8bb20bc7f2f58c37cd66144c85960fed6cb3426a0ef28",
+        "completion_work": "Implement function-valued, binary, Patricia and ternary tries with shared language meaning. Prove canonicality on valid states, pattern lookup, compression/decompression, refinement steps and all exercises.",
+        "current_owners": [
+          "Applications/Languages",
+          "Applications/Trees",
+          "Applications/Search/OrderedMap"
+        ],
+        "dependencies": [
+          4,
+          6,
+          11
+        ],
+        "preserved_drafts": [],
+        "critical_boundary": "Unrestricted function-valued tries need not be finitely supported or globally finite-height; finite maps are a separate refinement."
+      }
+    },
+    {
+      "id": "CTB-32",
+      "kind": "chapter",
+      "title": "Region Quadtrees",
+      "book": "FDSA",
+      "chapter": 13,
+      "prerequisite_chapters": [
+        "CTB-23"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-32"
+      },
+      "mathematical_scope": {
+        "chapter": 13,
+        "title": "Region Quadtrees",
+        "start_page": 161,
+        "numbered_obligations": 104,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter13-obligations.md",
+        "inventory_sha256": "de2ffeda482de966604adb7b59bc211d40dc6d1895f7fbb28ca682b14a6f8e54",
+        "completion_work": "Define independent raster/image semantics and canonical quadtrees. Prove Boolean operations, subimages, conversions and exercises. Bridge matrix algebra by dimensions/coordinates; extend to k-dimensional binary region trees.",
+        "current_owners": [
+          "Applications/Trees",
+          "Applications/Linear",
+          "SquareKit"
+        ],
+        "dependencies": [
+          4
+        ],
+        "preserved_drafts": [],
+        "critical_boundary": "Raw-tree equality needs canonicality; coordinate dimensions/depth remain explicit."
+      }
+    },
+    {
+      "id": "CTB-33",
+      "kind": "chapter",
+      "title": "Priority Queues",
+      "book": "FDSA",
+      "chapter": 14,
+      "prerequisite_chapters": [
+        "CTB-23",
+        "CTB-25"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-33"
+      },
+      "mathematical_scope": {
+        "chapter": 14,
+        "title": "Priority Queues",
+        "start_page": 179,
+        "numbered_obligations": 40,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter14-obligations.md",
+        "inventory_sha256": "9222adc24498e1f0e8df361c1a936cc5656fce0f2b4caf7570bc0515a5e4434d",
+        "completion_work": "Recover occurrence-sensitive multiset priority/merge laws through current Search owners. Connect sorted-list, naive-heap and generic clients; close all four exercises.",
+        "current_owners": [
+          "Applications/Search/PriorityInterface.lean",
+          "Applications/Search/ExactPriority.lean",
+          "Applications/Search/LeftistQueue.lean",
+          "Applications/Huffman/Priority.lean"
+        ],
+        "dependencies": [
+          4,
+          6
+        ],
+        "preserved_drafts": [
+          "XH01 c088beeb"
+        ],
+        "critical_boundary": "Sets erase duplicate entries; retain multisets, absence and minimum domains."
+      }
+    },
+    {
+      "id": "CTB-34",
+      "kind": "chapter",
+      "title": "Leftist Heaps",
+      "book": "FDSA",
+      "chapter": 15,
+      "prerequisite_chapters": [
+        "CTB-23",
+        "CTB-33"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-34"
+      },
+      "mathematical_scope": {
+        "chapter": 15,
+        "title": "Leftist Heaps",
+        "start_page": 183,
+        "numbered_obligations": 79,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter15-obligations.md",
+        "inventory_sha256": "03f2571e833fa0eb826a3d6d1a1dbf53a62626a9278b5dc1a0fe911aac15812c",
+        "completion_work": "Bridge current LeftistQueue to the exact source carrier/merge. Prove rank, order and actual access costs. Implement bulk construction, all-length linear bound and tail-recursive exercise.",
+        "current_owners": [
+          "Applications/Search/LeftistQueue.lean",
+          "Applications/Search/PriorityInterface.lean",
+          "Applications/Resources"
+        ],
+        "dependencies": [
+          4,
+          14
+        ],
+        "preserved_drafts": [],
+        "critical_boundary": "Vague sublinear work does not justify every aggregate linear bound; relate actual recurrences."
+      }
+    },
+    {
+      "id": "CTB-35",
+      "kind": "chapter",
+      "title": "Priority Queues via Braun Trees",
+      "book": "FDSA",
+      "chapter": 16,
+      "prerequisite_chapters": [
+        "CTB-30",
+        "CTB-33"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-35"
+      },
+      "mathematical_scope": {
+        "chapter": 16,
+        "title": "Priority Queues via Braun Trees",
+        "start_page": 191,
+        "numbered_obligations": 48,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter16-obligations.md",
+        "inventory_sha256": "180865d8315609bd24687b5ce0c2cbf7e75995769ac10db74e621cc693585108",
+        "completion_work": "Implement Braun heap operations and auxiliaries; prove shape, multiset and minimum laws. Instrument source recurrences and logarithmic costs, preserving all source corrections.",
+        "current_owners": [
+          "Applications/Trees",
+          "Applications/Search/PriorityInterface.lean",
+          "Applications/Resources"
+        ],
+        "dependencies": [
+          11,
+          14
+        ],
+        "preserved_drafts": [],
+        "critical_boundary": "Braun shape is not heap order or priority correctness."
+      }
+    },
+    {
+      "id": "CTB-36",
+      "kind": "chapter",
+      "title": "Binomial Priority Queues",
+      "book": "FDSA",
+      "chapter": 17,
+      "prerequisite_chapters": [
+        "CTB-33"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-36"
+      },
+      "mathematical_scope": {
+        "chapter": 17,
+        "title": "Binomial Priority Queues",
+        "start_page": 195,
+        "numbered_obligations": 80,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter17-obligations.md",
+        "inventory_sha256": "3ffde1d8021bf3dcb0aa9c3430b30e945c2fad2d16f3aca9b886e166a6dcebe2",
+        "completion_work": "Implement ranked binomial trees/forests, link/insert/merge/minimum/delete and priority laws. Prove size/rank and actual costs; complete binomial coefficient and sparse-binary exercises. Compare reused Batteries variants explicitly.",
+        "current_owners": [
+          "Applications/Search/PriorityInterface.lean",
+          "Applications/Resources",
+          "Applications/Trees"
+        ],
+        "dependencies": [
+          14
+        ],
+        "preserved_drafts": [],
+        "critical_boundary": "Preserve the valid merge counterexample and deletion input-length qualifications."
+      }
+    },
+    {
+      "id": "CTB-37",
+      "kind": "chapter",
+      "title": "Dynamic Programming",
+      "book": "FDSA",
+      "chapter": 18,
+      "prerequisite_chapters": [
+        "CTB-25",
+        "CTB-30"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-37"
+      },
+      "mathematical_scope": {
+        "chapter": 18,
+        "title": "Dynamic Programming",
+        "start_page": 205,
+        "numbered_obligations": 126,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter18-obligations.md",
+        "inventory_sha256": "ead4b0cc69ebdbd4ea767b272c2cdafd57262ce2d0ca13cd0e7273cc9fa55337",
+        "completion_work": "Bridge pure Fibonacci and memoized state/cache invariants. Formalize starred details and actual cache costs. Implement Bellman–Ford recurrence/negative-cycle return and optimal BST weights/trees, memoization and Knuth optimization.",
+        "current_owners": [
+          "Applications/Memoization",
+          "Applications/DynamicProgramming",
+          "Applications/Search/OrderedMap",
+          "SquareKit/Relations.lean"
+        ],
+        "dependencies": [
+          6,
+          11
+        ],
+        "preserved_drafts": [],
+        "critical_boundary": "Memoization value equality alone gives no runtime bound; absence of exercises does not waive algorithm/cost scope."
+      }
+    },
+    {
+      "id": "CTB-38",
+      "kind": "chapter",
+      "title": "Amortized Analysis",
+      "book": "FDSA",
+      "chapter": 19,
+      "prerequisite_chapters": [
+        "CTB-20"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-38"
+      },
+      "mathematical_scope": {
+        "chapter": 19,
+        "title": "Amortized Analysis",
+        "start_page": 227,
+        "numbered_obligations": 68,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter19-obligations.md",
+        "inventory_sha256": "1d9d22ca8d801d7c0ba47910d0f6519dd7c76acd787164be3a382ad818c220c6",
+        "completion_work": "Reconcile ordinary/signed/invariant potential. Connect actual binary-counter flips and dynamic-table operations to book tariffs/potentials. Complete histories/exercises with initial/final terms and uniform constants.",
+        "current_owners": [
+          "Applications/Resources/Potential.lean",
+          "Applications/Resources/SignedPotential.lean",
+          "Applications/Resources/BinaryCounter.lean",
+          "Applications/Resources/DynamicFrontArrays.lean"
+        ],
+        "dependencies": [
+          1
+        ],
+        "preserved_drafts": [
+          "XP01 reconciled; XW01 7c6bc92c; XL01 a601ad71"
+        ],
+        "critical_boundary": "Nonnegative potential, initial credit and persistent multiplicity differ; shared C19-011–016 recovery is not chapter completion."
+      }
+    },
+    {
+      "id": "CTB-39",
+      "kind": "chapter",
+      "title": "Queues",
+      "book": "FDSA",
+      "chapter": 20,
+      "prerequisite_chapters": [
+        "CTB-25",
+        "CTB-38"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-39"
+      },
+      "mathematical_scope": {
+        "chapter": 20,
+        "title": "Queues",
+        "start_page": 233,
+        "numbered_obligations": 119,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter20-obligations.md",
+        "inventory_sha256": "deaa46226bc68126f6c0b92f0ea175329d53eb23908b1491d575388ab15010e9",
+        "completion_work": "Bridge two-list queue semantics, normalization/state change and amortized costs. Implement min-queue and every Hood–Melville scheduling transition. Prove full invariants, constant per-operation work and histories.",
+        "current_owners": [
+          "Applications/Sequences/AbstractFIFO.lean",
+          "Applications/Resources/FIFOContracts.lean",
+          "Applications/Resources/Potential.lean",
+          "Applications/Suspensions"
+        ],
+        "dependencies": [
+          6,
+          19
+        ],
+        "preserved_drafts": [],
+        "critical_boundary": "An observing peek can repeat normalization if it does not install state; updated-state amortization cannot transfer silently."
+      }
+    },
+    {
+      "id": "CTB-40",
+      "kind": "chapter",
+      "title": "Splay Trees",
+      "book": "FDSA",
+      "chapter": 21,
+      "prerequisite_chapters": [
+        "CTB-24",
+        "CTB-38"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-40"
+      },
+      "mathematical_scope": {
+        "chapter": 21,
+        "title": "Splay Trees",
+        "start_page": 245,
+        "numbered_obligations": 102,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter21-obligations.md",
+        "inventory_sha256": "e9ec73c1de2835060646f62fd7d675b192b4f1960742f917952a4fbf78265a51",
+        "completion_work": "Implement actual splay operations, access lemma, histories, exercise and static optimality. Declare Dynamic Optimality precisely as an explicitly unproved Prop in the retained trace model.",
+        "current_owners": [
+          "Applications/Trees",
+          "Applications/Search/AbstractSet.lean",
+          "Applications/Resources/Potential.lean"
+        ],
+        "dependencies": [
+          5,
+          19
+        ],
+        "preserved_drafts": [
+          "Rotation/logarithm donors"
+        ],
+        "critical_boundary": "Static optimality needs its own theorem. The open Dynamic Optimality conjecture gets a precise Prop, no axiom or promised proof."
+      }
+    },
+    {
+      "id": "CTB-41",
+      "kind": "chapter",
+      "title": "Skew Heaps",
+      "book": "FDSA",
+      "chapter": 22,
+      "prerequisite_chapters": [
+        "CTB-33",
+        "CTB-38"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-41"
+      },
+      "mathematical_scope": {
+        "chapter": 22,
+        "title": "Skew Heaps",
+        "start_page": 253,
+        "numbered_obligations": 65,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter22-obligations.md",
+        "inventory_sha256": "805b5d297ee9088a01ed4adf7f3816debd7e9a4f02777364fc85f522a1935939",
+        "completion_work": "Implement skew merge and priority operations, spine/heavy-light observations and full potential calculation. Prove history costs with both input potentials and the unbalanced exercise witness.",
+        "current_owners": [
+          "Applications/Search/PriorityInterface.lean",
+          "Applications/Resources/Potential.lean",
+          "Applications/Resources/SignedPotential.lean",
+          "Applications/Trees"
+        ],
+        "dependencies": [
+          14,
+          19
+        ],
+        "preserved_drafts": [
+          "XH01/XW01/XL01"
+        ],
+        "critical_boundary": "Amortized logarithmic cost is not a worst-case balance invariant."
+      }
+    },
+    {
+      "id": "CTB-42",
+      "kind": "chapter",
+      "title": "Pairing Heaps",
+      "book": "FDSA",
+      "chapter": 23,
+      "prerequisite_chapters": [
+        "CTB-33",
+        "CTB-38"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-42"
+      },
+      "mathematical_scope": {
+        "chapter": 23,
+        "title": "Pairing Heaps",
+        "start_page": 257,
+        "numbered_obligations": 78,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter23-obligations.md",
+        "inventory_sha256": "01c1184e372e574b0487822e844ff5f2abecd6c7e05fa3d59961972d785ea700",
+        "completion_work": "Implement source pairing merge/two passes with multiset laws/costs. Prove potential analysis/exercise; bridge binary and child-list representations under whole-heap validity and any cited improvement under its actual variant.",
+        "current_owners": [
+          "Applications/Search/PriorityInterface.lean",
+          "Applications/Resources/Potential.lean",
+          "Applications/Trees"
+        ],
+        "dependencies": [
+          14,
+          19
+        ],
+        "preserved_drafts": [
+          "XH01/XW01/XL01"
+        ],
+        "critical_boundary": "Correct AM–GM offset to +2; arbitrary encoded forests do not satisfy whole-heap deletion validity."
+      }
+    },
+    {
+      "id": "CTB-43",
+      "kind": "chapter",
+      "title": "Graph Algorithms",
+      "book": "FDSA",
+      "chapter": 24,
+      "prerequisite_chapters": [
+        "CTB-25",
+        "CTB-39"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-43"
+      },
+      "mathematical_scope": {
+        "chapter": 24,
+        "title": "Graph Algorithms",
+        "start_page": 267,
+        "numbered_obligations": 138,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter24-obligations.md",
+        "inventory_sha256": "5187150f423dfa75c730e3e09bb2740851e85c0fc8ff1b8494d6dd5a4d585329",
+        "completion_work": "Specify finite graphs, paths and set/map contracts. Implement DFS transitions/termination/paths; multi-source BFS DAG and exact set-distance meaning. Prove subgraph/distance results and source corrections.",
+        "current_owners": [
+          "Applications/Search",
+          "Applications/Connectivity",
+          "Applications/Dijkstra",
+          "Applications/Search/OrderedMap"
+        ],
+        "dependencies": [
+          6,
+          20
+        ],
+        "preserved_drafts": [],
+        "critical_boundary": "Correct frontier loop guard; set-distance differs from per-root distance; source membership matters at s=t."
+      }
+    },
+    {
+      "id": "CTB-44",
+      "kind": "chapter",
+      "title": "Knuth-Morris-Pratt String Search",
+      "book": "FDSA",
+      "chapter": 25,
+      "prerequisite_chapters": [
+        "CTB-30",
+        "CTB-38"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-44"
+      },
+      "mathematical_scope": {
+        "chapter": 25,
+        "title": "Knuth-Morris-Pratt String Search",
+        "start_page": 293,
+        "numbered_obligations": 94,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter25-obligations.md",
+        "inventory_sha256": "13b30148bf4094e8f1a98bffd8d6fe3fcf7071828582ff384f788c99934ce042",
+        "completion_work": "Specify first matches and proper borders/next tables. Implement builder/search with exact invariants and termination. Prove correctness, invalid-table self-loop/empty-pattern boundaries, linear work and any difference-array correspondence.",
+        "current_owners": [
+          "Applications/Sequences",
+          "Applications/Languages",
+          "Applications/Resources"
+        ],
+        "dependencies": [
+          11,
+          19
+        ],
+        "preserved_drafts": [],
+        "critical_boundary": "Arbitrary next tables can loop. Failure sentinels, empty patterns and storage-update work need explicit domains."
+      }
+    },
+    {
+      "id": "CTB-45",
+      "kind": "chapter",
+      "title": "Huffman's Algorithm",
+      "book": "FDSA",
+      "chapter": 26,
+      "prerequisite_chapters": [
+        "CTB-23",
+        "CTB-33",
+        "CTB-34"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-45"
+      },
+      "mathematical_scope": {
+        "chapter": 26,
+        "title": "Huffman's Algorithm",
+        "start_page": 305,
+        "numbered_obligations": 100,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter26-obligations.md",
+        "inventory_sha256": "c1803a540a887977be6bf2a75e3291a6f1665ea7167786939b04a40b0b8ecb61",
+        "completion_work": "Bridge source symbol/frequency trees and forests to existing occurrence-based Huffman optimum. Connect swaps/siblings/merge/split/greedy execution, ties and orientation. Close code-optimality bridges, seven results and all three execution variants.",
+        "current_owners": [
+          "Applications/Huffman",
+          "Applications/Search/PriorityInterface.lean",
+          "Applications/Trees",
+          "Applications/Resources"
+        ],
+        "dependencies": [
+          4,
+          14,
+          15
+        ],
+        "preserved_drafts": [
+          "Weighted-tree/priority prerequisites"
+        ],
+        "critical_boundary": "Duplicates, inverse orientation and symmetric/ordered minima matter; binary search does not make sorted-array insertion logarithmic."
+      }
+    },
+    {
+      "id": "CTB-46",
+      "kind": "chapter",
+      "title": "Alpha-Beta Pruning",
+      "book": "FDSA",
+      "chapter": 27,
+      "prerequisite_chapters": [
+        "CTB-23",
+        "CTB-25",
+        "CTB-37",
+        "CTB-38"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-46"
+      },
+      "mathematical_scope": {
+        "chapter": 27,
+        "title": "Alpha-Beta Pruning",
+        "start_page": 319,
+        "numbered_obligations": 185,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/chapter27-obligations.md",
+        "inventory_sha256": "87ba6c9cbca1df75012cc594668ea1c7c0b76cfb76ea8e1cee9f7276e4e298e6",
+        "completion_work": "Implement minimax/negamax and fail-hard/fail-soft traversal, linear/lattice correctness, exercises and counterexamples. Formalize recovered finite-DAG paired-cache recurrence/coherence and unfolding bridge. Prove random-game/parity/query-law correspondence before expected optimality.",
+        "current_owners": [
+          "Applications/Trees",
+          "Applications/Search",
+          "Applications/Memoization",
+          "Applications/Probability",
+          "SquareKit/Relations.lean",
+          "Applications/Resources"
+        ],
+        "dependencies": [
+          4,
+          6,
+          18,
+          19
+        ],
+        "preserved_drafts": [],
+        "critical_boundary": "Closed windows, incomparable lattice values and cache coherence matter. Finite DAGs imply neither cyclic/infinite correctness nor generic speedup."
+      }
+    },
+    {
+      "id": "CTB-47",
+      "kind": "chapter",
+      "title": "List Library",
+      "book": "FDSA",
+      "chapter": "A",
+      "prerequisite_chapters": [],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-47"
+      },
+      "mathematical_scope": {
+        "chapter": "A",
+        "title": "List Library",
+        "start_page": 343,
+        "numbered_obligations": 20,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/appendix-a-obligations.md",
+        "inventory_sha256": "91233486d25272ef0e6be256f40de1ed35bee61bb6b8d8dfb9845d36cc869002",
+        "completion_work": "Map all 20 rows to exact List/Mathlib/project witnesses. Prove missing order/multiset adapters and connected clients without duplicate notation-only wrappers.",
+        "current_owners": [
+          "Applications/Sequences",
+          "Applications/Sorting",
+          "Applications/Selection"
+        ],
+        "dependencies": [],
+        "preserved_drafts": [],
+        "critical_boundary": "Reuse requires matching list/set/multiset meaning and assumptions."
+      }
+    },
+    {
+      "id": "CTB-48",
+      "kind": "chapter",
+      "title": "Time Functions",
+      "book": "FDSA",
+      "chapter": "B",
+      "prerequisite_chapters": [
+        "CTB-20"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-48"
+      },
+      "mathematical_scope": {
+        "chapter": "B",
+        "title": "Time Functions",
+        "start_page": 347,
+        "numbered_obligations": 60,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/appendix-b-obligations.md",
+        "inventory_sha256": "8bf1101e774269ead99ccb23d7de237f0a208cc9a3d2d0522a4ab464ed6981e6",
+        "completion_work": "Map all 60 rows to actual measured algorithms and recurrences as chapters advance. State primitive/arithmetic/inlining/sharing tariffs and runtime boundaries.",
+        "current_owners": [
+          "Applications/Resources"
+        ],
+        "dependencies": [
+          1
+        ],
+        "preserved_drafts": [],
+        "critical_boundary": "A detached cost recurrence without the actual execution bridge is insufficient."
+      }
+    },
+    {
+      "id": "CTB-49",
+      "kind": "chapter",
+      "title": "Notation",
+      "book": "FDSA",
+      "chapter": "C",
+      "prerequisite_chapters": [],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-49"
+      },
+      "mathematical_scope": {
+        "chapter": "C",
+        "title": "Notation",
+        "start_page": 355,
+        "numbered_obligations": 90,
+        "inventory": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/coverage/fdsa-control/research/appendix-c-obligations.md",
+        "inventory_sha256": "499d6d0632bf6f160add2edb7171588f1b23b96a314f25f7543a62c9ae614e2f",
+        "completion_work": "Map all 90 rows to exact Lean meaning, coercion/truncated subtraction and finite/infinite set folds. Record typography without a duplicate notation layer.",
+        "current_owners": [
+          "GLOSSARY.md",
+          "Applications/Sequences",
+          "Applications/Resources"
+        ],
+        "dependencies": [],
+        "preserved_drafts": [],
+        "critical_boundary": "Unrestricted source folds include the neutral infinite-index branch."
+      }
+    },
+    {
+      "id": "CTB-50",
+      "kind": "chapter",
+      "title": "Introduction",
+      "book": "PFDS",
+      "chapter": 1,
+      "prerequisite_chapters": [],
+      "historical_status": "reconciliation",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-50"
+      },
+      "mathematical_scope": {
+        "key": "pfds-1",
+        "number": 1,
+        "title": "Introduction",
+        "pages": "1–6",
+        "exercise_count": 0,
+        "source_status": "Complete book and thesis introductions inspected in retained source reports",
+        "thesis": "Thesis Ch1, pp1–6; Table 1.1",
+        "existing": [
+          "docs/research/pfds-reconstruction.md",
+          "docs/research/pfds-union-coverage.md"
+        ],
+        "slices": [
+          "Reconcile the five book sections and six thesis introductory sections with current terminology and interfaces.",
+          "Keep all 16 thesis Table 1.1 performance rows open under their later algorithm owners; preserve worst-case/amortized and log-star qualifications."
+        ],
+        "acceptance": [
+          "Every introductory item is explicitly mathematical-forward-reference or exposition, with a live owner.",
+          "No introductory prose is promoted to a universal impossibility theorem or whole-book performance claim."
+        ],
+        "depends": [],
+        "exercises": [],
+        "historical_notes": [
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/book-full-inventory.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/book-thesis-union.md"
+        ]
+      }
+    },
+    {
+      "id": "CTB-51",
+      "kind": "chapter",
+      "title": "Persistence",
+      "book": "PFDS",
+      "chapter": 2,
+      "prerequisite_chapters": [
+        "CTB-50"
+      ],
+      "historical_status": "reconciliation",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-51"
+      },
+      "mathematical_scope": {
+        "key": "pfds-2",
+        "number": 2,
+        "title": "Persistence",
+        "pages": "7–16",
+        "exercise_count": 6,
+        "source_status": "Full source and all exercise subparts inspected; exact requirements retained",
+        "thesis": "No corresponding thesis exercise chapter; persistence premises support all later thesis chapters",
+        "existing": [
+          "Applications/Sequences/AbstractStack.lean",
+          "Applications/Sequences/SharedList/",
+          "Applications/Search/AbstractSet.lean",
+          "Applications/Search/OrderedTree/",
+          "Applications/Search/SharedTree/",
+          "Applications/Search/OrderedMap/",
+          "Applications/Resources/SharedList.lean",
+          "Applications/Resources/SharedTree.lean",
+          "Examples/TextbookSequences.lean",
+          "Examples/TextbookMaps.lean",
+          "docs/research/pfds-persistence.md"
+        ],
+        "slices": [
+          "Reconcile all recorded B2 source obligations and B2.1–B2.6/subparts against current declarations, not old candidate labels.",
+          "Review stack operators/laws, List/custom realizations, generic append and signed-index update, including observable failure and sufficient-fuel results.",
+          "Review actual shared append/update/suffix executions: old-root retention, copied prefix, tail identity, distinct reachable-cell space.",
+          "Review ordered-set/map membership, baseline comparisons, candidate membership, duplicate abort and combined candidate-abort insertion on the same execution.",
+          "Review complete-tree and paired-size constructors with exact unfolded sizes, actual equal child roots, allocation counts and logarithmic construction bounds.",
+          "Complete source and semantic reconciliation for all Chapter 2 items; the historical implementation status does not establish complete chapter coverage."
+        ],
+        "acceptance": [
+          "Each of the complete B2 source items has a surviving declaration/example or justified contextual disposition.",
+          "All six exercises, including both E2.5 subparts, have semantics, resource/sharing observations and their premises.",
+          "Empty failure differs from stored optional values, graph size from unfolded size, and source integer traversal from a negative-index shortcut."
+        ],
+        "depends": [
+          "pfds-1"
+        ],
+        "exercises": [
+          "B2.1",
+          "B2.2",
+          "B2.3",
+          "B2.4",
+          "B2.5",
+          "B2.6"
+        ],
+        "historical_notes": [
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/book-full-inventory.md"
+        ]
+      }
+    },
+    {
+      "id": "CTB-52",
+      "kind": "chapter",
+      "title": "Some Familiar Data Structures in a Functional Setting",
+      "book": "PFDS",
+      "chapter": 3,
+      "prerequisite_chapters": [
+        "CTB-51"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-52"
+      },
+      "mathematical_scope": {
+        "key": "pfds-3",
+        "number": 3,
+        "title": "Some Familiar Data Structures in a Functional Setting",
+        "pages": "17–30",
+        "exercise_count": 10,
+        "source_status": "Complete book chapter and exact first-slice source comparison retained",
+        "thesis": "Relevant ordinary binomial heap material in thesis Ch6",
+        "existing": [
+          "Applications/Search/LeftistQueue.lean",
+          "Applications/Search/ExactPriority.lean",
+          "Applications/Search/PriorityInterface.lean",
+          "Applications/Resources/Measured.lean",
+          "Applications/Resources/Workload.lean",
+          "Applications/Huffman/",
+          "Applications/Search/OrderedTree/"
+        ],
+        "slices": [
+          "Six-operation heap capability and separate laws over ExactQueue; direct peek, meld and empty test, exact occurrences and matched peek/remove tie selection; independent list realization.",
+          "Rank-biased leftist source equations, existing rank_paths/rank_size/rank_log, measured merge erasure and comparison/rank/size bounds; source one-field specialization PQ Unit Elem.",
+          "E3.2 direct recursive insert; E3.3 adjacent pair-round construction with odd tail, n−1 merges and actual linear total work, not mere merge counts.",
+          "E3.4 weight-biased heaps, top-down merge and an explicit demand/dependency interpretation for the lazy/concurrent advantage.",
+          "Binomial shape/forest/link invariants and actual insertion/merge/minimum/delete recursions; coupled logarithmic bounds, exact carry links, direct-min variant.",
+          "E3.6 rank-free internal nodes with representation correspondence; E3.7 generic ExplicitMin with consistent cached-occurrence convention.",
+          "Red-black invariants, source membership/insertion, all four balance cases, height bound, sorted linear construction and path-sensitive balancing exercises."
+        ],
+        "acceptance": [
+          "All six figures and ten exercises/subparts map to exact source contracts and checked public applications.",
+          "Tied priorities preserve actual occurrence behavior without accidental antisymmetry or payload equality assumptions.",
+          "Measured operations erase to actual algorithms; forged cached ranks are excluded by Ranked; deletion uses both child ranks.",
+          "A repeated fold-insert implementation is not accepted as pair-round linear construction or sorted-input linear red-black construction."
+        ],
+        "depends": [
+          "pfds-2"
+        ],
+        "exercises": [
+          "B3.1",
+          "B3.2",
+          "B3.3",
+          "B3.4",
+          "B3.5",
+          "B3.6",
+          "B3.7",
+          "B3.8",
+          "B3.9",
+          "B3.10"
+        ],
+        "historical_notes": [
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/chapter03-union-inventory.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/chapter03-leftist-readiness.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/chapter03-paired-round-cost-readiness.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/chapter03-binomial-redblack-readiness.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/chapter03-retained-source-readiness-045.json"
+        ]
+      }
+    },
+    {
+      "id": "CTB-53",
+      "kind": "chapter",
+      "title": "Lazy Evaluation",
+      "book": "PFDS",
+      "chapter": 4,
+      "prerequisite_chapters": [
+        "CTB-52",
+        "CTB-61"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-53"
+      },
+      "mathematical_scope": {
+        "key": "pfds-4",
+        "number": 4,
+        "title": "Lazy Evaluation",
+        "pages": "31–38",
+        "exercise_count": 2,
+        "source_status": "Complete book Ch4 and thesis Ch2 inspected in retained reports",
+        "thesis": "Thesis Ch2; Appendix A; TU.FORCE",
+        "existing": [
+          "Applications/Suspensions/",
+          "Applications/Progress/Streams.lean",
+          "Applications/Sorting/Stable.lean",
+          "docs/research/pfds-suspensions.md",
+          "docs/research/pfds-cache-counts.md",
+          "docs/research/pfds-body-counts.md"
+        ],
+        "slices": [
+          "Reconcile complete thesis suspension extension and current formal fragment before source stream adapters.",
+          "Implement outer-suspended StreamCell with separately suspended tail, preserving element demand and strict surrounding evaluation.",
+          "Append/take/drop/reverse source realizations, finite prefix observations, actual demand/trace correspondence and signed count behavior.",
+          "E4.1 relate both book drop forms and the thesis variant using existing force/delay relocation laws on returned tail handles, not full heap equality.",
+          "E4.2 lazy insertion sort with ordinary sorted-permutation observation and actual demanded-prefix work bounded by explicit setup terms plus O(n·k) on its intended positive domain."
+        ],
+        "acceptance": [
+          "Zero take does not demand a failing input; append/take first-cell observations leave delayed tail unforced; reverse demands the whole finite input.",
+          "Normal return, raised result, stuck/fuel exhaustion and divergence are not conflated.",
+          "Negative count and early-pattern variants have explicit dispositions; productive infinite streams are not reduced to already-terminated lists.",
+          "Cache-write count is not substituted for actual body/work count."
+        ],
+        "depends": [
+          "pfds-3",
+          "pfds-semantics"
+        ],
+        "exercises": [
+          "B4.1",
+          "B4.2"
+        ],
+        "historical_notes": [
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/suspension-foundation-inventory.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/chapter04-readiness.md"
+        ]
+      }
+    },
+    {
+      "id": "CTB-54",
+      "kind": "chapter",
+      "title": "Fundamentals of Amortization",
+      "book": "PFDS",
+      "chapter": 5,
+      "prerequisite_chapters": [
+        "CTB-53"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-54"
+      },
+      "mathematical_scope": {
+        "key": "pfds-5",
+        "number": 5,
+        "title": "Fundamentals of Amortization",
+        "pages": "39–56",
+        "exercise_count": 9,
+        "source_status": "Complete chapter, figures, results, exercises and relevant appendix listings inspected",
+        "thesis": "Thesis §3.1 and repeated-version failure pp13–19",
+        "existing": [
+          "Applications/Resources/Potential.lean",
+          "Applications/Resources/SignedPotential.lean",
+          "Applications/Resources/BinaryCounter.lean",
+          "Applications/Resources/FIFOContracts.lean",
+          "Applications/Resources/SymmetricCosts.lean",
+          "Applications/Resources/SymmetricWorkload.lean",
+          "Applications/Sequences/AbstractFIFO.lean",
+          "Applications/Sequences/Symmetric/Core.lean",
+          "Applications/Search/ExactPriority.lean"
+        ],
+        "slices": [
+          "Connect banker and physicist accounts along actual trajectories, retaining prefix savings and both boundary potentials.",
+          "Source batched FIFO and symmetric deque operations/failure adapters, actual costs and constant amortized bounds, reusing existing owners.",
+          "Actual binomial carry and tree-count/located-credit analyses, including multi-input merge and delete.",
+          "Duplicate-preserving splay partition/rotations, real log-size potential and exact access lemma; cached/plain minimum and sorted-input construction boundaries.",
+          "Pairing multiway↔child/sibling representation, no-sibling invariant, two-pass deletion and real potential bounds, reusing lawful dependency code where possible.",
+          "E5.9 reachable retained-version families defeating ephemeral amortized claims, with setup costs and repeated use of the same state."
+        ],
+        "acceptance": [
+          "Lemma5.1, Theorem5.2 and all exercises/subparts have exact non-strict/strict hypotheses and small-size handling.",
+          "Splay findMin and meld do not inherit a blanket logarithmic amortized guarantee.",
+          "SML/Haskell tied-root differences have separate realizations or an explicit weaker observation contract.",
+          "No universal runtime bound is inferred from event counts or immutable Lean values."
+        ],
+        "depends": [
+          "pfds-4"
+        ],
+        "exercises": [
+          "B5.1",
+          "B5.2",
+          "B5.3",
+          "B5.4",
+          "B5.5",
+          "B5.6",
+          "B5.7",
+          "B5.8",
+          "B5.9"
+        ],
+        "historical_notes": [
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/chapter05-readiness.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/chapter05-persistent-counterexample-readiness.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/potential-generalization-inventory.md"
+        ]
+      }
+    },
+    {
+      "id": "CTB-55",
+      "kind": "chapter",
+      "title": "Amortization and Persistence via Lazy Evaluation",
+      "book": "PFDS",
+      "chapter": 6,
+      "prerequisite_chapters": [
+        "CTB-54",
+        "CTB-61"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-55"
+      },
+      "mathematical_scope": {
+        "key": "pfds-6",
+        "number": 6,
+        "title": "Amortization and Persistence via Lazy Evaluation",
+        "pages": "57–82",
+        "exercise_count": 7,
+        "source_status": "Complete book chapter and thesis counterpart inspected in retained reports",
+        "thesis": "Thesis §§3.2–3.6; forward contracts T1.01,T1.02,T1.15; TU.TRACE",
+        "existing": [
+          "Applications/Resources/Persistent/",
+          "Applications/Suspensions/BodyAccounting.lean",
+          "Applications/Suspensions/BodyRealization.lean",
+          "Applications/Resources/Potential.lean",
+          "Examples/PersistentSourceBoundary.lean",
+          "docs/research/pfds-persistent-accounting.md"
+        ],
+        "slices": [
+          "Logical operation histories and closed/open scope accounting: retain cycles, parallel arrows, multiple inputs/results and explicit boundary payment.",
+          "Prove actual evaluator transition/work-unit incidence and debit correspondence, including allocation timing, primitives, memoization and exceptions; a suspension address need not denote one unit of work.",
+          "Banker queues: source rotation/sharing, debit invariant, both persistent branch cases, alternative threshold and debit inheritance.",
+          "Physicist debt-potential method, lazy binomial heap and queue realizations, extra-minimum and delay/refresh variants, with initial/final debt terms.",
+          "Shared bottom-up mergesort/sortable collection operations and bit potential; stream/smallest-k variant.",
+          "Lazy pairing heap exact source semantics and supported bounds; classify unresolved conjectural performance statements honestly."
+        ],
+        "acceptance": [
+          "All seven exercises and Theorems6.1–6.2 connect to actual algorithms and observed work, not an abstract bound alone.",
+          "Realized support is distinct from discharge multiplicity, body entries and cache writes; NoMemoizeUnwind remains explicit where required.",
+          "All three forward table contracts close only with their named realizations and cost mode."
+        ],
+        "depends": [
+          "pfds-5",
+          "pfds-semantics"
+        ],
+        "exercises": [
+          "B6.1",
+          "B6.2",
+          "B6.3",
+          "B6.4",
+          "B6.5",
+          "B6.6",
+          "B6.7"
+        ],
+        "historical_notes": [
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/chapter06-theory-readiness.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/chapter06-book-algorithms-readiness.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/chapter06-thesis-union-readiness.md"
+        ]
+      }
+    },
+    {
+      "id": "CTB-56",
+      "kind": "chapter",
+      "title": "Eliminating Amortization",
+      "book": "PFDS",
+      "chapter": 7,
+      "prerequisite_chapters": [
+        "CTB-55"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-56"
+      },
+      "mathematical_scope": {
+        "key": "pfds-7",
+        "number": 7,
+        "title": "Eliminating Amortization",
+        "pages": "83–98",
+        "exercise_count": 4,
+        "source_status": "Complete book Ch7 and thesis Ch4 inspected",
+        "thesis": "Thesis Ch4 and distinct scheduled digits in §8.2; T1.03,T1.16",
+        "existing": [
+          "Applications/Progress/Streams.lean",
+          "Applications/Suspensions/",
+          "Applications/Resources/Persistent/",
+          "Applications/Sequences/AbstractFIFO.lean",
+          "Applications/Sorting/Stable.lean"
+        ],
+        "slices": [
+          "Incremental rotation and real-time queue with dependency chains, schedules, length/balance invariant and constant work per public operation.",
+          "Scheduled binomial heap pending-range/completed-zero separation, actual operation work and all four exercises.",
+          "Scheduled bottom-up mergesort: source-specific schedules, segment-work bound, complete zero/terminal-cell cases and sort work.",
+          "Resolve or explicitly correct the thesis eager-merge work obligation and transport only justified book/thesis observation contracts."
+        ],
+        "acceptance": [
+          "Theorem7.1 and Lemma7.2 prove worst-case work of the actual scheduled realizations.",
+          "Queue, heap and digit instances discharge their own premises; a common scheduling lemma does not accept every realization.",
+          "Schedule construction, forcing and cleanup are included in the declared work metric."
+        ],
+        "depends": [
+          "pfds-6"
+        ],
+        "exercises": [
+          "B7.1",
+          "B7.2",
+          "B7.3",
+          "B7.4"
+        ],
+        "historical_notes": [
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/chapter07-union-readiness.md"
+        ]
+      }
+    },
+    {
+      "id": "CTB-57",
+      "kind": "chapter",
+      "title": "Lazy Rebuilding",
+      "book": "PFDS",
+      "chapter": 8,
+      "prerequisite_chapters": [
+        "CTB-56"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-57"
+      },
+      "mathematical_scope": {
+        "key": "pfds-8",
+        "number": 8,
+        "title": "Lazy Rebuilding",
+        "pages": "99–114",
+        "exercise_count": 7,
+        "source_status": "Complete book Ch8, all exercises and thesis Ch5 inspected",
+        "thesis": "Thesis Ch5; T1.06,T1.07",
+        "existing": [
+          "Applications/Sequences/Symmetric/Core.lean",
+          "Applications/Sequences/AbstractFIFO.lean",
+          "Applications/Resources/SymmetricWorkload.lean",
+          "Applications/Suspensions/",
+          "Applications/Resources/Persistent/"
+        ],
+        "slices": [
+          "Batched and global rebuilding, Hood–Melville state machine, invalidation, progress/deadline potential and exercises.",
+          "Output-restricted deque, banker deque with both-ended debit account and balance parameter.",
+          "Real-time deque actual rotation/drop/take scheduling and Exercise8.7 worst-case deadline proof, including odd splits and terminal cells.",
+          "Keep corrected appendix singleton cases and thesis rotateDrop argument order with independently specified counterexamples/adapters."
+        ],
+        "acceptance": [
+          "Theorem8.1 and all seven exercises retain correct source variants, size parameters, primitive operation cost and small cases.",
+          "A public snoc into empty deque supports head/tail, and cons supports last/init; the printed defective Haskell listing is not silently accepted.",
+          "Both forward table contracts close with explicit amortized vs worst-case status."
+        ],
+        "depends": [
+          "pfds-7"
+        ],
+        "exercises": [
+          "B8.1",
+          "B8.2",
+          "B8.3",
+          "B8.4",
+          "B8.5",
+          "B8.6",
+          "B8.7"
+        ],
+        "historical_notes": [
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/chapter08-union-readiness.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/chapter08-exercise-readiness.md"
+        ]
+      }
+    },
+    {
+      "id": "CTB-58",
+      "kind": "chapter",
+      "title": "Numerical Representations",
+      "book": "PFDS",
+      "chapter": 9,
+      "prerequisite_chapters": [
+        "CTB-57"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-58"
+      },
+      "mathematical_scope": {
+        "key": "pfds-9",
+        "number": 9,
+        "title": "Numerical Representations",
+        "pages": "115–140",
+        "exercise_count": 19,
+        "source_status": "Book navigation and selected comparisons retained; complete thesis Chapters 6 and 8 inventories retained; exhaustive book sections and exercise subparts still require the primary text.",
+        "thesis": "Thesis Ch6 and §§8.1–8.3; TU.SEG,TU.DIG123,TU.SCHEDULE; T1.12,T1.13",
+        "existing": [
+          "Applications/Resources/BinaryCounter.lean",
+          "Applications/Resources/Growth.lean",
+          "Applications/Search/ExactPriority.lean",
+          "Applications/Suspensions/",
+          "Applications/Sequences/AbstractStack.lean"
+        ],
+        "slices": [
+          "Open complete book claim/figure/exercise-subpart ledger before accepting coverage.",
+          "Positional/dense/sparse binary and zeroless/redundant/lazy/segmented numeral semantics, normalization and source operations.",
+          "Binary and skew random-access list operations, actual index/persistence costs and canonical skew numeral uniqueness.",
+          "Skew binomial shapes/size lemma, link/skew-link/normalization/minimum/delete and operation costs.",
+          "Separate thesis segmented bulk-link collections using real-time deques; discharge list-order and heap-minimum contracts independently.",
+          "Separate book digits0/1/2 from thesis1/2/3; mixed increment/decrement accounting, scheduled binary instance and higher-radix exercises.",
+          "Correct skew-index boundary and retain missing cached-weight wrapper; prove repaired behavior with negative source cases."
+        ],
+        "acceptance": [
+          "All 19 exercise headings are expanded to inspected subparts, Theorem9.1 and Lemma9.2 proved, plus thesis-only variants.",
+          "Representation equivalence preserves value with explicit digit encoding; no constructor renaming passes as a proof.",
+          "T1.12/T1.13 bounds concern the actual source realizations and all source failure/index domains."
+        ],
+        "depends": [
+          "pfds-8"
+        ],
+        "exercises": [
+          "B9.1",
+          "B9.2",
+          "B9.3",
+          "B9.4",
+          "B9.5",
+          "B9.6",
+          "B9.7",
+          "B9.8",
+          "B9.9",
+          "B9.10",
+          "B9.11",
+          "B9.12",
+          "B9.13",
+          "B9.14",
+          "B9.15",
+          "B9.16",
+          "B9.17",
+          "B9.18",
+          "B9.19"
+        ],
+        "historical_notes": [
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/thesis-chapter06-source-inventory-045.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/thesis-chapter08-source-inventory-045.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/union-scope-reconciliation.md"
+        ]
+      }
+    },
+    {
+      "id": "CTB-59",
+      "kind": "chapter",
+      "title": "Data-Structural Bootstrapping",
+      "book": "PFDS",
+      "chapter": 10,
+      "prerequisite_chapters": [
+        "CTB-58"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-59"
+      },
+      "mathematical_scope": {
+        "key": "pfds-10",
+        "number": 10,
+        "title": "Data-Structural Bootstrapping",
+        "pages": "141–170",
+        "exercise_count": 15,
+        "source_status": "Full thesis Ch7 inspected; full book Ch10 and all subparts require primary-text reconciliation",
+        "thesis": "Thesis Ch7; TU.MODULES,TU.BOOTVAR; T1.04,T1.09,T1.14",
+        "existing": [
+          "Applications/Sequences/AbstractFIFO.lean",
+          "Applications/Search/ExactPriority.lean",
+          "Applications/Search/OrderedMap/Interface.lean",
+          "Applications/Resources/Persistent/",
+          "Applications/Suspensions/"
+        ],
+        "slices": [
+          "Book item ledger, nonuniform recursion and uniform encoding with restored representation invariants; alternative binary random-access lists.",
+          "Bootstrapped queue baseline, actual termination/depth and log-star amortized bounds; separately suspended-middle and stream-middle variants.",
+          "Formalize retained [4,6] pending-block counterexample and replace literal block-doubling explanation with proved superincreasing weights where sufficient; complete remaining depth/cost argument.",
+          "Generic structural abstraction and lazy catenable lists, both debit invariants and Theorem10.1.",
+          "Generic heap bootstrapping over lawful primitive heap capability and exact selected occurrences, carrying primitive size/cost/effect premises.",
+          "Aggregate types, tries and generalized tries; use shared partial-map semantics and operations rather than a separate incompatible finite-map API."
+        ],
+        "acceptance": [
+          "All 15 exercises/subparts and book-only tries/alternate-list constructions have explicit proofs or justified source-context disposition.",
+          "A concrete heap instance does not substitute for the higher-order generic transformation.",
+          "All three forward contracts close with mixed worst-case/amortized distinctions; log-star is not silently replaced by logarithm or constant."
+        ],
+        "depends": [
+          "pfds-9"
+        ],
+        "exercises": [
+          "B10.1",
+          "B10.2",
+          "B10.3",
+          "B10.4",
+          "B10.5",
+          "B10.6",
+          "B10.7",
+          "B10.8",
+          "B10.9",
+          "B10.10",
+          "B10.11",
+          "B10.12",
+          "B10.13",
+          "B10.14",
+          "B10.15"
+        ],
+        "historical_notes": [
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/thesis-chapter07-source-inventory-045.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/book-thesis-union.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/union-scope-reconciliation.md"
+        ]
+      }
+    },
+    {
+      "id": "CTB-60",
+      "kind": "chapter",
+      "title": "Implicit Recursive Slowdown",
+      "book": "PFDS",
+      "chapter": 11,
+      "prerequisite_chapters": [
+        "CTB-59"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-60"
+      },
+      "mathematical_scope": {
+        "key": "pfds-11",
+        "number": 11,
+        "title": "Implicit Recursive Slowdown",
+        "pages": "171–184",
+        "exercise_count": 4,
+        "source_status": "Full thesis Ch8 inspected; full book Ch11 requires primary-text reconciliation",
+        "thesis": "Thesis §§8.4–8.5 and templates; T1.05,T1.08,T1.10,T1.11",
+        "existing": [
+          "Applications/Sequences/AbstractFIFO.lean",
+          "Applications/Sequences/Symmetric/Core.lean",
+          "Applications/Resources/Persistent/",
+          "Applications/Suspensions/"
+        ],
+        "slices": [
+          "General recursive slowdown templates and checked implicit queue, full deque and restricted input/output deque specializations.",
+          "Simple catenable deque semantics and amortized O(min(log n1,log n2)) append bound; preserve surviving front element in corrected collapse rule.",
+          "Advanced compound/five-segment catenable deques with every helper/tail case, invariant and Theorem11.2 debit account.",
+          "Retain thesis <3 versus book <4 catenation threshold as distinct realizations unless a suitable value/cost comparison is proved.",
+          "Make size/threshold-observation capability and its cost explicit, using bounded ordinary deque observations when appropriate."
+        ],
+        "acceptance": [
+          "Theorems11.1–11.2, all four exercises and restricted variants have source-connected semantic and actual cost proofs.",
+          "Public catenate([a,b],[c,d]) then tail returns [b,c,d]; literal thesis loss of b has a checked negative example.",
+          "Full deque proof does not automatically discharge restricted digit variants, and value equality does not prove identical allocation/forcing cost."
+        ],
+        "depends": [
+          "pfds-10"
+        ],
+        "exercises": [
+          "B11.1",
+          "B11.2",
+          "B11.3",
+          "B11.4"
+        ],
+        "historical_notes": [
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/thesis-chapter08-source-inventory-045.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/union-scope-reconciliation.md"
+        ]
+      }
+    },
+    {
+      "id": "CTB-61",
+      "kind": "supplement",
+      "title": "Thesis Appendix A — complete suspension extension and pure operational boundaries",
+      "book": "PFDS",
+      "chapter": "pfds-semantics",
+      "prerequisite_chapters": [
+        "CTB-51"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-61"
+      },
+      "mathematical_scope": {
+        "key": "pfds-semantics",
+        "title": "Thesis Appendix A — complete suspension extension and pure operational boundaries",
+        "scope": [
+          "A.1 syntax and precedence; A.2 typing, equality, nonexpansiveness and source static counterexamples.",
+          "A.3 fresh allocation, closure captures, cache hits, body evaluations, pattern failures, exception propagation and reference patterns.",
+          "A.4 Rec/SRec and restricted recursion, effectful reentry/overwrite, pure self-entry nontermination and optional blackholing as a separate variant.",
+          "Delimit base Standard ML fragment; do not claim full SML formalization. Reconcile SUSP-STAT-001 and actual source typing boundaries."
+        ],
+        "owners": [
+          "Applications/Suspensions/",
+          "docs/research/pfds-suspensions.md",
+          "docs/research/pfds-pure-suspensions.md",
+          "docs/research/pfds-cache-counts.md",
+          "docs/research/pfds-body-counts.md"
+        ],
+        "evidence": [
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/suspension-foundation-inventory.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/thesis-endmatter-source-inventory-045.md"
+        ],
+        "acceptance": [
+          "Each extension rule, syntax/static condition and source example has explicit correspondence or a documented corrected boundary.",
+          "NoMemoizeUnwind is not inferred from pure finite normal return; body entries, distinct addresses and successful writes remain distinct."
+        ],
+        "depends": [
+          "pfds-2"
+        ]
+      }
+    },
+    {
+      "id": "CTB-62",
+      "kind": "supplement",
+      "title": "Book Appendix A — Haskell realization correspondence",
+      "book": "PFDS",
+      "chapter": "pfds-haskell",
+      "prerequisite_chapters": [
+        "CTB-51",
+        "CTB-52",
+        "CTB-53",
+        "CTB-54",
+        "CTB-55",
+        "CTB-56",
+        "CTB-57",
+        "CTB-58",
+        "CTB-59",
+        "CTB-60"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-62"
+      },
+      "mathematical_scope": {
+        "key": "pfds-haskell",
+        "title": "Book Appendix A — Haskell realization correspondence",
+        "scope": [
+          "Queue/deque/catenable/list/heap/sortable/set/map interfaces and all listed realizations on pp185–206.",
+          "Check distinct failure conventions, implicit laziness, polymorphic recursion and exact tie choices against each main-text operation.",
+          "Record corrected banker-deque singleton behavior and retained source negative cases."
+        ],
+        "owners": [
+          "Chapter-specific library owners and source-correspondence notes"
+        ],
+        "evidence": [
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/book-full-inventory.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/chapter05-readiness.md",
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/chapter08-union-readiness.md"
+        ],
+        "acceptance": [
+          "Every listed translation has a relation to its main-text realization for the observations actually preserved.",
+          "Demand/cost correspondence is proved separately from finite output equality."
+        ],
+        "depends": [
+          "pfds-2",
+          "pfds-3",
+          "pfds-4",
+          "pfds-5",
+          "pfds-6",
+          "pfds-7",
+          "pfds-8",
+          "pfds-9",
+          "pfds-10",
+          "pfds-11"
+        ]
+      }
+    },
+    {
+      "id": "CTB-63",
+      "kind": "supplement",
+      "title": "Thesis conclusions, source closure and whole-union acceptance",
+      "book": "PFDS",
+      "chapter": "pfds-final",
+      "prerequisite_chapters": [
+        "CTB-50",
+        "CTB-51",
+        "CTB-52",
+        "CTB-53",
+        "CTB-54",
+        "CTB-55",
+        "CTB-56",
+        "CTB-57",
+        "CTB-58",
+        "CTB-59",
+        "CTB-60",
+        "CTB-61",
+        "CTB-62"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-63"
+      },
+      "mathematical_scope": {
+        "key": "pfds-final",
+        "title": "Thesis conclusions, source closure and whole-union acceptance",
+        "scope": [
+          "Classify all thesis Ch9 open questions and engineering/historical context, retaining them without claiming they are solved.",
+          "Check all chapter source rows, all 83 exercise headings/subparts, all16 forward cost rows, distinct thesis supplements and both appendices.",
+          "Reconcile public entrypoints and concrete cross-book clients with the chapter contracts."
+        ],
+        "owners": [
+          "docs/research/pfds-reconstruction.md",
+          "docs/research/pfds-union-coverage.md"
+        ],
+        "evidence": [
+          "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/thesis-endmatter-source-inventory-045.md"
+        ],
+        "acceptance": [
+          "No source obligation is silently dropped, replaced by a weaker theorem, or closed by module-count statistics.",
+          "Completed formal claims retain their intended statements and connected applications."
+        ],
+        "depends": [
+          "pfds-1",
+          "pfds-2",
+          "pfds-3",
+          "pfds-4",
+          "pfds-5",
+          "pfds-6",
+          "pfds-7",
+          "pfds-8",
+          "pfds-9",
+          "pfds-10",
+          "pfds-11",
+          "pfds-semantics",
+          "pfds-haskell"
+        ]
+      }
+    },
+    {
+      "id": "CTB-64",
+      "kind": "source",
+      "title": "Acquire exact primary text when a new source obligation needs it",
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-64"
+      },
+      "mathematical_acceptance": [
+        "Use exact VFA 2.1 source identity, the FDSA July 27, 2026 manuscript, and the exact PFDS book/thesis text for source correspondence.",
+        "Uninspected or ambiguous source obligations remain unresolved until their exact primary text is available; retained complete early-chapter requirements remain usable."
+      ]
+    },
+    {
+      "id": "CTB-65",
+      "kind": "validation",
+      "title": "Receiving whole-library build, exhaustive audit and final acceptance",
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-65"
+      },
+      "mathematical_acceptance": [],
+      "disposition": "Operational contents omitted; historical ticket identity retained."
+    },
+    {
+      "id": "CTB-66",
+      "kind": "book-closure",
+      "title": "VFA whole-book source and formalization closure",
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-66"
+      },
+      "mathematical_acceptance": [
+        "All Preface and 16 chapter tickets closed with every exercise/subpart and meaningful source claim disposed.",
+        "No stronger staged draft, counterexample or required implementation correspondence is lost."
+      ]
+    },
+    {
+      "id": "CTB-67",
+      "kind": "book-closure",
+      "title": "FDSA whole-book source and formalization closure",
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-67"
+      },
+      "mathematical_acceptance": [
+        "All 27 chapters and Appendices A-C closed against their original inventories, including unnumbered Chapter 1 and all exercises.",
+        "False claims retain checked corrections; genuinely open conjectures retain an explicit unproved proposition and source disposition.",
+        "Cross-book shared realizations satisfy their separate semantic and work contracts."
+      ]
+    },
+    {
+      "id": "CTB-68",
+      "kind": "integration",
+      "title": "Cross-book coherence and interchangeable clients",
+      "historical_status": "in_progress",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-68"
+      },
+      "mathematical_acceptance": [
+        "Reuse the existing sorting, sequence, map/set, priority, tree, resource, probability and suspension owners.",
+        "Prove exact relationships between each additional specification or implementation and independently stated observations.",
+        "Preserve payload universes, occurrence and tie order, valid-state restrictions, partiality, cost/demand models and historical source distinctions.",
+        "Use concrete shared clients to demonstrate each claimed interchangeability."
+      ]
+    },
+    {
+      "id": "CTB-69",
+      "kind": "programme-closure",
+      "title": "Complete and durably hand off all three books",
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-69"
+      },
+      "mathematical_acceptance": [],
+      "disposition": "Operational contents omitted; historical ticket identity retained."
+    },
+    {
+      "id": "CTB-70",
+      "kind": "implementation",
+      "title": "Recover suffix traversal with separate construction and invocation costs",
+      "book": "FDSA",
+      "chapter": 4,
+      "parent": "CTB-23",
+      "prerequisite_tickets": [
+        "CTB-2"
+      ],
+      "historical_status": "source_complete",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-70"
+      },
+      "mathematical_specification": {
+        "donor": "b035f1151ab4f0c7d7380818576cfe97dae434c4",
+        "source_rows": [
+          "C04-017",
+          "C04-018"
+        ],
+        "source_exercise": "Exercise 4.1 accumulator portion: every suffix and linear invocation work. C04-018 direct-inorder quadratic family remains with CTB-71.",
+        "formal_paths": [
+          "Applications/Resources/TreeAccumulator.lean",
+          "Examples/TreeAccumulator.lean",
+          "Examples/TreeAccumulatorObservations.lean"
+        ],
+        "existing_owners": [
+          "Trees.fold",
+          "Resources.Measured",
+          "Resources.bind",
+          "Resources.TreeFold",
+          "Resources.ListReversal.appendRun"
+        ],
+        "claims": [
+          "Actual right-before-left dependent suffix invocation; append only in its independent specification.",
+          "All-suffix value and exact natural invocation-cost laws, retaining nil and empty-payload boundaries.",
+          "Separate measured construction, one actual returned-function application and two applications, with both tariffs explicit.",
+          "Additive-hom transport, product observations, and ordered traces connected to the measured operation.",
+          "Comparison to actual materialization followed by append, without inferring cost equivalence from value equivalence."
+        ],
+        "boundaries": [
+          "No compiler transformation, closure-allocation, physical sharing or constant-stack claim.",
+          "Core needs only Add; additive transport does not require commutativity.",
+          "All Chapter 4 obligations and the remaining exercises remain mandatory.",
+          "Do not close C04-018 or all Exercise 4.1 until its direct-inorder shape-sensitive worst-case obligation is also discharged."
+        ]
+      },
+      "mathematical_acceptance": [
+        "Coherent current-owner integration of all three preserved modules, with source statement correspondence."
+      ],
+      "historical_mathematical_result": {
+        "scope": "Bounded source unit only",
+        "candidate": "10f1ce7eef98480b624aea44c728591d07b6b375"
+      }
+    },
+    {
+      "id": "CTB-71",
+      "kind": "implementation",
+      "title": "Recover shape-sensitive traversal work and the quadratic inorder boundary",
+      "book": "FDSA",
+      "chapter": 4,
+      "parent": "CTB-23",
+      "prerequisite_tickets": [
+        "CTB-2",
+        "CTB-70"
+      ],
+      "historical_status": "source_complete",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-71"
+      },
+      "mathematical_specification": {
+        "donor": "317aae79ff98b90b5525c6dd53bcd815bc6c6e1a",
+        "source_rows": [
+          "C04-018"
+        ],
+        "formal_paths": [
+          "Applications/Trees/TraversalWork.lean",
+          "Applications/Resources/TreeTraversalWork.lean",
+          "Examples/TreeTraversalWork.lean"
+        ],
+        "claims": [
+          "Relate actual measured inorder and suffix-invocation work to canonical tree shape observations.",
+          "Prove a quadratic left-chain worst-case family while retaining cheaper shapes; do not claim every tree has quadratic inorder work.",
+          "Retain distinct append associations and their exact constants, order and occurrence multiplicity."
+        ],
+        "architecture_step": "Compare the donor statistics and recurrences with current Trees and Resources owners before receiving them; use canonical observations and existing fold/transport laws."
+      },
+      "mathematical_acceptance": [
+        "Preserve all useful donor mathematics and integrate through the current shared APIs.",
+        "Close the direct-inorder portion of C04-018 with exact source correspondence and checked shape-family applications."
+      ],
+      "historical_mathematical_result": {
+        "scope": "Bounded source unit only",
+        "candidate": "dbc8c0f65d6456c2926d0d6324e97cf0523784ac"
+      }
+    },
+    {
+      "id": "CTB-72",
+      "kind": "implementation",
+      "title": "Recover structural tree observations and weighted paths with shape inheritance",
+      "book": "FDSA",
+      "chapter": 4,
+      "parent": "CTB-23",
+      "prerequisite_tickets": [
+        "CTB-71"
+      ],
+      "historical_status": "source_complete",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-72"
+      },
+      "mathematical_specification": {
+        "donor": "af03b76c478bf1b71b2cbe38fb05ca6a69ad91b1",
+        "source_rows": [
+          "C04-002",
+          "C04-005",
+          "C04-014",
+          "C04-015",
+          "C04-021",
+          "C04-022",
+          "C04-046"
+        ],
+        "formal_paths": [
+          "Applications/Trees/BasicObservations.lean",
+          "Applications/Trees/WeightedPaths.lean",
+          "Applications/Trees/Shape.lean",
+          "Examples/TreeBasicObservations.lean",
+          "Examples/TreeWeightedPaths.lean"
+        ],
+        "claims": [
+          "Independent structural label set, ordered preorder, exact membership/length/map bridges and structural subtree relation/set correspondence.",
+          "Natural internal-node weighted path recurrences and arbitrary-depth offset equivalence, preserving the root depth-plus-one convention.",
+          "General Complete and AlmostComplete inheritance along structural descendants through the existing shape owner."
+        ],
+        "architecture_step": "Reuse canonical BinaryTree, Trees.fold and Shape predicates; preserve the independent source recurrences and all70 donor named declarations without introducing a duplicate carrier or Huffman convention."
+      },
+      "mathematical_acceptance": [
+        "Complete useful donor recovery and source statement correspondence, with public-result-connected boundary examples."
+      ],
+      "historical_mathematical_result": {
+        "scope": "Bounded source unit only",
+        "candidate": "42e6b9ad9022c56b5c82ab50b7e02f1328617eaa"
+      }
+    },
+    {
+      "id": "CTB-73",
+      "kind": "implementation",
+      "title": "Connect canonical tree observations to ordered search and abstract-set clients",
+      "book": "FDSA",
+      "chapter": 4,
+      "parent": "CTB-23",
+      "prerequisite_tickets": [
+        "CTB-72"
+      ],
+      "coherence_owner": "CTB-68",
+      "historical_status": "source_complete",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-73"
+      },
+      "mathematical_specification": {
+        "source_rows": [
+          "C04-058 (prerequisite only)"
+        ],
+        "formal_paths": [
+          "Applications/Search/AbstractSet.lean",
+          "Applications/Search/OrderedTree/Basic.lean",
+          "Applications/Search/OrderedTree/Contents.lean",
+          "Applications/Search/OrderedTree/Observations.lean",
+          "Examples/TreeSearchObservations.lean"
+        ],
+        "claims": [
+          "Use canonical Trees.inorder for ordered-tree entries while retaining its API and existing clients.",
+          "Relate raw structural membership and All to the independent label-set observation without validity assumptions.",
+          "Prove ordered-tree and keyed ordered-tree equivalence with strict pairwise inorder observations, stating transitivity requirements precisely.",
+          "Transport existing abstract-set laws across observers equivalent on valid states and demonstrate mixed implementation composition through existing relational squares."
+        ],
+        "architecture_step": "Use existing BinaryTree, Trees, OrderedTree, AbstractSet.Laws and Relational.compose. Preserve actual algorithm/cost distinctions and avoid a second carrier or generic simulation framework."
+      },
+      "mathematical_acceptance": [
+        "Preserve existing public behavior, useful mathematics and clients while proving the observation bridges.",
+        "Meaningful unordered, duplicate, keyed-payload and validity-restricted observer examples use the public results."
+      ],
+      "historical_mathematical_result": {
+        "scope": "Bounded coherence source unit only",
+        "candidate": "78cc12e471d83a7117f0e8150a51c8a6814c4fdd"
+      }
+    },
+    {
+      "id": "CTB-74",
+      "kind": "implementation",
+      "title": "Recover enumeration, levels, reconstruction and rose-tree exercises",
+      "book": "FDSA",
+      "chapter": 4,
+      "parent": "CTB-23",
+      "prerequisite_tickets": [
+        "CTB-72",
+        "CTB-73"
+      ],
+      "historical_status": "source_complete",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-74"
+      },
+      "mathematical_specification": {
+        "donor": "d02419738a9e16963727b25acf2e18f374dd16de",
+        "source_rows": [
+          "C04-019",
+          "C04-020",
+          "C04-023",
+          "C04-024",
+          "C04-025",
+          "C04-026",
+          "C04-027",
+          "C04-028",
+          "C04-029",
+          "C04-030"
+        ],
+        "formal_paths": [
+          "Applications/Trees/Enumeration.lean",
+          "Applications/Trees/Levels.lean",
+          "Applications/Trees/Reconstruction.lean",
+          "Applications/Trees/Rose.lean",
+          "Examples/TreeEnumeration.lean",
+          "Examples/TreeLevels.lean",
+          "Examples/TreeReconstruction.lean",
+          "Examples/TreeRose.lean"
+        ],
+        "claims": [
+          "Deterministic exact tree enumeration, complete membership and duplicate-free output even for repeated labels.",
+          "Single-fold level collection with aligned tail-preserving merge and all-index level correspondence.",
+          "Total partial reconstruction with explicit distinctness and malformed-input boundaries.",
+          "Labelled rose-tree mirroring with nested children and involution.",
+          "A checked enumeration/reconstruction client composed through public theorem APIs."
+        ],
+        "architecture_step": "Retain all eight donor modules and their 97 named declarations, reuse canonical tree observations, and preserve independent source recurrences and counterexamples."
+      },
+      "mathematical_acceptance": [
+        "Complete useful donor recovery without strengthening reconstruction claims beyond proved hypotheses.",
+        "Chapter 4 remains open for balancing, maximal complete subtrees, constructor characterization and cache clients."
+      ],
+      "historical_mathematical_result": {
+        "scope": "Four traversal exercises and their enumeration/reconstruction composition",
+        "candidate": "9ad500d1a3925c4bb1413beba9be26405291ec8a"
+      }
+    },
+    {
+      "id": "CTB-75",
+      "kind": "implementation",
+      "title": "Recover the consuming balancer and prove shape, ordered interpretation and composed costs",
+      "book": "FDSA",
+      "chapter": 4,
+      "parent": "CTB-23",
+      "prerequisite_tickets": [
+        "CTB-73",
+        "CTB-74"
+      ],
+      "historical_status": "source_complete",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-75"
+      },
+      "mathematical_specification": {
+        "donor": "a8f57dbf153c19e3bad2c8136a90b566eeb35374",
+        "source_rows": [
+          "C04-047",
+          "C04-048",
+          "C04-049",
+          "C04-050",
+          "C04-051",
+          "C04-052",
+          "C04-053",
+          "C04-054",
+          "C04-055",
+          "C04-056",
+          "C04-057",
+          "C04-058",
+          "C04-061"
+        ],
+        "claims": [
+          "Preserve all66 donor named declarations and actual sequential prefix/suffix consumption, including failure behavior.",
+          "Prove successful output almost complete through existing leaf-count/height/log laws; retain exact n+1 formulas and wrapper domains.",
+          "Compose actual balanced values with canonical ordered-tree/set observations, including keyed payloads and repeated-key counterexamples.",
+          "Execute literal, direct-suffix and construction-inclusive frontends before the same measured consumer; prove exact costs, erasure and suffix contracts."
+        ],
+        "architecture_step": "Reuse Shape/ShapeLog and CTB-73; universal cross-application pipelines belong in Examples under ADR0010. No upward imports or new tree/cost framework."
+      },
+      "mathematical_acceptance": [
+        "All useful donor mathematics and source boundaries preserved.",
+        "Source rows C04-047–058 and Exercise 4.9 retain connected applications and intended mathematical statements.",
+        "The exact Exercise 4.8 formula and completeness/maximum-cache obligations have separate owners."
+      ],
+      "historical_mathematical_result": {
+        "scope": "Consuming balance, shared shape/height laws, ordered-set composition and actual measured pipelines",
+        "candidate": "131bf04bacf55168e04e901754c3a7b1150a086a"
+      }
+    },
+    {
+      "id": "CTB-76",
+      "kind": "implementation",
+      "title": "Complete the shared completeness summary, maximal-subtree algorithm and exact constructor law",
+      "book": "FDSA",
+      "chapter": 4,
+      "parent": "CTB-23",
+      "prerequisite_tickets": [
+        "CTB-72",
+        "CTB-75"
+      ],
+      "historical_status": "source_complete",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-76"
+      },
+      "mathematical_specification": {
+        "source_rows": [
+          "C04-031 (executable checker)",
+          "C04-038",
+          "C04-039",
+          "C04-040",
+          "C04-041",
+          "C04-059",
+          "C04-060",
+          "C04-074"
+        ],
+        "claims": [
+          "Use one Bool/height fold with independent Complete/height correctness for checking and the concrete cache client.",
+          "Select a maximal-height complete structural subtree in one fold without tree/label equality, Complete calls or subtree enumeration.",
+          "Prove the exact almost-complete node formula, including completeness of the shorter child when heights differ.",
+          "Reuse current generic cache validity/reader laws and existing counterexample fixtures."
+        ],
+        "architecture_step": "Keep actual algorithms, independent observations and laws separate; compose existing fold/fusion, Subtree and Cached owners."
+      },
+      "mathematical_acceptance": [
+        "Exercise4.7 and its no-tree-equality bonus, Exercise4.8 and Exercise4.10 completely checked with their source domains.",
+        "Cases cover empty labels, complete/incomplete inputs, genuine tie selection, invalid caches and the existing weaker-constructor counterexample."
+      ],
+      "historical_mathematical_result": {
+        "scope": "Shared executable completeness summary, generic cache client, maximal complete subtree and exact AC constructor law",
+        "candidate": "66041995e0c5f73786046d5d6d7d9b99dcd01564"
+      }
+    },
+    {
+      "id": "CTB-77",
+      "kind": "implementation",
+      "title": "Connect the source maximum cache to the generic optional-summary interface",
+      "book": "FDSA",
+      "chapter": 4,
+      "parent": "CTB-23",
+      "prerequisite_tickets": [
+        "CTB-72",
+        "CTB-76"
+      ],
+      "historical_status": "source_complete",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-77"
+      },
+      "mathematical_specification": {
+        "source_rows": [
+          "C04-063 (key-set erasure portion)",
+          "C04-075",
+          "C04-076"
+        ],
+        "claims": [
+          "Preserve raw α annotations at nonempty nodes and Option-valued empty observation with no OrderBot/Inhabited label assumption.",
+          "Prove explicit raw-to-optional cache reader/validity/smart-node adapters and consume the existing generic correctness theorem.",
+          "Connect to standard List.max? and the independent structural set, proving attainment and greatestness.",
+          "Supply the general setTree map-image law and its key-erasure specialization; retain arbitrary maps and all occurrences in inorder."
+        ],
+        "architecture_step": "Use actual Cached, canonical inorder/set and standard maximum APIs. Preserve the raw representation and explicit adapters without introducing a generic adapter framework."
+      },
+      "mathematical_acceptance": [
+        "Exercise4.11 and source key-set observation completely stated and checked, including nil and forged descendants.",
+        "Negative integer keys expose invented-zero defaults; raw/optional bridges used on actual smart-node clients.",
+        "Any reverse adapter states a sufficient valid-state domain without falsely claiming validity is necessary."
+      ],
+      "historical_mathematical_result": {
+        "scope": "Source raw maximum cache, explicit generic optional adapters, independent maximum semantics and general set-image observation",
+        "candidate": "35ab95c1485468fee5004a6a919ef25fc99edb6c"
+      }
+    },
+    {
+      "id": "CTB-78",
+      "kind": "integration",
+      "title": "Refresh master pin and integrate upstream mathematics",
+      "prerequisite_chapters": [
+        "CTB-3",
+        "CTB-4"
+      ],
+      "historical_status": "planned",
+      "source": {
+        "path": "work/TICKETS.json",
+        "sha256": "ccdd943570d0c8e60860276c08cd0aaefb84819552d83c4e26b2f139d1dcb5f0",
+        "record": "CTB-78"
+      },
+      "mathematical_scope": {
+        "requirements": [
+          "Preserve both bodies of mathematical work when integrating upstream changes; assess actual capabilities and chapter reuse."
+        ],
+        "boundaries": [
+          "Source qualification of an earlier mathematical state does not establish correctness of the combined state."
+        ]
+      }
+    }
+  ],
+  "book_sources": {
+    "VFA": {
+      "book": "VFA",
+      "title": "Verified Functional Algorithms",
+      "source_version": "2.1 (2026-08-24 10:11, Coq 9.0.0 or later)",
+      "source_archive_sha256": "f03296c763d78aa5bc18a545d848d398292575e5c8af4b5aa94dc25709e169b8",
+      "preferred_source_url": "https://softwarefoundations.cis.upenn.edu/vfa-2.1/vfa.tgz",
+      "source_qualified_chapters": [
+        "Preface",
+        "Perm"
+      ],
+      "current_mathematical_map": "docs/research/vfa-coverage.md"
+    },
+    "FDSA": {
+      "book": "FDSA",
+      "title": "Functional Data Structures and Algorithms: A Proof Assistant Approach",
+      "edition": "Version of July 27, 2026",
+      "editor": "Tobias Nipkow",
+      "pdf_sha256": "9633e91729287dff6cff7c390546d8354b3f3d292fed3eb4cad2b66c891d1645",
+      "pdf_url": "https://fdsa-book.net/functional_data_structures_algorithms.pdf",
+      "companion_revision": "f86f290225eebcc52c1ae7dba2e098f405f51c21",
+      "source_manifest": "docs/history/textbooks/checkpoint-012/books/fdsa/records/research/source/fdsa-control/provenance/source-inventory.json",
+      "chapter_count": 27,
+      "appendix_count": 3,
+      "numbered_chapter_obligations": 2526,
+      "numbered_appendix_obligations": 170,
+      "historically_accepted_chapters": [
+        1,
+        2,
+        3
+      ],
+      "source_qualified_chapters": [
+        4
+      ],
+      "current_chapter4_map": "docs/research/fdsa-chapter04-coverage.md",
+      "qualification_boundary": "Chapter 4 source qualification uses the preserved complete ledger; no fresh primary-manuscript reading or whole-book completion follows."
+    },
+    "PFDS": {
+      "book": "Purely Functional Data Structures",
+      "author": "Chris Okasaki",
+      "scope": "Union of Cambridge book (1998 first publication, 1999 paperback, supplied 2003 digital printing) and complete 1996 thesis CMU-CS-96-177; both appendices and source corrections retained.",
+      "coherence_requirements": [
+        "Reuse operation-only interfaces and separate laws/validity/observations. Use current relational squares for validity-bearing representations and synchronization for exact implementations of one specification.",
+        "Shared sequence contracts connect PFDS stack/queue/deque work to VFA and FDSA list/sequence developments. Retain order, duplicates and optional failure.",
+        "Shared OrderedMap operations and valid-state adapters serve PFDS Chapter2 and later tries; reuse FDSA/VFA map clients instead of introducing textbook-only maps.",
+        "Use ExactPriority for occurrence-preserving heaps and retain explicit weakening to keyed-search contracts; preserve Huffman clients.",
+        "Use one Resources.run/Measured/Potential owner with explicit initial/final potential, cost domains and incidence maps. Shared abstract accounting does not settle algorithm-specific work.",
+        "Use independent finite sort specifications for lazy/scheduled sort values; source-specific forcing, sharing and costs retain distinct contracts."
+      ],
+      "source_identities": {
+        "book": {
+          "sha256": "b9dbf4f6ade4c24da438fd5415fc3abdd3af0aa8459d7e41e4a27de844c7ad41",
+          "bytes": 9356709,
+          "pages": 232
+        },
+        "thesis": {
+          "sha256": "f4b92ed7ea425f6f1019f20a4ef40df505327fbc5f1346ed6b7a2e28ab56d072",
+          "bytes": 628877,
+          "pages": 162,
+          "url": "https://www.cs.tufts.edu/~nr/cs257/archive/chris-okasaki/dissertation.pdf"
+        }
+      },
+      "source_accounting": {
+        "book_chapters": 11,
+        "book_exercise_headings": 83,
+        "numbered_book_results": 12,
+        "thesis_forward_cost_contracts": 16
+      },
+      "planned_leftist_client": {
+        "next_new_mathematics": "Actual leftist-merge comparison recurrence and rank bound",
+        "specification": [
+          "A measured recursion follows Search.LeftistQueue.combineQ exactly, charging zero priority comparisons at an empty operand and one at each nonempty comparison before the same right-child recursive call.",
+          "Prove its returned value equals combineQ for all inputs.",
+          "If Ranked a and Ranked b, prove comparisons(a,b) <= rank a + rank b; only rank validity is needed for this bound, not heap order.",
+          "Derive comparisons <= log2(size a+1)+log2(size b+1) via existing rank_log, then explicit total-size bounds.",
+          "Separately derive merge-call count C+1, rank-test/constructor counts when modeled, and explicit source-cost weighted bounds; preserve unit-cost premises."
+        ],
+        "reuse": [
+          "Applications/Search/LeftistQueue.lean: combineQ, combineQ_entries, combineQ_valid, rank_paths, rank_size, rank_log",
+          "Applications/Resources/Measured.lean and existing erasure squares",
+          "Applications/Search/ExactPriority.lean: exactLeftist/exactList and tied-occurrence boundaries"
+        ],
+        "examples": [
+          "Both empty cases, singleton merge, nonempty priority tie with different payloads, non-antisymmetric priority preorder.",
+          "Equal child ranks preserve their order; right-heavy child pair swaps; a Heap-only forged rank does not satisfy Ranked.",
+          "Self-meld doubles occurrences; repeated entry insertion preserves multiplicity.",
+          "A valid rank-2 root demonstrates direct peek has zero priority comparisons while delete merges children and has one."
+        ],
+        "excluded_from_slice": [
+          "Whole Chapter 3 closure",
+          "Replacement priority datatype/executor",
+          "Claim that root rank alone bounds deletion",
+          "Physical allocator/time equivalence",
+          "Pair-round linear build or any weight-biased/binomial/red-black exercise"
+        ]
+      },
+      "preserved_persistence_corrections": [
+        "CH02-PRE-001 duplicate matched-root/descendant identity",
+        "CH02-PRE-002 joint abort/candidate comparison/allocation contracts",
+        "CH02-PRE-003 finite-map overwritten-endpoint child identities",
+        "CH02-PRE-004 relational adapters and composed clients"
+      ],
+      "correspondence_owners": [
+        "docs/research/pfds-reconstruction.md",
+        "docs/research/pfds-persistence.md",
+        "docs/research/pfds-union-coverage.md",
+        "docs/research/pfds-persistent-accounting.md",
+        "docs/research/pfds-body-counts.md",
+        "docs/history/textbooks/checkpoint-012/books/pfds/records/research/coverage/coverage.json",
+        "docs/history/textbooks/checkpoint-012/books/pfds/records/research/coverage/tickets.json",
+        "docs/history/textbooks/checkpoint-012/books/pfds/records/history/requirements/chapter02.md",
+        "docs/history/textbooks/checkpoint-012/books/pfds/records/history/requirements/chapter03.md",
+        "docs/history/textbooks/checkpoint-012/books/pfds/records/research/source/union-source-identities.json"
+      ],
+      "primary_text_boundary": "The book/thesis scope includes uninspected later book sections and exercise subparts. Historical inventories preserve source requirements, not completion of their proofs."
+    }
+  }
+}

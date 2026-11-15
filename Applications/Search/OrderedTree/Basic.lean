@@ -1,5 +1,4 @@
-import Mathlib.Data.Tree.Basic
-import Mathlib.Data.List.Basic
+import Applications.Trees.Observations
 import Mathlib.Order.Defs.LinearOrder
 import Applications.Resources.Measured
 import SquareKit.Relations
@@ -27,17 +26,23 @@ def Contains (x : α) : BinaryTree α → Prop
   | .nil => False
   | .node y l r => x = y ∨ Contains x l ∨ Contains x r
 
-/-- Inorder occurrence contents, including repetitions in unordered trees. -/
-def entries : BinaryTree α → List α
-  | .nil => []
-  | .node x l r => entries l ++ x :: entries r
+/-- Canonical inorder occurrence contents, including repetitions in unordered trees. -/
+def entries : BinaryTree α → List α := Trees.inorder
+
+@[simp] theorem entries_nil : entries (.nil : BinaryTree α) = [] := rfl
+
+theorem entries_node (x : α) (l r : BinaryTree α) :
+    entries (.node x l r) = entries l ++ x :: entries r := rfl
+
+/-- Existing ordered-tree clients observe the shared tree traversal. -/
+theorem entries_eq_inorder (t : BinaryTree α) : entries t = Trees.inorder t := rfl
 
 theorem contains_iff_mem_entries (x : α) (t : BinaryTree α) :
     Contains x t ↔ x ∈ entries t := by
   induction t with
-  | nil => simp [Contains, entries]
+  | nil => simp [Contains]
   | node y l r hl hr =>
-      simp only [Contains, entries, List.mem_append, List.mem_cons, ← hl, ← hr]
+      simp only [Contains, entries_node, List.mem_append, List.mem_cons, ← hl, ← hr]
       constructor
       · rintro (h | h | h)
         · exact Or.inr (Or.inl h)
@@ -48,10 +53,8 @@ theorem contains_iff_mem_entries (x : α) (t : BinaryTree α) :
         · exact Or.inl h
         · exact Or.inr (Or.inr h)
 
-theorem entries_length (t : BinaryTree α) : (entries t).length = t.numNodes := by
-  induction t with
-  | nil => rfl
-  | node x l r hl hr => simp [entries, hl, hr, Nat.add_assoc]
+theorem entries_length (t : BinaryTree α) : (entries t).length = t.numNodes :=
+  Trees.inorder_length t
 
 /-- All labels, with no order or equality assumptions on the label type. -/
 def All (P : α → Prop) : BinaryTree α → Prop

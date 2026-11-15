@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "receiving_issue": "https://github.com/VladimirMarko/conaled/issues/582",
+  "archive": {
+    "name": "conaled-textbooks-024.tar.xz",
+    "sha256": "4f91a32f7a30d97b7421790d6758d6118e5669c79b87bd387c0a63d6ae01e3b9",
+    "entries": 578,
+    "uncompressed_bytes": 147553569
+  },
+  "retained": {
+    "git_changes": {
+      "new_commits": 12,
+      "changed_paths": 59,
+      "mapping": "source-map.json",
+      "method": "Selected mathematical patches only; no donor parent or bundle imported."
+    },
+    "loose_code": {
+      "path": "Examples/TextbookTreeTariffs.lean",
+      "theorems": 6,
+      "provenance": "source-map.json"
+    },
+    "tickets": {
+      "path": "TICKETS.json",
+      "count": 78,
+      "namespace": "CTB",
+      "semantics": "Historical identities, statuses, dependencies and mathematical requirements; operational-only identities carry an omission disposition."
+    },
+    "notes": {
+      "path": "mathematical-notes.md",
+      "semantics": "Projected mathematical specifications and assessments with source hashes and current correspondence owners."
+    }
+  },
+  "excluded": [
+    "Original archive and Git bundle",
+    "Environment setup, native kit and toolchain distribution",
+    "Diagnostics, troubleshooting, compiler transcripts and logs",
+    "Caches, build outputs and packaging machinery",
+    "Upload, durability and recovery instructions",
+    "Historical agent policy and execution instructions"
+  ],
+  "history_boundary": "Exclusions apply to every newly introduced commit, not just the final tree. Existing checkpoint-012 history and its restoration registry are unchanged.",
+  "other_refs": "All 158 non-new advertised ref tips were already represented in receiving ancestry, using the prior rewrite registry where needed. No independent new side-branch mathematics was found."
+}
