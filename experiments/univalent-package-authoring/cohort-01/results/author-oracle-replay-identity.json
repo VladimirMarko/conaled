@@ -1,0 +1,22 @@
+{
+  "candidate": "a5c17c25e9753f5dcb1d3be2119a8d4bd747ef24",
+  "release_record": "release-01.json",
+  "frozen_submissions": "author-results-01/manifest.json",
+  "oracle_body_sha256": "2b8c5709c9825214a51093a10a0602c7158ca60c33d84523f66301d000e17c39",
+  "status": "PASS both arms, same frozen oracle body, only first import replaced",
+  "log_sha256": "aad0399ca63d1d54c33b4f5525448c22226bda6fcab6a1121593a69626d3ccbf",
+  "arms": {
+    "direct": {
+      "submission_sha256": "a9207ef26fb825aa356eb0da2c7002dc453ce752ad2203655befd1c427b53ba8",
+      "author_passes": 2,
+      "math_assistance": false,
+      "heartbeat_changes": false
+    },
+    "facade": {
+      "submission_sha256": "2332e8ba50971b19548f747cc74db7d4d31b8d6bae625c775c940a3a7b28d585",
+      "author_passes": 4,
+      "math_assistance": false,
+      "heartbeat_changes": false
+    }
+  }
+}

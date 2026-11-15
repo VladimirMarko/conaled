@@ -1,0 +1,46 @@
+[0mdirenv: loading ~/Code/conaled/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+2026-11-15T12:30:25Z
+trial/AuthorSubmission.lean:47:2: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+trial/AuthorSubmission.lean:68:68: error(lean.unknownIdentifier): Unknown identifier `mainPath`
+
+Note: It is not possible to treat `mainPath` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+trial/AuthorSubmission.lean:69:8: error(lean.unknownIdentifier): Unknown identifier `mainPath`
+
+Note: It is not possible to treat `mainPath` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+trial/AuthorSubmission.lean:69:48: error(lean.unknownIdentifier): Unknown identifier `mainPath`
+trial/AuthorSubmission.lean:66:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+trial/AuthorSubmission.lean:72:2: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+trial/AuthorSubmission.lean:93:62: error(lean.unknownIdentifier): Unknown identifier `variationPath`
+
+Note: It is not possible to treat `variationPath` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+trial/AuthorSubmission.lean:94:8: error(lean.unknownIdentifier): Unknown identifier `variationPath`
+
+Note: It is not possible to treat `variationPath` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+trial/AuthorSubmission.lean:94:53: error(lean.unknownIdentifier): Unknown identifier `variationPath`
+trial/AuthorSubmission.lean:91:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+trial/AuthorSubmission.lean:112:2: error: failed to synthesize
+  Decidable (targetSum.invariant ([2, 3], [5]) ∧ ¬targetLength.invariant ([2, 3], [5]))
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+trial/AuthorSubmission.lean:117:2: error: failed to synthesize
+  Decidable (targetLength.invariant ([2], [3]) ∧ ¬targetSum.invariant ([2], [3]))
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

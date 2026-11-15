@@ -1,0 +1,44 @@
+{
+  "cohort": "paired-journals-01",
+  "candidate": "a5c17c25e9753f5dcb1d3be2119a8d4bd747ef24",
+  "baseline": "2c540b64e5b0f93bd63aee0321cbbdfdb531be89",
+  "standards": "integration-standards-01.md Passed0",
+  "spec": "integration-spec-01.md Passed0",
+  "full_check": "integration-check-01.log passed3421",
+  "final_verify": "verify-acceptance-02.log",
+  "compare": "accepted-compare-01.json statusok",
+  "private_replay": "integration-replay-02.log passed",
+  "prepared_at_utc": "2026-11-15T12:24:58.934250+00:00",
+  "model_override": null,
+  "model_metadata": "not exposed by orchestration tool; inherited default, no override requested",
+  "token_usage": "not exposed; do not infer",
+  "cache": "each copied from same integration534 outputs, separate writable project caches; shared pinned dependencies",
+  "authors": {
+    "direct": {
+      "worktree": "/tmp/conaled-wave-20261115/534/authors/direct",
+      "public_hashes": {
+        "task.md": "1c09e38f6e27e8ba675d5290c65eea38d46425e988cf116a5c64ff18acecba85",
+        "TrialTask.lean": "da03cbc2ebf16e5d80734de7f99853a4d045cc07013eae9ea2e956f9c4f8f26d",
+        "ExpectedInterface.lean": "31fcc43cf022bfa892b14b17ef0909f08babfa595efdbebc2f319c738a7e41f0",
+        "validation.md": "9bea339838a9630e3e5fec2b1583afe4e8298aba6b739f86ba542dd4908d19a8",
+        "author-instructions.md": "e680b3dc9a865389fc14e9b57d16b51d59420cc2338da4c3664a48914c43d6e8"
+      },
+      "agent": "/root/author534_direct",
+      "fork_turns": "none"
+    },
+    "facade": {
+      "worktree": "/tmp/conaled-wave-20261115/534/authors/facade",
+      "public_hashes": {
+        "task.md": "1c09e38f6e27e8ba675d5290c65eea38d46425e988cf116a5c64ff18acecba85",
+        "TrialTask.lean": "da03cbc2ebf16e5d80734de7f99853a4d045cc07013eae9ea2e956f9c4f8f26d",
+        "ExpectedInterface.lean": "31fcc43cf022bfa892b14b17ef0909f08babfa595efdbebc2f319c738a7e41f0",
+        "validation.md": "9bea339838a9630e3e5fec2b1583afe4e8298aba6b739f86ba542dd4908d19a8",
+        "author-instructions.md": "7b7b118988bd306b152a021a1afa8600b55e0dcb7cff75fa66d2d5f0e5588952"
+      },
+      "agent": "/root/author534_facade",
+      "fork_turns": "none"
+    }
+  },
+  "setup_note": "First release-record attempt occurred before facade cache copy completed and failed on missing public file; no author released, no task change.",
+  "released_at_utc": "2026-11-15T12:25:25.117083+00:00"
+}

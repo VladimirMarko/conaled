@@ -1,3 +1,49 @@
+# Univalent package author trial: refine the facade
+
+Both fresh authors completed the paired-journal construction and its changed
+invariant, and both passed the same frozen private oracle. The direct author
+used two compiler passes; the facade author used four. Facade/native path
+conversion exhausted the default heartbeat limit, and the successful facade
+submission used the permitted baseline path constructor while retaining facade
+section transport, recovery and decoded transport. No mathematical assistance
+or heartbeat change was supplied during author execution.
+
+The recommendation is **refine**, preserving the admitted native mathematics
+and repairing this elaboration boundary before another author trial. This
+single pair does not establish a general effort or performance ranking.
+Model identity and token telemetry were unavailable; shared-lock queue waits
+and unmeasured laptop load prevent a wall-time comparison. Both arms wrote
+carrier-observation and complete-preservation helpers. The facade did not
+remove that mathematical work.
+
+Builder effort comprises the facade and calibration development plus the
+independent task preparation. Preparation had already encountered a related
+recovery conversion timeout and retained a permitted baseline fallback. That
+private recipe was not sent to either author. Author effort is recorded
+separately in each frozen attempt log and effort note. Proof reuse is concrete:
+both use the existing fixed-equivalence structure identity and package laws;
+the facade arm additionally uses its section/recovery/transport interface.
+Semantic coverage includes the original arbitrary equivalence witness,
+complete native paths and sections, full decoded records, universal observations
+and invariant-erasure rejection. It establishes no general proof portability,
+source conversion, higher-family admission or executable runtime behavior.
+
+The [published cohort results](../../experiments/univalent-package-authoring/cohort-01/results/README.md)
+retain every author attempt, final submission, common private oracle, private
+feasibility proofs, original preparation archive, release and assistance records,
+and reproduction commands. Successful artifacts have mechanically adapted
+integrated modules under `Examples/UnivalentAuthorTrial/`; final candidate
+acceptance and independent review remain separate from the original focused
+oracle replay. A bounded elaboration follow-up is specified in that result
+record; any new usability experiment needs a fresh frozen task.
+
+## Historical pre-release report
+
+The remainder is the original pre-release report, retained verbatim from
+`a5c17c25e9753f5dcb1d3be2119a8d4bd747ef24`. Its pending/release statements
+record the protocol at that point. Current outcomes are above and in the
+published result record; the frozen protocol and task have not been rewritten.
+
 # Bounded univalent package interface
 
 Issue [#534](https://github.com/VladimirMarko/conaled/issues/534) tests whether

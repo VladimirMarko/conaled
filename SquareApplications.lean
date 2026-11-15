@@ -1,3 +1,5 @@
+import Examples.UnivalentAuthorTrial.DirectOracle
+import Examples.UnivalentAuthorTrial.FacadeOracle
 import Examples.CircuitWords
 import Examples.CapturedAttempt
 import Examples.WasmCircuit

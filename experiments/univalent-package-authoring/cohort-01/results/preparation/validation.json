@@ -1,0 +1,28 @@
+{
+  "result": "passed",
+  "scope": "private focused feasibility, common oracle and public declaration interface only",
+  "source_commit": "4473f02225d84cdb99694a284e1898157c2e790c",
+  "source_manifest_sha256": "acc7a27a9449f7a2cfbe7e6eedaa2b2396ab1016701254f73ad5d3213467ca08",
+  "checks": [
+    {
+      "command": "check-private.sh",
+      "log": "feasibility-10.log",
+      "exit_code": 0,
+      "coverage": "native and facade solutions, identical oracle bodies, concrete admitted witness, named transitive axiom queries"
+    },
+    {
+      "command": "check-interface.sh",
+      "log": "interface-check-02.log",
+      "exit_code": 0,
+      "coverage": "public ExpectedInterface against each solution"
+    }
+  ],
+  "default_heartbeats": true,
+  "dependencies_clean_and_pinned": true,
+  "not_completed": [
+    "independent protocol/interface reviews",
+    "coordinator freeze",
+    "fresh author execution",
+    "integrated candidate acceptance"
+  ]
+}

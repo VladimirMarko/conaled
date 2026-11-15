@@ -1,0 +1,15 @@
+queued: 2026-11-15T12:26:07Z
+[0mdirenv: loading ~/Code/conaled/.envrc
+[0mdirenv: using flake
+[0mdirenv: nix-direnv: Using cached dev shell
+lock acquired: 2026-11-15T12:30:23Z
+trial/AuthorSubmission.lean:93:0: error: Definition `JournalTrial.Author.reject` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+trial/AuthorSubmission.lean:107:2: error: failed to synthesize
+  Decidable (targetSum.invariant ([2, 3], [5]) ∧ ¬targetLength.invariant ([2, 3], [5]))
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+trial/AuthorSubmission.lean:112:2: error: failed to synthesize
+  Decidable (targetLength.invariant ([2], [3]) ∧ ¬targetSum.invariant ([2], [3]))
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

@@ -1,0 +1,34 @@
+{
+  "candidate": "a5c17c25e9753f5dcb1d3be2119a8d4bd747ef24",
+  "source_origin": "preparer/checkout",
+  "files_sha256": {
+    "TrialTask.lean": "da03cbc2ebf16e5d80734de7f99853a4d045cc07013eae9ea2e956f9c4f8f26d",
+    "PrivateMathematics.lean": "dc00d2bc7951fc6a71f1aa8344a93d7330792811d502a30787a26106201afd92",
+    "PrivateFeasibility.lean": "89c5fee010656fe0f03147dc6973d279b0b18d9d1b1fa5fbd6315217374c6d41",
+    "PrivateOracle.lean": "51c54a76ba1741d46330c618083ba2280b79a54462bd1c9fca39ab55197f5e7d",
+    "PrivateFacadeFeasibility.lean": "e4624b776d5fae4bbde7e50dc072d6bb885a16b761231bb16073c42b2297f217",
+    "PrivateOracleFacade.lean": "511c103973471323b334611a2da7e634ce877b7f3452de19bd59e580af79ca1e",
+    "InterfaceNative.lean": "b3fb89e0d305d14efec7bd9be024bb13ffe781b83cf974c87b159a04789bfe39",
+    "InterfaceFacade.lean": "9d135e1fd0a21215efc7a12c46070c594f83cca9e6c0196e13a01f821f1c17dc",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+  },
+  "oracle_body_sha256": "a0cbde8a8e35145e58932f63f9a6d05e8636645503d514077fcce32fbf153747",
+  "oracle_body_hash_convention": "UTF-8 of newline.join(read_text().splitlines()[1:]); strips first import and terminal newline, matching preparer manifest",
+  "oracle_body_raw_after_first_newline_sha256": "2b8c5709c9825214a51093a10a0602c7158ca60c33d84523f66301d000e17c39",
+  "only_oracle_difference": "first import line; remaining raw bytes identical",
+  "status": "passed; default heartbeat limits; all eight private fixture/solution/oracle/interface commands exited0",
+  "attempts": [
+    {
+      "log": "integration-replay-01.log",
+      "exit_code": 1,
+      "kind": "setup failure before elaboration: absent local lean-toolchain in external replay directory"
+    },
+    {
+      "log": "integration-replay-02.log",
+      "exit_code": 0,
+      "status": "passed with exact candidate lean-toolchain copied locally"
+    }
+  ],
+  "successful_log_sha256": "c5ed4324ad201bbd93b31d77a39f9108e9cc01a85cf81aced542457f6af7eb6a",
+  "command_sha256": "43ca40ebc035a859ea9372a9f3781ecf22d71cee16846cc385d62e85fba0cafa"
+}
