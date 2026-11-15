@@ -1,3 +1,4 @@
+import Examples.MappedAggregate
 import Examples.UnivalentAuthorTrial.DirectOracle
 import Examples.UnivalentAuthorTrial.FacadeOracle
 import Examples.CircuitWords
